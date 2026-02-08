@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next
+out
+dist
+
+# Python
+.venv
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+
+# IDE
+.vscode-test
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# Local-only scripts & data
+scripts/rate_wines.py
+scripts/server.py
+scripts/server.sh
+vivino_data/
+rag/
+bukowskis/cookies.txt
+bukowskis/scraper.py
+bukowskis/wines.json
+
+# Project instructions
+CLAUDE.md

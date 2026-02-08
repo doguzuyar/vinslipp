@@ -1,0 +1,127 @@
+name: Update Systembolaget Releases
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * *'   # 07:00 Swedish time (06:00 UTC)
+  workflow_dispatch:       # Manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Generate data
+        run: python scripts/wine_cellar.py
+
+      - name: Check for new wines
+        id: changes
+        run: |
+          # Detect truly new wines (ignore rating changes like [8] suffix)
+          NEW_WINES=""
+          if [ -f data/french_red_releases.txt ]; then
+            OLD=$(git show HEAD:data/french_red_releases.txt 2>/dev/null | sed 's/ \[[0-9][0-9]*[^]]*\]$//' | sort) || OLD=""
+            NEW=$(sed 's/ \[[0-9][0-9]*[^]]*\]$//' data/french_red_releases.txt | sort)
+            NEW_WINES=$(comm -13 <(echo "$OLD") <(echo "$NEW")) || true
+          fi
+          git add data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+          if [ -n "$NEW_WINES" ]; then
+            echo "has_new_wines=true" >> $GITHUB_OUTPUT
+            {
+              echo "wine_list<<EOF"
+              echo "$NEW_WINES"
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
+          else
+            echo "has_new_wines=false" >> $GITHUB_OUTPUT
+          fi
+          # Collect today's full release list
+          TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
+          TODAY_WINES=$(grep "^\[$TODAY\]" data/french_red_releases.txt 2>/dev/null) || true
+          if [ -n "$TODAY_WINES" ]; then
+            {
+              echo "today_list<<EOF"
+              echo "$TODAY_WINES"
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changed
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update Systembolaget releases"
+          git checkout -- .
+          git pull --rebase -X theirs
+          git push
+
+      - name: Build Next.js site
+        run: |
+          cd web
+          npm ci
+          npm run build
+
+      - name: Prepare deployment
+        run: |
+          cp bukowskis/auction_stats.json web/out/data/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/out
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Send email notification
+        if: steps.changes.outputs.has_new_wines == 'true' && vars.NOTIFY_EMAIL != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "New wines on Systembolaget"
+          body: |
+            New wines:
+
+            ${{ steps.changes.outputs.wine_list }}
+
+            ---
+
+            Today's full releases:
+
+            ${{ steps.changes.outputs.today_list }}
+
+            https://doguzuyar.github.io/vinslipp
+          to: ${{ vars.NOTIFY_EMAIL }}
+          from: Wine Cellar Bot

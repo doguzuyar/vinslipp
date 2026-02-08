@@ -1,0 +1,48 @@
+Drink Year,Winery,Wine name,Vintage,Region,Regional wine style,Wine price,User cellar count
+2026,Xavier Vignon,Xavier Cuvée Châteauneuf-du-Pape,2000,Châteauneuf-du-Pape,Southern Rhône Châteauneuf-du-Pape Red,899 SEK,1
+2026,Château Ducru-Beaucaillou,Saint-Julien (Grand Cru Classé),2004,Saint-Julien,Bordeaux Saint-Julien,1250 SEK,1
+2026,Château Durfort-Vivens,Margaux (Grand Cru Classé),2004,Margaux,Bordeaux Margaux,1181 SEK,1
+2026,Château Latour à Pomerol,Pomerol,2006,Pomerol,Bordeaux Pomerol,1300 SEK,1
+2026,Domaine de Rochegrés,Moulin-à-Vent,2020,Moulin-à-Vent,Beaujolais Red,209 SEK,1
+2027,Château Margaux,Pavillon Rouge du Château Margaux,1997,Margaux,Bordeaux Margaux,3000 SEK,1
+2027,Château Margaux,Pavillon Rouge du Château Margaux,2007,Margaux,Bordeaux Margaux,1300 SEK,1
+2028,Château Léoville Las Cases,Saint-Julien (Grand Cru Classé),2008,Saint-Julien,Bordeaux Saint-Julien,2100 SEK,1
+2028,Château Ducru-Beaucaillou,La Croix Ducru-Beaucaillou Cuvée Colbert Saint-Julien,2015,Saint-Julien,Bordeaux Saint-Julien,730 SEK,1
+2028,Louis Jadot,Chateau des Jacques Clos de Rochegrès Moulin-à-Vent,2020,Moulin-à-Vent,Beaujolais Red,299 SEK,1
+2029,Château Latour à Pomerol,Pomerol,2009,Pomerol,Bordeaux Pomerol,1600 SEK,1
+2029,Château de Lauga,Haut-Médoc,2014,Haut-Médoc,Bordeaux Haut-Médoc Red,295 SEK,1
+2030,Château Ducru-Beaucaillou,La Croix Ducru-Beaucaillou Cuvée Colbert Saint-Julien,2015,Saint-Julien,Bordeaux Saint-Julien,730 SEK,1
+2030,Jean-Maurice Raffault,Le Puy Chinon,2023,Chinon,French Middle Loire Cabernet Franc Red,279 SEK,1
+2031,Château Rauzan-Ségla,Ségla Margaux,2016,Margaux,Bordeaux Margaux,549 SEK,1
+2032,Château Montrose,Saint-Estèphe (Grand Cru Classé),2017,Saint-Estèphe,Bordeaux Saint-Estèphe,1200 SEK,1
+2032,Camille Giroud,Mercurey,2022,Mercurey,Burgundy Côte Chalonnaise Red,449 SEK,1
+2033,Château Cantemerle,Haut-Médoc (Grand Cru Classé),2018,Haut-Médoc,Bordeaux Haut-Médoc Red,399 SEK,1
+2033,Château Malescot St. Exupery,La Dame de Malescot Margaux,2018,Margaux,Bordeaux Margaux,372 SEK,1
+2034,Château Durfort-Vivens,Margaux (Grand Cru Classé),2019,Margaux,Bordeaux Margaux,999 SEK,1
+2034,Château Haut-Bages Libéral,La Chapelle de Bages Pauillac,2019,Pauillac,Bordeaux Pauillac,379 SEK,1
+2034,Domaine Rossignol-Trapet,Chapelle-Chambertin Grand Cru,2019,Chapelle-Chambertin Grand Cru,Burgundy Côte de Nuits Red,2200 SEK,1
+2035,Château Latour,Pauillac de Latour,2020,Pauillac,Bordeaux Pauillac,1249 SEK,1
+2035,Château Sociando-Mallet,Haut-Médoc,2020,Haut-Médoc,Bordeaux Haut-Médoc Red,499 SEK,1
+2036,Château Lagrange,Saint-Julien (Grand Cru Classé),2021,Saint-Julien,Bordeaux Saint-Julien,699 SEK,1
+2037,Lucien le Moine,Pommard Premier Cru Les Épenots,2022,Pommard Premier Cru,Burgundy Côte de Beaune Red,1349 SEK,1
+2037,Lucien le Moine,Volnay 1er Cru 'Santenots',2022,Volnay 1er Cru 'Santenots',Burgundy Côte de Beaune Red,1249 SEK,1
+2037,Petit-Figeac,Saint-Émilion,2022,Saint-Émilion,Bordeaux Saint-Émilion,849 SEK,1
+2038,Domaine Marquis d'Angerville,Volnay Champans 1er Cru,2023,Volnay 1er Cru 'Champans',Burgundy Côte de Beaune Red,1599 SEK,1
+2038,Michel Gros,Vosne Romanée,2023,Vosne-Romanée,Burgundy Côte de Nuits Red,1199 SEK,1
+
+Bottles per Year
+Year,Bottles
+2026,5
+2027,2
+2028,3
+2029,2
+2030,2
+2031,1
+2032,2
+2033,2
+2034,3
+2035,2
+2036,1
+2037,3
+2038,2
+Total,30
