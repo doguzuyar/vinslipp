@@ -200,7 +200,7 @@ td a {
   }
 }
 
-/* Native iOS app: tab bar provides its own safe area */
+/* Native iOS app: extra padding so content clears the translucent tab bar */
 body.native-app .tab-scroll {
-  padding-bottom: 0;
+  padding-bottom: calc(60px + env(safe-area-inset-bottom));
 }

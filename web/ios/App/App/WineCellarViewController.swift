@@ -3,10 +3,20 @@ import SafariServices
 import WebKit
 import Capacitor
 
+protocol NativeTabDelegate: AnyObject {
+    func webDidSwitchTab(_ tab: String)
+    func webDidChangeUnlockState(_ unlocked: Bool)
+}
+
 class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler {
+    weak var tabDelegate: NativeTabDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView?.configuration.userContentController.add(self, name: "openInApp")
+        let ucc = webView?.configuration.userContentController
+        ucc?.add(self, name: "openInApp")
+        ucc?.add(self, name: "tabSwitch")
+        ucc?.add(self, name: "unlockState")
         webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
     }
 
@@ -36,15 +46,36 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard message.name == "openInApp",
-              let urlString = message.body as? String,
-              let url = URL(string: urlString) else { return }
-        let safari = SFSafariViewController(url: url)
-        present(safari, animated: true)
+        switch message.name {
+        case "openInApp":
+            guard let urlString = message.body as? String,
+                  let url = URL(string: urlString) else { return }
+            let safari = SFSafariViewController(url: url)
+            // Present from the topmost parent so it works even when reparented
+            let presenter = view.window?.rootViewController ?? self
+            presenter.present(safari, animated: true)
+
+        case "tabSwitch":
+            if let tab = message.body as? String {
+                tabDelegate?.webDidSwitchTab(tab)
+            }
+
+        case "unlockState":
+            if let body = message.body as? [String: Any],
+               let unlocked = body["unlocked"] as? Bool {
+                tabDelegate?.webDidChangeUnlockState(unlocked)
+            }
+
+        default:
+            break
+        }
     }
 
     deinit {
         webView?.removeObserver(self, forKeyPath: #keyPath(WKWebView.isLoading))
-        webView?.configuration.userContentController.removeScriptMessageHandler(forName: "openInApp")
+        let ucc = webView?.configuration.userContentController
+        ucc?.removeScriptMessageHandler(forName: "openInApp")
+        ucc?.removeScriptMessageHandler(forName: "tabSwitch")
+        ucc?.removeScriptMessageHandler(forName: "unlockState")
     }
 }

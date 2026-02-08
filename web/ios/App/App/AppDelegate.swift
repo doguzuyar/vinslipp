@@ -13,13 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pendingShortcut = tabFromShortcut(shortcut)
         }
 
-        // Wrap the storyboard's web view controller in a native tab bar
-        // so iOS 26 automatically applies the Liquid Glass material.
-        if let window = self.window,
-           let webVC = window.rootViewController as? WineCellarViewController {
+        // Defer wrapping so Capacitor has time to create the window
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self,
+                  let window = self.window,
+                  let webVC = window.rootViewController as? WineCellarViewController else {
+                print("⚠️ TabBar: window or WineCellarViewController not ready")
+                return
+            }
+            print("✅ TabBar: wrapping webVC in MainTabBarController")
+            // Detach webVC from the window first so it can be added as a child
+            window.rootViewController = nil
             let tbc = MainTabBarController(webViewController: webVC)
             window.rootViewController = tbc
-            mainTabBarController = tbc
+            self.mainTabBarController = tbc
         }
 
         return true
