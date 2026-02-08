@@ -32,13 +32,21 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
         webVC.tabDelegate = self
 
         tabBar.isTranslucent = true
-        tabBar.tintColor = UIColor(red: 28/255, green: 25/255, blue: 23/255, alpha: 1)
-        tabBar.unselectedItemTintColor = UIColor(red: 120/255, green: 113/255, blue: 108/255, alpha: 1)
+        tabBar.tintColor = UIColor { trait in
+            trait.userInterfaceStyle == .dark
+                ? UIColor(red: 231/255, green: 229/255, blue: 228/255, alpha: 1)   // #e7e5e4
+                : UIColor(red: 28/255, green: 25/255, blue: 23/255, alpha: 1)      // #1c1917
+        }
+        tabBar.unselectedItemTintColor = UIColor(red: 120/255, green: 113/255, blue: 108/255, alpha: 1) // #78716c
 
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
             appearance.configureWithTransparentBackground()
-            appearance.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 249/255, alpha: 0.72)
+            appearance.backgroundColor = UIColor { trait in
+                trait.userInterfaceStyle == .dark
+                    ? UIColor(red: 12/255, green: 10/255, blue: 9/255, alpha: 0.72)    // dark
+                    : UIColor(red: 250/255, green: 250/255, blue: 249/255, alpha: 0.72) // light
+            }
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = appearance
         }
