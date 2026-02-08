@@ -121,17 +121,18 @@ th {
   transition: background-color 0.15s ease;
 }
 
-th:hover {
-  background-color: var(--th-hover);
+@media (hover: hover) {
+  th:hover {
+    background-color: var(--th-hover);
+  }
+  tr.clickable:hover {
+    opacity: 0.7;
+  }
 }
 
 tr.clickable {
   cursor: pointer;
   transition: opacity 0.15s ease;
-}
-
-tr.clickable:hover {
-  opacity: 0.7;
 }
 
 td a {
