@@ -8,7 +8,6 @@ private class PassthroughView: UIView {
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate, NativeTabDelegate {
     let webVC: WineCellarViewController
-    private var isUnlocked = false
 
     private let allTabs: [(name: String, title: String, icon: String)] = [
         ("release",  "Release", "clock"),
@@ -51,7 +50,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
             tabBar.scrollEdgeAppearance = appearance
         }
 
-        isUnlocked = UserDefaults.standard.bool(forKey: "unlocked")
         rebuildTabs()
 
         // Web view fills the entire area, content scrolls behind the translucent tab bar
@@ -82,14 +80,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
 
     // MARK: - Tab management
 
-    private func visibleTabs() -> [(name: String, title: String, icon: String)] {
-        return isUnlocked
-            ? allTabs
-            : allTabs.filter { $0.name == "release" || $0.name == "auction" }
-    }
-
     private func rebuildTabs() {
-        viewControllers = visibleTabs().map { tab in
+        viewControllers = allTabs.map { tab in
             let vc = UIViewController()
             vc.view = PassthroughView()
             vc.view.backgroundColor = .clear
@@ -103,7 +95,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
     }
 
     func selectTab(named name: String) {
-        if let index = visibleTabs().firstIndex(where: { $0.name == name }) {
+        if let index = allTabs.firstIndex(where: { $0.name == name }) {
             selectedIndex = index
         }
     }
@@ -116,10 +108,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
     ) -> Bool {
         guard let vcs = viewControllers,
               let index = vcs.firstIndex(of: viewController) else { return false }
-        let tabs = visibleTabs()
-        guard index < tabs.count else { return false }
+        guard index < allTabs.count else { return false }
 
-        let tab = tabs[index].name
+        let tab = allTabs[index].name
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         webVC.webView?.evaluateJavaScript("""
             window.location.hash='#\(tab)';
@@ -133,18 +124,5 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
 
     func webDidSwitchTab(_ tab: String) {
         selectTab(named: tab)
-    }
-
-    func webDidChangeUnlockState(_ unlocked: Bool) {
-        let wasUnlocked = isUnlocked
-        isUnlocked = unlocked
-        UserDefaults.standard.set(unlocked, forKey: "unlocked")
-        if wasUnlocked != unlocked {
-            let current = visibleTabs().indices.contains(selectedIndex)
-                ? visibleTabs()[selectedIndex].name
-                : "release"
-            rebuildTabs()
-            selectTab(named: current)
-        }
     }
 }

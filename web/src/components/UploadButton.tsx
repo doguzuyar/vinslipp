@@ -1,47 +1,38 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import {
-  getGitHubToken,
-  setGitHubToken,
-  clearGitHubToken,
-  commitFiles,
-  validateToken,
-  STEP_LABELS,
-  type UploadStep,
-  type FileToCommit,
-} from "@/lib/github";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { processCellar, processHistory } from "@/lib/vivino";
+import type { CellarData, HistoryData } from "@/types";
 
-const REQUIRED_FILES = ["cellar.csv", "user_prices.csv", "full_wine_list.csv"];
+const REQUIRED_FILES = ["cellar.csv", "full_wine_list.csv"];
+const OPTIONAL_FILES = ["user_prices.csv"];
+const ALL_FILES = [...REQUIRED_FILES, ...OPTIONAL_FILES];
 
-type Phase =
-  | "idle"
-  | "settings"
-  | "ready"
-  | "uploading"
-  | "done"
-  | "error";
+type Phase = "ready" | "processing" | "done" | "error";
 
-export function UploadButton() {
+interface Props {
+  onImportComplete: (cellar: CellarData, history: HistoryData) => void;
+  onClearData?: () => void;
+  /** When true, renders as inline empty-state panel instead of button+modal */
+  inline?: boolean;
+}
+
+export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
   const [open, setOpen] = useState(false);
-  const [phase, setPhase] = useState<Phase>("idle");
-  const [step, setStep] = useState<UploadStep | null>(null);
+  const [phase, setPhase] = useState<Phase>("ready");
   const [errorMsg, setErrorMsg] = useState("");
-  const [tokenInput, setTokenInput] = useState("");
-  const [hasToken, setHasToken] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [files, setFiles] = useState<Map<string, string>>(new Map());
+  const [isNativeApp, setIsNativeApp] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const folderRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setHasToken(!!getGitHubToken());
-    setMounted(true);
+    setIsNativeApp(!!(window as /* eslint-disable-line */ any).webkit?.messageHandlers?.tabSwitch);
   }, []);
 
   // Close panel on outside click
   useEffect(() => {
-    if (!open) return;
+    if (!open || inline) return;
     function handleClick(e: MouseEvent) {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
         setOpen(false);
@@ -49,40 +40,16 @@ export function UploadButton() {
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, [open]);
+  }, [open, inline]);
 
   const toggle = useCallback(() => {
     if (!open) {
-      const token = getGitHubToken();
-      setPhase(token ? "ready" : "settings");
+      setPhase("ready");
       setFiles(new Map());
-      setStep(null);
       setErrorMsg("");
     }
     setOpen((prev) => !prev);
   }, [open]);
-
-  async function handleSaveToken() {
-    const trimmed = tokenInput.trim();
-    if (!trimmed) return;
-    const valid = await validateToken(trimmed);
-    if (!valid) {
-      setErrorMsg("Invalid token or no access to repo.");
-      return;
-    }
-    setGitHubToken(trimmed);
-    setHasToken(true);
-    setTokenInput("");
-    setErrorMsg("");
-    setPhase("ready");
-  }
-
-  function handleRemoveToken() {
-    clearGitHubToken();
-    setHasToken(false);
-    setPhase("settings");
-    setFiles(new Map());
-  }
 
   async function handleFiles(fileList: FileList | null) {
     if (!fileList || fileList.length === 0) return;
@@ -95,48 +62,301 @@ export function UploadButton() {
       const basename = path.includes("/")
         ? path.slice(path.lastIndexOf("/") + 1)
         : path;
-      if (REQUIRED_FILES.includes(basename)) {
+      if (ALL_FILES.includes(basename)) {
         newFiles.set(basename, await f.text());
       }
     }
     setFiles(newFiles);
   }
 
+  async function handleSingleFile(expectedName: string, fileList: FileList | null) {
+    if (!fileList || fileList.length === 0) return;
+    const f = fileList[0];
+    const content = await f.text();
+    setFiles((prev) => {
+      const next = new Map(prev);
+      next.set(expectedName, content);
+      return next;
+    });
+  }
+
   const allPresent = REQUIRED_FILES.every((f) => files.has(f));
 
-  async function handleUpload() {
-    const token = getGitHubToken();
-    if (!token || !allPresent) return;
-
-    setPhase("uploading");
-    setStep("reading_files");
+  async function handleImport() {
+    if (!allPresent) return;
+    setPhase("processing");
     setErrorMsg("");
 
-    const toCommit: FileToCommit[] = REQUIRED_FILES.filter((f) =>
-      files.has(f)
-    ).map((f) => ({
-      path: `vivino_data/${f}`,
-      content: files.get(f)!,
-    }));
-
     try {
-      await commitFiles(token, toCommit, "chore: update Vivino data", (s) =>
-        setStep(s)
+      const cellar = processCellar(
+        files.get("cellar.csv")!,
+        files.get("user_prices.csv") ?? null,
       );
+      const history = processHistory(files.get("full_wine_list.csv")!);
       setPhase("done");
+      onImportComplete(cellar, history);
     } catch (err) {
       setPhase("error");
-      setStep("error");
-      setErrorMsg(err instanceof Error ? err.message : "Unknown error");
+      setErrorMsg(err instanceof Error ? err.message : "Failed to process CSV data");
     }
   }
 
-  if (!mounted) return null;
+  // Shared panel content
+  const panelContent = (
+    <>
+      {/* --- Ready: pick files --- */}
+      {phase === "ready" && (
+        <div>
+          {isNativeApp ? (
+            <>
+              <div style={{ fontSize: 13, marginBottom: 10, color: "var(--text-muted)" }}>
+                Select each CSV file from your Vivino export:
+              </div>
+              {ALL_FILES.map((f) => (
+                <div key={f} style={{ marginBottom: 8 }}>
+                  <label
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "10px 12px",
+                      border: files.has(f) ? "1.5px solid #16a34a" : "1.5px dashed var(--border)",
+                      borderRadius: 8,
+                      cursor: "pointer",
+                      fontSize: 12,
+                      color: files.has(f) ? "var(--text)" : "var(--text-muted)",
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    <span>
+                      {f}
+                      {OPTIONAL_FILES.includes(f) && (
+                        <span style={{ fontSize: 10, marginLeft: 4 }}>(optional)</span>
+                      )}
+                    </span>
+                    <span>{files.has(f) ? "\u2713" : "Choose"}</span>
+                    <input
+                      type="file"
+                      accept=".csv"
+                      onChange={(e) => handleSingleFile(f, e.target.files)}
+                      style={{ display: "none" }}
+                    />
+                  </label>
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              <div style={{ fontSize: 13, marginBottom: 10, color: "var(--text-muted)" }}>
+                Upload Vivino export folder:
+              </div>
+              <input
+                ref={folderRef}
+                type="file"
+                {...({ webkitdirectory: "", directory: "" } as React.InputHTMLAttributes<HTMLInputElement>)}
+                onChange={(e) => handleFiles(e.target.files)}
+                style={{ display: "none" }}
+              />
+              <button
+                onClick={() => folderRef.current?.click()}
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "2px dashed var(--border)",
+                  borderRadius: 10,
+                  background: "transparent",
+                  color: "var(--text-muted)",
+                  cursor: "pointer",
+                  fontSize: 13,
+                  transition: "border-color 0.15s ease",
+                }}
+              >
+                Choose folder
+              </button>
 
-  const maskedToken = hasToken
-    ? `ghp_\u2026${getGitHubToken()?.slice(-4) ?? ""}`
-    : "";
+              {/* Validation checklist */}
+              <div style={{ marginTop: 12 }}>
+                {ALL_FILES.map((f) => (
+                  <div
+                    key={f}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      fontSize: 12,
+                      padding: "4px 0",
+                      color: files.has(f) ? "var(--text)" : "var(--text-muted)",
+                    }}
+                  >
+                    <span>
+                      {f}
+                      {OPTIONAL_FILES.includes(f) && (
+                        <span style={{ fontSize: 10, marginLeft: 4 }}>(optional)</span>
+                      )}
+                    </span>
+                    <span>{files.has(f) ? "\u2713" : "\u2014"}</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
 
+          <button
+            onClick={handleImport}
+            disabled={!allPresent}
+            style={{
+              marginTop: 12,
+              width: "100%",
+              padding: "10px",
+              border: "none",
+              borderRadius: 8,
+              background: allPresent
+                ? "var(--tab-active-bg)"
+                : "var(--border)",
+              color: allPresent
+                ? "var(--tab-active-text)"
+                : "var(--text-muted)",
+              cursor: allPresent ? "pointer" : "default",
+              fontSize: 13,
+              fontWeight: 500,
+              transition: "all 0.15s ease",
+            }}
+          >
+            Import
+          </button>
+
+          {onClearData && (
+            <div style={{ marginTop: 14, paddingTop: 12, borderTop: "1px solid var(--border)", textAlign: "center" }}>
+              <button
+                onClick={() => { onClearData(); setOpen(false); }}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "#dc2626",
+                  cursor: "pointer",
+                  fontSize: 11,
+                  textDecoration: "underline",
+                }}
+              >
+                Clear data
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* --- Processing --- */}
+      {phase === "processing" && (
+        <div style={{ fontSize: 13, color: "var(--text)" }}>
+          <div style={{ fontWeight: 500 }}>Processing{"\u2026"}</div>
+        </div>
+      )}
+
+      {/* --- Done --- */}
+      {phase === "done" && (
+        <div style={{ fontSize: 13 }}>
+          <div
+            style={{
+              color: "#16a34a",
+              fontWeight: 500,
+              marginBottom: 8,
+            }}
+          >
+            {"\u2713"} Import complete!
+          </div>
+          <div style={{ color: "var(--text-muted)", fontSize: 12 }}>
+            Your wine data has been saved to this device.
+          </div>
+          <button
+            onClick={() => {
+              setPhase("ready");
+              setFiles(new Map());
+              setErrorMsg("");
+            }}
+            style={{
+              marginTop: 12,
+              padding: "8px 18px",
+              border: "1px solid var(--border)",
+              borderRadius: 8,
+              background: "transparent",
+              color: "var(--text)",
+              cursor: "pointer",
+              fontSize: 12,
+              transition: "all 0.15s ease",
+            }}
+          >
+            Import again
+          </button>
+        </div>
+      )}
+
+      {/* --- Error --- */}
+      {phase === "error" && (
+        <div style={{ fontSize: 13 }}>
+          <div
+            style={{
+              color: "#dc2626",
+              fontWeight: 500,
+              marginBottom: 8,
+            }}
+          >
+            Import failed
+          </div>
+          <div
+            style={{
+              color: "var(--text-muted)",
+              fontSize: 12,
+              wordBreak: "break-word",
+            }}
+          >
+            {errorMsg}
+          </div>
+          <button
+            onClick={() => {
+              setPhase("ready");
+              setErrorMsg("");
+            }}
+            style={{
+              marginTop: 12,
+              padding: "8px 18px",
+              border: "1px solid var(--border)",
+              borderRadius: 8,
+              background: "transparent",
+              color: "var(--text)",
+              cursor: "pointer",
+              fontSize: 12,
+              transition: "all 0.15s ease",
+            }}
+          >
+            Try again
+          </button>
+        </div>
+      )}
+    </>
+  );
+
+  // Inline mode: render panel content directly inside the tab area
+  if (inline) {
+    return (
+      <div
+        className="tab-scroll"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: 300,
+        }}
+      >
+        <div style={{ width: 340, padding: 20 }}>
+          <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 14, color: "var(--text)" }}>
+            Import Vivino Data
+          </div>
+          {panelContent}
+        </div>
+      </div>
+    );
+  }
+
+  // Button+modal mode
   return (
     <div ref={panelRef} style={{ position: "relative" }}>
       <button
@@ -173,287 +393,10 @@ export function UploadButton() {
             boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
           }}
         >
-          {/* --- Settings: enter token --- */}
-          {phase === "settings" && (
-            <div>
-              <div style={{ fontSize: 13, marginBottom: 10, color: "var(--text-muted)" }}>
-                Enter a GitHub PAT with <strong>Contents</strong> write access:
-              </div>
-              <input
-                type="password"
-                placeholder="ghp_..."
-                value={tokenInput}
-                onChange={(e) => setTokenInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSaveToken()}
-                style={{
-                  width: "100%",
-                  padding: "8px 12px",
-                  border: "1px solid var(--border)",
-                  borderRadius: 8,
-                  fontSize: 13,
-                  background: "var(--input-bg)",
-                  color: "var(--text)",
-                  boxSizing: "border-box",
-                  outline: "none",
-                }}
-              />
-              <button
-                onClick={handleSaveToken}
-                style={{
-                  marginTop: 10,
-                  padding: "8px 20px",
-                  border: "none",
-                  borderRadius: 8,
-                  background: "var(--tab-active-bg)",
-                  color: "var(--tab-active-text)",
-                  cursor: "pointer",
-                  fontSize: 13,
-                  fontWeight: 500,
-                  transition: "opacity 0.15s ease",
-                }}
-              >
-                Save
-              </button>
-              {errorMsg && (
-                <div style={{ color: "#dc2626", fontSize: 12, marginTop: 8 }}>
-                  {errorMsg}
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* --- Ready: pick files --- */}
-          {phase === "ready" && (
-            <div>
-              <div style={{ fontSize: 13, marginBottom: 10, color: "var(--text-muted)" }}>
-                Upload Vivino export folder:
-              </div>
-              <input
-                ref={folderRef}
-                type="file"
-                {...({ webkitdirectory: "", directory: "" } as React.InputHTMLAttributes<HTMLInputElement>)}
-                onChange={(e) => handleFiles(e.target.files)}
-                style={{ display: "none" }}
-              />
-              <button
-                onClick={() => folderRef.current?.click()}
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  border: "2px dashed var(--border)",
-                  borderRadius: 10,
-                  background: "transparent",
-                  color: "var(--text-muted)",
-                  cursor: "pointer",
-                  fontSize: 13,
-                  transition: "border-color 0.15s ease",
-                }}
-              >
-                Choose folder
-              </button>
-
-              {/* Validation checklist */}
-              <div style={{ marginTop: 12 }}>
-                {REQUIRED_FILES.map((f) => (
-                  <div
-                    key={f}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      fontSize: 12,
-                      padding: "4px 0",
-                      color: files.has(f) ? "var(--text)" : "var(--text-muted)",
-                    }}
-                  >
-                    <span>{f}</span>
-                    <span>{files.has(f) ? "\u2713" : "\u2014"}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={handleUpload}
-                disabled={!allPresent}
-                style={{
-                  marginTop: 12,
-                  width: "100%",
-                  padding: "10px",
-                  border: "none",
-                  borderRadius: 8,
-                  background: allPresent
-                    ? "var(--tab-active-bg)"
-                    : "var(--border)",
-                  color: allPresent
-                    ? "var(--tab-active-text)"
-                    : "var(--text-muted)",
-                  cursor: allPresent ? "pointer" : "default",
-                  fontSize: 13,
-                  fontWeight: 500,
-                  transition: "all 0.15s ease",
-                }}
-              >
-                Upload to GitHub
-              </button>
-
-              {/* Token info */}
-              <div
-                style={{
-                  marginTop: 14,
-                  paddingTop: 12,
-                  borderTop: "1px solid var(--border)",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  fontSize: 11,
-                  color: "var(--text-muted)",
-                }}
-              >
-                <span>Token: {maskedToken}</span>
-                <button
-                  onClick={handleRemoveToken}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: "#dc2626",
-                    cursor: "pointer",
-                    fontSize: 11,
-                    textDecoration: "underline",
-                  }}
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* --- Uploading: progress --- */}
-          {phase === "uploading" && step && (
-            <div style={{ fontSize: 13, color: "var(--text)" }}>
-              <div style={{ marginBottom: 8, fontWeight: 500 }}>
-                Uploading{"\u2026"}
-              </div>
-              {(
-                [
-                  "reading_files",
-                  "creating_blobs",
-                  "creating_tree",
-                  "creating_commit",
-                  "updating_ref",
-                ] as UploadStep[]
-              ).map((s) => {
-                const isCurrent = s === step;
-                const orderedSteps: UploadStep[] = [
-                  "reading_files",
-                  "creating_blobs",
-                  "creating_tree",
-                  "creating_commit",
-                  "updating_ref",
-                ];
-                const isDone =
-                  orderedSteps.indexOf(s) < orderedSteps.indexOf(step);
-                return (
-                  <div
-                    key={s}
-                    style={{
-                      padding: "4px 0",
-                      fontSize: 12,
-                      color: isDone
-                        ? "var(--text-muted)"
-                        : isCurrent
-                          ? "var(--text)"
-                          : "var(--text-muted)",
-                      fontWeight: isCurrent ? 500 : 400,
-                    }}
-                  >
-                    {isDone ? "\u2713" : isCurrent ? "\u25B6" : "\u25CB"}{" "}
-                    {STEP_LABELS[s]}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {/* --- Done --- */}
-          {phase === "done" && (
-            <div style={{ fontSize: 13 }}>
-              <div
-                style={{
-                  color: "#16a34a",
-                  fontWeight: 500,
-                  marginBottom: 8,
-                }}
-              >
-                {"\u2713"} Upload complete!
-              </div>
-              <div style={{ color: "var(--text-muted)", fontSize: 12 }}>
-                The site will rebuild automatically in ~2 minutes.
-              </div>
-              <button
-                onClick={() => {
-                  setPhase("ready");
-                  setFiles(new Map());
-                  setStep(null);
-                }}
-                style={{
-                  marginTop: 12,
-                  padding: "8px 18px",
-                  border: "1px solid var(--border)",
-                  borderRadius: 8,
-                  background: "transparent",
-                  color: "var(--text)",
-                  cursor: "pointer",
-                  fontSize: 12,
-                  transition: "all 0.15s ease",
-                }}
-              >
-                Upload again
-              </button>
-            </div>
-          )}
-
-          {/* --- Error --- */}
-          {phase === "error" && (
-            <div style={{ fontSize: 13 }}>
-              <div
-                style={{
-                  color: "#dc2626",
-                  fontWeight: 500,
-                  marginBottom: 8,
-                }}
-              >
-                Upload failed
-              </div>
-              <div
-                style={{
-                  color: "var(--text-muted)",
-                  fontSize: 12,
-                  wordBreak: "break-word",
-                }}
-              >
-                {errorMsg}
-              </div>
-              <button
-                onClick={() => {
-                  setPhase("ready");
-                  setStep(null);
-                  setErrorMsg("");
-                }}
-                style={{
-                  marginTop: 12,
-                  padding: "8px 18px",
-                  border: "1px solid var(--border)",
-                  borderRadius: 8,
-                  background: "transparent",
-                  color: "var(--text)",
-                  cursor: "pointer",
-                  fontSize: 12,
-                  transition: "all 0.15s ease",
-                }}
-              >
-                Try again
-              </button>
-            </div>
-          )}
+          <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 14, color: "var(--text)" }}>
+            Import Vivino Data
+          </div>
+          {panelContent}
         </div>
       )}
     </div>

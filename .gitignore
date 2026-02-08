@@ -36,6 +36,10 @@ rag/
 bukowskis/cookies.txt
 bukowskis/scraper.py
 bukowskis/wines.json
+vivino_data/
+data/wine_cellar.csv
+data/cellar.json
+data/history.json
 
 # Project instructions
 CLAUDE.md

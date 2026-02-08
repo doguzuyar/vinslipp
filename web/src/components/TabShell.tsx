@@ -8,6 +8,7 @@ import { ReleaseTab } from "./release/ReleaseTab";
 import { HistoryTab } from "./history/HistoryTab";
 import { AuctionTab } from "./auction/AuctionTab";
 import { UploadButton } from "./UploadButton";
+import { getUserData, saveUserData, clearAllUserData } from "@/lib/db";
 
 const TABS = ["release", "cellar", "history", "auction"] as const;
 type TabName = (typeof TABS)[number];
@@ -57,13 +58,11 @@ const searchInputStyle = {
 } as const;
 
 interface Props {
-  cellar: CellarData;
   releases: ReleaseData;
-  history: HistoryData;
   metadata: Metadata;
 }
 
-export function TabShell({ cellar, releases, history, metadata }: Props) {
+export function TabShell({ releases, metadata }: Props) {
   const [activeTab, setActiveTab] = useState<TabName>("release");
   const [activeRating, setActiveRating] = useState(0);
   const [ratingMinMode, setRatingMinMode] = useState(false);
@@ -74,20 +73,32 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
   const [filterOpen, setFilterOpen] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [unlocked, setUnlocked] = useState(false);
   const [isNativeApp, setIsNativeApp] = useState(false);
 
-  // URL hash sync + mobile detection + unlock check + native app detection
+  // Client-side wine data (loaded from IndexedDB)
+  const [cellarData, setCellarData] = useState<CellarData | null>(null);
+  const [historyData, setHistoryData] = useState<HistoryData | null>(null);
+  const [importedAt, setImportedAt] = useState<string | null>(null);
+  const [historyLocation, setHistoryLocation] = useState("");
+  const [historyFilterOpen, setHistoryFilterOpen] = useState(false);
+  const historyFilterRef = useRef<HTMLDivElement>(null);
+
+  // URL hash sync + mobile detection + native app detection + IndexedDB load
   useEffect(() => {
     const native = !!(window as /* eslint-disable-line */ any).webkit?.messageHandlers?.tabSwitch;
     setIsNativeApp(native);
     if (native) document.body.classList.add("native-app");
 
-    setUnlocked(localStorage.getItem("unlocked") === "1");
     setSelectedCountry(localStorage.getItem("filterCountry") || "");
     setSelectedType(localStorage.getItem("filterType") || "");
+    setHistoryLocation(localStorage.getItem("historyLocation") || "");
     const hash = window.location.hash.replace("#", "") as TabName;
     if (TABS.includes(hash)) setActiveTab(hash);
+
+    // Load persisted wine data from IndexedDB
+    getUserData<CellarData>("cellar").then(setCellarData);
+    getUserData<HistoryData>("history").then(setHistoryData);
+    getUserData<{ importedAt: string }>("meta").then((m) => setImportedAt(m?.importedAt ?? null));
 
     // Listen for hash changes (e.g. from native tab bar or Quick Actions)
     function onHashChange() {
@@ -112,15 +123,31 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
     localStorage.setItem("filterType", selectedType);
   }, [selectedCountry, selectedType]);
 
-  // Notify native app when unlock state changes
   useEffect(() => {
-    const wk = (window as /* eslint-disable-line */ any).webkit;
-    wk?.messageHandlers?.unlockState?.postMessage({ unlocked });
-  }, [unlocked]);
+    localStorage.setItem("historyLocation", historyLocation);
+  }, [historyLocation]);
 
-  const visibleTabs: readonly TabName[] = unlocked
-    ? TABS
-    : TABS.filter((t) => t !== "cellar" && t !== "history");
+  const visibleTabs: readonly TabName[] = TABS;
+
+  // Import handler: save to IndexedDB and update state
+  const handleImport = useCallback(async (cellar: CellarData, history: HistoryData) => {
+    const d = new Date();
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const now = `${months[d.getMonth()]} ${String(d.getDate()).padStart(2,"0")}, ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+    setCellarData(cellar);
+    setHistoryData(history);
+    setImportedAt(now);
+    await saveUserData("cellar", cellar);
+    await saveUserData("history", history);
+    await saveUserData("meta", { importedAt: now });
+  }, []);
+
+  const handleClearData = useCallback(async () => {
+    setCellarData(null);
+    setHistoryData(null);
+    setImportedAt(null);
+    await clearAllUserData();
+  }, []);
 
   const switchTab = useCallback((tab: TabName) => {
     setActiveTab(tab);
@@ -167,8 +194,8 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
 
   const timestamps: Record<TabName, string> = {
     release: metadata.releaseUpdated,
-    cellar: metadata.cellarUpdated,
-    history: metadata.cellarUpdated,
+    cellar: importedAt ?? "",
+    history: importedAt ?? "",
     auction: metadata.auctionUpdated,
   };
 
@@ -225,6 +252,18 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [filterOpen]);
 
+  // Close history filter dropdown on click outside
+  useEffect(() => {
+    if (!historyFilterOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (historyFilterRef.current && !historyFilterRef.current.contains(e.target as Node)) {
+        setHistoryFilterOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [historyFilterOpen]);
+
   // Map English label back to Swedish for filtering
   function countryToSwedish(label: string): string {
     if (label === "Other") return "__other__";
@@ -237,7 +276,12 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
 
   const hasActiveFilters = selectedCountry !== "" || selectedType !== "" || activeRating > 0;
 
-  const showUpload = activeTab === "cellar" || activeTab === "history";
+  const historyLocations = useMemo(() => historyData?.locations ?? [], [historyData]);
+  const filteredHistoryWines = useMemo(() => {
+    if (!historyData) return [];
+    if (!historyLocation) return historyData.wines;
+    return historyData.wines.filter((w) => w.scanLocation === historyLocation);
+  }, [historyData, historyLocation]);
 
   return (
     <>
@@ -294,22 +338,92 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
           </div>
         )}
 
-        {/* Upload Vivino data - desktop only */}
-        {showUpload && !isMobile && (
+        {/* Upload Vivino data - desktop only (cellar tab) */}
+        {activeTab === "cellar" && cellarData && !isMobile && (
           <div
             style={{
               position: "absolute",
-              left: 0,
-              right: 0,
-              display: "flex",
-              justifyContent: "center",
-              pointerEvents: "none",
-              zIndex: 200,
+              left: "50%",
+              transform: "translateX(-50%)",
             }}
           >
-            <div style={{ pointerEvents: "auto" }}>
-              <UploadButton />
-            </div>
+            <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+          </div>
+        )}
+
+        {/* History: Upload + Filter - desktop only */}
+        {activeTab === "history" && historyData && !isMobile && (
+          <div
+            ref={historyFilterRef}
+            style={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              gap: 6,
+              alignItems: "center",
+            }}
+          >
+            <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+            <button
+              onClick={() => setHistoryFilterOpen((v) => !v)}
+              style={{
+                padding: "6px 14px",
+                border: "none",
+                background: historyLocation || historyFilterOpen
+                  ? "var(--tab-active-bg)"
+                  : "var(--bg-alt)",
+                color: historyLocation || historyFilterOpen
+                  ? "var(--tab-active-text)"
+                  : "var(--text-muted)",
+                cursor: "pointer",
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 500,
+                transition: "all 0.15s ease",
+              }}
+            >
+              Filter{historyLocation ? " \u2022" : ""}
+            </button>
+            {historyFilterOpen && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "calc(100% + 8px)",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  background: "var(--bg)",
+                  border: "1px solid var(--border)",
+                  borderRadius: 12,
+                  padding: 12,
+                  zIndex: 300,
+                  minWidth: 220,
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+                }}
+              >
+                <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Location</div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                  {historyLocations.map((loc) => (
+                    <button
+                      key={loc || "__empty__"}
+                      onClick={() => setHistoryLocation(historyLocation === loc ? "" : loc)}
+                      style={{
+                        padding: "4px 10px",
+                        border: "none",
+                        background: historyLocation === loc ? "var(--tab-active-bg)" : "var(--bg-alt)",
+                        color: historyLocation === loc ? "var(--tab-active-text)" : "var(--text-muted)",
+                        cursor: "pointer",
+                        borderRadius: 6,
+                        fontSize: 12,
+                        transition: "all 0.15s ease",
+                      }}
+                    >
+                      {loc || "Unknown"}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -514,7 +628,7 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
             <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
               {timestamps[activeTab]}
             </span>
-            <DarkModeToggle onUnlockChange={(u) => { setUnlocked(u); if (!u) setActiveTab("release"); }} />
+            <DarkModeToggle />
           </span>
         )}
       </div>
@@ -701,12 +815,89 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
             />
           )}
 
-          {/* Cellar/History: upload button */}
-          {showUpload && <UploadButton />}
+          {/* Cellar: upload button on the left */}
+          {activeTab === "cellar" && cellarData && (
+            <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+          )}
+
+          {/* History: upload on left, filter centered */}
+          {activeTab === "history" && historyData && (
+            <>
+              <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+              <div
+                ref={isMobile ? historyFilterRef : undefined}
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+              >
+                <button
+                  onClick={() => setHistoryFilterOpen((v) => !v)}
+                  style={{
+                    padding: "6px 14px",
+                    border: "none",
+                    background: historyLocation || historyFilterOpen
+                      ? "var(--tab-active-bg)"
+                      : "var(--bg-alt)",
+                    color: historyLocation || historyFilterOpen
+                      ? "var(--tab-active-text)"
+                      : "var(--text-muted)",
+                    cursor: "pointer",
+                    borderRadius: 8,
+                    fontSize: 12,
+                    fontWeight: 500,
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  Filter{historyLocation ? " \u2022" : ""}
+                </button>
+                {historyFilterOpen && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "calc(100% + 8px)",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      background: "var(--bg)",
+                      border: "1px solid var(--border)",
+                      borderRadius: 12,
+                      padding: 12,
+                      zIndex: 300,
+                      minWidth: 220,
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+                    }}
+                  >
+                    <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Location</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                      {historyLocations.map((loc) => (
+                        <button
+                          key={loc || "__empty__"}
+                          onClick={() => setHistoryLocation(historyLocation === loc ? "" : loc)}
+                          style={{
+                            padding: "4px 10px",
+                            border: "none",
+                            background: historyLocation === loc ? "var(--tab-active-bg)" : "var(--bg-alt)",
+                            color: historyLocation === loc ? "var(--tab-active-text)" : "var(--text-muted)",
+                            cursor: "pointer",
+                            borderRadius: 6,
+                            fontSize: 12,
+                            transition: "all 0.15s ease",
+                          }}
+                        >
+                          {loc || "Unknown"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
 
           {/* Dark mode toggle always on the right */}
           <span style={{ marginLeft: "auto" }}>
-            <DarkModeToggle onUnlockChange={(u) => { setUnlocked(u); if (!u) setActiveTab("release"); }} />
+            <DarkModeToggle />
           </span>
         </div>
       )}
@@ -737,8 +928,12 @@ export function TabShell({ cellar, releases, history, metadata }: Props) {
           isFrenchRed={isFrenchRed}
         />
       )}
-      {activeTab === "cellar" && unlocked && <CellarTab data={cellar} />}
-      {activeTab === "history" && unlocked && <HistoryTab data={history} />}
+      {activeTab === "cellar" && (
+        cellarData ? <CellarTab data={cellarData} /> : <UploadButton inline onImportComplete={handleImport} />
+      )}
+      {activeTab === "history" && (
+        historyData ? <HistoryTab wines={filteredHistoryWines} selectedLocation={historyLocation} /> : <UploadButton inline onImportComplete={handleImport} />
+      )}
       {activeTab === "auction" && <AuctionTab search={auctionSearch} />}
       </div>
 

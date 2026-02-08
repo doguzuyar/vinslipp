@@ -51,15 +51,16 @@ export interface HistoryWine {
   region: string;
   style: string;
   link: string;
+  scanLocation: string;
 }
 
 export interface HistoryData {
   wines: HistoryWine[];
+  locations: string[];
   totalCount: number;
 }
 
 export interface Metadata {
-  cellarUpdated: string;
   releaseUpdated: string;
   auctionUpdated: string;
   generatedAt: string;

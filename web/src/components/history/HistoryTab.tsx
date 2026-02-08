@@ -1,14 +1,15 @@
 "use client";
 
 import { useMemo } from "react";
-import type { HistoryData, HistoryWine } from "@/types";
+import type { HistoryWine } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
 
 interface Props {
-  data: HistoryData;
+  wines: HistoryWine[];
+  selectedLocation: string;
 }
 
-export function HistoryTab({ data }: Props) {
+export function HistoryTab({ wines, selectedLocation }: Props) {
   const columns: Column<HistoryWine>[] = useMemo(
     () => [
       {
@@ -65,7 +66,7 @@ export function HistoryTab({ data }: Props) {
     <div className="tab-scroll">
       <SortableTable
         columns={columns}
-        data={data.wines}
+        data={wines}
         tableId="history-table"
         renderRow={(wine, idx, cells) => (
           <tr
@@ -78,7 +79,7 @@ export function HistoryTab({ data }: Props) {
         )}
       />
       <p style={{ fontWeight: 500, marginTop: 16, fontSize: 14, color: "var(--text-muted)" }}>
-        {data.totalCount} wines
+        {wines.length} wines{selectedLocation ? ` consumed at ${selectedLocation}` : ""}
       </p>
     </div>
   );

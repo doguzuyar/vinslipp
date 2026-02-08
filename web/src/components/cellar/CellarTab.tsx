@@ -24,7 +24,7 @@ export function CellarTab({ data }: Props) {
   const columns: Column<CellarWine>[] = useMemo(
     () => [
       {
-        label: "Drink",
+        label: "Notes",
         accessor: (w) => w.drinkYear,
         render: (w) => (
           <a href={w.link} target="_blank" rel="noreferrer">
@@ -106,6 +106,10 @@ export function CellarTab({ data }: Props) {
     .toLocaleString("sv-SE")
     .replace(/\u00a0/g, " ");
 
+  const hasYearData = useMemo(() => {
+    return Object.keys(data.yearCounts).some((key) => /^\d{4}$/.test(key));
+  }, [data.yearCounts]);
+
   return (
     <div className="tab-scroll">
       <SortableTable
@@ -123,15 +127,19 @@ export function CellarTab({ data }: Props) {
         )}
       />
 
-      <h2 style={{ marginTop: 32, fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Bottles per Year</h2>
-      <BottleChart
-        yearCounts={data.yearCounts}
-        colorPalette={data.colorPalette}
-        activeYear={activeYear}
-        onYearClick={handleYearClick}
-      />
+      {hasYearData && (
+        <>
+          <h2 style={{ marginTop: 32, fontSize: 16, fontWeight: 600, color: "var(--text)" }}>Bottles per Year</h2>
+          <BottleChart
+            yearCounts={data.yearCounts}
+            colorPalette={data.colorPalette}
+            activeYear={activeYear}
+            onYearClick={handleYearClick}
+          />
+        </>
+      )}
       <p style={{ fontWeight: 500, marginTop: 16, fontSize: 14, color: "var(--text-muted)" }}>
-        {data.totalBottles} bottles &middot; {totalValueFormatted} SEK
+        {data.totalBottles} bottles{data.totalValue > 0 ? ` \u00b7 ${totalValueFormatted} SEK` : ""}
       </p>
     </div>
   );

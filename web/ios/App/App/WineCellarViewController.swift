@@ -5,7 +5,6 @@ import Capacitor
 
 protocol NativeTabDelegate: AnyObject {
     func webDidSwitchTab(_ tab: String)
-    func webDidChangeUnlockState(_ unlocked: Bool)
 }
 
 class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler {
@@ -16,7 +15,6 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         let ucc = webView?.configuration.userContentController
         ucc?.add(self, name: "openInApp")
         ucc?.add(self, name: "tabSwitch")
-        ucc?.add(self, name: "unlockState")
         webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
     }
 
@@ -60,12 +58,6 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
                 tabDelegate?.webDidSwitchTab(tab)
             }
 
-        case "unlockState":
-            if let body = message.body as? [String: Any],
-               let unlocked = body["unlocked"] as? Bool {
-                tabDelegate?.webDidChangeUnlockState(unlocked)
-            }
-
         default:
             break
         }
@@ -76,6 +68,5 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         let ucc = webView?.configuration.userContentController
         ucc?.removeScriptMessageHandler(forName: "openInApp")
         ucc?.removeScriptMessageHandler(forName: "tabSwitch")
-        ucc?.removeScriptMessageHandler(forName: "unlockState")
     }
 }
