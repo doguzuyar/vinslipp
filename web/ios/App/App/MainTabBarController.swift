@@ -120,6 +120,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
         guard index < tabs.count else { return false }
 
         let tab = tabs[index].name
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         webVC.webView?.evaluateJavaScript("""
             window.location.hash='#\(tab)';
             window.dispatchEvent(new HashChangeEvent('hashchange'));

@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
         Data Collection
       </h2>
       <p>
-        Wine Cellar does not collect, store, or transmit any personal data. The
+        Vinslipp does not collect, store, or transmit any personal data. The
         app runs entirely in your browser or device and does not use analytics,
         tracking, cookies, or any third-party services that collect user
         information.
@@ -32,8 +32,8 @@ export default function PrivacyPolicy() {
       </h2>
       <p>
         The app uses your device&apos;s local storage solely to remember your
-        display preferences (such as dark mode). This data never leaves your
-        device.
+        display preferences (such as dark mode and filters). This data never
+        leaves your device.
       </p>
 
       <h2 style={{ fontSize: 17, fontWeight: 600, marginTop: 28, marginBottom: 8 }}>
