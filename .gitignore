@@ -32,7 +32,6 @@ __pycache__/
 scripts/rate_wines.py
 scripts/server.py
 scripts/server.sh
-vivino_data/
 rag/
 bukowskis/cookies.txt
 bukowskis/scraper.py
