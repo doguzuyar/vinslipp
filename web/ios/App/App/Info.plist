@@ -29,16 +29,32 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeDate</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>clock</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Releases</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.nybroans.vinslipp.release</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>cube.box</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Cellar</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.nybroans.vinslipp.cellar</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>doc.on.clipboard</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>History</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.nybroans.vinslipp.history</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>dollarsign.circle</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Auction</string>
 			<key>UIApplicationShortcutItemType</key>

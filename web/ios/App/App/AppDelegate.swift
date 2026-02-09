@@ -82,10 +82,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func tabFromShortcut(_ item: UIApplicationShortcutItem) -> String {
         switch item.type {
-        case "com.nybroans.vinslipp.auction":
-            return "auction"
         case "com.nybroans.vinslipp.release":
             return "release"
+        case "com.nybroans.vinslipp.cellar":
+            return "cellar"
+        case "com.nybroans.vinslipp.history":
+            return "history"
+        case "com.nybroans.vinslipp.auction":
+            return "auction"
         default:
             return "release"
         }
