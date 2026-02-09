@@ -56,7 +56,7 @@ jobs:
           from: Wine Cellar Bot
 
       - name: Send push notification
-        if: steps.check.outputs.has_wines == 'true' && secrets.FIREBASE_SERVICE_ACCOUNT_KEY != ''
+        if: steps.check.outputs.has_wines == 'true'
         run: |
           pip install google-auth requests
           python3 << 'PYEOF'
