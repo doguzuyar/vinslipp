@@ -95,14 +95,14 @@ jobs:
 
           if rated:
               rated.sort(key=lambda w: w[3], reverse=True)
-              top5 = rated[:10]
-              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n\n"
-              body_text += "\n".join(f"{w[2]} {w[0]} ({w[1]} SEK)" for w in top5)
+              top = rated[:5]
+              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n"
+              body_text += "\n".join(f"{w[2]} {w[0][:35]} {w[1]}kr" for w in top)
           elif unrated:
               unrated.sort(key=lambda w: w[1], reverse=True)
-              top5 = unrated[:10]
-              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n\n"
-              body_text += "\n".join(f"{w[0]} ({w[1]} SEK)" for w in top5)
+              top = unrated[:5]
+              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n"
+              body_text += "\n".join(f"{w[0][:35]} {w[1]}kr" for w in top)
           else:
               body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today"
 
