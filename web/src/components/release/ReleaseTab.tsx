@@ -12,7 +12,7 @@ interface Props {
   todayOnly: boolean;
   matchCountry: ((country: string) => boolean) | null;
   matchType: ((wineType: string) => boolean) | null;
-  isFrenchRed: boolean;
+  hasRatings: boolean;
 }
 
 export function ReleaseTab({
@@ -22,7 +22,7 @@ export function ReleaseTab({
   todayOnly,
   matchCountry,
   matchType,
-  isFrenchRed,
+  hasRatings,
 }: Props) {
   const [pastVisible, setPastVisible] = useState(false);
 
@@ -123,7 +123,7 @@ export function ReleaseTab({
           </a>
         ),
       },
-      ...(isFrenchRed
+      ...(hasRatings
         ? [
             {
               label: "AI",
@@ -141,7 +141,7 @@ export function ReleaseTab({
           ]
         : []),
     ],
-    [isFrenchRed]
+    [hasRatings]
   );
 
   return (

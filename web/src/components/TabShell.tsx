@@ -238,7 +238,8 @@ export function TabShell({ releases, metadata }: Props) {
     return result;
   }, [releases.wines]);
 
-  const isFrenchRed = selectedCountry === "France" && selectedType === "Red";
+  const RATED_COMBOS = new Set(["France:Red", "France:White", "Italy:Red", "Italy:White"]);
+  const hasRatings = RATED_COMBOS.has(`${selectedCountry}:${selectedType}`);
 
   // Close filter dropdown on click outside
   useEffect(() => {
@@ -526,7 +527,7 @@ export function TabShell({ releases, metadata }: Props) {
                         key={c}
                         onClick={() => {
                           setSelectedCountry(selectedCountry === c ? "" : c);
-                          if (selectedCountry !== c && c !== "France") {
+                          if (selectedCountry !== c && c !== "France" && c !== "Italy") {
                             setActiveRating(0);
                             setRatingMinMode(false);
                           }
@@ -555,7 +556,7 @@ export function TabShell({ releases, metadata }: Props) {
                         key={t}
                         onClick={() => {
                           setSelectedType(selectedType === t ? "" : t);
-                          if (selectedType !== t && t !== "Red") {
+                          if (selectedType !== t && t !== "Red" && t !== "White") {
                             setActiveRating(0);
                             setRatingMinMode(false);
                           }
@@ -576,7 +577,7 @@ export function TabShell({ releases, metadata }: Props) {
                     ))}
                   </div>
                 </div>
-                {isFrenchRed && (
+                {hasRatings && (
                   <div>
                     <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>AI Rating</div>
                     <div style={{ display: "flex", gap: 2, background: "var(--bg-alt)", borderRadius: 8, padding: 2, width: "fit-content" }}>
@@ -714,7 +715,7 @@ export function TabShell({ releases, metadata }: Props) {
                             key={c}
                             onClick={() => {
                               setSelectedCountry(selectedCountry === c ? "" : c);
-                              if (selectedCountry !== c && c !== "France") {
+                              if (selectedCountry !== c && c !== "France" && c !== "Italy") {
                                 setActiveRating(0);
                                 setRatingMinMode(false);
                               }
@@ -743,7 +744,7 @@ export function TabShell({ releases, metadata }: Props) {
                             key={t}
                             onClick={() => {
                               setSelectedType(selectedType === t ? "" : t);
-                              if (selectedType !== t && t !== "Red") {
+                              if (selectedType !== t && t !== "Red" && t !== "White") {
                                 setActiveRating(0);
                                 setRatingMinMode(false);
                               }
@@ -764,7 +765,7 @@ export function TabShell({ releases, metadata }: Props) {
                         ))}
                       </div>
                     </div>
-                    {isFrenchRed && (
+                    {hasRatings && (
                       <div>
                         <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>AI Rating</div>
                         <div style={{ display: "flex", gap: 2, background: "var(--bg-alt)", borderRadius: 8, padding: 2, width: "fit-content" }}>
@@ -925,7 +926,7 @@ export function TabShell({ releases, metadata }: Props) {
             }
             return t === svKey;
           } : null}
-          isFrenchRed={isFrenchRed}
+          hasRatings={hasRatings}
         />
       )}
       {activeTab === "cellar" && (
