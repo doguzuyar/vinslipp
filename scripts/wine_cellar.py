@@ -76,46 +76,57 @@ except Exception as e:
     print(f"Warning: Could not fetch Systembolaget data: {e}")
     sb_releases = []
 
-# Read existing ratings from releases.txt before overwriting
-existing_ratings = {}
-try:
-    with open('data/french_red_releases.txt', 'r', encoding='utf-8') as f:
-        for line in f:
-            line = line.strip()
-            rated_match = re.match(r'^(.+)\s+\[(★+|\d+)\](?:\s+\((.+?)\))?$', line)
-            if rated_match:
-                base_line = rated_match.group(1).strip()
-                key_match = re.match(r'^\[.+?\]\s+(.+)$', base_line)
-                if key_match:
-                    rating_val = rated_match.group(2)
-                    score = len(rating_val) if '★' in rating_val else int(rating_val)
-                    reason = rated_match.group(3) or ""
-                    existing_ratings[key_match.group(1)] = (score, reason)
-except FileNotFoundError:
-    pass
+# Read existing ratings and write filtered release files
+RELEASE_FILES = [
+    ('data/french_red_releases.txt', 'Frankrike', 'Rött vin'),
+    ('data/french_white_releases.txt', 'Frankrike', 'Vitt vin'),
+    ('data/italy_red_releases.txt', 'Italien', 'Rött vin'),
+    ('data/italy_white_releases.txt', 'Italien', 'Vitt vin'),
+]
 
-# Write releases list for email diff (French reds only), preserving existing ratings
-with open('data/french_red_releases.txt', 'w', encoding='utf-8') as f:
-    for w in sb_releases:
-        if (w.get('country') or '') != 'Frankrike' or (w.get('categoryLevel2') or '') != 'Rött vin':
-            continue
-        name = w.get('productNameBold') or ''
-        thin = w.get('productNameThin') or ''
-        if thin:
-            name += f" {thin}"
-        producer = w.get('producerName') or ''
-        vintage = w.get('vintage') or ''
-        price = f"{int(w['price'])} SEK" if w.get('price') else ''
-        raw_date = (w.get('productLaunchDate') or '')[:10]
-        release_date = format_launch_date(raw_date)
-        key = f"{producer} - {name} {vintage} ({price})"
-        line = f"[{release_date}] {key}"
-        rating_data = existing_ratings.get(key)
-        if rating_data is not None:
-            score, reason = rating_data
-            stars = '★' * score
-            line += f" [{stars}] ({reason})" if reason else f" [{stars}]"
-        f.write(line + "\n")
+all_existing_ratings = {}
+for filepath, country_filter, type_filter in RELEASE_FILES:
+    ratings = {}
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                rated_match = re.match(r'^(.+)\s+\[(★+|\d+)\](?:\s+\((.+?)\))?$', line)
+                if rated_match:
+                    base_line = rated_match.group(1).strip()
+                    key_match = re.match(r'^\[.+?\]\s+(.+)$', base_line)
+                    if key_match:
+                        rating_val = rated_match.group(2)
+                        score = len(rating_val) if '★' in rating_val else int(rating_val)
+                        reason = rated_match.group(3) or ""
+                        ratings[key_match.group(1)] = (score, reason)
+    except FileNotFoundError:
+        pass
+    all_existing_ratings.update(ratings)
+
+    with open(filepath, 'w', encoding='utf-8') as f:
+        for w in sb_releases:
+            if (w.get('country') or '') != country_filter or (w.get('categoryLevel2') or '') != type_filter:
+                continue
+            name = w.get('productNameBold') or ''
+            thin = w.get('productNameThin') or ''
+            if thin:
+                name += f" {thin}"
+            producer = w.get('producerName') or ''
+            vintage = w.get('vintage') or ''
+            price = f"{int(w['price'])} SEK" if w.get('price') else ''
+            raw_date = (w.get('productLaunchDate') or '')[:10]
+            release_date = format_launch_date(raw_date)
+            key = f"{producer} - {name} {vintage} ({price})"
+            line = f"[{release_date}] {key}"
+            rating_data = ratings.get(key)
+            if rating_data is not None:
+                score, reason = rating_data
+                stars = '★' * score
+                line += f" [{stars}] ({reason})" if reason else f" [{stars}]"
+            f.write(line + "\n")
+
+existing_ratings = all_existing_ratings
 
 # Generate JSON data for Next.js frontend
 color_palette = [

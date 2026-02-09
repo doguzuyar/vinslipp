@@ -39,13 +39,19 @@ jobs:
       - name: Check for new wines
         id: changes
         run: |
-          # Detect truly new wines (ignore rating changes like [8] suffix)
+          # Detect truly new wines across all release files (ignore rating changes)
           NEW_WINES=""
-          if [ -f data/french_red_releases.txt ]; then
-            OLD=$(git show HEAD:data/french_red_releases.txt 2>/dev/null | sed 's/ \[[0-9][0-9]*[^]]*\]$//' | sort) || OLD=""
-            NEW=$(sed 's/ \[[0-9][0-9]*[^]]*\]$//' data/french_red_releases.txt | sort)
-            NEW_WINES=$(comm -13 <(echo "$OLD") <(echo "$NEW")) || true
-          fi
+          for FILE in data/french_red_releases.txt data/french_white_releases.txt data/italy_red_releases.txt data/italy_white_releases.txt; do
+            if [ -f "$FILE" ]; then
+              OLD=$(git show HEAD:"$FILE" 2>/dev/null | sed 's/ \[[0-9][0-9]*[^]]*\]$//' | sort) || OLD=""
+              NEW=$(sed 's/ \[[0-9][0-9]*[^]]*\]$//' "$FILE" | sort)
+              FILE_NEW=$(comm -13 <(echo "$OLD") <(echo "$NEW")) || true
+              if [ -n "$FILE_NEW" ]; then
+                NEW_WINES="${NEW_WINES}${FILE_NEW}"$'\n'
+              fi
+            fi
+          done
+          NEW_WINES=$(echo "$NEW_WINES" | sed '/^$/d')
           git add data/
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -62,9 +68,16 @@ jobs:
           else
             echo "has_new_wines=false" >> $GITHUB_OUTPUT
           fi
-          # Collect today's full release list
+          # Collect today's full release list across all files
           TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
-          TODAY_WINES=$(grep "^\[$TODAY\]" data/french_red_releases.txt 2>/dev/null) || true
+          TODAY_WINES=""
+          for FILE in data/french_red_releases.txt data/french_white_releases.txt data/italy_red_releases.txt data/italy_white_releases.txt; do
+            FILE_TODAY=$(grep "^\[$TODAY\]" "$FILE" 2>/dev/null) || true
+            if [ -n "$FILE_TODAY" ]; then
+              TODAY_WINES="${TODAY_WINES}${FILE_TODAY}"$'\n'
+            fi
+          done
+          TODAY_WINES=$(echo "$TODAY_WINES" | sed '/^$/d')
           if [ -n "$TODAY_WINES" ]; then
             {
               echo "today_list<<EOF"
