@@ -1,0 +1,117 @@
+name: Send Wine Notification
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # 10:00 Swedish time (09:00 UTC)
+  workflow_dispatch:       # Manual trigger
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for today's wines
+        id: check
+        run: |
+          TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
+          WINES=""
+          FILE="data/french_red_releases.txt"
+          if [ -f "$FILE" ]; then
+            FILE_WINES=$(grep "^\[$TODAY\]" "$FILE") || true
+            if [ -n "$FILE_WINES" ]; then
+              WINES="$FILE_WINES"
+            fi
+          fi
+          WINES=$(echo "$WINES" | sed '/^$/d')
+          if [ -n "$WINES" ]; then
+            echo "has_wines=true" >> $GITHUB_OUTPUT
+            WINE_COUNT=$(echo "$WINES" | wc -l | tr -d ' ')
+            echo "wine_count=$WINE_COUNT" >> $GITHUB_OUTPUT
+            {
+              echo "wine_list<<EOF"
+              echo "$WINES"
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
+          else
+            echo "has_wines=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send email notification
+        if: steps.check.outputs.has_wines == 'true' && vars.NOTIFY_EMAIL != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "New wines on Systembolaget"
+          body: |
+            Today's releases:
+
+            ${{ steps.check.outputs.wine_list }}
+
+            https://doguzuyar.github.io/vinslipp
+          to: ${{ vars.NOTIFY_EMAIL }}
+          from: Wine Cellar Bot
+
+      - name: Send push notification
+        if: steps.check.outputs.has_wines == 'true' && secrets.FIREBASE_SERVICE_ACCOUNT_KEY != ''
+        run: |
+          pip install google-auth requests
+          python3 << 'PYEOF'
+          import json
+          import os
+          import google.auth.transport.requests
+          from google.oauth2 import service_account
+          import requests
+
+          sa_info = json.loads(os.environ["SA_KEY"])
+          credentials = service_account.Credentials.from_service_account_info(
+              sa_info,
+              scopes=["https://www.googleapis.com/auth/firebase.messaging"]
+          )
+          credentials.refresh(google.auth.transport.requests.Request())
+
+          project_id = sa_info["project_id"]
+          wine_count = int(os.environ.get("WINE_COUNT", "0"))
+          body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today"
+
+          message = {
+              "message": {
+                  "topic": "new-wines",
+                  "notification": {
+                      "title": "New wines on Systembolaget",
+                      "body": body_text
+                  },
+                  "data": {
+                      "tab": "release"
+                  },
+                  "apns": {
+                      "payload": {
+                          "aps": {
+                              "sound": "default",
+                              "badge": 1
+                          }
+                      }
+                  }
+              }
+          }
+
+          response = requests.post(
+              f"https://fcm.googleapis.com/v1/projects/{project_id}/messages:send",
+              headers={
+                  "Authorization": f"Bearer {credentials.token}",
+                  "Content-Type": "application/json"
+              },
+              json=message
+          )
+
+          print(f"FCM response: {response.status_code}")
+          print(response.text)
+          if response.status_code != 200:
+              print("::warning::Push notification failed")
+          PYEOF
+        env:
+          SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+          WINE_COUNT: ${{ steps.check.outputs.wine_count }}

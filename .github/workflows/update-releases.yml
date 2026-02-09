@@ -36,51 +36,14 @@ jobs:
       - name: Generate data
         run: python scripts/wine_cellar.py
 
-      - name: Check for new wines
+      - name: Check for changes
         id: changes
         run: |
-          # Detect truly new wines across all release files (ignore rating changes)
-          NEW_WINES=""
-          FILE="data/french_red_releases.txt"
-          if [ -f "$FILE" ]; then
-            OLD=$(git show HEAD:"$FILE" 2>/dev/null | sed 's/ \[[0-9][0-9]*[^]]*\]$//' | sort) || OLD=""
-            NEW=$(sed 's/ \[[0-9][0-9]*[^]]*\]$//' "$FILE" | sort)
-            FILE_NEW=$(comm -13 <(echo "$OLD") <(echo "$NEW")) || true
-            if [ -n "$FILE_NEW" ]; then
-              NEW_WINES="${FILE_NEW}"
-            fi
-          fi
-          NEW_WINES=$(echo "$NEW_WINES" | sed '/^$/d')
           git add data/
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-          if [ -n "$NEW_WINES" ]; then
-            echo "has_new_wines=true" >> $GITHUB_OUTPUT
-            {
-              echo "wine_list<<EOF"
-              echo "$NEW_WINES"
-              echo "EOF"
-            } >> $GITHUB_OUTPUT
-          else
-            echo "has_new_wines=false" >> $GITHUB_OUTPUT
-          fi
-          # Collect today's full release list across all files
-          TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
-          TODAY_WINES=""
-          FILE_TODAY=$(grep "^\[$TODAY\]" "data/french_red_releases.txt" 2>/dev/null) || true
-          if [ -n "$FILE_TODAY" ]; then
-            TODAY_WINES="${FILE_TODAY}"
-          fi
-          TODAY_WINES=$(echo "$TODAY_WINES" | sed '/^$/d')
-          if [ -n "$TODAY_WINES" ]; then
-            {
-              echo "today_list<<EOF"
-              echo "$TODAY_WINES"
-              echo "EOF"
-            } >> $GITHUB_OUTPUT
           fi
 
       - name: Commit and push if changed
@@ -112,26 +75,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Send email notification
-        if: steps.changes.outputs.has_new_wines == 'true' && vars.NOTIFY_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "New wines on Systembolaget"
-          body: |
-            New wines:
-
-            ${{ steps.changes.outputs.wine_list }}
-
-            ---
-
-            Today's releases:
-
-            ${{ steps.changes.outputs.today_list }}
-
-            https://doguzuyar.github.io/vinslipp
-          to: ${{ vars.NOTIFY_EMAIL }}
-          from: Wine Cellar Bot
