@@ -79,22 +79,30 @@ jobs:
 
           # Parse wines and extract name, price, rating
           import re
-          wines = []
+          rated = []
+          unrated = []
           for line in wine_list.strip().split("\n"):
               if not line.strip():
                   continue
               # Format: [Feb 9] Producer - Wine Name 2021 (399 SEK) [★★★] (comment)
-              m = re.match(r'\[.*?\]\s+.*?\s-\s(.+?)\s\((\d+ SEK)\)\s\[(★+)\]', line)
+              m = re.match(r'\[.*?\]\s+.*?\s-\s(.+?)\s\((\d+) SEK\)(?:\s\[(★+)\])?', line)
               if m:
-                  wines.append((m.group(1), m.group(2), m.group(3), len(m.group(3))))
+                  name, price, stars = m.group(1), int(m.group(2)), m.group(3)
+                  if stars:
+                      rated.append((name, price, stars, len(stars)))
+                  else:
+                      unrated.append((name, price))
 
-          # Sort by rating (most stars first), take top 5
-          wines.sort(key=lambda w: w[3], reverse=True)
-          top5 = wines[:5]
-
-          if top5:
+          if rated:
+              rated.sort(key=lambda w: w[3], reverse=True)
+              top5 = rated[:10]
               body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n\n"
-              body_text += "\n".join(f"{w[2]} {w[0]} ({w[1]})" for w in top5)
+              body_text += "\n".join(f"{w[2]} {w[0]} ({w[1]} SEK)" for w in top5)
+          elif unrated:
+              unrated.sort(key=lambda w: w[1], reverse=True)
+              top5 = unrated[:10]
+              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n\n"
+              body_text += "\n".join(f"{w[0]} ({w[1]} SEK)" for w in top5)
           else:
               body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today"
 
