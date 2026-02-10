@@ -2,7 +2,7 @@ name: Send Wine Notification
 
 on:
   schedule:
-    - cron: '45 7 * * *'   # 09:45 Swedish time (07:45 UTC)
+    - cron: '45 7 * * *'   # 08:45 Swedish time (07:45 UTC)
   workflow_dispatch:       # Manual trigger
 
 jobs:
