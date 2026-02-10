@@ -22,7 +22,7 @@ export function RatingStars({ score, reason }: Props) {
         <span
           style={{
             position: "absolute",
-            bottom: "100%",
+            top: "100%",
             right: 0,
             background: "var(--th-bg)",
             color: "var(--th-text)",
@@ -33,7 +33,7 @@ export function RatingStars({ score, reason }: Props) {
             whiteSpace: "nowrap",
             pointerEvents: "none",
             zIndex: 50,
-            marginBottom: 4,
+            marginTop: 4,
             boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
           }}
         >
