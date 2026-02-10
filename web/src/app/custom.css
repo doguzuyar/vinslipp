@@ -209,8 +209,7 @@ td a {
   .calendar-mobile { display: none; }
 }
 
-/* Native iOS app: let WKWebView handle scrolling for native pull-to-refresh */
+/* Native iOS app: extra padding for tab bar */
 body.native-app .tab-scroll {
-  overflow-y: visible;
   padding-bottom: calc(70px + env(safe-area-inset-bottom));
 }
