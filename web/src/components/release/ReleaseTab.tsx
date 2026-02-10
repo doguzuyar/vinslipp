@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import type { ReleaseData, ReleaseWine } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
 import { RatingStars } from "./RatingStars";
+import { MiniCalendar } from "./MiniCalendar";
 
 interface Props {
   data: ReleaseData;
@@ -25,6 +26,7 @@ export function ReleaseTab({
   hasRatings,
 }: Props) {
   const [pastVisible, setPastVisible] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
@@ -41,8 +43,10 @@ export function ReleaseTab({
       wines = wines.filter((w) => matchType(w.wineType));
     }
 
-    // Filter today only
-    if (todayOnly) {
+    // Filter by selected date from calendar
+    if (selectedDate) {
+      wines = wines.filter((w) => w.launchDate === selectedDate);
+    } else if (todayOnly) {
       wines = wines.filter((w) => w.launchDate === today);
     } else if (!pastVisible) {
       wines = wines.filter((w) => w.launchDate >= today);
@@ -57,9 +61,9 @@ export function ReleaseTab({
     }
 
     return wines;
-  }, [data.wines, pastVisible, todayOnly, activeRating, ratingMinMode, today, matchCountry, matchType]);
+  }, [data.wines, pastVisible, todayOnly, activeRating, ratingMinMode, today, matchCountry, matchType, selectedDate]);
 
-  const isFiltered = activeRating > 0 || todayOnly || !!matchCountry || !!matchType;
+  const isFiltered = activeRating > 0 || todayOnly || !!matchCountry || !!matchType || !!selectedDate;
 
   const pastCount = useMemo(
     () => data.wines.filter((w) => w.launchDate < today).length,
@@ -146,6 +150,11 @@ export function ReleaseTab({
 
   return (
     <div className="tab-scroll">
+      <MiniCalendar
+        dateColors={data.dateColors}
+        selectedDate={selectedDate}
+        onSelectDate={setSelectedDate}
+      />
       <SortableTable
         columns={columns}
         data={filteredWines}
