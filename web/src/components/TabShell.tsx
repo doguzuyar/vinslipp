@@ -927,6 +927,7 @@ export function TabShell({ releases, metadata }: Props) {
             return t === svKey;
           } : null}
           hasRatings={hasRatings}
+          setTodayOnly={setTodayOnly}
         />
       )}
       {activeTab === "cellar" && (

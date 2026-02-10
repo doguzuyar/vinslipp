@@ -201,6 +201,14 @@ td a {
   }
 }
 
+/* Calendar responsive: desktop=3 months, mobile=1 month */
+.calendar-desktop { display: none; }
+.calendar-mobile { display: block; }
+@media (min-width: 769px) {
+  .calendar-desktop { display: block; }
+  .calendar-mobile { display: none; }
+}
+
 /* Native iOS app: let WKWebView handle scrolling for native pull-to-refresh */
 body.native-app .tab-scroll {
   overflow-y: visible;

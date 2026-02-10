@@ -14,6 +14,7 @@ interface Props {
   matchCountry: ((country: string) => boolean) | null;
   matchType: ((wineType: string) => boolean) | null;
   hasRatings: boolean;
+  setTodayOnly: (v: boolean) => void;
 }
 
 export function ReleaseTab({
@@ -24,11 +25,24 @@ export function ReleaseTab({
   matchCountry,
   matchType,
   hasRatings,
+  setTodayOnly,
 }: Props) {
   const [pastVisible, setPastVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
+
+  const handleSelectDate = (date: string | null) => {
+    if (date === today) {
+      // Clicking today on calendar toggles the Today button
+      setSelectedDate(null);
+      setTodayOnly(!todayOnly);
+    } else {
+      // Clicking another date clears Today button and sets calendar filter
+      setTodayOnly(false);
+      setSelectedDate(date);
+    }
+  };
 
   const filteredWines = useMemo(() => {
     let wines = data.wines;
@@ -150,11 +164,6 @@ export function ReleaseTab({
 
   return (
     <div className="tab-scroll">
-      <MiniCalendar
-        dateColors={data.dateColors}
-        selectedDate={selectedDate}
-        onSelectDate={setSelectedDate}
-      />
       <SortableTable
         columns={columns}
         data={filteredWines}
@@ -186,6 +195,11 @@ export function ReleaseTab({
           ({pastCount})
         </span>
       </p>
+      <MiniCalendar
+        dateColors={data.dateColors}
+        selectedDate={todayOnly ? today : selectedDate}
+        onSelectDate={handleSelectDate}
+      />
     </div>
   );
 }
