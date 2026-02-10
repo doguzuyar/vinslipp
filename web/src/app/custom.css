@@ -201,7 +201,8 @@ td a {
   }
 }
 
-/* Native iOS app: extra padding so content clears the translucent tab bar */
+/* Native iOS app: let WKWebView handle scrolling for native pull-to-refresh */
 body.native-app .tab-scroll {
+  overflow-y: visible;
   padding-bottom: calc(70px + env(safe-area-inset-bottom));
 }

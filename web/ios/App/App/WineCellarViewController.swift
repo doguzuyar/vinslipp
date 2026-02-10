@@ -16,6 +16,17 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         ucc?.add(self, name: "openInApp")
         ucc?.add(self, name: "tabSwitch")
         webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        webView?.scrollView.refreshControl = refreshControl
+    }
+
+    @objc private func handleRefresh(_ sender: UIRefreshControl) {
+        webView?.reload()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            sender.endRefreshing()
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -49,7 +60,6 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
             guard let urlString = message.body as? String,
                   let url = URL(string: urlString) else { return }
             let safari = SFSafariViewController(url: url)
-            // Present from the topmost parent so it works even when reparented
             let presenter = view.window?.rootViewController ?? self
             presenter.present(safari, animated: true)
 
