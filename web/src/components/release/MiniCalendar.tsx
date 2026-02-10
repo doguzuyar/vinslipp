@@ -84,7 +84,7 @@ function MonthGrid({
               style={{
                 textAlign: "center",
                 fontSize: compact ? 13 : 12,
-                padding: compact ? "5px 0" : "4px 0",
+                padding: compact ? "5px 0" : "8px 0",
                 cursor: (color || isToday) ? "pointer" : "default",
                 borderRadius: 6,
                 position: "relative",
