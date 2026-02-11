@@ -12,6 +12,8 @@ protocol NativeTabDelegate: AnyObject {
 class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler {
     weak var tabDelegate: NativeTabDelegate?
     private var appleSignInHandler: AppleSignInHandler?
+    private var authListener: AuthStateDidChangeListenerHandle?
+    private var webReady = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +25,20 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         ucc?.add(self, name: "setNotificationPreference")
         ucc?.add(self, name: "getNotificationPreference")
         webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
+
+        // Listen for Firebase auth restoration (fires when Keychain session is ready)
+        authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            guard let self = self, self.webReady, let user = user else { return }
+            let handler = AppleSignInHandler(webView: self.webView)
+            handler.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "", email: user.email ?? "")
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WKWebView.isLoading),
            let isLoading = change?[.newKey] as? Bool,
            !isLoading {
+            webReady = true
             injectLinkHandler()
             sendExistingAuthToWeb()
         }
@@ -115,6 +125,9 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
     }
 
     deinit {
+        if let listener = authListener {
+            Auth.auth().removeStateDidChangeListener(listener)
+        }
         webView?.removeObserver(self, forKeyPath: #keyPath(WKWebView.isLoading))
         let ucc = webView?.configuration.userContentController
         ucc?.removeScriptMessageHandler(forName: "openInApp")

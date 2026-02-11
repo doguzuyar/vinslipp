@@ -66,11 +66,17 @@ export function getNotificationPreference(callback: (topic: string) => void): ()
 export function onAuthChange(
   callback: (user: AuthUser | null) => void
 ): () => void {
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    callback(
-      user ? { uid: user.uid, displayName: user.displayName } : null
-    );
-  });
+  const native = isNativeApp();
+
+  // In native app, auth is managed by iOS SDK via JS bridge — skip web SDK listener
+  // (web SDK would always fire null since sign-in happens through iOS, not web)
+  const unsubscribe = native
+    ? () => {}
+    : onAuthStateChanged(auth, (user) => {
+        callback(
+          user ? { uid: user.uid, displayName: user.displayName } : null
+        );
+      });
 
   // Listen for native iOS auth callbacks via JS bridge
   const win = window as unknown as {

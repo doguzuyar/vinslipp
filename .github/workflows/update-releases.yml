@@ -12,6 +12,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -21,11 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+          fetch-depth: 2
 
       - uses: actions/setup-node@v4
         with:
@@ -33,8 +33,11 @@ jobs:
           cache: 'npm'
           cache-dependency-path: web/package-lock.json
 
+      - name: Install dependencies
+        run: cd web && npm ci
+
       - name: Generate data
-        run: python scripts/wine_cellar.py
+        run: python3 scripts/wine_cellar.py
 
       - name: Check for changes
         id: changes
@@ -57,14 +60,10 @@ jobs:
           git push
 
       - name: Build Next.js site
-        run: |
-          cd web
-          npm ci
-          npm run build
+        run: cd web && npm run build
 
       - name: Prepare deployment
-        run: |
-          cp bukowskis/auction_stats.json web/out/data/
+        run: cp bukowskis/auction_stats.json web/out/data/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
