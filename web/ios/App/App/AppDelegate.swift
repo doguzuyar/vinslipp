@@ -1,6 +1,7 @@
 import UIKit
 import Capacitor
 import FirebaseCore
+import FirebaseAuth
 import FirebaseMessaging
 import UserNotifications
 

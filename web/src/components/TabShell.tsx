@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import type { CellarData, ReleaseData, HistoryData, Metadata } from "@/types";
 import { DarkModeToggle } from "./DarkModeToggle";
+import { ProfileTab } from "./profile/ProfileTab";
+import { signInWithApple, signOutUser, onAuthChange, type AuthUser } from "@/lib/firebase";
 import { CellarTab } from "./cellar/CellarTab";
 import { ReleaseTab } from "./release/ReleaseTab";
 import { HistoryTab } from "./history/HistoryTab";
@@ -10,7 +12,7 @@ import { AuctionTab } from "./auction/AuctionTab";
 import { UploadButton } from "./UploadButton";
 import { getUserData, saveUserData, clearAllUserData } from "@/lib/db";
 
-const TABS = ["release", "cellar", "history", "auction"] as const;
+const TABS = ["release", "cellar", "history", "auction", "profile"] as const;
 type TabName = (typeof TABS)[number];
 
 const TAB_LABELS: Record<TabName, string> = {
@@ -18,6 +20,7 @@ const TAB_LABELS: Record<TabName, string> = {
   cellar: "Cellar",
   history: "History",
   auction: "Auction",
+  profile: "Profile",
 };
 
 function TabIcon({ tab, size = 22 }: { tab: TabName; size?: number }) {
@@ -31,8 +34,11 @@ function TabIcon({ tab, size = 22 }: { tab: TabName; size?: number }) {
   if (tab === "history") return (
     <svg viewBox="0 0 24 24" {...s}><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
   );
-  return (
+  if (tab === "auction") return (
     <svg viewBox="0 0 24 24" {...s}><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  );
+  return (
+    <svg viewBox="0 0 24 24" {...s}><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
   );
 }
 
@@ -260,6 +266,7 @@ interface Props {
 
 export function TabShell({ releases, metadata }: Props) {
   const [activeTab, setActiveTab] = useState<TabName>("release");
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [activeRating, setActiveRating] = useState(0);
   const [ratingMinMode, setRatingMinMode] = useState(false);
   const [auctionSearch, setAuctionSearch] = useState("");
@@ -307,9 +314,13 @@ export function TabShell({ releases, metadata }: Props) {
     setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
+
+    const unsubAuth = onAuthChange(setUser);
+
     return () => {
       window.removeEventListener("hashchange", onHashChange);
       mq.removeEventListener("change", handler);
+      unsubAuth();
     };
   }, []);
 
@@ -392,6 +403,7 @@ export function TabShell({ releases, metadata }: Props) {
     cellar: importedAt ?? "",
     history: importedAt ?? "",
     auction: metadata.auctionUpdated,
+    profile: "",
   };
 
   function handleRatingFilter(stars: number, min?: boolean) {
@@ -729,8 +741,8 @@ export function TabShell({ releases, metadata }: Props) {
             </>
           )}
 
-          {/* Dark mode toggle always on the right */}
-          <span style={{ marginLeft: "auto" }}>
+          {/* Dark mode toggle on the right */}
+          <span style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center" }}>
             <DarkModeToggle />
           </span>
         </div>
@@ -770,6 +782,7 @@ export function TabShell({ releases, metadata }: Props) {
         historyData ? <HistoryTab wines={filteredHistoryWines} selectedLocation={historyLocation} /> : <UploadButton inline onImportComplete={handleImport} />
       )}
       {activeTab === "auction" && <AuctionTab search={auctionSearch} />}
+      {activeTab === "profile" && <ProfileTab user={user} onSignIn={signInWithApple} onSignOut={signOutUser} />}
       </div>
 
       {/* Mobile: Bottom tab bar (hidden when native app provides its own) */}

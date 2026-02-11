@@ -2,6 +2,7 @@ import UIKit
 import SafariServices
 import WebKit
 import Capacitor
+import FirebaseAuth
 
 protocol NativeTabDelegate: AnyObject {
     func webDidSwitchTab(_ tab: String)
@@ -9,12 +10,15 @@ protocol NativeTabDelegate: AnyObject {
 
 class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler {
     weak var tabDelegate: NativeTabDelegate?
+    private var appleSignInHandler: AppleSignInHandler?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let ucc = webView?.configuration.userContentController
         ucc?.add(self, name: "openInApp")
         ucc?.add(self, name: "tabSwitch")
+        ucc?.add(self, name: "appleSignIn")
+        ucc?.add(self, name: "appleSignOut")
         webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
     }
 
@@ -23,6 +27,7 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
            let isLoading = change?[.newKey] as? Bool,
            !isLoading {
             injectLinkHandler()
+            sendExistingAuthToWeb()
         }
     }
 
@@ -43,6 +48,12 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         webView?.evaluateJavaScript(js)
     }
 
+    private func sendExistingAuthToWeb() {
+        guard let user = Auth.auth().currentUser else { return }
+        let handler = AppleSignInHandler(webView: webView)
+        handler.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "")
+    }
+
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         switch message.name {
         case "openInApp":
@@ -57,6 +68,15 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
                 tabDelegate?.webDidSwitchTab(tab)
             }
 
+        case "appleSignIn":
+            appleSignInHandler = AppleSignInHandler(webView: webView)
+            appleSignInHandler?.startSignIn()
+
+        case "appleSignOut":
+            try? Auth.auth().signOut()
+            appleSignInHandler = AppleSignInHandler(webView: webView)
+            appleSignInHandler?.sendSignOutToWeb()
+
         default:
             break
         }
@@ -67,5 +87,7 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         let ucc = webView?.configuration.userContentController
         ucc?.removeScriptMessageHandler(forName: "openInApp")
         ucc?.removeScriptMessageHandler(forName: "tabSwitch")
+        ucc?.removeScriptMessageHandler(forName: "appleSignIn")
+        ucc?.removeScriptMessageHandler(forName: "appleSignOut")
     }
 }

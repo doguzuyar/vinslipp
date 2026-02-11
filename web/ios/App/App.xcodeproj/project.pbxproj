@@ -15,6 +15,8 @@
 		504EC30F1FED79650016851F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30E1FED79650016851F /* Assets.xcassets */; };
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
 		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
+		7E59BEE32F3CF263005F7386 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59BEE22F3CF263005F7386 /* FirebaseAuth */; };
+		7E59BEE52F3CF712005F7386 /* AppleSignInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59BEE42F3CF712005F7386 /* AppleSignInHandler.swift */; };
 		7EA44BD42F3A5C2E006789FF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */; };
 		A1B2C3D41234567800ABCDEF /* WineCellarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31234567800ABCDEF /* WineCellarViewController.swift */; };
 		B1C2D3E51234567800ABCDEF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E41234567800ABCDEF /* MainTabBarController.swift */; };
@@ -31,6 +33,7 @@
 		504EC3111FED79650016851F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		504EC3131FED79650016851F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50B271D01FEDC1A000F3C39B /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		7E59BEE42F3CF712005F7386 /* AppleSignInHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInHandler.swift; sourceTree = "<group>"; };
 		7EA44BDD2F3A5C63006789FF /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		A1B2C3D31234567800ABCDEF /* WineCellarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineCellarViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */,
+				7E59BEE32F3CF263005F7386 /* FirebaseAuth in Frameworks */,
 				7EA44BD42F3A5C2E006789FF /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,8 +58,10 @@
 		504EC2FB1FED79650016851F = {
 			isa = PBXGroup;
 			children = (
+				7E59BEE42F3CF712005F7386 /* AppleSignInHandler.swift */,
 				958DCC722DB07C7200EA8C5F /* debug.xcconfig */,
 				504EC3061FED79650016851F /* App */,
+				7E59BEE12F3CF263005F7386 /* Frameworks */,
 				504EC3051FED79650016851F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +93,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		7E59BEE12F3CF263005F7386 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +119,7 @@
 			packageProductDependencies = (
 				4D22ABE82AF431CB00220026 /* CapApp-SPM */,
 				7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */,
+				7E59BEE22F3CF263005F7386 /* FirebaseAuth */,
 			);
 			productName = App;
 			productReference = 504EC3041FED79650016851F /* App.app */;
@@ -174,6 +188,7 @@
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
 				A1B2C3D41234567800ABCDEF /* WineCellarViewController.swift in Sources */,
 				B1C2D3E51234567800ABCDEF /* MainTabBarController.swift in Sources */,
+				7E59BEE52F3CF712005F7386 /* AppleSignInHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +437,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D4C12C0A2AAA248700AAC8A2 /* XCLocalSwiftPackageReference "CapApp-SPM" */;
 			productName = "CapApp-SPM";
+		};
+		7E59BEE22F3CF263005F7386 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EA44BAC2F3A5C2E006789FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 		7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

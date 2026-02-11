@@ -14,6 +14,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
         ("cellar",   "Cellar",  "cube.box"),
         ("history",  "History", "doc.on.clipboard"),
         ("auction",  "Auction", "dollarsign.circle"),
+        ("profile",  "Profile", "person.circle"),
     ]
 
     init(webViewController: WineCellarViewController) {

@@ -1,0 +1,104 @@
+"use client";
+
+import type { AuthUser } from "@/lib/firebase";
+
+interface Props {
+  user: AuthUser | null;
+  onSignIn: () => void;
+  onSignOut: () => void;
+}
+
+export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
+  if (!user) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          flex: 1,
+          gap: 20,
+          padding: 40,
+        }}
+      >
+        <div style={{ fontSize: 14, color: "var(--text-muted)" }}>
+          Sign in to sync your data across devices
+        </div>
+        <button
+          onClick={onSignIn}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "12px 24px",
+            background: "var(--tab-active-bg)",
+            color: "var(--tab-active-text)",
+            border: "none",
+            borderRadius: 10,
+            fontSize: 15,
+            fontWeight: 500,
+            cursor: "pointer",
+            transition: "opacity 0.15s ease",
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+          </svg>
+          Sign in with Apple
+        </button>
+      </div>
+    );
+  }
+
+  const initial = (user.displayName || "?")[0].toUpperCase();
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: 40,
+        gap: 20,
+      }}
+    >
+      <div
+        style={{
+          width: 64,
+          height: 64,
+          borderRadius: "50%",
+          background: "var(--bg-alt)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 28,
+          fontWeight: 600,
+          color: "var(--text)",
+        }}
+      >
+        {initial}
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text)" }}>
+          {user.displayName || "User"}
+        </div>
+      </div>
+      <button
+        onClick={onSignOut}
+        style={{
+          padding: "10px 24px",
+          background: "var(--bg-alt)",
+          color: "var(--text-muted)",
+          border: "none",
+          borderRadius: 10,
+          fontSize: 14,
+          cursor: "pointer",
+          transition: "opacity 0.15s ease",
+        }}
+      >
+        Sign Out
+      </button>
+    </div>
+  );
+}
