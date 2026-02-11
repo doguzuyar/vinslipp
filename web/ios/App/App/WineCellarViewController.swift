@@ -54,7 +54,7 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
     private func sendExistingAuthToWeb() {
         guard let user = Auth.auth().currentUser else { return }
         let handler = AppleSignInHandler(webView: webView)
-        handler.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "")
+        handler.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "", email: user.email ?? "")
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {

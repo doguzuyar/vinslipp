@@ -20,7 +20,7 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
 
         let provider = ASAuthorizationAppleIDProvider()
         let request = provider.createRequest()
-        request.requestedScopes = [.fullName]
+        request.requestedScopes = [.fullName, .email]
         request.nonce = sha256(nonce)
 
         let controller = ASAuthorizationController(authorizationRequests: [request])
@@ -46,12 +46,28 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
             fullName: appleCredential.fullName
         )
 
+        // Build display name from Apple credential (only provided on first sign-in)
+        let fullName = appleCredential.fullName
+        let givenName = fullName?.givenName
+        let familyName = fullName?.familyName
+        let appleDisplayName = [givenName, familyName].compactMap { $0 }.joined(separator: " ")
+
         Auth.auth().signIn(with: credential) { [weak self] result, error in
             guard let user = result?.user, error == nil else {
                 print("⚠️ Auth: Apple Sign-In error: \(error?.localizedDescription ?? "unknown")")
                 return
             }
-            self?.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "")
+
+            // Update Firebase profile with Apple's name if we got one and user doesn't have one yet
+            if !appleDisplayName.isEmpty && (user.displayName == nil || user.displayName?.isEmpty == true) {
+                let changeRequest = user.createProfileChangeRequest()
+                changeRequest.displayName = appleDisplayName
+                changeRequest.commitChanges { _ in
+                    self?.sendUserToWeb(uid: user.uid, displayName: appleDisplayName, email: user.email ?? "")
+                }
+            } else {
+                self?.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "", email: user.email ?? "")
+            }
         }
     }
 
@@ -60,12 +76,14 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
         print("⚠️ Auth: Apple Sign-In cancelled/error: \(error.localizedDescription)")
     }
 
-    func sendUserToWeb(uid: String, displayName: String) {
+    func sendUserToWeb(uid: String, displayName: String, email: String = "") {
         let escapedName = displayName.replacingOccurrences(of: "\"", with: "\\\"")
+        let escapedEmail = email.replacingOccurrences(of: "\"", with: "\\\"")
         let js = """
         window.__nativeAuthCallback && window.__nativeAuthCallback({
             uid: "\(uid)",
-            displayName: "\(escapedName)"
+            displayName: "\(escapedName)",
+            email: "\(escapedEmail)"
         });
         """
         DispatchQueue.main.async {
