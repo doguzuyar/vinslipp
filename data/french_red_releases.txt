@@ -39,7 +39,7 @@
 [Feb 19] Domaine Sylvain Cathiard et Fils - Nuits-St-Georges 1er Cru Aux Murgers Domaine Sylvain Cathiard et Fils 2023 (2749 SEK) [★★★★] (Top site, astonishing quality)
 [Feb 19] Domaine Sylvain Cathiard et Fils - Vosne-Romanée Premier Cru Aux Malconsorts Domaine Sylvain Cathiard et Fils 2023 (7299 SEK) [★★★★] (Top producer, exceptional site)
 [Feb 19] Domaine Sylvain Cathiard et Fils - Romanee St Vivant Grand Cru Domaine Sylvain Cathiard et Fils 2023 (17999 SEK) [★★★★] (Top producer, Grand Cru)
-[Feb 18] Château Latour - Pauillac de Latour 2020 (598 SEK)
+[Feb 18] Château Latour - Pauillac de Latour 2020 (598 SEK) [★★★] (Third label, solid vintage)
 [Feb 17] Domaines Paul Mas - Cote Mas Syrah Grenache Noir 2024 (145 SEK) [★★] (Reliable everyday Languedoc blend)
 [Feb 13] Couly-Dutheil - Couly-Dutheil Clos de l'Olive 2019 (299 SEK) [★★★] (Historic single vineyard, excellent vintage)
 [Feb 13] Domaine des Lises - Crozes-Hermitage Domaine des Lises 2023 (349 SEK) [★★] (Solid Northern Rhône village)
@@ -97,3 +97,4 @@
 [Jan 12] Etabilssements Jean-Pierre Mouiex - Château Latour à Pomerol 2009 (1600 SEK) [★★★] (Top Pomerol, legendary vintage)
 [Jan 12] Etabilssements Jean-Pierre Mouiex - Château Latour à Pomerol 2000 (2500 SEK) [★★★★] (Top Pomerol, legendary vintage)
 [Jan 5] Domaine de la Vougeraie - Bonnes-Mares Grand Cru Domaine de la Vougeraie 2019 (3599 SEK) [★★★★] (Outstanding GC, stellar vintage)
+[Mar 10] Test Winery - Test Wine 2024 (199 SEK) [★] (Test data, not real)
