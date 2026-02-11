@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import type { ReleaseData, ReleaseWine } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
+import { useRowPopup, RowPopup } from "@/components/RowPopup";
 import { RatingStars } from "./RatingStars";
 import { MiniCalendar } from "./MiniCalendar";
 
@@ -29,16 +30,15 @@ export function ReleaseTab({
 }: Props) {
   const [pastVisible, setPastVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
 
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
   const handleSelectDate = (date: string | null) => {
     if (date === today) {
-      // Clicking today on calendar toggles the Today button
       setSelectedDate(null);
       setTodayOnly(!todayOnly);
     } else {
-      // Clicking another date clears Today button and sets calendar filter
       setTodayOnly(false);
       setSelectedDate(date);
     }
@@ -47,17 +47,14 @@ export function ReleaseTab({
   const filteredWines = useMemo(() => {
     let wines = data.wines;
 
-    // Filter by country
     if (matchCountry) {
       wines = wines.filter((w) => matchCountry(w.country));
     }
 
-    // Filter by type
     if (matchType) {
       wines = wines.filter((w) => matchType(w.wineType));
     }
 
-    // Filter by selected date from calendar
     if (selectedDate) {
       wines = wines.filter((w) => w.launchDate === selectedDate);
     } else if (todayOnly) {
@@ -66,7 +63,6 @@ export function ReleaseTab({
       wines = wines.filter((w) => w.launchDate >= today);
     }
 
-    // Filter by rating
     if (activeRating > 0) {
       wines = wines.filter((w) => {
         const score = w.ratingScore || 0;
@@ -89,57 +85,27 @@ export function ReleaseTab({
       {
         label: "Date",
         accessor: (w) => w.launchDateFormatted,
-        render: (w) => (
-          <a href={w.vivinoLink} target="_blank" rel="noreferrer">
-            {w.launchDateFormatted}
-          </a>
-        ),
       },
       {
         label: "Winery",
         accessor: (w) => w.producer,
-        render: (w) => (
-          <a href={w.vivinoLink} target="_blank" rel="noreferrer">
-            {w.producer}
-          </a>
-        ),
       },
       {
         label: "Wine name",
         accessor: (w) => w.wineName,
-        render: (w) => (
-          <a href={w.vivinoLink} target="_blank" rel="noreferrer">
-            {w.wineName}
-          </a>
-        ),
       },
       {
         label: "Vintage",
         accessor: (w) => w.vintage,
-        render: (w) => (
-          <a href={w.vivinoLink} target="_blank" rel="noreferrer">
-            {w.vintage}
-          </a>
-        ),
       },
       {
         label: "Region",
         accessor: (w) => w.region,
         hiddenOnMobile: true,
-        render: (w) => (
-          <a href={w.sbLink} target="_blank">
-            {w.region}
-          </a>
-        ),
       },
       {
         label: "Price",
         accessor: (w) => w.price,
-        render: (w) => (
-          <a href={w.sbLink} target="_blank">
-            {w.price}
-          </a>
-        ),
       },
       ...(hasRatings
         ? [
@@ -149,7 +115,7 @@ export function ReleaseTab({
                 w.ratingScore ? "\u2605".repeat(w.ratingScore) : "...",
               render: (w: ReleaseWine) =>
                 w.ratingScore ? (
-                  <RatingStars score={w.ratingScore} reason={w.ratingReason} />
+                  <RatingStars score={w.ratingScore} />
                 ) : (
                   <span style={{ color: "var(--text-muted)", fontStyle: "italic" }}>
                     ...
@@ -162,8 +128,10 @@ export function ReleaseTab({
     [hasRatings]
   );
 
+  const expandedWineData = expandedId ? filteredWines.find((w) => w.productNumber === expandedId) : null;
+
   return (
-    <div className="tab-scroll">
+    <div className="tab-scroll" ref={scrollRef} style={{ position: "relative" }}>
       <SortableTable
         columns={columns}
         data={filteredWines}
@@ -173,11 +141,32 @@ export function ReleaseTab({
             key={idx}
             className="clickable"
             style={{ backgroundColor: wine.rowColor }}
+            onClick={(e) => handleRowClick(wine.productNumber, e)}
           >
             {cells}
           </tr>
         )}
       />
+      {expandedWineData && popupPos && (
+        <RowPopup
+          popupRef={popupRef}
+          popupPos={popupPos}
+          links={[
+            { label: "Vivino", href: expandedWineData.vivinoLink },
+            { label: "Systembolaget", href: expandedWineData.sbLink },
+            { label: "Blog" },
+          ]}
+        >
+          {expandedWineData.ratingReason && (
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>AI Comment</div>
+              <div style={{ fontSize: 12, fontStyle: "italic", color: "var(--text-muted)" }}>
+                {expandedWineData.ratingReason}
+              </div>
+            </div>
+          )}
+        </RowPopup>
+      )}
       <p style={{ fontWeight: 500, marginTop: 16, fontSize: 14, color: "var(--text-muted)" }}>
         {isFiltered ? `${filteredWines.length} of ${data.totalCount}` : data.totalCount} wines &middot;{" "}
         <span

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { processCellar, processHistory } from "@/lib/vivino";
 import type { CellarData, HistoryData } from "@/types";
 
@@ -358,7 +359,7 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
 
   // Button+modal mode
   return (
-    <div ref={panelRef} style={{ position: "relative" }}>
+    <div style={{ position: "relative" }}>
       <button
         onClick={toggle}
         title="Upload Vivino data"
@@ -377,8 +378,9 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
         Upload Vivino Data
       </button>
 
-      {open && (
+      {open && createPortal(
         <div
+          ref={panelRef}
           style={{
             position: "fixed",
             left: "50%",
@@ -397,7 +399,8 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
             Import Vivino Data
           </div>
           {panelContent}
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );

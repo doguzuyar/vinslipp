@@ -1,18 +1,6 @@
 import { parseCSV } from "./csv";
+import { getYearColor } from "./colors";
 import type { CellarData, CellarWine, HistoryData, HistoryWine } from "@/types";
-
-const COLOR_PALETTE = [
-  "#f3abab", "#f8bbd0", "#d4a3dc", "#e1bee7", "#7ec4f8",
-  "#bbdefb", "#6bc4ba", "#b2dfdb", "#96d098", "#c8e6c9",
-  "#ffe066", "#fff9c4", "#ffc570", "#ffe0b2", "#f8a0bc",
-];
-
-function getYearColor(year: string): string {
-  const num = parseInt(year, 10);
-  if (isNaN(num)) return "#ffffff";
-  const index = ((num - 2026) % COLOR_PALETTE.length + COLOR_PALETTE.length) % COLOR_PALETTE.length;
-  return COLOR_PALETTE[index];
-}
 
 /**
  * Process cellar.csv (required) + user_prices.csv (optional) into CellarData.

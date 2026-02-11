@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import type { HistoryWine } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
+import { useRowPopup, RowPopup } from "@/components/RowPopup";
 
 interface Props {
   wines: HistoryWine[];
@@ -10,60 +11,39 @@ interface Props {
 }
 
 export function HistoryTab({ wines, selectedLocation }: Props) {
+  const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
+
   const columns: Column<HistoryWine>[] = useMemo(
     () => [
       {
         label: "Winery",
         accessor: (w) => w.winery,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.winery}
-          </a>
-        ),
       },
       {
         label: "Wine name",
         accessor: (w) => w.wineName,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.wineName}
-          </a>
-        ),
       },
       {
         label: "Vintage",
         accessor: (w) => w.vintage,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.vintage}
-          </a>
-        ),
       },
       {
         label: "Region",
         accessor: (w) => w.region,
         hiddenOnMobile: true,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.region}
-          </a>
-        ),
       },
       {
         label: "Style",
         accessor: (w) => w.style,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.style}
-          </a>
-        ),
       },
     ],
     []
   );
 
+  const expandedWineData = expandedId ? wines.find((w) => w.link === expandedId) : null;
+
   return (
-    <div className="tab-scroll">
+    <div className="tab-scroll" ref={scrollRef} style={{ position: "relative" }}>
       <SortableTable
         columns={columns}
         data={wines}
@@ -73,11 +53,22 @@ export function HistoryTab({ wines, selectedLocation }: Props) {
             key={idx}
             className="clickable"
             style={{ backgroundColor: "var(--bg-alt)" }}
+            onClick={(e) => handleRowClick(wine.link, e)}
           >
             {cells}
           </tr>
         )}
       />
+      {expandedWineData && popupPos && (
+        <RowPopup
+          popupRef={popupRef}
+          popupPos={popupPos}
+          links={[
+            { label: "Vivino", href: expandedWineData.link },
+            { label: "Blog" },
+          ]}
+        />
+      )}
       <p style={{ fontWeight: 500, marginTop: 16, fontSize: 14, color: "var(--text-muted)" }}>
         {wines.length} wines{selectedLocation ? ` consumed at ${selectedLocation}` : ""}
       </p>

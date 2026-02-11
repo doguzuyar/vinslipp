@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from "react";
 import type { CellarData, CellarWine } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
+import { useRowPopup, RowPopup } from "@/components/RowPopup";
 import { BottleChart } from "./BottleChart";
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 
 export function CellarTab({ data }: Props) {
   const [activeYear, setActiveYear] = useState<string | null>(null);
+  const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
 
   const filteredWines = useMemo(() => {
     if (!activeYear) return data.wines;
@@ -26,81 +28,43 @@ export function CellarTab({ data }: Props) {
       {
         label: "Notes",
         accessor: (w) => w.drinkYear,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.drinkYear}
-          </a>
-        ),
       },
       {
         label: "Winery",
         accessor: (w) => w.winery,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.winery}
-          </a>
-        ),
       },
       {
         label: "Wine name",
         accessor: (w) => w.wineName,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.wineName}
-          </a>
-        ),
       },
       {
         label: "Vintage",
         accessor: (w) => w.vintage,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.vintage}
-          </a>
-        ),
       },
       {
         label: "Region",
         accessor: (w) => w.region,
         hiddenOnMobile: true,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.region}
-          </a>
-        ),
       },
       {
         label: "Style",
         accessor: (w) => w.style,
         hiddenOnMobile: true,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.style}
-          </a>
-        ),
       },
       {
         label: "Price",
         accessor: (w) => w.price,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.price}
-          </a>
-        ),
       },
       {
         label: "Count",
         accessor: (w) => String(w.count),
         hiddenOnMobile: true,
-        render: (w) => (
-          <a href={w.link} target="_blank" rel="noreferrer">
-            {w.count}
-          </a>
-        ),
       },
     ],
     []
   );
+
+  const expandedWineData = expandedId ? filteredWines.find((w) => w.link === expandedId) : null;
 
   const totalValueFormatted = data.totalValue
     .toLocaleString("sv-SE")
@@ -111,7 +75,7 @@ export function CellarTab({ data }: Props) {
   }, [data.yearCounts]);
 
   return (
-    <div className="tab-scroll">
+    <div className="tab-scroll" ref={scrollRef} style={{ position: "relative" }}>
       <SortableTable
         columns={columns}
         data={filteredWines}
@@ -121,11 +85,22 @@ export function CellarTab({ data }: Props) {
             key={idx}
             className="clickable"
             style={{ backgroundColor: wine.color }}
+            onClick={(e) => handleRowClick(wine.link, e)}
           >
             {cells}
           </tr>
         )}
       />
+      {expandedWineData && popupPos && (
+        <RowPopup
+          popupRef={popupRef}
+          popupPos={popupPos}
+          links={[
+            { label: "Vivino", href: expandedWineData.link },
+            { label: "Blog" },
+          ]}
+        />
+      )}
 
       {hasYearData && (
         <>

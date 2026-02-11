@@ -57,6 +57,202 @@ const searchInputStyle = {
   transition: "border-color 0.15s ease, box-shadow 0.15s ease",
 } as const;
 
+const sectionLabelStyle: React.CSSProperties = {
+  fontSize: 11, fontWeight: 500, color: "var(--text-muted)",
+  marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em",
+};
+
+function chipStyle(active: boolean): React.CSSProperties {
+  return {
+    padding: "4px 10px",
+    border: "none",
+    background: active ? "var(--tab-active-bg)" : "var(--bg-alt)",
+    color: active ? "var(--tab-active-text)" : "var(--text-muted)",
+    cursor: "pointer",
+    borderRadius: 6,
+    fontSize: 12,
+    transition: "all 0.15s ease",
+  };
+}
+
+function toggleBtnStyle(active: boolean): React.CSSProperties {
+  return {
+    padding: "6px 14px",
+    border: "none",
+    background: active ? "var(--tab-active-bg)" : "var(--bg-alt)",
+    color: active ? "var(--tab-active-text)" : "var(--text-muted)",
+    cursor: "pointer",
+    borderRadius: 8,
+    fontSize: 12,
+    fontWeight: 500,
+    transition: "all 0.15s ease",
+  };
+}
+
+const dropdownStyle: React.CSSProperties = {
+  position: "absolute",
+  top: "calc(100% + 8px)",
+  left: "50%",
+  transform: "translateX(-50%)",
+  background: "var(--bg)",
+  border: "1px solid var(--border)",
+  borderRadius: 12,
+  padding: 12,
+  zIndex: 300,
+  boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+};
+
+function useOutsideClick(ref: React.RefObject<HTMLElement | null>, open: boolean, onClose: () => void) {
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open, ref, onClose]);
+}
+
+// --- Extracted filter dropdown contents ---
+
+function ReleaseFilterContent({
+  countryOptions,
+  typeOptions,
+  selectedCountry,
+  selectedType,
+  setSelectedCountry,
+  setSelectedType,
+  hasRatings,
+  activeRating,
+  ratingMinMode,
+  handleRatingFilter,
+  setActiveRating,
+  setRatingMinMode,
+}: {
+  countryOptions: string[];
+  typeOptions: string[];
+  selectedCountry: string;
+  selectedType: string;
+  setSelectedCountry: (v: string) => void;
+  setSelectedType: (v: string) => void;
+  hasRatings: boolean;
+  activeRating: number;
+  ratingMinMode: boolean;
+  handleRatingFilter: (stars: number, min?: boolean) => void;
+  setActiveRating: (v: number) => void;
+  setRatingMinMode: (v: boolean) => void;
+}) {
+  return (
+    <>
+      <div>
+        <div style={sectionLabelStyle}>Country</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+          {countryOptions.map((c) => (
+            <button
+              key={c}
+              onClick={() => {
+                setSelectedCountry(selectedCountry === c ? "" : c);
+                if (selectedCountry !== c && c !== "France" && c !== "Italy") {
+                  setActiveRating(0);
+                  setRatingMinMode(false);
+                }
+              }}
+              style={chipStyle(selectedCountry === c)}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div style={sectionLabelStyle}>Type</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+          {typeOptions.map((t) => (
+            <button
+              key={t}
+              onClick={() => {
+                setSelectedType(selectedType === t ? "" : t);
+                if (selectedType !== t && t !== "Red" && t !== "White") {
+                  setActiveRating(0);
+                  setRatingMinMode(false);
+                }
+              }}
+              style={chipStyle(selectedType === t)}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      </div>
+      {hasRatings && (
+        <div>
+          <div style={sectionLabelStyle}>AI Rating</div>
+          <div style={{ display: "flex", gap: 2, background: "var(--bg-alt)", borderRadius: 8, padding: 2, width: "fit-content" }}>
+            {[
+              { stars: 3, label: "\u2605\u2605\u2605", min: false },
+              { stars: 3, label: "\u2605\u2605\u2605+", min: true },
+              { stars: 4, label: "\u2605\u2605\u2605\u2605", min: false },
+            ].map((f, i) => {
+              const isActive = f.min
+                ? ratingMinMode && activeRating === f.stars
+                : !ratingMinMode && activeRating === f.stars;
+              return (
+                <button
+                  key={i}
+                  onClick={() => handleRatingFilter(f.stars, f.min)}
+                  style={{
+                    padding: "4px 10px",
+                    border: "none",
+                    background: isActive ? "var(--tab-active-bg)" : "transparent",
+                    color: isActive ? "var(--tab-active-text)" : "var(--text-muted)",
+                    cursor: "pointer",
+                    borderRadius: 6,
+                    fontSize: 13,
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  {f.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+function HistoryFilterContent({
+  locations,
+  selected,
+  onSelect,
+}: {
+  locations: string[];
+  selected: string;
+  onSelect: (loc: string) => void;
+}) {
+  return (
+    <>
+      <div style={sectionLabelStyle}>Location</div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+        {locations.map((loc) => (
+          <button
+            key={loc || "__empty__"}
+            onClick={() => onSelect(selected === loc ? "" : loc)}
+            style={chipStyle(selected === loc)}
+          >
+            {loc || "Unknown"}
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}
+
+// --- Main component ---
+
 interface Props {
   releases: ReleaseData;
   metadata: Metadata;
@@ -152,7 +348,6 @@ export function TabShell({ releases, metadata }: Props) {
   const switchTab = useCallback((tab: TabName) => {
     setActiveTab(tab);
     window.history.replaceState(null, "", "#" + tab);
-    // Sync native tab bar when web-side navigation occurs
     (window as /* eslint-disable-line */ any).webkit?.messageHandlers?.tabSwitch?.postMessage(tab);
   }, []);
 
@@ -241,29 +436,11 @@ export function TabShell({ releases, metadata }: Props) {
   const RATED_COMBOS = new Set(["France:Red", "France:White", "Italy:Red", "Italy:White"]);
   const hasRatings = RATED_COMBOS.has(`${selectedCountry}:${selectedType}`);
 
-  // Close filter dropdown on click outside
-  useEffect(() => {
-    if (!filterOpen) return;
-    function handleClick(e: MouseEvent) {
-      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
-        setFilterOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [filterOpen]);
-
-  // Close history filter dropdown on click outside
-  useEffect(() => {
-    if (!historyFilterOpen) return;
-    function handleClick(e: MouseEvent) {
-      if (historyFilterRef.current && !historyFilterRef.current.contains(e.target as Node)) {
-        setHistoryFilterOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [historyFilterOpen]);
+  // Close dropdowns on click outside
+  const closeFilter = useCallback(() => setFilterOpen(false), []);
+  const closeHistoryFilter = useCallback(() => setHistoryFilterOpen(false), []);
+  useOutsideClick(filterRef, filterOpen, closeFilter);
+  useOutsideClick(historyFilterRef, historyFilterOpen, closeHistoryFilter);
 
   // Map English label back to Swedish for filtering
   function countryToSwedish(label: string): string {
@@ -283,6 +460,22 @@ export function TabShell({ releases, metadata }: Props) {
     if (!historyLocation) return historyData.wines;
     return historyData.wines.filter((w) => w.scanLocation === historyLocation);
   }, [historyData, historyLocation]);
+
+  // Shared props for ReleaseFilterContent
+  const releaseFilterProps = {
+    countryOptions,
+    typeOptions,
+    selectedCountry,
+    selectedType,
+    setSelectedCountry,
+    setSelectedType,
+    hasRatings,
+    activeRating,
+    ratingMinMode,
+    handleRatingFilter,
+    setActiveRating,
+    setRatingMinMode,
+  };
 
   return (
     <>
@@ -368,61 +561,17 @@ export function TabShell({ releases, metadata }: Props) {
             <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
             <button
               onClick={() => setHistoryFilterOpen((v) => !v)}
-              style={{
-                padding: "6px 14px",
-                border: "none",
-                background: historyLocation || historyFilterOpen
-                  ? "var(--tab-active-bg)"
-                  : "var(--bg-alt)",
-                color: historyLocation || historyFilterOpen
-                  ? "var(--tab-active-text)"
-                  : "var(--text-muted)",
-                cursor: "pointer",
-                borderRadius: 8,
-                fontSize: 12,
-                fontWeight: 500,
-                transition: "all 0.15s ease",
-              }}
+              style={toggleBtnStyle(!!historyLocation || historyFilterOpen)}
             >
               Filter{historyLocation ? " \u2022" : ""}
             </button>
             {historyFilterOpen && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 8px)",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  background: "var(--bg)",
-                  border: "1px solid var(--border)",
-                  borderRadius: 12,
-                  padding: 12,
-                  zIndex: 300,
-                  minWidth: 220,
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-                }}
-              >
-                <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Location</div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                  {historyLocations.map((loc) => (
-                    <button
-                      key={loc || "__empty__"}
-                      onClick={() => setHistoryLocation(historyLocation === loc ? "" : loc)}
-                      style={{
-                        padding: "4px 10px",
-                        border: "none",
-                        background: historyLocation === loc ? "var(--tab-active-bg)" : "var(--bg-alt)",
-                        color: historyLocation === loc ? "var(--tab-active-text)" : "var(--text-muted)",
-                        cursor: "pointer",
-                        borderRadius: 6,
-                        fontSize: 12,
-                        transition: "all 0.15s ease",
-                      }}
-                    >
-                      {loc || "Unknown"}
-                    </button>
-                  ))}
-                </div>
+              <div style={{ ...dropdownStyle, minWidth: 220 }}>
+                <HistoryFilterContent
+                  locations={historyLocations}
+                  selected={historyLocation}
+                  onSelect={setHistoryLocation}
+                />
               </div>
             )}
           </div>
@@ -462,155 +611,19 @@ export function TabShell({ releases, metadata }: Props) {
           >
             <button
               onClick={() => setTodayOnly((v) => !v)}
-              style={{
-                padding: "6px 14px",
-                border: "none",
-                background: todayOnly
-                  ? "var(--tab-active-bg)"
-                  : "var(--bg-alt)",
-                color: todayOnly
-                  ? "var(--tab-active-text)"
-                  : "var(--text-muted)",
-                cursor: "pointer",
-                borderRadius: 8,
-                fontSize: 12,
-                fontWeight: 500,
-                transition: "all 0.15s ease",
-              }}
+              style={toggleBtnStyle(todayOnly)}
             >
               Today{"\u2019"}s Releases
             </button>
             <button
               onClick={() => setFilterOpen((v) => !v)}
-              style={{
-                padding: "6px 14px",
-                border: "none",
-                background: hasActiveFilters || filterOpen
-                  ? "var(--tab-active-bg)"
-                  : "var(--bg-alt)",
-                color: hasActiveFilters || filterOpen
-                  ? "var(--tab-active-text)"
-                  : "var(--text-muted)",
-                cursor: "pointer",
-                borderRadius: 8,
-                fontSize: 12,
-                fontWeight: 500,
-                transition: "all 0.15s ease",
-              }}
+              style={toggleBtnStyle(hasActiveFilters || filterOpen)}
             >
               Filter{hasActiveFilters ? " \u2022" : ""}
             </button>
             {filterOpen && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 8px)",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  background: "var(--bg)",
-                  border: "1px solid var(--border)",
-                  borderRadius: 12,
-                  padding: 12,
-                  zIndex: 300,
-                  minWidth: 280,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 10,
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Country</div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                    {countryOptions.map((c) => (
-                      <button
-                        key={c}
-                        onClick={() => {
-                          setSelectedCountry(selectedCountry === c ? "" : c);
-                          if (selectedCountry !== c && c !== "France" && c !== "Italy") {
-                            setActiveRating(0);
-                            setRatingMinMode(false);
-                          }
-                        }}
-                        style={{
-                          padding: "4px 10px",
-                          border: "none",
-                          background: selectedCountry === c ? "var(--tab-active-bg)" : "var(--bg-alt)",
-                          color: selectedCountry === c ? "var(--tab-active-text)" : "var(--text-muted)",
-                          cursor: "pointer",
-                          borderRadius: 6,
-                          fontSize: 12,
-                          transition: "all 0.15s ease",
-                        }}
-                      >
-                        {c}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Type</div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                    {typeOptions.map((t) => (
-                      <button
-                        key={t}
-                        onClick={() => {
-                          setSelectedType(selectedType === t ? "" : t);
-                          if (selectedType !== t && t !== "Red" && t !== "White") {
-                            setActiveRating(0);
-                            setRatingMinMode(false);
-                          }
-                        }}
-                        style={{
-                          padding: "4px 10px",
-                          border: "none",
-                          background: selectedType === t ? "var(--tab-active-bg)" : "var(--bg-alt)",
-                          color: selectedType === t ? "var(--tab-active-text)" : "var(--text-muted)",
-                          cursor: "pointer",
-                          borderRadius: 6,
-                          fontSize: 12,
-                          transition: "all 0.15s ease",
-                        }}
-                      >
-                        {t}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                {hasRatings && (
-                  <div>
-                    <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>AI Rating</div>
-                    <div style={{ display: "flex", gap: 2, background: "var(--bg-alt)", borderRadius: 8, padding: 2, width: "fit-content" }}>
-                      {[
-                        { stars: 3, label: "\u2605\u2605\u2605", min: false },
-                        { stars: 3, label: "\u2605\u2605\u2605+", min: true },
-                        { stars: 4, label: "\u2605\u2605\u2605\u2605", min: false },
-                      ].map((f, i) => {
-                        const isActive = f.min
-                          ? ratingMinMode && activeRating === f.stars
-                          : !ratingMinMode && activeRating === f.stars;
-                        return (
-                          <button
-                            key={i}
-                            onClick={() => handleRatingFilter(f.stars, f.min)}
-                            style={{
-                              padding: "4px 10px",
-                              border: "none",
-                              background: isActive ? "var(--tab-active-bg)" : "transparent",
-                              color: isActive ? "var(--tab-active-text)" : "var(--text-muted)",
-                              cursor: "pointer",
-                              borderRadius: 6,
-                              fontSize: 13,
-                              transition: "all 0.15s ease",
-                            }}
-                          >
-                            {f.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+              <div style={{ ...dropdownStyle, minWidth: 280, display: "flex", flexDirection: "column", gap: 10 }}>
+                <ReleaseFilterContent {...releaseFilterProps} />
               </div>
             )}
           </div>
@@ -642,21 +655,7 @@ export function TabShell({ releases, metadata }: Props) {
             <>
               <button
                 onClick={() => setTodayOnly((v) => !v)}
-                style={{
-                  padding: "6px 14px",
-                  border: "none",
-                  background: todayOnly
-                    ? "var(--tab-active-bg)"
-                    : "var(--bg-alt)",
-                  color: todayOnly
-                    ? "var(--tab-active-text)"
-                    : "var(--text-muted)",
-                  cursor: "pointer",
-                  borderRadius: 8,
-                  fontSize: 12,
-                  fontWeight: 500,
-                  transition: "all 0.15s ease",
-                }}
+                style={toggleBtnStyle(todayOnly)}
               >
                 Today{"\u2019"}s
               </button>
@@ -670,135 +669,13 @@ export function TabShell({ releases, metadata }: Props) {
               >
                 <button
                   onClick={() => setFilterOpen((v) => !v)}
-                  style={{
-                    padding: "6px 14px",
-                    border: "none",
-                    background: hasActiveFilters || filterOpen
-                      ? "var(--tab-active-bg)"
-                      : "var(--bg-alt)",
-                    color: hasActiveFilters || filterOpen
-                      ? "var(--tab-active-text)"
-                      : "var(--text-muted)",
-                    cursor: "pointer",
-                    borderRadius: 8,
-                    fontSize: 12,
-                    fontWeight: 500,
-                    transition: "all 0.15s ease",
-                  }}
+                  style={toggleBtnStyle(hasActiveFilters || filterOpen)}
                 >
                   Filter{hasActiveFilters ? " \u2022" : ""}
                 </button>
                 {filterOpen && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "calc(100% + 8px)",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "var(--bg)",
-                      border: "1px solid var(--border)",
-                      borderRadius: 12,
-                      padding: 12,
-                      zIndex: 300,
-                      minWidth: 260,
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 10,
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-                    }}
-                  >
-                    <div>
-                      <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Country</div>
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                        {countryOptions.map((c) => (
-                          <button
-                            key={c}
-                            onClick={() => {
-                              setSelectedCountry(selectedCountry === c ? "" : c);
-                              if (selectedCountry !== c && c !== "France" && c !== "Italy") {
-                                setActiveRating(0);
-                                setRatingMinMode(false);
-                              }
-                            }}
-                            style={{
-                              padding: "4px 10px",
-                              border: "none",
-                              background: selectedCountry === c ? "var(--tab-active-bg)" : "var(--bg-alt)",
-                              color: selectedCountry === c ? "var(--tab-active-text)" : "var(--text-muted)",
-                              cursor: "pointer",
-                              borderRadius: 6,
-                              fontSize: 12,
-                              transition: "all 0.15s ease",
-                            }}
-                          >
-                            {c}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Type</div>
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                        {typeOptions.map((t) => (
-                          <button
-                            key={t}
-                            onClick={() => {
-                              setSelectedType(selectedType === t ? "" : t);
-                              if (selectedType !== t && t !== "Red" && t !== "White") {
-                                setActiveRating(0);
-                                setRatingMinMode(false);
-                              }
-                            }}
-                            style={{
-                              padding: "4px 10px",
-                              border: "none",
-                              background: selectedType === t ? "var(--tab-active-bg)" : "var(--bg-alt)",
-                              color: selectedType === t ? "var(--tab-active-text)" : "var(--text-muted)",
-                              cursor: "pointer",
-                              borderRadius: 6,
-                              fontSize: 12,
-                              transition: "all 0.15s ease",
-                            }}
-                          >
-                            {t}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    {hasRatings && (
-                      <div>
-                        <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>AI Rating</div>
-                        <div style={{ display: "flex", gap: 2, background: "var(--bg-alt)", borderRadius: 8, padding: 2, width: "fit-content" }}>
-                          {[
-                            { stars: 3, label: "\u2605\u2605\u2605", min: false },
-                            { stars: 3, label: "\u2605\u2605\u2605+", min: true },
-                            { stars: 4, label: "\u2605\u2605\u2605\u2605", min: false },
-                          ].map((f, i) => {
-                            const isActive = f.min
-                              ? ratingMinMode && activeRating === f.stars
-                              : !ratingMinMode && activeRating === f.stars;
-                            return (
-                              <button
-                                key={i}
-                                onClick={() => handleRatingFilter(f.stars, f.min)}
-                                style={{
-                                  padding: "4px 10px",
-                                  border: "none",
-                                  background: isActive ? "var(--tab-active-bg)" : "transparent",
-                                  color: isActive ? "var(--tab-active-text)" : "var(--text-muted)",
-                                  cursor: "pointer",
-                                  borderRadius: 6,
-                                  fontSize: 12,
-                                  transition: "all 0.15s ease",
-                                }}
-                              >
-                                {f.label}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
+                  <div style={{ ...dropdownStyle, minWidth: 260, display: "flex", flexDirection: "column", gap: 10 }}>
+                    <ReleaseFilterContent {...releaseFilterProps} />
                   </div>
                 )}
               </div>
@@ -835,61 +712,17 @@ export function TabShell({ releases, metadata }: Props) {
               >
                 <button
                   onClick={() => setHistoryFilterOpen((v) => !v)}
-                  style={{
-                    padding: "6px 14px",
-                    border: "none",
-                    background: historyLocation || historyFilterOpen
-                      ? "var(--tab-active-bg)"
-                      : "var(--bg-alt)",
-                    color: historyLocation || historyFilterOpen
-                      ? "var(--tab-active-text)"
-                      : "var(--text-muted)",
-                    cursor: "pointer",
-                    borderRadius: 8,
-                    fontSize: 12,
-                    fontWeight: 500,
-                    transition: "all 0.15s ease",
-                  }}
+                  style={toggleBtnStyle(!!historyLocation || historyFilterOpen)}
                 >
                   Filter{historyLocation ? " \u2022" : ""}
                 </button>
                 {historyFilterOpen && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "calc(100% + 8px)",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "var(--bg)",
-                      border: "1px solid var(--border)",
-                      borderRadius: 12,
-                      padding: 12,
-                      zIndex: 300,
-                      minWidth: 220,
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-                    }}
-                  >
-                    <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>Location</div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                      {historyLocations.map((loc) => (
-                        <button
-                          key={loc || "__empty__"}
-                          onClick={() => setHistoryLocation(historyLocation === loc ? "" : loc)}
-                          style={{
-                            padding: "4px 10px",
-                            border: "none",
-                            background: historyLocation === loc ? "var(--tab-active-bg)" : "var(--bg-alt)",
-                            color: historyLocation === loc ? "var(--tab-active-text)" : "var(--text-muted)",
-                            cursor: "pointer",
-                            borderRadius: 6,
-                            fontSize: 12,
-                            transition: "all 0.15s ease",
-                          }}
-                        >
-                          {loc || "Unknown"}
-                        </button>
-                      ))}
-                    </div>
+                  <div style={{ ...dropdownStyle, minWidth: 220 }}>
+                    <HistoryFilterContent
+                      locations={historyLocations}
+                      selected={historyLocation}
+                      onSelect={setHistoryLocation}
+                    />
                   </div>
                 )}
               </div>
