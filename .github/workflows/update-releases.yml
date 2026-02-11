@@ -37,9 +37,11 @@ jobs:
         run: cd web && npm ci
 
       - name: Generate data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         run: python3 scripts/wine_cellar.py
 
       - name: Check for changes
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         id: changes
         run: |
           git add data/
@@ -73,4 +75,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
