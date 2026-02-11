@@ -73,11 +73,18 @@ export function onAuthChange(
   });
 
   // Listen for native iOS auth callbacks via JS bridge
-  (window as unknown as { __nativeAuthCallback?: (u: AuthUser | null) => void }).__nativeAuthCallback = (
-    userData: AuthUser | null
-  ) => {
+  const win = window as unknown as {
+    __nativeAuthCallback?: (u: AuthUser | null) => void;
+    __nativeAuthData?: AuthUser | null;
+  };
+  win.__nativeAuthCallback = (userData: AuthUser | null) => {
     callback(userData);
   };
+
+  // Check if native already sent auth before we registered the callback
+  if (win.__nativeAuthData) {
+    callback(win.__nativeAuthData);
+  }
 
   return () => {
     unsubscribe();

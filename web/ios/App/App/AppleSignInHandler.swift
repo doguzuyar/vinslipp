@@ -81,11 +81,12 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
         let escapedName = displayName.replacingOccurrences(of: "\"", with: "\\\"")
         let escapedEmail = email.replacingOccurrences(of: "\"", with: "\\\"")
         let js = """
-        window.__nativeAuthCallback && window.__nativeAuthCallback({
+        window.__nativeAuthData = {
             uid: "\(uid)",
             displayName: "\(escapedName)",
             email: "\(escapedEmail)"
-        });
+        };
+        window.__nativeAuthCallback && window.__nativeAuthCallback(window.__nativeAuthData);
         """
         DispatchQueue.main.async {
             self.webView?.evaluateJavaScript(js)
@@ -93,7 +94,10 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
     }
 
     func sendSignOutToWeb() {
-        let js = "window.__nativeAuthCallback && window.__nativeAuthCallback(null);"
+        let js = """
+        window.__nativeAuthData = null;
+        window.__nativeAuthCallback && window.__nativeAuthCallback(null);
+        """
         DispatchQueue.main.async {
             self.webView?.evaluateJavaScript(js)
         }
