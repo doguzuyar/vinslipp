@@ -11,18 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check for today's wines
+      - name: Check today's releases
         id: check
         run: |
           TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
           WINES=""
-          FILE="data/french_red_releases.txt"
-          if [ -f "$FILE" ]; then
-            FILE_WINES=$(grep "^\[$TODAY\]" "$FILE") || true
-            if [ -n "$FILE_WINES" ]; then
-              WINES="$FILE_WINES"
+          for FILE in data/*_releases.txt; do
+            if [ -f "$FILE" ]; then
+              FILE_WINES=$(grep "^\[$TODAY\]" "$FILE") || true
+              if [ -n "$FILE_WINES" ]; then
+                WINES="${WINES}${FILE_WINES}"$'\n'
+              fi
             fi
-          fi
+          done
           WINES=$(echo "$WINES" | sed '/^$/d')
           if [ -n "$WINES" ]; then
             echo "has_wines=true" >> $GITHUB_OUTPUT
@@ -45,7 +46,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "New wines on Systembolaget"
+          subject: "Today's releases"
           body: |
             Today's releases:
 
@@ -77,40 +78,32 @@ jobs:
           wine_count = int(os.environ.get("WINE_COUNT", "0"))
           wine_list = os.environ.get("WINE_LIST", "")
 
-          # Parse wines and extract name, price, rating
+          # Parse wines: wine name + star rating
           import re
-          rated = []
-          unrated = []
+          wines = []
           for line in wine_list.strip().split("\n"):
               if not line.strip():
                   continue
-              # Format: [Feb 9] Producer - Wine Name 2021 (399 SEK) [★★★] (comment)
-              m = re.match(r'\[.*?\]\s+.*?\s-\s(.+?)\s\((\d+) SEK\)(?:\s\[(★+)\])?', line)
+              m = re.match(r'\[.*?\]\s+.*?\s-\s(.+?)\s\(\d+ SEK\)(?:\s\[(★+)\])?', line)
               if m:
-                  name, price, stars = m.group(1), int(m.group(2)), m.group(3)
-                  if stars:
-                      rated.append((name, price, stars, len(stars)))
-                  else:
-                      unrated.append((name, price))
+                  name, stars = m.group(1), m.group(2) or ""
+                  wines.append((name, stars, len(stars) if stars else 0))
 
-          if rated:
-              rated.sort(key=lambda w: w[3], reverse=True)
-              top = rated[:5]
-              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n"
-              body_text += "\n".join(f"{w[2]} {w[0][:35]} {w[1]}kr" for w in top)
-          elif unrated:
-              unrated.sort(key=lambda w: w[1], reverse=True)
-              top = unrated[:5]
-              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today\n"
-              body_text += "\n".join(f"{w[0][:35]} {w[1]}kr" for w in top)
+          if wines:
+              wines.sort(key=lambda w: w[2], reverse=True)
+              top = wines[:5]
+              body_text = "\n".join(f"{w[0]} {w[1]}" if w[1] else w[0] for w in top)
+              remaining = len(wines) - len(top)
+              if remaining > 0:
+                  body_text += f"\n+{remaining} more"
           else:
-              body_text = f"{wine_count} new wine{'s' if wine_count != 1 else ''} today"
+              body_text = f"{wine_count} new release{'s' if wine_count != 1 else ''} today"
 
           message = {
               "message": {
                   "topic": "new-wines",
                   "notification": {
-                      "title": "New wines on Systembolaget",
+                      "title": "Today's releases",
                       "body": body_text
                   },
                   "data": {
