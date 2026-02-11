@@ -284,6 +284,10 @@ export function TabShell({ releases, metadata }: Props) {
   const [historyLocation, setHistoryLocation] = useState("");
   const [historyFilterOpen, setHistoryFilterOpen] = useState(false);
   const historyFilterRef = useRef<HTMLDivElement>(null);
+  const [cellarYear, setCellarYear] = useState<string | null>(null);
+  const [cellarVintage, setCellarVintage] = useState<string | null>(null);
+  const [cellarFilterOpen, setCellarFilterOpen] = useState(false);
+  const cellarFilterRef = useRef<HTMLDivElement>(null);
 
   // URL hash sync + mobile detection + native app detection + IndexedDB load
   useEffect(() => {
@@ -450,8 +454,10 @@ export function TabShell({ releases, metadata }: Props) {
   // Close dropdowns on click outside
   const closeFilter = useCallback(() => setFilterOpen(false), []);
   const closeHistoryFilter = useCallback(() => setHistoryFilterOpen(false), []);
+  const closeCellarFilter = useCallback(() => setCellarFilterOpen(false), []);
   useOutsideClick(filterRef, filterOpen, closeFilter);
   useOutsideClick(historyFilterRef, historyFilterOpen, closeHistoryFilter);
+  useOutsideClick(cellarFilterRef, cellarFilterOpen, closeCellarFilter);
 
   // Map English label back to Swedish for filtering
   function countryToSwedish(label: string): string {
@@ -464,6 +470,22 @@ export function TabShell({ releases, metadata }: Props) {
   }
 
   const hasActiveFilters = selectedCountry !== "" || selectedType !== "" || activeRating > 0;
+
+  const cellarYears = useMemo(() => {
+    if (!cellarData) return [];
+    return Object.keys(cellarData.yearCounts)
+      .filter((k) => /^\d{4}$/.test(k))
+      .sort();
+  }, [cellarData]);
+
+  const cellarVintages = useMemo(() => {
+    if (!cellarData) return [];
+    const set = new Set<string>();
+    for (const w of cellarData.wines) {
+      if (w.vintage && /^\d{4}$/.test(w.vintage)) set.add(w.vintage);
+    }
+    return [...set].sort();
+  }, [cellarData]);
 
   const historyLocations = useMemo(() => historyData?.locations ?? [], [historyData]);
   const filteredHistoryWines = useMemo(() => {
@@ -543,74 +565,26 @@ export function TabShell({ releases, metadata }: Props) {
           </div>
         )}
 
-        {/* Upload Vivino data - desktop only (cellar tab) */}
-        {activeTab === "cellar" && cellarData && !isMobile && (
-          <div
+        {/* Centered timestamp - desktop */}
+        {!isMobile && timestamps[activeTab] && (
+          <span
             style={{
               position: "absolute",
               left: "50%",
               transform: "translateX(-50%)",
+              fontSize: 12,
+              color: "var(--text-muted)",
+              pointerEvents: "none",
             }}
           >
-            <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
-          </div>
+            {timestamps[activeTab]}
+          </span>
         )}
 
-        {/* History: Upload + Filter - desktop only */}
-        {activeTab === "history" && historyData && !isMobile && (
-          <div
-            ref={historyFilterRef}
-            style={{
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: "flex",
-              gap: 6,
-              alignItems: "center",
-            }}
-          >
-            <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
-            <button
-              onClick={() => setHistoryFilterOpen((v) => !v)}
-              style={toggleBtnStyle(!!historyLocation || historyFilterOpen)}
-            >
-              Filter{historyLocation ? " \u2022" : ""}
-            </button>
-            {historyFilterOpen && (
-              <div style={{ ...dropdownStyle, minWidth: 220 }}>
-                <HistoryFilterContent
-                  locations={historyLocations}
-                  selected={historyLocation}
-                  onSelect={setHistoryLocation}
-                />
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Auction search - desktop only */}
-        {activeTab === "auction" && !isMobile && (
-          <div
-            style={{
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search producers..."
-              value={auctionSearch}
-              onChange={(e) => setAuctionSearch(e.target.value)}
-              style={{ ...searchInputStyle, width: 400 }}
-            />
-          </div>
-        )}
-
-        {/* Right side: timestamp + filter (release tab) - desktop */}
+        {/* Right side: tab controls - desktop */}
         {!isMobile && (
           <span
-            ref={activeTab === "release" ? filterRef : undefined}
+            ref={activeTab === "release" ? filterRef : activeTab === "history" ? historyFilterRef : activeTab === "cellar" ? cellarFilterRef : undefined}
             style={{
               marginLeft: "auto",
               display: "flex",
@@ -619,9 +593,6 @@ export function TabShell({ releases, metadata }: Props) {
               position: "relative",
             }}
           >
-            <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
-              {timestamps[activeTab]}
-            </span>
             {activeTab === "release" && (
               <>
                 <button
@@ -642,6 +613,86 @@ export function TabShell({ releases, metadata }: Props) {
                   </div>
                 )}
               </>
+            )}
+            {activeTab === "cellar" && cellarData && (
+              <>
+                <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+                {(cellarYears.length > 0 || cellarVintages.length > 0) && (
+                  <>
+                    <button
+                      onClick={() => setCellarFilterOpen((v) => !v)}
+                      style={toggleBtnStyle(!!cellarYear || !!cellarVintage || cellarFilterOpen)}
+                    >
+                      Filter{cellarYear || cellarVintage ? " \u2022" : ""}
+                    </button>
+                    {cellarFilterOpen && (
+                      <div style={{ ...dropdownStyle, left: "auto", right: 0, transform: "none", minWidth: 200, display: "flex", flexDirection: "column", gap: 10 }}>
+                        {cellarYears.length > 0 && (
+                          <div>
+                            <div style={sectionLabelStyle}>Drink Year</div>
+                            <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                              {cellarYears.map((y) => (
+                                <button
+                                  key={y}
+                                  onClick={() => setCellarYear(cellarYear === y ? null : y)}
+                                  style={chipStyle(cellarYear === y)}
+                                >
+                                  {y}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        {cellarVintages.length > 0 && (
+                          <div>
+                            <div style={sectionLabelStyle}>Vintage</div>
+                            <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                              {cellarVintages.map((v) => (
+                                <button
+                                  key={v}
+                                  onClick={() => setCellarVintage(cellarVintage === v ? null : v)}
+                                  style={chipStyle(cellarVintage === v)}
+                                >
+                                  {v}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
+              </>
+            )}
+            {activeTab === "history" && historyData && (
+              <>
+                <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+                <button
+                  onClick={() => setHistoryFilterOpen((v) => !v)}
+                  style={toggleBtnStyle(!!historyLocation || historyFilterOpen)}
+                >
+                  Filter{historyLocation ? " \u2022" : ""}
+                </button>
+                {historyFilterOpen && (
+                  <div style={{ ...dropdownStyle, left: "auto", right: 0, transform: "none", minWidth: 220 }}>
+                    <HistoryFilterContent
+                      locations={historyLocations}
+                      selected={historyLocation}
+                      onSelect={setHistoryLocation}
+                    />
+                  </div>
+                )}
+              </>
+            )}
+            {activeTab === "auction" && (
+              <input
+                type="text"
+                placeholder="Search producers..."
+                value={auctionSearch}
+                onChange={(e) => setAuctionSearch(e.target.value)}
+                style={{ ...searchInputStyle, width: 400 }}
+              />
             )}
           </span>
         )}
@@ -692,9 +743,63 @@ export function TabShell({ releases, metadata }: Props) {
             />
           )}
 
-          {/* Cellar: upload button on the left */}
+          {/* Cellar: upload on left, filter on right */}
           {activeTab === "cellar" && cellarData && (
-            <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+            <>
+              <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
+              {(cellarYears.length > 0 || cellarVintages.length > 0) && (
+                <div
+                  ref={isMobile ? cellarFilterRef : undefined}
+                  style={{
+                    marginLeft: "auto",
+                    position: "relative",
+                  }}
+                >
+                  <button
+                    onClick={() => setCellarFilterOpen((v) => !v)}
+                    style={toggleBtnStyle(!!cellarYear || !!cellarVintage || cellarFilterOpen)}
+                  >
+                    Filter{cellarYear || cellarVintage ? " \u2022" : ""}
+                  </button>
+                  {cellarFilterOpen && (
+                    <div style={{ ...dropdownStyle, left: "auto", right: 0, transform: "none", minWidth: 200, display: "flex", flexDirection: "column", gap: 10 }}>
+                      {cellarYears.length > 0 && (
+                        <div>
+                          <div style={sectionLabelStyle}>Drink Year</div>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                            {cellarYears.map((y) => (
+                              <button
+                                key={y}
+                                onClick={() => setCellarYear(cellarYear === y ? null : y)}
+                                style={chipStyle(cellarYear === y)}
+                              >
+                                {y}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      {cellarVintages.length > 0 && (
+                        <div>
+                          <div style={sectionLabelStyle}>Vintage</div>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                            {cellarVintages.map((v) => (
+                              <button
+                                key={v}
+                                onClick={() => setCellarVintage(cellarVintage === v ? null : v)}
+                                style={chipStyle(cellarVintage === v)}
+                              >
+                                {v}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
           )}
 
           {/* History: upload on left, filter on right */}
@@ -757,7 +862,7 @@ export function TabShell({ releases, metadata }: Props) {
         />
       )}
       {activeTab === "cellar" && (
-        cellarData ? <CellarTab data={cellarData} /> : <UploadButton inline onImportComplete={handleImport} />
+        cellarData ? <CellarTab data={cellarData} activeYear={cellarYear} activeVintage={cellarVintage} onYearChange={setCellarYear} /> : <UploadButton inline onImportComplete={handleImport} />
       )}
       {activeTab === "history" && (
         historyData ? <HistoryTab wines={filteredHistoryWines} selectedLocation={historyLocation} /> : <UploadButton inline onImportComplete={handleImport} />

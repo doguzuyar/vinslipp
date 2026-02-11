@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useMemo, useCallback } from "react";
 import type { CellarData, CellarWine } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
 import { useRowPopup, RowPopup } from "@/components/RowPopup";
@@ -8,20 +8,24 @@ import { BottleChart } from "./BottleChart";
 
 interface Props {
   data: CellarData;
+  activeYear: string | null;
+  activeVintage: string | null;
+  onYearChange: (year: string | null) => void;
 }
 
-export function CellarTab({ data }: Props) {
-  const [activeYear, setActiveYear] = useState<string | null>(null);
+export function CellarTab({ data, activeYear, activeVintage, onYearChange }: Props) {
   const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
 
   const filteredWines = useMemo(() => {
-    if (!activeYear) return data.wines;
-    return data.wines.filter((w) => w.drinkYear === activeYear);
-  }, [data.wines, activeYear]);
+    let wines = data.wines;
+    if (activeYear) wines = wines.filter((w) => w.drinkYear === activeYear);
+    if (activeVintage) wines = wines.filter((w) => w.vintage === activeVintage);
+    return wines;
+  }, [data.wines, activeYear, activeVintage]);
 
   const handleYearClick = useCallback((year: string) => {
-    setActiveYear((prev) => (prev === year ? null : year));
-  }, []);
+    onYearChange(activeYear === year ? null : year);
+  }, [activeYear, onYearChange]);
 
   const columns: Column<CellarWine>[] = useMemo(
     () => [
