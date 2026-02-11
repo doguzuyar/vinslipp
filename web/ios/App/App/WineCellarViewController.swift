@@ -3,6 +3,7 @@ import SafariServices
 import WebKit
 import Capacitor
 import FirebaseAuth
+import FirebaseMessaging
 
 protocol NativeTabDelegate: AnyObject {
     func webDidSwitchTab(_ tab: String)
@@ -19,6 +20,8 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         ucc?.add(self, name: "tabSwitch")
         ucc?.add(self, name: "appleSignIn")
         ucc?.add(self, name: "appleSignOut")
+        ucc?.add(self, name: "setNotificationPreference")
+        ucc?.add(self, name: "getNotificationPreference")
         webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
     }
 
@@ -77,8 +80,37 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
             appleSignInHandler = AppleSignInHandler(webView: webView)
             appleSignInHandler?.sendSignOutToWeb()
 
+        case "setNotificationPreference":
+            if let body = message.body as? [String: String], let topic = body["topic"] {
+                setNotificationTopic(topic)
+            }
+
+        case "getNotificationPreference":
+            let topic = UserDefaults.standard.string(forKey: "notificationTopic") ?? "none"
+            webView?.evaluateJavaScript("window.__notificationPreferenceCallback?.('\(topic)')")
+
         default:
             break
+        }
+    }
+
+    private let allNotificationTopics = ["french-red", "french-white", "italy-red", "italy-white"]
+
+    private func setNotificationTopic(_ topic: String) {
+        for t in allNotificationTopics {
+            Messaging.messaging().unsubscribe(fromTopic: t)
+        }
+        if topic != "none" && allNotificationTopics.contains(topic) {
+            Messaging.messaging().subscribe(toTopic: topic) { error in
+                if let error = error {
+                    print("⚠️ Push: subscribe error: \(error)")
+                } else {
+                    print("✅ Push: subscribed to '\(topic)'")
+                }
+            }
+            UserDefaults.standard.set(topic, forKey: "notificationTopic")
+        } else {
+            UserDefaults.standard.removeObject(forKey: "notificationTopic")
         }
     }
 
@@ -89,5 +121,7 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         ucc?.removeScriptMessageHandler(forName: "tabSwitch")
         ucc?.removeScriptMessageHandler(forName: "appleSignIn")
         ucc?.removeScriptMessageHandler(forName: "appleSignOut")
+        ucc?.removeScriptMessageHandler(forName: "setNotificationPreference")
+        ucc?.removeScriptMessageHandler(forName: "getNotificationPreference")
     }
 }

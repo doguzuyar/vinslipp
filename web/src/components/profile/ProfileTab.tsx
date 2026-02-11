@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import type { AuthUser } from "@/lib/firebase";
+import { isNativeApp, setNotificationPreference, getNotificationPreference } from "@/lib/firebase";
 
 interface Props {
   user: AuthUser | null;
@@ -8,7 +10,100 @@ interface Props {
   onSignOut: () => void;
 }
 
+const NOTIFICATION_OPTIONS: { value: string; label: string }[] = [
+  { value: "none", label: "None" },
+  { value: "french-red", label: "French Red" },
+  { value: "french-white", label: "French White" },
+  { value: "italy-red", label: "Italy Red" },
+  { value: "italy-white", label: "Italy White" },
+];
+
+function NotificationSection() {
+  const [topic, setTopic] = useState("none");
+
+  useEffect(() => {
+    const cleanup = getNotificationPreference((t) => setTopic(t));
+    return cleanup;
+  }, []);
+
+  function handleChange(value: string) {
+    setTopic(value);
+    setNotificationPreference(value);
+  }
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 320,
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}
+    >
+      <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text)" }}>
+        Notifications
+      </div>
+      <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 4 }}>
+        Get notified when new wines are released
+      </div>
+      {NOTIFICATION_OPTIONS.map((opt) => (
+        <button
+          key={opt.value}
+          onClick={() => handleChange(opt.value)}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: "10px 14px",
+            background: topic === opt.value ? "var(--tab-active-bg)" : "var(--bg-alt)",
+            color: topic === opt.value ? "var(--tab-active-text)" : "var(--text)",
+            border: "none",
+            borderRadius: 10,
+            fontSize: 14,
+            cursor: "pointer",
+            transition: "background 0.15s ease, color 0.15s ease",
+            textAlign: "left",
+          }}
+        >
+          <span
+            style={{
+              width: 18,
+              height: 18,
+              borderRadius: "50%",
+              border: topic === opt.value ? "none" : "2px solid var(--text-muted)",
+              background: topic === opt.value ? "var(--tab-active-text)" : "transparent",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            {topic === opt.value && (
+              <span
+                style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "var(--tab-active-bg)",
+                }}
+              />
+            )}
+          </span>
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
+  const [native, setNative] = useState(false);
+
+  useEffect(() => {
+    setNative(isNativeApp());
+  }, []);
+
   if (!user) {
     return (
       <div
@@ -47,6 +142,11 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
           </svg>
           Sign in with Apple
         </button>
+        {native && (
+          <div style={{ marginTop: 20 }}>
+            <NotificationSection />
+          </div>
+        )}
       </div>
     );
   }
@@ -99,6 +199,11 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
       >
         Sign Out
       </button>
+      {native && (
+        <div style={{ marginTop: 20 }}>
+          <NotificationSection />
+        </div>
+      )}
     </div>
   );
 }

@@ -70,11 +70,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("✅ Push: FCM token: \(fcmToken ?? "nil")")
-        Messaging.messaging().subscribe(toTopic: "new-wines") { error in
+        restoreNotificationPreference()
+    }
+
+    private let allNotificationTopics = ["french-red", "french-white", "italy-red", "italy-white"]
+
+    private func restoreNotificationPreference() {
+        guard let topic = UserDefaults.standard.string(forKey: "notificationTopic"),
+              allNotificationTopics.contains(topic) else { return }
+        Messaging.messaging().subscribe(toTopic: topic) { error in
             if let error = error {
-                print("⚠️ Push: topic subscribe error: \(error)")
+                print("⚠️ Push: restore subscribe error: \(error)")
             } else {
-                print("✅ Push: subscribed to 'new-wines' topic")
+                print("✅ Push: restored subscription to '\(topic)'")
             }
         }
     }

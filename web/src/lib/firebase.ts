@@ -21,7 +21,7 @@ const auth = getAuth(app);
 
 export type AuthUser = { uid: string; displayName: string | null };
 
-function isNativeApp(): boolean {
+export function isNativeApp(): boolean {
   return !!(window as unknown as { webkit?: { messageHandlers?: { appleSignIn?: unknown } } })
     .webkit?.messageHandlers?.appleSignIn;
 }
@@ -44,6 +44,23 @@ export async function signOutUser(): Promise<void> {
     return;
   }
   await signOut(auth);
+}
+
+export function setNotificationPreference(topic: string): void {
+  if (!isNativeApp()) return;
+  (window as unknown as { webkit: { messageHandlers: { setNotificationPreference: { postMessage: (msg: unknown) => void } } } })
+    .webkit.messageHandlers.setNotificationPreference.postMessage({ topic });
+}
+
+export function getNotificationPreference(callback: (topic: string) => void): () => void {
+  (window as unknown as { __notificationPreferenceCallback?: (t: string) => void }).__notificationPreferenceCallback = callback;
+  if (isNativeApp()) {
+    (window as unknown as { webkit: { messageHandlers: { getNotificationPreference: { postMessage: (msg: unknown) => void } } } })
+      .webkit.messageHandlers.getNotificationPreference.postMessage({});
+  }
+  return () => {
+    delete (window as unknown as { __notificationPreferenceCallback?: unknown }).__notificationPreferenceCallback;
+  };
 }
 
 export function onAuthChange(
