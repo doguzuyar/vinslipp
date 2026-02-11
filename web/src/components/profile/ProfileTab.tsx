@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import type { AuthUser } from "@/lib/firebase";
 import { isNativeApp, setNotificationPreference, getNotificationPreference } from "@/lib/firebase";
+import { DarkModeToggle } from "../DarkModeToggle";
 
 interface Props {
   user: AuthUser | null;
@@ -117,6 +118,7 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
           padding: 40,
         }}
       >
+        <DarkModeToggle />
         <div style={{ fontSize: 14, color: "var(--text-muted)" }}>
           Sign in to sync your data across devices
         </div>
@@ -142,11 +144,6 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
           </svg>
           Sign in with Apple
         </button>
-        {native && (
-          <div style={{ marginTop: 20 }}>
-            <NotificationSection />
-          </div>
-        )}
       </div>
     );
   }
@@ -199,6 +196,9 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
       >
         Sign Out
       </button>
+      <div style={{ marginTop: 10 }}>
+        <DarkModeToggle />
+      </div>
       {native && (
         <div style={{ marginTop: 20 }}>
           <NotificationSection />

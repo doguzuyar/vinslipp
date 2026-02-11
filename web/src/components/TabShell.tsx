@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 import type { CellarData, ReleaseData, HistoryData, Metadata } from "@/types";
-import { DarkModeToggle } from "./DarkModeToggle";
 import { ProfileTab } from "./profile/ProfileTab";
 import { signInWithApple, signOutUser, onAuthChange, type AuthUser } from "@/lib/firebase";
 import { CellarTab } from "./cellar/CellarTab";
@@ -603,66 +602,55 @@ export function TabShell({ releases, metadata }: Props) {
               placeholder="Search producers..."
               value={auctionSearch}
               onChange={(e) => setAuctionSearch(e.target.value)}
-              style={{ ...searchInputStyle, width: 280 }}
+              style={{ ...searchInputStyle, width: 400 }}
             />
           </div>
         )}
 
-        {/* Filter button + Today button - release tab */}
-        {activeTab === "release" && !isMobile && (
-          <div
-            ref={filterRef}
-            style={{
-              display: "flex",
-              gap: 6,
-              alignItems: "center",
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-          >
-            <button
-              onClick={() => setTodayOnly((v) => !v)}
-              style={toggleBtnStyle(todayOnly)}
-            >
-              Today{"\u2019"}s Releases
-            </button>
-            <button
-              onClick={() => setFilterOpen((v) => !v)}
-              style={toggleBtnStyle(hasActiveFilters || filterOpen)}
-            >
-              Filter{hasActiveFilters ? " \u2022" : ""}
-            </button>
-            {filterOpen && (
-              <div style={{ ...dropdownStyle, minWidth: 280, display: "flex", flexDirection: "column", gap: 10 }}>
-                <ReleaseFilterContent {...releaseFilterProps} />
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Right side: timestamp + dark mode - desktop */}
+        {/* Right side: timestamp + filter (release tab) - desktop */}
         {!isMobile && (
           <span
+            ref={activeTab === "release" ? filterRef : undefined}
             style={{
               marginLeft: "auto",
               display: "flex",
               gap: 10,
               alignItems: "center",
+              position: "relative",
             }}
           >
             <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
               {timestamps[activeTab]}
             </span>
-            <DarkModeToggle />
+            {activeTab === "release" && (
+              <>
+                <button
+                  onClick={() => setTodayOnly((v) => !v)}
+                  style={toggleBtnStyle(todayOnly)}
+                >
+                  Today{"\u2019"}s Releases
+                </button>
+                <button
+                  onClick={() => setFilterOpen((v) => !v)}
+                  style={toggleBtnStyle(hasActiveFilters || filterOpen)}
+                >
+                  Filter{hasActiveFilters ? " \u2022" : ""}
+                </button>
+                {filterOpen && (
+                  <div style={{ ...dropdownStyle, left: "auto", right: 0, transform: "none", minWidth: 280, display: "flex", flexDirection: "column", gap: 10 }}>
+                    <ReleaseFilterContent {...releaseFilterProps} />
+                  </div>
+                )}
+              </>
+            )}
           </span>
         )}
       </div>
 
-      {/* Mobile: single-line header with context controls + dark mode */}
+      {/* Mobile: single-line header with context controls */}
       {isMobile && (
         <div style={{ display: "flex", alignItems: "center", marginBottom: 12, position: "relative" }}>
-          {/* Release tab: Today on left, Filter centered, dark mode right */}
+          {/* Release tab: Today on left, Filter on right */}
           {activeTab === "release" && (
             <>
               <button
@@ -674,9 +662,8 @@ export function TabShell({ releases, metadata }: Props) {
               <div
                 ref={isMobile ? filterRef : undefined}
                 style={{
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translateX(-50%)",
+                  marginLeft: "auto",
+                  position: "relative",
                 }}
               >
                 <button
@@ -686,7 +673,7 @@ export function TabShell({ releases, metadata }: Props) {
                   Filter{hasActiveFilters ? " \u2022" : ""}
                 </button>
                 {filterOpen && (
-                  <div style={{ ...dropdownStyle, minWidth: 260, display: "flex", flexDirection: "column", gap: 10 }}>
+                  <div style={{ ...dropdownStyle, left: "auto", right: 0, transform: "none", minWidth: 260, display: "flex", flexDirection: "column", gap: 10 }}>
                     <ReleaseFilterContent {...releaseFilterProps} />
                   </div>
                 )}
@@ -701,7 +688,7 @@ export function TabShell({ releases, metadata }: Props) {
               placeholder="Search producers..."
               value={auctionSearch}
               onChange={(e) => setAuctionSearch(e.target.value)}
-              style={{ ...searchInputStyle, padding: "6px 14px", flex: 1, marginRight: 6 }}
+              style={{ ...searchInputStyle, padding: "6px 14px", flex: 1 }}
             />
           )}
 
@@ -710,16 +697,15 @@ export function TabShell({ releases, metadata }: Props) {
             <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
           )}
 
-          {/* History: upload on left, filter centered */}
+          {/* History: upload on left, filter on right */}
           {activeTab === "history" && historyData && (
             <>
               <UploadButton onImportComplete={handleImport} onClearData={handleClearData} />
               <div
                 ref={isMobile ? historyFilterRef : undefined}
                 style={{
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translateX(-50%)",
+                  marginLeft: "auto",
+                  position: "relative",
                 }}
               >
                 <button
@@ -729,7 +715,7 @@ export function TabShell({ releases, metadata }: Props) {
                   Filter{historyLocation ? " \u2022" : ""}
                 </button>
                 {historyFilterOpen && (
-                  <div style={{ ...dropdownStyle, minWidth: 220 }}>
+                  <div style={{ ...dropdownStyle, left: "auto", right: 0, transform: "none", minWidth: 220 }}>
                     <HistoryFilterContent
                       locations={historyLocations}
                       selected={historyLocation}
@@ -740,11 +726,6 @@ export function TabShell({ releases, metadata }: Props) {
               </div>
             </>
           )}
-
-          {/* Dark mode toggle on the right */}
-          <span style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center" }}>
-            <DarkModeToggle />
-          </span>
         </div>
       )}
       </div>

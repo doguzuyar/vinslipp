@@ -64,7 +64,8 @@ def fetch_systembolaget_releases():
 try:
     sb_releases = sorted(
         [w for w in fetch_systembolaget_releases()
-         if w.get('productLaunchDate', '') >= '2026-01-01'],
+         if w.get('productLaunchDate', '') >= '2026-01-01'
+         and w.get('volume', 0) == 750.0],
         key=lambda w: (
             [-c for c in (w.get('productLaunchDate') or '').encode()],
             (w.get('producerName') or '').lower(),

@@ -58,15 +58,16 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                 return
             }
 
-            // Update Firebase profile with Apple's name if we got one and user doesn't have one yet
-            if !appleDisplayName.isEmpty && (user.displayName == nil || user.displayName?.isEmpty == true) {
+            let nameToUse = !appleDisplayName.isEmpty ? appleDisplayName : (user.displayName ?? "")
+
+            if !appleDisplayName.isEmpty {
                 let changeRequest = user.createProfileChangeRequest()
                 changeRequest.displayName = appleDisplayName
                 changeRequest.commitChanges { _ in
-                    self?.sendUserToWeb(uid: user.uid, displayName: appleDisplayName, email: user.email ?? "")
+                    self?.sendUserToWeb(uid: user.uid, displayName: nameToUse, email: user.email ?? "")
                 }
             } else {
-                self?.sendUserToWeb(uid: user.uid, displayName: user.displayName ?? "", email: user.email ?? "")
+                self?.sendUserToWeb(uid: user.uid, displayName: nameToUse, email: user.email ?? "")
             }
         }
     }
