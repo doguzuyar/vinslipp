@@ -173,6 +173,11 @@ td a {
   overflow-y: auto;
   min-height: 0;
   padding-bottom: 32px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.tab-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 @media (max-width: 768px) {
