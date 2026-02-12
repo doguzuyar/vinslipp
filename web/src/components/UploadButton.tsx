@@ -359,23 +359,29 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
 
   // Button+modal mode
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ width: "100%" }}>
       <button
         onClick={toggle}
         title="Import Vivino data"
         style={{
+          width: "100%",
+          padding: "12px 16px",
           background: "var(--bg-alt)",
+          color: "var(--text)",
           border: "none",
-          borderRadius: 8,
-          padding: "6px 14px",
-          cursor: "pointer",
-          fontSize: 12,
+          borderRadius: 10,
+          fontSize: 14,
           fontWeight: 500,
-          color: "var(--text-muted)",
-          transition: "all 0.15s ease",
+          cursor: "pointer",
+          transition: "opacity 0.15s ease",
+          textAlign: "left" as const,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
-        Import Vivino Data
+        <span>Import Vivino Data</span>
+        <span style={{ fontSize: 12, color: "var(--text-muted)" }}>{open ? "\u25B2" : "\u25BC"}</span>
       </button>
 
       {open && createPortal(
