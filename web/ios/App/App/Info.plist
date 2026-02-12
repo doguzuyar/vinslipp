@@ -48,11 +48,11 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconSymbolName</key>
-			<string>doc.on.clipboard</string>
+			<string>doc.text</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>History</string>
+			<string>Blog</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.nybroans.vinslipp.history</string>
+			<string>com.nybroans.vinslipp.blog</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconSymbolName</key>
@@ -61,6 +61,14 @@
 			<string>Auction</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>com.nybroans.vinslipp.auction</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>person.circle</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Profile</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.nybroans.vinslipp.profile</string>
 		</dict>
 	</array>
 	<key>UIBackgroundModes</key>

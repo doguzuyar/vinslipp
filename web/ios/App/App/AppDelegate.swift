@@ -158,10 +158,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             return "release"
         case "com.nybroans.vinslipp.cellar":
             return "cellar"
-        case "com.nybroans.vinslipp.history":
-            return "history"
+        case "com.nybroans.vinslipp.blog":
+            return "blog"
         case "com.nybroans.vinslipp.auction":
             return "auction"
+        case "com.nybroans.vinslipp.profile":
+            return "profile"
         default:
             return "release"
         }
