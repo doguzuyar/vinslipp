@@ -11,6 +11,8 @@ import {
   memoryLocalCache,
   collection,
   addDoc,
+  doc,
+  deleteDoc,
   query,
   orderBy,
   getDocs,
@@ -106,6 +108,10 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   const q = query(collection(db, "blog_posts"), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
   return snap.docs.map((d) => ({ id: d.id, ...d.data() }) as BlogPost);
+}
+
+export async function deleteBlogPost(postId: string): Promise<void> {
+  await deleteDoc(doc(db, "blog_posts", postId));
 }
 
 export async function getBlogPostsForWine(wineId: string): Promise<BlogPost[]> {

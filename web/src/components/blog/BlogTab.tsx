@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getBlogPosts, type BlogPost } from "@/lib/firebase";
+import { getBlogPosts, deleteBlogPost, type BlogPost, type AuthUser } from "@/lib/firebase";
 
 function formatDate(post: BlogPost): string {
   if (!post.createdAt) return "";
@@ -10,7 +10,11 @@ function formatDate(post: BlogPost): string {
   return `${months[d.getMonth()]} ${d.getDate()}, ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
 }
 
-export function BlogTab() {
+interface Props {
+  user: AuthUser | null;
+}
+
+export function BlogTab({ user }: Props) {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,6 +23,12 @@ export function BlogTab() {
       .then((all) => setPosts(all.filter((p) => p.moderationStatus === "pass")))
       .finally(() => setLoading(false));
   }, []);
+
+  async function handleDelete(postId: string) {
+    if (!confirm("Delete this post?")) return;
+    await deleteBlogPost(postId);
+    setPosts((prev) => prev.filter((p) => p.id !== postId));
+  }
 
   if (loading) {
     return (
@@ -59,6 +69,23 @@ export function BlogTab() {
                 {post.wineName} {post.vintage}
               </span>
             </div>
+            {user && user.uid === post.userId && post.id && (
+              <button
+                onClick={() => handleDelete(post.id!)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "var(--text-muted)",
+                  cursor: "pointer",
+                  fontSize: 16,
+                  padding: "0 4px",
+                  lineHeight: 1,
+                }}
+                title="Delete post"
+              >
+                &times;
+              </button>
+            )}
           </div>
           <div style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.5 }}>
             {post.comment}

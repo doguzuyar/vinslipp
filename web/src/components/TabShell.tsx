@@ -885,7 +885,7 @@ export function TabShell({ releases, metadata }: Props) {
           ? (historyData ? <HistoryTab wines={filteredHistoryWines} selectedLocation={historyLocation} user={user} /> : <UploadButton inline onImportComplete={handleImport} />)
           : (cellarData ? <CellarTab data={cellarData} activeYear={cellarYear} activeVintage={cellarVintage} onYearChange={setCellarYear} user={user} /> : <UploadButton inline onImportComplete={handleImport} />)
       )}
-      {activeTab === "blog" && <BlogTab />}
+      {activeTab === "blog" && <BlogTab user={user} />}
       {activeTab === "auction" && <AuctionTab search={auctionSearch} />}
       {activeTab === "profile" && <ProfileTab user={user} onSignIn={signInWithApple} onSignOut={signOutUser} onImportComplete={handleImport} onClearData={handleClearData} />}
       </div>
