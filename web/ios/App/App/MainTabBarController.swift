@@ -12,7 +12,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
     private let allTabs: [(name: String, title: String, icon: String)] = [
         ("release",  "Release", "clock"),
         ("cellar",   "Cellar",  "cube.box"),
-        ("history",  "History", "doc.on.clipboard"),
+        ("blog",     "Blog",    "doc.text"),
         ("auction",  "Auction", "dollarsign.circle"),
         ("profile",  "Profile", "person.circle"),
     ]

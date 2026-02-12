@@ -362,7 +362,7 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
     <div style={{ position: "relative" }}>
       <button
         onClick={toggle}
-        title="Upload Vivino data"
+        title="Import Vivino data"
         style={{
           background: "var(--bg-alt)",
           border: "none",
@@ -375,7 +375,7 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
           transition: "all 0.15s ease",
         }}
       >
-        Upload Vivino Data
+        Import Vivino Data
       </button>
 
       {open && createPortal(

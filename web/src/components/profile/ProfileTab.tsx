@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from "react";
 import type { AuthUser } from "@/lib/firebase";
+import type { CellarData, HistoryData } from "@/types";
 import { isNativeApp, setNotificationPreference, getNotificationPreference } from "@/lib/firebase";
 import { DarkModeToggle } from "../DarkModeToggle";
+import { UploadButton } from "../UploadButton";
 
 interface Props {
   user: AuthUser | null;
   onSignIn: () => void;
   onSignOut: () => void;
+  onImportComplete: (cellar: CellarData, history: HistoryData) => void;
+  onClearData: () => void;
 }
 
 const NOTIFICATION_OPTIONS: { value: string; label: string }[] = [
@@ -19,7 +23,25 @@ const NOTIFICATION_OPTIONS: { value: string; label: string }[] = [
   { value: "italy-white", label: "Italy White" },
 ];
 
-function NotificationSection() {
+const profileBtnStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "12px 16px",
+  background: "var(--bg-alt)",
+  color: "var(--text)",
+  border: "none",
+  borderRadius: 10,
+  fontSize: 14,
+  fontWeight: 500,
+  cursor: "pointer",
+  transition: "opacity 0.15s ease",
+  textAlign: "left",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+};
+
+function NotificationButton() {
+  const [open, setOpen] = useState(false);
   const [topic, setTopic] = useState("none");
 
   useEffect(() => {
@@ -32,79 +54,81 @@ function NotificationSection() {
     setNotificationPreference(value);
   }
 
+  const activeLabel = NOTIFICATION_OPTIONS.find((o) => o.value === topic)?.label || "None";
+
   return (
-    <div
-      style={{
-        width: "100%",
-        maxWidth: 320,
-        display: "flex",
-        flexDirection: "column",
-        gap: 10,
-      }}
-    >
-      <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text)" }}>
-        Notifications
-      </div>
-      <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 4 }}>
-        Get notified when new wines are released
-      </div>
-      {NOTIFICATION_OPTIONS.map((opt) => (
-        <button
-          key={opt.value}
-          onClick={() => handleChange(opt.value)}
+    <div style={{ width: "100%", maxWidth: 320 }}>
+      <button onClick={() => setOpen((v) => !v)} style={profileBtnStyle}>
+        <span>Notifications</span>
+        <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
+          {activeLabel} {open ? "\u25B2" : "\u25BC"}
+        </span>
+      </button>
+      {open && (
+        <div
           style={{
+            marginTop: 8,
             display: "flex",
-            alignItems: "center",
-            gap: 10,
-            padding: "10px 14px",
-            background: topic === opt.value ? "var(--tab-active-bg)" : "var(--bg-alt)",
-            color: topic === opt.value ? "var(--tab-active-text)" : "var(--text)",
-            border: "none",
-            borderRadius: 10,
-            fontSize: 14,
-            cursor: "pointer",
-            transition: "background 0.15s ease, color 0.15s ease",
-            textAlign: "left",
+            flexDirection: "column",
+            gap: 6,
           }}
         >
-          <span
-            style={{
-              width: 18,
-              height: 18,
-              borderRadius: "50%",
-              border: topic === opt.value ? "none" : "2px solid var(--text-muted)",
-              background: topic === opt.value ? "var(--tab-active-text)" : "transparent",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            {topic === opt.value && (
+          <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 2, paddingLeft: 2 }}>
+            Get notified when new wines are released
+          </div>
+          {NOTIFICATION_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => handleChange(opt.value)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
+                padding: "10px 14px",
+                background: topic === opt.value ? "var(--tab-active-bg)" : "var(--bg-alt)",
+                color: topic === opt.value ? "var(--tab-active-text)" : "var(--text)",
+                border: "none",
+                borderRadius: 10,
+                fontSize: 14,
+                cursor: "pointer",
+                transition: "background 0.15s ease, color 0.15s ease",
+                textAlign: "left",
+              }}
+            >
               <span
                 style={{
-                  width: 8,
-                  height: 8,
+                  width: 18,
+                  height: 18,
                   borderRadius: "50%",
-                  background: "var(--tab-active-bg)",
+                  border: topic === opt.value ? "none" : "2px solid var(--text-muted)",
+                  background: topic === opt.value ? "var(--tab-active-text)" : "transparent",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
                 }}
-              />
-            )}
-          </span>
-          {opt.label}
-        </button>
-      ))}
+              >
+                {topic === opt.value && (
+                  <span
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      background: "var(--tab-active-bg)",
+                    }}
+                  />
+                )}
+              </span>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
-  const [native, setNative] = useState(false);
-
-  useEffect(() => {
-    setNative(isNativeApp());
-  }, []);
-
+export function ProfileTab({ user, onSignIn, onSignOut, onImportComplete, onClearData }: Props) {
   if (!user) {
     return (
       <div
@@ -144,6 +168,10 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
           </svg>
           Sign in with Apple
         </button>
+        <div style={{ width: "100%", maxWidth: 320, display: "flex", flexDirection: "column", gap: 12, marginTop: 10 }}>
+          <NotificationButton />
+          <UploadButton onImportComplete={onImportComplete} onClearData={onClearData} />
+        </div>
       </div>
     );
   }
@@ -199,11 +227,10 @@ export function ProfileTab({ user, onSignIn, onSignOut }: Props) {
       <div style={{ marginTop: 10 }}>
         <DarkModeToggle />
       </div>
-      {native && (
-        <div style={{ marginTop: 20 }}>
-          <NotificationSection />
-        </div>
-      )}
+      <div style={{ width: "100%", maxWidth: 320, display: "flex", flexDirection: "column", gap: 12, marginTop: 10 }}>
+        <NotificationButton />
+        <UploadButton onImportComplete={onImportComplete} onClearData={onClearData} />
+      </div>
     </div>
   );
 }
