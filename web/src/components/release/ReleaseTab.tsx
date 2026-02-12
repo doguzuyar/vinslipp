@@ -140,23 +140,25 @@ export function ReleaseTab({
 
   const expandedWineData = expandedId ? filteredWines.find((w) => w.productNumber === expandedId) : null;
 
-  const filteredDateColors = useMemo(() => {
-    if (!matchCountry && !matchType && activeRating <= 0) return data.dateColors;
-    const dates = new Set<string>();
+  const { filteredDateColors, filteredDateCounts } = useMemo(() => {
+    const counts: Record<string, number> = {};
+    const hasFilter = !!matchCountry || !!matchType || activeRating > 0;
     for (const w of data.wines) {
-      if (matchCountry && !matchCountry(w.country)) continue;
-      if (matchType && !matchType(w.wineType)) continue;
-      if (activeRating > 0) {
-        const score = w.ratingScore || 0;
-        if (ratingMinMode ? score < activeRating : score !== activeRating) continue;
+      if (hasFilter) {
+        if (matchCountry && !matchCountry(w.country)) continue;
+        if (matchType && !matchType(w.wineType)) continue;
+        if (activeRating > 0) {
+          const score = w.ratingScore || 0;
+          if (ratingMinMode ? score < activeRating : score !== activeRating) continue;
+        }
       }
-      dates.add(w.launchDate);
+      counts[w.launchDate] = (counts[w.launchDate] || 0) + 1;
     }
-    const result: Record<string, string> = {};
-    for (const d of dates) {
-      if (data.dateColors[d]) result[d] = data.dateColors[d];
+    const colors: Record<string, string> = {};
+    for (const d of Object.keys(counts)) {
+      if (data.dateColors[d]) colors[d] = data.dateColors[d];
     }
-    return result;
+    return { filteredDateColors: hasFilter ? colors : data.dateColors, filteredDateCounts: counts };
   }, [data.wines, data.dateColors, matchCountry, matchType, activeRating, ratingMinMode]);
 
   const calendarPinned = todayOnly || !!selectedDate;
@@ -164,6 +166,7 @@ export function ReleaseTab({
   const calendar = (
     <MiniCalendar
       dateColors={filteredDateColors}
+      dateCounts={filteredDateCounts}
       selectedDate={todayOnly ? today : selectedDate}
       onSelectDate={handleSelectDate}
     />

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 
 interface Props {
   dateColors: Record<string, string>;
+  dateCounts?: Record<string, number>;
   selectedDate: string | null;
   onSelectDate: (date: string | null) => void;
 }
@@ -46,6 +47,7 @@ function MonthGrid({
   year,
   month,
   dateColors,
+  dateCounts,
   selectedDate,
   today,
   onSelectDate,
@@ -55,6 +57,7 @@ function MonthGrid({
   year: number;
   month: number;
   dateColors: Record<string, string>;
+  dateCounts?: Record<string, number>;
   selectedDate: string | null;
   today: string;
   onSelectDate: (date: string | null) => void;
@@ -96,15 +99,19 @@ function MonthGrid({
               }}
             >
               {dayNum}
-              {color && !isSelected && (
-                <div style={{
-                  width: 5,
-                  height: 5,
-                  borderRadius: "50%",
-                  background: color,
-                  margin: "1px auto 0",
-                }} />
-              )}
+              {color && !isSelected && (() => {
+                const count = dateCounts?.[dateStr] || 0;
+                const dotSize = count >= 10 ? 7 : count >= 6 ? 5 : 3;
+                return (
+                  <div style={{
+                    width: dotSize,
+                    height: dotSize,
+                    borderRadius: "50%",
+                    background: color,
+                    margin: "1px auto 0",
+                  }} />
+                );
+              })()}
             </div>
           );
         })}
@@ -118,7 +125,7 @@ function MonthGrid({
   );
 }
 
-export function MiniCalendar({ dateColors, selectedDate, onSelectDate }: Props) {
+export function MiniCalendar({ dateColors, dateCounts, selectedDate, onSelectDate }: Props) {
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
 
   const [year, setYear] = useState(() => new Date().getFullYear());
@@ -142,7 +149,7 @@ export function MiniCalendar({ dateColors, selectedDate, onSelectDate }: Props) 
     <div style={{ padding: "20px 0 12px" }}>
       {/* Mobile: single month with arrows */}
       <div className="calendar-mobile">
-        <MonthGrid year={year} month={month} dateColors={dateColors} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} hideTitle />
+        <MonthGrid year={year} month={month} dateColors={dateColors} dateCounts={dateCounts} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} hideTitle />
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 4 }}>
           <span onClick={prev} style={{ cursor: "pointer", padding: "4px 8px", fontSize: 16, color: "var(--text-muted)", userSelect: "none" }}>
             ◀
@@ -163,9 +170,9 @@ export function MiniCalendar({ dateColors, selectedDate, onSelectDate }: Props) 
             ◀
           </span>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 64, maxWidth: 900 }}>
-            <MonthGrid year={prevM.year} month={prevM.month} dateColors={dateColors} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} compact />
-            <MonthGrid year={year} month={month} dateColors={dateColors} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} compact />
-            <MonthGrid year={nextM.year} month={nextM.month} dateColors={dateColors} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} compact />
+            <MonthGrid year={prevM.year} month={prevM.month} dateColors={dateColors} dateCounts={dateCounts} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} compact />
+            <MonthGrid year={year} month={month} dateColors={dateColors} dateCounts={dateCounts} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} compact />
+            <MonthGrid year={nextM.year} month={nextM.month} dateColors={dateColors} dateCounts={dateCounts} selectedDate={selectedDate} today={today} onSelectDate={onSelectDate} compact />
           </div>
           <span onClick={next} style={{ cursor: "pointer", padding: "4px 8px", fontSize: 14, color: "var(--text-muted)", userSelect: "none" }}>
             ▶
