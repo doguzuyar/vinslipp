@@ -24,7 +24,7 @@ const NOTIFICATION_OPTIONS: { value: string; label: string }[] = [
 
 const profileBtnStyle: React.CSSProperties = {
   width: "100%",
-  padding: "10px 14px",
+  padding: "8px 0",
   background: "var(--bg-alt)",
   color: "var(--text)",
   border: "none",
@@ -32,11 +32,7 @@ const profileBtnStyle: React.CSSProperties = {
   fontSize: 13,
   fontWeight: 500,
   cursor: "pointer",
-  transition: "opacity 0.15s ease",
-  textAlign: "left",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
+  textAlign: "center",
 };
 
 function NotificationButton() {
@@ -163,7 +159,7 @@ export function ProfileTab({ user, onSignIn, onSignOut, onImportComplete, onClea
           </svg>
           Sign in with Apple
         </button>
-        <div style={{ width: "100%", maxWidth: 320, display: "flex", flexDirection: "column", gap: 12, marginTop: 10 }}>
+        <div style={{ width: "100%", maxWidth: 200, display: "flex", flexDirection: "column", gap: 8, marginTop: 10 }}>
           <NotificationButton />
           <UploadButton onImportComplete={onImportComplete} onClearData={onClearData} />
         </div>
@@ -222,7 +218,7 @@ export function ProfileTab({ user, onSignIn, onSignOut, onImportComplete, onClea
       <div style={{ marginTop: 10 }}>
         <DarkModeToggle />
       </div>
-      <div style={{ width: "100%", maxWidth: 320, display: "flex", flexDirection: "column", gap: 12, marginTop: 10 }}>
+      <div style={{ width: "100%", maxWidth: 200, display: "flex", flexDirection: "column", gap: 8, marginTop: 10 }}>
         <NotificationButton />
         <UploadButton onImportComplete={onImportComplete} onClearData={onClearData} />
       </div>

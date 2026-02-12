@@ -365,7 +365,7 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
         title="Import Vivino data"
         style={{
           width: "100%",
-          padding: "10px 14px",
+          padding: "8px 0",
           background: "var(--bg-alt)",
           color: "var(--text)",
           border: "none",
@@ -373,11 +373,7 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
           fontSize: 13,
           fontWeight: 500,
           cursor: "pointer",
-          transition: "opacity 0.15s ease",
-          textAlign: "left" as const,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          textAlign: "center" as const,
         }}
       >
         Import Vivino Data
