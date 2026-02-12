@@ -49,7 +49,9 @@ export function BlogModal({ wine, user, onClose, onPosted }: Props) {
       });
       onPosted?.();
       onClose();
-    } catch {
+    } catch (err) {
+      console.error("[blog] post failed:", err);
+      alert(`Post failed: ${err instanceof Error ? err.message : err}`);
       setPosting(false);
     }
   }

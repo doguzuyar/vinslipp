@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import {
   initializeFirestore,
+  memoryLocalCache,
   collection,
   addDoc,
   query,
@@ -30,6 +31,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = initializeFirestore(app, {
+  localCache: memoryLocalCache(),
   experimentalAutoDetectLongPolling: true,
 });
 
@@ -92,10 +94,12 @@ export interface BlogPost {
 }
 
 export async function addBlogPost(post: Omit<BlogPost, "id" | "createdAt">): Promise<void> {
-  await addDoc(collection(db, "blog_posts"), {
+  console.log("[blog] writing to Firestore…", post);
+  const ref = await addDoc(collection(db, "blog_posts"), {
     ...post,
     createdAt: serverTimestamp(),
   });
+  console.log("[blog] written", ref.id);
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
