@@ -16,7 +16,6 @@ interface Props {
 }
 
 const NOTIFICATION_OPTIONS: { value: string; label: string }[] = [
-  { value: "none", label: "None" },
   { value: "french-red", label: "French Red" },
   { value: "french-white", label: "French White" },
   { value: "italy-red", label: "Italy Red" },
@@ -50,19 +49,15 @@ function NotificationButton() {
   }, []);
 
   function handleChange(value: string) {
-    setTopic(value);
-    setNotificationPreference(value);
+    const next = value === topic ? "none" : value;
+    setTopic(next);
+    setNotificationPreference(next);
   }
-
-  const activeLabel = NOTIFICATION_OPTIONS.find((o) => o.value === topic)?.label || "None";
 
   return (
     <div style={{ width: "100%", maxWidth: 320 }}>
       <button onClick={() => setOpen((v) => !v)} style={profileBtnStyle}>
-        <span>Notifications</span>
-        <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
-          {activeLabel} {open ? "\u25B2" : "\u25BC"}
-        </span>
+        Notifications
       </button>
       {open && (
         <div

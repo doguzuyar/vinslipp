@@ -380,8 +380,7 @@ export function UploadButton({ onImportComplete, onClearData, inline }: Props) {
           justifyContent: "space-between",
         }}
       >
-        <span>Import Vivino Data</span>
-        <span style={{ fontSize: 12, color: "var(--text-muted)" }}>{open ? "\u25B2" : "\u25BC"}</span>
+        Import Vivino Data
       </button>
 
       {open && createPortal(
