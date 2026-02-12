@@ -2,8 +2,10 @@
 
 import { useState, useMemo } from "react";
 import type { ReleaseData, ReleaseWine } from "@/types";
+import type { AuthUser } from "@/lib/firebase";
 import { SortableTable, type Column } from "@/components/SortableTable";
 import { useRowPopup, RowPopup } from "@/components/RowPopup";
+import { BlogModal, type BlogWine } from "@/components/blog/BlogModal";
 import { RatingStars } from "./RatingStars";
 import { MiniCalendar } from "./MiniCalendar";
 
@@ -16,6 +18,7 @@ interface Props {
   matchType: ((wineType: string) => boolean) | null;
   hasRatings: boolean;
   setTodayOnly: (v: boolean) => void;
+  user: AuthUser | null;
 }
 
 export function ReleaseTab({
@@ -27,9 +30,11 @@ export function ReleaseTab({
   matchType,
   hasRatings,
   setTodayOnly,
+  user,
 }: Props) {
   const [pastVisible, setPastVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [blogWine, setBlogWine] = useState<BlogWine | null>(null);
   const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
 
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
@@ -154,7 +159,7 @@ export function ReleaseTab({
           links={[
             { label: "Vivino", href: expandedWineData.vivinoLink },
             { label: "Systembolaget", href: expandedWineData.sbLink },
-            { label: "Blog" },
+            { label: "Blog", onClick: () => setBlogWine({ id: expandedWineData.productNumber, name: expandedWineData.wineName, winery: expandedWineData.producer, vintage: expandedWineData.vintage }) },
           ]}
         >
           {expandedWineData.ratingReason && (
@@ -189,6 +194,7 @@ export function ReleaseTab({
         selectedDate={todayOnly ? today : selectedDate}
         onSelectDate={handleSelectDate}
       />
+      {blogWine && <BlogModal wine={blogWine} user={user} onClose={() => setBlogWine(null)} />}
     </div>
   );
 }

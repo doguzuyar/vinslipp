@@ -6,6 +6,17 @@ import {
   onAuthStateChanged,
   OAuthProvider,
 } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  getDocs,
+  where,
+  serverTimestamp,
+  type Timestamp,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDcFIknMUwHe2Y6GWSgfC2KxFtQqi7i-lI",
@@ -18,6 +29,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 export type AuthUser = { uid: string; displayName: string | null };
 
@@ -61,6 +73,43 @@ export function getNotificationPreference(callback: (topic: string) => void): ()
   return () => {
     delete (window as unknown as { __notificationPreferenceCallback?: unknown }).__notificationPreferenceCallback;
   };
+}
+
+// --- Blog (Firestore) ---
+
+export interface BlogPost {
+  id?: string;
+  wineId: string;
+  wineName: string;
+  winery: string;
+  vintage: string;
+  userId: string;
+  userName: string;
+  comment: string;
+  createdAt: Timestamp | null;
+}
+
+export async function addBlogPost(post: Omit<BlogPost, "id" | "createdAt">): Promise<void> {
+  await addDoc(collection(db, "blog_posts"), {
+    ...post,
+    createdAt: serverTimestamp(),
+  });
+}
+
+export async function getBlogPosts(): Promise<BlogPost[]> {
+  const q = query(collection(db, "blog_posts"), orderBy("createdAt", "desc"));
+  const snap = await getDocs(q);
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }) as BlogPost);
+}
+
+export async function getBlogPostsForWine(wineId: string): Promise<BlogPost[]> {
+  const q = query(
+    collection(db, "blog_posts"),
+    where("wineId", "==", wineId),
+    orderBy("createdAt", "desc"),
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }) as BlogPost);
 }
 
 export function onAuthChange(

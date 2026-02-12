@@ -65,9 +65,10 @@ export function useRowPopup() {
   return { expandedId, popupPos, popupRef, scrollRef, handleRowClick };
 }
 
-interface LinkItem {
+export interface LinkItem {
   label: string;
   href?: string;
+  onClick?: () => void;
 }
 
 interface RowPopupProps {
@@ -120,9 +121,13 @@ export function RowPopup({ popupRef, popupPos, links, children }: RowPopupProps)
               {link.label}
             </a>
           ) : (
-            <span key={link.label} style={linkStyle}>
+            <button
+              key={link.label}
+              onClick={link.onClick}
+              style={{ ...linkStyle, border: "none", cursor: link.onClick ? "pointer" : "default" }}
+            >
               {link.label}
-            </span>
+            </button>
           ),
         )}
       </div>

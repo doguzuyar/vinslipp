@@ -1,9 +1,11 @@
 "use client";
 
-import { useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback } from "react";
 import type { CellarData, CellarWine } from "@/types";
+import type { AuthUser } from "@/lib/firebase";
 import { SortableTable, type Column } from "@/components/SortableTable";
 import { useRowPopup, RowPopup } from "@/components/RowPopup";
+import { BlogModal, type BlogWine } from "@/components/blog/BlogModal";
 import { BottleChart } from "./BottleChart";
 
 interface Props {
@@ -11,10 +13,12 @@ interface Props {
   activeYear: string | null;
   activeVintage: string | null;
   onYearChange: (year: string | null) => void;
+  user: AuthUser | null;
 }
 
-export function CellarTab({ data, activeYear, activeVintage, onYearChange }: Props) {
+export function CellarTab({ data, activeYear, activeVintage, onYearChange, user }: Props) {
   const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
+  const [blogWine, setBlogWine] = useState<BlogWine | null>(null);
 
   const filteredWines = useMemo(() => {
     let wines = data.wines;
@@ -101,7 +105,7 @@ export function CellarTab({ data, activeYear, activeVintage, onYearChange }: Pro
           popupPos={popupPos}
           links={[
             { label: "Vivino", href: expandedWineData.link },
-            { label: "Blog" },
+            { label: "Blog", onClick: () => setBlogWine({ id: `${expandedWineData.winery}-${expandedWineData.wineName}-${expandedWineData.vintage}`, name: expandedWineData.wineName, winery: expandedWineData.winery, vintage: expandedWineData.vintage }) },
           ]}
         />
       )}
@@ -120,6 +124,7 @@ export function CellarTab({ data, activeYear, activeVintage, onYearChange }: Pro
       <p style={{ fontWeight: 500, marginTop: 16, fontSize: 14, color: "var(--text-muted)" }}>
         {data.totalBottles} bottles{data.totalValue > 0 ? ` \u00b7 ${totalValueFormatted} SEK` : ""}
       </p>
+      {blogWine && <BlogModal wine={blogWine} user={user} onClose={() => setBlogWine(null)} />}
     </div>
   );
 }

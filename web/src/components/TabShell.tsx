@@ -877,12 +877,13 @@ export function TabShell({ releases, metadata }: Props) {
           } : null}
           hasRatings={hasRatings}
           setTodayOnly={setTodayOnly}
+          user={user}
         />
       )}
       {activeTab === "cellar" && (
         showHistory
-          ? (historyData ? <HistoryTab wines={filteredHistoryWines} selectedLocation={historyLocation} /> : <UploadButton inline onImportComplete={handleImport} />)
-          : (cellarData ? <CellarTab data={cellarData} activeYear={cellarYear} activeVintage={cellarVintage} onYearChange={setCellarYear} /> : <UploadButton inline onImportComplete={handleImport} />)
+          ? (historyData ? <HistoryTab wines={filteredHistoryWines} selectedLocation={historyLocation} user={user} /> : <UploadButton inline onImportComplete={handleImport} />)
+          : (cellarData ? <CellarTab data={cellarData} activeYear={cellarYear} activeVintage={cellarVintage} onYearChange={setCellarYear} user={user} /> : <UploadButton inline onImportComplete={handleImport} />)
       )}
       {activeTab === "blog" && <BlogTab />}
       {activeTab === "auction" && <AuctionTab search={auctionSearch} />}
