@@ -92,6 +92,7 @@ function MonthGrid({
                 color: isSelected ? "#fff" : color ? "var(--text)" : "var(--text-muted)",
                 background: isSelected ? (color || "var(--th-bg)") : "transparent",
                 opacity: (color || isToday) ? 1 : 0.4,
+                boxShadow: isToday && !isSelected ? "inset 0 0 0 2px var(--th-bg)" : "none",
               }}
             >
               {dayNum}

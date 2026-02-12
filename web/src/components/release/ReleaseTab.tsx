@@ -140,11 +140,30 @@ export function ReleaseTab({
 
   const expandedWineData = expandedId ? filteredWines.find((w) => w.productNumber === expandedId) : null;
 
+  const filteredDateColors = useMemo(() => {
+    if (!matchCountry && !matchType && activeRating <= 0) return data.dateColors;
+    const dates = new Set<string>();
+    for (const w of data.wines) {
+      if (matchCountry && !matchCountry(w.country)) continue;
+      if (matchType && !matchType(w.wineType)) continue;
+      if (activeRating > 0) {
+        const score = w.ratingScore || 0;
+        if (ratingMinMode ? score < activeRating : score !== activeRating) continue;
+      }
+      dates.add(w.launchDate);
+    }
+    const result: Record<string, string> = {};
+    for (const d of dates) {
+      if (data.dateColors[d]) result[d] = data.dateColors[d];
+    }
+    return result;
+  }, [data.wines, data.dateColors, matchCountry, matchType, activeRating, ratingMinMode]);
+
   const calendarPinned = todayOnly || !!selectedDate;
 
   const calendar = (
     <MiniCalendar
-      dateColors={data.dateColors}
+      dateColors={filteredDateColors}
       selectedDate={todayOnly ? today : selectedDate}
       onSelectDate={handleSelectDate}
     />
