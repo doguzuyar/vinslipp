@@ -719,7 +719,7 @@ export function TabShell({ releases, metadata }: Props) {
 
       {/* Mobile: single-line header with context controls */}
       {isMobile && (
-        <div style={{ display: "flex", alignItems: "center", marginBottom: 8, ...(isNativeApp ? { position: "absolute", top: 0, left: 0, right: 0, zIndex: 10, paddingTop: "env(safe-area-inset-top)", pointerEvents: "none" } : { position: "relative" }) }}>
+        <div style={{ display: "flex", alignItems: "center", marginBottom: 8, ...(isNativeApp ? { position: "absolute", top: 0, left: 0, right: 0, zIndex: 10, paddingTop: "calc(env(safe-area-inset-top) - 28px)", pointerEvents: "none" } : { position: "relative" }) }}>
           {/* Release tab: Today on left, Filter on right */}
           {activeTab === "release" && (
             <>
