@@ -7,7 +7,7 @@ import {
   OAuthProvider,
 } from "firebase/auth";
 import {
-  getFirestore,
+  initializeFirestore,
   collection,
   addDoc,
   query,
@@ -29,7 +29,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
+const db = initializeFirestore(app, {
+  experimentalAutoDetectLongPolling: true,
+});
 
 export type AuthUser = { uid: string; displayName: string | null };
 
