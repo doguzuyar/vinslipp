@@ -92,6 +92,7 @@ function toggleBtnStyle(active: boolean): React.CSSProperties {
     fontSize: 12,
     fontWeight: 500,
     transition: "all 0.15s ease",
+    pointerEvents: "auto",
   };
 }
 
@@ -718,7 +719,7 @@ export function TabShell({ releases, metadata }: Props) {
 
       {/* Mobile: single-line header with context controls */}
       {isMobile && (
-        <div style={{ display: "flex", alignItems: "center", marginBottom: 8, position: "relative", ...(isNativeApp ? { paddingTop: "env(safe-area-inset-top)" } : {}) }}>
+        <div style={{ display: "flex", alignItems: "center", marginBottom: 8, ...(isNativeApp ? { position: "absolute", top: 0, left: 0, right: 0, zIndex: 10, paddingTop: "env(safe-area-inset-top)", pointerEvents: "none" } : { position: "relative" }) }}>
           {/* Release tab: Today on left, Filter on right */}
           {activeTab === "release" && (
             <>
@@ -733,6 +734,7 @@ export function TabShell({ releases, metadata }: Props) {
                 style={{
                   marginLeft: "auto",
                   position: "relative",
+                  pointerEvents: "auto",
                 }}
               >
                 <button
