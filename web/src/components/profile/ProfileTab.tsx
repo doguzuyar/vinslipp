@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import type { AuthUser } from "@/lib/firebase";
 import type { CellarData, HistoryData } from "@/types";
 import { isNativeApp, setNotificationPreference, getNotificationPreference } from "@/lib/firebase";
@@ -38,11 +39,23 @@ const profileBtnStyle: React.CSSProperties = {
 function NotificationButton() {
   const [open, setOpen] = useState(false);
   const [topic, setTopic] = useState("none");
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const cleanup = getNotificationPreference((t) => setTopic(t));
     return cleanup;
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
 
   function handleChange(value: string) {
     const next = value === topic ? "none" : value;
@@ -51,20 +64,34 @@ function NotificationButton() {
   }
 
   return (
-    <div style={{ width: "100%", maxWidth: 320 }}>
+    <div style={{ width: "100%" }}>
       <button onClick={() => setOpen((v) => !v)} style={profileBtnStyle}>
         Notifications
       </button>
-      {open && (
+      {open && createPortal(
         <div
+          ref={panelRef}
           style={{
-            marginTop: 8,
+            position: "fixed",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            background: "var(--bg)",
+            border: "1px solid var(--border)",
+            borderRadius: 12,
+            padding: 20,
+            width: 280,
+            zIndex: 100,
+            boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
             display: "flex",
             flexDirection: "column",
-            gap: 6,
+            gap: 8,
           }}
         >
-          <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 2, paddingLeft: 2 }}>
+          <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, color: "var(--text)" }}>
+            Notifications
+          </div>
+          <div style={{ fontSize: 12, color: "var(--text-muted)", marginBottom: 4 }}>
             Get notified when new wines are released
           </div>
           {NOTIFICATION_OPTIONS.map((opt) => (
@@ -113,7 +140,8 @@ function NotificationButton() {
               {opt.label}
             </button>
           ))}
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
