@@ -16,7 +16,7 @@ export function BlogTab() {
 
   useEffect(() => {
     getBlogPosts()
-      .then(setPosts)
+      .then((all) => setPosts(all.filter((p) => p.moderationStatus === "pass")))
       .finally(() => setLoading(false));
   }, []);
 

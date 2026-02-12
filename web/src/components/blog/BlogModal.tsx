@@ -92,6 +92,7 @@ export function BlogModal({ wine, user, onClose, onPosted }: Props) {
           <>
             <textarea
               value={comment}
+              maxLength={140}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Write your tasting note..."
               rows={4}
@@ -108,7 +109,10 @@ export function BlogModal({ wine, user, onClose, onPosted }: Props) {
                 boxSizing: "border-box",
               }}
             />
-            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", alignItems: "center" }}>
+              <span style={{ fontSize: 11, color: comment.length > 130 ? "var(--accent)" : "var(--text-muted)", marginRight: "auto" }}>
+                {comment.length}/140
+              </span>
               <button
                 onClick={onClose}
                 style={{

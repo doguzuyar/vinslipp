@@ -91,6 +91,8 @@ export interface BlogPost {
   userName: string;
   comment: string;
   createdAt: Timestamp | null;
+  moderated?: boolean;
+  moderationStatus?: "pass" | "fail";
 }
 
 export async function addBlogPost(post: Omit<BlogPost, "id" | "createdAt">): Promise<void> {

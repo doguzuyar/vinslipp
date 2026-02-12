@@ -30,8 +30,10 @@ __pycache__/
 
 # Local-only scripts & data
 scripts/rate_wines.py
+scripts/moderate_blog.py
 scripts/server.py
 scripts/server.sh
+firebase-sa.json
 rag/
 bukowskis/cookies.txt
 bukowskis/scraper.py
