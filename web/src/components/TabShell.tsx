@@ -718,7 +718,7 @@ export function TabShell({ releases, metadata }: Props) {
 
       {/* Mobile: single-line header with context controls */}
       {isMobile && (
-        <div style={{ display: "flex", alignItems: "center", marginBottom: 12, position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "center", marginBottom: 8, position: "relative", ...(isNativeApp ? { paddingTop: "env(safe-area-inset-top)" } : {}) }}>
           {/* Release tab: Today on left, Filter on right */}
           {activeTab === "release" && (
             <>
@@ -750,16 +750,7 @@ export function TabShell({ releases, metadata }: Props) {
             </>
           )}
 
-          {/* Auction tab: search bar */}
-          {activeTab === "auction" && (
-            <input
-              type="text"
-              placeholder="Search producers..."
-              value={auctionSearch}
-              onChange={(e) => setAuctionSearch(e.target.value)}
-              style={{ ...searchInputStyle, padding: "6px 14px", flex: 1 }}
-            />
-          )}
+          {/* Auction tab: search bar hidden on mobile — moved into AuctionTab */}
 
           {/* Cellar: History toggle on left, filter on right */}
           {activeTab === "cellar" && (cellarData || historyData) && (
@@ -886,7 +877,7 @@ export function TabShell({ releases, metadata }: Props) {
           : (cellarData ? <CellarTab data={cellarData} activeYear={cellarYear} activeVintage={cellarVintage} onYearChange={setCellarYear} user={user} /> : <UploadButton inline onImportComplete={handleImport} />)
       )}
       {activeTab === "blog" && <BlogTab user={user} />}
-      {activeTab === "auction" && <AuctionTab search={auctionSearch} />}
+      {activeTab === "auction" && <AuctionTab search={auctionSearch} isMobile={isMobile} isNativeApp={isNativeApp} />}
       {activeTab === "profile" && <ProfileTab user={user} onSignIn={signInWithApple} onSignOut={signOutUser} onImportComplete={handleImport} onClearData={handleClearData} />}
       </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import type { AuctionData } from "@/types";
 import { SortableTable, type Column } from "@/components/SortableTable";
 
@@ -18,11 +18,29 @@ interface AuctionRow {
 
 interface Props {
   search: string;
+  isMobile?: boolean;
+  isNativeApp?: boolean;
 }
 
-export function AuctionTab({ search }: Props) {
+export function AuctionTab({ search, isMobile, isNativeApp }: Props) {
+  const [localSearch, setLocalSearch] = useState("");
+  const [nativeSearch, setNativeSearch] = useState("");
   const [data, setData] = useState<AuctionData | null>(null);
   const [error, setError] = useState(false);
+
+  // Listen for native iOS search bar input
+  const handleNativeSearch = useCallback((text: string) => {
+    setNativeSearch(text);
+  }, []);
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).__nativeAuctionSearch = handleNativeSearch;
+    return () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (window as any).__nativeAuctionSearch;
+    };
+  }, [handleNativeSearch]);
 
   useEffect(() => {
     fetch("data/auction_stats.json")
@@ -38,11 +56,13 @@ export function AuctionTab({ search }: Props) {
       .sort((a, b) => b.total_lots - a.total_lots);
   }, [data]);
 
+  const activeSearch = isNativeApp ? nativeSearch : isMobile ? localSearch : search;
+
   const filtered = useMemo(() => {
-    if (!search) return rows;
-    const q = search.toLowerCase();
+    if (!activeSearch) return rows;
+    const q = activeSearch.toLowerCase();
     return rows.filter((r) => r.name.toLowerCase().includes(q));
-  }, [rows, search]);
+  }, [rows, activeSearch]);
 
   const columns: Column<AuctionRow>[] = useMemo(
     () => [
@@ -126,12 +146,24 @@ export function AuctionTab({ search }: Props) {
   }
 
   return (
-    <div className="tab-scroll">
-      <SortableTable
-        columns={columns}
-        data={filtered}
-        tableId="auctionProducerTable"
-      />
+    <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
+      <div className="tab-scroll">
+        <SortableTable
+          columns={columns}
+          data={filtered}
+          tableId="auctionProducerTable"
+        />
+      </div>
+      {isMobile && !isNativeApp && (
+        <div className="auction-search-bar">
+          <input
+            type="search"
+            placeholder="Search producers..."
+            value={localSearch}
+            onChange={(e) => setLocalSearch(e.target.value)}
+          />
+        </div>
+      )}
     </div>
   );
 }

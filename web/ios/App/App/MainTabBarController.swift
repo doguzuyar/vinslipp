@@ -6,8 +6,11 @@ private class PassthroughView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? { nil }
 }
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate, NativeTabDelegate {
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate, NativeTabDelegate, UISearchBarDelegate {
     let webVC: WineCellarViewController
+
+    private let searchBar = UISearchBar()
+    private var searchBarBottomConstraint: NSLayoutConstraint?
 
     private let allTabs: [(name: String, title: String, icon: String)] = [
         ("release",  "Release", "clock"),
@@ -30,6 +33,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
         super.viewDidLoad()
         delegate = self
         webVC.tabDelegate = self
+
+        setupSearchBar()
 
         tabBar.isTranslucent = true
         tabBar.tintColor = UIColor { trait in
@@ -66,17 +71,83 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
         webVC.didMove(toParent: self)
     }
 
+    override var prefersStatusBarHidden: Bool { true }
+    override var childForStatusBarHidden: UIViewController? { nil }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.backgroundColor = .clear
         view.bringSubviewToFront(tabBar)
+        view.bringSubviewToFront(searchBar)
         for subview in view.subviews where subview !== webVC.view {
-            // Skip any view that contains the tab bar (the tab bar or its wrapper)
             if tabBar.isDescendant(of: subview) { continue }
+            if subview === searchBar { continue }
             subview.backgroundColor = .clear
             subview.isOpaque = false
             subview.isUserInteractionEnabled = false
         }
+    }
+
+    // MARK: - Search bar
+
+    private func setupSearchBar() {
+        searchBar.delegate = self
+        searchBar.placeholder = "Search producers..."
+        searchBar.searchBarStyle = .minimal
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.isHidden = true
+
+        view.addSubview(searchBar)
+        searchBarBottomConstraint = searchBar.bottomAnchor.constraint(equalTo: tabBar.topAnchor)
+        NSLayoutConstraint.activate([
+            searchBarBottomConstraint!,
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard !searchBar.isHidden,
+              let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+              let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        searchBarBottomConstraint?.isActive = false
+        searchBarBottomConstraint = searchBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -frame.height)
+        searchBarBottomConstraint?.isActive = true
+        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+    }
+
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        guard let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
+        searchBarBottomConstraint?.isActive = false
+        searchBarBottomConstraint = searchBar.bottomAnchor.constraint(equalTo: tabBar.topAnchor)
+        searchBarBottomConstraint?.isActive = true
+        UIView.animate(withDuration: duration) { self.view.layoutIfNeeded() }
+    }
+
+    private func updateSearchBarVisibility() {
+        let isAuction = selectedIndex < allTabs.count && allTabs[selectedIndex].name == "auction"
+        searchBar.isHidden = !isAuction
+        if !isAuction {
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+        }
+    }
+
+    // MARK: - UISearchBarDelegate
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let escaped = searchText.replacingOccurrences(of: "\\", with: "\\\\")
+            .replacingOccurrences(of: "'", with: "\\'")
+        webVC.webView?.evaluateJavaScript("""
+            window.__nativeAuctionSearch && window.__nativeAuctionSearch('\(escaped)');
+        """)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 
     // MARK: - Tab management
@@ -118,6 +189,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
             window.dispatchEvent(new HashChangeEvent('hashchange'));
         """)
         selectedIndex = index
+        updateSearchBarVisibility()
         return false
     }
 
@@ -125,5 +197,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, Nati
 
     func webDidSwitchTab(_ tab: String) {
         selectTab(named: tab)
+        updateSearchBarVisibility()
     }
 }
