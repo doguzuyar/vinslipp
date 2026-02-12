@@ -214,7 +214,20 @@ td a {
   .calendar-mobile { display: none; }
 }
 
+/* Pinned calendar bottom padding */
+.calendar-pinned {
+  padding-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .calendar-pinned {
+    padding-bottom: 120px;
+  }
+}
+
 /* Native iOS app: extra bottom padding for tab bar */
 body.native-app .tab-scroll {
+  padding-bottom: calc(70px + env(safe-area-inset-bottom));
+}
+body.native-app .calendar-pinned {
   padding-bottom: calc(70px + env(safe-area-inset-bottom));
 }

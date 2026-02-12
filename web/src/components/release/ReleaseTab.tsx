@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import type { ReleaseData, ReleaseWine } from "@/types";
 import type { AuthUser } from "@/lib/firebase";
 import { SortableTable, type Column } from "@/components/SortableTable";
@@ -38,6 +38,11 @@ export function ReleaseTab({
   const { expandedId, popupPos, popupRef, scrollRef, handleRowClick } = useRowPopup();
 
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
+
+  // Clear calendar selection when Today's is toggled on
+  useEffect(() => {
+    if (todayOnly) setSelectedDate(null);
+  }, [todayOnly]);
 
   const handleSelectDate = (date: string | null) => {
     if (date === today) {
@@ -135,8 +140,18 @@ export function ReleaseTab({
 
   const expandedWineData = expandedId ? filteredWines.find((w) => w.productNumber === expandedId) : null;
 
-  return (
-    <div className="tab-scroll" ref={scrollRef} style={{ position: "relative" }}>
+  const calendarPinned = todayOnly || !!selectedDate;
+
+  const calendar = (
+    <MiniCalendar
+      dateColors={data.dateColors}
+      selectedDate={todayOnly ? today : selectedDate}
+      onSelectDate={handleSelectDate}
+    />
+  );
+
+  const tableContent = (
+    <>
       <SortableTable
         columns={columns}
         data={filteredWines}
@@ -189,11 +204,27 @@ export function ReleaseTab({
           ({pastCount})
         </span>
       </p>
-      <MiniCalendar
-        dateColors={data.dateColors}
-        selectedDate={todayOnly ? today : selectedDate}
-        onSelectDate={handleSelectDate}
-      />
+    </>
+  );
+
+  if (calendarPinned) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", flex: 1, minHeight: 0 }}>
+        <div className="tab-scroll" ref={scrollRef} style={{ position: "relative" }}>
+          {tableContent}
+        </div>
+        <div className="calendar-pinned">
+          {calendar}
+        </div>
+        {blogWine && <BlogModal wine={blogWine} user={user} onClose={() => setBlogWine(null)} />}
+      </div>
+    );
+  }
+
+  return (
+    <div className="tab-scroll" ref={scrollRef} style={{ position: "relative" }}>
+      {tableContent}
+      {calendar}
       {blogWine && <BlogModal wine={blogWine} user={user} onClose={() => setBlogWine(null)} />}
     </div>
   );
