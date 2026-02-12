@@ -94,12 +94,10 @@ export interface BlogPost {
 }
 
 export async function addBlogPost(post: Omit<BlogPost, "id" | "createdAt">): Promise<void> {
-  console.log("[blog] writing to Firestore…", post);
-  const ref = await addDoc(collection(db, "blog_posts"), {
+  await addDoc(collection(db, "blog_posts"), {
     ...post,
     createdAt: serverTimestamp(),
   });
-  console.log("[blog] written", ref.id);
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
