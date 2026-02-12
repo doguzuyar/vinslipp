@@ -86,7 +86,7 @@ function MonthGrid({
               onClick={() => (color || isToday) ? onSelectDate(isSelected ? null : dateStr) : undefined}
               style={{
                 textAlign: "center",
-                fontSize: compact ? 13 : 12,
+                fontSize: isToday ? (compact ? 15 : 14) : (compact ? 13 : 12),
                 padding: compact ? "5px 0" : "8px 0",
                 cursor: (color || isToday) ? "pointer" : "default",
                 borderRadius: 6,
@@ -95,7 +95,7 @@ function MonthGrid({
                 color: isSelected ? "#fff" : color ? "var(--text)" : "var(--text-muted)",
                 background: isSelected ? (color || "var(--th-bg)") : "transparent",
                 opacity: (color || isToday) ? 1 : 0.4,
-                boxShadow: isToday && !isSelected ? "inset 0 0 0 2px var(--th-bg)" : "none",
+                boxShadow: "none",
               }}
             >
               {dayNum}
