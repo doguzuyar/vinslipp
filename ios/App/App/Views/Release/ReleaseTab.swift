@@ -248,7 +248,7 @@ struct ReleaseTab: View {
                     }
 
                     if showPastReleases {
-                        ForEach(sorted(pastWines)) { wine in
+                        ForEach(pastWines.sorted { $0.launchDate > $1.launchDate }) { wine in
                             WineRow(wine: wine, isExpanded: expandedWineId == wine.id)
                                 .opacity(0.6)
                                 .contentShape(Rectangle())
