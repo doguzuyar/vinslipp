@@ -32,7 +32,7 @@ struct CellarTab: View {
         var wines = data.wines
 
         if let year = selectedYear {
-            wines = wines.filter { $0.drinkYear == year }
+            wines = wines.filter { showVintage ? $0.vintage == year : $0.drinkYear == year }
         }
 
         if !searchText.isEmpty {
@@ -52,7 +52,7 @@ struct CellarTab: View {
             if let data = cellarService.cellarData {
                 BottleChart(
                     yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
-                    colorPalette: data.colorPalette,
+                    colorPalette: showVintage ? data.vintagePalette : data.colorPalette,
                     selectedYear: $selectedYear
                 )
                 .padding(.horizontal, 12)
@@ -262,7 +262,7 @@ struct CellarTab: View {
             let result: Bool
             switch sortField {
             case .year:
-                result = a.drinkYear < b.drinkYear
+                result = showVintage ? a.vintage < b.vintage : a.drinkYear < b.drinkYear
             case .winery:
                 result = a.winery.localizedCaseInsensitiveCompare(b.winery) == .orderedAscending
             case .wine:

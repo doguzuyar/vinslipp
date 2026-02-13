@@ -163,7 +163,7 @@ struct ReleaseTab: View {
                 } label: {
                     FilterChipLabel(
                         label: "Country",
-                        value: selectedCountries.isEmpty ? nil : "\(selectedCountries.count)"
+                        isActive: !selectedCountries.isEmpty
                     )
                 }
 
@@ -183,17 +183,17 @@ struct ReleaseTab: View {
                 } label: {
                     FilterChipLabel(
                         label: "Type",
-                        value: selectedTypes.isEmpty ? nil : "\(selectedTypes.count)"
+                        isActive: !selectedTypes.isEmpty
                     )
                 }
 
                 Menu {
-                    ForEach(["4 Stars", "3+ Stars", "3 Stars"], id: \.self) { rating in
+                    ForEach(["3 Stars", "3+ Stars", "4 Stars"], id: \.self) { rating in
                         Button {
                             selectedRating = selectedRating == rating ? "" : rating
                         } label: {
                             HStack {
-                                Text(rating)
+                                Text(ratingLabel(for: rating))
                                 if selectedRating == rating {
                                     Image(systemName: "checkmark")
                                 }
@@ -203,7 +203,7 @@ struct ReleaseTab: View {
                 } label: {
                     FilterChipLabel(
                         label: "Rating",
-                        value: selectedRating.isEmpty ? nil : selectedRating
+                        isActive: !selectedRating.isEmpty
                     )
                 }
 
@@ -367,7 +367,7 @@ struct ReleaseTab: View {
             result = result.filter {
                 guard let score = $0.ratingScore else { return false }
                 switch selectedRating {
-                case "4 Stars": return score >= 4
+                case "4 Stars": return score == 4
                 case "3+ Stars": return score >= 3
                 case "3 Stars": return score == 3
                 default: return true
@@ -423,6 +423,15 @@ struct ReleaseTab: View {
         selectedTypes = s
     }
 
+    private func ratingLabel(for rating: String) -> String {
+        switch rating {
+        case "4 Stars": return "★★★★"
+        case "3+ Stars": return "★★★+"
+        case "3 Stars": return "★★★"
+        default: return rating
+        }
+    }
+
     private func clearAllFilters() {
         todayOnly = false
         selectedCountries = []
@@ -454,23 +463,19 @@ struct FilterChip: View {
 
 struct FilterChipLabel: View {
     let label: String
-    let value: String?
+    let isActive: Bool
 
     var body: some View {
         HStack(spacing: 3) {
             Text(label)
-            if let value {
-                Text(value)
-                    .foregroundStyle(.primary)
-            }
             Image(systemName: "chevron.down")
                 .font(.system(size: 7))
         }
         .font(.caption2.weight(.medium))
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
-        .background(value != nil ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
-        .foregroundStyle(value != nil ? .primary : .secondary)
+        .background(isActive ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
+        .foregroundStyle(isActive ? .primary : .secondary)
         .clipShape(Capsule())
     }
 }

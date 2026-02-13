@@ -25,6 +25,7 @@ struct CellarData: Codable {
     let totalBottles: Int
     let totalValue: Int
     let colorPalette: [String: String]
+    let vintagePalette: [String: String]
 }
 
 enum CellarColors {

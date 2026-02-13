@@ -210,6 +210,8 @@ class CellarService: ObservableObject {
         }
 
         let palette = CellarColors.buildPalette(years: Array(allYears))
+        let vintageYears = vintageCounts.keys.compactMap { Int($0) }
+        let vPalette = CellarColors.buildPalette(years: vintageYears)
 
         return CellarData(
             wines: wines,
@@ -217,7 +219,8 @@ class CellarService: ObservableObject {
             vintageCounts: vintageCounts,
             totalBottles: totalBottles,
             totalValue: totalValue,
-            colorPalette: palette
+            colorPalette: palette,
+            vintagePalette: vPalette
         )
     }
 
