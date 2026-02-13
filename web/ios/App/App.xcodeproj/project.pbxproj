@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 4D22ABE82AF431CB00220026 /* CapApp-SPM */; };
 		504EC3081FED79650016851F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EC3071FED79650016851F /* AppDelegate.swift */; };
 		504EC30F1FED79650016851F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30E1FED79650016851F /* Assets.xcassets */; };
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
@@ -15,7 +14,13 @@
 		7E59BEE32F3CF263005F7386 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59BEE22F3CF263005F7386 /* FirebaseAuth */; };
 		7E59BEE72F3D02BF005F7386 /* AppleSignInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59BEE62F3D02BF005F7386 /* AppleSignInHandler.swift */; };
 		7EA44BD42F3A5C2E006789FF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */; };
+		CC000001000000000000CC01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CC000001000000000000CC00 /* FirebaseFirestore */; };
 		F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */; };
+		BB000001000000000000BB01 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000000000BB00 /* ProfileTab.swift */; };
+		CC000002000000000000CC01 /* BlogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002000000000000CC00 /* BlogService.swift */; };
+		CC000003000000000000CC01 /* BlogTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000003000000000000CC00 /* BlogTab.swift */; };
+		DD000001000000000000DD01 /* AuctionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000001000000000000DD00 /* AuctionModels.swift */; };
+		DD000002000000000000DD01 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002000000000000DD00 /* AuctionTab.swift */; };
 		AA000001000000000000AA01 /* VinslippApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000AA00 /* VinslippApp.swift */; };
 		AA000002000000000000AA01 /* ReleaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002000000000000AA00 /* ReleaseModels.swift */; };
 		AA000003000000000000AA01 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003000000000000AA00 /* DataService.swift */; };
@@ -49,6 +54,11 @@
 		AA000008000000000000AA00 /* WineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetail.swift; sourceTree = "<group>"; };
 		AA000009000000000000AA00 /* PlaceholderTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTab.swift; sourceTree = "<group>"; };
 		AA00000A000000000000AA00 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BB000001000000000000BB00 /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
+		CC000002000000000000CC00 /* BlogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogService.swift; sourceTree = "<group>"; };
+		CC000003000000000000CC00 /* BlogTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTab.swift; sourceTree = "<group>"; };
+		DD000001000000000000DD00 /* AuctionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionModels.swift; sourceTree = "<group>"; };
+		DD000002000000000000DD00 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */,
 				7E59BEE32F3CF263005F7386 /* FirebaseAuth in Frameworks */,
 				7EA44BD42F3A5C2E006789FF /* FirebaseMessaging in Frameworks */,
+				CC000001000000000000CC01 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				AA000002000000000000AA00 /* ReleaseModels.swift */,
+				DD000001000000000000DD00 /* AuctionModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				AA000003000000000000AA00 /* DataService.swift */,
+				CC000002000000000000CC00 /* BlogService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -124,9 +136,28 @@
 			children = (
 				AA000004000000000000AA00 /* ContentView.swift */,
 				AA00000F000000000000AA00 /* Release */,
+				CC000004000000000000CC00 /* Blog */,
+				DD000003000000000000DD00 /* Auction */,
+				BB000002000000000000BB00 /* Profile */,
 				AA000010000000000000AA00 /* Placeholder */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DD000003000000000000DD00 /* Auction */ = {
+			isa = PBXGroup;
+			children = (
+				DD000002000000000000DD00 /* AuctionTab.swift */,
+			);
+			path = Auction;
+			sourceTree = "<group>";
+		};
+		CC000004000000000000CC00 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				CC000003000000000000CC00 /* BlogTab.swift */,
+			);
+			path = Blog;
 			sourceTree = "<group>";
 		};
 		AA00000E000000000000AA00 /* Utilities */ = {
@@ -156,6 +187,14 @@
 			path = Placeholder;
 			sourceTree = "<group>";
 		};
+		BB000002000000000000BB00 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BB000001000000000000BB00 /* ProfileTab.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7E59BEE12F3CF263005F7386 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +219,9 @@
 			);
 			name = App;
 			packageProductDependencies = (
-				4D22ABE82AF431CB00220026 /* CapApp-SPM */,
 				7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */,
 				7E59BEE22F3CF263005F7386 /* FirebaseAuth */,
+				CC000001000000000000CC00 /* FirebaseFirestore */,
 			);
 			productName = App;
 			productReference = 504EC3041FED79650016851F /* App.app */;
@@ -214,7 +253,6 @@
 			);
 			mainGroup = 504EC2FB1FED79650016851F;
 			packageReferences = (
-				D4C12C0A2AAA248700AAC8A2 /* XCLocalSwiftPackageReference "CapApp-SPM" */,
 				7EA44BAC2F3A5C2E006789FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 504EC3051FED79650016851F /* Products */;
@@ -257,6 +295,11 @@
 				AA000008000000000000AA01 /* WineDetail.swift in Sources */,
 				AA000009000000000000AA01 /* PlaceholderTab.swift in Sources */,
 				AA00000A000000000000AA01 /* Colors.swift in Sources */,
+				BB000001000000000000BB01 /* ProfileTab.swift in Sources */,
+				CC000002000000000000CC01 /* BlogService.swift in Sources */,
+				CC000003000000000000CC01 /* BlogTab.swift in Sources */,
+				DD000001000000000000DD01 /* AuctionModels.swift in Sources */,
+				DD000002000000000000DD01 /* AuctionTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -387,7 +430,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -409,7 +452,7 @@
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,7 +479,7 @@
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,13 +517,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		D4C12C0A2AAA248700AAC8A2 /* XCLocalSwiftPackageReference "CapApp-SPM" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "CapApp-SPM";
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		7EA44BAC2F3A5C2E006789FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -493,11 +529,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4D22ABE82AF431CB00220026 /* CapApp-SPM */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D4C12C0A2AAA248700AAC8A2 /* XCLocalSwiftPackageReference "CapApp-SPM" */;
-			productName = "CapApp-SPM";
-		};
 		7E59BEE22F3CF263005F7386 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7EA44BAC2F3A5C2E006789FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -507,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7EA44BAC2F3A5C2E006789FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		CC000001000000000000CC00 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7EA44BAC2F3A5C2E006789FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -4,26 +4,49 @@ import Foundation
 class DataService: ObservableObject {
     @Published var releaseData: ReleaseData?
     @Published var metadata: AppMetadata?
+    @Published var auctionData: AuctionData?
     @Published var isLoading = false
+    @Published var isLoadingAuction = false
     @Published var error: String?
+    @Published var auctionError: String?
 
     private let baseURL = "https://vinslipp.app/data"
 
     func loadReleases() async {
-        isLoading = true
+        let isFirstLoad = releaseData == nil
+        if isFirstLoad {
+            isLoading = true
+        }
         error = nil
 
         async let releaseFetch: ReleaseData? = fetch("\(baseURL)/releases.json")
         async let metaFetch: AppMetadata? = fetch("\(baseURL)/metadata.json")
 
         let (releases, meta) = await (releaseFetch, metaFetch)
-        releaseData = releases
-        metadata = meta
 
-        if releases == nil {
+        if let releases {
+            releaseData = releases
+            metadata = meta
+        } else if isFirstLoad {
             error = "Failed to load wine data"
         }
         isLoading = false
+    }
+
+    func loadAuction() async {
+        let isFirstLoad = auctionData == nil
+        if isFirstLoad {
+            isLoadingAuction = true
+        }
+        auctionError = nil
+
+        let result: AuctionData? = await fetch("\(baseURL)/auction_stats.json")
+        if let result {
+            auctionData = result
+        } else if isFirstLoad {
+            auctionError = "Failed to load auction data"
+        }
+        isLoadingAuction = false
     }
 
     private func fetch<T: Codable>(_ urlString: String) async -> T? {

@@ -18,24 +18,25 @@ struct ContentView: View {
                 }
                 .tag(1)
 
-            PlaceholderTab(title: "Blog", icon: "doc.text")
+            BlogTab()
                 .tabItem {
                     Label("Blog", systemImage: "doc.text")
                 }
                 .tag(2)
 
-            PlaceholderTab(title: "Auction", icon: "dollarsign.circle")
+            AuctionTab(dataService: dataService)
                 .tabItem {
                     Label("Auction", systemImage: "dollarsign.circle")
                 }
                 .tag(3)
 
-            PlaceholderTab(title: "Profile", icon: "person.circle")
+            ProfileTab()
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }
                 .tag(4)
         }
-        .tint(Color(hex: "#e7e5e4"))
+        .tint(Color.primary)
+        .statusBarHidden()
     }
 }
