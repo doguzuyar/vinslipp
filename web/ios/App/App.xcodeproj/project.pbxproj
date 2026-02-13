@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,17 +14,6 @@
 		7E59BEE32F3CF263005F7386 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59BEE22F3CF263005F7386 /* FirebaseAuth */; };
 		7E59BEE72F3D02BF005F7386 /* AppleSignInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59BEE62F3D02BF005F7386 /* AppleSignInHandler.swift */; };
 		7EA44BD42F3A5C2E006789FF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */; };
-		CC000001000000000000CC01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CC000001000000000000CC00 /* FirebaseFirestore */; };
-		F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */; };
-		BB000001000000000000BB01 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000000000BB00 /* ProfileTab.swift */; };
-		CC000002000000000000CC01 /* BlogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002000000000000CC00 /* BlogService.swift */; };
-		CC000003000000000000CC01 /* BlogTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000003000000000000CC00 /* BlogTab.swift */; };
-		DD000001000000000000DD01 /* AuctionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000001000000000000DD00 /* AuctionModels.swift */; };
-		DD000002000000000000DD01 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002000000000000DD00 /* AuctionTab.swift */; };
-		EE000001000000000000EE01 /* CellarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000001000000000000EE00 /* CellarModels.swift */; };
-		EE000002000000000000EE01 /* CellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002000000000000EE00 /* CellarService.swift */; };
-		EE000003000000000000EE01 /* BottleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000003000000000000EE00 /* BottleChart.swift */; };
-		EE000004000000000000EE01 /* CellarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000004000000000000EE00 /* CellarTab.swift */; };
 		AA000001000000000000AA01 /* VinslippApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000AA00 /* VinslippApp.swift */; };
 		AA000002000000000000AA01 /* ReleaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002000000000000AA00 /* ReleaseModels.swift */; };
 		AA000003000000000000AA01 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003000000000000AA00 /* DataService.swift */; };
@@ -35,6 +24,17 @@
 		AA000008000000000000AA01 /* WineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008000000000000AA00 /* WineDetail.swift */; };
 		AA000009000000000000AA01 /* PlaceholderTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000009000000000000AA00 /* PlaceholderTab.swift */; };
 		AA00000A000000000000AA01 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000A000000000000AA00 /* Colors.swift */; };
+		BB000001000000000000BB01 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000000000BB00 /* ProfileTab.swift */; };
+		CC000001000000000000CC01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CC000001000000000000CC00 /* FirebaseFirestore */; };
+		CC000002000000000000CC01 /* BlogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002000000000000CC00 /* BlogService.swift */; };
+		CC000003000000000000CC01 /* BlogTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000003000000000000CC00 /* BlogTab.swift */; };
+		DD000001000000000000DD01 /* AuctionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000001000000000000DD00 /* AuctionModels.swift */; };
+		DD000002000000000000DD01 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002000000000000DD00 /* AuctionTab.swift */; };
+		EE000001000000000000EE01 /* CellarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000001000000000000EE00 /* CellarModels.swift */; };
+		EE000002000000000000EE01 /* CellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002000000000000EE00 /* CellarService.swift */; };
+		EE000003000000000000EE01 /* BottleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000003000000000000EE00 /* BottleChart.swift */; };
+		EE000004000000000000EE01 /* CellarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000004000000000000EE00 /* CellarTab.swift */; };
+		F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,6 @@
 		7E59BEE62F3D02BF005F7386 /* AppleSignInHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInHandler.swift; sourceTree = "<group>"; };
 		7EA44BDD2F3A5C63006789FF /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
-		F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA000001000000000000AA00 /* VinslippApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VinslippApp.swift; sourceTree = "<group>"; };
 		AA000002000000000000AA00 /* ReleaseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseModels.swift; sourceTree = "<group>"; };
 		AA000003000000000000AA00 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		EE000002000000000000EE00 /* CellarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarService.swift; sourceTree = "<group>"; };
 		EE000003000000000000EE00 /* BottleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleChart.swift; sourceTree = "<group>"; };
 		EE000004000000000000EE00 /* CellarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarTab.swift; sourceTree = "<group>"; };
+		F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +121,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		7E59BEE12F3CF263005F7386 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA00000B000000000000AA00 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,31 +160,6 @@
 				AA000010000000000000AA00 /* Placeholder */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		DD000003000000000000DD00 /* Auction */ = {
-			isa = PBXGroup;
-			children = (
-				DD000002000000000000DD00 /* AuctionTab.swift */,
-			);
-			path = Auction;
-			sourceTree = "<group>";
-		};
-		EE000005000000000000EE00 /* Cellar */ = {
-			isa = PBXGroup;
-			children = (
-				EE000003000000000000EE00 /* BottleChart.swift */,
-				EE000004000000000000EE00 /* CellarTab.swift */,
-			);
-			path = Cellar;
-			sourceTree = "<group>";
-		};
-		CC000004000000000000CC00 /* Blog */ = {
-			isa = PBXGroup;
-			children = (
-				CC000003000000000000CC00 /* BlogTab.swift */,
-			);
-			path = Blog;
 			sourceTree = "<group>";
 		};
 		AA00000E000000000000AA00 /* Utilities */ = {
@@ -215,11 +197,29 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		7E59BEE12F3CF263005F7386 /* Frameworks */ = {
+		CC000004000000000000CC00 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
+				CC000003000000000000CC00 /* BlogTab.swift */,
 			);
-			name = Frameworks;
+			path = Blog;
+			sourceTree = "<group>";
+		};
+		DD000003000000000000DD00 /* Auction */ = {
+			isa = PBXGroup;
+			children = (
+				DD000002000000000000DD00 /* AuctionTab.swift */,
+			);
+			path = Auction;
+			sourceTree = "<group>";
+		};
+		EE000005000000000000EE00 /* Cellar */ = {
+			isa = PBXGroup;
+			children = (
+				EE000003000000000000EE00 /* BottleChart.swift */,
+				EE000004000000000000EE00 /* CellarTab.swift */,
+			);
+			path = Cellar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,7 +472,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
@@ -481,7 +481,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nybroans.vinslipp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -499,7 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
@@ -508,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nybroans.vinslipp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

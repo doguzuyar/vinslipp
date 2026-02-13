@@ -4,10 +4,11 @@ import FirebaseAuth
 import FirebaseMessaging
 import UserNotifications
 
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate, ObservableObject {
 
     var window: UIWindow?
-    var pendingShortcut: String?
+    @Published var selectedTab: Int = 0
+    private var pendingShortcut: String?
     private var pendingNotificationTab: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -73,8 +74,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let tab = userInfo["tab"] as? String {
-            // TODO: Wire up tab navigation via SwiftUI environment
-            print("📱 Notification tap: navigate to \(tab)")
+            DispatchQueue.main.async {
+                self.selectedTab = self.tabIndex(from: tab)
+            }
         }
         completionHandler()
     }
@@ -95,12 +97,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         if let tab = pendingShortcut {
             pendingShortcut = nil
-            // TODO: Wire up tab navigation via SwiftUI environment
-            print("📱 3D Touch shortcut: navigate to \(tab)")
+            DispatchQueue.main.async {
+                self.selectedTab = self.tabIndex(from: tab)
+            }
         }
         if let tab = pendingNotificationTab {
             pendingNotificationTab = nil
-            print("📱 Notification cold launch: navigate to \(tab)")
+            DispatchQueue.main.async {
+                self.selectedTab = self.tabIndex(from: tab)
+            }
         }
     }
 
@@ -111,8 +116,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         let tab = tabFromShortcut(shortcutItem)
-        // TODO: Wire up tab navigation via SwiftUI environment
-        print("📱 3D Touch shortcut: navigate to \(tab)")
+        DispatchQueue.main.async {
+            self.selectedTab = self.tabIndex(from: tab)
+        }
         completionHandler(true)
     }
 
@@ -130,6 +136,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             return "profile"
         default:
             return "release"
+        }
+    }
+
+    private func tabIndex(from name: String) -> Int {
+        switch name {
+        case "release": return 0
+        case "cellar": return 1
+        case "blog": return 2
+        case "auction": return 3
+        case "profile": return 4
+        default: return 0
         }
     }
 

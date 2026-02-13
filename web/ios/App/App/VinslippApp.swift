@@ -20,6 +20,7 @@ struct VinslippApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(appDelegate)
                 .preferredColorScheme(colorScheme)
         }
     }

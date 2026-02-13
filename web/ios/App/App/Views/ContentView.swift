@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appDelegate: AppDelegate
     @StateObject private var dataService = DataService()
-    @State private var selectedTab = 0
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: $appDelegate.selectedTab) {
             ReleaseTab(dataService: dataService)
                 .tabItem {
                     Label("Releases", systemImage: "clock")

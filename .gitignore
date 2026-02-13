@@ -38,6 +38,8 @@ rag/
 auction/cookies.txt
 auction/scraper.py
 auction/wines.json
+auction/fix_producer_names.py
+auction/auction_stats copy.json
 vivino_data/
 data/wine_cellar.csv
 data/cellar.json
