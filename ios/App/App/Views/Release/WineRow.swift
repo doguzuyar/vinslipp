@@ -35,9 +35,6 @@ struct WineRow: View {
                             .foregroundStyle(.secondary)
                     }
                     HStack(spacing: 8) {
-                        Text(wine.launchDateFormatted)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                         Text(wine.vintage)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
@@ -48,6 +45,10 @@ struct WineRow: View {
                                 .lineLimit(1)
                         }
                         Text(wine.wineTypeEnglish)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                        Spacer()
+                        Text(wine.launchDateFormatted)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
                     }

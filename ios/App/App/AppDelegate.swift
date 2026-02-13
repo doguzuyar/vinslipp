@@ -93,8 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        UNUserNotificationCenter.current().setBadgeCount(0)
-
         if let tab = pendingShortcut {
             pendingShortcut = nil
             DispatchQueue.main.async {

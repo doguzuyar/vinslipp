@@ -30,7 +30,7 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                 return ASPresentationAnchor(windowScene: scene)
             }
-            return ASPresentationAnchor(frame: .zero)
+            return ASPresentationAnchor(windowScene: UIApplication.shared.connectedScenes.first as! UIWindowScene)
         }
         return window
     }

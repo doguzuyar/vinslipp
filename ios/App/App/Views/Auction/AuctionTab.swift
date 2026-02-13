@@ -251,6 +251,7 @@ struct ProducerRow: View {
                         Text(String(format: "%.0f%%", producer.sellRate))
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                        Spacer()
                         if let prem = producer.premiumPercent {
                             Text("\(prem >= 0 ? "+" : "")\(String(format: "%.1f", prem))%")
                                 .font(.caption2.weight(.medium))

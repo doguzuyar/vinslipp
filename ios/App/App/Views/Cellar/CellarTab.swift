@@ -167,7 +167,7 @@ struct CellarTab: View {
                 cellarService.clearData()
                 selectedYear = nil
             } label: {
-                Image(systemName: "trash")
+                Image(systemName: "eraser")
                     .font(.caption)
                     .foregroundStyle(.tertiary)
             }
@@ -346,11 +346,9 @@ struct CellarWineRow: View {
                             .font(.subheadline.weight(.semibold))
                             .lineLimit(1)
                         Spacer()
-                        if wine.count > 1 {
-                            Text("×\(wine.count)")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.secondary)
-                        }
+                        Text("×\(wine.count)")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.secondary)
                     }
                     HStack {
                         Text(wine.wineName)
@@ -365,9 +363,6 @@ struct CellarWineRow: View {
                         }
                     }
                     HStack(spacing: 8) {
-                        Text(wine.drinkYear)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                         Text(wine.vintage)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
@@ -377,6 +372,10 @@ struct CellarWineRow: View {
                                 .foregroundStyle(.tertiary)
                                 .lineLimit(1)
                         }
+                        Spacer()
+                        Text(wine.drinkYear)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
                     }
                 }
             }

@@ -211,9 +211,9 @@ struct ReleaseTab: View {
                     Button {
                         clearAllFilters()
                     } label: {
-                        Text("Clear all")
+                        Image(systemName: "eraser")
                             .font(.caption2)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(.tertiary)
                     }
                 }
             }

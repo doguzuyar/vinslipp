@@ -67,7 +67,7 @@ struct BlogTab: View {
 
     private var postList: some View {
         ScrollView {
-            LazyVStack(spacing: 12) {
+            LazyVStack(spacing: 16) {
                 ForEach(blogService.posts) { post in
                     BlogPostCard(
                         post: post,
@@ -76,8 +76,8 @@ struct BlogTab: View {
                     )
                 }
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
         }
         .contentMargins(.bottom, 16)
     }
@@ -91,53 +91,59 @@ private struct BlogPostCard: View {
     let onDelete: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Header: winery + wine name + delete
-            HStack(alignment: .firstTextBaseline) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(post.winery)
-                        .font(.subheadline.weight(.semibold))
-                    HStack(spacing: 4) {
-                        Text(post.wineName)
+        HStack(alignment: .top, spacing: 0) {
+            // Color indicator
+            RoundedRectangle(cornerRadius: 2)
+                .fill(Color.accentColor.opacity(0.4))
+                .frame(width: 4, height: 44)
+
+            VStack(alignment: .leading, spacing: 10) {
+                // Wine info + delete
+                HStack(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(post.winery)
+                            .font(.footnote.weight(.semibold))
+                        Text(post.vintage.isEmpty ? post.wineName : "\(post.wineName) \(post.vintage)")
                             .font(.caption)
                             .foregroundStyle(.secondary)
-                        if !post.vintage.isEmpty {
-                            Text(post.vintage)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    if isOwner {
+                        Button(action: onDelete) {
+                            Image(systemName: "trash")
+                                .font(.system(size: 11))
+                                .foregroundStyle(.tertiary)
                         }
                     }
                 }
-                Spacer()
-                if isOwner {
-                    Button(action: onDelete) {
-                        Image(systemName: "xmark")
+
+                // Comment
+                Text(post.comment)
+                    .font(.footnote)
+                    .foregroundStyle(.primary.opacity(0.85))
+                    .lineSpacing(4)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                // Author + date
+                HStack(spacing: 6) {
+                    Image(systemName: "person.circle.fill")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.quaternary)
+                    Text(post.userName)
+                        .font(.caption2.weight(.medium))
+                        .foregroundStyle(.tertiary)
+                    Spacer()
+                    if let date = post.createdAt {
+                        Text(formatDate(date))
                             .font(.caption2)
-                            .foregroundStyle(.tertiary)
+                            .foregroundStyle(.quaternary)
                     }
                 }
             }
-
-            // Comment
-            Text(post.comment)
-                .font(.subheadline)
-                .lineSpacing(3)
-
-            // Footer: user + date
-            HStack(spacing: 8) {
-                Text(post.userName)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                if let date = post.createdAt {
-                    Text(formatDate(date))
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                }
-            }
+            .padding(.leading, 12)
         }
-        .padding(14)
-        .background(Color(.systemGray6))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(12)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14))
     }
 
     private func formatDate(_ date: Date) -> String {
