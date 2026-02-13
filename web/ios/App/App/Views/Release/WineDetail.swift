@@ -1,7 +1,9 @@
 import SwiftUI
+import FirebaseAuth
 
 struct WineDetail: View {
     let wine: ReleaseWine
+    @State private var showBlogSheet = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -27,6 +29,12 @@ struct WineDetail: View {
                             .font(.caption.weight(.medium))
                     }
                 }
+                Button {
+                    showBlogSheet = true
+                } label: {
+                    Label("Blog", systemImage: "square.and.pencil")
+                        .font(.caption.weight(.medium))
+                }
             }
 
             HStack(spacing: 16) {
@@ -39,6 +47,101 @@ struct WineDetail: View {
         }
         .padding(.horizontal, 28)
         .padding(.bottom, 10)
+        .sheet(isPresented: $showBlogSheet) {
+            BlogSheet(wine: wine)
+                .presentationDetents([.medium])
+        }
+    }
+}
+
+// MARK: - Blog Sheet
+
+private struct BlogSheet: View {
+    let wine: ReleaseWine
+    @Environment(\.dismiss) private var dismiss
+    @State private var comment = ""
+    @State private var isPosting = false
+    @State private var posted = false
+    @StateObject private var blogService = BlogService()
+
+    private var isSignedIn: Bool {
+        Auth.auth().currentUser != nil
+    }
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 16) {
+                // Wine info header
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(wine.producer)
+                        .font(.subheadline.weight(.semibold))
+                    Text("\(wine.wineName) \(wine.vintage)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                if isSignedIn {
+                    if posted {
+                        VStack(spacing: 8) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.title)
+                                .foregroundStyle(.green)
+                            Text("Posted!")
+                                .font(.subheadline.weight(.medium))
+                        }
+                        .frame(maxHeight: .infinity)
+                    } else {
+                        TextField("Write your tasting note...", text: $comment, axis: .vertical)
+                            .lineLimit(4...6)
+                            .textFieldStyle(.roundedBorder)
+
+                        HStack {
+                            Text("\(comment.count)/140")
+                                .font(.caption2)
+                                .foregroundStyle(comment.count > 130 ? .red : .secondary)
+                            Spacer()
+                            Button("Post") {
+                                Task { await post() }
+                            }
+                            .font(.subheadline.weight(.medium))
+                            .disabled(comment.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isPosting || comment.count > 140)
+                        }
+                    }
+                } else {
+                    Spacer()
+                    Text("Sign in to write a tasting note")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                }
+
+                Spacer()
+            }
+            .padding(20)
+            .navigationTitle("Blog")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") { dismiss() }
+                }
+            }
+        }
+    }
+
+    private func post() async {
+        isPosting = true
+        let success = await blogService.addPost(
+            wineId: wine.productNumber,
+            wineName: wine.wineName,
+            winery: wine.producer,
+            vintage: wine.vintage,
+            comment: comment.trimmingCharacters(in: .whitespacesAndNewlines)
+        )
+        if success {
+            posted = true
+        }
+        isPosting = false
     }
 }
 
