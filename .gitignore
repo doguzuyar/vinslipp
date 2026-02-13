@@ -36,7 +36,7 @@ scripts/moderate_blog.py
 scripts/server.py
 scripts/server.sh
 firebase-sa.json
-rag/
+guide/
 auction/cookies.txt
 auction/scraper.py
 auction/wines.json
