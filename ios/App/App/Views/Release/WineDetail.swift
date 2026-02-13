@@ -38,7 +38,6 @@ struct WineDetail: View {
             }
 
             HStack(spacing: 16) {
-                DetailChip(label: "Nr", value: wine.productNumber)
                 if !wine.country.isEmpty {
                     DetailChip(label: "Country", value: wine.countryEnglish)
                 }

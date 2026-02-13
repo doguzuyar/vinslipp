@@ -69,9 +69,6 @@ struct AuctionTab: View {
                 await dataService.loadAuction()
             }
         }
-        .refreshable {
-            await dataService.loadAuction()
-        }
     }
 
     // MARK: - Search Bar
@@ -174,6 +171,9 @@ struct AuctionTab: View {
             }
         }
         .contentMargins(.bottom, 16)
+        .refreshable {
+            await dataService.loadAuction()
+        }
     }
 
     // MARK: - Sorting

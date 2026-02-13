@@ -39,13 +39,22 @@ struct ReleaseWine: Codable, Identifiable {
         case "Frankrike": return "France"
         case "Italien": return "Italy"
         case "Spanien": return "Spain"
+        case "Portugal": return "Portugal"
+        case "Grekland": return "Greece"
         case "Tyskland": return "Germany"
+        case "Ungern": return "Hungary"
+        case "Österrike": return "Austria"
         case "USA": return "USA"
         case "Sydafrika": return "South Africa"
         case "Australien": return "Australia"
         case "Chile": return "Chile"
-        case "Portugal": return "Portugal"
         case "Argentina": return "Argentina"
+        case "Nya Zeeland": return "New Zealand"
+        case "Libanon": return "Lebanon"
+        case "Georgien": return "Georgia"
+        case "Rumänien": return "Romania"
+        case "Kroatien": return "Croatia"
+        case "Schweiz": return "Switzerland"
         default: return country
         }
     }

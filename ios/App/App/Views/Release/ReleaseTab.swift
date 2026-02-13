@@ -16,7 +16,7 @@ struct ReleaseTab: View {
     @State private var selectedDate: String?
     @AppStorage("release_selectedCountries") private var selectedCountriesData: Data = Data()
     @AppStorage("release_selectedTypes") private var selectedTypesData: Data = Data()
-    @AppStorage("release_selectedRatings") private var selectedRatingsData: Data = Data()
+    @AppStorage("release_selectedRating") private var selectedRating = ""
     @AppStorage("release_todayOnly") private var todayOnly = false
     @State private var showPastReleases = false
     @State private var showFilters = false
@@ -30,11 +30,6 @@ struct ReleaseTab: View {
     private var selectedTypes: Set<String> {
         get { (try? JSONDecoder().decode(Set<String>.self, from: selectedTypesData)) ?? [] }
         nonmutating set { selectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
-    }
-
-    private var selectedRatings: Set<Int> {
-        get { (try? JSONDecoder().decode(Set<Int>.self, from: selectedRatingsData)) ?? [] }
-        nonmutating set { selectedRatingsData = (try? JSONEncoder().encode(newValue)) ?? Data() }
     }
 
     private var todayString: String {
@@ -107,9 +102,6 @@ struct ReleaseTab: View {
                 await dataService.loadReleases()
             }
         }
-        .refreshable {
-            await dataService.loadReleases()
-        }
         .onChange(of: selectedDate) { _, newValue in
             todayOnly = newValue == todayString
         }
@@ -155,76 +147,22 @@ struct ReleaseTab: View {
                     }
                 }
 
-                Menu {
-                    ForEach(availableCountries, id: \.self) { country in
-                        Button {
-                            toggleCountry(country)
-                        } label: {
-                            HStack {
-                                Text(country)
-                                if selectedCountries.contains(country) {
-                                    Image(systemName: "checkmark")
-                                }
-                            }
-                        }
+                ForEach(countryFilters, id: \.self) { country in
+                    FilterChip(label: country, isActive: selectedCountries.contains(country)) {
+                        toggleCountry(country)
                     }
-                    if !selectedCountries.isEmpty {
-                        Divider()
-                        Button("Clear") { selectedCountries = [] }
-                    }
-                } label: {
-                    FilterChipLabel(
-                        label: "Country",
-                        count: selectedCountries.count
-                    )
                 }
 
-                Menu {
-                    ForEach(availableTypes, id: \.self) { type in
-                        Button {
-                            toggleType(type)
-                        } label: {
-                            HStack {
-                                Text(type)
-                                if selectedTypes.contains(type) {
-                                    Image(systemName: "checkmark")
-                                }
-                            }
-                        }
+                ForEach(typeFilters, id: \.self) { type in
+                    FilterChip(label: type, isActive: selectedTypes.contains(type)) {
+                        toggleType(type)
                     }
-                    if !selectedTypes.isEmpty {
-                        Divider()
-                        Button("Clear") { selectedTypes = [] }
-                    }
-                } label: {
-                    FilterChipLabel(
-                        label: "Type",
-                        count: selectedTypes.count
-                    )
                 }
 
-                Menu {
-                    ForEach([4, 3, 2], id: \.self) { rating in
-                        Button {
-                            toggleRating(rating)
-                        } label: {
-                            HStack {
-                                Text(String(repeating: "\u{2605}", count: rating))
-                                if selectedRatings.contains(rating) {
-                                    Image(systemName: "checkmark")
-                                }
-                            }
-                        }
+                ForEach(["4 Stars", "3+ Stars", "3 Stars"], id: \.self) { rating in
+                    FilterChip(label: rating, isActive: selectedRating == rating) {
+                        selectedRating = selectedRating == rating ? "" : rating
                     }
-                    if !selectedRatings.isEmpty {
-                        Divider()
-                        Button("Clear") { selectedRatings = [] }
-                    }
-                } label: {
-                    FilterChipLabel(
-                        label: "Rating",
-                        count: selectedRatings.count
-                    )
                 }
 
                 if hasActiveFilters {
@@ -326,22 +264,37 @@ struct ReleaseTab: View {
             }
         }
         .contentMargins(.bottom, 16)
+        .refreshable {
+            await dataService.loadReleases()
+        }
     }
 
     // MARK: - Filtering & Sorting
 
     private var hasActiveFilters: Bool {
-        todayOnly || !selectedCountries.isEmpty || !selectedTypes.isEmpty || !selectedRatings.isEmpty || selectedDate != nil
+        todayOnly || !selectedCountries.isEmpty || !selectedTypes.isEmpty || !selectedRating.isEmpty || selectedDate != nil
     }
 
-    private var availableCountries: [String] {
-        let countries = Set(allWines.map(\.countryEnglish)).sorted()
-        return countries
+    private let knownCountries = ["France", "Italy", "Spain", "Portugal", "Greece", "Germany", "Hungary", "Austria", "USA"]
+
+    private var countryFilters: [String] {
+        let present = Set(allWines.map(\.countryEnglish))
+        var result = knownCountries.filter { present.contains($0) }
+        if present.contains(where: { !knownCountries.contains($0) }) {
+            result.append("Other")
+        }
+        return result
     }
 
-    private var availableTypes: [String] {
-        let types = Set(allWines.map(\.wineTypeEnglish)).sorted()
-        return types
+    private let knownTypes = ["Red", "White", "Sparkling", "Rosé"]
+
+    private var typeFilters: [String] {
+        let present = Set(allWines.map(\.wineTypeEnglish))
+        var result = knownTypes.filter { present.contains($0) }
+        if present.contains("Other") {
+            result.append("Other")
+        }
+        return result
     }
 
     private func filteredExcludingDate(_ wines: [ReleaseWine]) -> [ReleaseWine] {
@@ -357,17 +310,26 @@ struct ReleaseTab: View {
         }
 
         if !selectedCountries.isEmpty {
-            result = result.filter { selectedCountries.contains($0.countryEnglish) }
+            let includeOther = selectedCountries.contains("Other")
+            result = result.filter {
+                selectedCountries.contains($0.countryEnglish) ||
+                (includeOther && !knownCountries.contains($0.countryEnglish))
+            }
         }
 
         if !selectedTypes.isEmpty {
             result = result.filter { selectedTypes.contains($0.wineTypeEnglish) }
         }
 
-        if !selectedRatings.isEmpty {
+        if !selectedRating.isEmpty {
             result = result.filter {
                 guard let score = $0.ratingScore else { return false }
-                return selectedRatings.contains(score)
+                switch selectedRating {
+                case "4 Stars": return score >= 4
+                case "3+ Stars": return score >= 3
+                case "3 Stars": return score == 3
+                default: return true
+                }
             }
         }
 
@@ -419,17 +381,11 @@ struct ReleaseTab: View {
         selectedTypes = s
     }
 
-    private func toggleRating(_ value: Int) {
-        var s = selectedRatings
-        if s.contains(value) { s.remove(value) } else { s.insert(value) }
-        selectedRatings = s
-    }
-
     private func clearAllFilters() {
         todayOnly = false
         selectedCountries = []
         selectedTypes = []
-        selectedRatings = []
+        selectedRating = ""
         selectedDate = nil
     }
 }
@@ -454,24 +410,3 @@ struct FilterChip: View {
     }
 }
 
-struct FilterChipLabel: View {
-    let label: String
-    let count: Int
-
-    var body: some View {
-        HStack(spacing: 3) {
-            Text(label)
-            if count > 0 {
-                Text("(\(count))")
-            }
-            Image(systemName: "chevron.down")
-                .font(.system(size: 7))
-        }
-        .font(.caption2.weight(.medium))
-        .padding(.horizontal, 10)
-        .padding(.vertical, 5)
-        .background(count > 0 ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
-        .foregroundStyle(count > 0 ? .primary : .secondary)
-        .clipShape(Capsule())
-    }
-}
