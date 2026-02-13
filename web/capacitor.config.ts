@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: "Vinslipp",
   webDir: "out",
   server: {
-    url: "https://doguzuyar.github.io/vinslipp",
+    url: "https://vinslipp.app",
   },
   ios: {},
 };

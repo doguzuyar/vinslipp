@@ -81,7 +81,7 @@ jobs:
 
             ${{ steps.check.outputs.wine_list }}
 
-            https://doguzuyar.github.io/vinslipp
+            https://vinslipp.app
           to: ${{ vars.NOTIFY_EMAIL }}
           from: Wine Cellar Bot
 
