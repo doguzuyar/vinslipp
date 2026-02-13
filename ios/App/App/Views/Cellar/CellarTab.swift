@@ -123,7 +123,7 @@ struct CellarTab: View {
                 Text("Tip: Drink year planning")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
-                Text("By default, the chart groups bottles by vintage. To plan when to drink each wine, add target years in the Personal Note field on Vivino (e.g. \"2026, 2028, 2030\") — the chart will use those instead.")
+                Text("By default, the chart groups bottles by vintage. To plan when to drink each wine, add target years in the Personal Note field on Vivino (e.g. \"2026, 2028, 2030\") the chart will use those instead.")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             }

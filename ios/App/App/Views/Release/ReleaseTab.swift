@@ -147,22 +147,64 @@ struct ReleaseTab: View {
                     }
                 }
 
-                ForEach(countryFilters, id: \.self) { country in
-                    FilterChip(label: country, isActive: selectedCountries.contains(country)) {
-                        toggleCountry(country)
+                Menu {
+                    ForEach(countryFilters, id: \.self) { country in
+                        Button {
+                            toggleCountry(country)
+                        } label: {
+                            HStack {
+                                Text(country)
+                                if selectedCountries.contains(country) {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
                     }
+                } label: {
+                    FilterChipLabel(
+                        label: "Country",
+                        value: selectedCountries.isEmpty ? nil : "\(selectedCountries.count)"
+                    )
                 }
 
-                ForEach(typeFilters, id: \.self) { type in
-                    FilterChip(label: type, isActive: selectedTypes.contains(type)) {
-                        toggleType(type)
+                Menu {
+                    ForEach(typeFilters, id: \.self) { type in
+                        Button {
+                            toggleType(type)
+                        } label: {
+                            HStack {
+                                Text(type)
+                                if selectedTypes.contains(type) {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
                     }
+                } label: {
+                    FilterChipLabel(
+                        label: "Type",
+                        value: selectedTypes.isEmpty ? nil : "\(selectedTypes.count)"
+                    )
                 }
 
-                ForEach(["4 Stars", "3+ Stars", "3 Stars"], id: \.self) { rating in
-                    FilterChip(label: rating, isActive: selectedRating == rating) {
-                        selectedRating = selectedRating == rating ? "" : rating
+                Menu {
+                    ForEach(["4 Stars", "3+ Stars", "3 Stars"], id: \.self) { rating in
+                        Button {
+                            selectedRating = selectedRating == rating ? "" : rating
+                        } label: {
+                            HStack {
+                                Text(rating)
+                                if selectedRating == rating {
+                                    Image(systemName: "checkmark")
+                                }
+                            }
+                        }
                     }
+                } label: {
+                    FilterChipLabel(
+                        label: "Rating",
+                        value: selectedRating.isEmpty ? nil : selectedRating
+                    )
                 }
 
                 if hasActiveFilters {
@@ -407,6 +449,29 @@ struct FilterChip: View {
                 .foregroundStyle(isActive ? .primary : .secondary)
                 .clipShape(Capsule())
         }
+    }
+}
+
+struct FilterChipLabel: View {
+    let label: String
+    let value: String?
+
+    var body: some View {
+        HStack(spacing: 3) {
+            Text(label)
+            if let value {
+                Text(value)
+                    .foregroundStyle(.primary)
+            }
+            Image(systemName: "chevron.down")
+                .font(.system(size: 7))
+        }
+        .font(.caption2.weight(.medium))
+        .padding(.horizontal, 10)
+        .padding(.vertical, 5)
+        .background(value != nil ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
+        .foregroundStyle(value != nil ? .primary : .secondary)
+        .clipShape(Capsule())
     }
 }
 
