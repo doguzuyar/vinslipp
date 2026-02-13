@@ -5,6 +5,8 @@ node_modules/
 .next
 out
 dist
+*.ipa
+*.xcarchive
 
 # Python
 .venv
