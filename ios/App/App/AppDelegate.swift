@@ -83,31 +83,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: - App Lifecycle
 
-    func applicationWillResignActive(_ application: UIApplication) {
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-    }
-
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if let tab = pendingShortcut {
-            pendingShortcut = nil
+        let tab = pendingShortcut ?? pendingNotificationTab
+        pendingShortcut = nil
+        pendingNotificationTab = nil
+        if let tab {
             DispatchQueue.main.async {
                 self.selectedTab = self.tabIndex(from: tab)
             }
         }
-        if let tab = pendingNotificationTab {
-            pendingNotificationTab = nil
-            DispatchQueue.main.async {
-                self.selectedTab = self.tabIndex(from: tab)
-            }
-        }
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
     }
 
     // MARK: - Quick Actions (3D Touch / Haptic Touch)

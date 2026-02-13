@@ -25,14 +25,8 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
     }
 
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = scene.keyWindow else {
-            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                return ASPresentationAnchor(windowScene: scene)
-            }
-            return ASPresentationAnchor(windowScene: UIApplication.shared.connectedScenes.first as! UIWindowScene)
-        }
-        return window
+        let scene = UIApplication.shared.connectedScenes.first as! UIWindowScene
+        return scene.keyWindow ?? ASPresentationAnchor(windowScene: scene)
     }
 
     func authorizationController(controller: ASAuthorizationController,
