@@ -24,15 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         application.registerForRemoteNotifications()
 
-        if let shortcut = launchOptions?[.shortcutItem] as? UIApplicationShortcutItem {
-            pendingShortcut = tabFromShortcut(shortcut)
-        }
-
-        // Handle cold-launch from notification
-        if let notification = launchOptions?[.remoteNotification] as? [String: Any],
-           let tab = notification["tab"] as? String {
-            pendingNotificationTab = tab
-        }
+        // Shortcut and notification handling moved to UIScene lifecycle for iOS 26+
 
         return true
     }
@@ -99,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        application.applicationIconBadgeNumber = 0
+        UNUserNotificationCenter.current().setBadgeCount(0)
 
         if let tab = pendingShortcut {
             pendingShortcut = nil

@@ -1,18 +1,13 @@
 import AuthenticationServices
 import FirebaseAuth
 import CryptoKit
-import WebKit
+import UIKit
 
 class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                            ASAuthorizationControllerPresentationContextProviding {
 
-    private weak var webView: WKWebView?
     private var currentNonce: String?
-
-    init(webView: WKWebView?) {
-        self.webView = webView
-        super.init()
-    }
+    var onSignIn: ((String, String, String) -> Void)? // uid, displayName, email
 
     func startSignIn() {
         let nonce = randomNonceString()
@@ -30,7 +25,14 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
     }
 
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        webView?.window ?? UIWindow()
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = scene.keyWindow else {
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                return ASPresentationAnchor(windowScene: scene)
+            }
+            return ASPresentationAnchor(frame: .zero)
+        }
+        return window
     }
 
     func authorizationController(controller: ASAuthorizationController,
@@ -46,7 +48,6 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
             fullName: appleCredential.fullName
         )
 
-        // Build display name from Apple credential (only provided on first sign-in)
         let fullName = appleCredential.fullName
         let givenName = fullName?.givenName
         let familyName = fullName?.familyName
@@ -54,7 +55,7 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
 
         Auth.auth().signIn(with: credential) { [weak self] result, error in
             guard let user = result?.user, error == nil else {
-                print("⚠️ Auth: Apple Sign-In error: \(error?.localizedDescription ?? "unknown")")
+                print("Auth: Apple Sign-In error: \(error?.localizedDescription ?? "unknown")")
                 return
             }
 
@@ -64,43 +65,17 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                 let changeRequest = user.createProfileChangeRequest()
                 changeRequest.displayName = appleDisplayName
                 changeRequest.commitChanges { _ in
-                    self?.sendUserToWeb(uid: user.uid, displayName: nameToUse, email: user.email ?? "")
+                    self?.onSignIn?(user.uid, nameToUse, user.email ?? "")
                 }
             } else {
-                self?.sendUserToWeb(uid: user.uid, displayName: nameToUse, email: user.email ?? "")
+                self?.onSignIn?(user.uid, nameToUse, user.email ?? "")
             }
         }
     }
 
     func authorizationController(controller: ASAuthorizationController,
                                   didCompleteWithError error: Error) {
-        print("⚠️ Auth: Apple Sign-In cancelled/error: \(error.localizedDescription)")
-    }
-
-    func sendUserToWeb(uid: String, displayName: String, email: String = "") {
-        let escapedName = displayName.replacingOccurrences(of: "\"", with: "\\\"")
-        let escapedEmail = email.replacingOccurrences(of: "\"", with: "\\\"")
-        let js = """
-        window.__nativeAuthData = {
-            uid: "\(uid)",
-            displayName: "\(escapedName)",
-            email: "\(escapedEmail)"
-        };
-        window.__nativeAuthCallback && window.__nativeAuthCallback(window.__nativeAuthData);
-        """
-        DispatchQueue.main.async {
-            self.webView?.evaluateJavaScript(js)
-        }
-    }
-
-    func sendSignOutToWeb() {
-        let js = """
-        window.__nativeAuthData = null;
-        window.__nativeAuthCallback && window.__nativeAuthCallback(null);
-        """
-        DispatchQueue.main.async {
-            self.webView?.evaluateJavaScript(js)
-        }
+        print("Auth: Apple Sign-In cancelled/error: \(error.localizedDescription)")
     }
 
     // MARK: - Helpers
