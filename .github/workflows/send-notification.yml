@@ -67,24 +67,6 @@ jobs:
             echo "has_wines=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Send email notification
-        if: steps.check.outputs.has_wines == 'true' && vars.NOTIFY_EMAIL != ''
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "Today's releases"
-          body: |
-            Today's releases:
-
-            ${{ steps.check.outputs.wine_list }}
-
-            https://vinslipp.app
-          to: ${{ vars.NOTIFY_EMAIL }}
-          from: Wine Cellar Bot
-
       - name: Send push notifications per category
         if: steps.check.outputs.has_wines == 'true'
         run: |
