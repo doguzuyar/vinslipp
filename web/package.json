@@ -7,10 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "ios": "open ios/App/App.xcodeproj"
+    "ios": "open ../ios/App/App.xcodeproj"
   },
   "dependencies": {
-    "firebase": "^12.9.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
