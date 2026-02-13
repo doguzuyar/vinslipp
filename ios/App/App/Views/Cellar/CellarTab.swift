@@ -25,6 +25,7 @@ struct CellarTab: View {
     @AppStorage("cellar_sortDirection") private var sortDirection: SortDirection = .ascending
     @State private var searchText = ""
     @State private var showFilePicker = false
+    @AppStorage("cellar_chartMode") private var showVintage = false
 
     private var filtered: [CellarWine] {
         guard let data = cellarService.cellarData else { return [] }
@@ -50,7 +51,7 @@ struct CellarTab: View {
         VStack(spacing: 0) {
             if let data = cellarService.cellarData {
                 BottleChart(
-                    yearCounts: data.yearCounts,
+                    yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
                     colorPalette: data.colorPalette,
                     selectedYear: $selectedYear
                 )
@@ -117,6 +118,18 @@ struct CellarTab: View {
                     .font(.caption)
                     .foregroundStyle(.red)
             }
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Tip: Drink year planning")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                Text("By default, the chart groups bottles by vintage. To plan when to drink each wine, add target years in the Personal Note field on Vivino (e.g. \"2026, 2028, 2030\") — the chart will use those instead.")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(.horizontal, 32)
+            .padding(.top, 12)
+
             Spacer()
         }
     }
@@ -136,6 +149,20 @@ struct CellarTab: View {
                     .foregroundStyle(.tertiary)
             }
             Spacer()
+            Button {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    showVintage.toggle()
+                    selectedYear = nil
+                }
+            } label: {
+                Text(showVintage ? "Vintage" : "Drink year")
+                    .font(.caption2.weight(.medium))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(Color(.systemGray5))
+                    .clipShape(Capsule())
+            }
             Button {
                 cellarService.clearData()
                 selectedYear = nil

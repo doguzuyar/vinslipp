@@ -133,6 +133,7 @@ class CellarService: ObservableObject {
 
         var wines: [CellarWine] = []
         var yearCounts: [String: Int] = [:]
+        var vintageCounts: [String: Int] = [:]
         var totalBottles = 0
         var totalValue = 0
         var allYears: Set<Int> = []
@@ -161,12 +162,16 @@ class CellarService: ObservableObject {
                 .filter { $0.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
 
             if drinkYears.isEmpty {
-                let year = "—"
+                // Fall back to vintage year when no drink years are set
+                let year = vintage.isEmpty ? "—" : vintage
+                let yearInt = Int(year)
+                let color = yearInt != nil ? CellarColors.color(forYear: yearInt!) : "#888888"
+                if let y = yearInt { allYears.insert(y) }
                 wines.append(CellarWine(
                     drinkYear: year, winery: winery, wineName: wineName,
                     vintage: vintage, region: region, style: style,
                     price: price, count: totalCount, link: link,
-                    color: "#888888"
+                    color: color
                 ))
                 yearCounts[year, default: 0] += totalCount
             } else {
@@ -190,6 +195,10 @@ class CellarService: ObservableObject {
                 }
             }
 
+            // Track vintage counts separately
+            let vintageKey = vintage.isEmpty ? "—" : vintage
+            vintageCounts[vintageKey, default: 0] += totalCount
+
             totalBottles += totalCount
             totalValue += priceNum * totalCount
         }
@@ -205,6 +214,7 @@ class CellarService: ObservableObject {
         return CellarData(
             wines: wines,
             yearCounts: yearCounts,
+            vintageCounts: vintageCounts,
             totalBottles: totalBottles,
             totalValue: totalValue,
             colorPalette: palette

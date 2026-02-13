@@ -21,6 +21,7 @@ struct CellarWine: Identifiable, Codable {
 struct CellarData: Codable {
     let wines: [CellarWine]
     let yearCounts: [String: Int]
+    let vintageCounts: [String: Int]
     let totalBottles: Int
     let totalValue: Int
     let colorPalette: [String: String]
