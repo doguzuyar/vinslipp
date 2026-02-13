@@ -38,7 +38,8 @@ struct AuctionTab: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            if dataService.auctionData != nil {
+            if let data = dataService.auctionData {
+                summaryBar(data: data)
                 sortBar
                 producerList
             } else if dataService.isLoadingAuction {
@@ -99,6 +100,29 @@ struct AuctionTab: View {
         .padding(.vertical, 6)
     }
 
+    // MARK: - Summary Bar
+
+    private func summaryBar(data: AuctionData) -> some View {
+        HStack {
+            Text("\(data.summary.unique_producers) producers")
+                .font(.caption.weight(.medium))
+                .foregroundStyle(.secondary)
+            Text("·")
+                .foregroundStyle(.tertiary)
+            Text("\(data.summary.total_wines) lots")
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+            Text("·")
+                .foregroundStyle(.tertiary)
+            Text(String(format: "%.0f%% sold", data.summary.sell_rate_percent))
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 6)
+    }
+
     // MARK: - Sort Bar
 
     private var sortBar: some View {
@@ -145,7 +169,7 @@ struct AuctionTab: View {
                                 expandedProducerId = expandedProducerId == producer.id ? nil : producer.id
                             }
                         }
-                    Divider().padding(.leading, 16)
+                    Divider().padding(.leading, 28)
                 }
             }
         }
@@ -186,46 +210,64 @@ struct ProducerRow: View {
     let producer: AuctionProducer
     let isExpanded: Bool
 
+    private var barColor: Color {
+        guard let ratio = producer.avgRatio else { return .gray }
+        return ratio >= 1 ? .green : .red
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(producer.name)
-                        .font(.subheadline.weight(.semibold))
-                        .lineLimit(1)
+                RoundedRectangle(cornerRadius: 2)
+                    .fill(barColor)
+                    .frame(width: 4, height: 44)
 
-                    HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack {
+                        Text(producer.name)
+                            .font(.subheadline.weight(.semibold))
+                            .lineLimit(1)
+                        Spacer()
+                        if let ratio = producer.avgRatio {
+                            Text(String(format: "%.3f", ratio))
+                                .font(.caption.monospaced())
+                                .foregroundStyle(ratio >= 1 ? .green : .red)
+                        }
+                    }
+                    HStack {
                         Text("\(producer.totalLots) lots")
                             .font(.caption)
                             .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                        Spacer()
                         Text("\(producer.avgHammerSek.formatted()) SEK")
                             .font(.caption)
                             .foregroundStyle(.secondary)
+                    }
+                    HStack(spacing: 8) {
+                        Text("\(producer.sold)/\(producer.totalLots) sold")
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                        Text(String(format: "%.0f%%", producer.sellRate))
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
                         if let prem = producer.premiumPercent {
                             Text("\(prem >= 0 ? "+" : "")\(String(format: "%.1f", prem))%")
-                                .font(.caption.weight(.medium))
+                                .font(.caption2.weight(.medium))
                                 .foregroundStyle(prem >= 0 ? .green : .red)
                         }
                     }
                 }
-
-                Spacer()
-
-                if let ratio = producer.avgRatio {
-                    Text(String(format: "%.3f", ratio))
-                        .font(.caption.monospaced())
-                        .foregroundStyle(ratio >= 1 ? .green : .red)
-                }
             }
             .padding(.vertical, 8)
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 12)
 
             if isExpanded {
                 ProducerDetail(producer: producer)
             }
         }
         .background(
-            isExpanded ? Color(.systemGray5).opacity(0.3) : Color.clear
+            isExpanded ? barColor.opacity(0.15) : Color.clear
         )
     }
 }
@@ -259,7 +301,7 @@ struct ProducerDetail: View {
                 }
             }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 28)
         .padding(.bottom, 10)
     }
 }

@@ -21,6 +21,10 @@
 		CC000003000000000000CC01 /* BlogTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000003000000000000CC00 /* BlogTab.swift */; };
 		DD000001000000000000DD01 /* AuctionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000001000000000000DD00 /* AuctionModels.swift */; };
 		DD000002000000000000DD01 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002000000000000DD00 /* AuctionTab.swift */; };
+		EE000001000000000000EE01 /* CellarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000001000000000000EE00 /* CellarModels.swift */; };
+		EE000002000000000000EE01 /* CellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002000000000000EE00 /* CellarService.swift */; };
+		EE000003000000000000EE01 /* BottleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000003000000000000EE00 /* BottleChart.swift */; };
+		EE000004000000000000EE01 /* CellarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000004000000000000EE00 /* CellarTab.swift */; };
 		AA000001000000000000AA01 /* VinslippApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000AA00 /* VinslippApp.swift */; };
 		AA000002000000000000AA01 /* ReleaseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002000000000000AA00 /* ReleaseModels.swift */; };
 		AA000003000000000000AA01 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003000000000000AA00 /* DataService.swift */; };
@@ -59,6 +63,10 @@
 		CC000003000000000000CC00 /* BlogTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTab.swift; sourceTree = "<group>"; };
 		DD000001000000000000DD00 /* AuctionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionModels.swift; sourceTree = "<group>"; };
 		DD000002000000000000DD00 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
+		EE000001000000000000EE00 /* CellarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarModels.swift; sourceTree = "<group>"; };
+		EE000002000000000000EE00 /* CellarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarService.swift; sourceTree = "<group>"; };
+		EE000003000000000000EE00 /* BottleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleChart.swift; sourceTree = "<group>"; };
+		EE000004000000000000EE00 /* CellarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,7 @@
 			children = (
 				AA000002000000000000AA00 /* ReleaseModels.swift */,
 				DD000001000000000000DD00 /* AuctionModels.swift */,
+				EE000001000000000000EE00 /* CellarModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,6 +136,7 @@
 			children = (
 				AA000003000000000000AA00 /* DataService.swift */,
 				CC000002000000000000CC00 /* BlogService.swift */,
+				EE000002000000000000EE00 /* CellarService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -138,6 +148,7 @@
 				AA00000F000000000000AA00 /* Release */,
 				CC000004000000000000CC00 /* Blog */,
 				DD000003000000000000DD00 /* Auction */,
+				EE000005000000000000EE00 /* Cellar */,
 				BB000002000000000000BB00 /* Profile */,
 				AA000010000000000000AA00 /* Placeholder */,
 			);
@@ -150,6 +161,15 @@
 				DD000002000000000000DD00 /* AuctionTab.swift */,
 			);
 			path = Auction;
+			sourceTree = "<group>";
+		};
+		EE000005000000000000EE00 /* Cellar */ = {
+			isa = PBXGroup;
+			children = (
+				EE000003000000000000EE00 /* BottleChart.swift */,
+				EE000004000000000000EE00 /* CellarTab.swift */,
+			);
+			path = Cellar;
 			sourceTree = "<group>";
 		};
 		CC000004000000000000CC00 /* Blog */ = {
@@ -300,6 +320,10 @@
 				CC000003000000000000CC01 /* BlogTab.swift in Sources */,
 				DD000001000000000000DD01 /* AuctionModels.swift in Sources */,
 				DD000002000000000000DD01 /* AuctionTab.swift in Sources */,
+				EE000001000000000000EE01 /* CellarModels.swift in Sources */,
+				EE000002000000000000EE01 /* CellarService.swift in Sources */,
+				EE000003000000000000EE01 /* BottleChart.swift in Sources */,
+				EE000004000000000000EE01 /* CellarTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

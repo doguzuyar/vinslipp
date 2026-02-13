@@ -110,6 +110,9 @@ struct ReleaseTab: View {
         .refreshable {
             await dataService.loadReleases()
         }
+        .onChange(of: selectedDate) { _, newValue in
+            todayOnly = newValue == todayString
+        }
     }
 
     // MARK: - Search Bar
@@ -145,6 +148,11 @@ struct ReleaseTab: View {
             HStack(spacing: 6) {
                 FilterChip(label: "Today", isActive: todayOnly) {
                     todayOnly.toggle()
+                    if todayOnly {
+                        selectedDate = todayString
+                    } else {
+                        selectedDate = nil
+                    }
                 }
 
                 Menu {
@@ -368,10 +376,6 @@ struct ReleaseTab: View {
 
     private func filtered(_ wines: [ReleaseWine]) -> [ReleaseWine] {
         var result = filteredExcludingDate(wines)
-
-        if todayOnly {
-            result = result.filter { $0.launchDate == todayString }
-        }
 
         if let date = selectedDate {
             result = result.filter { $0.launchDate == date }

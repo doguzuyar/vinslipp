@@ -20,7 +20,7 @@ def get_git_time(filepath):
         except Exception:
             return ''
 
-auction_updated = get_git_time('bukowskis/auction_stats.json')
+auction_updated = get_git_time('auction/auction_stats.json')
 release_updated = datetime.now().strftime('%b %d, %H:%M')
 
 # Fetch latest French red wine releases from Systembolaget

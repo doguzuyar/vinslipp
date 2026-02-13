@@ -12,7 +12,7 @@ struct ContentView: View {
                 }
                 .tag(0)
 
-            PlaceholderTab(title: "Cellar", icon: "cube.box")
+            CellarTab()
                 .tabItem {
                     Label("Cellar", systemImage: "cube.box")
                 }

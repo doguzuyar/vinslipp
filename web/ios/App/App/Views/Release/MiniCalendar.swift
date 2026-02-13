@@ -99,10 +99,15 @@ struct MiniCalendar: View {
         .padding(.vertical, 0)
     }
 
+    private var todayString: String {
+        dayFormatter.string(from: Date())
+    }
+
     @ViewBuilder
     private func dayCell(for date: Date) -> some View {
         let dateStr = dayFormatter.string(from: date)
         let isSelected = dateStr == selectedDate
+        let isToday = dateStr == todayString
         let color = dateColors[dateStr]
         let dayNum = calendar.component(.day, from: date)
         let wineCount = filteredDateCounts[dateStr] ?? 0
@@ -122,8 +127,8 @@ struct MiniCalendar: View {
 
                 VStack(spacing: 1) {
                     Text("\(dayNum)")
-                        .font(.system(size: 10))
-                        .foregroundStyle(.secondary)
+                        .font(.system(size: isToday ? 12 : 10, weight: isToday ? .bold : .regular))
+                        .foregroundStyle(isToday ? .primary : .secondary)
 
                     if wineCount > 0, let hex = color {
                         let dotSize: CGFloat = wineCount > 10 ? 5 : wineCount > 5 ? 4 : 3

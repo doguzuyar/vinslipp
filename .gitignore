@@ -35,9 +35,9 @@ scripts/server.py
 scripts/server.sh
 firebase-sa.json
 rag/
-bukowskis/cookies.txt
-bukowskis/scraper.py
-bukowskis/wines.json
+auction/cookies.txt
+auction/scraper.py
+auction/wines.json
 vivino_data/
 data/wine_cellar.csv
 data/cellar.json
