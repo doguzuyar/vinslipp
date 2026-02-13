@@ -1,1 +1,2 @@
-public let isCapacitorApp = true
+// Placeholder for local SPM package
+public let appName = "Vinslipp"

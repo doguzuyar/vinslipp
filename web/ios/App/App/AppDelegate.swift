@@ -1,5 +1,4 @@
 import UIKit
-import Capacitor
 import FirebaseCore
 import FirebaseAuth
 import FirebaseMessaging
@@ -37,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             pendingNotificationTab = tab
         }
 
-        // Defer wrapping so Capacitor has time to create the window
+        // Wrap the storyboard's WineCellarViewController in the native tab bar
         DispatchQueue.main.async { [weak self] in
             guard let self = self,
                   let window = self.window,
@@ -46,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 return
             }
             print("✅ TabBar: wrapping webVC in MainTabBarController")
-            // Detach webVC from the window first so it can be added as a child
             window.rootViewController = nil
             let tbc = MainTabBarController(webViewController: webVC)
             window.rootViewController = tbc
@@ -134,14 +132,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-    }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        return ApplicationDelegateProxy.shared.application(app, open: url, options: options)
-    }
-
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        return ApplicationDelegateProxy.shared.application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 
     // MARK: - Quick Actions (3D Touch / Haptic Touch)

@@ -1,7 +1,6 @@
 import UIKit
 import SafariServices
 import WebKit
-import Capacitor
 import FirebaseAuth
 import FirebaseMessaging
 
@@ -9,24 +8,42 @@ protocol NativeTabDelegate: AnyObject {
     func webDidSwitchTab(_ tab: String)
 }
 
-class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler {
+class WineCellarViewController: UIViewController, WKScriptMessageHandler {
     weak var tabDelegate: NativeTabDelegate?
+    private(set) var webView: WKWebView!
     private var appleSignInHandler: AppleSignInHandler?
     private var authListener: AuthStateDidChangeListenerHandle?
     private var webReady = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ucc = webView?.configuration.userContentController
-        ucc?.add(self, name: "openInApp")
-        ucc?.add(self, name: "tabSwitch")
-        ucc?.add(self, name: "appleSignIn")
-        ucc?.add(self, name: "appleSignOut")
-        ucc?.add(self, name: "setNotificationPreference")
-        ucc?.add(self, name: "getNotificationPreference")
-        webView?.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
 
-        // Listen for Firebase auth restoration (fires when Keychain session is ready)
+        let ucc = WKUserContentController()
+        ucc.add(self, name: "openInApp")
+        ucc.add(self, name: "tabSwitch")
+        ucc.add(self, name: "appleSignIn")
+        ucc.add(self, name: "appleSignOut")
+        ucc.add(self, name: "setNotificationPreference")
+        ucc.add(self, name: "getNotificationPreference")
+
+        let config = WKWebViewConfiguration()
+        config.userContentController = ucc
+        config.allowsInlineMediaPlayback = true
+        if #available(iOS 15.4, *) {
+            config.preferences.isElementFullscreenEnabled = true
+        }
+
+        webView = WKWebView(frame: view.bounds, configuration: config)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
+        view.addSubview(webView)
+
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.isLoading), options: [.new], context: nil)
+
+        if let url = URL(string: "https://vinslipp.app") {
+            webView.load(URLRequest(url: url))
+        }
+
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let self = self, self.webReady, let user = user else { return }
             let handler = AppleSignInHandler(webView: self.webView)
@@ -58,7 +75,7 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
             }, true);
         }
         """
-        webView?.evaluateJavaScript(js)
+        webView.evaluateJavaScript(js)
     }
 
     private func sendExistingAuthToWeb() {
@@ -97,7 +114,7 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
 
         case "getNotificationPreference":
             let topic = UserDefaults.standard.string(forKey: "notificationTopic") ?? "none"
-            webView?.evaluateJavaScript("window.__notificationPreferenceCallback?.('\(topic)')")
+            webView.evaluateJavaScript("window.__notificationPreferenceCallback?.('\(topic)')")
 
         default:
             break
@@ -128,13 +145,13 @@ class WineCellarViewController: CAPBridgeViewController, WKScriptMessageHandler 
         if let listener = authListener {
             Auth.auth().removeStateDidChangeListener(listener)
         }
-        webView?.removeObserver(self, forKeyPath: #keyPath(WKWebView.isLoading))
-        let ucc = webView?.configuration.userContentController
-        ucc?.removeScriptMessageHandler(forName: "openInApp")
-        ucc?.removeScriptMessageHandler(forName: "tabSwitch")
-        ucc?.removeScriptMessageHandler(forName: "appleSignIn")
-        ucc?.removeScriptMessageHandler(forName: "appleSignOut")
-        ucc?.removeScriptMessageHandler(forName: "setNotificationPreference")
-        ucc?.removeScriptMessageHandler(forName: "getNotificationPreference")
+        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.isLoading))
+        let ucc = webView.configuration.userContentController
+        ucc.removeScriptMessageHandler(forName: "openInApp")
+        ucc.removeScriptMessageHandler(forName: "tabSwitch")
+        ucc.removeScriptMessageHandler(forName: "appleSignIn")
+        ucc.removeScriptMessageHandler(forName: "appleSignOut")
+        ucc.removeScriptMessageHandler(forName: "setNotificationPreference")
+        ucc.removeScriptMessageHandler(forName: "getNotificationPreference")
     }
 }
