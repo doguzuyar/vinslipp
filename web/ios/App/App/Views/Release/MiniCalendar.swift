@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MiniCalendar: View {
     let dateColors: [String: String]
+    let filteredDateCounts: [String: Int]
     @Binding var selectedDate: String?
     @State private var displayMonth = Date()
 
@@ -12,9 +13,9 @@ struct MiniCalendar: View {
         return f
     }()
 
-    private var monthTitle: String {
+    private var monthLabel: String {
         let f = DateFormatter()
-        f.dateFormat = "MMMM yyyy"
+        f.dateFormat = "MMM"
         return f.string(from: displayMonth)
     }
 
@@ -36,28 +37,26 @@ struct MiniCalendar: View {
         return stride(from: 0, to: days.count, by: 7).map { Array(days[$0..<min($0 + 7, days.count)]) }
     }
 
-    private var todayString: String {
-        dayFormatter.string(from: Date())
-    }
-
     var body: some View {
         VStack(spacing: 4) {
             // Month navigation
             HStack {
+                Text(monthLabel)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+
+                Spacer()
+
                 Button {
                     withAnimation {
                         displayMonth = calendar.date(byAdding: .month, value: -1, to: displayMonth)!
                     }
                 } label: {
                     Image(systemName: "chevron.left")
-                        .font(.caption)
+                        .font(.subheadline.weight(.medium))
                         .foregroundStyle(.secondary)
                 }
-
-                Spacer()
-                Text(monthTitle)
-                    .font(.caption.weight(.semibold))
-                Spacer()
+                .padding(.trailing, 12)
 
                 Button {
                     withAnimation {
@@ -65,11 +64,12 @@ struct MiniCalendar: View {
                     }
                 } label: {
                     Image(systemName: "chevron.right")
-                        .font(.caption)
+                        .font(.subheadline.weight(.medium))
                         .foregroundStyle(.secondary)
                 }
             }
-            .padding(.horizontal, 4)
+            .padding(.horizontal, 24)
+            .offset(y: -30)
 
             // Weekday headers
             HStack(spacing: 0) {
@@ -96,16 +96,16 @@ struct MiniCalendar: View {
                 }
             }
         }
-        .padding(.vertical, 6)
+        .padding(.vertical, 0)
     }
 
     @ViewBuilder
     private func dayCell(for date: Date) -> some View {
         let dateStr = dayFormatter.string(from: date)
-        let isToday = dateStr == todayString
         let isSelected = dateStr == selectedDate
         let color = dateColors[dateStr]
         let dayNum = calendar.component(.day, from: date)
+        let wineCount = filteredDateCounts[dateStr] ?? 0
 
         Button {
             if selectedDate == dateStr {
@@ -122,11 +122,10 @@ struct MiniCalendar: View {
 
                 VStack(spacing: 1) {
                     Text("\(dayNum)")
-                        .font(.system(size: isToday ? 11 : 10, weight: isToday ? .bold : .regular))
-                        .foregroundStyle(isToday ? .primary : .secondary)
+                        .font(.system(size: 10))
+                        .foregroundStyle(.secondary)
 
-                    if let hex = color {
-                        let wineCount = winesOnDate(dateStr)
+                    if wineCount > 0, let hex = color {
                         let dotSize: CGFloat = wineCount > 10 ? 5 : wineCount > 5 ? 4 : 3
                         Circle()
                             .fill(Color(hex: hex))
@@ -141,11 +140,5 @@ struct MiniCalendar: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 28)
-    }
-
-    private func winesOnDate(_ dateStr: String) -> Int {
-        // Approximate from dateColors presence — the actual count isn't in dateColors
-        // but we can use a simple heuristic: if the color exists, assume at least 1
-        dateColors[dateStr] != nil ? 5 : 0
     }
 }

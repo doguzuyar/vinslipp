@@ -4,23 +4,38 @@ enum SortField: String, CaseIterable {
     case date, producer, wine, vintage, region, price, rating
 }
 
-enum SortDirection {
+enum SortDirection: String {
     case ascending, descending
 }
 
 struct ReleaseTab: View {
     @ObservedObject var dataService: DataService
     @State private var expandedWineId: String?
-    @State private var sortField: SortField = .date
-    @State private var sortDirection: SortDirection = .ascending
+    @AppStorage("release_sortField") private var sortField: SortField = .date
+    @AppStorage("release_sortDirection") private var sortDirection: SortDirection = .ascending
     @State private var selectedDate: String?
-    @State private var selectedCountries: Set<String> = []
-    @State private var selectedTypes: Set<String> = []
-    @State private var selectedRatings: Set<Int> = []
-    @State private var todayOnly = false
+    @AppStorage("release_selectedCountries") private var selectedCountriesData: Data = Data()
+    @AppStorage("release_selectedTypes") private var selectedTypesData: Data = Data()
+    @AppStorage("release_selectedRatings") private var selectedRatingsData: Data = Data()
+    @AppStorage("release_todayOnly") private var todayOnly = false
     @State private var showPastReleases = false
     @State private var showFilters = false
-    @State private var searchText = ""
+    @AppStorage("release_searchText") private var searchText = ""
+
+    private var selectedCountries: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: selectedCountriesData)) ?? [] }
+        nonmutating set { selectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private var selectedTypes: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: selectedTypesData)) ?? [] }
+        nonmutating set { selectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private var selectedRatings: Set<Int> {
+        get { (try? JSONDecoder().decode(Set<Int>.self, from: selectedRatingsData)) ?? [] }
+        nonmutating set { selectedRatingsData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
 
     private var todayString: String {
         let f = DateFormatter()
@@ -40,61 +55,52 @@ struct ReleaseTab: View {
         filtered(allWines.filter { $0.launchDate < todayString })
     }
 
+    /// Filtered wines excluding the date filter — used for calendar dot counts
+    private var filteredDateCounts: [String: Int] {
+        let wines = filteredExcludingDate(allWines)
+        var counts: [String: Int] = [:]
+        for w in wines {
+            counts[w.launchDate, default: 0] += 1
+        }
+        return counts
+    }
+
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                if let data = dataService.releaseData {
-                    MiniCalendar(
-                        dateColors: data.dateColors,
-                        selectedDate: $selectedDate
-                    )
-                    .padding(.horizontal, 12)
-                    .padding(.top, 4)
+        VStack(spacing: 0) {
+            if let data = dataService.releaseData {
+                MiniCalendar(
+                    dateColors: data.dateColors,
+                    filteredDateCounts: filteredDateCounts,
+                    selectedDate: $selectedDate
+                )
+                .padding(.horizontal, 12)
 
-                    filterBar
+                filterBar
 
-                    sortBar
+                sortBar
 
-                    wineList
-                } else if dataService.isLoading {
-                    Spacer()
-                    ProgressView("Loading wines...")
-                    Spacer()
-                } else if let error = dataService.error {
-                    Spacer()
-                    VStack(spacing: 12) {
-                        Image(systemName: "exclamationmark.triangle")
-                            .font(.largeTitle)
-                            .foregroundStyle(.secondary)
-                        Text(error)
-                            .foregroundStyle(.secondary)
-                        Button("Retry") {
-                            Task { await dataService.loadReleases() }
-                        }
-                    }
-                    Spacer()
-                }
-            }
-            .navigationTitle("Releases")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    VStack(spacing: 0) {
-                        Text("Releases")
-                            .font(.headline)
-                        if let meta = dataService.metadata {
-                            Text("Updated \(meta.releaseUpdated)")
-                                .font(.system(size: 9))
-                                .foregroundStyle(.tertiary)
-                        }
-                    }
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Text("\(upcomingWines.count) wines")
-                        .font(.caption)
+                wineList
+            } else if dataService.isLoading {
+                Spacer()
+                ProgressView("Loading wines...")
+                Spacer()
+            } else if let error = dataService.error {
+                Spacer()
+                VStack(spacing: 12) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.largeTitle)
                         .foregroundStyle(.secondary)
+                    Text(error)
+                        .foregroundStyle(.secondary)
+                    Button("Retry") {
+                        Task { await dataService.loadReleases() }
+                    }
                 }
+                Spacer()
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            searchBar
         }
         .task {
             if dataService.releaseData == nil {
@@ -104,7 +110,32 @@ struct ReleaseTab: View {
         .refreshable {
             await dataService.loadReleases()
         }
-        .searchable(text: $searchText, prompt: "Search wines...")
+    }
+
+    // MARK: - Search Bar
+
+    private var searchBar: some View {
+        HStack(spacing: 6) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(.secondary)
+                .font(.system(size: 15))
+            TextField("Search wines...", text: $searchText)
+                .font(.body)
+            if !searchText.isEmpty {
+                Button {
+                    searchText = ""
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.secondary)
+                        .font(.system(size: 15))
+                }
+            }
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+        .glassEffect(.regular, in: .capsule)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 6)
     }
 
     // MARK: - Filter Bar
@@ -119,7 +150,7 @@ struct ReleaseTab: View {
                 Menu {
                     ForEach(availableCountries, id: \.self) { country in
                         Button {
-                            toggleFilter(country, in: &selectedCountries)
+                            toggleCountry(country)
                         } label: {
                             HStack {
                                 Text(country)
@@ -131,7 +162,7 @@ struct ReleaseTab: View {
                     }
                     if !selectedCountries.isEmpty {
                         Divider()
-                        Button("Clear") { selectedCountries.removeAll() }
+                        Button("Clear") { selectedCountries = [] }
                     }
                 } label: {
                     FilterChipLabel(
@@ -143,7 +174,7 @@ struct ReleaseTab: View {
                 Menu {
                     ForEach(availableTypes, id: \.self) { type in
                         Button {
-                            toggleFilter(type, in: &selectedTypes)
+                            toggleType(type)
                         } label: {
                             HStack {
                                 Text(type)
@@ -155,7 +186,7 @@ struct ReleaseTab: View {
                     }
                     if !selectedTypes.isEmpty {
                         Divider()
-                        Button("Clear") { selectedTypes.removeAll() }
+                        Button("Clear") { selectedTypes = [] }
                     }
                 } label: {
                     FilterChipLabel(
@@ -167,7 +198,7 @@ struct ReleaseTab: View {
                 Menu {
                     ForEach([4, 3, 2], id: \.self) { rating in
                         Button {
-                            toggleFilter(rating, in: &selectedRatings)
+                            toggleRating(rating)
                         } label: {
                             HStack {
                                 Text(String(repeating: "\u{2605}", count: rating))
@@ -179,7 +210,7 @@ struct ReleaseTab: View {
                     }
                     if !selectedRatings.isEmpty {
                         Divider()
-                        Button("Clear") { selectedRatings.removeAll() }
+                        Button("Clear") { selectedRatings = [] }
                     }
                 } label: {
                     FilterChipLabel(
@@ -286,6 +317,7 @@ struct ReleaseTab: View {
                 }
             }
         }
+        .contentMargins(.bottom, 16)
     }
 
     // MARK: - Filtering & Sorting
@@ -304,7 +336,7 @@ struct ReleaseTab: View {
         return types
     }
 
-    private func filtered(_ wines: [ReleaseWine]) -> [ReleaseWine] {
+    private func filteredExcludingDate(_ wines: [ReleaseWine]) -> [ReleaseWine] {
         var result = wines
 
         if !searchText.isEmpty {
@@ -314,14 +346,6 @@ struct ReleaseTab: View {
                 $0.wineName.lowercased().contains(query) ||
                 $0.region.lowercased().contains(query)
             }
-        }
-
-        if todayOnly {
-            result = result.filter { $0.launchDate == todayString }
-        }
-
-        if let date = selectedDate {
-            result = result.filter { $0.launchDate == date }
         }
 
         if !selectedCountries.isEmpty {
@@ -337,6 +361,20 @@ struct ReleaseTab: View {
                 guard let score = $0.ratingScore else { return false }
                 return selectedRatings.contains(score)
             }
+        }
+
+        return result
+    }
+
+    private func filtered(_ wines: [ReleaseWine]) -> [ReleaseWine] {
+        var result = filteredExcludingDate(wines)
+
+        if todayOnly {
+            result = result.filter { $0.launchDate == todayString }
+        }
+
+        if let date = selectedDate {
+            result = result.filter { $0.launchDate == date }
         }
 
         return result
@@ -365,19 +403,29 @@ struct ReleaseTab: View {
         }
     }
 
-    private func toggleFilter<T: Hashable>(_ value: T, in set: inout Set<T>) {
-        if set.contains(value) {
-            set.remove(value)
-        } else {
-            set.insert(value)
-        }
+    private func toggleCountry(_ value: String) {
+        var s = selectedCountries
+        if s.contains(value) { s.remove(value) } else { s.insert(value) }
+        selectedCountries = s
+    }
+
+    private func toggleType(_ value: String) {
+        var s = selectedTypes
+        if s.contains(value) { s.remove(value) } else { s.insert(value) }
+        selectedTypes = s
+    }
+
+    private func toggleRating(_ value: Int) {
+        var s = selectedRatings
+        if s.contains(value) { s.remove(value) } else { s.insert(value) }
+        selectedRatings = s
     }
 
     private func clearAllFilters() {
         todayOnly = false
-        selectedCountries.removeAll()
-        selectedTypes.removeAll()
-        selectedRatings.removeAll()
+        selectedCountries = []
+        selectedTypes = []
+        selectedRatings = []
         selectedDate = nil
     }
 }
