@@ -1,11 +1,14 @@
 import SwiftUI
 import FirebaseAuth
+import UniformTypeIdentifiers
 
 struct ProfileTab: View {
+    @ObservedObject var cellarService: CellarService
     @StateObject private var authManager = AuthManager()
     @AppStorage("notification_topic") private var notificationTopic = "none"
     @AppStorage("app_theme") private var appTheme = "dark"
     @State private var showNotifications = false
+    @State private var showFilePicker = false
 
     private let notificationOptions: [(value: String, label: String)] = [
         ("french-red", "French Red"),
@@ -23,6 +26,13 @@ struct ProfileTab: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .fileImporter(
+            isPresented: $showFilePicker,
+            allowedContentTypes: [.commaSeparatedText, .plainText, .data],
+            allowsMultipleSelection: true
+        ) { result in
+            handleFiles(result)
+        }
     }
 
     // MARK: - Signed Out
@@ -48,6 +58,7 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
+            cellarButton
 
             Spacer()
         }
@@ -80,6 +91,7 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
+            cellarButton
 
             Button {
                 authManager.signOut()
@@ -182,6 +194,76 @@ struct ProfileTab: View {
                 .frame(maxWidth: 280)
                 .transition(.opacity.combined(with: .move(edge: .top)))
             }
+        }
+    }
+
+    // MARK: - Cellar Import
+
+    private var cellarButton: some View {
+        Button {
+            showFilePicker = true
+        } label: {
+            HStack {
+                Image(systemName: "cube.box")
+                    .font(.subheadline)
+                Text(cellarService.cellarData != nil ? "Update Vivino data" : "Import Vivino data")
+                    .font(.subheadline.weight(.medium))
+                Spacer()
+                if let importedAt = cellarService.importedAt {
+                    Text(importedAt)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .foregroundStyle(.primary)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(Color(.systemGray6))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
+        .frame(maxWidth: 280)
+    }
+
+    // MARK: - File Import
+
+    private func handleFiles(_ result: Result<[URL], Error>) {
+        guard case .success(let urls) = result, !urls.isEmpty else { return }
+
+        var cellarData: Data?
+        var pricesData: Data?
+        var wineListData: Data?
+
+        for url in urls {
+            guard url.startAccessingSecurityScopedResource() else { continue }
+            defer { url.stopAccessingSecurityScopedResource() }
+            guard let data = try? Data(contentsOf: url) else { continue }
+
+            if let text = String(data: data, encoding: .utf8) {
+                let header = String(text.prefix(500)).lowercased()
+                if header.contains("wine price") {
+                    pricesData = data
+                } else if header.contains("user cellar count") {
+                    cellarData = data
+                } else if header.contains("scan date") || header.contains("drinking window") {
+                    wineListData = data
+                } else {
+                    cellarData = data
+                }
+            }
+        }
+
+        if urls.count == 1 && cellarData == nil {
+            cellarData = pricesData ?? wineListData
+            pricesData = nil
+            wineListData = nil
+        }
+
+        if cellarData != nil || wineListData != nil {
+            cellarService.importFiles(
+                cellarCSV: cellarData,
+                wineListCSV: wineListData,
+                pricesCSV: pricesData
+            )
         }
     }
 }

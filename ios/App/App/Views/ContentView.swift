@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var appDelegate: AppDelegate
     @StateObject private var dataService = DataService()
+    @StateObject private var cellarService = CellarService()
 
     var body: some View {
         TabView(selection: $appDelegate.selectedTab) {
@@ -12,7 +13,7 @@ struct ContentView: View {
                 }
                 .tag(0)
 
-            CellarTab()
+            CellarTab(cellarService: cellarService)
                 .tabItem {
                     Label("Cellar", systemImage: "cube.box")
                 }
@@ -30,7 +31,7 @@ struct ContentView: View {
                 }
                 .tag(3)
 
-            ProfileTab()
+            ProfileTab(cellarService: cellarService)
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }

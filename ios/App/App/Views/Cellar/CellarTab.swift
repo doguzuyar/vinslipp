@@ -18,7 +18,7 @@ enum CellarSortField: String, CaseIterable {
 }
 
 struct CellarTab: View {
-    @StateObject private var cellarService = CellarService()
+    @ObservedObject var cellarService: CellarService
     @State private var selectedYear: String?
     @State private var expandedWineId: String?
     @AppStorage("cellar_sortField") private var sortField: CellarSortField = .year
