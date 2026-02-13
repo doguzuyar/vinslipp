@@ -4,12 +4,10 @@ import FirebaseAuth
 import FirebaseMessaging
 import UserNotifications
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
     var pendingShortcut: String?
-    private var mainTabBarController: MainTabBarController?
     private var pendingNotificationTab: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -34,21 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if let notification = launchOptions?[.remoteNotification] as? [String: Any],
            let tab = notification["tab"] as? String {
             pendingNotificationTab = tab
-        }
-
-        // Wrap the storyboard's WineCellarViewController in the native tab bar
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self,
-                  let window = self.window,
-                  let webVC = window.rootViewController as? WineCellarViewController else {
-                print("⚠️ TabBar: window or WineCellarViewController not ready")
-                return
-            }
-            print("✅ TabBar: wrapping webVC in MainTabBarController")
-            window.rootViewController = nil
-            let tbc = MainTabBarController(webViewController: webVC)
-            window.rootViewController = tbc
-            self.mainTabBarController = tbc
         }
 
         return true
@@ -98,7 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         if let tab = userInfo["tab"] as? String {
-            navigateToTab(tab)
+            // TODO: Wire up tab navigation via SwiftUI environment
+            print("📱 Notification tap: navigate to \(tab)")
         }
         completionHandler()
     }
@@ -119,15 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         if let tab = pendingShortcut {
             pendingShortcut = nil
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.navigateToTab(tab)
-            }
+            // TODO: Wire up tab navigation via SwiftUI environment
+            print("📱 3D Touch shortcut: navigate to \(tab)")
         }
         if let tab = pendingNotificationTab {
             pendingNotificationTab = nil
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.navigateToTab(tab)
-            }
+            print("📱 Notification cold launch: navigate to \(tab)")
         }
     }
 
@@ -138,7 +119,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         let tab = tabFromShortcut(shortcutItem)
-        navigateToTab(tab)
+        // TODO: Wire up tab navigation via SwiftUI environment
+        print("📱 3D Touch shortcut: navigate to \(tab)")
         completionHandler(true)
     }
 
@@ -157,14 +139,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         default:
             return "release"
         }
-    }
-
-    private func navigateToTab(_ tab: String) {
-        mainTabBarController?.selectTab(named: tab)
-        mainTabBarController?.webVC.webView?.evaluateJavaScript("""
-            window.location.hash='#\(tab)';
-            window.dispatchEvent(new HashChangeEvent('hashchange'));
-        """)
     }
 
 }
