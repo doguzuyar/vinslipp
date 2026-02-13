@@ -5,7 +5,7 @@ const isCapacitor = process.env.BUILD_TARGET === "capacitor";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd && !isCapacitor ? "/vinslipp" : "",
+  basePath: "",
   images: { unoptimized: true },
 };
 
