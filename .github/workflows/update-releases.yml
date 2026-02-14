@@ -36,12 +36,20 @@ jobs:
       - name: Install dependencies
         run: cd web && npm ci
 
+      - name: Check if data files changed
+        if: github.event_name == 'push'
+        id: data_changed
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q '^data/'; then
+            echo "yes=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Generate data
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'push' || steps.data_changed.outputs.yes == 'true'
         run: python3 scripts/wine_cellar.py
 
       - name: Check for changes
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'push' || steps.data_changed.outputs.yes == 'true'
         id: changes
         run: |
           git add data/
