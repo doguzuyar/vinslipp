@@ -214,7 +214,7 @@ struct ReleaseTab: View {
                     Button {
                         clearAllFilters()
                     } label: {
-                        Image(systemName: "eraser")
+                        Image(systemName: "arrow.counterclockwise")
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
                     }

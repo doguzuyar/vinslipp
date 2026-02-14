@@ -28,6 +28,22 @@ struct CellarData: Codable {
     let vintagePalette: [String: String]
 }
 
+struct HistoryWine: Identifiable, Codable {
+    var id: String { link.isEmpty ? "\(winery)-\(wineName)-\(vintage)" : link }
+    let winery: String
+    let wineName: String
+    let vintage: String
+    let region: String
+    let country: String
+    let style: String
+    let averageRating: String
+    let scanDate: String
+    let location: String
+    let userRating: String
+    let wineType: String
+    let link: String
+}
+
 enum CellarColors {
     private static let palette = [
         "#f3abab", "#f8bbd0", "#d4a3dc", "#e1bee7",

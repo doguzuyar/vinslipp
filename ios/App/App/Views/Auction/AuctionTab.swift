@@ -19,7 +19,7 @@ enum AuctionSortField: String, CaseIterable {
 
 struct AuctionTab: View {
     @ObservedObject var dataService: DataService
-    @State private var searchText = ""
+    @AppStorage("auction_searchText") private var searchText = ""
     @State private var expandedProducerId: String?
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
@@ -129,10 +129,8 @@ struct AuctionTab: View {
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
-                Button {
+                FilterChip(label: "Live", isActive: false) {
                     showComingSoon = true
-                } label: {
-                    FilterChipLabel(label: "Today", isActive: false)
                 }
                 Button {
                     showComingSoon = true

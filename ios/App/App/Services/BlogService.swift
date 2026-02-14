@@ -70,7 +70,7 @@ class BlogService: ObservableObject {
         isLoading = false
     }
 
-    func addPost(wineId: String, wineName: String, winery: String, vintage: String, comment: String) async -> Bool {
+    func addPost(wineId: String, wineName: String, winery: String, vintage: String, comment: String, displayName: String? = nil) async -> Bool {
         guard let user = Auth.auth().currentUser else { return false }
         do {
             try await db.collection("blog_posts").addDocument(data: [
@@ -79,7 +79,7 @@ class BlogService: ObservableObject {
                 "winery": winery,
                 "vintage": vintage,
                 "userId": user.uid,
-                "userName": user.displayName ?? "Anonymous",
+                "userName": displayName ?? user.displayName ?? "Vinslipp User",
                 "comment": comment,
                 "createdAt": FieldValue.serverTimestamp(),
             ])

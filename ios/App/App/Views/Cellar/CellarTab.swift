@@ -23,9 +23,11 @@ struct CellarTab: View {
     @State private var expandedWineId: String?
     @AppStorage("cellar_sortField") private var sortField: CellarSortField = .year
     @AppStorage("cellar_sortDirection") private var sortDirection: SortDirection = .ascending
-    @State private var searchText = ""
+    @AppStorage("cellar_searchText") private var searchText = ""
     @State private var showFilePicker = false
     @AppStorage("cellar_chartMode") private var showVintage = false
+    @AppStorage("cellar_showHistory") private var showHistory = false
+    @AppStorage("cellar_selectedLocation") private var selectedLocation: String = ""
 
     private var filtered: [CellarWine] {
         guard let data = cellarService.cellarData else { return [] }
@@ -47,22 +49,52 @@ struct CellarTab: View {
         return sorted(wines)
     }
 
+    private var filteredHistory: [HistoryWine] {
+        guard let history = cellarService.historyData else { return [] }
+        var wines = history
+
+        if !selectedLocation.isEmpty {
+            wines = wines.filter { $0.location == selectedLocation }
+        }
+
+        if !searchText.isEmpty {
+            let query = searchText.lowercased()
+            wines = wines.filter {
+                $0.winery.lowercased().contains(query) ||
+                $0.wineName.lowercased().contains(query) ||
+                $0.region.lowercased().contains(query)
+            }
+        }
+
+        return wines
+    }
+
+    private var uniqueLocations: [String] {
+        guard let history = cellarService.historyData else { return [] }
+        return Array(Set(history.compactMap { $0.location.isEmpty ? nil : $0.location })).sorted()
+    }
+
     var body: some View {
         VStack(spacing: 0) {
             if let data = cellarService.cellarData {
-                BottleChart(
-                    yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
-                    colorPalette: showVintage ? data.vintagePalette : data.colorPalette,
-                    selectedYear: $selectedYear
-                )
-                .padding(.horizontal, 12)
-                .padding(.top, 4)
+                if showHistory {
+                    historyBar
+                    historyList
+                } else {
+                    BottleChart(
+                        yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
+                        colorPalette: showVintage ? data.vintagePalette : data.colorPalette,
+                        selectedYear: $selectedYear
+                    )
+                    .padding(.horizontal, 12)
+                    .padding(.top, 4)
 
-                summaryBar(data: data)
+                    summaryBar(data: data)
 
-                sortBar
+                    sortBar
 
-                wineList
+                    wineList
+                }
             } else if cellarService.isProcessing {
                 Spacer()
                 ProgressView("Processing CSV...")
@@ -137,27 +169,26 @@ struct CellarTab: View {
     // MARK: - Summary Bar
 
     private func summaryBar(data: CellarData) -> some View {
-        HStack {
-            Button {
+        HStack(spacing: 6) {
+            if cellarService.historyData != nil {
+                FilterChip(label: "Cellar", isActive: false) {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        showHistory = true
+                    }
+                }
+            }
+            FilterChip(label: showVintage ? "Vintage" : "Drink year", isActive: false) {
                 withAnimation(.easeInOut(duration: 0.2)) {
                     showVintage.toggle()
                     selectedYear = nil
                 }
-            } label: {
-                Text(showVintage ? "Vintage" : "Drink year")
-                    .font(.caption2.weight(.medium))
-                    .foregroundStyle(.secondary)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 3)
-                    .background(Color(.systemGray5))
-                    .clipShape(Capsule())
             }
             Button {
                 cellarService.clearData()
                 selectedYear = nil
             } label: {
-                Image(systemName: "eraser")
-                    .font(.caption)
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.caption2)
                     .foregroundStyle(.tertiary)
             }
             Spacer()
@@ -172,7 +203,7 @@ struct CellarTab: View {
                     .foregroundStyle(.tertiary)
             }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 12)
         .padding(.vertical, 6)
     }
 
@@ -249,6 +280,74 @@ struct CellarTab: View {
                             }
                         }
                     Divider().padding(.leading, 28)
+                }
+            }
+        }
+        .contentMargins(.bottom, 16)
+    }
+
+    // MARK: - History Bar
+
+    private var historyBar: some View {
+        HStack(spacing: 6) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 6) {
+                    FilterChip(label: "History", isActive: false) {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            showHistory = false
+                        }
+                    }
+                    Menu {
+                        ForEach(uniqueLocations, id: \.self) { location in
+                            Button {
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    selectedLocation = selectedLocation == location ? "" : location
+                                }
+                            } label: {
+                                HStack {
+                                    Text(location)
+                                    if selectedLocation == location {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Location",
+                            isActive: !selectedLocation.isEmpty
+                        )
+                    }
+                    if !selectedLocation.isEmpty {
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                selectedLocation = ""
+                            }
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
+                    }
+                }
+            }
+            Text("\(filteredHistory.count) wines")
+                .font(.caption.weight(.medium))
+                .foregroundStyle(.secondary)
+                .fixedSize()
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 6)
+    }
+
+    // MARK: - History List
+
+    private var historyList: some View {
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                ForEach(filteredHistory) { wine in
+                    HistoryWineRow(wine: wine)
+                    Divider().padding(.leading, 16)
                 }
             }
         }
@@ -389,6 +488,45 @@ struct CellarWineRow: View {
         .background(
             isExpanded ? Color(hex: wine.color).opacity(0.15) : Color.clear
         )
+    }
+}
+
+// MARK: - History Wine Row
+
+private struct HistoryWineRow: View {
+    let wine: HistoryWine
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(wine.winery)
+                .font(.subheadline.weight(.semibold))
+                .lineLimit(1)
+            Text(wine.wineName)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+            HStack(spacing: 8) {
+                if !wine.vintage.isEmpty {
+                    Text(wine.vintage)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+                if !wine.region.isEmpty {
+                    Text(wine.region)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                        .lineLimit(1)
+                }
+                if !wine.country.isEmpty {
+                    Text(wine.country)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+                Spacer()
+            }
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 16)
     }
 }
 

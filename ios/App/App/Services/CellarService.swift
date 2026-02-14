@@ -4,11 +4,13 @@ import SwiftUI
 @MainActor
 class CellarService: ObservableObject {
     @Published var cellarData: CellarData?
+    @Published var historyData: [HistoryWine]?
     @Published var isProcessing = false
     @Published var error: String?
     @Published var importedAt: String?
 
     private let storageKey = "cellar_data"
+    private let historyKey = "history_data"
     private let metaKey = "cellar_imported_at"
 
     init() {
@@ -37,6 +39,13 @@ class CellarService: ObservableObject {
         let data = processCellar(cellarRows: cellarRows, priceRows: priceRows)
         cellarData = data
 
+        // Process history from wine list CSV if provided
+        if let wineListData = wineListCSV,
+           let wineListString = String(data: wineListData, encoding: .utf8) {
+            let wineListRows = parseCSV(wineListString)
+            historyData = processHistory(rows: wineListRows)
+        }
+
         let fmt = DateFormatter()
         fmt.dateFormat = "MMM d, HH:mm"
         importedAt = fmt.string(from: Date())
@@ -47,8 +56,10 @@ class CellarService: ObservableObject {
 
     func clearData() {
         cellarData = nil
+        historyData = nil
         importedAt = nil
         UserDefaults.standard.removeObject(forKey: storageKey)
+        UserDefaults.standard.removeObject(forKey: historyKey)
         UserDefaults.standard.removeObject(forKey: metaKey)
     }
 
@@ -224,6 +235,25 @@ class CellarService: ObservableObject {
         )
     }
 
+    private func processHistory(rows: [[String: String]]) -> [HistoryWine] {
+        rows.map { row in
+            HistoryWine(
+                winery: row["Winery"] ?? "",
+                wineName: row["Wine name"] ?? "",
+                vintage: row["Vintage"] ?? "",
+                region: row["Region"] ?? "",
+                country: row["Country"] ?? "",
+                style: row["Regional wine style"] ?? "",
+                averageRating: row["Average rating"] ?? "",
+                scanDate: row["Scan date"] ?? "",
+                location: row["Scan/Review Location"] ?? "",
+                userRating: row["Your rating"] ?? "",
+                wineType: row["Wine type"] ?? "",
+                link: row["Link to wine"] ?? ""
+            )
+        }
+    }
+
     private func formatPrice(_ raw: String) -> String {
         let num = Int(raw.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)) ?? 0
         return num > 0 ? "\(num) SEK" : ""
@@ -232,9 +262,14 @@ class CellarService: ObservableObject {
     // MARK: - Persistence
 
     private func saveToStorage() {
-        guard let data = cellarData,
-              let encoded = try? JSONEncoder().encode(data) else { return }
-        UserDefaults.standard.set(encoded, forKey: storageKey)
+        if let cellar = cellarData,
+           let encoded = try? JSONEncoder().encode(cellar) {
+            UserDefaults.standard.set(encoded, forKey: storageKey)
+        }
+        if let history = historyData,
+           let encoded = try? JSONEncoder().encode(history) {
+            UserDefaults.standard.set(encoded, forKey: historyKey)
+        }
         UserDefaults.standard.set(importedAt, forKey: metaKey)
     }
 
@@ -242,7 +277,11 @@ class CellarService: ObservableObject {
         if let data = UserDefaults.standard.data(forKey: storageKey),
            let decoded = try? JSONDecoder().decode(CellarData.self, from: data) {
             cellarData = decoded
-            importedAt = UserDefaults.standard.string(forKey: metaKey)
         }
+        if let data = UserDefaults.standard.data(forKey: historyKey),
+           let decoded = try? JSONDecoder().decode([HistoryWine].self, from: data) {
+            historyData = decoded
+        }
+        importedAt = UserDefaults.standard.string(forKey: metaKey)
     }
 }

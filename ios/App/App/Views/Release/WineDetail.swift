@@ -59,6 +59,7 @@ private struct BlogSheet: View {
     let wine: ReleaseWine
     @Environment(\.dismiss) private var dismiss
     @State private var comment = ""
+    @State private var hideName = false
     @State private var isPosting = false
     @State private var posted = false
     @StateObject private var blogService = BlogService()
@@ -100,6 +101,14 @@ private struct BlogSheet: View {
                                 .font(.caption2)
                                 .foregroundStyle(comment.count > 130 ? .red : .secondary)
                             Spacer()
+                            Button {
+                                hideName.toggle()
+                            } label: {
+                                Label("Hide name", systemImage: hideName ? "person.slash.fill" : "person.slash")
+                                    .font(.subheadline.weight(.medium))
+                                    .foregroundStyle(hideName ? .primary : .tertiary)
+                            }
+                            Spacer()
                             Button("Post") {
                                 Task { await post() }
                             }
@@ -135,7 +144,8 @@ private struct BlogSheet: View {
             wineName: wine.wineName,
             winery: wine.producer,
             vintage: wine.vintage,
-            comment: comment.trimmingCharacters(in: .whitespacesAndNewlines)
+            comment: comment.trimmingCharacters(in: .whitespacesAndNewlines),
+            displayName: hideName ? "Vinslipp User" : nil
         )
         if success {
             posted = true
