@@ -1,4 +1,23 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+const screenshots = [
+  { src: "/screenshot-releases.png", alt: "Releases" },
+  { src: "/screenshot-cellar.png", alt: "Cellar" },
+  { src: "/screenshot-auction.png", alt: "Auction" },
+];
+
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((i) => (i + 1) % screenshots.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main
       style={{
@@ -40,64 +59,99 @@ export default function Home() {
             color: "var(--text-muted)",
             margin: "8px 0 0",
             fontWeight: 300,
-            maxWidth: 320,
+            maxWidth: 420,
           }}
         >
-          Wine releases, cellar tracking &amp; auction insights
+          Releases, cellar &amp; auction insights for wine lovers
         </p>
       </div>
 
-      {/* Phone Mockup */}
+      {/* iPhone 17 Pro Max Mockup */}
       <div
         style={{
-          width: 220,
-          height: 440,
-          borderRadius: 32,
-          border: "2px solid var(--border)",
-          background: "var(--bg-alt)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
           position: "relative",
-          overflow: "hidden",
+          width: 260,
+          padding: 4,
+          borderRadius: 36,
+          background: "#1a1a1a",
+          boxShadow: "0 0 0 1.5px #444, 0 20px 60px rgba(0,0,0,0.5)",
         }}
       >
-        {/* Notch */}
+        {/* Dynamic Island */}
         <div
           style={{
             position: "absolute",
-            top: 8,
+            top: 12,
             left: "50%",
             transform: "translateX(-50%)",
-            width: 60,
-            height: 20,
-            borderRadius: 10,
-            background: "var(--bg)",
+            width: 72,
+            height: 22,
+            borderRadius: 11,
+            background: "#000",
+            zIndex: 2,
           }}
         />
-        {/* Placeholder text */}
-        <span
+        {/* Screen */}
+        <div
           style={{
-            fontSize: 12,
-            color: "var(--text-muted)",
-            opacity: 0.5,
+            borderRadius: 32,
+            overflow: "hidden",
+            background: "#000",
+            position: "relative",
           }}
         >
-          Screenshot
-        </span>
-        {/* Home indicator */}
+          {screenshots.map((s, i) => (
+            <img
+              key={s.src}
+              src={s.src}
+              alt={s.alt}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: i === 0 ? "block" : "none",
+                position: i === 0 ? "relative" : "absolute",
+                top: 0,
+                left: 0,
+                opacity: current === i ? 1 : 0,
+                transition: "opacity 0.6s ease-in-out",
+                ...(i !== 0 ? { display: "block" } : {}),
+              }}
+            />
+          ))}
+        </div>
+        {/* Home Indicator */}
         <div
           style={{
             position: "absolute",
-            bottom: 8,
+            bottom: 10,
             left: "50%",
             transform: "translateX(-50%)",
-            width: 48,
+            width: 96,
             height: 4,
             borderRadius: 2,
-            background: "var(--border)",
+            background: "rgba(255,255,255,0.15)",
           }}
         />
+      </div>
+
+      {/* Dots */}
+      <div style={{ display: "flex", gap: 8 }}>
+        {screenshots.map((s, i) => (
+          <button
+            key={s.src}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+              background: current === i ? "var(--text)" : "var(--border)",
+              transition: "background 0.3s",
+            }}
+          />
+        ))}
       </div>
 
       {/* App Store Link */}
