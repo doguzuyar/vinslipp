@@ -5,7 +5,6 @@ on:
     branches: [main]
   schedule:
     - cron: '0 6 * * *'    # 07:00 Swedish time (06:00 UTC)
-  workflow_dispatch:       # Manual trigger
 
 permissions:
   contents: write
@@ -45,11 +44,11 @@ jobs:
           fi
 
       - name: Generate data
-        if: github.event_name != 'push' || steps.data_changed.outputs.yes == 'true'
+        if: github.event_name == 'schedule' || steps.data_changed.outputs.yes == 'true'
         run: python3 scripts/wine_cellar.py
 
       - name: Check for changes
-        if: github.event_name != 'push' || steps.data_changed.outputs.yes == 'true'
+        if: github.event_name == 'schedule'
         id: changes
         run: |
           git add data/
