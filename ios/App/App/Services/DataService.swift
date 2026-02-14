@@ -3,7 +3,6 @@ import Foundation
 @MainActor
 class DataService: ObservableObject {
     @Published var releaseData: ReleaseData?
-    @Published var metadata: AppMetadata?
     @Published var auctionData: AuctionData?
     @Published var isLoading = false
     @Published var isLoadingAuction = false
@@ -19,14 +18,10 @@ class DataService: ObservableObject {
         }
         error = nil
 
-        async let releaseFetch: ReleaseData? = fetch("\(baseURL)/releases.json")
-        async let metaFetch: AppMetadata? = fetch("\(baseURL)/metadata.json")
-
-        let (releases, meta) = await (releaseFetch, metaFetch)
+        let releases: ReleaseData? = await fetch("\(baseURL)/releases.json")
 
         if let releases {
             releaseData = releases
-            metadata = meta
         } else if isFirstLoad {
             error = "Failed to load wine data"
         }

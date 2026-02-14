@@ -69,9 +69,3 @@ struct ReleaseWine: Codable, Identifiable {
         }
     }
 }
-
-struct AppMetadata: Codable {
-    let releaseUpdated: String
-    let auctionUpdated: String
-    let generatedAt: String
-}
