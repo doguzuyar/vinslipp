@@ -69,7 +69,7 @@ struct MiniCalendar: View {
                 }
             }
             .padding(.horizontal, 24)
-            .offset(y: -30)
+            .offset(y: -20)
 
             // Weekday headers
             HStack(spacing: 0) {

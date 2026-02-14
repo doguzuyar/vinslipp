@@ -69,6 +69,7 @@ struct ReleaseTab: View {
                     selectedDate: $selectedDate
                 )
                 .padding(.horizontal, 12)
+                .offset(y: -15)
 
                 filterBar
 
@@ -95,7 +96,9 @@ struct ReleaseTab: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            searchBar
+            if dataService.releaseData != nil {
+                searchBar
+            }
         }
         .task {
             if dataService.releaseData == nil {

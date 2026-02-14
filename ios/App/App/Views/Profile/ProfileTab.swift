@@ -282,7 +282,7 @@ private struct SignInWithAppleButton: View {
                 Text("Sign in with Apple")
                     .font(.system(size: 15, weight: .medium))
             }
-            .foregroundStyle(colorScheme == .dark ? .white : .white)
+            .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .frame(height: 44)
             .background(colorScheme == .dark ? Color.white.opacity(0.15) : Color.black)

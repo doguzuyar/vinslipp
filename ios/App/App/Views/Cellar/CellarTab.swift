@@ -113,8 +113,8 @@ struct CellarTab: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 
-            if cellarService.error != nil {
-                Text(cellarService.error!)
+            if let error = cellarService.error {
+                Text(error)
                     .font(.caption)
                     .foregroundStyle(.red)
             }
@@ -138,17 +138,6 @@ struct CellarTab: View {
 
     private func summaryBar(data: CellarData) -> some View {
         HStack {
-            Text("\(data.totalBottles) bottles")
-                .font(.caption.weight(.medium))
-                .foregroundStyle(.secondary)
-            if data.totalValue > 0 {
-                Text("·")
-                    .foregroundStyle(.tertiary)
-                Text("\(data.totalValue.formatted()) SEK")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-            }
-            Spacer()
             Button {
                 withAnimation(.easeInOut(duration: 0.2)) {
                     showVintage.toggle()
@@ -168,6 +157,17 @@ struct CellarTab: View {
                 selectedYear = nil
             } label: {
                 Image(systemName: "eraser")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+            Spacer()
+            Text("\(data.totalBottles) bottles")
+                .font(.caption.weight(.medium))
+                .foregroundStyle(.secondary)
+            if data.totalValue > 0 {
+                Text("·")
+                    .foregroundStyle(.tertiary)
+                Text("\(data.totalValue.formatted()) SEK")
                     .font(.caption)
                     .foregroundStyle(.tertiary)
             }

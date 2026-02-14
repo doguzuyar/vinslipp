@@ -11,12 +11,3 @@ extension Color {
         self.init(red: r, green: g, blue: b)
     }
 }
-
-enum WineColors {
-    static let tabTint = Color(hex: "#1c1917")
-    static let tabUnselected = Color(hex: "#78716c")
-
-    static func rowColor(_ hex: String) -> Color {
-        Color(hex: hex)
-    }
-}

@@ -17,14 +17,14 @@ struct WineDetail: View {
             }
 
             HStack(spacing: 12) {
-                if !wine.vivinoLink.isEmpty {
-                    Link(destination: URL(string: wine.vivinoLink)!) {
+                if let url = URL(string: wine.vivinoLink) {
+                    Link(destination: url) {
                         Label("Vivino", systemImage: "globe")
                             .font(.caption.weight(.medium))
                     }
                 }
-                if !wine.sbLink.isEmpty {
-                    Link(destination: URL(string: wine.sbLink)!) {
+                if let url = URL(string: wine.sbLink) {
+                    Link(destination: url) {
                         Label("Systembolaget", systemImage: "cart")
                             .font(.caption.weight(.medium))
                     }

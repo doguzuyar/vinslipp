@@ -23,6 +23,7 @@ struct AuctionTab: View {
     @State private var expandedProducerId: String?
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
+    @State private var showComingSoon = false
 
     private var producers: [AuctionProducer] {
         guard let data = dataService.auctionData else { return [] }
@@ -40,8 +41,13 @@ struct AuctionTab: View {
         VStack(spacing: 0) {
             if let data = dataService.auctionData {
                 summaryBar(data: data)
-                sortBar
-                producerList
+
+                VStack(spacing: 0) {
+                    filterBar
+                    sortBar
+                    producerList
+                }
+                .padding(.top, -15)
             } else if dataService.isLoadingAuction {
                 Spacer()
                 ProgressView("Loading auction data...")
@@ -62,12 +68,17 @@ struct AuctionTab: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            searchBar
+            if dataService.auctionData != nil {
+                searchBar
+            }
         }
         .task {
             if dataService.auctionData == nil {
                 await dataService.loadAuction()
             }
+        }
+        .alert("Coming soon", isPresented: $showComingSoon) {
+            Button("OK", role: .cancel) {}
         }
     }
 
@@ -102,22 +113,36 @@ struct AuctionTab: View {
     private func summaryBar(data: AuctionData) -> some View {
         HStack {
             Text("\(data.summary.unique_producers) producers")
-                .font(.caption.weight(.medium))
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.secondary)
-            Text("·")
-                .foregroundStyle(.tertiary)
-            Text("\(data.summary.total_wines) lots")
-                .font(.caption)
-                .foregroundStyle(.tertiary)
-            Text("·")
-                .foregroundStyle(.tertiary)
-            Text(String(format: "%.0f%% sold", data.summary.sell_rate_percent))
-                .font(.caption)
-                .foregroundStyle(.tertiary)
             Spacer()
+            Text("\(data.summary.total_wines) lots")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.secondary)
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 6)
+        .padding(.horizontal, 24)
+        .offset(y: -40)
+    }
+
+    // MARK: - Filter Bar
+
+    private var filterBar: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 6) {
+                Button {
+                    showComingSoon = true
+                } label: {
+                    FilterChipLabel(label: "Today", isActive: false)
+                }
+                Button {
+                    showComingSoon = true
+                } label: {
+                    FilterChipLabel(label: "Country", isActive: false)
+                }
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+        }
     }
 
     // MARK: - Sort Bar
@@ -230,7 +255,7 @@ struct ProducerRow: View {
                         Spacer()
                         if let ratio = producer.avgRatio {
                             Text(String(format: "%.3f", ratio))
-                                .font(.caption.monospaced())
+                                .font(.caption.weight(.medium))
                                 .foregroundStyle(ratio >= 1 ? .green : .red)
                         }
                     }

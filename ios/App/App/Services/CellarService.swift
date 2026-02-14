@@ -165,8 +165,8 @@ class CellarService: ObservableObject {
                 // Fall back to vintage year when no drink years are set
                 let year = vintage.isEmpty ? "—" : vintage
                 let yearInt = Int(year)
-                let color = yearInt != nil ? CellarColors.color(forYear: yearInt!) : "#888888"
-                if let y = yearInt { allYears.insert(y) }
+                let color = yearInt.map { CellarColors.color(forYear: $0) } ?? "#888888"
+                if let yearInt { allYears.insert(yearInt) }
                 wines.append(CellarWine(
                     drinkYear: year, winery: winery, wineName: wineName,
                     vintage: vintage, region: region, style: style,

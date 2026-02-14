@@ -4,9 +4,17 @@ import FirebaseAuth
 struct BlogTab: View {
     @StateObject private var blogService = BlogService()
     @State private var postToDelete: BlogPost?
+    @State private var myPostsOnly = false
 
     private var currentUserId: String? {
         Auth.auth().currentUser?.uid
+    }
+
+    private var displayedPosts: [BlogPost] {
+        if myPostsOnly, let uid = currentUserId {
+            return blogService.posts.filter { $0.userId == uid }
+        }
+        return blogService.posts
     }
 
     var body: some View {
@@ -43,6 +51,7 @@ struct BlogTab: View {
                 }
                 Spacer()
             } else {
+                filterBar
                 postList
             }
         }
@@ -65,10 +74,35 @@ struct BlogTab: View {
         }
     }
 
+    // MARK: - Filter Bar
+
+    private var filterBar: some View {
+        HStack {
+            Button {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    myPostsOnly.toggle()
+                }
+            } label: {
+                Text(myPostsOnly ? "My posts" : "All posts")
+                    .font(.caption2.weight(.medium))
+                    .foregroundStyle(myPostsOnly ? .primary : .secondary)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(myPostsOnly ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
+                    .clipShape(Capsule())
+            }
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 6)
+    }
+
+    // MARK: - Post List
+
     private var postList: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
-                ForEach(blogService.posts) { post in
+                ForEach(displayedPosts) { post in
                     BlogPostCard(
                         post: post,
                         isOwner: currentUserId == post.userId,
