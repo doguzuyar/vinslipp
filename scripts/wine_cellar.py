@@ -81,8 +81,8 @@ except Exception as e:
 RELEASE_FILES = [
     ('data/french_red_releases.txt', 'Frankrike', 'Rött vin'),
     ('data/french_white_releases.txt', 'Frankrike', 'Vitt vin'),
-    ('data/italy_red_releases.txt', 'Italien', 'Rött vin'),
-    ('data/italy_white_releases.txt', 'Italien', 'Vitt vin'),
+    ('data/italian_red_releases.txt', 'Italien', 'Rött vin'),
+    ('data/italian_white_releases.txt', 'Italien', 'Vitt vin'),
 ]
 
 all_existing_ratings = {}

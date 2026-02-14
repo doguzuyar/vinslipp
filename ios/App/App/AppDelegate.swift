@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         restoreNotificationPreference()
     }
 
-    private let allNotificationTopics = ["french-red", "french-white", "italy-red", "italy-white"]
+    private let allNotificationTopics = ["french-red", "french-white", "italian-red", "italian-white"]
 
     private func restoreNotificationPreference() {
         guard let topic = UserDefaults.standard.string(forKey: "notificationTopic"),

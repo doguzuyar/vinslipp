@@ -13,8 +13,8 @@ struct ProfileTab: View {
     private let notificationOptions: [(value: String, label: String)] = [
         ("french-red", "French Red"),
         ("french-white", "French White"),
-        ("italy-red", "Italy Red"),
-        ("italy-white", "Italy White"),
+        ("italian-red", "Italian Red"),
+        ("italian-white", "Italian White"),
     ]
 
     var body: some View {

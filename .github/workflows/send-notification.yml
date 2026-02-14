@@ -23,8 +23,8 @@ jobs:
           declare -A TOPIC_MAP
           TOPIC_MAP["french_red_releases.txt"]="french-red"
           TOPIC_MAP["french_white_releases.txt"]="french-white"
-          TOPIC_MAP["italy_red_releases.txt"]="italy-red"
-          TOPIC_MAP["italy_white_releases.txt"]="italy-white"
+          TOPIC_MAP["italian_red_releases.txt"]="italian-red"
+          TOPIC_MAP["italian_white_releases.txt"]="italian-white"
 
           TOPICS_WITH_WINES=""
 
@@ -92,8 +92,8 @@ jobs:
           topic_labels = {
               "french-red": "French Red",
               "french-white": "French White",
-              "italy-red": "Italy Red",
-              "italy-white": "Italy White",
+              "italian-red": "Italian Red",
+              "italian-white": "Italian White",
           }
 
           for topic in topics:
@@ -168,5 +168,5 @@ jobs:
           TOPICS: ${{ steps.check.outputs.topics }}
           WINES_FRENCH_RED: ${{ steps.check.outputs.wines_french_red }}
           WINES_FRENCH_WHITE: ${{ steps.check.outputs.wines_french_white }}
-          WINES_ITALY_RED: ${{ steps.check.outputs.wines_italy_red }}
-          WINES_ITALY_WHITE: ${{ steps.check.outputs.wines_italy_white }}
+          WINES_ITALIAN_RED: ${{ steps.check.outputs.wines_italian_red }}
+          WINES_ITALIAN_WHITE: ${{ steps.check.outputs.wines_italian_white }}
