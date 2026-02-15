@@ -89,6 +89,22 @@ private struct BlogSheet: View {
                                 .foregroundStyle(.green)
                             Text("Posted!")
                                 .font(.subheadline.weight(.medium))
+                            Text("Your note will appear in the blog within a few hours.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(maxHeight: .infinity)
+                    } else if blogService.hasPostedToday {
+                        VStack(spacing: 8) {
+                            Image(systemName: "clock.fill")
+                                .font(.title)
+                                .foregroundStyle(.secondary)
+                            Text("You've already posted today")
+                                .font(.subheadline.weight(.medium))
+                            Text("Come back tomorrow!")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
                         }
                         .frame(maxHeight: .infinity)
                     } else {

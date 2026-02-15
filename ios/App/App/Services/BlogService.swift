@@ -70,6 +70,13 @@ class BlogService: ObservableObject {
         isLoading = false
     }
 
+    private static let lastPostDateKey = "lastBlogPostDate"
+
+    var hasPostedToday: Bool {
+        guard let last = UserDefaults.standard.object(forKey: Self.lastPostDateKey) as? Date else { return false }
+        return Calendar.current.isDateInToday(last)
+    }
+
     func addPost(wineId: String, wineName: String, winery: String, vintage: String, comment: String, displayName: String? = nil) async -> Bool {
         guard let user = Auth.auth().currentUser else { return false }
         do {
@@ -83,6 +90,7 @@ class BlogService: ObservableObject {
                 "comment": comment,
                 "createdAt": FieldValue.serverTimestamp(),
             ])
+            UserDefaults.standard.set(Date(), forKey: Self.lastPostDateKey)
             return true
         } catch {
             print("Add post error: \(error)")
