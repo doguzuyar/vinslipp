@@ -2,16 +2,31 @@ name: Send Wine Notification
 
 on:
   schedule:
-    - cron: '45 7 * * *'   # 08:45 Swedish time (07:45 UTC)
+    - cron: '45 7 * * *'   # 09:45 Swedish summer time (CEST, UTC+2)
+    - cron: '45 8 * * *'   # 09:45 Swedish winter time (CET, UTC+1)
   workflow_dispatch:       # Manual trigger
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Check if 9:45 AM in Stockholm
+        id: timecheck
+        run: |
+          STOCKHOLM_HOUR=$(TZ=Europe/Stockholm date "+%-H")
+          STOCKHOLM_MIN=$(TZ=Europe/Stockholm date "+%-M")
+          if [ "$STOCKHOLM_HOUR" -eq 9 ] && [ "$STOCKHOLM_MIN" -ge 40 ] && [ "$STOCKHOLM_MIN" -le 50 ]; then
+            echo "is_time=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_time=false" >> $GITHUB_OUTPUT
+            echo "Skipping: Stockholm time is ${STOCKHOLM_HOUR}:${STOCKHOLM_MIN}, not 9:45"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.timecheck.outputs.is_time == 'true'
 
       - name: Check today's releases per category
+        if: steps.timecheck.outputs.is_time == 'true'
         id: check
         run: |
           TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
@@ -68,7 +83,7 @@ jobs:
           fi
 
       - name: Send push notifications per category
-        if: steps.check.outputs.has_wines == 'true'
+        if: steps.timecheck.outputs.is_time == 'true' && steps.check.outputs.has_wines == 'true'
         run: |
           pip install google-auth requests
           python3 << 'PYEOF'
