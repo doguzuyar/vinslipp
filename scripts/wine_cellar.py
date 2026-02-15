@@ -131,21 +131,21 @@ existing_ratings = all_existing_ratings
 
 # Generate JSON data for Next.js frontend
 color_palette = [
-    '#f3abab',  # 2026 - pink
-    '#f8bbd0',  # 2027 - light pink
-    '#d4a3dc',  # 2028 - purple
-    '#e1bee7',  # 2029 - light purple
-    '#7ec4f8',  # 2030 - blue
-    '#bbdefb',  # 2031 - light blue
-    '#6bc4ba',  # 2032 - teal
-    '#b2dfdb',  # 2033 - light teal
-    '#96d098',  # 2034 - green
-    '#c8e6c9',  # 2035 - light green
-    '#ffe066',  # 2036 - yellow
-    '#fff9c4',  # 2037 - light yellow
-    '#ffc570',  # 2038 - orange
-    '#ffe0b2',  # 2039 - light orange
-    '#f8a0bc',  # 2040 - pink
+    '#e8636b',  # 2026 - pink
+    '#e57399',  # 2027 - rose
+    '#b06cc8',  # 2028 - purple
+    '#c77ddb',  # 2029 - light purple
+    '#4da6e8',  # 2030 - blue
+    '#6db8f0',  # 2031 - light blue
+    '#3db5a6',  # 2032 - teal
+    '#5ccfbe',  # 2033 - light teal
+    '#5cb85c',  # 2034 - green
+    '#7fca7f',  # 2035 - light green
+    '#f0c030',  # 2036 - yellow
+    '#f5d34a',  # 2037 - light yellow
+    '#f0a030',  # 2038 - orange
+    '#f5b84a',  # 2039 - light orange
+    '#e870a0',  # 2040 - pink
 ]
 
 # Write JSON data files for Next.js frontend

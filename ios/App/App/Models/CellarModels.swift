@@ -46,10 +46,10 @@ struct HistoryWine: Identifiable, Codable {
 
 enum CellarColors {
     private static let palette = [
-        "#f3abab", "#f8bbd0", "#d4a3dc", "#e1bee7",
-        "#7ec4f8", "#bbdefb", "#6bc4ba", "#b2dfdb",
-        "#96d098", "#c8e6c9", "#ffe066", "#fff9c4",
-        "#ffc570", "#ffe0b2", "#f8a0bc",
+        "#e8636b", "#e57399", "#b06cc8", "#c77ddb",
+        "#4da6e8", "#6db8f0", "#3db5a6", "#5ccfbe",
+        "#5cb85c", "#7fca7f", "#f0c030", "#f5d34a",
+        "#f0a030", "#f5b84a", "#e870a0",
     ]
 
     static func color(forYear year: Int) -> String {

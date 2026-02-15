@@ -33,7 +33,7 @@ export default function Home() {
     >
       {/* App Icon */}
       <img
-        src="/icon.svg"
+        src="/icon.png"
         alt="Vinslipp"
         width={80}
         height={80}

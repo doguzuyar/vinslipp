@@ -10,4 +10,6 @@ extension Color {
         let b = Double(int & 0xFF) / 255.0
         self.init(red: r, green: g, blue: b)
     }
+
+    static let vinslippBurgundy = Color(hex: "4D1421")
 }
