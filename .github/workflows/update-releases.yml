@@ -1,13 +1,10 @@
-name: Update Systembolaget Releases
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: '0 6 * * *'    # 07:00 Swedish time (06:00 UTC)
 
 permissions:
-  contents: write
   pages: write
   id-token: write
 
@@ -16,15 +13,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  update:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - uses: actions/setup-node@v4
         with:
@@ -34,39 +29,6 @@ jobs:
 
       - name: Install dependencies
         run: cd web && npm ci
-
-      - name: Check if data files changed
-        if: github.event_name == 'push'
-        id: data_changed
-        run: |
-          if git diff --name-only HEAD~1 HEAD | grep -q '^data/'; then
-            echo "yes=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Generate data
-        if: github.event_name == 'schedule' || steps.data_changed.outputs.yes == 'true'
-        run: python3 scripts/wine_cellar.py
-
-      - name: Check for changes
-        if: github.event_name == 'schedule'
-        id: changes
-        run: |
-          git add data/
-          if git diff --cached --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Commit and push if changed
-        if: steps.changes.outputs.changed == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update Systembolaget releases"
-          git checkout -- .
-          git pull --rebase -X theirs
-          git push
 
       - name: Build Next.js site
         run: cd web && npm run build
