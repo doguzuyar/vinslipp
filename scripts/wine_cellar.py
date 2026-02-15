@@ -129,38 +129,12 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
 
 existing_ratings = all_existing_ratings
 
-# Generate JSON data for Next.js frontend
-color_palette = [
-    '#e8636b',  # 2026 - pink
-    '#e57399',  # 2027 - rose
-    '#b06cc8',  # 2028 - purple
-    '#c77ddb',  # 2029 - light purple
-    '#4da6e8',  # 2030 - blue
-    '#6db8f0',  # 2031 - light blue
-    '#3db5a6',  # 2032 - teal
-    '#5ccfbe',  # 2033 - light teal
-    '#5cb85c',  # 2034 - green
-    '#7fca7f',  # 2035 - light green
-    '#f0c030',  # 2036 - yellow
-    '#f5d34a',  # 2037 - light yellow
-    '#f0a030',  # 2038 - orange
-    '#f5b84a',  # 2039 - light orange
-    '#e870a0',  # 2040 - pink
-]
-
 # Write JSON data files for Next.js frontend
 os.makedirs('data', exist_ok=True)
-
-# Assign release date colors (oldest first for stable colors)
-release_dates_oldest_first = sorted(set(
-    (w.get('productLaunchDate') or '')[:10] for w in sb_releases
-))
-release_date_colors = {d: color_palette[i % len(color_palette)] for i, d in enumerate(release_dates_oldest_first)}
 
 # releases.json
 releases_json = {
     'wines': [],
-    'dateColors': release_date_colors,
     'totalCount': len(sb_releases),
 }
 for w in sb_releases:
@@ -192,7 +166,6 @@ for w in sb_releases:
         'sbLink': sb_link,
         'ratingScore': rating_data[0] if rating_data else None,
         'ratingReason': rating_data[1] if rating_data else '',
-        'rowColor': release_date_colors.get(raw_date, '#ffffff'),
     })
 
 with open('data/releases.json', 'w', encoding='utf-8') as f:

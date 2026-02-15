@@ -2,7 +2,6 @@ import Foundation
 
 struct ReleaseData: Codable {
     let wines: [ReleaseWine]
-    let dateColors: [String: String]
     let totalCount: Int
 }
 
@@ -22,16 +21,13 @@ struct ReleaseWine: Codable, Identifiable {
     let sbLink: String
     let ratingScore: Int?
     let ratingReason: String?
-    let rowColor: String
 
     var priceNumeric: Int {
-        Int(price.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)) ?? 0
+        price.priceNumeric
     }
 
     var launchDateParsed: Date? {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd"
-        return fmt.date(from: launchDate)
+        DateFormatters.iso.date(from: launchDate)
     }
 
     var countryEnglish: String {

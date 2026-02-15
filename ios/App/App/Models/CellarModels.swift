@@ -14,7 +14,7 @@ struct CellarWine: Identifiable, Codable {
     let color: String
 
     var priceNumeric: Int {
-        Int(price.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)) ?? 0
+        price.priceNumeric
     }
 }
 
@@ -44,12 +44,12 @@ struct HistoryWine: Identifiable, Codable {
     let link: String
 }
 
-enum CellarColors {
-    private static let palette = [
-        "#e8636b", "#e57399", "#b06cc8", "#c77ddb",
-        "#4da6e8", "#6db8f0", "#3db5a6", "#5ccfbe",
-        "#5cb85c", "#7fca7f", "#f0c030", "#f5d34a",
-        "#f0a030", "#f5b84a", "#e870a0",
+enum AppColors {
+    static let palette = [
+        "#ee9595", "#f8bbd0", "#c890d8", "#e1bee7",
+        "#6ab8f5", "#bbdefb", "#58bfb0", "#b2dfdb",
+        "#82c888", "#c8e6c9", "#ffd84a", "#fff9c4",
+        "#ffb855", "#ffe0b2", "#ee9595",
     ]
 
     static func color(forYear year: Int) -> String {
@@ -61,6 +61,16 @@ enum CellarColors {
         var result: [String: String] = [:]
         for year in years {
             result[String(year)] = color(forYear: year)
+        }
+        return result
+    }
+
+    /// Assign colors to sorted release dates (same cycling logic as years)
+    static func buildDateColors(dates: [String]) -> [String: String] {
+        let sorted = Set(dates).sorted()
+        var result: [String: String] = [:]
+        for (i, date) in sorted.enumerated() {
+            result[date] = palette[i % palette.count]
         }
         return result
     }

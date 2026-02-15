@@ -22,7 +22,6 @@
 		AA000006000000000000AA01 /* MiniCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006000000000000AA00 /* MiniCalendar.swift */; };
 		AA000007000000000000AA01 /* WineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007000000000000AA00 /* WineRow.swift */; };
 		AA000008000000000000AA01 /* WineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008000000000000AA00 /* WineDetail.swift */; };
-		AA000009000000000000AA01 /* PlaceholderTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000009000000000000AA00 /* PlaceholderTab.swift */; };
 		AA00000A000000000000AA01 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000A000000000000AA00 /* Colors.swift */; };
 		BB000001000000000000BB01 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000000000BB00 /* ProfileTab.swift */; };
 		CC000001000000000000CC01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CC000001000000000000CC00 /* FirebaseFirestore */; };
@@ -55,7 +54,6 @@
 		AA000006000000000000AA00 /* MiniCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCalendar.swift; sourceTree = "<group>"; };
 		AA000007000000000000AA00 /* WineRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineRow.swift; sourceTree = "<group>"; };
 		AA000008000000000000AA00 /* WineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetail.swift; sourceTree = "<group>"; };
-		AA000009000000000000AA00 /* PlaceholderTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTab.swift; sourceTree = "<group>"; };
 		AA00000A000000000000AA00 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BB000001000000000000BB00 /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
 		CC000002000000000000CC00 /* BlogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogService.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				DD000003000000000000DD00 /* Auction */,
 				EE000005000000000000EE00 /* Cellar */,
 				BB000002000000000000BB00 /* Profile */,
-				AA000010000000000000AA00 /* Placeholder */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,14 +176,6 @@
 				AA000008000000000000AA00 /* WineDetail.swift */,
 			);
 			path = Release;
-			sourceTree = "<group>";
-		};
-		AA000010000000000000AA00 /* Placeholder */ = {
-			isa = PBXGroup;
-			children = (
-				AA000009000000000000AA00 /* PlaceholderTab.swift */,
-			);
-			path = Placeholder;
 			sourceTree = "<group>";
 		};
 		BB000002000000000000BB00 /* Profile */ = {
@@ -313,7 +302,6 @@
 				AA000006000000000000AA01 /* MiniCalendar.swift in Sources */,
 				AA000007000000000000AA01 /* WineRow.swift in Sources */,
 				AA000008000000000000AA01 /* WineDetail.swift in Sources */,
-				AA000009000000000000AA01 /* PlaceholderTab.swift in Sources */,
 				AA00000A000000000000AA01 /* Colors.swift in Sources */,
 				BB000001000000000000BB01 /* ProfileTab.swift in Sources */,
 				CC000002000000000000CC01 /* BlogService.swift in Sources */,

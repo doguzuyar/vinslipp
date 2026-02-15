@@ -243,27 +243,7 @@ struct CellarTab: View {
     // MARK: - Search Bar
 
     private var searchBar: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(.secondary)
-                .font(.system(size: 15))
-            TextField("Search wines...", text: $searchText)
-                .font(.body)
-            if !searchText.isEmpty {
-                Button {
-                    searchText = ""
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.secondary)
-                        .font(.system(size: 15))
-                }
-            }
-        }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 8)
-        .glassEffect(.regular, in: .capsule)
-        .padding(.horizontal, 12)
-        .padding(.vertical, 6)
+        SearchBar(text: $searchText)
     }
 
     // MARK: - Wine List
@@ -393,19 +373,11 @@ struct CellarTab: View {
             defer { url.stopAccessingSecurityScopedResource() }
             guard let data = try? Data(contentsOf: url) else { continue }
 
-            // Detect file type by headers
-            if let text = String(data: data, encoding: .utf8) {
-                let header = String(text.prefix(500)).lowercased()
-                if header.contains("wine price") {
-                    pricesData = data
-                } else if header.contains("user cellar count") {
-                    cellarData = data
-                } else if header.contains("scan date") || header.contains("drinking window") {
-                    wineListData = data
-                } else {
-                    // Fallback: treat as cellar
-                    cellarData = data
-                }
+            switch CSVFileType.detect(from: data) {
+            case .prices: pricesData = data
+            case .cellar: cellarData = data
+            case .wineList: wineListData = data
+            case nil: cellarData = data
             }
         }
 

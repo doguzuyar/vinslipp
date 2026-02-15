@@ -10,12 +10,9 @@ struct ProfileTab: View {
     @State private var showNotifications = false
     @State private var showFilePicker = false
 
-    private let notificationOptions: [(value: String, label: String)] = [
-        ("french-red", "French Red"),
-        ("french-white", "French White"),
-        ("italian-red", "Italian Red"),
-        ("italian-white", "Italian White"),
-    ]
+    private var notificationOptions: [(value: String, label: String)] {
+        NotificationTopics.all
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -238,17 +235,11 @@ struct ProfileTab: View {
             defer { url.stopAccessingSecurityScopedResource() }
             guard let data = try? Data(contentsOf: url) else { continue }
 
-            if let text = String(data: data, encoding: .utf8) {
-                let header = String(text.prefix(500)).lowercased()
-                if header.contains("wine price") {
-                    pricesData = data
-                } else if header.contains("user cellar count") {
-                    cellarData = data
-                } else if header.contains("scan date") || header.contains("drinking window") {
-                    wineListData = data
-                } else {
-                    cellarData = data
-                }
+            switch CSVFileType.detect(from: data) {
+            case .prices: pricesData = data
+            case .cellar: cellarData = data
+            case .wineList: wineListData = data
+            case nil: cellarData = data
             }
         }
 

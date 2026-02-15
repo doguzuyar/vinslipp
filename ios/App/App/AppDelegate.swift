@@ -47,11 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         restoreNotificationPreference()
     }
 
-    private let allNotificationTopics = ["french-red", "french-white", "italian-red", "italian-white"]
-
     private func restoreNotificationPreference() {
         guard let topic = UserDefaults.standard.string(forKey: "notificationTopic"),
-              allNotificationTopics.contains(topic) else { return }
+              NotificationTopics.allValues.contains(topic) else { return }
         Messaging.messaging().subscribe(toTopic: topic) { error in
             if let error = error {
                 print("⚠️ Push: restore subscribe error: \(error)")

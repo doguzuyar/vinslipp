@@ -46,9 +46,7 @@ class CellarService: ObservableObject {
             historyData = processHistory(rows: wineListRows)
         }
 
-        let fmt = DateFormatter()
-        fmt.dateFormat = "MMM d, HH:mm"
-        importedAt = fmt.string(from: Date())
+        importedAt = DateFormatters.shortTimestamp.string(from: Date())
 
         saveToStorage()
         isProcessing = false
@@ -164,7 +162,7 @@ class CellarService: ObservableObject {
             let priceInfo = priceLookup[link]
             let priceRaw = priceInfo?.price ?? ""
             let price = formatPrice(priceRaw)
-            let priceNum = Int(priceRaw.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)) ?? 0
+            let priceNum = priceRaw.priceNumeric
 
             // Parse drink years from Personal Note
             let note = priceInfo?.note ?? ""
@@ -176,7 +174,7 @@ class CellarService: ObservableObject {
                 // Fall back to vintage year when no drink years are set
                 let year = vintage.isEmpty ? "—" : vintage
                 let yearInt = Int(year)
-                let color = yearInt.map { CellarColors.color(forYear: $0) } ?? "#888888"
+                let color = yearInt.map { AppColors.color(forYear: $0) } ?? "#888888"
                 if let yearInt { allYears.insert(yearInt) }
                 wines.append(CellarWine(
                     drinkYear: year, winery: winery, wineName: wineName,
@@ -194,7 +192,7 @@ class CellarService: ObservableObject {
                     guard count > 0 else { continue }
                     let yearInt = Int(yearStr) ?? 2026
                     allYears.insert(yearInt)
-                    let color = CellarColors.color(forYear: yearInt)
+                    let color = AppColors.color(forYear: yearInt)
 
                     wines.append(CellarWine(
                         drinkYear: yearStr, winery: winery, wineName: wineName,
@@ -220,9 +218,9 @@ class CellarService: ObservableObject {
             return $0.winery < $1.winery
         }
 
-        let palette = CellarColors.buildPalette(years: Array(allYears))
+        let palette = AppColors.buildPalette(years: Array(allYears))
         let vintageYears = vintageCounts.keys.compactMap { Int($0) }
-        let vPalette = CellarColors.buildPalette(years: vintageYears)
+        let vPalette = AppColors.buildPalette(years: vintageYears)
 
         return CellarData(
             wines: wines,
@@ -255,7 +253,7 @@ class CellarService: ObservableObject {
     }
 
     private func formatPrice(_ raw: String) -> String {
-        let num = Int(raw.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)) ?? 0
+        let num = raw.priceNumeric
         return num > 0 ? "\(num) SEK" : ""
     }
 

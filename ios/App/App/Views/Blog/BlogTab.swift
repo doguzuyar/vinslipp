@@ -219,8 +219,6 @@ private struct CommentRow: View {
     }
 
     private func formatDate(_ date: Date) -> String {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "MMM d, HH:mm"
-        return fmt.string(from: date)
+        DateFormatters.shortTimestamp.string(from: date)
     }
 }

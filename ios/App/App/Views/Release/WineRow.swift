@@ -3,13 +3,14 @@ import SwiftUI
 struct WineRow: View {
     let wine: ReleaseWine
     let isExpanded: Bool
+    var rowColor: String = "#888888"
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
                 // Color indicator
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(Color(hex: wine.rowColor))
+                    .fill(Color(hex: rowColor))
                     .frame(width: 4, height: 44)
 
                 VStack(alignment: .leading, spacing: 2) {
@@ -62,7 +63,7 @@ struct WineRow: View {
             }
         }
         .background(
-            isExpanded ? Color(hex: wine.rowColor).opacity(0.15) : Color.clear
+            isExpanded ? Color(hex: rowColor).opacity(0.15) : Color.clear
         )
     }
 }

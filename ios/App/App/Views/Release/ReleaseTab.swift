@@ -33,13 +33,15 @@ struct ReleaseTab: View {
     }
 
     private var todayString: String {
-        let f = DateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        return f.string(from: Date())
+        DateFormatters.todayString
     }
 
     private var allWines: [ReleaseWine] {
         dataService.releaseData?.wines ?? []
+    }
+
+    private var dateColors: [String: String] {
+        AppColors.buildDateColors(dates: allWines.map(\.launchDate))
     }
 
     private var upcomingWines: [ReleaseWine] {
@@ -64,7 +66,7 @@ struct ReleaseTab: View {
         VStack(spacing: 0) {
             if let data = dataService.releaseData {
                 MiniCalendar(
-                    dateColors: data.dateColors,
+                    dateColors: dateColors,
                     filteredDateCounts: filteredDateCounts,
                     selectedDate: $selectedDate
                 )
@@ -113,27 +115,7 @@ struct ReleaseTab: View {
     // MARK: - Search Bar
 
     private var searchBar: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(.secondary)
-                .font(.system(size: 15))
-            TextField("Search wines...", text: $searchText)
-                .font(.body)
-            if !searchText.isEmpty {
-                Button {
-                    searchText = ""
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.secondary)
-                        .font(.system(size: 15))
-                }
-            }
-        }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 8)
-        .glassEffect(.regular, in: .capsule)
-        .padding(.horizontal, 12)
-        .padding(.vertical, 6)
+        SearchBar(text: $searchText)
     }
 
     // MARK: - Filter Bar
@@ -264,7 +246,7 @@ struct ReleaseTab: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(sorted(upcomingWines)) { wine in
-                    WineRow(wine: wine, isExpanded: expandedWineId == wine.id)
+                    WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888")
                         .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.2)) {
@@ -294,7 +276,7 @@ struct ReleaseTab: View {
 
                     if showPastReleases {
                         ForEach(pastWines.sorted { $0.launchDate > $1.launchDate }) { wine in
-                            WineRow(wine: wine, isExpanded: expandedWineId == wine.id)
+                            WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888")
                                 .opacity(0.6)
                                 .contentShape(Rectangle())
                                 .onTapGesture {

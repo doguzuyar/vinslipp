@@ -7,16 +7,9 @@ struct MiniCalendar: View {
     @State private var displayMonth = Date()
 
     private let calendar = Calendar.current
-    private let dayFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
-        return f
-    }()
 
     private var monthLabel: String {
-        let f = DateFormatter()
-        f.dateFormat = "MMM"
-        return f.string(from: displayMonth)
+        DateFormatters.monthAbbrev.string(from: displayMonth)
     }
 
     private var weeks: [[Date?]] {
@@ -100,12 +93,12 @@ struct MiniCalendar: View {
     }
 
     private var todayString: String {
-        dayFormatter.string(from: Date())
+        DateFormatters.todayString
     }
 
     @ViewBuilder
     private func dayCell(for date: Date) -> some View {
-        let dateStr = dayFormatter.string(from: date)
+        let dateStr = DateFormatters.iso.string(from: date)
         let isSelected = dateStr == selectedDate
         let isToday = dateStr == todayString
         let color = dateColors[dateStr]
