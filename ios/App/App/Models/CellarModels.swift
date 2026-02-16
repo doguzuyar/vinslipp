@@ -49,7 +49,7 @@ enum AppColors {
         "#ee9595", "#f8bbd0", "#c890d8", "#e1bee7",
         "#6ab8f5", "#bbdefb", "#58bfb0", "#b2dfdb",
         "#82c888", "#c8e6c9", "#ffd84a", "#fff9c4",
-        "#ffb855", "#ffe0b2", "#ee9595",
+        "#ffb855", "#ffe0b2",
     ]
 
     static func color(forYear year: Int) -> String {
