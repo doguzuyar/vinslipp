@@ -13,12 +13,17 @@ jobs:
       - name: Skip wrong DST cron
         id: dst
         run: |
-          STOCKHOLM_HOUR=$(TZ=Europe/Stockholm date "+%-H")
-          if [ "$STOCKHOLM_HOUR" -ge 9 ] && [ "$STOCKHOLM_HOUR" -le 11 ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "ok=true" >> $GITHUB_OUTPUT
+            echo "Manual trigger, skipping DST check"
           else
-            echo "ok=false" >> $GITHUB_OUTPUT
-            echo "Skipping: Stockholm time is ${STOCKHOLM_HOUR}h (wrong DST cron)"
+            STOCKHOLM_HOUR=$(TZ=Europe/Stockholm date "+%-H")
+            if [ "$STOCKHOLM_HOUR" -ge 9 ] && [ "$STOCKHOLM_HOUR" -le 11 ]; then
+              echo "ok=true" >> $GITHUB_OUTPUT
+            else
+              echo "ok=false" >> $GITHUB_OUTPUT
+              echo "Skipping: Stockholm time is ${STOCKHOLM_HOUR}h (wrong DST cron)"
+            fi
           fi
 
       - uses: actions/checkout@v4

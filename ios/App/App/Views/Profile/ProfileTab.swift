@@ -1,5 +1,6 @@
 import SwiftUI
 import FirebaseAuth
+import FirebaseMessaging
 import UniformTypeIdentifiers
 
 struct ProfileTab: View {
@@ -29,6 +30,16 @@ struct ProfileTab: View {
             allowsMultipleSelection: true
         ) { result in
             handleFiles(result)
+        }
+        .onChange(of: notificationTopic) { _, newValue in
+            // Unsubscribe from all topics first
+            for topic in NotificationTopics.allValues {
+                Messaging.messaging().unsubscribe(fromTopic: topic)
+            }
+            // Subscribe to the selected topic
+            if newValue != "none" {
+                Messaging.messaging().subscribe(toTopic: newValue)
+            }
         }
     }
 

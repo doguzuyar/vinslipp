@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     private func restoreNotificationPreference() {
-        guard let topic = UserDefaults.standard.string(forKey: "notificationTopic"),
+        guard let topic = UserDefaults.standard.string(forKey: "notification_topic"),
               NotificationTopics.allValues.contains(topic) else { return }
         Messaging.messaging().subscribe(toTopic: topic) { error in
             if let error = error {
