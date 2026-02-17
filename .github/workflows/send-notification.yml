@@ -10,23 +10,22 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if 9:45 AM in Stockholm
-        id: timecheck
+      - name: Skip wrong DST cron
+        id: dst
         run: |
           STOCKHOLM_HOUR=$(TZ=Europe/Stockholm date "+%-H")
-          STOCKHOLM_MIN=$(TZ=Europe/Stockholm date "+%-M")
-          if [ "$STOCKHOLM_HOUR" -eq 9 ] && [ "$STOCKHOLM_MIN" -ge 40 ] && [ "$STOCKHOLM_MIN" -le 50 ]; then
-            echo "is_time=true" >> $GITHUB_OUTPUT
+          if [ "$STOCKHOLM_HOUR" -ge 9 ] && [ "$STOCKHOLM_HOUR" -le 11 ]; then
+            echo "ok=true" >> $GITHUB_OUTPUT
           else
-            echo "is_time=false" >> $GITHUB_OUTPUT
-            echo "Skipping: Stockholm time is ${STOCKHOLM_HOUR}:${STOCKHOLM_MIN}, not 9:45"
+            echo "ok=false" >> $GITHUB_OUTPUT
+            echo "Skipping: Stockholm time is ${STOCKHOLM_HOUR}h (wrong DST cron)"
           fi
 
       - uses: actions/checkout@v4
-        if: steps.timecheck.outputs.is_time == 'true'
+        if: steps.dst.outputs.ok == 'true'
 
       - name: Check today's releases per category
-        if: steps.timecheck.outputs.is_time == 'true'
+        if: steps.dst.outputs.ok == 'true'
         id: check
         run: |
           TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
@@ -83,7 +82,7 @@ jobs:
           fi
 
       - name: Send push notifications per category
-        if: steps.timecheck.outputs.is_time == 'true' && steps.check.outputs.has_wines == 'true'
+        if: steps.dst.outputs.ok == 'true' && steps.check.outputs.has_wines == 'true'
         run: |
           pip install google-auth requests
           python3 << 'PYEOF'
