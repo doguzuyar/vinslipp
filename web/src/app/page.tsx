@@ -183,16 +183,23 @@ export default function Home() {
       </a>
 
       {/* Footer */}
-      <p
+      <div
         style={{
+          display: "flex",
+          gap: 16,
           fontSize: 12,
           color: "var(--text-muted)",
           opacity: 0.4,
           marginTop: 16,
         }}
       >
-        Vinslipp
-      </p>
+        <a href="/privacy" style={{ color: "inherit", textDecoration: "none" }}>
+          Privacy
+        </a>
+        <a href="/support" style={{ color: "inherit", textDecoration: "none" }}>
+          Support
+        </a>
+      </div>
     </main>
   );
 }
