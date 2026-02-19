@@ -10,6 +10,8 @@ struct ProfileTab: View {
     @AppStorage("app_theme") private var appTheme = "dark"
     @State private var showNotifications = false
     @State private var showFilePicker = false
+    @State private var showDeleteConfirm = false
+    @State private var deleteErrorMessage: String?
 
     private var notificationOptions: [(value: String, label: String)] {
         NotificationTopics.all
@@ -113,7 +115,31 @@ struct ProfileTab: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 
+            Button {
+                showDeleteConfirm = true
+            } label: {
+                Text("Delete Account")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.secondary)
+            }
+
             Spacer()
+        }
+        .alert("Delete Account", isPresented: $showDeleteConfirm) {
+            Button("Delete Account", role: .destructive) {
+                authManager.deleteAccount(
+                    onSuccess: { },
+                    onError: { err in deleteErrorMessage = err.localizedDescription }
+                )
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("This will permanently delete your account and all associated data. This cannot be undone.")
+        }
+        .alert("Deletion Failed", isPresented: .constant(deleteErrorMessage != nil)) {
+            Button("OK") { deleteErrorMessage = nil }
+        } message: {
+            Text(deleteErrorMessage ?? "")
         }
     }
 
@@ -317,5 +343,14 @@ class AuthManager: ObservableObject {
 
     func signOut() {
         try? Auth.auth().signOut()
+    }
+
+    func deleteAccount(onSuccess: @escaping () -> Void, onError: @escaping (Error) -> Void) {
+        appleHandler.onDeleteSuccess = {
+            try? Auth.auth().signOut()
+            onSuccess()
+        }
+        appleHandler.onDeleteError = onError
+        appleHandler.startDeleteAccount()
     }
 }

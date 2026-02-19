@@ -9,6 +9,28 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
     private var currentNonce: String?
     var onSignIn: ((String, String, String) -> Void)? // uid, displayName, email
 
+    // MARK: - Account Deletion
+
+    private var pendingDeletion = false
+    var onDeleteSuccess: (() -> Void)?
+    var onDeleteError: ((Error) -> Void)?
+
+    func startDeleteAccount() {
+        pendingDeletion = true
+        let nonce = randomNonceString()
+        currentNonce = nonce
+
+        let provider = ASAuthorizationAppleIDProvider()
+        let request = provider.createRequest()
+        request.requestedScopes = []
+        request.nonce = sha256(nonce)
+
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
+    }
+
     func startSignIn() {
         let nonce = randomNonceString()
         currentNonce = nonce
@@ -31,8 +53,30 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
 
     func authorizationController(controller: ASAuthorizationController,
                                   didCompleteWithAuthorization authorization: ASAuthorization) {
-        guard let appleCredential = authorization.credential as? ASAuthorizationAppleIDCredential,
-              let idTokenData = appleCredential.identityToken,
+        guard let appleCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+
+        // Handle deletion re-auth
+        if pendingDeletion {
+            pendingDeletion = false
+            guard let authCodeData = appleCredential.authorizationCode,
+                  let authCode = String(data: authCodeData, encoding: .utf8) else {
+                onDeleteError?(NSError(domain: "AppleSignIn", code: -1,
+                    userInfo: [NSLocalizedDescriptionKey: "Could not get authorization code."]))
+                return
+            }
+            Task {
+                do {
+                    try await Auth.auth().revokeToken(withAuthorizationCode: authCode)
+                    try await Auth.auth().currentUser?.delete()
+                    await MainActor.run { self.onDeleteSuccess?() }
+                } catch {
+                    await MainActor.run { self.onDeleteError?(error) }
+                }
+            }
+            return
+        }
+
+        guard let idTokenData = appleCredential.identityToken,
               let idToken = String(data: idTokenData, encoding: .utf8),
               let nonce = currentNonce else { return }
 
