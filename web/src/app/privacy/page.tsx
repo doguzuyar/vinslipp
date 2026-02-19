@@ -1,91 +1,140 @@
 export default function PrivacyPolicy() {
-  const h2Style = { fontSize: 17, fontWeight: 600, marginTop: 28, marginBottom: 8 } as const;
-
   return (
-    <div
-      style={{
-        maxWidth: 600,
-        margin: "0 auto",
-        padding: "40px 20px",
-        fontFamily: "Inter, -apple-system, system-ui, sans-serif",
-        lineHeight: 1.7,
-        color: "var(--text)",
-      }}
-    >
-      <h1 style={{ fontSize: 24, fontWeight: 600, marginBottom: 8 }}>
+    <div style={{
+      maxWidth: 640,
+      margin: "0 auto",
+      padding: "60px 24px 80px",
+      fontFamily: "Inter, -apple-system, system-ui, sans-serif",
+      color: "var(--text)",
+    }}>
+      <h1 style={{ fontSize: 28, fontWeight: 600, marginBottom: 6, letterSpacing: "-0.02em" }}>
         Privacy Policy
       </h1>
-      <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 32 }}>
-        Last updated: February 14, 2026
+      <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 48, marginTop: 0 }}>
+        Last updated: February 19, 2026
       </p>
 
-      <h2 style={h2Style}>Data We Collect</h2>
-      <p>
-        When you sign in with Apple, we collect your Apple-provided user ID and
-        display name. If you choose to hide your email, we never see it.
-      </p>
-      <p>
-        When you post tasting notes, we store your user ID, display name, and
-        the content you write in Firebase Firestore.
-      </p>
-      <p>
-        If you enable push notifications, Firebase Cloud Messaging receives a
-        device token to deliver notifications. We do not store this token
-        ourselves.
-      </p>
+      <Section title="Data We Collect">
+        <p>When you sign in with Apple, we receive your Apple-provided user ID, display name, and email address (unless you choose to hide it, in which case we never see it).</p>
+        <p>When you post tasting notes, we store your user ID, display name, and the content you write in Firebase Firestore.</p>
+        <p>If you enable push notifications, Firebase Cloud Messaging receives a device token to deliver them. We do not store this token ourselves.</p>
+      </Section>
 
-      <h2 style={h2Style}>Data We Do Not Collect</h2>
-      <p>
-        We do not collect email addresses, location data, analytics, usage
-        tracking, or advertising identifiers.
-      </p>
+      <Section title="Data We Do Not Collect">
+        <Tags items={["Location data", "Analytics", "Usage tracking", "Advertising identifiers"]} />
+      </Section>
 
-      <h2 style={h2Style}>Local Storage</h2>
-      <p>
-        The app stores your display preferences (dark mode, filters) and
-        imported cellar data locally on your device. This data never leaves your
-        device.
-      </p>
+      <Section title="Local Storage">
+        <p>Display preferences (dark mode, filters) and imported cellar data are stored locally on your device and never leave it.</p>
+      </Section>
 
-      <h2 style={h2Style}>Third-Party Services</h2>
-      <ul style={{ paddingLeft: 20 }}>
-        <li>
-          <strong>Firebase Authentication</strong> &mdash; handles sign-in (
-          <a href="https://policies.google.com/privacy" style={{ color: "var(--text)" }}>
-            Google Privacy Policy
+      <Section title="Third-Party Services">
+        <ServiceList items={[
+          { name: "Firebase Authentication", desc: "Handles sign-in", link: { label: "Google Privacy Policy", href: "https://policies.google.com/privacy" } },
+          { name: "Firebase Firestore", desc: "Stores tasting notes and blog posts" },
+          { name: "Firebase Cloud Messaging", desc: "Delivers push notifications" },
+        ]} />
+      </Section>
+
+      <Section title="Data Deletion">
+        <p>
+          You can delete your account directly from the app. Open the <strong>Profile</strong> tab,
+          scroll down, and tap <strong>Delete Account</strong>. You will be asked to re-authenticate
+          with Apple before deletion completes. This permanently removes your sign-in credentials and
+          any content you have published.
+        </p>
+      </Section>
+
+      <Section title="Third-Party Links">
+        <p>
+          The app may link to external websites (e.g. Vivino, Systembolaget). Those sites have their
+          own privacy policies and we have no control over their content or practices.
+        </p>
+      </Section>
+
+      <Section title="Contact" last>
+        <p>
+          Questions about this policy? Reach the developer at{" "}
+          <a href="mailto:doguziylan@icloud.com" style={{ color: "var(--accent)", textDecoration: "none" }}>
+            doguziylan@icloud.com
           </a>
-          )
-        </li>
-        <li>
-          <strong>Firebase Firestore</strong> &mdash; stores blog posts
-        </li>
-        <li>
-          <strong>Firebase Cloud Messaging</strong> &mdash; delivers push
-          notifications
-        </li>
-      </ul>
+          .
+        </p>
+      </Section>
+    </div>
+  );
+}
 
-      <h2 style={h2Style}>Data Deletion</h2>
-      <p>
-        You can delete your blog posts directly in the app. To request full
-        account deletion, contact us at the email below.
-      </p>
+function Section({ title, children, last }: { title: string; children: React.ReactNode; last?: boolean }) {
+  return (
+    <div style={{ marginBottom: last ? 0 : 40 }}>
+      <h2 style={{
+        fontSize: 13,
+        fontWeight: 600,
+        textTransform: "uppercase",
+        letterSpacing: "0.08em",
+        color: "var(--text-muted)",
+        marginBottom: 12,
+        marginTop: 0,
+      }}>
+        {title}
+      </h2>
+      <div style={{ fontSize: 15, lineHeight: 1.75, color: "var(--text)" }}>
+        {children}
+      </div>
+      {!last && (
+        <div style={{ height: 1, background: "var(--border)", marginTop: 40 }} />
+      )}
+    </div>
+  );
+}
 
-      <h2 style={h2Style}>Third-Party Links</h2>
-      <p>
-        The app may contain links to external websites (e.g. Vivino,
-        Systembolaget). These sites have their own privacy policies and we have
-        no control over their content or practices.
-      </p>
+function Tags({ items }: { items: string[] }) {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+      {items.map((item) => (
+        <span key={item} style={{
+          fontSize: 13,
+          padding: "4px 12px",
+          borderRadius: 100,
+          background: "var(--bg-alt)",
+          border: "1px solid var(--border)",
+          color: "var(--text-muted)",
+        }}>
+          {item}
+        </span>
+      ))}
+    </div>
+  );
+}
 
-      <h2 style={h2Style}>Contact</h2>
-      <p>
-        If you have questions about this policy, you can reach the developer at{" "}
-        <a href="mailto:doguzuyar@gmail.com" style={{ color: "var(--text)" }}>
-          doguzuyar@gmail.com
-        </a>
-        .
-      </p>
+function ServiceList({ items }: {
+  items: { name: string; desc: string; link?: { label: string; href: string } }[]
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      {items.map((item) => (
+        <div key={item.name} style={{
+          padding: "14px 16px",
+          borderRadius: 10,
+          background: "var(--bg-alt)",
+          border: "1px solid var(--border)",
+          fontSize: 14,
+          lineHeight: 1.6,
+        }}>
+          <span style={{ fontWeight: 600 }}>{item.name}</span>
+          <span style={{ color: "var(--text-muted)" }}> — {item.desc}</span>
+          {item.link && (
+            <span>
+              {" "}(
+              <a href={item.link.href} style={{ color: "var(--accent)", textDecoration: "none" }}>
+                {item.link.label}
+              </a>
+              )
+            </span>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
