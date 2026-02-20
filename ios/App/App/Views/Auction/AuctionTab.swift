@@ -78,6 +78,9 @@ struct AuctionTab: View {
             if dataService.auctionData == nil {
                 await dataService.loadAuction()
             }
+            if showLive && dataService.liveWinesData == nil {
+                await dataService.loadLiveWines()
+            }
         }
         .alert("Coming soon", isPresented: $showComingSoon) {
             Button("OK", role: .cancel) {}
@@ -468,9 +471,7 @@ struct ProducerDetail: View {
 struct LiveWineRow: View {
     let wine: LiveWine
 
-    private var barColor: Color {
-        wine.category == "burgundy" ? .purple : .accentColor
-    }
+    private var barColor: Color { .vinslippBurgundy }
 
     private var starsText: String {
         String(repeating: "\u{2605}", count: wine.rating_score)
@@ -493,23 +494,21 @@ struct LiveWineRow: View {
                         .foregroundStyle(.yellow)
                 }
                 HStack {
-                    Text("Lot \(wine.lot_id)")
+                    Text(wine.category.capitalized)
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .lineLimit(1)
                     Spacer()
                     Text(wine.estimate)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
                 HStack {
-                    Text(wine.category.capitalized)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                    Spacer()
                     Text(wine.rating_reason)
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                         .lineLimit(1)
+                    Spacer()
                 }
             }
         }
