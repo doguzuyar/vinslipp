@@ -36,13 +36,16 @@ class CellarService: ObservableObject {
         let cellarRows = parseCSV(cellarString)
         let priceRows = pricesString.map { parseCSV($0) } ?? []
 
-        let data = processCellar(cellarRows: cellarRows, priceRows: priceRows)
-        cellarData = data
-
-        // Process history from wine list CSV if provided
+        var wineListRows: [[String: String]] = []
         if let wineListData = wineListCSV,
            let wineListString = String(data: wineListData, encoding: .utf8) {
-            let wineListRows = parseCSV(wineListString)
+            wineListRows = parseCSV(wineListString)
+        }
+
+        let data = processCellar(cellarRows: cellarRows, priceRows: priceRows, wineListRows: wineListRows)
+        cellarData = data
+
+        if !wineListRows.isEmpty {
             historyData = processHistory(rows: wineListRows)
         }
 
@@ -130,14 +133,19 @@ class CellarService: ObservableObject {
 
     // MARK: - Process Vivino Data
 
-    private func processCellar(cellarRows: [[String: String]], priceRows: [[String: String]]) -> CellarData {
-        // Build price/note lookup
-        var priceLookup: [String: (price: String, note: String)] = [:]
+    private func processCellar(cellarRows: [[String: String]], priceRows: [[String: String]], wineListRows: [[String: String]] = []) -> CellarData {
+        // Build note lookup from wine list CSV (only source for Personal Note)
+        var noteLookup: [String: String] = [:]
+        for row in wineListRows {
+            guard let link = row["Link to wine"], !link.isEmpty else { continue }
+            let note = row["Personal Note"] ?? ""
+            if !note.isEmpty { noteLookup[link] = note }
+        }
+
+        var priceLookup: [String: String] = [:]
         for row in priceRows {
             guard let link = row["Link to wine"], !link.isEmpty else { continue }
-            let price = row["Wine price"] ?? ""
-            let note = row["Personal Note"] ?? ""
-            priceLookup[link] = (price: price, note: note)
+            priceLookup[link] = row["Wine price"] ?? ""
         }
 
         var wines: [CellarWine] = []
@@ -159,13 +167,12 @@ class CellarService: ObservableObject {
 
             guard totalCount > 0 else { continue }
 
-            let priceInfo = priceLookup[link]
-            let priceRaw = priceInfo?.price ?? ""
+            let priceRaw = priceLookup[link] ?? ""
             let price = formatPrice(priceRaw)
             let priceNum = priceRaw.priceNumeric
 
-            // Parse drink years from Personal Note
-            let note = priceInfo?.note ?? ""
+            // Parse drink years from Personal Note (wine list or prices CSV)
+            let note = noteLookup[link] ?? ""
             let drinkYears = note.split(separator: ",")
                 .map { $0.trimmingCharacters(in: .whitespaces) }
                 .filter { $0.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
