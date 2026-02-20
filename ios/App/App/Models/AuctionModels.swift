@@ -51,3 +51,27 @@ struct AuctionProducer: Identifiable {
         self.vintages = data.vintages
     }
 }
+
+// MARK: - Live Wines
+
+struct LiveWinesData: Codable {
+    let total_wines: Int
+    let bordeaux_count: Int
+    let burgundy_count: Int
+    let wines: [LiveWine]
+}
+
+struct LiveWine: Codable, Identifiable {
+    var id: String { lot_id }
+    let lot_id: String
+    let title: String
+    let url: String
+    let estimate: String
+    let hammer_price: String
+    let auction: String
+    let category: String
+    let rating_score: Int
+    let rating_reason: String
+
+    var estimateNumeric: Int { estimate.priceNumeric }
+}

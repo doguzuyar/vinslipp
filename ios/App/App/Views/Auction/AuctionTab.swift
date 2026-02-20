@@ -17,12 +17,28 @@ enum AuctionSortField: String, CaseIterable {
     }
 }
 
+enum LiveSortField: String, CaseIterable {
+    case title, category, estimate, rating
+
+    var label: String {
+        switch self {
+        case .title: return "Title"
+        case .category: return "Category"
+        case .estimate: return "Est."
+        case .rating: return "Rating"
+        }
+    }
+}
+
 struct AuctionTab: View {
     @ObservedObject var dataService: DataService
     @AppStorage("auction_searchText") private var searchText = ""
     @State private var expandedProducerId: String?
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
+    @AppStorage("auction_showLive") private var showLive = false
+    @AppStorage("live_sortField") private var liveSortField: LiveSortField = .rating
+    @AppStorage("live_sortDirection") private var liveSortDirection: SortDirection = .descending
     @State private var showComingSoon = false
 
     private var producers: [AuctionProducer] {
@@ -37,38 +53,24 @@ struct AuctionTab: View {
         return sorted(list)
     }
 
+    private var filteredLiveWines: [LiveWine] {
+        guard let data = dataService.liveWinesData else { return [] }
+        let list = searchText.isEmpty ? data.wines : data.wines.filter {
+            $0.title.localizedCaseInsensitiveContains(searchText)
+        }
+        return sortedLive(list)
+    }
+
     var body: some View {
         VStack(spacing: 0) {
-            if let data = dataService.auctionData {
-                summaryBar(data: data)
-
-                VStack(spacing: 0) {
-                    filterBar
-                    sortBar
-                    producerList
-                }
-                .padding(.top, -15)
-            } else if dataService.isLoadingAuction {
-                Spacer()
-                ProgressView("Loading auction data...")
-                Spacer()
-            } else if let error = dataService.auctionError {
-                Spacer()
-                VStack(spacing: 12) {
-                    Image(systemName: "exclamationmark.triangle")
-                        .font(.largeTitle)
-                        .foregroundStyle(.secondary)
-                    Text(error)
-                        .foregroundStyle(.secondary)
-                    Button("Retry") {
-                        Task { await dataService.loadAuction() }
-                    }
-                }
-                Spacer()
+            if showLive {
+                liveContent
+            } else {
+                aggregateContent
             }
         }
         .safeAreaInset(edge: .bottom) {
-            if dataService.auctionData != nil {
+            if showLive ? dataService.liveWinesData != nil : dataService.auctionData != nil {
                 searchBar
             }
         }
@@ -82,10 +84,79 @@ struct AuctionTab: View {
         }
     }
 
+    // MARK: - Aggregate Content
+
+    @ViewBuilder
+    private var aggregateContent: some View {
+        if let data = dataService.auctionData {
+            summaryBar(data: data)
+
+            VStack(spacing: 0) {
+                filterBar
+                sortBar
+                producerList
+            }
+            .padding(.top, -15)
+        } else if dataService.isLoadingAuction {
+            Spacer()
+            ProgressView("Loading auction data...")
+            Spacer()
+        } else if let error = dataService.auctionError {
+            Spacer()
+            VStack(spacing: 12) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.largeTitle)
+                    .foregroundStyle(.secondary)
+                Text(error)
+                    .foregroundStyle(.secondary)
+                Button("Retry") {
+                    Task { await dataService.loadAuction() }
+                }
+            }
+            Spacer()
+        }
+    }
+
+    // MARK: - Live Content
+
+    @ViewBuilder
+    private var liveContent: some View {
+        if let data = dataService.liveWinesData {
+            liveHeader(data: data)
+
+            VStack(spacing: 0) {
+                filterBar
+                liveSortBar
+                liveList
+            }
+            .padding(.top, -15)
+        } else if dataService.isLoadingLiveWines {
+            Spacer()
+            ProgressView("Loading live wines...")
+            Spacer()
+        } else if let error = dataService.liveWinesError {
+            Spacer()
+            VStack(spacing: 12) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.largeTitle)
+                    .foregroundStyle(.secondary)
+                Text(error)
+                    .foregroundStyle(.secondary)
+                Button("Retry") {
+                    Task { await dataService.loadLiveWines() }
+                }
+            }
+            Spacer()
+        }
+    }
+
     // MARK: - Search Bar
 
     private var searchBar: some View {
-        SearchBar(text: $searchText, placeholder: "Search producers...")
+        SearchBar(
+            text: $searchText,
+            placeholder: showLive ? "Search wines..." : "Search producers..."
+        )
     }
 
     // MARK: - Summary Bar
@@ -104,13 +175,30 @@ struct AuctionTab: View {
         .offset(y: -40)
     }
 
+    private func liveHeader(data: LiveWinesData) -> some View {
+        HStack {
+            Text("\(data.total_wines) lots")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.secondary)
+            Spacer()
+            Text("\(data.bordeaux_count) Bx \u{00B7} \(data.burgundy_count) Burg")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.secondary)
+        }
+        .padding(.horizontal, 24)
+        .offset(y: -40)
+    }
+
     // MARK: - Filter Bar
 
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
-                FilterChip(label: "Live", isActive: false) {
-                    showComingSoon = true
+                FilterChip(label: "Live", isActive: showLive) {
+                    showLive.toggle()
+                    if showLive && dataService.liveWinesData == nil {
+                        Task { await dataService.loadLiveWines() }
+                    }
                 }
                 Button {
                     showComingSoon = true
@@ -156,6 +244,37 @@ struct AuctionTab: View {
         .padding(.bottom, 2)
     }
 
+    private var liveSortBar: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 4) {
+                ForEach(LiveSortField.allCases, id: \.self) { field in
+                    Button {
+                        if liveSortField == field {
+                            liveSortDirection = liveSortDirection == .ascending ? .descending : .ascending
+                        } else {
+                            liveSortField = field
+                            liveSortDirection = field == .title ? .ascending : .descending
+                        }
+                    } label: {
+                        HStack(spacing: 2) {
+                            Text(field.label)
+                                .font(.system(size: 10, weight: liveSortField == field ? .bold : .regular))
+                            if liveSortField == field {
+                                Image(systemName: liveSortDirection == .ascending ? "chevron.up" : "chevron.down")
+                                    .font(.system(size: 8))
+                            }
+                        }
+                        .foregroundStyle(liveSortField == field ? .primary : .tertiary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                    }
+                }
+            }
+            .padding(.horizontal, 12)
+        }
+        .padding(.bottom, 2)
+    }
+
     // MARK: - Producer List
 
     private var producerList: some View {
@@ -176,6 +295,23 @@ struct AuctionTab: View {
         .contentMargins(.bottom, 16)
         .refreshable {
             await dataService.loadAuction()
+        }
+    }
+
+    // MARK: - Live List
+
+    private var liveList: some View {
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                ForEach(filteredLiveWines) { wine in
+                    LiveWineRow(wine: wine)
+                    Divider().padding(.leading, 28)
+                }
+            }
+        }
+        .contentMargins(.bottom, 16)
+        .refreshable {
+            await dataService.loadLiveWines()
         }
     }
 
@@ -203,6 +339,23 @@ struct AuctionTab: View {
                 result = (a.premiumPercent ?? -999) < (b.premiumPercent ?? -999)
             }
             return sortDirection == .ascending ? result : !result
+        }
+    }
+
+    private func sortedLive(_ list: [LiveWine]) -> [LiveWine] {
+        list.sorted { a, b in
+            let result: Bool
+            switch liveSortField {
+            case .title:
+                result = a.title.localizedCaseInsensitiveCompare(b.title) == .orderedAscending
+            case .category:
+                result = a.category < b.category
+            case .estimate:
+                result = a.estimateNumeric < b.estimateNumeric
+            case .rating:
+                result = a.rating_score < b.rating_score
+            }
+            return liveSortDirection == .ascending ? result : !result
         }
     }
 }
@@ -307,5 +460,66 @@ struct ProducerDetail: View {
         }
         .padding(.horizontal, 28)
         .padding(.bottom, 10)
+    }
+}
+
+// MARK: - Live Wine Row
+
+struct LiveWineRow: View {
+    let wine: LiveWine
+
+    private var barColor: Color {
+        wine.category == "burgundy" ? .purple : .accentColor
+    }
+
+    private var starsText: String {
+        String(repeating: "\u{2605}", count: wine.rating_score)
+    }
+
+    var body: some View {
+        HStack(spacing: 12) {
+            RoundedRectangle(cornerRadius: 2)
+                .fill(barColor)
+                .frame(width: 4, height: 44)
+
+            VStack(alignment: .leading, spacing: 2) {
+                HStack {
+                    Text(wine.title)
+                        .font(.subheadline.weight(.semibold))
+                        .lineLimit(1)
+                    Spacer()
+                    Text(starsText)
+                        .font(.caption)
+                        .foregroundStyle(.yellow)
+                }
+                HStack {
+                    Text("Lot \(wine.lot_id)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Text(wine.estimate)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                HStack {
+                    Text(wine.category.capitalized)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                    Spacer()
+                    Text(wine.rating_reason)
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                        .lineLimit(1)
+                }
+            }
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 12)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            if let url = URL(string: wine.url) {
+                UIApplication.shared.open(url)
+            }
+        }
     }
 }

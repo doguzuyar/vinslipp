@@ -41,6 +41,7 @@ auction/cookies.txt
 auction/scraper.py
 auction/wines.json
 auction/live_wines.json
+auction/rate_auction_wines.py
 auction/fix_producer_names.py
 auction/auction_stats copy.json
 vivino_data/
