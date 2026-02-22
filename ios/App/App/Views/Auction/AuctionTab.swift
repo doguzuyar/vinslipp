@@ -39,7 +39,31 @@ struct AuctionTab: View {
     @AppStorage("auction_showLive") private var showLive = false
     @AppStorage("live_sortField") private var liveSortField: LiveSortField = .rating
     @AppStorage("live_sortDirection") private var liveSortDirection: SortDirection = .descending
+    @AppStorage("live_selectedCountriesData") private var liveSelectedCountriesData: Data = {
+        (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
+    }()
+    @AppStorage("live_selectedTypesData") private var liveSelectedTypesData: Data = {
+        (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
+    }()
+    @AppStorage("live_selectedRating") private var liveSelectedRating = ""
     @State private var showComingSoon = false
+
+    private var liveSelectedCountries: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedCountriesData)) ?? [] }
+        nonmutating set { liveSelectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private var liveSelectedTypes: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedTypesData)) ?? [] }
+        nonmutating set { liveSelectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private var liveCountryFilters: [String] { ["France"] }
+    private var liveTypeFilters: [String] { ["Bordeaux", "Burgundy"] }
+
+    private var hasActiveLiveFilters: Bool {
+        !liveSelectedCountries.isEmpty || !liveSelectedTypes.isEmpty || !liveSelectedRating.isEmpty
+    }
 
     private var producers: [AuctionProducer] {
         guard let data = dataService.auctionData else { return [] }
@@ -55,10 +79,31 @@ struct AuctionTab: View {
 
     private var filteredLiveWines: [LiveWine] {
         guard let data = dataService.liveWinesData else { return [] }
-        let list = searchText.isEmpty ? data.wines : data.wines.filter {
-            $0.title.localizedCaseInsensitiveContains(searchText)
+        var result = data.wines
+
+        if !searchText.isEmpty {
+            let query = searchText.lowercased()
+            result = result.filter { $0.title.lowercased().contains(query) }
         }
-        return sortedLive(list)
+
+        if !liveSelectedTypes.isEmpty {
+            result = result.filter {
+                liveSelectedTypes.contains($0.category.capitalized)
+            }
+        }
+
+        if !liveSelectedRating.isEmpty {
+            result = result.filter {
+                switch liveSelectedRating {
+                case "4 Stars": return $0.rating_score == 4
+                case "3+ Stars": return $0.rating_score >= 3
+                case "3 Stars": return $0.rating_score == 3
+                default: return true
+                }
+            }
+        }
+
+        return sortedLive(result)
     }
 
     var body: some View {
@@ -203,10 +248,83 @@ struct AuctionTab: View {
                         Task { await dataService.loadLiveWines() }
                     }
                 }
-                Button {
-                    showComingSoon = true
-                } label: {
-                    FilterChipLabel(label: "Country", isActive: false)
+
+                if showLive {
+                    Menu {
+                        ForEach(liveCountryFilters, id: \.self) { country in
+                            Button {
+                                toggleLiveCountry(country)
+                            } label: {
+                                HStack {
+                                    Text(country)
+                                    if liveSelectedCountries.contains(country) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Country",
+                            isActive: !liveSelectedCountries.isEmpty
+                        )
+                    }
+
+                    Menu {
+                        ForEach(liveTypeFilters, id: \.self) { type in
+                            Button {
+                                toggleLiveType(type)
+                            } label: {
+                                HStack {
+                                    Text(type)
+                                    if liveSelectedTypes.contains(type) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Type",
+                            isActive: !liveSelectedTypes.isEmpty
+                        )
+                    }
+
+                    Menu {
+                        ForEach(["3 Stars", "3+ Stars", "4 Stars"], id: \.self) { rating in
+                            Button {
+                                liveSelectedRating = liveSelectedRating == rating ? "" : rating
+                            } label: {
+                                HStack {
+                                    Text(liveRatingLabel(for: rating))
+                                    if liveSelectedRating == rating {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Rating",
+                            isActive: !liveSelectedRating.isEmpty
+                        )
+                    }
+
+                    if hasActiveLiveFilters {
+                        Button {
+                            clearLiveFilters()
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
+                    }
+                } else {
+                    Button {
+                        showComingSoon = true
+                    } label: {
+                        FilterChipLabel(label: "Country", isActive: false)
+                    }
                 }
             }
             .padding(.horizontal, 12)
@@ -343,6 +461,33 @@ struct AuctionTab: View {
             }
             return sortDirection == .ascending ? result : !result
         }
+    }
+
+    private func toggleLiveCountry(_ value: String) {
+        var s = liveSelectedCountries
+        if s.contains(value) { s.remove(value) } else { s.insert(value) }
+        liveSelectedCountries = s
+    }
+
+    private func toggleLiveType(_ value: String) {
+        var s = liveSelectedTypes
+        if s.contains(value) { s.remove(value) } else { s.insert(value) }
+        liveSelectedTypes = s
+    }
+
+    private func liveRatingLabel(for rating: String) -> String {
+        switch rating {
+        case "4 Stars": return "\u{2605}\u{2605}\u{2605}\u{2605}"
+        case "3+ Stars": return "\u{2605}\u{2605}\u{2605}+"
+        case "3 Stars": return "\u{2605}\u{2605}\u{2605}"
+        default: return rating
+        }
+    }
+
+    private func clearLiveFilters() {
+        liveSelectedCountries = []
+        liveSelectedTypes = []
+        liveSelectedRating = ""
     }
 
     private func sortedLive(_ list: [LiveWine]) -> [LiveWine] {
@@ -509,6 +654,11 @@ struct LiveWineRow: View {
                         .foregroundStyle(.tertiary)
                         .lineLimit(1)
                     Spacer()
+                    if let age = wine.age {
+                        Text("\(age) years")
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
                 }
             }
         }

@@ -16,7 +16,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic house, exquisite pairing"
+      "rating_reason": "Iconic house, exquisite pairing",
+      "vintage": 0
     },
     {
       "lot_id": "2393046",
@@ -27,7 +28,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary First Growth, historic vintage"
+      "rating_reason": "Legendary First Growth, historic vintage",
+      "vintage": 1929
     },
     {
       "lot_id": "2389487",
@@ -38,7 +40,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Historic vintage, second label predecessor"
+      "rating_reason": "Historic vintage, second label predecessor",
+      "vintage": 1929
     },
     {
       "lot_id": "2393801",
@@ -49,7 +52,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, aged treasure"
+      "rating_reason": "Top Second Growth, aged treasure",
+      "vintage": 1960
     },
     {
       "lot_id": "2388631",
@@ -60,7 +64,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Aged fifth growth, fair price"
+      "rating_reason": "Aged fifth growth, fair price",
+      "vintage": 1966
     },
     {
       "lot_id": "2388603",
@@ -71,7 +76,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary aged vintage"
+      "rating_reason": "First Growth, legendary aged vintage",
+      "vintage": 1966
     },
     {
       "lot_id": "2377493",
@@ -82,7 +88,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1966
     },
     {
       "lot_id": "2388620",
@@ -93,7 +100,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary vintage"
+      "rating_reason": "Iconic estate, legendary vintage",
+      "vintage": 1966
     },
     {
       "lot_id": "2385277",
@@ -104,7 +112,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fine estate, risky old vintage"
+      "rating_reason": "Fine estate, risky old vintage",
+      "vintage": 1973
     },
     {
       "lot_id": "2385282",
@@ -115,7 +124,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Second Growth, legendary aged claret"
+      "rating_reason": "Second Growth, legendary aged claret",
+      "vintage": 1973
     },
     {
       "lot_id": "2377948",
@@ -126,7 +136,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, historic Picasso label"
+      "rating_reason": "First Growth, historic Picasso label",
+      "vintage": 1973
     },
     {
       "lot_id": "2386795",
@@ -137,7 +148,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Historic Pauillac, aged gracefully"
+      "rating_reason": "Historic Pauillac, aged gracefully",
+      "vintage": 1974
     },
     {
       "lot_id": "2377984",
@@ -148,7 +160,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Elegant Fourth Growth, aged vintages"
+      "rating_reason": "Elegant Fourth Growth, aged vintages",
+      "vintage": 1975
     },
     {
       "lot_id": "2392093",
@@ -159,7 +172,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Premier Grand Cru, aged magnum"
+      "rating_reason": "Premier Grand Cru, aged magnum",
+      "vintage": 1975
     },
     {
       "lot_id": "2373179",
@@ -170,7 +184,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1975
     },
     {
       "lot_id": "2385281",
@@ -181,7 +196,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Leading Second Growth, risky age"
+      "rating_reason": "Leading Second Growth, risky age",
+      "vintage": 1975
     },
     {
       "lot_id": "2393796",
@@ -192,7 +208,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding Second Growth, aged classic"
+      "rating_reason": "Outstanding Second Growth, aged classic",
+      "vintage": 1976
     },
     {
       "lot_id": "2385325",
@@ -203,7 +220,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary estate, stellar vintage"
+      "rating_reason": "Legendary estate, stellar vintage",
+      "vintage": 1976
     },
     {
       "lot_id": "2377500",
@@ -214,7 +232,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, aged grandeur"
+      "rating_reason": "Immortal First Growth, aged grandeur",
+      "vintage": 1976
     },
     {
       "lot_id": "2377962",
@@ -225,7 +244,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, long-aging icon"
+      "rating_reason": "Super Second, long-aging icon",
+      "vintage": 1976
     },
     {
       "lot_id": "2385285",
@@ -236,7 +256,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, long-aging icon"
+      "rating_reason": "Super Second, long-aging icon",
+      "vintage": 1976
     },
     {
       "lot_id": "2376571",
@@ -247,7 +268,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1976
     },
     {
       "lot_id": "2385326",
@@ -258,7 +280,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, mature collectible"
+      "rating_reason": "First Growth, mature collectible",
+      "vintage": 1976
     },
     {
       "lot_id": "2392971",
@@ -269,7 +292,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fifth Growth, stellar aged vintages"
+      "rating_reason": "Fifth Growth, stellar aged vintages",
+      "vintage": 1978
     },
     {
       "lot_id": "2377963",
@@ -280,7 +304,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary estate, stellar vintage"
+      "rating_reason": "Legendary estate, stellar vintage",
+      "vintage": 1978
     },
     {
       "lot_id": "2373181",
@@ -291,7 +316,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary vintage"
+      "rating_reason": "Iconic estate, legendary vintage",
+      "vintage": 1978
     },
     {
       "lot_id": "2373169",
@@ -302,7 +328,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary producer"
+      "rating_reason": "First Growth, legendary producer",
+      "vintage": 1978
     },
     {
       "lot_id": "2377498",
@@ -313,7 +340,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic first growth, legendary vintage"
+      "rating_reason": "Iconic first growth, legendary vintage",
+      "vintage": 1979
     },
     {
       "lot_id": "2385288",
@@ -324,7 +352,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Generous, long-ageing Pomerol plateau"
+      "rating_reason": "Generous, long-ageing Pomerol plateau",
+      "vintage": 1979
     },
     {
       "lot_id": "2373180",
@@ -335,7 +364,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary aged elegance"
+      "rating_reason": "First Growth, legendary aged elegance",
+      "vintage": 1979
     },
     {
       "lot_id": "2377959",
@@ -346,7 +376,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, long-aging classic"
+      "rating_reason": "Super Second, long-aging classic",
+      "vintage": 1979
     },
     {
       "lot_id": "2379479",
@@ -357,7 +388,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Fifth Growth, aged vintage"
+      "rating_reason": "Fifth Growth, aged vintage",
+      "vintage": 1979
     },
     {
       "lot_id": "2385273",
@@ -368,7 +400,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Aged but lighter Pomerol pair"
+      "rating_reason": "Aged but lighter Pomerol pair",
+      "vintage": 1979
     },
     {
       "lot_id": "2373182",
@@ -379,7 +412,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary vintage"
+      "rating_reason": "Iconic estate, legendary vintage",
+      "vintage": 1980
     },
     {
       "lot_id": "2377494",
@@ -390,7 +424,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, aging gracefully"
+      "rating_reason": "Super Second, aging gracefully",
+      "vintage": 1980
     },
     {
       "lot_id": "2386377",
@@ -401,7 +436,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Weak vintage, still ages well"
+      "rating_reason": "Weak vintage, still ages well",
+      "vintage": 1980
     },
     {
       "lot_id": "2390090",
@@ -412,7 +448,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1980
     },
     {
       "lot_id": "2393787",
@@ -423,7 +460,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Steady Fifth Growth, aging wines"
+      "rating_reason": "Steady Fifth Growth, aging wines",
+      "vintage": 1981
     },
     {
       "lot_id": "2377499",
@@ -434,7 +472,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, profound intensity"
+      "rating_reason": "First Growth, profound intensity",
+      "vintage": 1981
     },
     {
       "lot_id": "2385024",
@@ -445,7 +484,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, immortal potential"
+      "rating_reason": "First Growth, immortal potential",
+      "vintage": 1981
     },
     {
       "lot_id": "2377495",
@@ -456,7 +496,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, long-aging classic"
+      "rating_reason": "Super Second, long-aging classic",
+      "vintage": 1981
     },
     {
       "lot_id": "2392593",
@@ -467,7 +508,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, iconic producer"
+      "rating_reason": "First Growth, iconic producer",
+      "vintage": 1981
     },
     {
       "lot_id": "2389985",
@@ -478,7 +520,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, aged elegance"
+      "rating_reason": "Top Second Growth, aged elegance",
+      "vintage": 1981
     },
     {
       "lot_id": "2377501",
@@ -489,7 +532,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Second wine, legendary First Growth"
+      "rating_reason": "Second wine, legendary First Growth",
+      "vintage": 1981
     },
     {
       "lot_id": "2377497",
@@ -500,7 +544,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary vintage"
+      "rating_reason": "Iconic estate, legendary vintage",
+      "vintage": 1982
     },
     {
       "lot_id": "2384944",
@@ -511,7 +556,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic vintage, legendary estate"
+      "rating_reason": "Iconic vintage, legendary estate",
+      "vintage": 1982
     },
     {
       "lot_id": "2384945",
@@ -522,7 +568,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary vintage"
+      "rating_reason": "Iconic estate, legendary vintage",
+      "vintage": 1982
     },
     {
       "lot_id": "2377504",
@@ -533,7 +580,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic vintage, magnum format"
+      "rating_reason": "Iconic vintage, magnum format",
+      "vintage": 1982
     },
     {
       "lot_id": "2385435",
@@ -544,7 +592,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary First Growth, peak vintage"
+      "rating_reason": "Legendary First Growth, peak vintage",
+      "vintage": 1982
     },
     {
       "lot_id": "2391954",
@@ -555,7 +604,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, First Growth"
+      "rating_reason": "Legendary vintage, First Growth",
+      "vintage": 1982
     },
     {
       "lot_id": "2389976",
@@ -566,7 +616,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, First Growth"
+      "rating_reason": "Legendary vintage, First Growth",
+      "vintage": 1982
     },
     {
       "lot_id": "2377496",
@@ -577,7 +628,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary vintage"
+      "rating_reason": "Iconic estate, legendary vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2377503",
@@ -588,7 +640,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary mature vintage"
+      "rating_reason": "Iconic estate, legendary mature vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2390121",
@@ -599,7 +652,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fifth Growth, aging gracefully"
+      "rating_reason": "Fifth Growth, aging gracefully",
+      "vintage": 1983
     },
     {
       "lot_id": "2384964",
@@ -610,7 +664,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding Second Growth, classic claret"
+      "rating_reason": "Outstanding Second Growth, classic claret",
+      "vintage": 1983
     },
     {
       "lot_id": "2384949",
@@ -621,7 +676,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru Classé A"
+      "rating_reason": "Premier Grand Cru Classé A",
+      "vintage": 1983
     },
     {
       "lot_id": "2385289",
@@ -632,7 +688,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru Classé A"
+      "rating_reason": "Premier Grand Cru Classé A",
+      "vintage": 1983
     },
     {
       "lot_id": "2385011",
@@ -643,7 +700,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2389478",
@@ -654,7 +712,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Excellent aged Pessac-Léognan red"
+      "rating_reason": "Excellent aged Pessac-Léognan red",
+      "vintage": 1983
     },
     {
       "lot_id": "2373174",
@@ -665,7 +724,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2393759",
@@ -676,7 +736,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Second Growth, aged well"
+      "rating_reason": "Second Growth, aged well",
+      "vintage": 1983
     },
     {
       "lot_id": "2389722",
@@ -687,7 +748,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, immortal vintage"
+      "rating_reason": "First Growth, immortal vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2389723",
@@ -698,7 +760,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, profound longevity"
+      "rating_reason": "First Growth, profound longevity",
+      "vintage": 1983
     },
     {
       "lot_id": "2377950",
@@ -709,7 +772,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classic claret, excellent aging potential"
+      "rating_reason": "Classic claret, excellent aging potential",
+      "vintage": 1983
     },
     {
       "lot_id": "2384946",
@@ -720,7 +784,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2373154",
@@ -731,7 +796,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, solid vintage"
+      "rating_reason": "First Growth, solid vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2385012",
@@ -742,7 +808,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, solid vintage"
+      "rating_reason": "First Growth, solid vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2393741",
@@ -753,7 +820,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, solid vintage"
+      "rating_reason": "First Growth, solid vintage",
+      "vintage": 1983
     },
     {
       "lot_id": "2368666",
@@ -764,7 +832,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, magnum format"
+      "rating_reason": "First Growth, magnum format",
+      "vintage": 1983
     },
     {
       "lot_id": "2384682",
@@ -775,7 +844,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, excellent aged Bordeaux"
+      "rating_reason": "Super Second, excellent aged Bordeaux",
+      "vintage": 1983
     },
     {
       "lot_id": "2393795",
@@ -786,7 +856,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, weak vintage"
+      "rating_reason": "Top Second Growth, weak vintage",
+      "vintage": 1984
     },
     {
       "lot_id": "2386304",
@@ -797,7 +868,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1984
     },
     {
       "lot_id": "2373184",
@@ -808,7 +880,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Pessac-Léognan, off vintage"
+      "rating_reason": "Top Pessac-Léognan, off vintage",
+      "vintage": 1984
     },
     {
       "lot_id": "2385429",
@@ -819,7 +892,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1984
     },
     {
       "lot_id": "2393734",
@@ -830,7 +904,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1984
     },
     {
       "lot_id": "2386312",
@@ -841,7 +916,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1984
     },
     {
       "lot_id": "2389756",
@@ -852,7 +928,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru, aged well"
+      "rating_reason": "Premier Grand Cru, aged well",
+      "vintage": 1985
     },
     {
       "lot_id": "2389740",
@@ -863,7 +940,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Strong second growth, aging well"
+      "rating_reason": "Strong second growth, aging well",
+      "vintage": 1985
     },
     {
       "lot_id": "2393459",
@@ -874,7 +952,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic First Growth, legendary vintage"
+      "rating_reason": "Iconic First Growth, legendary vintage",
+      "vintage": 1985
     },
     {
       "lot_id": "2373788",
@@ -885,7 +964,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Aged Fifth Growth, fair value"
+      "rating_reason": "Aged Fifth Growth, fair value",
+      "vintage": 1985
     },
     {
       "lot_id": "2389994",
@@ -896,7 +976,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Refined, long-ageing Pomerol icon"
+      "rating_reason": "Refined, long-ageing Pomerol icon",
+      "vintage": 1985
     },
     {
       "lot_id": "2390000",
@@ -907,7 +988,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic First Growth, profound vintage"
+      "rating_reason": "Iconic First Growth, profound vintage",
+      "vintage": 1985
     },
     {
       "lot_id": "2390041",
@@ -918,7 +1000,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, great vintage"
+      "rating_reason": "Immortal First Growth, great vintage",
+      "vintage": 1985
     },
     {
       "lot_id": "2384685",
@@ -929,7 +1012,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, rich Pauillac"
+      "rating_reason": "Legendary vintage, rich Pauillac",
+      "vintage": 1985
     },
     {
       "lot_id": "2389753",
@@ -940,7 +1024,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Saint-Emilion Premier Grand Cru"
+      "rating_reason": "Saint-Emilion Premier Grand Cru",
+      "vintage": 1985
     },
     {
       "lot_id": "2388613",
@@ -951,7 +1036,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fifth Growth, mature classic"
+      "rating_reason": "Fifth Growth, mature classic",
+      "vintage": 1986
     },
     {
       "lot_id": "2388609",
@@ -962,7 +1048,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic First Growth, mature elegance"
+      "rating_reason": "Iconic First Growth, mature elegance",
+      "vintage": 1986
     },
     {
       "lot_id": "2386480",
@@ -973,7 +1060,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, strong vintage"
+      "rating_reason": "Immortal First Growth, strong vintage",
+      "vintage": 1986
     },
     {
       "lot_id": "2384678",
@@ -984,7 +1072,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Mature fifth growth, modest depth"
+      "rating_reason": "Mature fifth growth, modest depth",
+      "vintage": 1986
     },
     {
       "lot_id": "2388611",
@@ -995,7 +1084,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Second Growth, weak vintage period"
+      "rating_reason": "Second Growth, weak vintage period",
+      "vintage": 1986
     },
     {
       "lot_id": "2385010",
@@ -1006,7 +1096,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Elegant, long-aging Pomerol icon"
+      "rating_reason": "Elegant, long-aging Pomerol icon",
+      "vintage": 1986
     },
     {
       "lot_id": "2377502",
@@ -1017,7 +1108,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, aged but unproven"
+      "rating_reason": "First Growth, aged but unproven",
+      "vintage": 1987
     },
     {
       "lot_id": "2373177",
@@ -1028,7 +1120,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, off-vintage though"
+      "rating_reason": "First Growth, off-vintage though",
+      "vintage": 1987
     },
     {
       "lot_id": "2383140",
@@ -1039,7 +1132,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Old vintages, modest producers"
+      "rating_reason": "Old vintages, modest producers",
+      "vintage": 1988
     },
     {
       "lot_id": "2384681",
@@ -1050,7 +1144,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Refined, long-ageing Pomerol icon"
+      "rating_reason": "Refined, long-ageing Pomerol icon",
+      "vintage": 1988
     },
     {
       "lot_id": "2377979",
@@ -1061,7 +1156,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, excellent aged magnum"
+      "rating_reason": "First Growth, excellent aged magnum",
+      "vintage": 1988
     },
     {
       "lot_id": "2386352",
@@ -1072,7 +1168,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, great vintage"
+      "rating_reason": "Immortal First Growth, great vintage",
+      "vintage": 1988
     },
     {
       "lot_id": "2387961",
@@ -1083,7 +1180,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classic claret, long-ageing Second"
+      "rating_reason": "Classic claret, long-ageing Second",
+      "vintage": 1988
     },
     {
       "lot_id": "2392588",
@@ -1094,7 +1192,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, solid vintage"
+      "rating_reason": "First Growth, solid vintage",
+      "vintage": 1988
     },
     {
       "lot_id": "2386371",
@@ -1105,7 +1204,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classed Growth, excellent vintage"
+      "rating_reason": "Classed Growth, excellent vintage",
+      "vintage": 1988
     },
     {
       "lot_id": "2386374",
@@ -1116,7 +1216,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Exceptional second wine, mature elegance"
+      "rating_reason": "Exceptional second wine, mature elegance",
+      "vintage": 1988
     },
     {
       "lot_id": "2393792",
@@ -1127,7 +1228,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Supple merlot, decent aged"
+      "rating_reason": "Supple merlot, decent aged",
+      "vintage": 1989
     },
     {
       "lot_id": "2377355",
@@ -1138,7 +1240,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Classified estate, mature vintage"
+      "rating_reason": "Classified estate, mature vintage",
+      "vintage": 1989
     },
     {
       "lot_id": "2392131",
@@ -1149,7 +1252,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Second label of First Growth"
+      "rating_reason": "Second label of First Growth",
+      "vintage": 1989
     },
     {
       "lot_id": "2389746",
@@ -1160,7 +1264,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, full-blooded depth"
+      "rating_reason": "Legendary vintage, full-blooded depth",
+      "vintage": 1989
     },
     {
       "lot_id": "2389736",
@@ -1171,7 +1276,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, stellar vintage"
+      "rating_reason": "First Growth, stellar vintage",
+      "vintage": 1989
     },
     {
       "lot_id": "2392597",
@@ -1182,7 +1288,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, stellar vintage"
+      "rating_reason": "First Growth, stellar vintage",
+      "vintage": 1989
     },
     {
       "lot_id": "2384340",
@@ -1193,7 +1300,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, cellar-worthy classic"
+      "rating_reason": "Outstanding vintage, cellar-worthy classic",
+      "vintage": 1990
     },
     {
       "lot_id": "2392624",
@@ -1204,7 +1312,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, legendary vintage"
+      "rating_reason": "Immortal First Growth, legendary vintage",
+      "vintage": 1990
     },
     {
       "lot_id": "2393139",
@@ -1215,7 +1324,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Stellar vintage, structured Merlot"
+      "rating_reason": "Stellar vintage, structured Merlot",
+      "vintage": 1990
     },
     {
       "lot_id": "2388562",
@@ -1226,7 +1336,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Mixed lot, aged minor wines"
+      "rating_reason": "Mixed lot, aged minor wines",
+      "vintage": 1990
     },
     {
       "lot_id": "2386305",
@@ -1237,7 +1348,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1990
     },
     {
       "lot_id": "2392601",
@@ -1248,7 +1360,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 1990
     },
     {
       "lot_id": "2388535",
@@ -1259,7 +1372,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary second growth, mature"
+      "rating_reason": "Legendary second growth, mature",
+      "vintage": 1990
     },
     {
       "lot_id": "2385013",
@@ -1270,7 +1384,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1991
     },
     {
       "lot_id": "2386376",
@@ -1281,7 +1396,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic first growth, aged superbly"
+      "rating_reason": "Iconic first growth, aged superbly",
+      "vintage": 1992
     },
     {
       "lot_id": "2384347",
@@ -1292,7 +1408,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding Second Growth, weak vintage"
+      "rating_reason": "Outstanding Second Growth, weak vintage",
+      "vintage": 1992
     },
     {
       "lot_id": "2392607",
@@ -1303,7 +1420,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1992
     },
     {
       "lot_id": "2385005",
@@ -1314,7 +1432,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, aging well"
+      "rating_reason": "Top Second Growth, aging well",
+      "vintage": 1993
     },
     {
       "lot_id": "2386302",
@@ -1325,7 +1444,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary estate, mature Pessac"
+      "rating_reason": "Legendary estate, mature Pessac",
+      "vintage": 1993
     },
     {
       "lot_id": "2386363",
@@ -1336,7 +1456,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1993
     },
     {
       "lot_id": "2392609",
@@ -1347,7 +1468,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, difficult vintage"
+      "rating_reason": "First Growth, difficult vintage",
+      "vintage": 1993
     },
     {
       "lot_id": "2385020",
@@ -1358,7 +1480,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, long-aging classic"
+      "rating_reason": "Super Second, long-aging classic",
+      "vintage": 1994
     },
     {
       "lot_id": "2378022",
@@ -1369,7 +1492,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Fifth Growth, aged well"
+      "rating_reason": "Top Fifth Growth, aged well",
+      "vintage": 1994
     },
     {
       "lot_id": "2377910",
@@ -1380,7 +1504,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Fifth Growth, aged well"
+      "rating_reason": "Top Fifth Growth, aged well",
+      "vintage": 1994
     },
     {
       "lot_id": "2392614",
@@ -1391,7 +1516,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1994
     },
     {
       "lot_id": "2393468",
@@ -1402,7 +1528,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1994
     },
     {
       "lot_id": "2393742",
@@ -1413,7 +1540,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1994
     },
     {
       "lot_id": "2384941",
@@ -1424,7 +1552,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top third growth, aging well"
+      "rating_reason": "Top third growth, aging well",
+      "vintage": 1994
     },
     {
       "lot_id": "2384942",
@@ -1435,7 +1564,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, mature peak"
+      "rating_reason": "Super Second, mature peak",
+      "vintage": 1994
     },
     {
       "lot_id": "2393473",
@@ -1446,7 +1576,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top third growth, aging risk"
+      "rating_reason": "Top third growth, aging risk",
+      "vintage": 1994
     },
     {
       "lot_id": "2385021",
@@ -1457,7 +1588,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Powerful long-ageing Second Growth"
+      "rating_reason": "Powerful long-ageing Second Growth",
+      "vintage": 1994
     },
     {
       "lot_id": "2373188",
@@ -1468,7 +1600,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Aged cru classé, good value"
+      "rating_reason": "Aged cru classé, good value",
+      "vintage": 1995
     },
     {
       "lot_id": "2388902",
@@ -1479,7 +1612,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Rich dense age-worthy Fifth Growth"
+      "rating_reason": "Rich dense age-worthy Fifth Growth",
+      "vintage": 1995
     },
     {
       "lot_id": "2385567",
@@ -1490,7 +1624,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Reliable, supple, age-worthy claret"
+      "rating_reason": "Reliable, supple, age-worthy claret",
+      "vintage": 1995
     },
     {
       "lot_id": "2386100",
@@ -1501,7 +1636,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Reliable, supple Saint-Estèphe cru"
+      "rating_reason": "Reliable, supple Saint-Estèphe cru",
+      "vintage": 1995
     },
     {
       "lot_id": "2385427",
@@ -1512,7 +1648,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Second wine, aged well"
+      "rating_reason": "Second wine, aged well",
+      "vintage": 1995
     },
     {
       "lot_id": "2374322",
@@ -1523,7 +1660,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Elegant classified growth, mature vintage"
+      "rating_reason": "Elegant classified growth, mature vintage",
+      "vintage": 1996
     },
     {
       "lot_id": "2379675",
@@ -1534,7 +1672,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classic long-ageing Second Growth"
+      "rating_reason": "Classic long-ageing Second Growth",
+      "vintage": 1996
     },
     {
       "lot_id": "2385433",
@@ -1545,7 +1684,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, excellent vintage"
+      "rating_reason": "First Growth, excellent vintage",
+      "vintage": 1996
     },
     {
       "lot_id": "2386362",
@@ -1556,7 +1696,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, stellar vintage"
+      "rating_reason": "First Growth, stellar vintage",
+      "vintage": 1996
     },
     {
       "lot_id": "2388906",
@@ -1567,7 +1708,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top fifth growth, pre-renaissance"
+      "rating_reason": "Top fifth growth, pre-renaissance",
+      "vintage": 1996
     },
     {
       "lot_id": "2393194",
@@ -1578,7 +1720,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Second label, not flagship"
+      "rating_reason": "Second label, not flagship",
+      "vintage": 1996
     },
     {
       "lot_id": "2374919",
@@ -1589,7 +1732,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 1,
-      "rating_reason": "Generic old mixed lot"
+      "rating_reason": "Generic old mixed lot",
+      "vintage": 1996
     },
     {
       "lot_id": "2384338",
@@ -1600,7 +1744,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary texture"
+      "rating_reason": "First Growth, legendary texture",
+      "vintage": 1997
     },
     {
       "lot_id": "2392618",
@@ -1611,7 +1756,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, weak vintage"
+      "rating_reason": "First Growth, weak vintage",
+      "vintage": 1997
     },
     {
       "lot_id": "2385451",
@@ -1622,7 +1768,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Lush, concentrated cult classic"
+      "rating_reason": "Lush, concentrated cult classic",
+      "vintage": 1997
     },
     {
       "lot_id": "2385014",
@@ -1633,7 +1780,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Improved Pomerol, mature vintage"
+      "rating_reason": "Improved Pomerol, mature vintage",
+      "vintage": 1998
     },
     {
       "lot_id": "2373186",
@@ -1644,7 +1792,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Consistent fourth growth, aged well"
+      "rating_reason": "Consistent fourth growth, aged well",
+      "vintage": 1998
     },
     {
       "lot_id": "2388962",
@@ -1655,7 +1804,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Consistent fourth growth, great format"
+      "rating_reason": "Consistent fourth growth, great format",
+      "vintage": 1998
     },
     {
       "lot_id": "2386794",
@@ -1666,7 +1816,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, great vintage"
+      "rating_reason": "Immortal First Growth, great vintage",
+      "vintage": 1998
     },
     {
       "lot_id": "2390113",
@@ -1677,7 +1828,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fair value fifth growth"
+      "rating_reason": "Fair value fifth growth",
+      "vintage": 1999
     },
     {
       "lot_id": "2377949",
@@ -1688,7 +1840,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Structured Merlot, ages well"
+      "rating_reason": "Structured Merlot, ages well",
+      "vintage": 1999
     },
     {
       "lot_id": "2392148",
@@ -1699,7 +1852,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, mature elegance"
+      "rating_reason": "Top Second Growth, mature elegance",
+      "vintage": 1999
     },
     {
       "lot_id": "2385103",
@@ -1710,7 +1864,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Third Growth, mature Margaux"
+      "rating_reason": "Third Growth, mature Margaux",
+      "vintage": 2000
     },
     {
       "lot_id": "2391961",
@@ -1721,7 +1876,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic first growth, peak maturity"
+      "rating_reason": "Iconic first growth, peak maturity",
+      "vintage": 2000
     },
     {
       "lot_id": "2391937",
@@ -1732,7 +1888,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage"
+      "rating_reason": "First Growth, legendary vintage",
+      "vintage": 2000
     },
     {
       "lot_id": "2391818",
@@ -1743,7 +1900,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, great vintage"
+      "rating_reason": "Immortal First Growth, great vintage",
+      "vintage": 2000
     },
     {
       "lot_id": "2377518",
@@ -1754,7 +1912,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, excellent vintage"
+      "rating_reason": "Super Second, excellent vintage",
+      "vintage": 2000
     },
     {
       "lot_id": "2368654",
@@ -1765,7 +1924,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, stellar vintage"
+      "rating_reason": "Iconic estate, stellar vintage",
+      "vintage": 2000
     },
     {
       "lot_id": "2388903",
@@ -1776,7 +1936,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Excellent vintage, ages superbly"
+      "rating_reason": "Excellent vintage, ages superbly",
+      "vintage": 2000
     },
     {
       "lot_id": "2388907",
@@ -1787,7 +1948,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Fifth Growth, solid vintage"
+      "rating_reason": "Top Fifth Growth, solid vintage",
+      "vintage": 2000
     },
     {
       "lot_id": "2389891",
@@ -1798,7 +1960,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, seductive perfumed elegance"
+      "rating_reason": "First Growth, seductive perfumed elegance",
+      "vintage": 2001
     },
     {
       "lot_id": "2389889",
@@ -1809,7 +1972,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, iconic producer"
+      "rating_reason": "First Growth, iconic producer",
+      "vintage": 2001
     },
     {
       "lot_id": "2389166",
@@ -1820,7 +1984,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classed Growth, excellent vintage"
+      "rating_reason": "Classed Growth, excellent vintage",
+      "vintage": 2001
     },
     {
       "lot_id": "2378013",
@@ -1831,7 +1996,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Third Growth, solid aged Margaux"
+      "rating_reason": "Third Growth, solid aged Margaux",
+      "vintage": 2002
     },
     {
       "lot_id": "2378019",
@@ -1842,7 +2008,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Third Growth, solid aged Margaux"
+      "rating_reason": "Third Growth, solid aged Margaux",
+      "vintage": 2002
     },
     {
       "lot_id": "2377896",
@@ -1853,7 +2020,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, maturing elegantly"
+      "rating_reason": "First Growth, maturing elegantly",
+      "vintage": 2002
     },
     {
       "lot_id": "2384759",
@@ -1864,7 +2032,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, elegant legendary estate"
+      "rating_reason": "First Growth, elegant legendary estate",
+      "vintage": 2002
     },
     {
       "lot_id": "2376400",
@@ -1875,7 +2044,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Solid aged Cru Bourgeois magnum"
+      "rating_reason": "Solid aged Cru Bourgeois magnum",
+      "vintage": 2002
     },
     {
       "lot_id": "2392621",
@@ -1886,7 +2056,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, decent vintage"
+      "rating_reason": "First Growth, decent vintage",
+      "vintage": 2002
     },
     {
       "lot_id": "2391433",
@@ -1897,7 +2068,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, seductive perfumed legend"
+      "rating_reason": "First Growth, seductive perfumed legend",
+      "vintage": 2003
     },
     {
       "lot_id": "2377990",
@@ -1908,7 +2080,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru Classé A"
+      "rating_reason": "Premier Grand Cru Classé A",
+      "vintage": 2003
     },
     {
       "lot_id": "2377991",
@@ -1919,7 +2092,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru Classé A"
+      "rating_reason": "Premier Grand Cru Classé A",
+      "vintage": 2003
     },
     {
       "lot_id": "2377515",
@@ -1930,7 +2104,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Powerful Second Growth, great vintage"
+      "rating_reason": "Powerful Second Growth, great vintage",
+      "vintage": 2003
     },
     {
       "lot_id": "2376631",
@@ -1941,7 +2116,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Four-star fifth growth, hot vintage"
+      "rating_reason": "Four-star fifth growth, hot vintage",
+      "vintage": 2003
     },
     {
       "lot_id": "2392101",
@@ -1952,7 +2128,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic, lush cult St-Émilion"
+      "rating_reason": "Iconic, lush cult St-Émilion",
+      "vintage": 2003
     },
     {
       "lot_id": "2387949",
@@ -1963,7 +2140,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth second label, aged"
+      "rating_reason": "First Growth second label, aged",
+      "vintage": 2004
     },
     {
       "lot_id": "2392709",
@@ -1974,7 +2152,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fifth Growth, off-vintage year"
+      "rating_reason": "Fifth Growth, off-vintage year",
+      "vintage": 2004
     },
     {
       "lot_id": "2389092",
@@ -1985,7 +2164,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, solid vintage"
+      "rating_reason": "Immortal First Growth, solid vintage",
+      "vintage": 2004
     },
     {
       "lot_id": "2392714",
@@ -1996,7 +2176,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top fifth growth, decent vintage"
+      "rating_reason": "Top fifth growth, decent vintage",
+      "vintage": 2004
     },
     {
       "lot_id": "2386980",
@@ -2007,7 +2188,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Two top estates, great vintage"
+      "rating_reason": "Two top estates, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2388969",
@@ -2018,7 +2200,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, superb vintage"
+      "rating_reason": "Iconic estate, superb vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2390101",
@@ -2029,7 +2212,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, stellar vintage"
+      "rating_reason": "Iconic estate, stellar vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2389038",
@@ -2040,7 +2224,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, cellar-worthy claret"
+      "rating_reason": "Outstanding vintage, cellar-worthy claret",
+      "vintage": 2005
     },
     {
       "lot_id": "2391617",
@@ -2051,7 +2236,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, cellar-worthy claret"
+      "rating_reason": "Outstanding vintage, cellar-worthy claret",
+      "vintage": 2005
     },
     {
       "lot_id": "2388571",
@@ -2062,7 +2248,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Excellent cellar-worthy Fifth Growth"
+      "rating_reason": "Excellent cellar-worthy Fifth Growth",
+      "vintage": 2005
     },
     {
       "lot_id": "2392886",
@@ -2073,7 +2260,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary First Growth, superb vintage"
+      "rating_reason": "Legendary First Growth, superb vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2390096",
@@ -2084,7 +2272,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Exceptional terroir, refined longevity"
+      "rating_reason": "Exceptional terroir, refined longevity",
+      "vintage": 2005
     },
     {
       "lot_id": "2391726",
@@ -2095,7 +2284,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Four-star classic, great vintage"
+      "rating_reason": "Four-star classic, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2377510",
@@ -2106,7 +2296,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Fifth Growth, great vintage"
+      "rating_reason": "Top Fifth Growth, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2385389",
@@ -2117,7 +2308,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Forceful long-ageing Second Growth"
+      "rating_reason": "Forceful long-ageing Second Growth",
+      "vintage": 2005
     },
     {
       "lot_id": "2391620",
@@ -2128,7 +2320,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, excellent vintage"
+      "rating_reason": "Super Second, excellent vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2391613",
@@ -2139,7 +2332,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, Second Growth"
+      "rating_reason": "Outstanding vintage, Second Growth",
+      "vintage": 2005
     },
     {
       "lot_id": "2390428",
@@ -2150,7 +2344,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, great vintage"
+      "rating_reason": "Top Second Growth, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2391311",
@@ -2161,7 +2356,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Fifth Growth, great vintage"
+      "rating_reason": "Top Fifth Growth, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2391552",
@@ -2172,7 +2368,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top fifth growth, great vintage"
+      "rating_reason": "Top fifth growth, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2376412",
@@ -2183,7 +2380,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Strong vintages, age-worthy pair"
+      "rating_reason": "Strong vintages, age-worthy pair",
+      "vintage": 2005
     },
     {
       "lot_id": "2377960",
@@ -2194,7 +2392,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Rich, age-worthy fourth growth"
+      "rating_reason": "Rich, age-worthy fourth growth",
+      "vintage": 2005
     },
     {
       "lot_id": "2391309",
@@ -2205,7 +2404,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Rich, age-worthy, reliable Fourth Growth"
+      "rating_reason": "Rich, age-worthy, reliable Fourth Growth",
+      "vintage": 2005
     },
     {
       "lot_id": "2392883",
@@ -2216,7 +2416,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Rich bold modern Grand Cru"
+      "rating_reason": "Rich bold modern Grand Cru",
+      "vintage": 2005
     },
     {
       "lot_id": "2391615",
@@ -2227,7 +2428,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, great cellar potential"
+      "rating_reason": "Iconic estate, great cellar potential",
+      "vintage": 2006
     },
     {
       "lot_id": "2391618",
@@ -2238,7 +2440,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding Second Growth, long-aging"
+      "rating_reason": "Outstanding Second Growth, long-aging",
+      "vintage": 2006
     },
     {
       "lot_id": "2391616",
@@ -2249,7 +2452,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, long-ageing classic"
+      "rating_reason": "Super Second, long-ageing classic",
+      "vintage": 2006
     },
     {
       "lot_id": "2384762",
@@ -2260,7 +2464,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Rich dense Fifth Growth icon"
+      "rating_reason": "Rich dense Fifth Growth icon",
+      "vintage": 2006
     },
     {
       "lot_id": "2392571",
@@ -2271,7 +2476,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Second Growth, long-ageing claret"
+      "rating_reason": "Second Growth, long-ageing claret",
+      "vintage": 2006
     },
     {
       "lot_id": "2377957",
@@ -2282,7 +2488,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Consistent fourth growth, solid value"
+      "rating_reason": "Consistent fourth growth, solid value",
+      "vintage": 2007
     },
     {
       "lot_id": "2377958",
@@ -2293,7 +2500,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Consistent fourth growth, aging well"
+      "rating_reason": "Consistent fourth growth, aging well",
+      "vintage": 2007
     },
     {
       "lot_id": "2384760",
@@ -2304,7 +2512,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Dense cab, ages superbly"
+      "rating_reason": "Dense cab, ages superbly",
+      "vintage": 2007
     },
     {
       "lot_id": "2392399",
@@ -2315,7 +2524,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Four-star fifth growth, off-vintage"
+      "rating_reason": "Four-star fifth growth, off-vintage",
+      "vintage": 2007
     },
     {
       "lot_id": "2377951",
@@ -2326,7 +2536,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru Classé B"
+      "rating_reason": "Premier Grand Cru Classé B",
+      "vintage": 2007
     },
     {
       "lot_id": "2386256",
@@ -2337,7 +2548,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary Merlot, magnum format"
+      "rating_reason": "Legendary Merlot, magnum format",
+      "vintage": 2007
     },
     {
       "lot_id": "2391308",
@@ -2348,7 +2560,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Four-star Premier Grand Cru"
+      "rating_reason": "Four-star Premier Grand Cru",
+      "vintage": 2008
     },
     {
       "lot_id": "2385032",
@@ -2359,7 +2572,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Premier Grand Cru, fine vintage"
+      "rating_reason": "Premier Grand Cru, fine vintage",
+      "vintage": 2008
     },
     {
       "lot_id": "2388555",
@@ -2370,7 +2584,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Four-star refined long-ageing estate"
+      "rating_reason": "Four-star refined long-ageing estate",
+      "vintage": 2008
     },
     {
       "lot_id": "2391619",
@@ -2381,7 +2596,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, aging well"
+      "rating_reason": "Top Second Growth, aging well",
+      "vintage": 2008
     },
     {
       "lot_id": "2392392",
@@ -2392,7 +2608,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classic long-ageing Second Growth"
+      "rating_reason": "Classic long-ageing Second Growth",
+      "vintage": 2008
     },
     {
       "lot_id": "2388557",
@@ -2403,7 +2620,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, great vintage"
+      "rating_reason": "Super Second, great vintage",
+      "vintage": 2008
     },
     {
       "lot_id": "2390769",
@@ -2414,7 +2632,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, Second Growth"
+      "rating_reason": "Outstanding vintage, Second Growth",
+      "vintage": 2008
     },
     {
       "lot_id": "2392890",
@@ -2425,7 +2644,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Rich, cellar-worthy premier cru"
+      "rating_reason": "Rich, cellar-worthy premier cru",
+      "vintage": 2009
     },
     {
       "lot_id": "2392716",
@@ -2436,7 +2656,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Stylish organic Premier Grand Cru"
+      "rating_reason": "Stylish organic Premier Grand Cru",
+      "vintage": 2009
     },
     {
       "lot_id": "2392698",
@@ -2447,7 +2668,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Reliable fifth growth, good value"
+      "rating_reason": "Reliable fifth growth, good value",
+      "vintage": 2009
     },
     {
       "lot_id": "2392705",
@@ -2458,7 +2680,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Long-maturing, classical structured Moulis"
+      "rating_reason": "Long-maturing, classical structured Moulis",
+      "vintage": 2009
     },
     {
       "lot_id": "2389140",
@@ -2469,7 +2692,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, long-aging claret"
+      "rating_reason": "Outstanding vintage, long-aging claret",
+      "vintage": 2009
     },
     {
       "lot_id": "2393118",
@@ -2480,7 +2704,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Solid biodynamic Côtes de Bourg"
+      "rating_reason": "Solid biodynamic Côtes de Bourg",
+      "vintage": 2009
     },
     {
       "lot_id": "2390109",
@@ -2491,7 +2716,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Structured Merlot, great vintage"
+      "rating_reason": "Structured Merlot, great vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2392718",
@@ -2502,7 +2728,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Strong classified growth, great vintage"
+      "rating_reason": "Strong classified growth, great vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2392720",
@@ -2513,7 +2740,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Rich, age-worthy fourth growth"
+      "rating_reason": "Rich, age-worthy fourth growth",
+      "vintage": 2009
     },
     {
       "lot_id": "2392725",
@@ -2524,7 +2752,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Stellar vintage, classed growth"
+      "rating_reason": "Stellar vintage, classed growth",
+      "vintage": 2009
     },
     {
       "lot_id": "2392655",
@@ -2535,7 +2764,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Stellar vintage, stylish blend"
+      "rating_reason": "Stellar vintage, stylish blend",
+      "vintage": 2010
     },
     {
       "lot_id": "2392706",
@@ -2546,7 +2776,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Excellent vintage, consistent fifth-growth"
+      "rating_reason": "Excellent vintage, consistent fifth-growth",
+      "vintage": 2010
     },
     {
       "lot_id": "2392881",
@@ -2557,7 +2788,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": ""
+      "rating_reason": "",
+      "vintage": 2010
     },
     {
       "lot_id": "2392711",
@@ -2568,7 +2800,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Second Growth, excellent vintage"
+      "rating_reason": "Second Growth, excellent vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2389083",
@@ -2579,7 +2812,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, stellar vintage"
+      "rating_reason": "First Growth, stellar vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2391460",
@@ -2590,7 +2824,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Four-star estate, stellar vintage"
+      "rating_reason": "Four-star estate, stellar vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2392713",
@@ -2601,7 +2836,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Strong classified growth, aging well"
+      "rating_reason": "Strong classified growth, aging well",
+      "vintage": 2010
     },
     {
       "lot_id": "2392715",
@@ -2612,7 +2848,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Age-worthy, outstanding vintage"
+      "rating_reason": "Age-worthy, outstanding vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2373720",
@@ -2623,7 +2860,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Long-maturing, classical structure"
+      "rating_reason": "Long-maturing, classical structure",
+      "vintage": 2011
     },
     {
       "lot_id": "2392395",
@@ -2634,7 +2872,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Classic long-ageing Second Growth"
+      "rating_reason": "Classic long-ageing Second Growth",
+      "vintage": 2011
     },
     {
       "lot_id": "2392559",
@@ -2645,7 +2884,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Sturdy premier grand cru classé"
+      "rating_reason": "Sturdy premier grand cru classé",
+      "vintage": 2011
     },
     {
       "lot_id": "2392398",
@@ -2656,7 +2896,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top fifth growth, solid vintage"
+      "rating_reason": "Top fifth growth, solid vintage",
+      "vintage": 2011
     },
     {
       "lot_id": "2389133",
@@ -2667,7 +2908,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Full-blooded, long-maturing Pessac-Léognan"
+      "rating_reason": "Full-blooded, long-maturing Pessac-Léognan",
+      "vintage": 2012
     },
     {
       "lot_id": "2389136",
@@ -2678,7 +2920,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Immortal First Growth, solid vintage"
+      "rating_reason": "Immortal First Growth, solid vintage",
+      "vintage": 2012
     },
     {
       "lot_id": "2388559",
@@ -2689,7 +2932,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Second Growth, classic long-ageing"
+      "rating_reason": "Second Growth, classic long-ageing",
+      "vintage": 2012
     },
     {
       "lot_id": "2388558",
@@ -2700,7 +2944,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, strong vintage"
+      "rating_reason": "Super Second, strong vintage",
+      "vintage": 2012
     },
     {
       "lot_id": "2388554",
@@ -2711,7 +2956,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Forceful, long-ageing Second Growth"
+      "rating_reason": "Forceful, long-ageing Second Growth",
+      "vintage": 2012
     },
     {
       "lot_id": "2373717",
@@ -2722,7 +2968,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Reliable, supple, age-worthy"
+      "rating_reason": "Reliable, supple, age-worthy",
+      "vintage": 2014
     },
     {
       "lot_id": "2384763",
@@ -2733,7 +2980,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Lighter style, decent merlot"
+      "rating_reason": "Lighter style, decent merlot",
+      "vintage": 2014
     },
     {
       "lot_id": "2388568",
@@ -2744,7 +2992,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 1,
-      "rating_reason": "Generic regional, aging past peak"
+      "rating_reason": "Generic regional, aging past peak",
+      "vintage": 2014
     },
     {
       "lot_id": "2377987",
@@ -2755,7 +3004,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Premier Grand Cru, stellar vintages"
+      "rating_reason": "Premier Grand Cru, stellar vintages",
+      "vintage": 2015
     },
     {
       "lot_id": "2390779",
@@ -2766,7 +3016,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Stylish organic premier grand cru"
+      "rating_reason": "Stylish organic premier grand cru",
+      "vintage": 2015
     },
     {
       "lot_id": "2392642",
@@ -2777,7 +3028,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Fifth Growth, good value"
+      "rating_reason": "Fifth Growth, good value",
+      "vintage": 2015
     },
     {
       "lot_id": "2392261",
@@ -2788,7 +3040,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Classed Growth, excellent vintage"
+      "rating_reason": "Classed Growth, excellent vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2392670",
@@ -2799,7 +3052,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Excellent vintage, classed growth"
+      "rating_reason": "Excellent vintage, classed growth",
+      "vintage": 2015
     },
     {
       "lot_id": "2392265",
@@ -2810,7 +3064,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top classified growth, stellar vintage"
+      "rating_reason": "Top classified growth, stellar vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2392641",
@@ -2821,7 +3076,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Pessac-Léognan, stellar vintage"
+      "rating_reason": "Top Pessac-Léognan, stellar vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2392721",
@@ -2832,7 +3088,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Elegant Fourth Growth, prime vintage"
+      "rating_reason": "Elegant Fourth Growth, prime vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392649",
@@ -2843,7 +3100,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Stylish organic Premier Grand Cru"
+      "rating_reason": "Stylish organic Premier Grand Cru",
+      "vintage": 2016
     },
     {
       "lot_id": "2392663",
@@ -2854,7 +3112,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Reliable fifth growth, good value"
+      "rating_reason": "Reliable fifth growth, good value",
+      "vintage": 2016
     },
     {
       "lot_id": "2392728",
@@ -2865,7 +3124,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Reliable fifth growth, good value"
+      "rating_reason": "Reliable fifth growth, good value",
+      "vintage": 2016
     },
     {
       "lot_id": "2392723",
@@ -2876,7 +3136,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Long-maturing, excellent 2016 vintage"
+      "rating_reason": "Long-maturing, excellent 2016 vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392726",
@@ -2887,7 +3148,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Long-maturing, excellent 2016 vintage"
+      "rating_reason": "Long-maturing, excellent 2016 vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392648",
@@ -2898,7 +3160,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Strong fifth growth, great vintage"
+      "rating_reason": "Strong fifth growth, great vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392724",
@@ -2909,7 +3172,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Third Growth, strong vintage"
+      "rating_reason": "Third Growth, strong vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2376409",
@@ -2920,7 +3184,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "First Growth, superb vintage"
+      "rating_reason": "First Growth, superb vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392258",
@@ -2931,7 +3196,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Noble, fragrant, stellar vintage"
+      "rating_reason": "Noble, fragrant, stellar vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392259",
@@ -2942,7 +3208,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Pomerol, stellar vintage"
+      "rating_reason": "Top Pomerol, stellar vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392645",
@@ -2953,7 +3220,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Elegant cab franc, fine vintage"
+      "rating_reason": "Elegant cab franc, fine vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392662",
@@ -2964,7 +3232,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, stellar vintage"
+      "rating_reason": "Super Second, stellar vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392727",
@@ -2975,7 +3244,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Super Second, stellar vintage"
+      "rating_reason": "Super Second, stellar vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2373737",
@@ -2986,7 +3256,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Improved fifth growth, good vintage"
+      "rating_reason": "Improved fifth growth, good vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2392263",
@@ -2997,7 +3268,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Leading Second Growth, great vintage"
+      "rating_reason": "Leading Second Growth, great vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2388067",
@@ -3008,7 +3280,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Third wine, great vintage"
+      "rating_reason": "Third wine, great vintage",
+      "vintage": 2017
     },
     {
       "lot_id": "2373767",
@@ -3019,7 +3292,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Second label, no bids"
+      "rating_reason": "Second label, no bids",
+      "vintage": 2018
     },
     {
       "lot_id": "2392429",
@@ -3030,7 +3304,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Fifth Growth, great vintage"
+      "rating_reason": "Top Fifth Growth, great vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2385426",
@@ -3041,7 +3316,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 3,
-      "rating_reason": "Strong second wine, great vintage"
+      "rating_reason": "Strong second wine, great vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2390423",
@@ -3052,7 +3328,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, stellar vintage"
+      "rating_reason": "Iconic estate, stellar vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2389996",
@@ -3063,7 +3340,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Forceful long-ageing Second Growth"
+      "rating_reason": "Forceful long-ageing Second Growth",
+      "vintage": 2019
     },
     {
       "lot_id": "2384826",
@@ -3074,7 +3352,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Top Second Growth, great vintage"
+      "rating_reason": "Top Second Growth, great vintage",
+      "vintage": 2020
     },
     {
       "lot_id": "2393162",
@@ -3085,7 +3364,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Legendary estate, stellar vintage"
+      "rating_reason": "Legendary estate, stellar vintage",
+      "vintage": 2020
     },
     {
       "lot_id": "2378000",
@@ -3096,7 +3376,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Forceful, long-ageing Second Growth"
+      "rating_reason": "Forceful, long-ageing Second Growth",
+      "vintage": 2021
     },
     {
       "lot_id": "2378001",
@@ -3107,7 +3388,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 4,
-      "rating_reason": "Iconic Pomerol, great vintages"
+      "rating_reason": "Iconic Pomerol, great vintages",
+      "vintage": 0
     },
     {
       "lot_id": "2384534",
@@ -3118,7 +3400,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 1,
-      "rating_reason": "Mixed lot, unknown producers"
+      "rating_reason": "Mixed lot, unknown producers",
+      "vintage": 1984
     },
     {
       "lot_id": "2377569",
@@ -3129,7 +3412,8 @@
       "auction": "D073",
       "category": "bordeaux",
       "rating_score": 2,
-      "rating_reason": "Mixed lot, uncertain contents"
+      "rating_reason": "Mixed lot, uncertain contents",
+      "vintage": 2012
     },
     {
       "lot_id": "2377541",
@@ -3140,7 +3424,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Mixed lot, unclear producers"
+      "rating_reason": "Mixed lot, unclear producers",
+      "vintage": 2006
     },
     {
       "lot_id": "2376027",
@@ -3151,7 +3436,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Mixed lot, uneven producers"
+      "rating_reason": "Mixed lot, uneven producers",
+      "vintage": 2011
     },
     {
       "lot_id": "2373729",
@@ -3162,7 +3448,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top cru, excellent vintage"
+      "rating_reason": "Top cru, excellent vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2392957",
@@ -3173,7 +3460,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, risky old vintage"
+      "rating_reason": "Top producer, risky old vintage",
+      "vintage": 1976
     },
     {
       "lot_id": "2384928",
@@ -3184,7 +3472,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top Grand Cru, mature peak"
+      "rating_reason": "Top Grand Cru, mature peak",
+      "vintage": 1985
     },
     {
       "lot_id": "2375440",
@@ -3195,7 +3484,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Superlative GC, peak maturity"
+      "rating_reason": "Superlative GC, peak maturity",
+      "vintage": 1989
     },
     {
       "lot_id": "2389732",
@@ -3206,7 +3496,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Dependable producer, mature vintages"
+      "rating_reason": "Dependable producer, mature vintages",
+      "vintage": 1990
     },
     {
       "lot_id": "2392863",
@@ -3217,7 +3508,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Aged Premier Cru, charity prestige"
+      "rating_reason": "Aged Premier Cru, charity prestige",
+      "vintage": 1990
     },
     {
       "lot_id": "2388058",
@@ -3228,7 +3520,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Grand Cru, aged well"
+      "rating_reason": "Grand Cru, aged well",
+      "vintage": 1990
     },
     {
       "lot_id": "2386369",
@@ -3239,7 +3532,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic monopole, legendary complexity"
+      "rating_reason": "Iconic monopole, legendary complexity",
+      "vintage": 1992
     },
     {
       "lot_id": "2384940",
@@ -3250,7 +3544,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, legendary producer"
+      "rating_reason": "Iconic Grand Cru, legendary producer",
+      "vintage": 1992
     },
     {
       "lot_id": "2384925",
@@ -3261,7 +3556,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 1993
     },
     {
       "lot_id": "2376378",
@@ -3272,7 +3568,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Legendary producer, mature regional"
+      "rating_reason": "Legendary producer, mature regional",
+      "vintage": 1999
     },
     {
       "lot_id": "2376380",
@@ -3283,7 +3580,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Legendary producer elevates regional"
+      "rating_reason": "Legendary producer elevates regional",
+      "vintage": 1999
     },
     {
       "lot_id": "2377999",
@@ -3294,7 +3592,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, stellar vintage"
+      "rating_reason": "Grand Cru, stellar vintage",
+      "vintage": 1999
     },
     {
       "lot_id": "2375561",
@@ -3305,7 +3604,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Legendary producer elevates basic appellation"
+      "rating_reason": "Legendary producer elevates basic appellation",
+      "vintage": 2000
     },
     {
       "lot_id": "2377276",
@@ -3316,7 +3616,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Grand Cru, solid producer"
+      "rating_reason": "Grand Cru, solid producer",
+      "vintage": 2000
     },
     {
       "lot_id": "2389980",
@@ -3327,7 +3628,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, premier cru"
+      "rating_reason": "Top producer, premier cru",
+      "vintage": 2000
     },
     {
       "lot_id": "2377277",
@@ -3338,7 +3640,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Grand Cru, aging gracefully"
+      "rating_reason": "Grand Cru, aging gracefully",
+      "vintage": 2001
     },
     {
       "lot_id": "2387131",
@@ -3349,7 +3652,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Premier Cru site"
+      "rating_reason": "Top Premier Cru site",
+      "vintage": 2001
     },
     {
       "lot_id": "2393485",
@@ -3360,7 +3664,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top village producer, aging well"
+      "rating_reason": "Top village producer, aging well",
+      "vintage": 2001
     },
     {
       "lot_id": "2379459",
@@ -3371,7 +3676,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic producer, stellar vintage"
+      "rating_reason": "Iconic producer, stellar vintage",
+      "vintage": 2002
     },
     {
       "lot_id": "2377966",
@@ -3382,7 +3688,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, superb vintage"
+      "rating_reason": "Grand Cru, superb vintage",
+      "vintage": 2002
     },
     {
       "lot_id": "2377968",
@@ -3393,7 +3700,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, stellar vintage"
+      "rating_reason": "Grand Cru, stellar vintage",
+      "vintage": 2002
     },
     {
       "lot_id": "2389045",
@@ -3404,7 +3712,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, aged well"
+      "rating_reason": "Top premier cru, aged well",
+      "vintage": 2002
     },
     {
       "lot_id": "2377885",
@@ -3415,7 +3724,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Négociant, great GC site"
+      "rating_reason": "Négociant, great GC site",
+      "vintage": 2003
     },
     {
       "lot_id": "2380644",
@@ -3426,7 +3736,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary depth"
+      "rating_reason": "Iconic estate, legendary depth",
+      "vintage": 2004
     },
     {
       "lot_id": "2393034",
@@ -3437,7 +3748,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, legendary cuvée"
+      "rating_reason": "Iconic Grand Cru, legendary cuvée",
+      "vintage": 2005
     },
     {
       "lot_id": "2392404",
@@ -3448,7 +3760,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic producer, stellar vintage"
+      "rating_reason": "Iconic producer, stellar vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2385452",
@@ -3459,7 +3772,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2389913",
@@ -3470,7 +3784,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, great vintage"
+      "rating_reason": "Top producer, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2389046",
@@ -3481,7 +3796,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Premier Cru, great vintage"
+      "rating_reason": "Top Premier Cru, great vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2393704",
@@ -3492,7 +3808,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2392416",
@@ -3503,7 +3820,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, stellar vintage"
+      "rating_reason": "Iconic estate, stellar vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2393706",
@@ -3514,7 +3832,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, stellar vintage"
+      "rating_reason": "Top premier cru, stellar vintage",
+      "vintage": 2005
     },
     {
       "lot_id": "2385106",
@@ -3525,7 +3844,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, premier cru site"
+      "rating_reason": "Top producer, premier cru site",
+      "vintage": 2006
     },
     {
       "lot_id": "2378020",
@@ -3536,7 +3856,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic GC, aging gracefully"
+      "rating_reason": "Iconic GC, aging gracefully",
+      "vintage": 2006
     },
     {
       "lot_id": "2392403",
@@ -3547,7 +3868,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic producer, Grand Cru"
+      "rating_reason": "Iconic producer, Grand Cru",
+      "vintage": 2006
     },
     {
       "lot_id": "2388943",
@@ -3558,7 +3880,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, excellent vintage"
+      "rating_reason": "Grand Cru, excellent vintage",
+      "vintage": 2006
     },
     {
       "lot_id": "2392417",
@@ -3569,7 +3892,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary Grand Cru"
+      "rating_reason": "Iconic estate, legendary Grand Cru",
+      "vintage": 2006
     },
     {
       "lot_id": "2387121",
@@ -3580,7 +3904,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top estate, premier cru"
+      "rating_reason": "Top estate, premier cru",
+      "vintage": 2006
     },
     {
       "lot_id": "2392407",
@@ -3591,7 +3916,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic monopole, extraordinary complexity"
+      "rating_reason": "Iconic monopole, extraordinary complexity",
+      "vintage": 2007
     },
     {
       "lot_id": "2387124",
@@ -3602,7 +3928,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary depth"
+      "rating_reason": "Iconic estate, legendary depth",
+      "vintage": 2007
     },
     {
       "lot_id": "2392410",
@@ -3613,7 +3940,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary depth"
+      "rating_reason": "Iconic estate, legendary depth",
+      "vintage": 2007
     },
     {
       "lot_id": "2377967",
@@ -3624,7 +3952,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top estate, premier cru"
+      "rating_reason": "Top estate, premier cru",
+      "vintage": 2008
     },
     {
       "lot_id": "2377969",
@@ -3635,7 +3964,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top estate, village-level elegance"
+      "rating_reason": "Top estate, village-level elegance",
+      "vintage": 2008
     },
     {
       "lot_id": "2392151",
@@ -3646,7 +3976,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, aging well"
+      "rating_reason": "Top premier cru, aging well",
+      "vintage": 2008
     },
     {
       "lot_id": "2388984",
@@ -3657,7 +3988,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, great cellar"
+      "rating_reason": "Top premier cru, great cellar",
+      "vintage": 2008
     },
     {
       "lot_id": "2377942",
@@ -3668,7 +4000,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, legendary Grand Cru"
+      "rating_reason": "Iconic estate, legendary Grand Cru",
+      "vintage": 2008
     },
     {
       "lot_id": "2392425",
@@ -3679,7 +4012,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, premier cru"
+      "rating_reason": "Iconic estate, premier cru",
+      "vintage": 2008
     },
     {
       "lot_id": "2393057",
@@ -3690,7 +4024,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Village level, large negociant"
+      "rating_reason": "Village level, large negociant",
+      "vintage": 2008
     },
     {
       "lot_id": "2393002",
@@ -3701,7 +4036,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Burgundy grower, broad range"
+      "rating_reason": "Top Burgundy grower, broad range",
+      "vintage": 2008
     },
     {
       "lot_id": "2384343",
@@ -3712,7 +4048,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2388862",
@@ -3723,7 +4060,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2388855",
@@ -3734,7 +4072,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "GC, great vintage, solid"
+      "rating_reason": "GC, great vintage, solid",
+      "vintage": 2009
     },
     {
       "lot_id": "2388857",
@@ -3745,7 +4084,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, excellent vintage"
+      "rating_reason": "Grand Cru, excellent vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2373040",
@@ -3756,7 +4096,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top GC, stellar vintage"
+      "rating_reason": "Top GC, stellar vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2392380",
@@ -3767,7 +4108,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic producer, stellar vintage"
+      "rating_reason": "Iconic producer, stellar vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2377935",
@@ -3778,7 +4120,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, great vintage"
+      "rating_reason": "Top producer, great vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2376299",
@@ -3789,7 +4132,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2390141",
@@ -3800,7 +4144,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, great vintage"
+      "rating_reason": "Top producer, great vintage",
+      "vintage": 2009
     },
     {
       "lot_id": "2377978",
@@ -3811,7 +4156,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Négociant, not top-tier producer"
+      "rating_reason": "Négociant, not top-tier producer",
+      "vintage": 2010
     },
     {
       "lot_id": "2388584",
@@ -3822,7 +4168,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Legendary producer, stellar vintage"
+      "rating_reason": "Legendary producer, stellar vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2377965",
@@ -3833,7 +4180,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, stellar vintage"
+      "rating_reason": "Grand Cru, stellar vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2391436",
@@ -3844,7 +4192,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, stellar vintage"
+      "rating_reason": "Iconic Grand Cru, stellar vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2393835",
@@ -3855,7 +4204,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Three-star producer, premier cru"
+      "rating_reason": "Three-star producer, premier cru",
+      "vintage": 2010
     },
     {
       "lot_id": "2393836",
@@ -3866,7 +4216,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, great vintage"
+      "rating_reason": "Top premier cru, great vintage",
+      "vintage": 2010
     },
     {
       "lot_id": "2393052",
@@ -3877,7 +4228,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Strong vintage, fine Premier Cru"
+      "rating_reason": "Strong vintage, fine Premier Cru",
+      "vintage": 2010
     },
     {
       "lot_id": "2376017",
@@ -3888,7 +4240,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Grand Cru, decent vintage"
+      "rating_reason": "Grand Cru, decent vintage",
+      "vintage": 2011
     },
     {
       "lot_id": "2384309",
@@ -3899,7 +4252,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Solid estate, premier cru"
+      "rating_reason": "Solid estate, premier cru",
+      "vintage": 2011
     },
     {
       "lot_id": "2373039",
@@ -3910,7 +4264,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2012
     },
     {
       "lot_id": "2376304",
@@ -3921,7 +4276,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent premier cru"
+      "rating_reason": "Top producer, excellent premier cru",
+      "vintage": 2012
     },
     {
       "lot_id": "2389887",
@@ -3932,7 +4288,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, great vintage"
+      "rating_reason": "Grand Cru, great vintage",
+      "vintage": 2012
     },
     {
       "lot_id": "2389914",
@@ -3943,7 +4300,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Volnay, excellent premier cru"
+      "rating_reason": "Top Volnay, excellent premier cru",
+      "vintage": 2012
     },
     {
       "lot_id": "2373630",
@@ -3954,7 +4312,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, ageworthy"
+      "rating_reason": "Top premier cru, ageworthy",
+      "vintage": 2012
     },
     {
       "lot_id": "2376339",
@@ -3965,7 +4324,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Premier Cru, improving producer"
+      "rating_reason": "Top Premier Cru, improving producer",
+      "vintage": 2013
     },
     {
       "lot_id": "2381738",
@@ -3976,7 +4336,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Legendary producer, iconic Grand Cru"
+      "rating_reason": "Legendary producer, iconic Grand Cru",
+      "vintage": 2013
     },
     {
       "lot_id": "2385291",
@@ -3987,7 +4348,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Legendary producer, iconic Grand Cru"
+      "rating_reason": "Legendary producer, iconic Grand Cru",
+      "vintage": 2013
     },
     {
       "lot_id": "2388050",
@@ -3998,7 +4360,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Revitalized estate, elegant village"
+      "rating_reason": "Revitalized estate, elegant village",
+      "vintage": 2013
     },
     {
       "lot_id": "2393168",
@@ -4009,7 +4372,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic old-vine Grand Cru"
+      "rating_reason": "Iconic old-vine Grand Cru",
+      "vintage": 2013
     },
     {
       "lot_id": "2385292",
@@ -4020,7 +4384,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Legendary producer, grand cru"
+      "rating_reason": "Legendary producer, grand cru",
+      "vintage": 2013
     },
     {
       "lot_id": "2373036",
@@ -4031,7 +4396,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Grand Cru, good vintage"
+      "rating_reason": "Grand Cru, good vintage",
+      "vintage": 2013
     },
     {
       "lot_id": "2376341",
@@ -4042,7 +4408,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Grand Cru, solid vintage"
+      "rating_reason": "Grand Cru, solid vintage",
+      "vintage": 2013
     },
     {
       "lot_id": "2376021",
@@ -4053,7 +4420,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, decent vintage"
+      "rating_reason": "Top premier cru, decent vintage",
+      "vintage": 2013
     },
     {
       "lot_id": "2376302",
@@ -4064,7 +4432,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, premier cru site"
+      "rating_reason": "Top producer, premier cru site",
+      "vintage": 2013
     },
     {
       "lot_id": "2389937",
@@ -4075,7 +4444,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, ageworthy"
+      "rating_reason": "Top premier cru, ageworthy",
+      "vintage": 2013
     },
     {
       "lot_id": "2392451",
@@ -4086,7 +4456,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top estate, fine premier cru"
+      "rating_reason": "Top estate, fine premier cru",
+      "vintage": 2013
     },
     {
       "lot_id": "2376822",
@@ -4097,7 +4468,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Obscure premier cru, no bids"
+      "rating_reason": "Obscure premier cru, no bids",
+      "vintage": 2013
     },
     {
       "lot_id": "2377887",
@@ -4108,7 +4480,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top Grand Cru, elegant power"
+      "rating_reason": "Top Grand Cru, elegant power",
+      "vintage": 2014
     },
     {
       "lot_id": "2377888",
@@ -4119,7 +4492,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, top listed producer"
+      "rating_reason": "Grand Cru, top listed producer",
+      "vintage": 2014
     },
     {
       "lot_id": "2377982",
@@ -4130,7 +4504,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, top listed producer"
+      "rating_reason": "Grand Cru, top listed producer",
+      "vintage": 2014
     },
     {
       "lot_id": "2389263",
@@ -4141,7 +4516,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, Grand Cru depth"
+      "rating_reason": "Top producer, Grand Cru depth",
+      "vintage": 2014
     },
     {
       "lot_id": "2393166",
@@ -4152,7 +4528,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Monopole GC, stellar vintage"
+      "rating_reason": "Monopole GC, stellar vintage",
+      "vintage": 2014
     },
     {
       "lot_id": "2392510",
@@ -4163,7 +4540,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, rare red"
+      "rating_reason": "Iconic Grand Cru, rare red",
+      "vintage": 2014
     },
     {
       "lot_id": "2377981",
@@ -4174,7 +4552,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, exceptional vintage"
+      "rating_reason": "Grand Cru, exceptional vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2391899",
@@ -4185,7 +4564,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic producer, stellar vintage"
+      "rating_reason": "Iconic producer, stellar vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2391896",
@@ -4196,7 +4576,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic monopole, stellar vintage"
+      "rating_reason": "Iconic monopole, stellar vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2376024",
@@ -4207,7 +4588,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2376300",
@@ -4218,7 +4600,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2376294",
@@ -4229,7 +4612,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top 1er cru, excellent vintage"
+      "rating_reason": "Top 1er cru, excellent vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2376917",
@@ -4240,7 +4624,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, great vintage"
+      "rating_reason": "Top premier cru, great vintage",
+      "vintage": 2015
     },
     {
       "lot_id": "2389146",
@@ -4251,7 +4636,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, excellent vintages"
+      "rating_reason": "Grand Cru, excellent vintages",
+      "vintage": 2016
     },
     {
       "lot_id": "2389261",
@@ -4262,7 +4648,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2016
     },
     {
       "lot_id": "2391906",
@@ -4273,7 +4660,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic producer, stellar Grand Cru"
+      "rating_reason": "Iconic producer, stellar Grand Cru",
+      "vintage": 2016
     },
     {
       "lot_id": "2387916",
@@ -4284,7 +4672,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Lesser producer, village level"
+      "rating_reason": "Lesser producer, village level",
+      "vintage": 2016
     },
     {
       "lot_id": "2392037",
@@ -4295,7 +4684,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Legendary producer, peak Grand Cru"
+      "rating_reason": "Legendary producer, peak Grand Cru",
+      "vintage": 2017
     },
     {
       "lot_id": "2388185",
@@ -4306,7 +4696,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, stellar producer"
+      "rating_reason": "Grand Cru, stellar producer",
+      "vintage": 2017
     },
     {
       "lot_id": "2377901",
@@ -4317,7 +4708,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic estate, grand cru"
+      "rating_reason": "Iconic estate, grand cru",
+      "vintage": 2017
     },
     {
       "lot_id": "2391916",
@@ -4328,7 +4720,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, legendary producer"
+      "rating_reason": "Iconic Grand Cru, legendary producer",
+      "vintage": 2017
     },
     {
       "lot_id": "2388069",
@@ -4339,7 +4732,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top 1er Cru, reds improved"
+      "rating_reason": "Top 1er Cru, reds improved",
+      "vintage": 2017
     },
     {
       "lot_id": "2377036",
@@ -4350,7 +4744,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top cru, stellar vintages"
+      "rating_reason": "Top cru, stellar vintages",
+      "vintage": 2018
     },
     {
       "lot_id": "2387995",
@@ -4361,7 +4756,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producers, premier cru"
+      "rating_reason": "Top producers, premier cru",
+      "vintage": 2018
     },
     {
       "lot_id": "2386825",
@@ -4372,7 +4768,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, silky village"
+      "rating_reason": "Top producer, silky village",
+      "vintage": 2018
     },
     {
       "lot_id": "2387890",
@@ -4383,7 +4780,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top GC, great vintage"
+      "rating_reason": "Top GC, great vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2388083",
@@ -4394,7 +4792,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, superb vintage"
+      "rating_reason": "Grand Cru, superb vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2388081",
@@ -4405,7 +4804,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Resurgent estate, excellent vintage"
+      "rating_reason": "Resurgent estate, excellent vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2387234",
@@ -4416,7 +4816,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2387939",
@@ -4427,7 +4828,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2387996",
@@ -4438,7 +4840,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, premier cru"
+      "rating_reason": "Top producer, premier cru",
+      "vintage": 2018
     },
     {
       "lot_id": "2388184",
@@ -4449,7 +4852,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Lesser-known producer, no bids"
+      "rating_reason": "Lesser-known producer, no bids",
+      "vintage": 2018
     },
     {
       "lot_id": "2391312",
@@ -4460,7 +4864,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, top producer"
+      "rating_reason": "Iconic Grand Cru, top producer",
+      "vintage": 2018
     },
     {
       "lot_id": "2387929",
@@ -4471,7 +4876,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Premier Cru, excellent vintage"
+      "rating_reason": "Premier Cru, excellent vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2388043",
@@ -4482,7 +4888,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Premier Cru, excellent vintage"
+      "rating_reason": "Premier Cru, excellent vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2394265",
@@ -4493,7 +4900,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top premier cru, great vintage"
+      "rating_reason": "Top premier cru, great vintage",
+      "vintage": 2018
     },
     {
       "lot_id": "2387959",
@@ -4504,7 +4912,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Premier Cru, strong vintage"
+      "rating_reason": "Premier Cru, strong vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2373721",
@@ -4515,7 +4924,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Flagship Premier Cru, strong vintage"
+      "rating_reason": "Flagship Premier Cru, strong vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2392501",
@@ -4526,7 +4936,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, superb vintage"
+      "rating_reason": "Grand Cru, superb vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2387205",
@@ -4537,7 +4948,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, excellent vintage"
+      "rating_reason": "Grand Cru, excellent vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2387703",
@@ -4548,7 +4960,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2388045",
@@ -4559,7 +4972,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2394224",
@@ -4570,7 +4984,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, legendary producer"
+      "rating_reason": "Iconic Grand Cru, legendary producer",
+      "vintage": 2019
     },
     {
       "lot_id": "2388082",
@@ -4581,7 +4996,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Premier Cru, fine vintage"
+      "rating_reason": "Premier Cru, fine vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2388090",
@@ -4592,7 +5008,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Lesser producer, good premier cru"
+      "rating_reason": "Lesser producer, good premier cru",
+      "vintage": 2019
     },
     {
       "lot_id": "2387753",
@@ -4603,7 +5020,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Lesser-known producer, village level"
+      "rating_reason": "Lesser-known producer, village level",
+      "vintage": 2019
     },
     {
       "lot_id": "2388583",
@@ -4614,7 +5032,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2019
     },
     {
       "lot_id": "2387928",
@@ -4625,7 +5044,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Premier Cru, strong estate"
+      "rating_reason": "Premier Cru, strong estate",
+      "vintage": 2020
     },
     {
       "lot_id": "2387755",
@@ -4636,7 +5056,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Elite producer, regional appellation"
+      "rating_reason": "Elite producer, regional appellation",
+      "vintage": 2020
     },
     {
       "lot_id": "2387756",
@@ -4647,7 +5068,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Silky village, stellar 20 vintage"
+      "rating_reason": "Silky village, stellar 20 vintage",
+      "vintage": 2020
     },
     {
       "lot_id": "2387217",
@@ -4658,7 +5080,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Legendary producer, stellar vintage"
+      "rating_reason": "Legendary producer, stellar vintage",
+      "vintage": 2020
     },
     {
       "lot_id": "2388027",
@@ -4669,7 +5092,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Elite Volnay, premier cru"
+      "rating_reason": "Elite Volnay, premier cru",
+      "vintage": 2020
     },
     {
       "lot_id": "2388051",
@@ -4680,7 +5104,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Lesser producer, village level"
+      "rating_reason": "Lesser producer, village level",
+      "vintage": 2020
     },
     {
       "lot_id": "2390479",
@@ -4691,7 +5116,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, listed top producer"
+      "rating_reason": "Grand Cru, listed top producer",
+      "vintage": 2021
     },
     {
       "lot_id": "2375349",
@@ -4702,7 +5128,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Listed top producer, great vintage"
+      "rating_reason": "Listed top producer, great vintage",
+      "vintage": 2021
     },
     {
       "lot_id": "2384843",
@@ -4713,7 +5140,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent 1er cru"
+      "rating_reason": "Top producer, excellent 1er cru",
+      "vintage": 2021
     },
     {
       "lot_id": "2384848",
@@ -4724,7 +5152,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, premier cru"
+      "rating_reason": "Top producer, premier cru",
+      "vintage": 2021
     },
     {
       "lot_id": "2384854",
@@ -4735,7 +5164,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Grand Cru, superb 21 vintage"
+      "rating_reason": "Grand Cru, superb 21 vintage",
+      "vintage": 2021
     },
     {
       "lot_id": "2389207",
@@ -4746,7 +5176,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Reliable village, no bids"
+      "rating_reason": "Reliable village, no bids",
+      "vintage": 2021
     },
     {
       "lot_id": "2390475",
@@ -4757,7 +5188,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Good GC, not top tier"
+      "rating_reason": "Good GC, not top tier",
+      "vintage": 2021
     },
     {
       "lot_id": "2381457",
@@ -4768,7 +5200,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top bio producer, village level"
+      "rating_reason": "Top bio producer, village level",
+      "vintage": 2021
     },
     {
       "lot_id": "2384834",
@@ -4779,7 +5212,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top bio producer, village level"
+      "rating_reason": "Top bio producer, village level",
+      "vintage": 2021
     },
     {
       "lot_id": "2376064",
@@ -4790,7 +5224,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 4,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Top producer, stellar vintage",
+      "vintage": 2021
     },
     {
       "lot_id": "2384852",
@@ -4801,7 +5236,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Premier Cru, stellar producer"
+      "rating_reason": "Top Premier Cru, stellar producer",
+      "vintage": 2021
     },
     {
       "lot_id": "2384853",
@@ -4812,7 +5248,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top Premier Cru, bio pioneer"
+      "rating_reason": "Top Premier Cru, bio pioneer",
+      "vintage": 2021
     },
     {
       "lot_id": "2377912",
@@ -4823,7 +5260,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Top producer, excellent vintage",
+      "vintage": 2021
     },
     {
       "lot_id": "2384345",
@@ -4834,7 +5272,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Village level, good vintage"
+      "rating_reason": "Village level, good vintage",
+      "vintage": 2022
     },
     {
       "lot_id": "2384597",
@@ -4845,7 +5284,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Village level, solid vintage"
+      "rating_reason": "Village level, solid vintage",
+      "vintage": 2022
     },
     {
       "lot_id": "2392126",
@@ -4856,7 +5296,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 3,
-      "rating_reason": "Premier Cru plus solid Rhône"
+      "rating_reason": "Premier Cru plus solid Rhône",
+      "vintage": 2005
     },
     {
       "lot_id": "2393916",
@@ -4867,7 +5308,8 @@
       "auction": "D073",
       "category": "burgundy",
       "rating_score": 2,
-      "rating_reason": "Mixed lot, aged decent wines"
+      "rating_reason": "Mixed lot, aged decent wines",
+      "vintage": 2006
     }
   ]
 }

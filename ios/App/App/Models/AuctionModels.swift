@@ -72,6 +72,8 @@ struct LiveWine: Codable, Identifiable {
     let category: String
     let rating_score: Int
     let rating_reason: String
+    let vintage: Int
 
     var estimateNumeric: Int { estimate.priceNumeric }
+    var age: Int? { vintage > 0 ? 2026 - vintage : nil }
 }
