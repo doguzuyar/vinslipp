@@ -156,7 +156,7 @@ export default function Home() {
 
       {/* App Store Link */}
       <a
-        href="#"
+        href="https://apps.apple.com/app/vinslipp/id6758891213"
         style={{
           display: "inline-flex",
           alignItems: "center",
