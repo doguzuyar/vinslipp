@@ -28,8 +28,18 @@ def format_launch_date(raw_date):
     except (ValueError, TypeError):
         return raw_date
 
+def parse_launch_date(formatted):
+    """Parse a formatted date like 'Mar 5' back to a comparable date string."""
+    try:
+        dt = datetime.strptime(f"{formatted} {datetime.now().year}", '%b %d %Y')
+        return dt.strftime('%Y-%m-%d')
+    except (ValueError, TypeError):
+        return None
+
 SB_API_URL = "https://api-extern.systembolaget.se/sb-api-ecommerce/v1/productsearch/search"
 SB_API_KEY = "cfc702aed3094c86b92d6d4ff7a54c84"
+
+today = datetime.now().strftime('%Y-%m-%d')
 
 def fetch_systembolaget_releases():
     all_products = []
@@ -39,7 +49,7 @@ def fetch_systembolaget_releases():
             f"?size=30&page={page}"
             "&categoryLevel1=Vin"
             "&sortBy=ProductLaunchDate&sortDirection=Descending"
-            "&sellStartFrom=2026-01-01"
+            f"&sellStartFrom={today}"
         )
         req = urllib.request.Request(
             SB_API_URL + params,
@@ -51,18 +61,20 @@ def fetch_systembolaget_releases():
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         products = data.get("products", [])
-        all_products.extend(products)
         total_pages = data.get("metadata", {}).get("totalPages", 1)
-        print(f"  Page {page}/{total_pages} ({len(products)} wines)")
-        if page >= total_pages:
+        # Stop early if all wines on this page launched before today
+        future_on_page = [p for p in products if p.get('productLaunchDate', '') >= today]
+        all_products.extend(future_on_page)
+        print(f"  Page {page}/{total_pages} ({len(future_on_page)} upcoming, {len(products) - len(future_on_page)} past)")
+        if len(future_on_page) == 0 or page >= total_pages:
             break
         page += 1
     return all_products
 
 try:
-    sb_releases = sorted(
+    new_releases = sorted(
         [w for w in fetch_systembolaget_releases()
-         if w.get('productLaunchDate', '') >= '2026-01-01'
+         if w.get('productLaunchDate', '') >= today
          and w.get('volume', 0) == 750.0],
         key=lambda w: (
             [-c for c in (w.get('productLaunchDate') or '').encode()],
@@ -70,10 +82,23 @@ try:
             w.get('price') or 0
         )
     )
-    print(f"Fetched {len(sb_releases)} wines from Systembolaget (2026+ launches)")
+    print(f"Fetched {len(new_releases)} upcoming wines from Systembolaget (from {today})")
 except Exception as e:
     print(f"Warning: Could not fetch Systembolaget data: {e}")
-    sb_releases = []
+    new_releases = []
+
+# Load existing releases.json to preserve past wines
+existing_wines = []
+try:
+    with open('data/releases.json', 'r', encoding='utf-8') as f:
+        existing_wines = json.load(f).get('wines', [])
+    print(f"Loaded {len(existing_wines)} existing wines from releases.json")
+except (FileNotFoundError, json.JSONDecodeError):
+    print("No existing releases.json found, starting fresh")
+
+# Keep past wines (launched before today), drop future ones (API is the truth for those)
+past_wines = [w for w in existing_wines if w.get('launchDate', '') < today]
+print(f"Keeping {len(past_wines)} past wines, replacing future wines with {len(new_releases)} from API")
 
 RELEASE_FILES = [
     ('data/french_red_releases.txt', 'Frankrike', 'Rött vin'),
@@ -85,10 +110,14 @@ RELEASE_FILES = [
 all_existing_ratings = {}
 for filepath, country_filter, type_filter in RELEASE_FILES:
     ratings = {}
+    past_lines = []
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
+            for raw_line in f:
+                line = raw_line.strip()
+                if not line:
+                    continue
+                # Extract rating from line
                 rated_match = re.match(r'^(.+)\s+\[(★+|\d+)\](?:\s+\((.+?)\))?$', line)
                 if rated_match:
                     base_line = rated_match.group(1).strip()
@@ -98,41 +127,58 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
                         score = len(rating_val) if '★' in rating_val else int(rating_val)
                         reason = rated_match.group(3) or ""
                         ratings[key_match.group(1)] = (score, reason)
+
+                # Check if this is a past wine (keep it) or future (will be replaced)
+                date_match = re.match(r'^\[(.+?)\]', line)
+                if date_match:
+                    parsed_date = parse_launch_date(date_match.group(1))
+                    if parsed_date and parsed_date < today:
+                        past_lines.append(line)
     except FileNotFoundError:
         pass
     all_existing_ratings.update(ratings)
 
+    # Build all lines: past (from file) + future (from API), then sort together
+    all_lines = []
+    for past_line in past_lines:
+        date_m = re.match(r'^\[(.+?)\]', past_line)
+        sort_date = parse_launch_date(date_m.group(1)) if date_m else ''
+        all_lines.append((sort_date or '', past_line))
+    for w in new_releases:
+        if (w.get('country') or '') != country_filter or (w.get('categoryLevel2') or '') != type_filter:
+            continue
+        name = w.get('productNameBold') or ''
+        thin = w.get('productNameThin') or ''
+        if thin:
+            name += f" {thin}"
+        producer = w.get('producerName') or ''
+        vintage = w.get('vintage') or ''
+        price = f"{int(w['price'])} SEK" if w.get('price') else ''
+        raw_date = (w.get('productLaunchDate') or '')[:10]
+        release_date = format_launch_date(raw_date)
+        key = f"{producer} - {name} {vintage} ({price})"
+        line = f"[{release_date}] {key}"
+        rating_data = ratings.get(key)
+        if rating_data is not None:
+            score, reason = rating_data
+            stars = '★' * score
+            line += f" [{stars}] ({reason})" if reason else f" [{stars}]"
+        all_lines.append((raw_date, line))
+    # Sort by date descending (newest first), matching original order
+    all_lines.sort(key=lambda x: x[0], reverse=True)
     with open(filepath, 'w', encoding='utf-8') as f:
-        for w in sb_releases:
-            if (w.get('country') or '') != country_filter or (w.get('categoryLevel2') or '') != type_filter:
-                continue
-            name = w.get('productNameBold') or ''
-            thin = w.get('productNameThin') or ''
-            if thin:
-                name += f" {thin}"
-            producer = w.get('producerName') or ''
-            vintage = w.get('vintage') or ''
-            price = f"{int(w['price'])} SEK" if w.get('price') else ''
-            raw_date = (w.get('productLaunchDate') or '')[:10]
-            release_date = format_launch_date(raw_date)
-            key = f"{producer} - {name} {vintage} ({price})"
-            line = f"[{release_date}] {key}"
-            rating_data = ratings.get(key)
-            if rating_data is not None:
-                score, reason = rating_data
-                stars = '★' * score
-                line += f" [{stars}] ({reason})" if reason else f" [{stars}]"
+        for _, line in all_lines:
             f.write(line + "\n")
 
 existing_ratings = all_existing_ratings
 
 os.makedirs('data', exist_ok=True)
 
+# Build releases.json: past wines from existing file + new wines from API
 releases_json = {
-    'wines': [],
-    'totalCount': len(sb_releases),
+    'wines': list(past_wines),
 }
-for w in sb_releases:
+for w in new_releases:
     name_bold = w.get('productNameBold') or ''
     name_thin = w.get('productNameThin') or ''
     wine_name = name_bold + (f" {name_thin}" if name_thin else "")
@@ -163,6 +209,14 @@ for w in sb_releases:
         'ratingReason': rating_data[1] if rating_data else '',
     })
 
+# Sort all wines by date descending, then producer, then price (matching original order)
+releases_json['wines'].sort(key=lambda w: (
+    [-c for c in (w.get('launchDate') or '').encode()],
+    (w.get('producer') or '').lower(),
+    int(w.get('price', '0 SEK').split()[0]) if w.get('price') else 0
+))
+releases_json['totalCount'] = len(releases_json['wines'])
+
 with open('data/releases.json', 'w', encoding='utf-8') as f:
     json.dump(releases_json, f, ensure_ascii=False)
 
@@ -174,4 +228,4 @@ metadata_json = {
 with open('data/metadata.json', 'w', encoding='utf-8') as f:
     json.dump(metadata_json, f, ensure_ascii=False)
 
-print("JSON data written to data/")
+print(f"JSON data written to data/ ({releases_json['totalCount']} total wines)")
