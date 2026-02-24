@@ -29,9 +29,9 @@
 [Mar 2] Chateau de Tracy - Tracy & Cie Pinot Noir 2024 (218 SEK) [★★] (Light Loire Pinot, drink young)
 [Mar 2] Château La Yotte - Chateau La Yotte 2023 (450 SEK) [★★]
 [Mar 2] Dulong Calvet - Calvet Saumur-Champigny 2024 (149 SEK) [★] (Commercial négociant, unlisted producer)
+[Mar 2] Dulong Calvet - Calvet Saumur-Champigny 2024 (149 SEK) [★] (Commercial négociant, unlisted producer)
 [Mar 2] Georges Duboeuf - Morgon Georges Duboeuf 2023 (169 SEK) [★★] (Reliable, affordable Beaujolais cru)
 [Mar 2] Les Grands Chais de France - JP Chenet Cabernet-Syrah 2024 (89 SEK) [★] (Mass-market, thin, forgettable blend)
-[Mar 2] Terranea - Crozes-Hermitage Terrasse Des Chassis 2024 (199 SEK) [★★] (Solid regional Northern Rhône)
 [Mar 1] Chateau Bois Cardon - Château Bois-Cardon Médoc 2024 (120 SEK) [★★] (Sturdy, simple northern Médoc)
 [Feb 27] Château Prieuré-Lichine - Confidences de Prieuré-Lichine 2023 (299 SEK) [★★] (Second label, approachable style)
 [Feb 27] Domaine De L'Argenteille - Domaine de l'Argenteille Tramontane 2024 (149 SEK) [★★] (Unproven producer, regional level)
@@ -55,6 +55,7 @@
 [Feb 13] Domaine Fabrice Gasnier - Les Graves Chinon Domaine Fabrice Gasnier 2023 (169 SEK) [★★] (Fresh Cabernet Franc value)
 [Feb 12] Domaine Jules Desjourneys - Moulin à Vent L'Éphémère Jules Desjourneys 2022 (339 SEK) [★★★] (2022 solid vintage, transcends Gamay)
 [Feb 11] Domaine Philippe et Vincent Jaboulet - Syrah Philippe & Vincent Jaboulet 2021 (189 SEK) [★★] (Solid négociant everyday Syrah)
+[Feb 10] Castelas - Cuvée d’Antan Vieilles Vignes Castelas 2022 (129 SEK) [★★] (Solid organic Provence value)
 [Feb 10] Castelas - Cuvée d’Antan Vieilles Vignes Castelas 2022 (129 SEK) [★★] (Solid organic Provence value)
 [Feb 10] Castelas - Castelas Domaine du Grand Belly 2022 (162 SEK) [★★] (Unrated Provence everyday drinking)
 [Feb 10] Domaine du Salvard - Domaine du Salvard LPS Pinot Noir 2023 (169 SEK) [★★] (Loire regional, everyday quality)
