@@ -69,7 +69,6 @@ class DataService: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: url)
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            print("Fetch error for \(urlString): \(error)")
             return nil
         }
     }

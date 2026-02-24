@@ -12,20 +12,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private var pendingNotificationTab: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Firebase setup
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
 
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            if let error = error {
-                print("⚠️ Push: authorization error: \(error)")
-            }
-            print("✅ Push: authorization granted: \(granted)")
-        }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in }
         application.registerForRemoteNotifications()
-
-        // Shortcut and notification handling moved to UIScene lifecycle for iOS 26+
 
         return true
     }
@@ -36,27 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Messaging.messaging().apnsToken = deviceToken
     }
 
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("⚠️ Push: failed to register: \(error)")
-    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
 
     // MARK: - Firebase MessagingDelegate
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("✅ Push: FCM token: \(fcmToken ?? "nil")")
         restoreNotificationPreference()
     }
 
     private func restoreNotificationPreference() {
         guard let topic = UserDefaults.standard.string(forKey: "notification_topic"),
               NotificationTopics.allValues.contains(topic) else { return }
-        Messaging.messaging().subscribe(toTopic: topic) { error in
-            if let error = error {
-                print("⚠️ Push: restore subscribe error: \(error)")
-            } else {
-                print("✅ Push: restored subscription to '\(topic)'")
-            }
-        }
+        Messaging.messaging().subscribe(toTopic: topic)
     }
 
     // MARK: - UNUserNotificationCenterDelegate

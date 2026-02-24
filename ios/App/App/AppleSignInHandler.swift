@@ -55,7 +55,6 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                                   didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let appleCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
 
-        // Handle deletion re-auth
         if pendingDeletion {
             pendingDeletion = false
             guard let authCodeData = appleCredential.authorizationCode,
@@ -93,7 +92,6 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
 
         Auth.auth().signIn(with: credential) { [weak self] result, error in
             guard let user = result?.user, error == nil else {
-                print("Auth: Apple Sign-In error: \(error?.localizedDescription ?? "unknown")")
                 return
             }
 
@@ -113,7 +111,6 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
 
     func authorizationController(controller: ASAuthorizationController,
                                   didCompleteWithError error: Error) {
-        print("Auth: Apple Sign-In cancelled/error: \(error.localizedDescription)")
     }
 
     // MARK: - Helpers

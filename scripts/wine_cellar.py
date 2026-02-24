@@ -6,7 +6,6 @@ import urllib.parse
 import urllib.request
 from datetime import datetime
 
-# Get last update timestamps
 def get_git_time(filepath):
     try:
         out = subprocess.check_output(
@@ -23,7 +22,6 @@ def get_git_time(filepath):
 auction_updated = get_git_time('auction/auction_stats.json')
 release_updated = datetime.now().strftime('%b %d, %H:%M')
 
-# Fetch latest French red wine releases from Systembolaget
 def format_launch_date(raw_date):
     try:
         return datetime.strptime(raw_date, '%Y-%m-%d').strftime('%b %d').replace(' 0', ' ')
@@ -77,7 +75,6 @@ except Exception as e:
     print(f"Warning: Could not fetch Systembolaget data: {e}")
     sb_releases = []
 
-# Read existing ratings and write filtered release files
 RELEASE_FILES = [
     ('data/french_red_releases.txt', 'Frankrike', 'Rött vin'),
     ('data/french_white_releases.txt', 'Frankrike', 'Vitt vin'),
@@ -129,10 +126,8 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
 
 existing_ratings = all_existing_ratings
 
-# Write JSON data files for Next.js frontend
 os.makedirs('data', exist_ok=True)
 
-# releases.json
 releases_json = {
     'wines': [],
     'totalCount': len(sb_releases),
@@ -171,7 +166,6 @@ for w in sb_releases:
 with open('data/releases.json', 'w', encoding='utf-8') as f:
     json.dump(releases_json, f, ensure_ascii=False)
 
-# metadata.json
 metadata_json = {
     'releaseUpdated': release_updated,
     'auctionUpdated': auction_updated,

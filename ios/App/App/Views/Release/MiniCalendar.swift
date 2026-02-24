@@ -16,14 +16,12 @@ struct MiniCalendar: View {
         let range = calendar.range(of: .day, in: .month, for: displayMonth)!
         let firstDay = calendar.date(from: calendar.dateComponents([.year, .month], from: displayMonth))!
         let weekday = calendar.component(.weekday, from: firstDay)
-        // Adjust for Monday start (weekday 1 = Sunday → offset 6, Monday → offset 0)
-        let offset = (weekday + 5) % 7
+        let offset = (weekday + 5) % 7 // Monday-start offset
 
         var days: [Date?] = Array(repeating: nil, count: offset)
         for day in range {
             days.append(calendar.date(byAdding: .day, value: day - 1, to: firstDay))
         }
-        // Pad to complete final week
         while days.count % 7 != 0 {
             days.append(nil)
         }
@@ -32,7 +30,6 @@ struct MiniCalendar: View {
 
     var body: some View {
         VStack(spacing: 4) {
-            // Month navigation
             HStack {
                 Text(monthLabel)
                     .font(.subheadline.weight(.semibold))
@@ -74,7 +71,6 @@ struct MiniCalendar: View {
                 }
             }
 
-            // Day grid
             ForEach(Array(weeks.enumerated()), id: \.offset) { _, week in
                 HStack(spacing: 0) {
                     ForEach(0..<7, id: \.self) { index in
@@ -89,7 +85,6 @@ struct MiniCalendar: View {
                 }
             }
         }
-        .padding(.vertical, 0)
     }
 
     private var todayString: String {
@@ -106,11 +101,7 @@ struct MiniCalendar: View {
         let wineCount = filteredDateCounts[dateStr] ?? 0
 
         Button {
-            if selectedDate == dateStr {
-                selectedDate = nil
-            } else {
-                selectedDate = dateStr
-            }
+            selectedDate = selectedDate == dateStr ? nil : dateStr
         } label: {
             ZStack {
                 if isSelected {

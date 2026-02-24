@@ -123,7 +123,7 @@ function ServiceList({ items }: {
           lineHeight: 1.6,
         }}>
           <span style={{ fontWeight: 600 }}>{item.name}</span>
-          <span style={{ color: "var(--text-muted)" }}> — {item.desc}</span>
+          <span style={{ color: "var(--text-muted)" }}> | {item.desc}</span>
           {item.link && (
             <span>
               {" "}(

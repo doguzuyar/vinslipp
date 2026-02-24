@@ -134,7 +134,6 @@ class CellarService: ObservableObject {
     // MARK: - Process Vivino Data
 
     private func processCellar(cellarRows: [[String: String]], priceRows: [[String: String]], wineListRows: [[String: String]] = []) -> CellarData {
-        // Build note lookup from wine list CSV (only source for Personal Note)
         var noteLookup: [String: String] = [:]
         for row in wineListRows {
             guard let link = row["Link to wine"], !link.isEmpty else { continue }
@@ -171,15 +170,13 @@ class CellarService: ObservableObject {
             let price = formatPrice(priceRaw)
             let priceNum = priceRaw.priceNumeric
 
-            // Parse drink years from Personal Note (wine list or prices CSV)
             let note = noteLookup[link] ?? ""
             let drinkYears = note.split(separator: ",")
                 .map { $0.trimmingCharacters(in: .whitespaces) }
                 .filter { $0.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
 
             if drinkYears.isEmpty {
-                // Fall back to vintage year when no drink years are set
-                let year = vintage.isEmpty ? "—" : vintage
+                let year = vintage.isEmpty ? "-" : vintage
                 let yearInt = Int(year)
                 let color = yearInt.map { AppColors.color(forYear: $0) } ?? "#888888"
                 if let yearInt { allYears.insert(yearInt) }
@@ -211,8 +208,7 @@ class CellarService: ObservableObject {
                 }
             }
 
-            // Track vintage counts separately
-            let vintageKey = vintage.isEmpty ? "—" : vintage
+            let vintageKey = vintage.isEmpty ? "-" : vintage
             vintageCounts[vintageKey, default: 0] += totalCount
 
             totalBottles += totalCount

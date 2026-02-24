@@ -11,7 +11,7 @@ export default function Support() {
         Support
       </h1>
       <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 48, marginTop: 0 }}>
-        Vinslipp — Systembolaget Release Tracker
+        Vinslipp | Systembolaget Release Tracker
       </p>
 
       <Section title="Contact">
@@ -20,7 +20,7 @@ export default function Support() {
           <a href="mailto:doguziylan@icloud.com" style={{ color: "var(--accent)", textDecoration: "none" }}>
             doguziylan@icloud.com
           </a>
-          . We typically respond within 1–2 business days.
+          . We typically respond within 1 to 2 business days.
         </p>
       </Section>
 

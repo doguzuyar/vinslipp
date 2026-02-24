@@ -8,7 +8,6 @@ struct WineRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
-                // Color indicator
                 RoundedRectangle(cornerRadius: 2)
                     .fill(Color(hex: rowColor))
                     .frame(width: 4, height: 44)

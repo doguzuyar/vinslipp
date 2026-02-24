@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Vinslipp — Wine Releases & Collection Tracking",
+  title: "Vinslipp | Wine Releases & Collection Tracking",
   description:
     "Track Systembolaget releases, manage your cellar, and explore auction data. Available on iOS.",
 };

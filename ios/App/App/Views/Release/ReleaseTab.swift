@@ -52,7 +52,6 @@ struct ReleaseTab: View {
         filtered(allWines.filter { $0.launchDate < todayString })
     }
 
-    /// Filtered wines excluding the date filter — used for calendar dot counts
     private var filteredDateCounts: [String: Int] {
         let wines = filteredExcludingDate(allWines)
         var counts: [String: Int] = [:]
@@ -410,9 +409,9 @@ struct ReleaseTab: View {
 
     private func ratingLabel(for rating: String) -> String {
         switch rating {
-        case "4 Stars": return "★★★★"
-        case "3+ Stars": return "★★★+"
-        case "3 Stars": return "★★★"
+        case "4 Stars": return "\u{2605}\u{2605}\u{2605}\u{2605}"
+        case "3+ Stars": return "\u{2605}\u{2605}\u{2605}+"
+        case "3 Stars": return "\u{2605}\u{2605}\u{2605}"
         default: return rating
         }
     }

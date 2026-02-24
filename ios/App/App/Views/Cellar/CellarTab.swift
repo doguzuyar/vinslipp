@@ -381,7 +381,6 @@ struct CellarTab: View {
             }
         }
 
-        // If only one file selected, treat it as cellar
         if urls.count == 1 && cellarData == nil {
             cellarData = pricesData ?? wineListData
             pricesData = nil

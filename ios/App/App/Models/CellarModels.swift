@@ -65,7 +65,6 @@ enum AppColors {
         return result
     }
 
-    /// Assign colors to sorted release dates (same cycling logic as years)
     static func buildDateColors(dates: [String]) -> [String: String] {
         let sorted = Set(dates).sorted()
         var result: [String: String] = [:]

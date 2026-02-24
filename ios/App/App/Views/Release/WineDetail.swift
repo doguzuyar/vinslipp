@@ -71,7 +71,6 @@ private struct BlogSheet: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
-                // Wine info header
                 VStack(alignment: .leading, spacing: 2) {
                     Text(wine.producer)
                         .font(.subheadline.weight(.semibold))

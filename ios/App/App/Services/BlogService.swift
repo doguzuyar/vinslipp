@@ -65,7 +65,6 @@ class BlogService: ObservableObject {
             if posts.isEmpty {
                 self.error = "Failed to load blog posts"
             }
-            print("BlogService error: \(error)")
         }
         isLoading = false
     }
@@ -93,7 +92,6 @@ class BlogService: ObservableObject {
             UserDefaults.standard.set(Date(), forKey: Self.lastPostDateKey)
             return true
         } catch {
-            print("Add post error: \(error)")
             return false
         }
     }
@@ -103,7 +101,6 @@ class BlogService: ObservableObject {
             try await db.collection("blog_posts").document(postId).delete()
             posts.removeAll { $0.id == postId }
         } catch {
-            print("Delete error: \(error)")
         }
     }
 }

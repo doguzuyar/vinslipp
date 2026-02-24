@@ -138,7 +138,6 @@ private struct WineGroupCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Wine header
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(winery)
@@ -160,7 +159,6 @@ private struct WineGroupCard: View {
             .padding(.top, 14)
             .padding(.bottom, 12)
 
-            // Comments
             ForEach(Array(posts.enumerated()), id: \.element.id) { index, post in
                 if index > 0 {
                     Divider()

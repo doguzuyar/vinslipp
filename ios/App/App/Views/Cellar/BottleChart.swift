@@ -21,11 +21,7 @@ struct BottleChart: View {
             HStack(alignment: .bottom, spacing: 8) {
                 ForEach(sortedYears, id: \.year) { entry in
                     Button {
-                        if selectedYear == entry.year {
-                            selectedYear = nil
-                        } else {
-                            selectedYear = entry.year
-                        }
+                        selectedYear = selectedYear == entry.year ? nil : entry.year
                     } label: {
                         VStack(spacing: 4) {
                             Text("\(entry.count)")

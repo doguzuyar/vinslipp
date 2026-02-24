@@ -34,11 +34,9 @@ struct ProfileTab: View {
             handleFiles(result)
         }
         .onChange(of: notificationTopic) { _, newValue in
-            // Unsubscribe from all topics first
             for topic in NotificationTopics.allValues {
                 Messaging.messaging().unsubscribe(fromTopic: topic)
             }
-            // Subscribe to the selected topic
             if newValue != "none" {
                 Messaging.messaging().subscribe(toTopic: newValue)
             }
