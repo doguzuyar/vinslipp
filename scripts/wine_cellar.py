@@ -82,6 +82,17 @@ try:
             w.get('price') or 0
         )
     )
+    # Deduplicate API results by productNumber
+    deduped = []
+    seen_pn = set()
+    for w in new_releases:
+        pn = w.get('productNumber') or ''
+        if pn and pn in seen_pn:
+            continue
+        if pn:
+            seen_pn.add(pn)
+        deduped.append(w)
+    new_releases = deduped
     print(f"Fetched {len(new_releases)} upcoming wines from Systembolaget (from {today})")
 except Exception as e:
     print(f"Warning: Could not fetch Systembolaget data: {e}")
@@ -97,7 +108,18 @@ except (FileNotFoundError, json.JSONDecodeError):
     print("No existing releases.json found, starting fresh")
 
 # Keep past wines (launched before today), drop future ones (API is the truth for those)
-past_wines = [w for w in existing_wines if w.get('launchDate', '') < today]
+# Deduplicate by productNumber
+seen_products = set()
+past_wines = []
+for w in existing_wines:
+    if w.get('launchDate', '') >= today:
+        continue
+    pn = w.get('productNumber', '')
+    if pn and pn in seen_products:
+        continue
+    if pn:
+        seen_products.add(pn)
+    past_wines.append(w)
 print(f"Keeping {len(past_wines)} past wines, replacing future wines with {len(new_releases)} from API")
 
 RELEASE_FILES = [
@@ -140,10 +162,15 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
 
     # Build all lines: past (from file) + future (from API), then sort together
     all_lines = []
+    seen_keys = set()
     for past_line in past_lines:
         date_m = re.match(r'^\[(.+?)\]', past_line)
         sort_date = parse_launch_date(date_m.group(1)) if date_m else ''
-        all_lines.append((sort_date or '', past_line))
+        # Deduplicate by stripping rating to get the base line
+        base = re.sub(r'\s+\[★+\](?:\s+\(.+?\))?$', '', past_line)
+        if base not in seen_keys:
+            seen_keys.add(base)
+            all_lines.append((sort_date or '', past_line))
     for w in new_releases:
         if (w.get('country') or '') != country_filter or (w.get('categoryLevel2') or '') != type_filter:
             continue
@@ -157,7 +184,11 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
         raw_date = (w.get('productLaunchDate') or '')[:10]
         release_date = format_launch_date(raw_date)
         key = f"{producer} - {name} {vintage} ({price})"
-        line = f"[{release_date}] {key}"
+        base = f"[{release_date}] {key}"
+        if base in seen_keys:
+            continue
+        seen_keys.add(base)
+        line = base
         rating_data = ratings.get(key)
         if rating_data is not None:
             score, reason = rating_data
@@ -179,6 +210,11 @@ releases_json = {
     'wines': list(past_wines),
 }
 for w in new_releases:
+    pn = w.get('productNumber') or ''
+    if pn and pn in seen_products:
+        continue
+    if pn:
+        seen_products.add(pn)
     name_bold = w.get('productNameBold') or ''
     name_thin = w.get('productNameThin') or ''
     wine_name = name_bold + (f" {name_thin}" if name_thin else "")
