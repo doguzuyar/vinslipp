@@ -108,7 +108,7 @@ private struct BlogSheet: View {
                         }
                         .frame(maxHeight: .infinity)
                     } else {
-                        TextField("Write your tasting note...", text: $comment, axis: .vertical)
+                        TextField("Write your notes...", text: $comment, axis: .vertical)
                             .lineLimit(4...6)
                             .textFieldStyle(.roundedBorder)
 
@@ -134,7 +134,7 @@ private struct BlogSheet: View {
                     }
                 } else {
                     Spacer()
-                    Text("Sign in to write a tasting note")
+                    Text("Sign in to write your notes")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     Spacer()

@@ -46,7 +46,9 @@ struct AuctionTab: View {
         (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
     }()
     @AppStorage("live_selectedRating") private var liveSelectedRating = ""
-    @State private var showComingSoon = false
+    @AppStorage("auction_selectedCountriesData") private var auctionSelectedCountriesData: Data = {
+        (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
+    }()
 
     private var liveSelectedCountries: Set<String> {
         get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedCountriesData)) ?? [] }
@@ -58,6 +60,12 @@ struct AuctionTab: View {
         nonmutating set { liveSelectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
     }
 
+    private var auctionSelectedCountries: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedCountriesData)) ?? [] }
+        nonmutating set { auctionSelectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private var auctionCountryFilters: [String] { ["France"] }
     private var liveCountryFilters: [String] { ["France"] }
     private var liveTypeFilters: [String] { ["Bordeaux", "Burgundy"] }
 
@@ -126,9 +134,6 @@ struct AuctionTab: View {
             if showLive && dataService.liveWinesData == nil {
                 await dataService.loadLiveWines()
             }
-        }
-        .alert("Coming soon", isPresented: $showComingSoon) {
-            Button("OK", role: .cancel) {}
         }
     }
 
@@ -225,11 +230,11 @@ struct AuctionTab: View {
 
     private func liveHeader(data: LiveWinesData) -> some View {
         HStack {
-            Text("\(data.total_wines) lots")
+            Text("\(data.bordeaux_count) Bx \u{00B7} \(data.burgundy_count) Burg")
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.secondary)
             Spacer()
-            Text("\(data.bordeaux_count) Bx \u{00B7} \(data.burgundy_count) Burg")
+            Text("\(data.total_wines) lots")
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.secondary)
         }
@@ -320,10 +325,24 @@ struct AuctionTab: View {
                         }
                     }
                 } else {
-                    Button {
-                        showComingSoon = true
+                    Menu {
+                        ForEach(auctionCountryFilters, id: \.self) { country in
+                            Button {
+                                toggleAuctionCountry(country)
+                            } label: {
+                                HStack {
+                                    Text(country)
+                                    if auctionSelectedCountries.contains(country) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
                     } label: {
-                        FilterChipLabel(label: "Country", isActive: false)
+                        FilterChipLabel(
+                            label: "Country",
+                            isActive: !auctionSelectedCountries.isEmpty
+                        )
                     }
                 }
             }
@@ -461,6 +480,12 @@ struct AuctionTab: View {
             }
             return sortDirection == .ascending ? result : !result
         }
+    }
+
+    private func toggleAuctionCountry(_ value: String) {
+        var s = auctionSelectedCountries
+        if s.contains(value) { s.remove(value) } else { s.insert(value) }
+        auctionSelectedCountries = s
     }
 
     private func toggleLiveCountry(_ value: String) {
