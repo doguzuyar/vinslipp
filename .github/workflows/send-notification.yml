@@ -2,43 +2,20 @@ name: Send Wine Notification
 
 on:
   schedule:
-    - cron: '45 7 * * *'   # 09:45 Swedish summer time (CEST, UTC+2)
-    - cron: '45 8 * * *'   # 09:45 Swedish winter time (CET, UTC+1)
+    - cron: '0 8 * * *'    # 10:00 CEST (summer) / 09:00 CET (winter)
   workflow_dispatch:       # Manual trigger
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Skip wrong DST cron
-        id: dst
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "ok=true" >> $GITHUB_OUTPUT
-            echo "Manual trigger, skipping DST check"
-          else
-            STOCKHOLM_HOUR=$(TZ=Europe/Stockholm date "+%-H")
-            if [ "$STOCKHOLM_HOUR" -ge 9 ] && [ "$STOCKHOLM_HOUR" -le 11 ]; then
-              echo "ok=true" >> $GITHUB_OUTPUT
-            else
-              echo "ok=false" >> $GITHUB_OUTPUT
-              echo "Skipping: Stockholm time is ${STOCKHOLM_HOUR}h (wrong DST cron)"
-            fi
-          fi
-
       - uses: actions/checkout@v4
-        if: steps.dst.outputs.ok == 'true'
 
       - name: Check today's releases per category
-        if: steps.dst.outputs.ok == 'true'
         id: check
         run: |
           TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
 
-          # Collect all wines for email
-          ALL_WINES=""
-
-          # Check each category file and output per-topic results
           declare -A TOPIC_MAP
           TOPIC_MAP["french_red_releases.txt"]="french-red"
           TOPIC_MAP["french_white_releases.txt"]="french-white"
@@ -54,29 +31,17 @@ jobs:
 
             FILE_WINES=$(grep "^\[$TODAY\]" "$FILE") || true
             if [ -n "$FILE_WINES" ]; then
-              ALL_WINES="${ALL_WINES}${FILE_WINES}"$'\n'
               TOPICS_WITH_WINES="${TOPICS_WITH_WINES}${TOPIC}"$'\n'
-
-              # Store per-topic wine list
-              ESCAPED=$(echo "$FILE_WINES" | sed 's/$/\\n/' | tr -d '\n')
               echo "wines_${TOPIC//-/_}<<EOF" >> $GITHUB_OUTPUT
               echo "$FILE_WINES" >> $GITHUB_OUTPUT
               echo "EOF" >> $GITHUB_OUTPUT
             fi
           done
 
-          ALL_WINES=$(echo "$ALL_WINES" | sed '/^$/d')
           TOPICS_WITH_WINES=$(echo "$TOPICS_WITH_WINES" | sed '/^$/d')
 
-          if [ -n "$ALL_WINES" ]; then
+          if [ -n "$TOPICS_WITH_WINES" ]; then
             echo "has_wines=true" >> $GITHUB_OUTPUT
-            WINE_COUNT=$(echo "$ALL_WINES" | wc -l | tr -d ' ')
-            echo "wine_count=$WINE_COUNT" >> $GITHUB_OUTPUT
-            {
-              echo "wine_list<<EOF"
-              echo "$ALL_WINES"
-              echo "EOF"
-            } >> $GITHUB_OUTPUT
             {
               echo "topics<<EOF"
               echo "$TOPICS_WITH_WINES"
@@ -87,7 +52,7 @@ jobs:
           fi
 
       - name: Send push notifications per category
-        if: steps.dst.outputs.ok == 'true' && steps.check.outputs.has_wines == 'true'
+        if: steps.check.outputs.has_wines == 'true'
         run: |
           pip install google-auth requests
           python3 << 'PYEOF'
