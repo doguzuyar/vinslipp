@@ -359,41 +359,9 @@ struct CellarTab: View {
         }
     }
 
-    // MARK: - File Import
-
     private func handleFiles(_ result: Result<[URL], Error>) {
         guard case .success(let urls) = result, !urls.isEmpty else { return }
-
-        var cellarData: Data?
-        var pricesData: Data?
-        var wineListData: Data?
-
-        for url in urls {
-            guard url.startAccessingSecurityScopedResource() else { continue }
-            defer { url.stopAccessingSecurityScopedResource() }
-            guard let data = try? Data(contentsOf: url) else { continue }
-
-            switch CSVFileType.detect(from: data) {
-            case .prices: pricesData = data
-            case .cellar: cellarData = data
-            case .wineList: wineListData = data
-            case nil: cellarData = data
-            }
-        }
-
-        if urls.count == 1 && cellarData == nil {
-            cellarData = pricesData ?? wineListData
-            pricesData = nil
-            wineListData = nil
-        }
-
-        if cellarData != nil || wineListData != nil {
-            cellarService.importFiles(
-                cellarCSV: cellarData,
-                wineListCSV: wineListData,
-                pricesCSV: pricesData
-            )
-        }
+        cellarService.importFromURLs(urls)
     }
 }
 
@@ -505,13 +473,14 @@ private struct HistoryWineRow: View {
 
 struct CellarWineDetail: View {
     let wine: CellarWine
+    @State private var safariURL: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Divider()
 
             if !wine.link.isEmpty, let url = URL(string: wine.link) {
-                Link(destination: url) {
+                Button { safariURL = url } label: {
                     Label("Vivino", systemImage: "globe")
                         .font(.caption.weight(.medium))
                 }
@@ -529,5 +498,9 @@ struct CellarWineDetail: View {
         }
         .padding(.horizontal, 28)
         .padding(.bottom, 10)
+        .sheet(item: $safariURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
     }
 }

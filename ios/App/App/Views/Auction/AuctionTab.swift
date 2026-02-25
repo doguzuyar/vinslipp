@@ -301,7 +301,7 @@ struct AuctionTab: View {
                                 liveSelectedRating = liveSelectedRating == rating ? "" : rating
                             } label: {
                                 HStack {
-                                    Text(liveRatingLabel(for: rating))
+                                    Text(ratingLabel(for: rating))
                                     if liveSelectedRating == rating {
                                         Image(systemName: "checkmark")
                                     }
@@ -500,15 +500,6 @@ struct AuctionTab: View {
         liveSelectedTypes = s
     }
 
-    private func liveRatingLabel(for rating: String) -> String {
-        switch rating {
-        case "4 Stars": return "\u{2605}\u{2605}\u{2605}\u{2605}"
-        case "3+ Stars": return "\u{2605}\u{2605}\u{2605}+"
-        case "3 Stars": return "\u{2605}\u{2605}\u{2605}"
-        default: return rating
-        }
-    }
-
     private func clearLiveFilters() {
         liveSelectedCountries = []
         liveSelectedTypes = []
@@ -640,6 +631,7 @@ struct ProducerDetail: View {
 
 struct LiveWineRow: View {
     let wine: LiveWine
+    @State private var safariURL: URL?
 
     private var barColor: Color { .vinslippBurgundy }
 
@@ -691,9 +683,11 @@ struct LiveWineRow: View {
         .padding(.horizontal, 12)
         .contentShape(Rectangle())
         .onTapGesture {
-            if let url = URL(string: wine.url) {
-                UIApplication.shared.open(url)
-            }
+            safariURL = URL(string: wine.url)
+        }
+        .sheet(item: $safariURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
         }
     }
 }

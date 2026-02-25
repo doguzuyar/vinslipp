@@ -4,6 +4,7 @@ import FirebaseAuth
 struct WineDetail: View {
     let wine: ReleaseWine
     @State private var showBlogSheet = false
+    @State private var safariURL: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -18,13 +19,13 @@ struct WineDetail: View {
 
             HStack(spacing: 12) {
                 if let url = URL(string: wine.vivinoLink) {
-                    Link(destination: url) {
+                    Button { safariURL = url } label: {
                         Label("Vivino", systemImage: "globe")
                             .font(.caption.weight(.medium))
                     }
                 }
                 if let url = URL(string: wine.sbLink) {
-                    Link(destination: url) {
+                    Button { safariURL = url } label: {
                         Label("Systembolaget", systemImage: "cart")
                             .font(.caption.weight(.medium))
                     }
@@ -49,6 +50,10 @@ struct WineDetail: View {
         .sheet(isPresented: $showBlogSheet) {
             BlogSheet(wine: wine)
                 .presentationDetents([.medium])
+        }
+        .sheet(item: $safariURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
         }
     }
 }
