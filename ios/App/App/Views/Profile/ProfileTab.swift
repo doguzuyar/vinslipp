@@ -256,41 +256,9 @@ struct ProfileTab: View {
         .frame(maxWidth: 280)
     }
 
-    // MARK: - File Import
-
     private func handleFiles(_ result: Result<[URL], Error>) {
         guard case .success(let urls) = result, !urls.isEmpty else { return }
-
-        var cellarData: Data?
-        var pricesData: Data?
-        var wineListData: Data?
-
-        for url in urls {
-            guard url.startAccessingSecurityScopedResource() else { continue }
-            defer { url.stopAccessingSecurityScopedResource() }
-            guard let data = try? Data(contentsOf: url) else { continue }
-
-            switch CSVFileType.detect(from: data) {
-            case .prices: pricesData = data
-            case .cellar: cellarData = data
-            case .wineList: wineListData = data
-            case nil: cellarData = data
-            }
-        }
-
-        if urls.count == 1 && cellarData == nil {
-            cellarData = pricesData ?? wineListData
-            pricesData = nil
-            wineListData = nil
-        }
-
-        if cellarData != nil || wineListData != nil {
-            cellarService.importFiles(
-                cellarCSV: cellarData,
-                wineListCSV: wineListData,
-                pricesCSV: pricesData
-            )
-        }
+        cellarService.importFromURLs(urls)
     }
 }
 

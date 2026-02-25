@@ -55,6 +55,39 @@ class CellarService: ObservableObject {
         isProcessing = false
     }
 
+    func importFromURLs(_ urls: [URL]) {
+        var cellarData: Data?
+        var pricesData: Data?
+        var wineListData: Data?
+
+        for url in urls {
+            guard url.startAccessingSecurityScopedResource() else { continue }
+            defer { url.stopAccessingSecurityScopedResource() }
+            guard let data = try? Data(contentsOf: url) else { continue }
+
+            switch CSVFileType.detect(from: data) {
+            case .prices: pricesData = data
+            case .cellar: cellarData = data
+            case .wineList: wineListData = data
+            case nil: cellarData = data
+            }
+        }
+
+        if urls.count == 1 && cellarData == nil {
+            cellarData = pricesData ?? wineListData
+            pricesData = nil
+            wineListData = nil
+        }
+
+        if cellarData != nil || wineListData != nil {
+            importFiles(
+                cellarCSV: cellarData,
+                wineListCSV: wineListData,
+                pricesCSV: pricesData
+            )
+        }
+    }
+
     func clearData() {
         cellarData = nil
         historyData = nil

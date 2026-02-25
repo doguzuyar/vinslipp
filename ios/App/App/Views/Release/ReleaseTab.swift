@@ -63,7 +63,7 @@ struct ReleaseTab: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            if let data = dataService.releaseData {
+            if dataService.releaseData != nil {
                 MiniCalendar(
                     dateColors: dateColors,
                     filteredDateCounts: filteredDateCounts,
@@ -407,15 +407,6 @@ struct ReleaseTab: View {
         selectedTypes = s
     }
 
-    private func ratingLabel(for rating: String) -> String {
-        switch rating {
-        case "4 Stars": return "\u{2605}\u{2605}\u{2605}\u{2605}"
-        case "3+ Stars": return "\u{2605}\u{2605}\u{2605}+"
-        case "3 Stars": return "\u{2605}\u{2605}\u{2605}"
-        default: return rating
-        }
-    }
-
     private func clearAllFilters() {
         todayOnly = false
         selectedCountries = []
@@ -464,3 +455,11 @@ struct FilterChipLabel: View {
     }
 }
 
+func ratingLabel(for rating: String) -> String {
+    switch rating {
+    case "4 Stars": return "\u{2605}\u{2605}\u{2605}\u{2605}"
+    case "3+ Stars": return "\u{2605}\u{2605}\u{2605}+"
+    case "3 Stars": return "\u{2605}\u{2605}\u{2605}"
+    default: return rating
+    }
+}
