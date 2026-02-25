@@ -61,6 +61,11 @@ struct ContentView: View {
             if scenePhase == .active {
                 UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                 UNUserNotificationCenter.current().setBadgeCount(0) { _ in }
+
+                if let tab = appDelegate.pendingShortcutTab {
+                    appDelegate.pendingShortcutTab = nil
+                    appDelegate.selectedTab = appDelegate.tabIndex(from: tab)
+                }
             }
         }
     }

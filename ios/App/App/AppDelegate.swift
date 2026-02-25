@@ -8,8 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     @Published var selectedTab: Int = 0
-    private var pendingShortcut: String?
-    private var pendingNotificationTab: String?
+    @Published var pendingShortcutTab: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -20,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
 
         return true
+    }
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        if let shortcut = options.shortcutItem {
+            pendingShortcutTab = tabFromShortcut(shortcut)
+        }
+        let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        config.delegateClass = ShortcutSceneDelegate.self
+        return config
     }
 
     // MARK: - APNs Token Registration
@@ -62,30 +70,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler()
     }
 
-    // MARK: - App Lifecycle
+    // MARK: - Quick Actions
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        let tab = pendingShortcut ?? pendingNotificationTab
-        pendingShortcut = nil
-        pendingNotificationTab = nil
-        if let tab {
-            DispatchQueue.main.async {
-                self.selectedTab = self.tabIndex(from: tab)
-            }
-        }
-    }
-
-    // MARK: - Quick Actions (3D Touch / Haptic Touch)
-
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        let tab = tabFromShortcut(shortcutItem)
-        DispatchQueue.main.async {
-            self.selectedTab = self.tabIndex(from: tab)
-        }
-        completionHandler(true)
-    }
-
-    private func tabFromShortcut(_ item: UIApplicationShortcutItem) -> String {
+    func tabFromShortcut(_ item: UIApplicationShortcutItem) -> String {
         switch item.type {
         case "com.nybroans.vinslipp.release":
             return "release"
@@ -102,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
-    private func tabIndex(from name: String) -> Int {
+    func tabIndex(from name: String) -> Int {
         switch name {
         case "release": return 0
         case "cellar": return 1
