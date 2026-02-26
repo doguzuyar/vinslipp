@@ -28,7 +28,7 @@
 [Mar 2] Bordelaise des Grands Vins - Bordelaise des Grands Vins La Petit Lune 2022 (258 SEK) [★] (Generic négociant, no distinction)
 [Mar 2] Cellier des Princes - Cellier des Princes Nordic Vikings  (119 SEK) [★] (Basic cooperative, lacks distinction)
 [Mar 2] Chateau de Tracy - Tracy & Cie Pinot Noir 2024 (218 SEK) [★★] (Light Loire Pinot, drink young)
-[Mar 2] Château La Yotte - Chateau La Yotte 2023 (450 SEK) [★★]
+[Mar 2] Château La Yotte - Chateau La Yotte 2023 (450 SEK) [★★] (Rating error)
 [Mar 2] Dulong Calvet - Calvet Saumur-Champigny 2024 (149 SEK) [★] (Commercial négociant, unlisted producer)
 [Mar 2] Georges Duboeuf - Morgon Georges Duboeuf 2023 (169 SEK) [★★] (Reliable, affordable Beaujolais cru)
 [Mar 2] Les Grands Chais de France - JP Chenet Cabernet-Syrah 2024 (89 SEK) [★] (Mass-market, thin, forgettable blend)
