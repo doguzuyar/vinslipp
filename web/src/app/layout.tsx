@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     "Track Systembolaget releases, manage your cellar, and explore auction data. Available on iOS.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface LayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en" className="dark">
       <head>
