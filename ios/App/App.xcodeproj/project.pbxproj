@@ -36,6 +36,9 @@
 		F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */; };
 		FF000001000000000000FF01 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000001000000000000FF00 /* SafariView.swift */; };
 		FF000002000000000000FF01 /* ShortcutSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */; };
+		GG000001000000000000GG01 /* NotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = GG000001000000000000GG00 /* NotificationStore.swift */; };
+		GG000002000000000000GG01 /* NotificationCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = GG000002000000000000GG00 /* NotificationCenterView.swift */; };
+		HH000001000000000000HH01 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = HH000001000000000000HH00 /* FavoritesStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +72,9 @@
 		F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF000001000000000000FF00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSceneDelegate.swift; sourceTree = "<group>"; };
+		GG000001000000000000GG00 /* NotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStore.swift; sourceTree = "<group>"; };
+		GG000002000000000000GG00 /* NotificationCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterView.swift; sourceTree = "<group>"; };
+		HH000001000000000000HH00 /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,8 @@
 				AA000002000000000000AA00 /* ReleaseModels.swift */,
 				DD000001000000000000DD00 /* AuctionModels.swift */,
 				EE000001000000000000EE00 /* CellarModels.swift */,
+				GG000001000000000000GG00 /* NotificationStore.swift */,
+				HH000001000000000000HH00 /* FavoritesStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				BB000001000000000000BB00 /* ProfileTab.swift */,
+				GG000002000000000000GG00 /* NotificationCenterView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -320,6 +329,9 @@
 				EE000004000000000000EE01 /* CellarTab.swift in Sources */,
 				FF000001000000000000FF01 /* SafariView.swift in Sources */,
 				FF000002000000000000FF01 /* ShortcutSceneDelegate.swift in Sources */,
+				GG000001000000000000GG01 /* NotificationStore.swift in Sources */,
+				GG000002000000000000GG01 /* NotificationCenterView.swift in Sources */,
+				HH000001000000000000HH01 /* FavoritesStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +480,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
@@ -496,7 +508,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;

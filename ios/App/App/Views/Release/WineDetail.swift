@@ -3,6 +3,7 @@ import FirebaseAuth
 
 struct WineDetail: View {
     let wine: ReleaseWine
+    @EnvironmentObject var appDelegate: AppDelegate
     @State private var showBlogSheet = false
     @State private var safariURL: URL?
 
@@ -35,6 +36,17 @@ struct WineDetail: View {
                 } label: {
                     Label("Blog", systemImage: "square.and.pencil")
                         .font(.caption.weight(.medium))
+                }
+                Spacer()
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        appDelegate.favoritesStore.toggle(wine.productNumber)
+                    }
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                } label: {
+                    Image(systemName: appDelegate.favoritesStore.isFavorite(wine.productNumber) ? "heart.fill" : "heart")
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(appDelegate.favoritesStore.isFavorite(wine.productNumber) ? .red : .secondary)
                 }
             }
 

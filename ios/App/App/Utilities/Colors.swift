@@ -52,6 +52,7 @@ extension String {
 
 enum NotificationTopics {
     static let all: [(value: String, label: String)] = [
+        ("favorites", "Favorites"),
         ("french-red", "French Red"),
         ("french-white", "French White"),
         ("italian-red", "Italian Red"),
@@ -59,6 +60,9 @@ enum NotificationTopics {
     ]
 
     static let allValues: [String] = all.map(\.value)
+
+    /// FCM topics to subscribe to when user selects "favorites".
+    static let categoryTopics = ["french-red", "french-white", "italian-red", "italian-white"]
 }
 
 // MARK: - CSV File Detection

@@ -9,6 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     @Published var selectedTab: Int = 0
     @Published var pendingShortcutTab: String?
+    let notificationStore = NotificationStore()
+    let favoritesStore = FavoritesStore()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -47,7 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private func restoreNotificationPreference() {
         guard let topic = UserDefaults.standard.string(forKey: "notification_topic"),
               NotificationTopics.allValues.contains(topic) else { return }
-        Messaging.messaging().subscribe(toTopic: topic)
+        if topic == "favorites" {
+            for t in NotificationTopics.categoryTopics {
+                Messaging.messaging().subscribe(toTopic: t)
+            }
+        } else {
+            Messaging.messaging().subscribe(toTopic: topic)
+        }
+    }
+
+    private var isFavoritesMode: Bool {
+        UserDefaults.standard.string(forKey: "notification_topic") == "favorites"
     }
 
     // MARK: - UNUserNotificationCenterDelegate
@@ -55,19 +67,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let content = notification.request.content
+        if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
+            completionHandler([])
+            return
+        }
+        notificationStore.add(title: content.title, body: content.body)
         completionHandler([.banner, .badge, .sound])
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
+        let content = response.notification.request.content
+        if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
+            completionHandler()
+            return
+        }
+        notificationStore.add(title: content.title, body: content.body)
+        let userInfo = content.userInfo
         if let tab = userInfo["tab"] as? String {
             DispatchQueue.main.async {
                 self.selectedTab = self.tabIndex(from: tab)
             }
         }
         completionHandler()
+    }
+
+    /// Checks if any wine in the notification's productNumbers is in the user's favorites.
+    private func notificationContainsFavorite(_ userInfo: [AnyHashable: Any]) -> Bool {
+        guard let ids = userInfo["productNumbers"] as? String else { return true }
+        return ids.split(separator: ",").contains { favoritesStore.isFavorite(String($0)) }
     }
 
     // MARK: - Quick Actions

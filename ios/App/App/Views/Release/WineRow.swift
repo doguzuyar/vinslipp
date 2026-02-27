@@ -4,6 +4,7 @@ struct WineRow: View {
     let wine: ReleaseWine
     let isExpanded: Bool
     var rowColor: String = "#888888"
+    var isFavorite: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -17,6 +18,11 @@ struct WineRow: View {
                         Text(wine.producer)
                             .font(.subheadline.weight(.semibold))
                             .lineLimit(1)
+                        if isFavorite {
+                            Image(systemName: "heart.fill")
+                                .font(.system(size: 8))
+                                .foregroundStyle(.red)
+                        }
                         Spacer()
                         if let score = wine.ratingScore, score > 0 {
                             Text(String(repeating: "\u{2605}", count: score))

@@ -10,6 +10,7 @@ enum SortDirection: String {
 
 struct ReleaseTab: View {
     @ObservedObject var dataService: DataService
+    @EnvironmentObject var appDelegate: AppDelegate
     @State private var expandedWineId: String?
     @AppStorage("release_sortField") private var sortField: SortField = .date
     @AppStorage("release_sortDirection") private var sortDirection: SortDirection = .ascending
@@ -245,7 +246,7 @@ struct ReleaseTab: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(sorted(upcomingWines)) { wine in
-                    WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888")
+                    WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888", isFavorite: appDelegate.favoritesStore.isFavorite(wine.id))
                         .contentShape(Rectangle())
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.2)) {
@@ -275,7 +276,7 @@ struct ReleaseTab: View {
 
                     if showPastReleases {
                         ForEach(pastWines.sorted { $0.launchDate > $1.launchDate }) { wine in
-                            WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888")
+                            WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888", isFavorite: appDelegate.favoritesStore.isFavorite(wine.id))
                                 .opacity(0.6)
                                 .contentShape(Rectangle())
                                 .onTapGesture {

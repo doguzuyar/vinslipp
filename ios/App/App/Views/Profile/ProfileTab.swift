@@ -5,10 +5,12 @@ import UniformTypeIdentifiers
 
 struct ProfileTab: View {
     @ObservedObject var cellarService: CellarService
+    @EnvironmentObject var appDelegate: AppDelegate
     @StateObject private var authManager = AuthManager()
     @AppStorage("notification_topic") private var notificationTopic = "none"
     @AppStorage("app_theme") private var appTheme = "dark"
     @State private var showNotifications = false
+    @State private var showNotificationCenter = false
     @State private var showFilePicker = false
     @State private var showDeleteConfirm = false
     @State private var deleteErrorMessage: String?
@@ -26,6 +28,12 @@ struct ProfileTab: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .topTrailing) {
+            notificationBellButton
+        }
+        .sheet(isPresented: $showNotificationCenter) {
+            NotificationCenterView(store: appDelegate.notificationStore)
+        }
         .fileImporter(
             isPresented: $showFilePicker,
             allowedContentTypes: [.commaSeparatedText, .plainText, .data],
@@ -34,13 +42,44 @@ struct ProfileTab: View {
             handleFiles(result)
         }
         .onChange(of: notificationTopic) { _, newValue in
-            for topic in NotificationTopics.allValues {
+            for topic in NotificationTopics.categoryTopics {
                 Messaging.messaging().unsubscribe(fromTopic: topic)
             }
-            if newValue != "none" {
+            if newValue == "favorites" {
+                for topic in NotificationTopics.categoryTopics {
+                    Messaging.messaging().subscribe(toTopic: topic)
+                }
+            } else if newValue != "none" {
                 Messaging.messaging().subscribe(toTopic: newValue)
             }
         }
+    }
+
+    // MARK: - Notification Bell
+
+    private var notificationBellButton: some View {
+        Button {
+            showNotificationCenter = true
+        } label: {
+            ZStack(alignment: .topTrailing) {
+                Image(systemName: "bell")
+                    .font(.system(size: 18))
+                    .foregroundStyle(.primary)
+                    .padding(10)
+
+                if appDelegate.notificationStore.unreadCount > 0 {
+                    Text("\(appDelegate.notificationStore.unreadCount)")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(minWidth: 16, minHeight: 16)
+                        .background(Color.red)
+                        .clipShape(Circle())
+                        .offset(x: -2, y: 2)
+                }
+            }
+        }
+        .padding(.top, 8)
+        .padding(.trailing, 12)
     }
 
     // MARK: - Signed Out
