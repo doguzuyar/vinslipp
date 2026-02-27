@@ -15,10 +15,6 @@ struct ProfileTab: View {
     @State private var showDeleteConfirm = false
     @State private var deleteErrorMessage: String?
 
-    private var notificationOptions: [(value: String, label: String)] {
-        NotificationTopics.all
-    }
-
     var body: some View {
         VStack(spacing: 0) {
             if let user = authManager.user {
@@ -189,7 +185,7 @@ struct ProfileTab: View {
                     withAnimation(.easeInOut(duration: 0.2)) { appTheme = option }
                 } label: {
                     HStack(spacing: 4) {
-                        Image(systemName: option == "dark" ? "moon.fill" : option == "light" ? "sun.max.fill" : "gear")
+                        Image(systemName: themeIcon(for: option))
                             .font(.caption2)
                         Text(option.capitalized)
                             .font(.caption2.weight(.medium))
@@ -208,6 +204,19 @@ struct ProfileTab: View {
         .frame(maxWidth: 280)
     }
 
+    private var notificationTopicLabel: String {
+        if notificationTopic == "none" { return "Off" }
+        return NotificationTopics.all.first { $0.value == notificationTopic }?.label ?? "On"
+    }
+
+    private func themeIcon(for option: String) -> String {
+        switch option {
+        case "dark": return "moon.fill"
+        case "light": return "sun.max.fill"
+        default: return "gear"
+        }
+    }
+
     // MARK: - Notifications
 
     private var notificationButton: some View {
@@ -221,7 +230,7 @@ struct ProfileTab: View {
                     Text("Notifications")
                         .font(.subheadline.weight(.medium))
                     Spacer()
-                    Text(notificationTopic == "none" ? "Off" : notificationOptions.first { $0.value == notificationTopic }?.label ?? "On")
+                    Text(notificationTopicLabel)
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Image(systemName: showNotifications ? "chevron.up" : "chevron.down")
@@ -238,7 +247,7 @@ struct ProfileTab: View {
 
             if showNotifications {
                 VStack(spacing: 4) {
-                    ForEach(notificationOptions, id: \.value) { option in
+                    ForEach(NotificationTopics.all, id: \.value) { option in
                         Button {
                             notificationTopic = notificationTopic == option.value ? "none" : option.value
                         } label: {

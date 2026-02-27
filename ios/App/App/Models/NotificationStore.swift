@@ -34,9 +34,7 @@ class NotificationStore: ObservableObject {
     func add(title: String, body: String) {
         let notification = StoredNotification(title: title, body: body)
         notifications.insert(notification, at: 0)
-        if notifications.count > Self.maxCount {
-            notifications.removeLast(notifications.count - Self.maxCount)
-        }
+        notifications = Array(notifications.prefix(Self.maxCount))
         save()
     }
 

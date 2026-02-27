@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 import FirebaseCore
 import FirebaseAuth
 import FirebaseMessaging
@@ -11,6 +12,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     @Published var pendingShortcutTab: String?
     let notificationStore = NotificationStore()
     let favoritesStore = FavoritesStore()
+    private var cancellables = Set<AnyCancellable>()
+
+    override init() {
+        super.init()
+        favoritesStore.objectWillChange
+            .sink { [weak self] _ in self?.objectWillChange.send() }
+            .store(in: &cancellables)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -102,21 +111,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: - Quick Actions
 
+    private static let shortcutPrefix = "com.nybroans.vinslipp."
+    private static let validTabs: Set<String> = ["release", "cellar", "blog", "auction", "profile"]
+
     func tabFromShortcut(_ item: UIApplicationShortcutItem) -> String {
-        switch item.type {
-        case "com.nybroans.vinslipp.release":
-            return "release"
-        case "com.nybroans.vinslipp.cellar":
-            return "cellar"
-        case "com.nybroans.vinslipp.blog":
-            return "blog"
-        case "com.nybroans.vinslipp.auction":
-            return "auction"
-        case "com.nybroans.vinslipp.profile":
-            return "profile"
-        default:
-            return "release"
-        }
+        let name = item.type.replacingOccurrences(of: Self.shortcutPrefix, with: "")
+        return Self.validTabs.contains(name) ? name : "release"
     }
 
     func tabIndex(from name: String) -> Int {

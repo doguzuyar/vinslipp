@@ -38,16 +38,7 @@ struct WineDetail: View {
                         .font(.caption.weight(.medium))
                 }
                 Spacer()
-                Button {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        appDelegate.favoritesStore.toggle(wine.productNumber)
-                    }
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                } label: {
-                    Image(systemName: appDelegate.favoritesStore.isFavorite(wine.productNumber) ? "heart.fill" : "heart")
-                        .font(.caption.weight(.medium))
-                        .foregroundStyle(appDelegate.favoritesStore.isFavorite(wine.productNumber) ? .red : .secondary)
-                }
+                favoriteButton
             }
 
             HStack(spacing: 16) {
@@ -66,6 +57,20 @@ struct WineDetail: View {
         .sheet(item: $safariURL) { url in
             SafariView(url: url)
                 .ignoresSafeArea()
+        }
+    }
+
+    private var favoriteButton: some View {
+        let isFavorite = appDelegate.favoritesStore.isFavorite(wine.productNumber)
+        return Button {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                appDelegate.favoritesStore.toggle(wine.productNumber)
+            }
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            Image(systemName: isFavorite ? "heart.fill" : "heart")
+                .font(.caption.weight(.medium))
+                .foregroundStyle(isFavorite ? .red : .secondary)
         }
     }
 }
