@@ -34,6 +34,7 @@ __pycache__/
 scripts/rate_wines.py
 scripts/moderate_blog.py
 scripts/server.py
+scripts/seed_comment.py
 scripts/server.sh
 firebase-sa.json
 guide/
