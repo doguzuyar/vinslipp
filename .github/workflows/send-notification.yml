@@ -80,6 +80,14 @@ jobs:
               "italian-white": "Italian White",
           }
 
+          # Load releases.json for product number lookups
+          with open("data/releases.json") as f:
+              releases = json.load(f)
+          product_lookup = {}
+          for w in releases.get("wines", []):
+              key = f"{w.get('wineName', '')} {w.get('vintage', '')}"
+              product_lookup[key] = w.get("productNumber", "")
+
           for topic in topics:
               topic = topic.strip()
               if not topic:
@@ -92,6 +100,7 @@ jobs:
 
               # Parse wines for this category
               wines = []
+              product_numbers = []
               for line in wine_list.strip().split("\n"):
                   if not line.strip():
                       continue
@@ -99,6 +108,9 @@ jobs:
                   if m:
                       name, stars = m.group(1), m.group(2) or ""
                       wines.append((name, stars, len(stars) if stars else 0))
+                      pn = product_lookup.get(name, "")
+                      if pn:
+                          product_numbers.append(pn)
 
               label = topic_labels.get(topic, topic)
               if wines:
@@ -120,7 +132,8 @@ jobs:
                           "body": body_text
                       },
                       "data": {
-                          "tab": "release"
+                          "tab": "release",
+                          "productNumbers": ",".join(product_numbers)
                       },
                       "apns": {
                           "payload": {
