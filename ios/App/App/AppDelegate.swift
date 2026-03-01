@@ -81,7 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             completionHandler([])
             return
         }
-        notificationStore.add(title: content.title, body: content.body)
+        Task { @MainActor in
+            notificationStore.add(title: content.title, body: content.body)
+        }
         completionHandler([.banner, .badge, .sound])
     }
 
@@ -93,7 +95,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             completionHandler()
             return
         }
-        notificationStore.add(title: content.title, body: content.body)
+        Task { @MainActor in
+            notificationStore.add(title: content.title, body: content.body)
+        }
         let userInfo = content.userInfo
         if let tab = userInfo["tab"] as? String {
             DispatchQueue.main.async {
@@ -105,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     /// Checks if any wine in the notification's productNumbers is in the user's favorites.
     private func notificationContainsFavorite(_ userInfo: [AnyHashable: Any]) -> Bool {
-        guard let ids = userInfo["productNumbers"] as? String else { return true }
+        guard let ids = userInfo["productNumbers"] as? String, !ids.isEmpty else { return false }
         return ids.split(separator: ",").contains { favoritesStore.isFavorite(String($0)) }
     }
 
