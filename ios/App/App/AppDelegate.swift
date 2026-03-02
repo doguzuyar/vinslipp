@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         favoritesStore.objectWillChange
             .sink { [weak self] _ in self?.objectWillChange.send() }
             .store(in: &cancellables)
+        notificationStore.objectWillChange
+            .sink { [weak self] _ in self?.objectWillChange.send() }
+            .store(in: &cancellables)
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -56,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     private func restoreNotificationPreference() {
-        guard let topic = UserDefaults.standard.string(forKey: "notification_topic"),
+        guard let topic = Self.sharedDefaults.string(forKey: "notification_topic"),
               NotificationTopics.allValues.contains(topic) else { return }
         if topic == "favorites" {
             for t in NotificationTopics.categoryTopics {
@@ -67,8 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
+    static let sharedDefaults = UserDefaults(suiteName: FavoritesStore.appGroup) ?? .standard
+
     private var isFavoritesMode: Bool {
-        UserDefaults.standard.string(forKey: "notification_topic") == "favorites"
+        Self.sharedDefaults.string(forKey: "notification_topic") == "favorites"
     }
 
     // MARK: - UNUserNotificationCenterDelegate

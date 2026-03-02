@@ -4,7 +4,12 @@ import Foundation
 class FavoritesStore: ObservableObject {
     @Published private(set) var ids: Set<String> = []
 
-    private static let storageKey = "favorite_wines"
+    static let appGroup = "group.com.nybroans.vinslipp"
+    static let storageKey = "favorite_wines"
+
+    private var defaults: UserDefaults {
+        UserDefaults(suiteName: Self.appGroup) ?? .standard
+    }
 
     init() {
         load()
@@ -25,11 +30,11 @@ class FavoritesStore: ObservableObject {
 
     private func save() {
         guard let data = try? JSONEncoder().encode(ids) else { return }
-        UserDefaults.standard.set(data, forKey: Self.storageKey)
+        defaults.set(data, forKey: Self.storageKey)
     }
 
     private func load() {
-        guard let data = UserDefaults.standard.data(forKey: Self.storageKey),
+        guard let data = defaults.data(forKey: Self.storageKey),
               let decoded = try? JSONDecoder().decode(Set<String>.self, from: data) else { return }
         ids = decoded
     }

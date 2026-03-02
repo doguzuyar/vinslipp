@@ -7,7 +7,7 @@ struct ProfileTab: View {
     @ObservedObject var cellarService: CellarService
     @EnvironmentObject var appDelegate: AppDelegate
     @StateObject private var authManager = AuthManager()
-    @AppStorage("notification_topic") private var notificationTopic = "none"
+    @AppStorage("notification_topic", store: UserDefaults(suiteName: FavoritesStore.appGroup)) private var notificationTopic = "none"
     @AppStorage("app_theme") private var appTheme = "dark"
     @State private var showNotifications = false
     @State private var showNotificationCenter = false
