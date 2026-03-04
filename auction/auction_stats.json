@@ -1,12 +1,12 @@
 {
   "summary": {
-    "total_wines": 2374,
-    "total_sold": 2315,
-    "total_unsold": 58,
-    "sell_rate_percent": 97.5,
-    "overall_avg_ratio": 1.043,
-    "overall_avg_premium_percent": 4.3,
-    "unique_producers": 660
+    "total_wines": 2811,
+    "total_sold": 2726,
+    "total_unsold": 84,
+    "sell_rate_percent": 97.0,
+    "overall_avg_ratio": 1.07,
+    "overall_avg_premium_percent": 7.0,
+    "unique_producers": 776
   },
   "producers": {
     "3 de Valandraud": {
@@ -113,6 +113,19 @@
         2019
       ]
     },
+    "Beaune 1er Cru Beaune du Château, Domaine Bouchard & 2012 Châteauneuf-du-Pape, Xavier": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1100,
+      "avg_hammer_sek": 1450,
+      "avg_ratio": 1.318,
+      "premium_percent": 31.8,
+      "vintages": [
+        2006
+      ]
+    },
     "Beaune 1er Cru Bressandes, Albert Morot": {
       "total_lots": 1,
       "sold": 1,
@@ -140,16 +153,17 @@
       ]
     },
     "Beaune 1er Cru Champs-Pimont Rouge, Domaine Jacques Prieur": {
-      "total_lots": 3,
-      "sold": 3,
+      "total_lots": 4,
+      "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 2100,
-      "avg_hammer_sek": 2183,
-      "avg_ratio": 1.04,
-      "premium_percent": 4.0,
+      "avg_hammer_sek": 2187,
+      "avg_ratio": 1.042,
+      "premium_percent": 4.2,
       "vintages": [
-        2019
+        2019,
+        2020
       ]
     },
     "Beaune 1er Cru Clos de la Féguine Monopole Rouge, Domaine Jacques Prieur": {
@@ -166,14 +180,14 @@
       ]
     },
     "Beaune 1er Cru Clos de la Féguine Rouge, Domaine Jacques Prieur": {
-      "total_lots": 3,
-      "sold": 3,
+      "total_lots": 4,
+      "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2800,
-      "avg_hammer_sek": 2983,
-      "avg_ratio": 1.083,
-      "premium_percent": 8.3,
+      "avg_estimate_sek": 2700,
+      "avg_hammer_sek": 2812,
+      "avg_ratio": 1.052,
+      "premium_percent": 5.2,
       "vintages": [
         2019
       ]
@@ -189,6 +203,19 @@
       "premium_percent": 33.4,
       "vintages": [
         2019
+      ]
+    },
+    "Beaune 1er Cru Cuvée Clos des Avaux Hospices de Beaune, Maison Ropiteau": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1500,
+      "avg_ratio": 1.5,
+      "premium_percent": 50.0,
+      "vintages": [
+        1990
       ]
     },
     "Beaune 1er Cru Célèbre les 150 ans de la Masion Louis Jadot, Louis Jadot": {
@@ -215,6 +242,19 @@
       "premium_percent": 50.0,
       "vintages": [
         2015
+      ]
+    },
+    "Beaune 1er Cru Les Teurons, Domaine Bouchard & 2020 Monthélie-Les Duresses 1er Cru, Domaine des Comtes Lafon": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2100,
+      "avg_hammer_sek": 2000,
+      "avg_ratio": 0.952,
+      "premium_percent": -4.8,
+      "vintages": [
+        2018
       ]
     },
     "Beaune 1er Cru Les Tuvilains, Pierre-Olivier Garcia": {
@@ -255,6 +295,19 @@
       "vintages": [
         1986,
         2018
+      ]
+    },
+    "Beaune Grèves 1er Cru, Domaine Chanson": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 1800,
+      "avg_ratio": 1.2,
+      "premium_percent": 20.0,
+      "vintages": [
+        2013
       ]
     },
     "Beaune Les Teurons 1er Cru, Albert Morot": {
@@ -318,6 +371,32 @@
       "avg_hammer_sek": 2100,
       "avg_ratio": 1.507,
       "premium_percent": 50.7,
+      "vintages": [
+        2018
+      ]
+    },
+    "Beaune-Grèves 1er Cru Vigne de l'Enfant Jésus, Bouchard": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1100,
+      "avg_ratio": 1.1,
+      "premium_percent": 10.0,
+      "vintages": [
+        2019
+      ]
+    },
+    "Blason d'Issan": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 1900,
+      "avg_ratio": 1.267,
+      "premium_percent": 26.7,
       "vintages": [
         2018
       ]
@@ -435,6 +514,19 @@
         2003
       ]
     },
+    "Bonnes-Mares, Dominique Laurent (Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 5000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2003
+      ]
+    },
     "Bonnes-Mares, Hervé Roumier": {
       "total_lots": 2,
       "sold": 2,
@@ -461,6 +553,19 @@
       "vintages": [
         1989,
         2017
+      ]
+    },
+    "Bourgogne Hautes Côtes de Nuits Aux Chaumes, Domaine Sylvain Cathiard": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1800,
+      "avg_hammer_sek": 1800,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        2020
       ]
     },
     "Bourgogne Le Chapitre, Domaine Bizot": {
@@ -530,15 +635,16 @@
       ]
     },
     "Bourgogne Rouge, Leroy": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 4,
+      "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 1600,
-      "avg_ratio": 0.8,
-      "premium_percent": -20.0,
+      "avg_estimate_sek": 3500,
+      "avg_hammer_sek": 3450,
+      "avg_ratio": 0.958,
+      "premium_percent": -4.2,
       "vintages": [
+        1999,
         2000
       ]
     },
@@ -626,9 +732,9 @@
       ]
     },
     "Chambertin Clos de Bèze, Domaine & Selection": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 0,
-      "unsold": 1,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 3500,
       "avg_hammer_sek": 0,
@@ -651,15 +757,28 @@
         2009
       ]
     },
+    "Chambertin Clos de Bèze, Domaine Drouhin-Laroze (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 2400,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        2021
+      ]
+    },
     "Chambertin Clos de Bèze, Domaine Faiveley": {
-      "total_lots": 4,
-      "sold": 0,
-      "unsold": 4,
-      "sell_rate": 0.0,
-      "avg_estimate_sek": 9125,
-      "avg_hammer_sek": 0,
-      "avg_ratio": null,
-      "premium_percent": null,
+      "total_lots": 8,
+      "sold": 2,
+      "unsold": 6,
+      "sell_rate": 25.0,
+      "avg_estimate_sek": 8750,
+      "avg_hammer_sek": 2944,
+      "avg_ratio": 0.911,
+      "premium_percent": -8.9,
       "vintages": [
         2014,
         2015
@@ -760,14 +879,14 @@
       ]
     },
     "Chambertin, Domaine A. Rousseau": {
-      "total_lots": 12,
-      "sold": 12,
+      "total_lots": 13,
+      "sold": 13,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 30167,
-      "avg_hammer_sek": 25854,
-      "avg_ratio": 0.866,
-      "premium_percent": -13.4,
+      "avg_estimate_sek": 29231,
+      "avg_hammer_sek": 25327,
+      "avg_ratio": 0.881,
+      "premium_percent": -11.9,
       "vintages": [
         1980,
         1983,
@@ -779,15 +898,17 @@
       ]
     },
     "Chambertin, Domaine Armand Rousseau": {
-      "total_lots": 3,
+      "total_lots": 6,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 87333,
-      "avg_hammer_sek": 76533,
+      "unsold": 3,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 53666,
+      "avg_hammer_sek": 38266,
       "avg_ratio": 0.904,
       "premium_percent": -9.6,
       "vintages": [
+        2013,
+        2017,
         2018,
         2021
       ]
@@ -806,16 +927,17 @@
       ]
     },
     "Chambertin, Domaine Louis Trapet": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 4000,
-      "avg_hammer_sek": 3600,
-      "avg_ratio": 0.9,
-      "premium_percent": -10.0,
+      "avg_estimate_sek": 3750,
+      "avg_hammer_sek": 3656,
+      "avg_ratio": 0.98,
+      "premium_percent": -2.0,
       "vintages": [
-        1981
+        1981,
+        1985
       ]
     },
     "Chambertin, Domaine Perrot-Minot": {
@@ -846,14 +968,14 @@
       ]
     },
     "Chambertin, Domaine Rossignol-Trapet": {
-      "total_lots": 3,
-      "sold": 2,
+      "total_lots": 4,
+      "sold": 3,
       "unsold": 1,
-      "sell_rate": 66.7,
-      "avg_estimate_sek": 2833,
-      "avg_hammer_sek": 2650,
-      "avg_ratio": 1.2,
-      "premium_percent": 20.0,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 3125,
+      "avg_hammer_sek": 2938,
+      "avg_ratio": 1.137,
+      "premium_percent": 13.7,
       "vintages": [
         2006,
         2015,
@@ -874,19 +996,20 @@
       ]
     },
     "Chambertin, Domaine Trapet": {
-      "total_lots": 6,
-      "sold": 6,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5000,
-      "avg_hammer_sek": 6758,
-      "avg_ratio": 1.297,
-      "premium_percent": 29.7,
+      "avg_estimate_sek": 4857,
+      "avg_hammer_sek": 6507,
+      "avg_ratio": 1.29,
+      "premium_percent": 29.0,
       "vintages": [
         1992,
         2015,
         2016,
-        2018
+        2018,
+        2021
       ]
     },
     "Chambertin-Clos de Bèze, Domaine Perrot-Minot": {
@@ -1212,19 +1335,32 @@
       ]
     },
     "Chambolle-Musigny 1er Cru, Domaine Comte Georges de Vogüé": {
-      "total_lots": 4,
-      "sold": 3,
+      "total_lots": 5,
+      "sold": 4,
       "unsold": 1,
-      "sell_rate": 75.0,
-      "avg_estimate_sek": 7000,
-      "avg_hammer_sek": 4033,
-      "avg_ratio": 1.027,
-      "premium_percent": 2.7,
+      "sell_rate": 80.0,
+      "avg_estimate_sek": 8600,
+      "avg_hammer_sek": 5626,
+      "avg_ratio": 0.982,
+      "premium_percent": -1.8,
       "vintages": [
         1998,
         2008,
         2010,
         2015
+      ]
+    },
+    "Chambolle-Musigny Beaux Bruns Fouchères, Thibault Liger-Belair": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 6800,
+      "avg_hammer_sek": 8705,
+      "avg_ratio": 1.192,
+      "premium_percent": 19.2,
+      "vintages": [
+        2021
       ]
     },
     "Chambolle-Musigny, Domaine Arnoux-Lachaux": {
@@ -1242,12 +1378,12 @@
       ]
     },
     "Chambolle-Musigny, Domaine Comte Georges de Vogüé": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 1,
-      "unsold": 1,
-      "sell_rate": 50.0,
-      "avg_estimate_sek": 7000,
-      "avg_hammer_sek": 2200,
+      "unsold": 2,
+      "sell_rate": 33.3,
+      "avg_estimate_sek": 8667,
+      "avg_hammer_sek": 1467,
       "avg_ratio": 1.1,
       "premium_percent": 10.0,
       "vintages": [
@@ -1256,31 +1392,59 @@
       ]
     },
     "Chambolle-Musigny, Domaine Coquard Loison-Fleurot": {
-      "total_lots": 3,
-      "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2800,
-      "avg_hammer_sek": 3300,
-      "avg_ratio": 1.194,
-      "premium_percent": 19.4,
-      "vintages": [
-        2018
-      ]
-    },
-    "Chambolle-Musigny, Domaine Dujac": {
       "total_lots": 4,
       "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3500,
-      "avg_hammer_sek": 2925,
-      "avg_ratio": 0.848,
-      "premium_percent": -15.2,
+      "avg_estimate_sek": 2550,
+      "avg_hammer_sek": 3025,
+      "avg_ratio": 1.201,
+      "premium_percent": 20.1,
       "vintages": [
+        2018,
+        2020
+      ]
+    },
+    "Chambolle-Musigny, Domaine Dujac": {
+      "total_lots": 6,
+      "sold": 6,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3333,
+      "avg_hammer_sek": 2867,
+      "avg_ratio": 0.874,
+      "premium_percent": -12.6,
+      "vintages": [
+        2009,
         2011,
         2018,
         2019
+      ]
+    },
+    "Chambolle-Musigny, Domaine Faiveley": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1800,
+      "avg_hammer_sek": 1800,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        2013
+      ]
+    },
+    "Chambolle-Musigny, Domaine G. Roumier": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 4000,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        2010
       ]
     },
     "Chambolle-Musigny, Hudelot-Noellat": {
@@ -1353,6 +1517,17 @@
         2018
       ]
     },
+    "Charles Heidsieck": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1100,
+      "avg_hammer_sek": 1201,
+      "avg_ratio": 1.092,
+      "premium_percent": 9.2,
+      "vintages": []
+    },
     "Charmes Chambertin & 2013 Clos de la Roche, Domaine Ponsot": {
       "total_lots": 1,
       "sold": 1,
@@ -1378,6 +1553,19 @@
       "vintages": [
         2018,
         2019
+      ]
+    },
+    "Charmes-Chambertin Aux Charmes, Thibault Liger-Belair": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 8400,
+      "avg_hammer_sek": 9100,
+      "avg_ratio": 1.083,
+      "premium_percent": 8.3,
+      "vintages": [
+        2021
       ]
     },
     "Charmes-Chambertin Vieilles Vignes, Domaine Bernard Dugat-Py": {
@@ -1447,15 +1635,16 @@
       ]
     },
     "Charmes-Chambertin, Domaine Arlaud": {
-      "total_lots": 3,
-      "sold": 3,
+      "total_lots": 4,
+      "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 4000,
-      "avg_hammer_sek": 3750,
-      "avg_ratio": 1.117,
-      "premium_percent": 11.7,
+      "avg_estimate_sek": 3750,
+      "avg_hammer_sek": 3562,
+      "avg_ratio": 1.088,
+      "premium_percent": 8.8,
       "vintages": [
+        2012,
         2017
       ]
     },
@@ -1484,6 +1673,32 @@
       "premium_percent": -21.4,
       "vintages": [
         2013
+      ]
+    },
+    "Charmes-Chambertin, Domaine Coquard Loison-Fleurot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 1200,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        2018
+      ]
+    },
+    "Charmes-Chambertin, Domaine Dujac": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4500,
+      "avg_hammer_sek": 4400,
+      "avg_ratio": 0.978,
+      "premium_percent": -2.2,
+      "vintages": [
+        2014
       ]
     },
     "Charmes-Chambertin, Domaine Duroché": {
@@ -1552,14 +1767,14 @@
       ]
     },
     "Charmes-Chambertin, Joseph Drouhin": {
-      "total_lots": 3,
-      "sold": 1,
+      "total_lots": 5,
+      "sold": 3,
       "unsold": 2,
-      "sell_rate": 33.3,
-      "avg_estimate_sek": 8000,
-      "avg_hammer_sek": 9700,
-      "avg_ratio": 0.808,
-      "premium_percent": -19.2,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 7200,
+      "avg_hammer_sek": 8060,
+      "avg_ratio": 0.85,
+      "premium_percent": -15.0,
       "vintages": [
         2002
       ]
@@ -1681,6 +1896,19 @@
         2015
       ]
     },
+    "Chateau Léoville Barton": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3000,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        1988
+      ]
+    },
     "Chateau Tahbilk Shiraz & 1989 Château Grand-Corbin-Despagne": {
       "total_lots": 1,
       "sold": 1,
@@ -1733,16 +1961,30 @@
         1992
       ]
     },
-    "Château Angélus": {
-      "total_lots": 6,
-      "sold": 5,
+    "Chorey Les Beaunes Les Bons Ores, Jean-Pierre Guyon": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
-      "sell_rate": 83.3,
-      "avg_estimate_sek": 15000,
-      "avg_hammer_sek": 12420,
-      "avg_ratio": 0.828,
-      "premium_percent": -17.2,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1100,
+      "avg_ratio": 0.917,
+      "premium_percent": -8.3,
       "vintages": [
+        2021
+      ]
+    },
+    "Château Angélus": {
+      "total_lots": 8,
+      "sold": 7,
+      "unsold": 0,
+      "sell_rate": 87.5,
+      "avg_estimate_sek": 13625,
+      "avg_hammer_sek": 11902,
+      "avg_ratio": 0.876,
+      "premium_percent": -12.4,
+      "vintages": [
+        1985,
         1996,
         2006,
         2008,
@@ -1767,16 +2009,30 @@
         2019
       ]
     },
-    "Château Batailley": {
-      "total_lots": 12,
-      "sold": 12,
+    "Château Bahans Haut-Brion": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2925,
-      "avg_hammer_sek": 4593,
-      "avg_ratio": 1.152,
-      "premium_percent": 15.2,
+      "avg_estimate_sek": 1600,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
       "vintages": [
+        2004
+      ]
+    },
+    "Château Batailley": {
+      "total_lots": 13,
+      "sold": 13,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2777,
+      "avg_hammer_sek": 4301,
+      "avg_ratio": 1.125,
+      "premium_percent": 12.5,
+      "vintages": [
+        1978,
         1988,
         1997,
         1998,
@@ -1818,15 +2074,54 @@
         2019
       ]
     },
-    "Château Beauséjour": {
-      "total_lots": 6,
-      "sold": 6,
+    "Château Beau-Séjour Bécot & Château Léoville Poyferré": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3583,
-      "avg_hammer_sek": 4700,
-      "avg_ratio": 1.33,
-      "premium_percent": 33.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 2200,
+      "avg_ratio": 0.917,
+      "premium_percent": -8.3,
+      "vintages": [
+        2005
+      ]
+    },
+    "Château Beau-Séjour Bécot (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        1975
+      ]
+    },
+    "Château Beauregard": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 800,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        1998
+      ]
+    },
+    "Château Beauséjour": {
+      "total_lots": 7,
+      "sold": 7,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3471,
+      "avg_hammer_sek": 4514,
+      "avg_ratio": 1.313,
+      "premium_percent": 31.3,
       "vintages": [
         2009,
         2018,
@@ -1928,14 +2223,14 @@
       ]
     },
     "Château Beychevelle": {
-      "total_lots": 13,
-      "sold": 12,
+      "total_lots": 15,
+      "sold": 14,
       "unsold": 1,
-      "sell_rate": 92.3,
-      "avg_estimate_sek": 3515,
-      "avg_hammer_sek": 3165,
-      "avg_ratio": 0.977,
-      "premium_percent": -2.3,
+      "sell_rate": 93.3,
+      "avg_estimate_sek": 3980,
+      "avg_hammer_sek": 3863,
+      "avg_ratio": 0.991,
+      "premium_percent": -0.9,
       "vintages": [
         1949,
         1975,
@@ -1943,6 +2238,7 @@
         1985,
         1986,
         2007,
+        2016,
         2019
       ]
     },
@@ -1987,14 +2283,14 @@
       ]
     },
     "Château Branaire-Ducru": {
-      "total_lots": 11,
-      "sold": 9,
+      "total_lots": 13,
+      "sold": 11,
       "unsold": 2,
-      "sell_rate": 81.8,
-      "avg_estimate_sek": 5064,
-      "avg_hammer_sek": 3961,
-      "avg_ratio": 1.082,
-      "premium_percent": 8.2,
+      "sell_rate": 84.6,
+      "avg_estimate_sek": 5762,
+      "avg_hammer_sek": 4552,
+      "avg_ratio": 1.04,
+      "premium_percent": 4.0,
       "vintages": [
         1982,
         1989,
@@ -2005,6 +2301,32 @@
         2009,
         2014,
         2018
+      ]
+    },
+    "Château Branaire-Ducru (Double Magnum)": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3500,
+      "avg_hammer_sek": 3380,
+      "avg_ratio": 0.966,
+      "premium_percent": -3.4,
+      "vintages": [
+        1998
+      ]
+    },
+    "Château Brane-Cantenac": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 1.6,
+      "premium_percent": 60.0,
+      "vintages": [
+        1985
       ]
     },
     "Château Bélair-Monange": {
@@ -2018,6 +2340,19 @@
       "premium_percent": 15.5,
       "vintages": [
         2012
+      ]
+    },
+    "Château Bélair-Monange (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 1.6,
+      "premium_percent": 60.0,
+      "vintages": [
+        2008
       ]
     },
     "Château Calon Ségur": {
@@ -2052,14 +2387,14 @@
       ]
     },
     "Château Canon": {
-      "total_lots": 8,
-      "sold": 7,
+      "total_lots": 9,
+      "sold": 8,
       "unsold": 1,
-      "sell_rate": 87.5,
-      "avg_estimate_sek": 4237,
-      "avg_hammer_sek": 4546,
-      "avg_ratio": 1.092,
-      "premium_percent": 9.2,
+      "sell_rate": 88.9,
+      "avg_estimate_sek": 4100,
+      "avg_hammer_sek": 4308,
+      "avg_ratio": 1.06,
+      "premium_percent": 6.0,
       "vintages": [
         1990,
         2005,
@@ -2068,35 +2403,54 @@
         2021
       ]
     },
+    "Château Canon La Gaffelière": {
+      "total_lots": 4,
+      "sold": 3,
+      "unsold": 1,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 7800,
+      "avg_hammer_sek": 6567,
+      "avg_ratio": 1.024,
+      "premium_percent": 2.4,
+      "vintages": [
+        2009,
+        2010,
+        2015,
+        2016
+      ]
+    },
     "Château Cantemerle": {
-      "total_lots": 8,
-      "sold": 8,
+      "total_lots": 12,
+      "sold": 12,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2012,
-      "avg_hammer_sek": 1976,
-      "avg_ratio": 0.992,
-      "premium_percent": -0.8,
+      "avg_estimate_sek": 2966,
+      "avg_hammer_sek": 2826,
+      "avg_ratio": 0.98,
+      "premium_percent": -2.0,
       "vintages": [
         2000,
         2006,
+        2009,
         2012,
         2013,
+        2015,
         2016,
         2018,
         2019
       ]
     },
     "Château Cantenac Brown": {
-      "total_lots": 6,
-      "sold": 6,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2633,
-      "avg_hammer_sek": 3092,
-      "avg_ratio": 1.224,
-      "premium_percent": 22.4,
+      "avg_estimate_sek": 2428,
+      "avg_hammer_sek": 2965,
+      "avg_ratio": 1.311,
+      "premium_percent": 31.1,
       "vintages": [
+        2000,
         2009,
         2012,
         2015,
@@ -2119,16 +2473,19 @@
       ]
     },
     "Château Chasse-Spleen": {
-      "total_lots": 3,
-      "sold": 3,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3200,
-      "avg_hammer_sek": 3667,
-      "avg_ratio": 1.127,
-      "premium_percent": 12.7,
+      "avg_estimate_sek": 3900,
+      "avg_hammer_sek": 3986,
+      "avg_ratio": 1.031,
+      "premium_percent": 3.1,
       "vintages": [
         1995,
+        2009,
+        2011,
+        2016,
         2020
       ]
     },
@@ -2159,14 +2516,14 @@
       ]
     },
     "Château Cheval Blanc": {
-      "total_lots": 41,
-      "sold": 41,
+      "total_lots": 48,
+      "sold": 48,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 10395,
-      "avg_hammer_sek": 11649,
-      "avg_ratio": 1.2,
-      "premium_percent": 20.0,
+      "avg_estimate_sek": 9900,
+      "avg_hammer_sek": 11155,
+      "avg_ratio": 1.196,
+      "premium_percent": 19.6,
       "vintages": [
         1937,
         1948,
@@ -2176,16 +2533,20 @@
         1973,
         1975,
         1976,
+        1979,
         1980,
         1981,
         1982,
+        1983,
         1984,
         1985,
         1986,
         1988,
         1989,
         1990,
+        1992,
         1993,
+        2000,
         2002,
         2004,
         2008,
@@ -2195,20 +2556,51 @@
         2021
       ]
     },
-    "Château Clerc Milon": {
-      "total_lots": 5,
-      "sold": 5,
+    "Château Cheval Blanc (Half Bottle)": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1680,
-      "avg_hammer_sek": 1935,
-      "avg_ratio": 1.112,
-      "premium_percent": 11.2,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 2400,
+      "avg_ratio": 1.2,
+      "premium_percent": 20.0,
+      "vintages": [
+        1985
+      ]
+    },
+    "Château Cheval Blanc (Magnum)": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 19000,
+      "avg_hammer_sek": 25700,
+      "avg_ratio": 1.242,
+      "premium_percent": 24.2,
       "vintages": [
         1982,
+        1983
+      ]
+    },
+    "Château Clerc Milon": {
+      "total_lots": 9,
+      "sold": 9,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2922,
+      "avg_hammer_sek": 3031,
+      "avg_ratio": 1.084,
+      "premium_percent": 8.4,
+      "vintages": [
+        1982,
+        1983,
         1996,
         2002,
-        2006
+        2004,
+        2006,
+        2010,
+        2016
       ]
     },
     "Château Clinet": {
@@ -2247,14 +2639,14 @@
       ]
     },
     "Château Cos d'Estournel": {
-      "total_lots": 31,
-      "sold": 31,
+      "total_lots": 35,
+      "sold": 35,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5074,
-      "avg_hammer_sek": 5405,
-      "avg_ratio": 1.084,
-      "premium_percent": 8.4,
+      "avg_estimate_sek": 4777,
+      "avg_hammer_sek": 5083,
+      "avg_ratio": 1.088,
+      "premium_percent": 8.8,
       "vintages": [
         1973,
         1978,
@@ -2278,16 +2670,17 @@
       ]
     },
     "Château Coufran": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1100,
-      "avg_ratio": 1.1,
-      "premium_percent": 10.0,
+      "avg_hammer_sek": 1150,
+      "avg_ratio": 1.15,
+      "premium_percent": 15.0,
       "vintages": [
-        1986
+        1986,
+        1989
       ]
     },
     "Château Couhins-Lurton Rouge": {
@@ -2301,6 +2694,19 @@
       "premium_percent": -10.0,
       "vintages": [
         2003
+      ]
+    },
+    "Château Croizet-Bages": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1800,
+      "avg_ratio": 1.8,
+      "premium_percent": 80.0,
+      "vintages": [
+        1966
       ]
     },
     "Château Dalem & 2006 Château Clos Saint Martin": {
@@ -2330,19 +2736,21 @@
       ]
     },
     "Château Ducru-Beaucaillou": {
-      "total_lots": 18,
-      "sold": 18,
+      "total_lots": 25,
+      "sold": 25,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5184,
-      "avg_hammer_sek": 5100,
-      "avg_ratio": 1.02,
-      "premium_percent": 2.0,
+      "avg_estimate_sek": 4345,
+      "avg_hammer_sek": 4318,
+      "avg_ratio": 1.049,
+      "premium_percent": 4.9,
       "vintages": [
         1961,
         1974,
         1975,
+        1976,
         1978,
+        1983,
         1986,
         1989,
         1990,
@@ -2351,7 +2759,10 @@
         2002,
         2003,
         2004,
+        2005,
+        2006,
         2008,
+        2009,
         2019
       ]
     },
@@ -2366,6 +2777,19 @@
       "premium_percent": 3.6,
       "vintages": [
         1990
+      ]
+    },
+    "Château Ducru-Beaucaillou (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 3200,
+      "avg_ratio": 1.333,
+      "premium_percent": 33.3,
+      "vintages": [
+        1992
       ]
     },
     "Château Duhart-Milon": {
@@ -2409,6 +2833,19 @@
       "premium_percent": -10.4,
       "vintages": [
         1981
+      ]
+    },
+    "Château Falfas Le Chevalier": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3400,
+      "avg_ratio": 1.133,
+      "premium_percent": 13.3,
+      "vintages": [
+        2009
       ]
     },
     "Château Faugères Péby Cuvée Speciale": {
@@ -2465,17 +2902,18 @@
       ]
     },
     "Château Figeac": {
-      "total_lots": 11,
+      "total_lots": 13,
       "sold": 11,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3482,
-      "avg_hammer_sek": 4101,
+      "unsold": 2,
+      "sell_rate": 84.6,
+      "avg_estimate_sek": 3408,
+      "avg_hammer_sek": 3470,
       "avg_ratio": 1.045,
       "premium_percent": 4.5,
       "vintages": [
         1975,
         1976,
+        1983,
         1985,
         1986,
         1989,
@@ -2540,15 +2978,16 @@
       ]
     },
     "Château Gazin": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 7200,
-      "avg_hammer_sek": 12500,
-      "avg_ratio": 1.736,
-      "premium_percent": 73.6,
+      "avg_estimate_sek": 4100,
+      "avg_hammer_sek": 6725,
+      "avg_ratio": 1.343,
+      "premium_percent": 34.3,
       "vintages": [
+        1979,
         2015
       ]
     },
@@ -2619,6 +3058,19 @@
         1974
       ]
     },
+    "Château Giscours (Magnum)": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 2700,
+      "avg_ratio": 0.9,
+      "premium_percent": -10.0,
+      "vintages": [
+        2002
+      ]
+    },
     "Château Gloria": {
       "total_lots": 3,
       "sold": 3,
@@ -2635,14 +3087,14 @@
       ]
     },
     "Château Gracia": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 3,
+      "sold": 3,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3300,
-      "avg_hammer_sek": 2850,
-      "avg_ratio": 0.864,
-      "premium_percent": -13.6,
+      "avg_estimate_sek": 3533,
+      "avg_hammer_sek": 3200,
+      "avg_ratio": 0.901,
+      "premium_percent": -9.9,
       "vintages": [
         2010
       ]
@@ -2702,15 +3154,17 @@
       ]
     },
     "Château Grand-Puy-Lacoste": {
-      "total_lots": 4,
-      "sold": 4,
+      "total_lots": 6,
+      "sold": 6,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3600,
-      "avg_hammer_sek": 3989,
-      "avg_ratio": 1.108,
-      "premium_percent": 10.8,
+      "avg_estimate_sek": 3067,
+      "avg_hammer_sek": 3551,
+      "avg_ratio": 1.214,
+      "premium_percent": 21.4,
       "vintages": [
+        1986,
+        2005,
         2014,
         2017
       ]
@@ -2729,21 +3183,24 @@
       ]
     },
     "Château Gruaud Larose": {
-      "total_lots": 26,
-      "sold": 26,
+      "total_lots": 30,
+      "sold": 30,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 4323,
-      "avg_hammer_sek": 4429,
-      "avg_ratio": 1.088,
-      "premium_percent": 8.8,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 4090,
+      "avg_ratio": 1.09,
+      "premium_percent": 9.0,
       "vintages": [
         1947,
+        1960,
         1975,
         1979,
         1982,
         1983,
+        1984,
         1989,
+        1993,
         1995,
         1997,
         1998,
@@ -2751,6 +3208,7 @@
         2004,
         2005,
         2006,
+        2008,
         2010,
         2012,
         2016
@@ -2787,18 +3245,20 @@
       ]
     },
     "Château Haut Brion": {
-      "total_lots": 13,
-      "sold": 13,
+      "total_lots": 16,
+      "sold": 16,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 6654,
-      "avg_hammer_sek": 6881,
-      "avg_ratio": 1.026,
-      "premium_percent": 2.6,
+      "avg_estimate_sek": 6188,
+      "avg_hammer_sek": 6478,
+      "avg_ratio": 1.061,
+      "premium_percent": 6.1,
       "vintages": [
         1961,
+        1966,
         1975,
         1976,
+        1983,
         1986,
         1987,
         1989,
@@ -2823,17 +3283,18 @@
       ]
     },
     "Château Haut-Bailly": {
-      "total_lots": 9,
-      "sold": 9,
+      "total_lots": 10,
+      "sold": 10,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3089,
-      "avg_hammer_sek": 3506,
-      "avg_ratio": 1.142,
-      "premium_percent": 14.2,
+      "avg_estimate_sek": 2880,
+      "avg_hammer_sek": 3265,
+      "avg_ratio": 1.138,
+      "premium_percent": 13.8,
       "vintages": [
         1989,
         1994,
+        1996,
         2005,
         2009,
         2011,
@@ -2856,28 +3317,43 @@
       ]
     },
     "Château Haut-Brion": {
-      "total_lots": 16,
-      "sold": 15,
+      "total_lots": 21,
+      "sold": 20,
       "unsold": 1,
-      "sell_rate": 93.8,
-      "avg_estimate_sek": 6031,
-      "avg_hammer_sek": 4850,
-      "avg_ratio": 0.95,
-      "premium_percent": -5.0,
+      "sell_rate": 95.2,
+      "avg_estimate_sek": 5571,
+      "avg_hammer_sek": 4967,
+      "avg_ratio": 1.046,
+      "premium_percent": 4.6,
       "vintages": [
         1974,
         1982,
         1983,
+        1984,
         1985,
         1986,
         1988,
         1990,
+        1997,
         1998,
         2005,
         2006,
         2008,
         2009,
         2016
+      ]
+    },
+    "Château Haut-Brion (Half Bottle)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3500,
+      "avg_hammer_sek": 3500,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        2005
       ]
     },
     "Château Haut-Marbuzet": {
@@ -2985,14 +3461,14 @@
       ]
     },
     "Château La Conseillante": {
-      "total_lots": 13,
-      "sold": 13,
+      "total_lots": 15,
+      "sold": 15,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2792,
-      "avg_hammer_sek": 3335,
-      "avg_ratio": 1.23,
-      "premium_percent": 23.0,
+      "avg_estimate_sek": 3860,
+      "avg_hammer_sek": 4537,
+      "avg_ratio": 1.219,
+      "premium_percent": 21.9,
       "vintages": [
         1990,
         2000,
@@ -3001,6 +3477,7 @@
         2010,
         2012,
         2014,
+        2016,
         2017,
         2020
       ]
@@ -3019,8 +3496,8 @@
       ]
     },
     "Château La Croix de Gay & 1992 Château Laroque": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 1000,
@@ -3045,35 +3522,39 @@
       ]
     },
     "Château La Fleur-Pétrus": {
-      "total_lots": 10,
-      "sold": 10,
+      "total_lots": 13,
+      "sold": 13,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3290,
-      "avg_hammer_sek": 3725,
-      "avg_ratio": 1.155,
-      "premium_percent": 15.5,
+      "avg_estimate_sek": 3338,
+      "avg_hammer_sek": 3806,
+      "avg_ratio": 1.172,
+      "premium_percent": 17.2,
       "vintages": [
         1982,
+        1985,
+        1988,
         1996,
         1999,
         2000,
         2002,
+        2005,
         2009,
         2015
       ]
     },
     "Château La Gaffelière": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 3,
+      "sold": 3,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1500,
-      "avg_hammer_sek": 1350,
-      "avg_ratio": 0.906,
-      "premium_percent": -9.4,
+      "avg_estimate_sek": 4200,
+      "avg_hammer_sek": 3967,
+      "avg_ratio": 0.923,
+      "premium_percent": -7.7,
       "vintages": [
         2008,
+        2016,
         2017
       ]
     },
@@ -3091,16 +3572,17 @@
       ]
     },
     "Château La Grave à Pomerol Trigant de Boisset": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3000,
-      "avg_hammer_sek": 4100,
-      "avg_ratio": 1.367,
-      "premium_percent": 36.7,
+      "avg_estimate_sek": 3300,
+      "avg_hammer_sek": 4400,
+      "avg_ratio": 1.337,
+      "premium_percent": 33.7,
       "vintages": [
-        2000
+        2000,
+        2009
       ]
     },
     "Château La Lagune": {
@@ -3117,15 +3599,28 @@
         2020
       ]
     },
+    "Château La Louvière Rouge": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 3000,
+      "avg_ratio": 1.25,
+      "premium_percent": 25.0,
+      "vintages": [
+        1983
+      ]
+    },
     "Château La Mission Haut-Brion": {
-      "total_lots": 33,
-      "sold": 32,
+      "total_lots": 42,
+      "sold": 41,
       "unsold": 1,
-      "sell_rate": 97.0,
-      "avg_estimate_sek": 10509,
-      "avg_hammer_sek": 10495,
-      "avg_ratio": 1.076,
-      "premium_percent": 7.6,
+      "sell_rate": 97.6,
+      "avg_estimate_sek": 9057,
+      "avg_hammer_sek": 9160,
+      "avg_ratio": 1.093,
+      "premium_percent": 9.3,
       "vintages": [
         1966,
         1975,
@@ -3143,7 +3638,9 @@
         2003,
         2005,
         2008,
-        2016
+        2012,
+        2016,
+        2019
       ]
     },
     "Château La Pointe": {
@@ -3187,15 +3684,16 @@
       ]
     },
     "Château La Tour Haut-Brion": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 1.4,
-      "premium_percent": 40.0,
+      "avg_hammer_sek": 1194,
+      "avg_ratio": 1.194,
+      "premium_percent": 19.4,
       "vintages": [
+        1973,
         1995
       ]
     },
@@ -3213,26 +3711,29 @@
       ]
     },
     "Château Lafite Rothschild": {
-      "total_lots": 55,
-      "sold": 50,
-      "unsold": 5,
-      "sell_rate": 90.9,
-      "avg_estimate_sek": 14009,
-      "avg_hammer_sek": 12186,
-      "avg_ratio": 0.896,
-      "premium_percent": -10.4,
+      "total_lots": 64,
+      "sold": 58,
+      "unsold": 6,
+      "sell_rate": 90.6,
+      "avg_estimate_sek": 13055,
+      "avg_hammer_sek": 11393,
+      "avg_ratio": 0.905,
+      "premium_percent": -9.5,
       "vintages": [
         1950,
         1959,
         1961,
+        1966,
         1969,
         1971,
         1975,
         1976,
         1977,
+        1979,
         1981,
         1982,
         1983,
+        1987,
         1988,
         1989,
         1990,
@@ -3248,6 +3749,19 @@
         2015,
         2016,
         2021
+      ]
+    },
+    "Château Lafite Rothschild (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 10000,
+      "avg_hammer_sek": 11500,
+      "avg_ratio": 1.15,
+      "premium_percent": 15.0,
+      "vintages": [
+        1988
       ]
     },
     "Château Lafleur": {
@@ -3354,18 +3868,20 @@
       ]
     },
     "Château Lascombes": {
-      "total_lots": 5,
-      "sold": 5,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2880,
-      "avg_hammer_sek": 3020,
-      "avg_ratio": 0.963,
-      "premium_percent": -3.7,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3057,
+      "avg_ratio": 0.959,
+      "premium_percent": -4.1,
       "vintages": [
         1970,
+        1983,
         1997,
         2007,
+        2010,
         2020
       ]
     },
@@ -3409,14 +3925,14 @@
       ]
     },
     "Château Latour": {
-      "total_lots": 53,
-      "sold": 53,
+      "total_lots": 69,
+      "sold": 69,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 7025,
-      "avg_hammer_sek": 7245,
-      "avg_ratio": 1.057,
-      "premium_percent": 5.7,
+      "avg_estimate_sek": 7490,
+      "avg_hammer_sek": 7478,
+      "avg_ratio": 1.032,
+      "premium_percent": 3.2,
       "vintages": [
         1957,
         1972,
@@ -3427,6 +3943,7 @@
         1981,
         1982,
         1983,
+        1984,
         1985,
         1986,
         1988,
@@ -3439,25 +3956,41 @@
         1997,
         1998,
         1999,
+        2000,
         2002,
         2003,
         2004,
         2005,
         2008,
         2010,
+        2012,
         2013
       ]
     },
-    "Château Latour à Pomerol": {
-      "total_lots": 2,
+    "Château Latour (Half Bottle)": {
+      "total_lots": 1,
       "sold": 1,
-      "unsold": 1,
-      "sell_rate": 50.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1700,
-      "avg_ratio": 1.062,
-      "premium_percent": 6.2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3600,
+      "avg_ratio": 1.2,
+      "premium_percent": 20.0,
       "vintages": [
+        1929
+      ]
+    },
+    "Château Latour à Pomerol": {
+      "total_lots": 4,
+      "sold": 3,
+      "unsold": 1,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 1900,
+      "avg_hammer_sek": 1775,
+      "avg_ratio": 0.994,
+      "premium_percent": -0.6,
+      "vintages": [
+        1990,
         1999,
         2015
       ]
@@ -3473,6 +4006,19 @@
       "premium_percent": 38.0,
       "vintages": [
         2009
+      ]
+    },
+    "Château Latour-Martillac Rouge (Double Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 2644,
+      "avg_ratio": 1.322,
+      "premium_percent": 32.2,
+      "vintages": [
+        1995
       ]
     },
     "Château Le Gay": {
@@ -3516,28 +4062,34 @@
       ]
     },
     "Château Lynch Bages": {
-      "total_lots": 21,
-      "sold": 19,
+      "total_lots": 32,
+      "sold": 30,
       "unsold": 2,
-      "sell_rate": 90.5,
-      "avg_estimate_sek": 3669,
-      "avg_hammer_sek": 4571,
-      "avg_ratio": 1.175,
-      "premium_percent": 17.5,
+      "sell_rate": 93.8,
+      "avg_estimate_sek": 3314,
+      "avg_hammer_sek": 4149,
+      "avg_ratio": 1.19,
+      "premium_percent": 19.0,
       "vintages": [
+        1966,
         1976,
         1982,
         1985,
         1989,
         1990,
         1994,
+        1995,
         1997,
+        2000,
         2001,
         2002,
         2003,
         2005,
+        2006,
+        2007,
         2014,
         2016,
+        2018,
         2020
       ]
     },
@@ -3556,6 +4108,19 @@
         2009
       ]
     },
+    "Château Lynch-Moussas": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 2250,
+      "avg_ratio": 2.25,
+      "premium_percent": 125.0,
+      "vintages": [
+        1986
+      ]
+    },
     "Château Lynch-Moussas & 2002 Château Montus": {
       "total_lots": 1,
       "sold": 1,
@@ -3570,14 +4135,14 @@
       ]
     },
     "Château Léoville Barton": {
-      "total_lots": 22,
-      "sold": 21,
-      "unsold": 1,
-      "sell_rate": 95.5,
-      "avg_estimate_sek": 5114,
-      "avg_hammer_sek": 4846,
-      "avg_ratio": 1.001,
-      "premium_percent": 0.1,
+      "total_lots": 27,
+      "sold": 25,
+      "unsold": 2,
+      "sell_rate": 92.6,
+      "avg_estimate_sek": 4815,
+      "avg_hammer_sek": 4472,
+      "avg_ratio": 0.975,
+      "premium_percent": -2.5,
       "vintages": [
         1983,
         1986,
@@ -3595,15 +4160,28 @@
         2018
       ]
     },
-    "Château Léoville Poyferré": {
-      "total_lots": 33,
-      "sold": 33,
+    "Château Léoville Barton (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5212,
-      "avg_hammer_sek": 6034,
-      "avg_ratio": 1.164,
-      "premium_percent": 16.4,
+      "avg_estimate_sek": 6000,
+      "avg_hammer_sek": 6200,
+      "avg_ratio": 1.033,
+      "premium_percent": 3.3,
+      "vintages": [
+        1996
+      ]
+    },
+    "Château Léoville Poyferré": {
+      "total_lots": 37,
+      "sold": 37,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 5524,
+      "avg_hammer_sek": 6274,
+      "avg_ratio": 1.154,
+      "premium_percent": 15.4,
       "vintages": [
         1947,
         1949,
@@ -3619,6 +4197,7 @@
         2007,
         2008,
         2010,
+        2012,
         2013,
         2014,
         2015,
@@ -3642,14 +4221,14 @@
       ]
     },
     "Château Léoville-Las Cases": {
-      "total_lots": 28,
-      "sold": 26,
+      "total_lots": 35,
+      "sold": 33,
       "unsold": 2,
-      "sell_rate": 92.9,
-      "avg_estimate_sek": 6511,
-      "avg_hammer_sek": 7110,
-      "avg_ratio": 1.076,
-      "premium_percent": 7.6,
+      "sell_rate": 94.3,
+      "avg_estimate_sek": 5612,
+      "avg_hammer_sek": 6157,
+      "avg_ratio": 1.112,
+      "premium_percent": 11.2,
       "vintages": [
         1966,
         1970,
@@ -3657,6 +4236,8 @@
         1976,
         1978,
         1979,
+        1980,
+        1981,
         1982,
         1983,
         1985,
@@ -3702,6 +4283,19 @@
         1998
       ]
     },
+    "Château Malartic-Lagravière Rouge": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4500,
+      "avg_hammer_sek": 5000,
+      "avg_ratio": 1.1,
+      "premium_percent": 10.0,
+      "vintages": [
+        2015
+      ]
+    },
     "Château Malescot Saint-Exupéry": {
       "total_lots": 3,
       "sold": 3,
@@ -3717,15 +4311,28 @@
         2022
       ]
     },
-    "Château Margaux": {
-      "total_lots": 60,
-      "sold": 60,
+    "Château Malescot Saint-Exupéry & 2000 Château Croque Michotte": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 7400,
-      "avg_hammer_sek": 7521,
-      "avg_ratio": 1.042,
-      "premium_percent": 4.2,
+      "avg_estimate_sek": 1300,
+      "avg_hammer_sek": 1500,
+      "avg_ratio": 1.154,
+      "premium_percent": 15.4,
+      "vintages": [
+        1990
+      ]
+    },
+    "Château Margaux": {
+      "total_lots": 65,
+      "sold": 65,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 7262,
+      "avg_hammer_sek": 7469,
+      "avg_ratio": 1.061,
+      "premium_percent": 6.1,
       "vintages": [
         1934,
         1945,
@@ -3743,6 +4350,7 @@
         1987,
         1988,
         1989,
+        1990,
         1991,
         1993,
         1994,
@@ -3805,6 +4413,19 @@
         2016
       ]
     },
+    "Château Meyney (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 951,
+      "avg_ratio": 0.951,
+      "premium_percent": -4.9,
+      "vintages": [
+        2002
+      ]
+    },
     "Château Monbousquet": {
       "total_lots": 1,
       "sold": 1,
@@ -3845,18 +4466,20 @@
       ]
     },
     "Château Montrose": {
-      "total_lots": 45,
-      "sold": 44,
+      "total_lots": 52,
+      "sold": 51,
       "unsold": 1,
-      "sell_rate": 97.8,
-      "avg_estimate_sek": 7749,
-      "avg_hammer_sek": 6905,
-      "avg_ratio": 1.008,
-      "premium_percent": 0.8,
+      "sell_rate": 98.1,
+      "avg_estimate_sek": 7173,
+      "avg_hammer_sek": 6420,
+      "avg_ratio": 1.013,
+      "premium_percent": 1.3,
       "vintages": [
         1961,
+        1973,
         1975,
         1976,
+        1980,
         1986,
         1996,
         1997,
@@ -3868,6 +4491,7 @@
         2009,
         2010,
         2011,
+        2012,
         2013,
         2016,
         2017,
@@ -3877,28 +4501,42 @@
         2022
       ]
     },
-    "Château Mouton Baronne Philippe": {
+    "Château Montrose (Magnum)": {
       "total_lots": 1,
       "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1300,
-      "avg_ratio": 1.3,
-      "premium_percent": 30.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 3200,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
       "vintages": [
+        2006
+      ]
+    },
+    "Château Mouton Baronne Philippe": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1250,
+      "avg_hammer_sek": 1350,
+      "avg_ratio": 1.117,
+      "premium_percent": 11.7,
+      "vintages": [
+        1974,
         1985
       ]
     },
     "Château Mouton Rothschild": {
-      "total_lots": 190,
-      "sold": 188,
+      "total_lots": 216,
+      "sold": 214,
       "unsold": 2,
-      "sell_rate": 98.9,
-      "avg_estimate_sek": 8183,
-      "avg_hammer_sek": 7657,
-      "avg_ratio": 0.994,
-      "premium_percent": -0.6,
+      "sell_rate": 99.1,
+      "avg_estimate_sek": 7659,
+      "avg_hammer_sek": 7214,
+      "avg_ratio": 1.004,
+      "premium_percent": 0.4,
       "vintages": [
         1953,
         1960,
@@ -3924,12 +4562,15 @@
         1989,
         1990,
         1991,
+        1992,
         1993,
         1994,
         1995,
         1996,
+        1997,
         1998,
         1999,
+        2001,
         2002,
         2003,
         2004,
@@ -3947,6 +4588,20 @@
         2017,
         2018,
         2019
+      ]
+    },
+    "Château Mouton Rothschild (Magnum)": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 27000,
+      "avg_hammer_sek": 33050,
+      "avg_ratio": 1.198,
+      "premium_percent": 19.8,
+      "vintages": [
+        1982,
+        1983
       ]
     },
     "Château Nenin": {
@@ -3977,14 +4632,14 @@
       ]
     },
     "Château Palmer": {
-      "total_lots": 53,
-      "sold": 53,
+      "total_lots": 59,
+      "sold": 59,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5403,
-      "avg_hammer_sek": 5501,
-      "avg_ratio": 1.018,
-      "premium_percent": 1.8,
+      "avg_estimate_sek": 5082,
+      "avg_hammer_sek": 5232,
+      "avg_ratio": 1.039,
+      "premium_percent": 3.9,
       "vintages": [
         1967,
         1970,
@@ -4000,6 +4655,7 @@
         1990,
         1991,
         1992,
+        1994,
         1995,
         1996,
         1998,
@@ -4011,6 +4667,7 @@
         2004,
         2005,
         2006,
+        2008,
         2012,
         2015,
         2016,
@@ -4036,14 +4693,14 @@
       ]
     },
     "Château Pavie": {
-      "total_lots": 9,
-      "sold": 7,
-      "unsold": 2,
-      "sell_rate": 77.8,
-      "avg_estimate_sek": 6889,
-      "avg_hammer_sek": 7752,
-      "avg_ratio": 1.016,
-      "premium_percent": 1.6,
+      "total_lots": 11,
+      "sold": 8,
+      "unsold": 3,
+      "sell_rate": 72.7,
+      "avg_estimate_sek": 6591,
+      "avg_hammer_sek": 7579,
+      "avg_ratio": 1.008,
+      "premium_percent": 0.8,
       "vintages": [
         1991,
         1999,
@@ -4067,29 +4724,31 @@
       ]
     },
     "Château Pavie Macquin": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 3,
+      "sold": 3,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3600,
-      "avg_hammer_sek": 3500,
-      "avg_ratio": 0.973,
-      "premium_percent": -2.7,
+      "avg_estimate_sek": 3067,
+      "avg_hammer_sek": 3267,
+      "avg_ratio": 1.115,
+      "premium_percent": 11.5,
       "vintages": [
+        2011,
         2021
       ]
     },
     "Château Pedesclaux": {
-      "total_lots": 6,
-      "sold": 6,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2500,
-      "avg_hammer_sek": 2625,
-      "avg_ratio": 1.084,
-      "premium_percent": 8.4,
+      "avg_estimate_sek": 2357,
+      "avg_hammer_sek": 2521,
+      "avg_ratio": 1.11,
+      "premium_percent": 11.0,
       "vintages": [
-        2010
+        2010,
+        2016
       ]
     },
     "Château Phélan Ségur": {
@@ -4111,17 +4770,32 @@
       ]
     },
     "Château Phélan-Ségur": {
-      "total_lots": 4,
-      "sold": 4,
+      "total_lots": 6,
+      "sold": 6,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5100,
-      "avg_hammer_sek": 4175,
-      "avg_ratio": 0.834,
-      "premium_percent": -16.6,
+      "avg_estimate_sek": 3983,
+      "avg_hammer_sek": 3417,
+      "avg_ratio": 0.917,
+      "premium_percent": -8.3,
       "vintages": [
+        1995,
         1999,
-        2008
+        2008,
+        2014
+      ]
+    },
+    "Château Phélan-Ségur (Double Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 3821,
+      "avg_ratio": 0.955,
+      "premium_percent": -4.5,
+      "vintages": [
+        1995
       ]
     },
     "Château Pibran": {
@@ -4138,12 +4812,12 @@
       ]
     },
     "Château Pichon Longueville Baron": {
-      "total_lots": 23,
-      "sold": 23,
+      "total_lots": 27,
+      "sold": 27,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3209,
-      "avg_hammer_sek": 3350,
+      "avg_estimate_sek": 3174,
+      "avg_hammer_sek": 3341,
       "avg_ratio": 1.072,
       "premium_percent": 7.2,
       "vintages": [
@@ -4158,7 +4832,10 @@
         1999,
         2001,
         2002,
+        2003,
+        2005,
         2006,
+        2008,
         2010,
         2014,
         2015,
@@ -4166,18 +4843,19 @@
       ]
     },
     "Château Pichon Longueville Comtesse de Lalande": {
-      "total_lots": 52,
-      "sold": 52,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4936,
-      "avg_hammer_sek": 5156,
-      "avg_ratio": 1.116,
-      "premium_percent": 11.6,
+      "total_lots": 57,
+      "sold": 56,
+      "unsold": 1,
+      "sell_rate": 98.2,
+      "avg_estimate_sek": 4647,
+      "avg_hammer_sek": 4884,
+      "avg_ratio": 1.124,
+      "premium_percent": 12.4,
       "vintages": [
         1975,
         1976,
         1978,
+        1981,
         1982,
         1985,
         1986,
@@ -4187,10 +4865,12 @@
         1993,
         1996,
         1998,
+        1999,
         2000,
         2001,
         2002,
         2004,
+        2005,
         2006,
         2009,
         2010,
@@ -4214,17 +4894,18 @@
       ]
     },
     "Château Plince": {
-      "total_lots": 4,
-      "sold": 4,
+      "total_lots": 5,
+      "sold": 5,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1750,
-      "avg_hammer_sek": 1838,
-      "avg_ratio": 1.038,
-      "premium_percent": 3.8,
+      "avg_estimate_sek": 1880,
+      "avg_hammer_sek": 2050,
+      "avg_ratio": 1.072,
+      "premium_percent": 7.2,
       "vintages": [
         2000,
-        2001
+        2001,
+        2014
       ]
     },
     "Château Plince & Château Brane-Cantenac": {
@@ -4254,20 +4935,22 @@
       ]
     },
     "Château Pontet-Canet": {
-      "total_lots": 45,
-      "sold": 45,
+      "total_lots": 55,
+      "sold": 55,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 4976,
-      "avg_hammer_sek": 4963,
-      "avg_ratio": 1.024,
-      "premium_percent": 2.4,
+      "avg_estimate_sek": 4851,
+      "avg_hammer_sek": 4784,
+      "avg_ratio": 1.018,
+      "premium_percent": 1.8,
       "vintages": [
+        1979,
         1982,
         1990,
         1996,
         1997,
         1998,
+        2000,
         2003,
         2004,
         2005,
@@ -4296,6 +4979,19 @@
       "premium_percent": 6.7,
       "vintages": [
         2019
+      ]
+    },
+    "Château Potensac & 2010 Château Lascombes": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1300,
+      "avg_hammer_sek": 1400,
+      "avg_ratio": 1.077,
+      "premium_percent": 7.7,
+      "vintages": [
+        2005
       ]
     },
     "Château Poujeaux": {
@@ -4341,15 +5037,16 @@
       ]
     },
     "Château Rausan-Ségla": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
+      "avg_estimate_sek": 1100,
       "avg_hammer_sek": 1000,
-      "avg_ratio": 0.833,
-      "premium_percent": -16.7,
+      "avg_ratio": 0.916,
+      "premium_percent": -8.4,
       "vintages": [
+        1975,
         1983
       ]
     },
@@ -4367,19 +5064,20 @@
       ]
     },
     "Château Rauzan-Ségla": {
-      "total_lots": 7,
-      "sold": 7,
+      "total_lots": 8,
+      "sold": 8,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 4143,
-      "avg_hammer_sek": 4050,
-      "avg_ratio": 0.988,
-      "premium_percent": -1.2,
+      "avg_estimate_sek": 5125,
+      "avg_hammer_sek": 4888,
+      "avg_ratio": 0.977,
+      "premium_percent": -2.3,
       "vintages": [
         1982,
         1995,
         2011,
         2015,
+        2016,
         2021
       ]
     },
@@ -4397,16 +5095,31 @@
         2020
       ]
     },
-    "Château Saint-Pierre": {
-      "total_lots": 2,
-      "sold": 2,
+    "Château Rouget & 1981 Château Taillefer": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2400,
-      "avg_hammer_sek": 2105,
-      "avg_ratio": 0.909,
-      "premium_percent": -9.1,
+      "avg_estimate_sek": 1700,
+      "avg_hammer_sek": 1500,
+      "avg_ratio": 0.882,
+      "premium_percent": -11.8,
       "vintages": [
+        1979
+      ]
+    },
+    "Château Saint-Pierre": {
+      "total_lots": 4,
+      "sold": 4,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2950,
+      "avg_hammer_sek": 3128,
+      "avg_ratio": 1.047,
+      "premium_percent": 4.7,
+      "vintages": [
+        2009,
+        2010,
         2016
       ]
     },
@@ -4424,14 +5137,14 @@
       ]
     },
     "Château Smith Haut Lafitte Rouge": {
-      "total_lots": 11,
-      "sold": 11,
+      "total_lots": 12,
+      "sold": 12,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2618,
-      "avg_hammer_sek": 2720,
-      "avg_ratio": 1.071,
-      "premium_percent": 7.1,
+      "avg_estimate_sek": 3600,
+      "avg_hammer_sek": 3952,
+      "avg_ratio": 1.083,
+      "premium_percent": 8.3,
       "vintages": [
         1978,
         1979,
@@ -4441,6 +5154,7 @@
         2008,
         2009,
         2010,
+        2015,
         2017,
         2020
       ]
@@ -4490,14 +5204,14 @@
       ]
     },
     "Château Talbot": {
-      "total_lots": 24,
-      "sold": 23,
+      "total_lots": 28,
+      "sold": 27,
       "unsold": 1,
-      "sell_rate": 95.8,
-      "avg_estimate_sek": 4617,
-      "avg_hammer_sek": 4885,
-      "avg_ratio": 1.064,
-      "premium_percent": 6.4,
+      "sell_rate": 96.4,
+      "avg_estimate_sek": 4479,
+      "avg_hammer_sek": 4716,
+      "avg_ratio": 1.055,
+      "premium_percent": 5.5,
       "vintages": [
         1978,
         1982,
@@ -4513,6 +5227,7 @@
         2004,
         2005,
         2009,
+        2010,
         2012,
         2016,
         2020
@@ -4606,15 +5321,16 @@
       ]
     },
     "Château Trotte Vieille": {
-      "total_lots": 3,
-      "sold": 3,
+      "total_lots": 4,
+      "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3733,
-      "avg_hammer_sek": 3817,
-      "avg_ratio": 1.066,
-      "premium_percent": 6.6,
+      "avg_estimate_sek": 3050,
+      "avg_hammer_sek": 3138,
+      "avg_ratio": 1.075,
+      "premium_percent": 7.5,
       "vintages": [
+        1985,
         2015,
         2016
       ]
@@ -4687,27 +5403,28 @@
       ]
     },
     "Château d'Armailhac": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1300,
-      "avg_ratio": 1.3,
-      "premium_percent": 30.0,
+      "avg_estimate_sek": 1700,
+      "avg_hammer_sek": 1755,
+      "avg_ratio": 1.111,
+      "premium_percent": 11.1,
       "vintages": [
-        1995
+        1995,
+        1999
       ]
     },
     "Château d'Issan": {
-      "total_lots": 12,
-      "sold": 12,
+      "total_lots": 13,
+      "sold": 13,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2575,
-      "avg_hammer_sek": 2727,
-      "avg_ratio": 1.075,
-      "premium_percent": 7.5,
+      "avg_estimate_sek": 2931,
+      "avg_hammer_sek": 3402,
+      "avg_ratio": 1.115,
+      "premium_percent": 11.5,
       "vintages": [
         1975,
         1981,
@@ -4717,19 +5434,46 @@
         2009,
         2012,
         2014,
+        2016,
         2017,
         2020
       ]
     },
-    "Château de Fieuzal Rouge": {
-      "total_lots": 2,
-      "sold": 2,
+    "Château de Camensac & 1988 Château Saint-Pierre": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2100,
-      "avg_hammer_sek": 2275,
-      "avg_ratio": 1.146,
-      "premium_percent": 14.6,
+      "avg_estimate_sek": 1400,
+      "avg_hammer_sek": 1400,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        1981
+      ]
+    },
+    "Château de Camensac & Château Lascombes": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1300,
+      "avg_hammer_sek": 1470,
+      "avg_ratio": 1.131,
+      "premium_percent": 13.1,
+      "vintages": [
+        1985
+      ]
+    },
+    "Château de Fieuzal Rouge": {
+      "total_lots": 3,
+      "sold": 3,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1800,
+      "avg_hammer_sek": 1883,
+      "avg_ratio": 1.07,
+      "premium_percent": 7.0,
       "vintages": [
         1989,
         2009
@@ -4775,6 +5519,19 @@
         1988
       ]
     },
+    "Château l'Arrosée & 2001 Château Bahans Haut-Brion": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1300,
+      "avg_hammer_sek": 1400,
+      "avg_ratio": 1.077,
+      "premium_percent": 7.7,
+      "vintages": [
+        1989
+      ]
+    },
     "Château l'Arrosée & 2016 Château d'Armailhac": {
       "total_lots": 1,
       "sold": 1,
@@ -4802,12 +5559,12 @@
       ]
     },
     "Clos Fourtet": {
-      "total_lots": 13,
+      "total_lots": 14,
       "sold": 12,
-      "unsold": 1,
-      "sell_rate": 92.3,
-      "avg_estimate_sek": 8085,
-      "avg_hammer_sek": 7309,
+      "unsold": 2,
+      "sell_rate": 85.7,
+      "avg_estimate_sek": 8579,
+      "avg_hammer_sek": 6787,
       "avg_ratio": 0.995,
       "premium_percent": -0.5,
       "vintages": [
@@ -4835,6 +5592,19 @@
       "premium_percent": 40.0,
       "vintages": [
         1982
+      ]
+    },
+    "Clos Saint Denis Cuvée du Centenaire, Ponsot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 8000,
+      "avg_hammer_sek": 6400,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        2005
       ]
     },
     "Clos Saint Denis, Domaine & Selection": {
@@ -4893,6 +5663,20 @@
         2013
       ]
     },
+    "Clos Saint-Denis, Lucien Le Moine": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2600,
+      "avg_hammer_sek": 2755,
+      "avg_ratio": 1.049,
+      "premium_percent": 4.9,
+      "vintages": [
+        2011,
+        2013
+      ]
+    },
     "Clos Vougeot & Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Louis Jadot": {
       "total_lots": 1,
       "sold": 1,
@@ -4904,6 +5688,19 @@
       "premium_percent": 24.1,
       "vintages": [
         2010
+      ]
+    },
+    "Clos Vougeot Musigni, Domaine Gros": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1600,
+      "avg_hammer_sek": 1900,
+      "avg_ratio": 1.188,
+      "premium_percent": 18.8,
+      "vintages": [
+        2009
       ]
     },
     "Clos Vougeot, Bouchard": {
@@ -4986,14 +5783,14 @@
       ]
     },
     "Clos de Tart": {
-      "total_lots": 10,
-      "sold": 10,
+      "total_lots": 11,
+      "sold": 11,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 6000,
-      "avg_hammer_sek": 5682,
-      "avg_ratio": 1.022,
-      "premium_percent": 2.2,
+      "avg_hammer_sek": 5911,
+      "avg_ratio": 1.053,
+      "premium_percent": 5.3,
       "vintages": [
         2006,
         2007,
@@ -5051,6 +5848,19 @@
       "premium_percent": 68.8,
       "vintages": [
         1993
+      ]
+    },
+    "Clos de Vougeot, Domaine Drouhin-Laroze (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 2200,
+      "avg_ratio": 0.917,
+      "premium_percent": -8.3,
+      "vintages": [
+        2021
       ]
     },
     "Clos de Vougeot, Domaine Faiveley": {
@@ -5135,6 +5945,32 @@
         2014
       ]
     },
+    "Clos de la Roche Vieilles Vignes, Domaine Ponsot (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 6000,
+      "avg_hammer_sek": 6425,
+      "avg_ratio": 1.071,
+      "premium_percent": 7.1,
+      "vintages": [
+        2013
+      ]
+    },
+    "Clos de la Roche, Coquard Loison-Fleurot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 1.067,
+      "premium_percent": 6.7,
+      "vintages": [
+        2019
+      ]
+    },
     "Clos de la Roche, Domaine Arlaud": {
       "total_lots": 1,
       "sold": 1,
@@ -5149,33 +5985,35 @@
       ]
     },
     "Clos de la Roche, Domaine Armand Rousseau": {
-      "total_lots": 4,
-      "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 6625,
-      "avg_hammer_sek": 7000,
-      "avg_ratio": 1.065,
-      "premium_percent": 6.5,
-      "vintages": [
-        2010,
-        2012,
-        2017
-      ]
-    },
-    "Clos de la Roche, Domaine Dujac": {
       "total_lots": 5,
       "sold": 5,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 6400,
-      "avg_hammer_sek": 5872,
-      "avg_ratio": 0.917,
-      "premium_percent": -8.3,
+      "avg_estimate_sek": 7300,
+      "avg_hammer_sek": 7620,
+      "avg_ratio": 1.054,
+      "premium_percent": 5.4,
+      "vintages": [
+        2010,
+        2012,
+        2013,
+        2017
+      ]
+    },
+    "Clos de la Roche, Domaine Dujac": {
+      "total_lots": 6,
+      "sold": 6,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 6083,
+      "avg_hammer_sek": 5562,
+      "avg_ratio": 0.913,
+      "premium_percent": -8.7,
       "vintages": [
         2005,
         2009,
         2010,
+        2016,
         2018,
         2019
       ]
@@ -5317,16 +6155,29 @@
       ]
     },
     "Clos-Vougeot, Domaine Daniel Rion": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 1900,
+      "avg_ratio": 0.95,
+      "premium_percent": -5.0,
+      "vintages": [
+        1990
+      ]
+    },
+    "Clos-Vougeot, Domaine Jean-Jacques Confuron": {
       "total_lots": 1,
       "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 1.1,
-      "premium_percent": 10.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1700,
+      "avg_ratio": 1.417,
+      "premium_percent": 41.7,
       "vintages": [
-        1990
+        2009
       ]
     },
     "Clos-Vougeot, Domaine René Engel": {
@@ -5529,6 +6380,19 @@
         2004
       ]
     },
+    "Corton Les Perrières, La Maison Romane": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1100,
+      "avg_ratio": 0.917,
+      "premium_percent": -8.3,
+      "vintages": [
+        2010
+      ]
+    },
     "Corton Pougets, Domaine d'Ardhuy": {
       "total_lots": 1,
       "sold": 1,
@@ -5582,17 +6446,45 @@
         2014
       ]
     },
-    "Corton, DRC": {
+    "Corton, Bonneau du Martray": {
       "total_lots": 1,
       "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 20000,
-      "avg_hammer_sek": 16500,
-      "avg_ratio": 0.825,
-      "premium_percent": -17.5,
+      "avg_estimate_sek": 15000,
+      "avg_hammer_sek": 15050,
+      "avg_ratio": 1.003,
+      "premium_percent": 0.3,
       "vintages": [
-        2011
+        2014
+      ]
+    },
+    "Corton, DRC": {
+      "total_lots": 3,
+      "sold": 3,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 19333,
+      "avg_hammer_sek": 17500,
+      "avg_ratio": 0.911,
+      "premium_percent": -8.9,
+      "vintages": [
+        2011,
+        2015,
+        2016
+      ]
+    },
+    "Corton, Domaine Chanson": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1800,
+      "avg_hammer_sek": 3800,
+      "avg_ratio": 2.111,
+      "premium_percent": 111.1,
+      "vintages": [
+        2013
       ]
     },
     "Corton, Domaine Rapet": {
@@ -5634,6 +6526,19 @@
         2010
       ]
     },
+    "Corton-Bressandes, Domaine Chandon de Briailles": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3200,
+      "avg_ratio": 1.067,
+      "premium_percent": 6.7,
+      "vintages": [
+        2018
+      ]
+    },
     "Corton-Bressandes, Domaine Poisot & 2021 Corton Les Renardes, Domaine Jean-Baptiste Boudier": {
       "total_lots": 1,
       "sold": 1,
@@ -5645,6 +6550,19 @@
       "premium_percent": 33.4,
       "vintages": [
         2016
+      ]
+    },
+    "Corton-Bressandes, Jacques Prieur": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 2900,
+      "avg_ratio": 1.208,
+      "premium_percent": 20.8,
+      "vintages": [
+        2019
       ]
     },
     "Corton-Grancey, Château Corton Grancey": {
@@ -5737,15 +6655,26 @@
         2015
       ]
     },
-    "Domaine Perrot-Minot": {
+    "Domaine Joliet": {
       "total_lots": 1,
       "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3000,
-      "avg_hammer_sek": 3402,
-      "avg_ratio": 1.134,
-      "premium_percent": 13.4,
+      "avg_estimate_sek": 2500,
+      "avg_hammer_sek": 2600,
+      "avg_ratio": 1.04,
+      "premium_percent": 4.0,
+      "vintages": []
+    },
+    "Domaine Perrot-Minot": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3250,
+      "avg_hammer_sek": 3101,
+      "avg_ratio": 0.967,
+      "premium_percent": -3.3,
       "vintages": [
         2017
       ]
@@ -5763,16 +6692,30 @@
         2012
       ]
     },
-    "Domaine de Chevalier Rouge": {
-      "total_lots": 11,
-      "sold": 11,
+    "Domaine Tollot-Beaut": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5436,
-      "avg_hammer_sek": 5200,
-      "avg_ratio": 1.069,
-      "premium_percent": 6.9,
+      "avg_estimate_sek": 1600,
+      "avg_hammer_sek": 2300,
+      "avg_ratio": 1.438,
+      "premium_percent": 43.8,
       "vintages": [
+        1990
+      ]
+    },
+    "Domaine de Chevalier Rouge": {
+      "total_lots": 14,
+      "sold": 13,
+      "unsold": 1,
+      "sell_rate": 92.9,
+      "avg_estimate_sek": 5628,
+      "avg_hammer_sek": 4938,
+      "avg_ratio": 1.046,
+      "premium_percent": 4.6,
+      "vintages": [
+        1988,
         1995,
         1999,
         2000,
@@ -5794,6 +6737,19 @@
       "premium_percent": -22.2,
       "vintages": [
         2006
+      ]
+    },
+    "Domaine de Chevalier Rouge (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 1700,
+      "avg_ratio": 0.85,
+      "premium_percent": -15.0,
+      "vintages": [
+        2001
       ]
     },
     "Duclot Bordeaux Prestige Collection Case": {
@@ -5824,16 +6780,17 @@
       ]
     },
     "Echezeaux Les Loachausses, Domaine Anne Gros": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 4000,
-      "avg_hammer_sek": 3800,
-      "avg_ratio": 0.95,
-      "premium_percent": -5.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3200,
+      "avg_ratio": 1.125,
+      "premium_percent": 12.5,
       "vintages": [
-        2015
+        2015,
+        2017
       ]
     },
     "Echezeaux Vieille Vigne, Jean-Marie Fourrier": {
@@ -5953,6 +6910,19 @@
         2021
       ]
     },
+    "Echézeaux, Domaine Gros": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 4700,
+      "avg_ratio": 1.175,
+      "premium_percent": 17.5,
+      "vintages": [
+        2009
+      ]
+    },
     "Echézeaux, Domaine Gros Frère et Soeur": {
       "total_lots": 1,
       "sold": 1,
@@ -5967,12 +6937,12 @@
       ]
     },
     "Echézeaux, Henri Naudin-Ferrand": {
-      "total_lots": 3,
+      "total_lots": 5,
       "sold": 1,
-      "unsold": 2,
-      "sell_rate": 33.3,
-      "avg_estimate_sek": 10000,
-      "avg_hammer_sek": 12000,
+      "unsold": 4,
+      "sell_rate": 20.0,
+      "avg_estimate_sek": 8400,
+      "avg_hammer_sek": 7200,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
       "vintages": [
@@ -6128,6 +7098,32 @@
         2015
       ]
     },
+    "Gevrey-Chambertin 1er Cru Cazetiers, Domaine Bruno Clair": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1600,
+      "avg_hammer_sek": 1300,
+      "avg_ratio": 0.812,
+      "premium_percent": -18.8,
+      "vintages": [
+        2008
+      ]
+    },
+    "Gevrey-Chambertin 1er Cru Cazetiers, Domaine Michel Magnien": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1250,
+      "avg_ratio": 1.042,
+      "premium_percent": 4.2,
+      "vintages": [
+        2013
+      ]
+    },
     "Gevrey-Chambertin 1er Cru Champeaux & Gevrey-Chambertin  Aux Etelois, Marchand Tawse": {
       "total_lots": 1,
       "sold": 1,
@@ -6152,6 +7148,19 @@
       "premium_percent": 0.0,
       "vintages": [
         2011
+      ]
+    },
+    "Gevrey-Chambertin 1er Cru Clos Saint-Jacques, Louis Jadot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2800,
+      "avg_hammer_sek": 3400,
+      "avg_ratio": 1.214,
+      "premium_percent": 21.4,
+      "vintages": [
+        2001
       ]
     },
     "Gevrey-Chambertin 1er Cru Clos St-Jacques Vieille Vigne, Domaine Fourrier": {
@@ -6260,6 +7269,19 @@
         2017
       ]
     },
+    "Gevrey-Chambertin 1er Cru Lavaux St. Jacques, Domaine Armand Rousseau": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 8000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020
+      ]
+    },
     "Gevrey-Chambertin 1er Cru Les Cazetiers, Charles van Canneyt": {
       "total_lots": 2,
       "sold": 2,
@@ -6310,6 +7332,19 @@
       "premium_percent": null,
       "vintages": [
         2009
+      ]
+    },
+    "Gevrey-Chambertin 1er Cru Les Fontenys & Gevrey-Chambertin, Joseph Roty": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2300,
+      "avg_hammer_sek": 2400,
+      "avg_ratio": 1.043,
+      "premium_percent": 4.3,
+      "vintages": [
+        2000
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Fontenys, Charles van Canneyt": {
@@ -6378,6 +7413,32 @@
         2014
       ]
     },
+    "Gevrey-Chambertin 1er Cru, Domaine Jacques Prieur": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4500,
+      "avg_hammer_sek": 3600,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        2011
+      ]
+    },
+    "Gevrey-Chambertin Aux Corvées, Domaine Henri Rebourseau": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1800,
+      "avg_ratio": 1.5,
+      "premium_percent": 50.0,
+      "vintages": [
+        2018
+      ]
+    },
     "Gevrey-Chambertin Aux Etelois, Marchand Tawse": {
       "total_lots": 1,
       "sold": 1,
@@ -6387,6 +7448,19 @@
       "avg_hammer_sek": 2300,
       "avg_ratio": 1.533,
       "premium_percent": 53.3,
+      "vintages": [
+        2021
+      ]
+    },
+    "Gevrey-Chambertin En Créot, Thibault Liger-Belair": {
+      "total_lots": 2,
+      "sold": 1,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 8400,
+      "avg_hammer_sek": 5800,
+      "avg_ratio": 0.806,
+      "premium_percent": -19.4,
       "vintages": [
         2021
       ]
@@ -6467,6 +7541,33 @@
       "premium_percent": 41.7,
       "vintages": [
         2003
+      ]
+    },
+    "Gevrey-Chambertin Ostrea, Domaine Trapet": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3200,
+      "avg_hammer_sek": 7100,
+      "avg_ratio": 1.833,
+      "premium_percent": 83.3,
+      "vintages": [
+        2009,
+        2018
+      ]
+    },
+    "Gevrey-Chambertin Ostrea, Domaine Trapet & 2005 Beaune Cent-Vignes 1er Cru, Château de Meursault": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1800,
+      "avg_hammer_sek": 2500,
+      "avg_ratio": 1.389,
+      "premium_percent": 38.9,
+      "vintages": [
+        2005
       ]
     },
     "Gevrey-Chambertin Ostrea, Domaine Trapet & 2022 Chambolle-Musigny, Domaine Taupenot-Merme": {
@@ -6599,6 +7700,19 @@
         2009
       ]
     },
+    "Gevrey-Chambertin, Domaine Louis Trapet": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2500,
+      "avg_hammer_sek": 2400,
+      "avg_ratio": 0.96,
+      "premium_percent": -4.0,
+      "vintages": [
+        1976
+      ]
+    },
     "Gevrey-Chambertin, Domaine Perrot-Minot": {
       "total_lots": 1,
       "sold": 1,
@@ -6613,17 +7727,19 @@
       ]
     },
     "Gevrey-Chambertin, Domaine Trapet": {
-      "total_lots": 5,
-      "sold": 5,
+      "total_lots": 8,
+      "sold": 8,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3880,
-      "avg_hammer_sek": 4820,
-      "avg_ratio": 1.322,
-      "premium_percent": 32.2,
+      "avg_estimate_sek": 4050,
+      "avg_hammer_sek": 5125,
+      "avg_ratio": 1.345,
+      "premium_percent": 34.5,
       "vintages": [
+        2001,
         2010,
-        2018
+        2018,
+        2019
       ]
     },
     "Gevrey-Chambertin, Domaine Trapet Père & Fils": {
@@ -6637,6 +7753,19 @@
       "premium_percent": 6.7,
       "vintages": [
         2018
+      ]
+    },
+    "Gevrey-Chambertin, Les Horées": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1533,
+      "avg_ratio": 1.533,
+      "premium_percent": 53.3,
+      "vintages": [
+        2022
       ]
     },
     "Grands Echezeaux, Georges Noëllat": {
@@ -6682,6 +7811,19 @@
         2020
       ]
     },
+    "Grands-Echezeaux, Domaine Mongeard-Mugneret": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3800,
+      "avg_ratio": 1.267,
+      "premium_percent": 26.7,
+      "vintages": [
+        1989
+      ]
+    },
     "Grands-Èchezeaux, Domaine René Engel": {
       "total_lots": 1,
       "sold": 1,
@@ -6693,6 +7835,19 @@
       "premium_percent": -20.0,
       "vintages": [
         1989
+      ]
+    },
+    "Griotte-Chambertin, Lucien Le Moine": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 8400,
+      "avg_hammer_sek": 8600,
+      "avg_ratio": 1.024,
+      "premium_percent": 2.4,
+      "vintages": [
+        2010
       ]
     },
     "Griotte-Chambertin, Lucien le Moine": {
@@ -6737,16 +7892,17 @@
       ]
     },
     "Jean Foillard": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
-      "avg_hammer_sek": 1202,
-      "avg_ratio": 1.002,
-      "premium_percent": 0.2,
+      "avg_estimate_sek": 1350,
+      "avg_hammer_sek": 1426,
+      "avg_ratio": 1.051,
+      "premium_percent": 5.1,
       "vintages": [
-        2011
+        2011,
+        2018
       ]
     },
     "La Chapelle de La Mission Haut-Brion": {
@@ -6805,20 +7961,21 @@
       ]
     },
     "La Tâche, DRC": {
-      "total_lots": 29,
-      "sold": 29,
+      "total_lots": 32,
+      "sold": 32,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 37034,
-      "avg_hammer_sek": 32738,
-      "avg_ratio": 0.913,
-      "premium_percent": -8.7,
+      "avg_estimate_sek": 36843,
+      "avg_hammer_sek": 32817,
+      "avg_ratio": 0.915,
+      "premium_percent": -8.5,
       "vintages": [
         1976,
         1984,
         1985,
         1988,
         1989,
+        1992,
         1994,
         1995,
         2000,
@@ -6889,16 +8046,17 @@
       ]
     },
     "Latricières-Chambertin, Domaine Trapet": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3750,
-      "avg_hammer_sek": 3100,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 4167,
+      "avg_hammer_sek": 2067,
       "avg_ratio": 0.82,
       "premium_percent": -18.0,
       "vintages": [
-        2016
+        2016,
+        2021
       ]
     },
     "Latricières-Chambertin, Lucien le Moine": {
@@ -6982,15 +8140,16 @@
       ]
     },
     "Le Petit Mouton de Mouton Rothschild": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 6000,
-      "avg_hammer_sek": 4800,
-      "avg_ratio": 0.8,
-      "premium_percent": -20.0,
+      "avg_estimate_sek": 3600,
+      "avg_hammer_sek": 3150,
+      "avg_ratio": 1.025,
+      "premium_percent": 2.5,
       "vintages": [
+        1996,
         2015
       ]
     },
@@ -7008,31 +8167,46 @@
       ]
     },
     "Le Pin": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 15000,
-      "avg_hammer_sek": 12000,
-      "avg_ratio": 0.8,
-      "premium_percent": -20.0,
+      "avg_estimate_sek": 9900,
+      "avg_hammer_sek": 8250,
+      "avg_ratio": 0.869,
+      "premium_percent": -13.1,
       "vintages": [
         1986
       ]
     },
-    "Les Forts de Latour": {
-      "total_lots": 8,
-      "sold": 8,
+    "Left Bank Bordeaux": {
+      "total_lots": 1,
+      "sold": 1,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2775,
-      "avg_hammer_sek": 2785,
-      "avg_ratio": 1.021,
-      "premium_percent": 2.1,
+      "avg_estimate_sek": 1600,
+      "avg_hammer_sek": 1800,
+      "avg_ratio": 1.125,
+      "premium_percent": 12.5,
+      "vintages": [
+        2014
+      ]
+    },
+    "Les Forts de Latour": {
+      "total_lots": 10,
+      "sold": 9,
+      "unsold": 1,
+      "sell_rate": 90.0,
+      "avg_estimate_sek": 2920,
+      "avg_hammer_sek": 2493,
+      "avg_ratio": 1.082,
+      "premium_percent": 8.2,
       "vintages": [
         1976,
         1979,
+        1981,
         1983,
+        1988,
         1996,
         1997,
         1999,
@@ -7068,28 +8242,30 @@
       ]
     },
     "Louis Jadot": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3200,
-      "avg_hammer_sek": 4200,
-      "avg_ratio": 1.312,
-      "premium_percent": 31.2,
+      "avg_estimate_sek": 2700,
+      "avg_hammer_sek": 3500,
+      "avg_ratio": 1.292,
+      "premium_percent": 29.2,
       "vintages": [
         2002
       ]
     },
     "Lucien Le Moine": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 5000,
-      "avg_hammer_sek": 4400,
-      "avg_ratio": 0.88,
-      "premium_percent": -12.0,
-      "vintages": []
+      "avg_estimate_sek": 6000,
+      "avg_hammer_sek": 5450,
+      "avg_ratio": 0.905,
+      "premium_percent": -9.5,
+      "vintages": [
+        2016
+      ]
     },
     "Marcel Lapierre": {
       "total_lots": 1,
@@ -7317,14 +8493,14 @@
       ]
     },
     "Morey-Saint-Denis 1er Cru Aux Cheseaux, Domaine Arlaud": {
-      "total_lots": 4,
-      "sold": 4,
+      "total_lots": 5,
+      "sold": 5,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 2100,
-      "avg_hammer_sek": 2525,
-      "avg_ratio": 1.203,
-      "premium_percent": 20.3,
+      "avg_hammer_sek": 2420,
+      "avg_ratio": 1.153,
+      "premium_percent": 15.3,
       "vintages": [
         2018,
         2019
@@ -7369,6 +8545,19 @@
         2019
       ]
     },
+    "Morey-Saint-Denis 1er Cru Les Sorbets, Olivier Guyot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 850,
+      "avg_ratio": 0.85,
+      "premium_percent": -15.0,
+      "vintages": [
+        2018
+      ]
+    },
     "Morey-Saint-Denis Clos des Orms 1er Cru & 2009 Nuits-St-Georges 1er Cru Les Vaucrains, Lucien Le Moine": {
       "total_lots": 1,
       "sold": 1,
@@ -7382,6 +8571,19 @@
         2006
       ]
     },
+    "Morey-Saint-Denis La Rue de Vergy, Domaine Perrot-Minot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 2200,
+      "avg_ratio": 1.1,
+      "premium_percent": 10.0,
+      "vintages": [
+        2015
+      ]
+    },
     "Morey-Saint-Denis Vieilles Vignes, Nicolas Potel": {
       "total_lots": 1,
       "sold": 1,
@@ -7393,6 +8595,19 @@
       "premium_percent": 6.2,
       "vintages": [
         2005
+      ]
+    },
+    "Morey-Saint-Denis, Domaine Arlaud": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 2200,
+      "avg_ratio": 1.1,
+      "premium_percent": 10.0,
+      "vintages": [
+        2019
       ]
     },
     "Morey-Saint-Denis, Domaine Dujac": {
@@ -7465,14 +8680,14 @@
       ]
     },
     "Mouton Cadet, Mouton Rothschild": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 3800,
-      "avg_ratio": 1.9,
-      "premium_percent": 90.0,
+      "avg_estimate_sek": 2500,
+      "avg_hammer_sek": 3100,
+      "avg_ratio": 1.35,
+      "premium_percent": 35.0,
       "vintages": [
         1929
       ]
@@ -7491,14 +8706,14 @@
       ]
     },
     "Musigny Vieilles Vignes, Domaine Comte Georges de Vogüé": {
-      "total_lots": 37,
-      "sold": 37,
+      "total_lots": 41,
+      "sold": 41,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 12311,
-      "avg_hammer_sek": 10474,
-      "avg_ratio": 0.868,
-      "premium_percent": -13.2,
+      "avg_estimate_sek": 12439,
+      "avg_hammer_sek": 10981,
+      "avg_ratio": 0.883,
+      "premium_percent": -11.7,
       "vintages": [
         1992,
         1999,
@@ -7510,7 +8725,21 @@
         2011,
         2014,
         2015,
+        2017,
         2018,
+        2019
+      ]
+    },
+    "Musigny Vieilles Vignes, Domaine Comte Georges de Vogüé (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 15000,
+      "avg_hammer_sek": 12000,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
         2019
       ]
     },
@@ -7608,6 +8837,34 @@
         2017
       ]
     },
+    "Nierstein Pettenthal Riesling Trocken GG, Kühling-Gillot & Morgon Côte du Py, Jean Foillard": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1200,
+      "avg_ratio": 1.0,
+      "premium_percent": 0.0,
+      "vintages": [
+        2019
+      ]
+    },
+    "Nuits Saint Georges 1er Cru Clos des Forêts St Georges, Domaine de l'Arlot": {
+      "total_lots": 3,
+      "sold": 3,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3400,
+      "avg_hammer_sek": 4350,
+      "avg_ratio": 1.247,
+      "premium_percent": 24.7,
+      "vintages": [
+        2012,
+        2013,
+        2015
+      ]
+    },
     "Nuits Saint Georges 1er Cru Cuvée Hors Ligne, Domaine de l'Arlot": {
       "total_lots": 1,
       "sold": 1,
@@ -7619,6 +8876,71 @@
       "premium_percent": 28.1,
       "vintages": [
         2017
+      ]
+    },
+    "Nuits Saint Georges 1er Cru Cuvée Joseph, A & Arlaud": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2100,
+      "avg_hammer_sek": 2301,
+      "avg_ratio": 1.096,
+      "premium_percent": 9.6,
+      "vintages": [
+        2018
+      ]
+    },
+    "Nuits Saint Georges 1er Cru Les Roncières, Domaine Robert Chevillon": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 8400,
+      "avg_hammer_sek": 7200,
+      "avg_ratio": 0.857,
+      "premium_percent": -14.3,
+      "vintages": [
+        2010
+      ]
+    },
+    "Nuits Saint Georges 1er Cru Les Vaucrains, Domaine Robert Chevillon": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 8400,
+      "avg_hammer_sek": 7401,
+      "avg_ratio": 0.881,
+      "premium_percent": -11.9,
+      "vintages": [
+        2010
+      ]
+    },
+    "Nuits Saint Georges Les Cailles, Domaine Robert Chevillon": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1700,
+      "avg_ratio": 1.417,
+      "premium_percent": 41.7,
+      "vintages": [
+        2008
+      ]
+    },
+    "Nuits St-Georges 1er Cru Aux Chaignots Cuvée Joseph, Cyprien Arlaud": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2100,
+      "avg_hammer_sek": 2000,
+      "avg_ratio": 0.952,
+      "premium_percent": -4.8,
+      "vintages": [
+        2019
       ]
     },
     "Nuits-Saint-George 1er Cru Les Perriéres, Méo-Camuzet Frère & Soeurs": {
@@ -7674,6 +8996,19 @@
         2014
       ]
     },
+    "Nuits-Saint-Georges 1er Cru Aux Thorey, Domaine de Montille": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1400,
+      "avg_ratio": 1.4,
+      "premium_percent": 40.0,
+      "vintages": [
+        2005
+      ]
+    },
     "Nuits-Saint-Georges 1er Cru Aux Thorey, Pierre-Olivier Garcia": {
       "total_lots": 1,
       "sold": 1,
@@ -7688,14 +9023,14 @@
       ]
     },
     "Nuits-Saint-Georges 1er Cru Aux Vignerondes, Dufouleur Frères": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 3,
+      "sold": 3,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1450,
-      "avg_hammer_sek": 1550,
-      "avg_ratio": 1.065,
-      "premium_percent": 6.5,
+      "avg_estimate_sek": 1967,
+      "avg_hammer_sek": 2400,
+      "avg_ratio": 1.166,
+      "premium_percent": 16.6,
       "vintages": [
         2016,
         2019
@@ -7743,6 +9078,19 @@
         2012
       ]
     },
+    "Nuits-Saint-Georges 1er Cru Clos des Fourches, Jacques Frédéric Mugnier": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 3400,
+      "avg_ratio": 1.7,
+      "premium_percent": 70.0,
+      "vintages": [
+        2006
+      ]
+    },
     "Nuits-Saint-Georges 1er Cru Clos des Porrets St-Georges, Domaine Henri Gouges": {
       "total_lots": 1,
       "sold": 1,
@@ -7783,6 +9131,19 @@
         2010
       ]
     },
+    "Nuits-Saint-Georges 1er Cru Les Saint Georges, Thibault Liger-Belair": {
+      "total_lots": 2,
+      "sold": 2,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 7200,
+      "avg_hammer_sek": 6100,
+      "avg_ratio": 0.847,
+      "premium_percent": -15.3,
+      "vintages": [
+        2021
+      ]
+    },
     "Nuits-Saint-Georges 1er Cru Les Saint-Georges, Domaine Faiveley": {
       "total_lots": 1,
       "sold": 1,
@@ -7807,6 +9168,19 @@
       "premium_percent": 61.3,
       "vintages": [
         2017
+      ]
+    },
+    "Nuits-Saint-Georges 1er Cru Les Vaucrains, Domaine Alain Michelot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1800,
+      "avg_hammer_sek": 2000,
+      "avg_ratio": 1.111,
+      "premium_percent": 11.1,
+      "vintages": [
+        2015
       ]
     },
     "Nuits-Saint-Georges 1er Cru Les Vaucrains, Domaine Robert Chevillon": {
@@ -7988,14 +9362,14 @@
       ]
     },
     "Nuits-St-Georges 1er Cru Aux Champs Perdrix, Domaine Chevillon-Chezeaux": {
-      "total_lots": 5,
-      "sold": 5,
+      "total_lots": 6,
+      "sold": 6,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2340,
-      "avg_hammer_sek": 2660,
-      "avg_ratio": 1.137,
-      "premium_percent": 13.7,
+      "avg_estimate_sek": 2483,
+      "avg_hammer_sek": 2833,
+      "avg_ratio": 1.14,
+      "premium_percent": 14.0,
       "vintages": [
         2018
       ]
@@ -8040,14 +9414,14 @@
       ]
     },
     "Pauillac de Latour": {
-      "total_lots": 6,
-      "sold": 6,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3250,
-      "avg_hammer_sek": 3253,
-      "avg_ratio": 0.97,
-      "premium_percent": -3.0,
+      "avg_estimate_sek": 3214,
+      "avg_hammer_sek": 3374,
+      "avg_ratio": 1.027,
+      "premium_percent": 2.7,
       "vintages": [
         2014,
         2017,
@@ -8055,17 +9429,18 @@
       ]
     },
     "Pavillon Rouge du Château Margaux": {
-      "total_lots": 9,
-      "sold": 9,
+      "total_lots": 11,
+      "sold": 11,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3167,
-      "avg_hammer_sek": 3157,
-      "avg_ratio": 1.06,
-      "premium_percent": 6.0,
+      "avg_estimate_sek": 2864,
+      "avg_hammer_sek": 2865,
+      "avg_ratio": 1.056,
+      "premium_percent": 5.6,
       "vintages": [
         1986,
         1988,
+        1995,
         1998,
         2002,
         2004,
@@ -8101,6 +9476,19 @@
         1992
       ]
     },
+    "Pernard Vergelesses 1er Cru Les Vergelesses, Domaine Mongeard-Mugneret & 2006 Châteauneuf du Pape, Louis Bernard": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1100,
+      "avg_hammer_sek": 1300,
+      "avg_ratio": 1.182,
+      "premium_percent": 18.2,
+      "vintages": [
+        2005
+      ]
+    },
     "Petit-Figeac, Chateau Figeac & 2018 Gevrey-Chambertin 1er Cru Les Cazetiers, Domaine Faiveley": {
       "total_lots": 2,
       "sold": 2,
@@ -8112,6 +9500,32 @@
       "premium_percent": 50.8,
       "vintages": [
         2014
+      ]
+    },
+    "Petrus": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 40000,
+      "avg_hammer_sek": 32000,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        2020
+      ]
+    },
+    "Petrus (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 50000,
+      "avg_hammer_sek": 46000,
+      "avg_ratio": 0.92,
+      "premium_percent": -8.0,
+      "vintages": [
+        2007
       ]
     },
     "Pichon Comtesse Reserve": {
@@ -8140,6 +9554,19 @@
         2006
       ]
     },
+    "Pommard 1er Cru Chaponnières, Louis Jadot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 1150,
+      "avg_ratio": 1.15,
+      "premium_percent": 15.0,
+      "vintages": [
+        2010
+      ]
+    },
     "Pommard 1er Cru Cuvée Dames de la Charité Hospices de Beaune, Edouard Delaunay": {
       "total_lots": 1,
       "sold": 1,
@@ -8151,6 +9578,19 @@
       "premium_percent": -13.3,
       "vintages": [
         2019
+      ]
+    },
+    "Pommard 1er Cru Epenots, Louis Jadot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3200,
+      "avg_hammer_sek": 4005,
+      "avg_ratio": 1.252,
+      "premium_percent": 25.2,
+      "vintages": [
+        2005
       ]
     },
     "Pommard 1er Cru Grands Epenots, Domaine Rebourgeon-Mure": {
@@ -8203,6 +9643,58 @@
       "premium_percent": -7.2,
       "vintages": [
         2021
+      ]
+    },
+    "Pommard 1er Cru Les Charmots, Chanson & 2016 Meursault, Ropiteau": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1400,
+      "avg_hammer_sek": 1500,
+      "avg_ratio": 1.071,
+      "premium_percent": 7.1,
+      "vintages": [
+        2011
+      ]
+    },
+    "Pommard 1er Cru Les Epenots, Louis Jadot": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 2801,
+      "avg_ratio": 1.167,
+      "premium_percent": 16.7,
+      "vintages": [
+        2002
+      ]
+    },
+    "Pommard 1er Cru Les Pézerolles, Domaine de Montille": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 1775,
+      "avg_ratio": 1.479,
+      "premium_percent": 47.9,
+      "vintages": [
+        2005
+      ]
+    },
+    "Pommard Croix Blanche, Christophe Vaudoisey": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 3400,
+      "avg_ratio": 1.133,
+      "premium_percent": 13.3,
+      "vintages": [
+        2022
       ]
     },
     "Pommard, Benjamin Leroux": {
@@ -8266,6 +9758,19 @@
         1990
       ]
     },
+    "Péby Cuvée Speciale, Château Faugères": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 0.8,
+      "premium_percent": -20.0,
+      "vintages": [
+        2005
+      ]
+    },
     "Pétrus": {
       "total_lots": 16,
       "sold": 16,
@@ -8303,14 +9808,14 @@
       ]
     },
     "Richebourg, DRC": {
-      "total_lots": 11,
-      "sold": 11,
+      "total_lots": 14,
+      "sold": 14,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 27545,
-      "avg_hammer_sek": 23773,
-      "avg_ratio": 0.866,
-      "premium_percent": -13.4,
+      "avg_estimate_sek": 27000,
+      "avg_hammer_sek": 23750,
+      "avg_ratio": 0.883,
+      "premium_percent": -11.7,
       "vintages": [
         1999,
         2002,
@@ -8377,15 +9882,16 @@
       ]
     },
     "Richebourg, Lucien Le Moine": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 3,
+      "sold": 3,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 6250,
-      "avg_hammer_sek": 6100,
-      "avg_ratio": 0.984,
-      "premium_percent": -1.6,
+      "avg_estimate_sek": 6167,
+      "avg_hammer_sek": 5800,
+      "avg_ratio": 0.945,
+      "premium_percent": -5.5,
       "vintages": [
+        2006,
         2014
       ]
     },
@@ -8436,14 +9942,14 @@
       ]
     },
     "Romanée Saint-Vivant, Jean-Jacques Confuron": {
-      "total_lots": 1,
-      "sold": 0,
+      "total_lots": 2,
+      "sold": 1,
       "unsold": 1,
-      "sell_rate": 0.0,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 5000,
-      "avg_hammer_sek": 0,
-      "avg_ratio": null,
-      "premium_percent": null,
+      "avg_hammer_sek": 2200,
+      "avg_ratio": 0.88,
+      "premium_percent": -12.0,
       "vintages": [
         1999
       ]
@@ -8512,14 +10018,14 @@
       ]
     },
     "Romanée-St-Vivant, DRC": {
-      "total_lots": 17,
-      "sold": 16,
+      "total_lots": 19,
+      "sold": 18,
       "unsold": 1,
-      "sell_rate": 94.1,
-      "avg_estimate_sek": 30824,
-      "avg_hammer_sek": 25094,
-      "avg_ratio": 0.947,
-      "premium_percent": -5.3,
+      "sell_rate": 94.7,
+      "avg_estimate_sek": 29895,
+      "avg_hammer_sek": 24847,
+      "avg_ratio": 0.956,
+      "premium_percent": -4.4,
       "vintages": [
         1984,
         1985,
@@ -8528,6 +10034,8 @@
         2002,
         2003,
         2004,
+        2005,
+        2006,
         2008,
         2012,
         2014,
@@ -8535,6 +10043,19 @@
         2019,
         2020,
         2021
+      ]
+    },
+    "Romanée-St-Vivant, DRC (Magnum)": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 68000,
+      "avg_hammer_sek": 60000,
+      "avg_ratio": 0.882,
+      "premium_percent": -11.8,
+      "vintages": [
+        2008
       ]
     },
     "Ruchottes-Chambertin, Christophe Roumier": {
@@ -8548,6 +10069,19 @@
       "premium_percent": -18.8,
       "vintages": [
         1990
+      ]
+    },
+    "Ruchottes-Chambertin, Château de Marsannay": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 3600,
+      "avg_hammer_sek": 3100,
+      "avg_ratio": 0.861,
+      "premium_percent": -13.9,
+      "vintages": [
+        2012
       ]
     },
     "Ruchottes-Chambertin, Domaine Georges Mugneret-Gibourg": {
@@ -8681,15 +10215,16 @@
       ]
     },
     "Tertre Roteboeuf": {
-      "total_lots": 9,
-      "sold": 9,
+      "total_lots": 10,
+      "sold": 10,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 15133,
-      "avg_hammer_sek": 13357,
-      "avg_ratio": 0.897,
-      "premium_percent": -10.3,
+      "avg_estimate_sek": 13760,
+      "avg_hammer_sek": 12191,
+      "avg_ratio": 0.929,
+      "premium_percent": -7.1,
       "vintages": [
+        1997,
         2001,
         2003,
         2004,
@@ -8698,17 +10233,31 @@
         2009
       ]
     },
+    "Tertre Roteboeuf (Double Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 7500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2003
+      ]
+    },
     "Vieux Château Certan": {
-      "total_lots": 6,
-      "sold": 6,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 3700,
-      "avg_hammer_sek": 3573,
-      "avg_ratio": 0.974,
-      "premium_percent": -2.6,
+      "avg_estimate_sek": 3400,
+      "avg_hammer_sek": 3305,
+      "avg_ratio": 0.987,
+      "premium_percent": -1.3,
       "vintages": [
         1982,
+        1986,
         1996,
         2007,
         2009,
@@ -8742,15 +10291,16 @@
       ]
     },
     "Volnay 1er Cru Champans, Domaine Marquis d'Angerville": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 1.1,
-      "premium_percent": 10.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 1654,
+      "avg_ratio": 1.104,
+      "premium_percent": 10.4,
       "vintages": [
+        2012,
         2019
       ]
     },
@@ -8794,16 +10344,18 @@
       ]
     },
     "Volnay 1er Cru Clos des Chênes, Domaine Michel Lafarge": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 4,
+      "sold": 4,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1250,
-      "avg_hammer_sek": 1300,
-      "avg_ratio": 1.067,
-      "premium_percent": 6.7,
+      "avg_estimate_sek": 1975,
+      "avg_hammer_sek": 2025,
+      "avg_ratio": 1.044,
+      "premium_percent": 4.4,
       "vintages": [
         2003,
+        2012,
+        2013,
         2018
       ]
     },
@@ -8860,6 +10412,20 @@
         2018
       ]
     },
+    "Volnay 1er Cru Les Champans, Domaine de Montille": {
+      "total_lots": 2,
+      "sold": 1,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 1550,
+      "avg_hammer_sek": 1600,
+      "avg_ratio": 1.067,
+      "premium_percent": 6.7,
+      "vintages": [
+        2005,
+        2018
+      ]
+    },
     "Volnay 1er Cru Les Chevrets, Domaine Henri Boillot": {
       "total_lots": 1,
       "sold": 1,
@@ -8873,6 +10439,32 @@
         2015
       ]
     },
+    "Volnay 1er Cru Les Mitans, Domaine Michel Lafarge": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 2200,
+      "avg_ratio": 1.1,
+      "premium_percent": 10.0,
+      "vintages": [
+        2013
+      ]
+    },
+    "Volnay 1er Cru Les Santenots, Vincent Girardin": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 3300,
+      "avg_ratio": 1.375,
+      "premium_percent": 37.5,
+      "vintages": [
+        2017
+      ]
+    },
     "Volnay 1er Cru les Santenots, Vincent Girardin": {
       "total_lots": 4,
       "sold": 4,
@@ -8884,6 +10476,32 @@
       "premium_percent": 40.1,
       "vintages": [
         2017
+      ]
+    },
+    "Volnay 1er Cru, Domaine Marquis d'Angerville": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 2600,
+      "avg_ratio": 1.3,
+      "premium_percent": 30.0,
+      "vintages": [
+        2020
+      ]
+    },
+    "Volnay Les Santenots du Milieu 1er Cru, Domaine Arnaud Ente": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 5000,
+      "avg_hammer_sek": 5200,
+      "avg_ratio": 1.04,
+      "premium_percent": 4.0,
+      "vintages": [
+        2015
       ]
     },
     "Volnay, Domaine Henri Boillot": {
@@ -8952,14 +10570,14 @@
       ]
     },
     "Vosne Romanée, A & Arlaud": {
-      "total_lots": 4,
-      "sold": 4,
+      "total_lots": 5,
+      "sold": 5,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 1925,
-      "avg_hammer_sek": 2182,
-      "avg_ratio": 1.13,
-      "premium_percent": 13.0,
+      "avg_estimate_sek": 1960,
+      "avg_hammer_sek": 2186,
+      "avg_ratio": 1.114,
+      "premium_percent": 11.4,
       "vintages": [
         2016
       ]
@@ -9086,29 +10704,42 @@
         1988
       ]
     },
+    "Vosne-Romanée 1er Cru Clos des Réas, Domaine Jean Gros": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 2500,
+      "avg_hammer_sek": 2400,
+      "avg_ratio": 0.96,
+      "premium_percent": -4.0,
+      "vintages": [
+        1993
+      ]
+    },
     "Vosne-Romanée 1er Cru Clos des Réas, Domaine Michel Gros": {
-      "total_lots": 4,
-      "sold": 3,
+      "total_lots": 5,
+      "sold": 4,
       "unsold": 1,
-      "sell_rate": 75.0,
-      "avg_estimate_sek": 3750,
-      "avg_hammer_sek": 1850,
-      "avg_ratio": 0.967,
-      "premium_percent": -3.3,
+      "sell_rate": 80.0,
+      "avg_estimate_sek": 4800,
+      "avg_hammer_sek": 3480,
+      "avg_ratio": 0.996,
+      "premium_percent": -0.4,
       "vintages": [
         2015,
         2021
       ]
     },
     "Vosne-Romanée 1er Cru Cuvée Duvault-Blochet, DRC": {
-      "total_lots": 5,
-      "sold": 5,
+      "total_lots": 7,
+      "sold": 7,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 16800,
-      "avg_hammer_sek": 18292,
-      "avg_ratio": 1.09,
-      "premium_percent": 9.0,
+      "avg_estimate_sek": 16143,
+      "avg_hammer_sek": 17430,
+      "avg_ratio": 1.081,
+      "premium_percent": 8.1,
       "vintages": [
         2006,
         2008,
@@ -9315,14 +10946,14 @@
       ]
     },
     "Vosne-Romanée Aux Réas, Cyprien Arlaud": {
-      "total_lots": 2,
-      "sold": 2,
+      "total_lots": 3,
+      "sold": 3,
       "unsold": 0,
       "sell_rate": 100.0,
       "avg_estimate_sek": 2100,
-      "avg_hammer_sek": 2100,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
+      "avg_hammer_sek": 2075,
+      "avg_ratio": 0.988,
+      "premium_percent": -1.2,
       "vintages": [
         2019
       ]
@@ -9421,16 +11052,17 @@
       ]
     },
     "Vosne-Romanée, Cyprien Arlaud": {
-      "total_lots": 4,
-      "sold": 4,
+      "total_lots": 5,
+      "sold": 5,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2275,
-      "avg_hammer_sek": 2503,
-      "avg_ratio": 1.088,
-      "premium_percent": 8.8,
+      "avg_estimate_sek": 2240,
+      "avg_hammer_sek": 2602,
+      "avg_ratio": 1.156,
+      "premium_percent": 15.6,
       "vintages": [
-        2019
+        2019,
+        2020
       ]
     },
     "Vosne-Romanée, David Duband": {
@@ -9474,6 +11106,19 @@
         1987
       ]
     },
+    "Vosne-Romanée, Domaine Sylvain Cathiard": {
+      "total_lots": 1,
+      "sold": 1,
+      "unsold": 0,
+      "sell_rate": 100.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 4600,
+      "avg_ratio": 1.15,
+      "premium_percent": 15.0,
+      "vintages": [
+        2019
+      ]
+    },
     "Vosne-Romanée, Emmanuel Rouget": {
       "total_lots": 1,
       "sold": 1,
@@ -9502,16 +11147,17 @@
       ]
     },
     "Vougeot 1er Cru Les Cras, Domaine de la Vougeraie": {
-      "total_lots": 1,
-      "sold": 1,
+      "total_lots": 2,
+      "sold": 2,
       "unsold": 0,
       "sell_rate": 100.0,
-      "avg_estimate_sek": 2400,
-      "avg_hammer_sek": 2600,
-      "avg_ratio": 1.083,
-      "premium_percent": 8.3,
+      "avg_estimate_sek": 3600,
+      "avg_hammer_sek": 5400,
+      "avg_ratio": 1.395,
+      "premium_percent": 39.5,
       "vintages": [
-        2007
+        2007,
+        2009
       ]
     },
     "Échezeaux, Domaine Jean Grivot": {
@@ -9529,20 +11175,23 @@
       ]
     },
     "Échézeaux, DRC": {
-      "total_lots": 10,
-      "sold": 9,
-      "unsold": 1,
-      "sell_rate": 90.0,
-      "avg_estimate_sek": 18500,
-      "avg_hammer_sek": 15639,
-      "avg_ratio": 0.87,
-      "premium_percent": -13.0,
+      "total_lots": 14,
+      "sold": 12,
+      "unsold": 2,
+      "sell_rate": 85.7,
+      "avg_estimate_sek": 19429,
+      "avg_hammer_sek": 17228,
+      "avg_ratio": 0.914,
+      "premium_percent": -8.6,
       "vintages": [
         1984,
         1990,
         1995,
         2000,
         2004,
+        2005,
+        2006,
+        2009,
         2010,
         2012,
         2015,
