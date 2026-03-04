@@ -46,15 +46,11 @@ class NotificationService: UNNotificationServiceExtension {
         let matchedIds = prodIds.split(separator: ",").filter { favorites.contains(String($0)) }
 
         if !matchedIds.isEmpty {
-            // Rewrite body to show only the matched favorite wines
-            if let namesJson = userInfo["wineNames"] as? String,
-               let namesData = namesJson.data(using: .utf8),
-               let namesMap = try? JSONDecoder().decode([String: String].self, from: namesData) {
-                let matchedNames = matchedIds.compactMap { namesMap[String($0)] }
-                if !matchedNames.isEmpty {
-                    bestAttemptContent.title = "Your favorites"
-                    bestAttemptContent.body = matchedNames.joined(separator: "\n")
-                }
+            let namesMap = readWineNames()
+            let matchedNames = matchedIds.compactMap { namesMap[String($0)] }
+            if !matchedNames.isEmpty {
+                bestAttemptContent.title = "Today's releases"
+                bestAttemptContent.body = matchedNames.joined(separator: "\n")
             }
             contentHandler(bestAttemptContent)
         } else {
@@ -83,6 +79,15 @@ class NotificationService: UNNotificationServiceExtension {
             return "none"
         }
         return topic.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private func readWineNames() -> [String: String] {
+        guard let url = containerURL?.appendingPathComponent("wine_names.json"),
+              let data = try? Data(contentsOf: url),
+              let decoded = try? JSONDecoder().decode([String: String].self, from: data) else {
+            return [:]
+        }
+        return decoded
     }
 
     private func readFavorites() -> Set<String> {

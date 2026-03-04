@@ -53,8 +53,9 @@ struct NotificationCenterView: View {
                         Button(role: .destructive) {
                             store.delete(notification.id)
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label("Delete", systemImage: "trash.fill")
                         }
+                        .tint(Color(.systemGray3))
                     }
                     .swipeActions(edge: .leading, allowsFullSwipe: true) {
                         if !notification.isRead {
@@ -63,7 +64,7 @@ struct NotificationCenterView: View {
                             } label: {
                                 Label("Read", systemImage: "envelope.open")
                             }
-                            .tint(.accentColor)
+                            .tint(.blue)
                         }
                     }
                     .onTapGesture {
@@ -79,7 +80,7 @@ struct NotificationCenterView: View {
     private func notificationRow(_ notification: StoredNotification) -> some View {
         HStack(alignment: .top, spacing: 10) {
             Circle()
-                .fill(Color.accentColor)
+                .fill(Color.primary)
                 .frame(width: 8, height: 8)
                 .padding(.top, 5)
                 .opacity(notification.isRead ? 0 : 1)

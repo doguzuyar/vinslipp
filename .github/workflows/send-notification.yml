@@ -83,10 +83,17 @@ jobs:
           # Load releases.json for product number lookups
           with open("data/releases.json") as f:
               releases = json.load(f)
+          from datetime import date
+          today = date.today().isoformat()
+
           product_lookup = {}
+          today_products = set()
           for w in releases.get("wines", []):
               key = f"{w.get('wineName', '')} {w.get('vintage', '')}"
-              product_lookup[key] = w.get("productNumber", "")
+              pn = w.get("productNumber", "")
+              product_lookup[key] = pn
+              if w.get("launchDate") == today and pn:
+                  today_products.add(pn)
 
           for topic in topics:
               topic = topic.strip()
@@ -101,7 +108,6 @@ jobs:
               # Parse wines for this category
               wines = []
               product_numbers = []
-              wine_names = {}
               for line in wine_list.strip().split("\n"):
                   if not line.strip():
                       continue
@@ -110,9 +116,8 @@ jobs:
                       name, stars = m.group(1), m.group(2) or ""
                       wines.append((name, stars, len(stars) if stars else 0))
                       pn = product_lookup.get(name, "")
-                      if pn:
+                      if pn and pn in today_products:
                           product_numbers.append(pn)
-                          wine_names[pn] = name
 
               label = topic_labels.get(topic, topic)
               if wines:
@@ -131,8 +136,7 @@ jobs:
                       "topic": topic,
                       "data": {
                           "tab": "release",
-                          "productNumbers": ",".join(product_numbers),
-                          "wineNames": json.dumps(wine_names)
+                          "productNumbers": ",".join(product_numbers)
                       },
                       "apns": {
                           "payload": {
