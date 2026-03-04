@@ -35,15 +35,16 @@ scripts/rate_wines.py
 scripts/moderate_blog.py
 scripts/server.py
 scripts/seed_comment.py
+scripts/test_notification.py
 scripts/server.sh
 firebase-sa.json
 guide/
 auction/cookies.txt
 auction/scraper.py
 auction/wines.json
-auction/live_wines.json
 auction/rate_auction_wines.py
 auction/fix_producer_names.py
+auction/merge_stats.py
 auction/auction_stats copy.json
 vivino_data/
 data/wine_cellar.csv

@@ -36,6 +36,7 @@ jobs:
       - name: Prepare deployment
         run: |
           cp auction/auction_stats.json web/out/data/
+          cp auction/live_wines.json web/out/data/
           cp data/releases.json web/out/data/
           cp data/metadata.json web/out/data/
 
