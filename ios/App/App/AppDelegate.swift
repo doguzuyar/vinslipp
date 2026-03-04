@@ -32,7 +32,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in }
         application.registerForRemoteNotifications()
 
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(appDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification, object: nil
+        )
+
         return true
+    }
+
+    // MARK: - Catch background notifications on app open
+
+    @objc private func appDidBecomeActive() {
+        UNUserNotificationCenter.current().getDeliveredNotifications { [weak self] notifications in
+            guard let self, !notifications.isEmpty else { return }
+            for n in notifications {
+                let content = n.request.content
+                guard !content.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { continue }
+                if self.isFavoritesMode, !self.notificationContainsFavorite(content.userInfo) {
+                    continue
+                }
+                Task { @MainActor in
+                    self.notificationStore.addIfNew(title: content.title, body: content.body, date: n.date)
+                }
+            }
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+            DispatchQueue.main.async {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+            }
+        }
     }
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -50,7 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Messaging.messaging().apnsToken = deviceToken
     }
 
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("APNs registration failed: \(error)")
+    }
 
     // MARK: - Firebase MessagingDelegate
 
@@ -82,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let content = notification.request.content
+
         if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
             completionHandler([])
             return
@@ -96,6 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let content = response.notification.request.content
+
         if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
             completionHandler()
             return
@@ -103,8 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Task { @MainActor in
             notificationStore.add(title: content.title, body: content.body)
         }
-        let userInfo = content.userInfo
-        if let tab = userInfo["tab"] as? String {
+        if let tab = content.userInfo["tab"] as? String {
             DispatchQueue.main.async {
                 self.selectedTab = self.tabIndex(from: tab)
             }
@@ -112,10 +142,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler()
     }
 
-    /// Checks if any wine in the notification's productNumbers is in the user's favorites.
     private func notificationContainsFavorite(_ userInfo: [AnyHashable: Any]) -> Bool {
         guard let ids = userInfo["productNumbers"] as? String, !ids.isEmpty else { return false }
-        return ids.split(separator: ",").contains { favoritesStore.isFavorite(String($0)) }
+        let favorites = loadFavoritesFromDefaults()
+        return ids.split(separator: ",").contains { favorites.contains(String($0)) }
+    }
+
+    private func loadFavoritesFromDefaults() -> Set<String> {
+        guard let data = Self.sharedDefaults.data(forKey: FavoritesStore.storageKey),
+              let decoded = try? JSONDecoder().decode(Set<String>.self, from: data) else { return [] }
+        return decoded
     }
 
     // MARK: - Quick Actions

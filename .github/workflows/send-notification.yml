@@ -101,6 +101,7 @@ jobs:
               # Parse wines for this category
               wines = []
               product_numbers = []
+              wine_names = {}
               for line in wine_list.strip().split("\n"):
                   if not line.strip():
                       continue
@@ -111,6 +112,7 @@ jobs:
                       pn = product_lookup.get(name, "")
                       if pn:
                           product_numbers.append(pn)
+                          wine_names[pn] = name
 
               label = topic_labels.get(topic, topic)
               if wines:
@@ -127,17 +129,18 @@ jobs:
               message = {
                   "message": {
                       "topic": topic,
-                      "notification": {
-                          "title": f"{label} releases",
-                          "body": body_text
-                      },
                       "data": {
                           "tab": "release",
-                          "productNumbers": ",".join(product_numbers)
+                          "productNumbers": ",".join(product_numbers),
+                          "wineNames": json.dumps(wine_names)
                       },
                       "apns": {
                           "payload": {
                               "aps": {
+                                  "alert": {
+                                      "title": f"{label} releases",
+                                      "body": body_text
+                                  },
                                   "sound": "default",
                                   "badge": 1,
                                   "mutable-content": 1

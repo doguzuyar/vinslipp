@@ -38,6 +38,17 @@ class NotificationStore: ObservableObject {
         save()
     }
 
+    func addIfNew(title: String, body: String, date: Date) {
+        let isDuplicate = notifications.contains {
+            $0.title == title && $0.body == body && abs($0.date.timeIntervalSince(date)) < 60
+        }
+        guard !isDuplicate else { return }
+        let notification = StoredNotification(title: title, body: body, date: date)
+        notifications.insert(notification, at: 0)
+        notifications = Array(notifications.prefix(Self.maxCount))
+        save()
+    }
+
     func markAsRead(_ id: UUID) {
         guard let index = notifications.firstIndex(where: { $0.id == id }) else { return }
         notifications[index].isRead = true

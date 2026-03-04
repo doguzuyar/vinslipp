@@ -3,44 +3,91 @@ import UserNotifications
 class NotificationService: UNNotificationServiceExtension {
 
     private let appGroup = "group.com.nybroans.vinslipp"
-    private let favoritesKey = "favorite_wines"
-    private let topicKey = "notification_topic"
+
+    private var pendingContentHandler: ((UNNotificationContent) -> Void)?
+    private var pendingContent: UNMutableNotificationContent?
+    private var shouldSuppress = false
+
+    private var containerURL: URL? {
+        FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup)
+    }
 
     override func didReceive(
         _ request: UNNotificationRequest,
         withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void
     ) {
+        guard let bestAttemptContent = request.content.mutableCopy() as? UNMutableNotificationContent else {
+            contentHandler(request.content)
+            return
+        }
+
+        pendingContentHandler = contentHandler
+        pendingContent = bestAttemptContent
+
         let userInfo = request.content.userInfo
-        let defaults = UserDefaults(suiteName: appGroup)
+        let topic = readTopic()
+        let favorites = readFavorites()
 
-        let topic = defaults?.string(forKey: topicKey) ?? "none"
         guard topic == "favorites" else {
-            contentHandler(request.content)
+            contentHandler(bestAttemptContent)
             return
         }
 
-        guard let ids = userInfo["productNumbers"] as? String, !ids.isEmpty else {
-            // No product numbers means we can't match favorites, suppress it
-            contentHandler(UNNotificationContent())
+        guard let prodIds = userInfo["productNumbers"] as? String, !prodIds.isEmpty else {
+            contentHandler(bestAttemptContent)
             return
         }
 
-        let favorites = loadFavorites(from: defaults)
-        let hasMatch = ids.split(separator: ",").contains { favorites.contains(String($0)) }
+        guard !favorites.isEmpty else {
+            contentHandler(bestAttemptContent)
+            return
+        }
 
-        if hasMatch {
-            contentHandler(request.content)
+        let matchedIds = prodIds.split(separator: ",").filter { favorites.contains(String($0)) }
+
+        if !matchedIds.isEmpty {
+            // Rewrite body to show only the matched favorite wines
+            if let namesJson = userInfo["wineNames"] as? String,
+               let namesData = namesJson.data(using: .utf8),
+               let namesMap = try? JSONDecoder().decode([String: String].self, from: namesData) {
+                let matchedNames = matchedIds.compactMap { namesMap[String($0)] }
+                if !matchedNames.isEmpty {
+                    bestAttemptContent.title = "Your favorites"
+                    bestAttemptContent.body = matchedNames.joined(separator: "\n")
+                }
+            }
+            contentHandler(bestAttemptContent)
         } else {
-            contentHandler(UNNotificationContent())
+            shouldSuppress = true
+            bestAttemptContent.sound = nil
+            bestAttemptContent.badge = 0
+            bestAttemptContent.interruptionLevel = .passive
+            contentHandler(bestAttemptContent)
+            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [request.identifier])
         }
     }
 
     override func serviceExtensionTimeWillExpire() {
-        // Deliver whatever we have if we run out of time
+        guard let handler = pendingContentHandler, let content = pendingContent else { return }
+        if shouldSuppress {
+            content.sound = nil
+            content.badge = 0
+            content.interruptionLevel = .passive
+        }
+        handler(content)
     }
 
-    private func loadFavorites(from defaults: UserDefaults?) -> Set<String> {
-        guard let data = defaults?.data(forKey: favoritesKey),
+    private func readTopic() -> String {
+        guard let url = containerURL?.appendingPathComponent("notification_topic.txt"),
+              let topic = try? String(contentsOf: url, encoding: .utf8) else {
+            return "none"
+        }
+        return topic.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private func readFavorites() -> Set<String> {
+        guard let url = containerURL?.appendingPathComponent("favorites.json"),
+              let data = try? Data(contentsOf: url),
               let decoded = try? JSONDecoder().decode(Set<String>.self, from: data) else {
             return []
         }

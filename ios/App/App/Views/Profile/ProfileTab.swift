@@ -48,6 +48,18 @@ struct ProfileTab: View {
             } else if newValue != "none" {
                 Messaging.messaging().subscribe(toTopic: newValue)
             }
+            if let url = FileManager.default
+                .containerURL(forSecurityApplicationGroupIdentifier: FavoritesStore.appGroup)?
+                .appendingPathComponent("notification_topic.txt") {
+                try? newValue.write(to: url, atomically: true, encoding: .utf8)
+            }
+        }
+        .onAppear {
+            if let url = FileManager.default
+                .containerURL(forSecurityApplicationGroupIdentifier: FavoritesStore.appGroup)?
+                .appendingPathComponent("notification_topic.txt") {
+                try? notificationTopic.write(to: url, atomically: true, encoding: .utf8)
+            }
         }
     }
 

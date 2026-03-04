@@ -34,6 +34,7 @@ struct AuctionTab: View {
     @ObservedObject var dataService: DataService
     @AppStorage("auction_searchText") private var searchText = ""
     @State private var expandedProducerId: String?
+    @State private var expandedLiveWineId: String?
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
     @AppStorage("auction_showLive") private var showLive = false
@@ -185,7 +186,7 @@ struct AuctionTab: View {
             .padding(.top, -15)
         } else if dataService.isLoadingLiveWines {
             Spacer()
-            ProgressView("Loading live wines...")
+            ProgressView("Loading recent auction...")
             Spacer()
         } else if let error = dataService.liveWinesError {
             Spacer()
@@ -247,7 +248,7 @@ struct AuctionTab: View {
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
-                FilterChip(label: "Live", isActive: showLive) {
+                FilterChip(label: "Recent", isActive: showLive) {
                     showLive.toggle()
                     if showLive && dataService.liveWinesData == nil {
                         Task { await dataService.loadLiveWines() }
@@ -444,7 +445,13 @@ struct AuctionTab: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(filteredLiveWines) { wine in
-                    LiveWineRow(wine: wine)
+                    LiveWineRow(wine: wine, isExpanded: expandedLiveWineId == wine.id)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                expandedLiveWineId = expandedLiveWineId == wine.id ? nil : wine.id
+                            }
+                        }
                     Divider().padding(.leading, 28)
                 }
             }
@@ -631,63 +638,99 @@ struct ProducerDetail: View {
 
 struct LiveWineRow: View {
     let wine: LiveWine
+    let isExpanded: Bool
     @State private var safariURL: URL?
 
-    private var barColor: Color { .vinslippBurgundy }
+    private var barColor: Color {
+        wine.category == "bordeaux" ? .vinslippBordeaux : .vinslippBurgundy
+    }
 
     private var starsText: String {
         String(repeating: "\u{2605}", count: wine.rating_score)
     }
 
-    var body: some View {
-        HStack(spacing: 12) {
-            RoundedRectangle(cornerRadius: 2)
-                .fill(barColor)
-                .frame(width: 4, height: 44)
+    private var hammerDisplay: String {
+        wine.hammer_price == "No bids" ? "Unsold" : wine.hammer_price
+    }
 
-            VStack(alignment: .leading, spacing: 2) {
-                HStack {
-                    Text(wine.title)
-                        .font(.subheadline.weight(.semibold))
-                        .lineLimit(1)
-                    Spacer()
-                    Text(starsText)
-                        .font(.caption)
-                        .foregroundStyle(.yellow)
-                }
-                HStack {
-                    Text(wine.category.capitalized)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                    Spacer()
-                    Text(wine.estimate)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                HStack {
-                    Text(wine.rating_reason)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                        .lineLimit(1)
-                    Spacer()
-                    if let age = wine.age {
-                        Text("\(age) years")
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 12) {
+                RoundedRectangle(cornerRadius: 2)
+                    .fill(barColor)
+                    .frame(width: 4, height: 44)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack {
+                        Text(wine.title)
+                            .font(.subheadline.weight(.semibold))
+                            .lineLimit(1)
+                        Spacer()
+                        Text(starsText)
+                            .font(.caption)
+                            .foregroundStyle(.yellow)
+                    }
+                    HStack {
+                        Text(wine.category.capitalized)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                        Spacer()
+                        Text(hammerDisplay)
+                            .font(.caption)
+                            .foregroundStyle(wine.hammer_price == "No bids" ? .red : .secondary)
+                    }
+                    HStack {
+                        if let age = wine.age {
+                            Text("\(age) years")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
+                        Spacer()
+                        Text("Est. \(wine.estimate)")
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
                     }
                 }
             }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+
+            if isExpanded {
+                VStack(alignment: .leading, spacing: 8) {
+                    Divider()
+
+                    Text(wine.rating_reason)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    HStack(spacing: 12) {
+                        if let url = URL(string: wine.url) {
+                            Button { safariURL = url } label: {
+                                Label("Bukowskis", systemImage: "globe")
+                                    .font(.caption.weight(.medium))
+                            }
+                        }
+                        Spacer()
+                    }
+
+                    HStack(spacing: 16) {
+                        DetailChip(label: "Category", value: wine.category.capitalized)
+                        DetailChip(label: "Estimate", value: wine.estimate)
+                        DetailChip(label: "Hammer", value: hammerDisplay)
+                    }
+                }
+                .padding(.horizontal, 28)
+                .padding(.bottom, 10)
+                .sheet(item: $safariURL) { url in
+                    SafariView(url: url)
+                        .ignoresSafeArea()
+                }
+            }
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 12)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            safariURL = URL(string: wine.url)
-        }
-        .sheet(item: $safariURL) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
+        .background(
+            isExpanded ? barColor.opacity(0.15) : Color.clear
+        )
     }
 }

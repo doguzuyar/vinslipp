@@ -11,7 +11,8 @@ extension Color {
         self.init(red: r, green: g, blue: b)
     }
 
-    static let vinslippBurgundy = Color(hex: "4D1421")
+    static let vinslippBordeaux = Color(hex: "4D1421")
+    static let vinslippBurgundy = Color(hex: "722F37")
 }
 
 // MARK: - Shared Date Formatters
