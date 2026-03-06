@@ -128,7 +128,7 @@ struct CellarTab: View {
             Text("Cellar")
                 .font(.title2)
                 .foregroundStyle(.secondary)
-            Text("Import your Vivino export to see your cellar")
+            Text("Import your Vivino CSV exports to see your cellar")
                 .font(.caption)
                 .foregroundStyle(.tertiary)
                 .multilineTextAlignment(.center)
@@ -137,7 +137,7 @@ struct CellarTab: View {
             Button {
                 showFilePicker = true
             } label: {
-                Label("Import Vivino CSV files", systemImage: "doc.badge.plus")
+                Label("Select files", systemImage: "doc.badge.plus")
                     .font(.subheadline.weight(.medium))
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
@@ -151,16 +151,71 @@ struct CellarTab: View {
                     .foregroundStyle(.red)
             }
 
+            VStack(alignment: .leading, spacing: 10) {
+                Text("From Vivino, export these files:")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.secondary)
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "doc.text")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("cellar.csv")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.secondary)
+                        Text("Your current bottles in cellar")
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
+                }
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "doc.text")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("full_wine_list.csv")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.secondary)
+                        Text("Wine history, ratings, and personal notes")
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
+                }
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "doc.text")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                    VStack(alignment: .leading, spacing: 2) {
+                        HStack(spacing: 4) {
+                            Text("user_prices.csv")
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.tertiary)
+                            Text("optional")
+                                .font(.caption2)
+                                .foregroundStyle(.quaternary)
+                        }
+                        Text("Purchase prices for value tracking")
+                            .font(.caption2)
+                            .foregroundStyle(.quaternary)
+                    }
+                }
+            }
+            .padding(.horizontal, 32)
+            .padding(.top, 4)
+
             VStack(alignment: .leading, spacing: 6) {
                 Text("Tip: Drink year planning")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
-                Text("By default, the chart groups bottles by vintage. To plan when to drink each wine, add target years in the Personal Note field on Vivino (e.g. \"2026, 2028, 2030\") the chart will use those instead.")
+                Text("Add target years in the Personal Note field on Vivino (e.g. \"2026, 2028, 2030\") and the chart will group bottles by drink year instead of vintage.")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             }
             .padding(.horizontal, 32)
-            .padding(.top, 12)
+            .padding(.top, 8)
 
             Spacer()
         }
