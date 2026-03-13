@@ -112,6 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let content = notification.request.content
 
+        // Extension may have cleared title/body to suppress
+        guard !content.title.isEmpty else {
+            completionHandler([])
+            return
+        }
+
         if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
             completionHandler([])
             return

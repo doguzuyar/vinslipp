@@ -24,53 +24,67 @@ class NotificationService: UNNotificationServiceExtension {
         pendingContentHandler = contentHandler
         pendingContent = bestAttemptContent
 
-        let userInfo = request.content.userInfo
         let topic = readTopic()
-        let favorites = readFavorites()
 
+        // Not in favorites mode: show notification as-is
         guard topic == "favorites" else {
             contentHandler(bestAttemptContent)
             return
         }
 
-        guard let prodIds = userInfo["productNumbers"] as? String, !prodIds.isEmpty else {
-            contentHandler(bestAttemptContent)
-            return
-        }
+        // In favorites mode: only show if there's a matching favorite
+        let favorites = readFavorites()
+        let userInfo = request.content.userInfo
+        let prodIds = (userInfo["productNumbers"] as? String) ?? ""
 
-        guard !favorites.isEmpty else {
-            contentHandler(bestAttemptContent)
-            return
+        let matchedIds: [String]
+        if !prodIds.isEmpty && !favorites.isEmpty {
+            matchedIds = prodIds.split(separator: ",")
+                .map { String($0) }
+                .filter { favorites.contains($0) }
+        } else {
+            matchedIds = []
         }
-
-        let matchedIds = prodIds.split(separator: ",").filter { favorites.contains(String($0)) }
 
         if !matchedIds.isEmpty {
             let namesMap = readWineNames()
-            let matchedNames = matchedIds.compactMap { namesMap[String($0)] }
+            let matchedNames = matchedIds.compactMap { namesMap[$0] }
             if !matchedNames.isEmpty {
                 bestAttemptContent.title = "Today's releases"
                 bestAttemptContent.body = matchedNames.joined(separator: "\n")
             }
             contentHandler(bestAttemptContent)
         } else {
-            shouldSuppress = true
-            bestAttemptContent.sound = nil
-            bestAttemptContent.badge = 0
-            bestAttemptContent.interruptionLevel = .passive
-            contentHandler(bestAttemptContent)
-            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [request.identifier])
+            suppress(bestAttemptContent, identifier: request.identifier, handler: contentHandler)
         }
     }
 
     override func serviceExtensionTimeWillExpire() {
         guard let handler = pendingContentHandler, let content = pendingContent else { return }
         if shouldSuppress {
+            content.title = ""
+            content.body = ""
             content.sound = nil
             content.badge = 0
             content.interruptionLevel = .passive
         }
         handler(content)
+    }
+
+    private func suppress(
+        _ content: UNMutableNotificationContent,
+        identifier: String,
+        handler: @escaping (UNNotificationContent) -> Void
+    ) {
+        shouldSuppress = true
+        content.title = ""
+        content.body = ""
+        content.subtitle = ""
+        content.sound = nil
+        content.badge = 0
+        content.interruptionLevel = .passive
+        handler(content)
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [identifier])
     }
 
     private func readTopic() -> String {
