@@ -20,21 +20,33 @@ enum CellarSortField: String, CaseIterable {
 struct CellarTab: View {
     @ObservedObject var cellarService: CellarService
     @State private var selectedYear: String?
-    @State private var expandedWineId: String?
+    @State private var expandedWineId: UUID?
     @AppStorage("cellar_sortField") private var sortField: CellarSortField = .year
     @AppStorage("cellar_sortDirection") private var sortDirection: SortDirection = .ascending
     @AppStorage("cellar_searchText") private var searchText = ""
     @State private var showFilePicker = false
     @AppStorage("cellar_chartMode") private var showVintage = false
     @AppStorage("cellar_showHistory") private var showHistory = false
-    @AppStorage("cellar_selectedLocation") private var selectedLocation: String = ""
+    @State private var showAddSheet = false
+    @State private var editingEntry: CellarEntry?
+    @State private var shareURL: URL?
+    @State private var deleteCandidate: CellarEntry?
 
-    private var filtered: [CellarWine] {
+    private var filtered: [CellarEntry] {
         guard let data = cellarService.cellarData else { return [] }
         var wines = data.wines
 
         if let year = selectedYear {
-            wines = wines.filter { showVintage ? $0.vintage == year : $0.drinkYear == year }
+            wines = wines.filter { wine in
+                if showVintage {
+                    return wine.vintage == year
+                } else {
+                    let yearKey = wine.drinkYear.isEmpty
+                        ? (wine.vintage.isEmpty ? "-" : wine.vintage)
+                        : wine.drinkYear
+                    return yearKey == year
+                }
+            }
         }
 
         if !searchText.isEmpty {
@@ -49,13 +61,8 @@ struct CellarTab: View {
         return sorted(wines)
     }
 
-    private var filteredHistory: [HistoryWine] {
-        guard let history = cellarService.historyData else { return [] }
-        var wines = history
-
-        if !selectedLocation.isEmpty {
-            wines = wines.filter { $0.location == selectedLocation }
-        }
+    private var filteredHistory: [CellarEntry] {
+        var wines = cellarService.historyEntries
 
         if !searchText.isEmpty {
             let query = searchText.lowercased()
@@ -66,12 +73,7 @@ struct CellarTab: View {
             }
         }
 
-        return wines
-    }
-
-    private var uniqueLocations: [String] {
-        guard let history = cellarService.historyData else { return [] }
-        return Array(Set(history.compactMap { $0.location.isEmpty ? nil : $0.location })).sorted()
+        return wines.sorted { $0.addedDate > $1.addedDate }
     }
 
     var body: some View {
@@ -97,14 +99,14 @@ struct CellarTab: View {
                 }
             } else if cellarService.isProcessing {
                 Spacer()
-                ProgressView("Processing CSV...")
+                ProgressView("Processing...")
                 Spacer()
             } else {
                 emptyState
             }
         }
         .safeAreaInset(edge: .bottom) {
-            if cellarService.cellarData != nil {
+            if cellarService.cellarData != nil || showHistory {
                 searchBar
             }
         }
@@ -114,6 +116,46 @@ struct CellarTab: View {
             allowsMultipleSelection: true
         ) { result in
             handleFiles(result)
+        }
+        .sheet(isPresented: $showAddSheet) {
+            WineEditSheet(entry: CellarEntry(), isNew: true) { newEntry in
+                cellarService.addEntry(newEntry)
+            }
+        }
+        .sheet(item: $editingEntry) { entry in
+            WineEditSheet(entry: entry, isNew: false) { updated in
+                cellarService.updateEntry(updated)
+            }
+        }
+        .sheet(item: $shareURL) { url in
+            ActivityView(activityItems: [url])
+        }
+        .alert(
+            "Remove Wine",
+            isPresented: Binding(
+                get: { deleteCandidate != nil },
+                set: { if !$0 { deleteCandidate = nil } }
+            )
+        ) {
+            Button("Move to History") {
+                if let entry = deleteCandidate {
+                    cellarService.moveToHistory(id: entry.id)
+                    deleteCandidate = nil
+                }
+            }
+            Button("Delete Permanently", role: .destructive) {
+                if let entry = deleteCandidate {
+                    cellarService.removeEntry(id: entry.id)
+                    deleteCandidate = nil
+                }
+            }
+            Button("Cancel", role: .cancel) {
+                deleteCandidate = nil
+            }
+        } message: {
+            if let entry = deleteCandidate {
+                Text("Would you like to move \(entry.winery) \(entry.wineName) to history or delete it permanently?")
+            }
         }
     }
 
@@ -128,21 +170,34 @@ struct CellarTab: View {
             Text("Cellar")
                 .font(.title2)
                 .foregroundStyle(.secondary)
-            Text("Import your Vivino CSV exports to see your cellar")
+            Text("Add wines from Releases or Auctions, or import your cellar")
                 .font(.caption)
                 .foregroundStyle(.tertiary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40)
 
-            Button {
-                showFilePicker = true
-            } label: {
-                Label("Select files", systemImage: "doc.badge.plus")
-                    .font(.subheadline.weight(.medium))
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .background(Color(.systemGray5))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            HStack(spacing: 12) {
+                Button {
+                    showAddSheet = true
+                } label: {
+                    Label("Add Wine", systemImage: "plus")
+                        .font(.subheadline.weight(.medium))
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(Color(.systemGray5))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+
+                Button {
+                    showFilePicker = true
+                } label: {
+                    Label("Import Cellar", systemImage: "doc.badge.plus")
+                        .font(.subheadline.weight(.medium))
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(Color(.systemGray5))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
             }
 
             if let error = cellarService.error {
@@ -152,70 +207,39 @@ struct CellarTab: View {
             }
 
             VStack(alignment: .leading, spacing: 10) {
-                Text("From Vivino, export these files:")
+                Text("Ways to build your cellar:")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
 
                 HStack(alignment: .top, spacing: 8) {
-                    Image(systemName: "doc.text")
+                    Image(systemName: "plus.circle")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("cellar.csv")
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(.secondary)
-                        Text("Your current bottles in cellar")
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
-                    }
-                }
-
-                HStack(alignment: .top, spacing: 8) {
-                    Image(systemName: "doc.text")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("full_wine_list.csv")
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(.secondary)
-                        Text("Wine history, ratings, and personal notes")
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
-                    }
-                }
-
-                HStack(alignment: .top, spacing: 8) {
-                    Image(systemName: "doc.text")
-                        .font(.caption)
+                    Text("Tap \"Add to Cellar\" on any wine in Releases or Auctions")
+                        .font(.caption2)
                         .foregroundStyle(.tertiary)
-                    VStack(alignment: .leading, spacing: 2) {
-                        HStack(spacing: 4) {
-                            Text("user_prices.csv")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.tertiary)
-                            Text("optional")
-                                .font(.caption2)
-                                .foregroundStyle(.quaternary)
-                        }
-                        Text("Purchase prices for value tracking")
-                            .font(.caption2)
-                            .foregroundStyle(.quaternary)
-                    }
+                }
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "square.and.pencil")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text("Manually add wines with the Add Wine button")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "doc.badge.plus")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text("Import a previously exported Vinslipp cellar file")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
                 }
             }
             .padding(.horizontal, 32)
             .padding(.top, 4)
-
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Tip: Drink year planning")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Text("Add target years in the Personal Note field on Vivino (e.g. \"2026, 2028, 2030\") and the chart will group bottles by drink year instead of vintage.")
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-            }
-            .padding(.horizontal, 32)
-            .padding(.top, 8)
 
             Spacer()
         }
@@ -225,7 +249,7 @@ struct CellarTab: View {
 
     private func summaryBar(data: CellarData) -> some View {
         HStack(spacing: 6) {
-            if cellarService.historyData != nil {
+            if cellarService.hasHistory {
                 FilterChip(label: "Cellar", isActive: false) {
                     withAnimation(.easeInOut(duration: 0.2)) {
                         showHistory = true
@@ -238,14 +262,19 @@ struct CellarTab: View {
                     selectedYear = nil
                 }
             }
+
             Button {
-                cellarService.clearData()
-                selectedYear = nil
+                showAddSheet = true
             } label: {
-                Image(systemName: "arrow.counterclockwise")
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
+                Image(systemName: "plus")
+                    .font(.caption2.weight(.medium))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 5)
+                    .background(Color(.systemGray5))
+                    .clipShape(Capsule())
             }
+
             Spacer()
             Text("\(data.totalBottles) bottles")
                 .font(.caption.weight(.medium))
@@ -255,6 +284,32 @@ struct CellarTab: View {
                     .foregroundStyle(.tertiary)
                 Text("\(data.totalValue.formatted()) SEK")
                     .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+
+            Menu {
+                Button {
+                    if let url = cellarService.exportCSV() {
+                        shareURL = url
+                    }
+                } label: {
+                    Label("Export Cellar", systemImage: "square.and.arrow.up")
+                }
+                Button {
+                    showFilePicker = true
+                } label: {
+                    Label("Import Cellar", systemImage: "doc.badge.plus")
+                }
+                Divider()
+                Button(role: .destructive) {
+                    cellarService.clearData()
+                    selectedYear = nil
+                } label: {
+                    Label("Clear All", systemImage: "trash")
+                }
+            } label: {
+                Image(systemName: "ellipsis.circle")
+                    .font(.caption2)
                     .foregroundStyle(.tertiary)
             }
         }
@@ -307,13 +362,26 @@ struct CellarTab: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(filtered) { wine in
-                    CellarWineRow(wine: wine, isExpanded: expandedWineId == wine.id)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                expandedWineId = expandedWineId == wine.id ? nil : wine.id
+                    CellarWineRow(
+                        wine: wine,
+                        isExpanded: expandedWineId == wine.id,
+                        onEdit: { editingEntry = wine },
+                        onDelete: { deleteCandidate = wine },
+                        onIncrement: { cellarService.incrementCount(id: wine.id) },
+                        onDecrement: {
+                            if wine.count <= 1 {
+                                deleteCandidate = wine
+                            } else {
+                                cellarService.decrementCount(id: wine.id)
                             }
                         }
+                    )
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            expandedWineId = expandedWineId == wine.id ? nil : wine.id
+                        }
+                    }
                     Divider().padding(.leading, 28)
                 }
             }
@@ -325,47 +393,25 @@ struct CellarTab: View {
 
     private var historyBar: some View {
         HStack(spacing: 6) {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 6) {
-                    FilterChip(label: "History", isActive: false) {
-                        withAnimation(.easeInOut(duration: 0.2)) {
-                            showHistory = false
-                        }
-                    }
-                    Menu {
-                        ForEach(uniqueLocations, id: \.self) { location in
-                            Button {
-                                withAnimation(.easeInOut(duration: 0.2)) {
-                                    selectedLocation = selectedLocation == location ? "" : location
-                                }
-                            } label: {
-                                HStack {
-                                    Text(location)
-                                    if selectedLocation == location {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Location",
-                            isActive: !selectedLocation.isEmpty
-                        )
-                    }
-                    if !selectedLocation.isEmpty {
-                        Button {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                selectedLocation = ""
-                            }
-                        } label: {
-                            Image(systemName: "arrow.counterclockwise")
-                                .font(.caption2)
-                                .foregroundStyle(.tertiary)
-                        }
-                    }
+            FilterChip(label: "History", isActive: false) {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    showHistory = false
                 }
             }
+
+            Button {
+                showAddSheet = true
+            } label: {
+                Image(systemName: "plus")
+                    .font(.caption2.weight(.medium))
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 5)
+                    .background(Color(.systemGray5))
+                    .clipShape(Capsule())
+            }
+
+            Spacer()
             Text("\(filteredHistory.count) wines")
                 .font(.caption.weight(.medium))
                 .foregroundStyle(.secondary)
@@ -381,7 +427,19 @@ struct CellarTab: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(filteredHistory) { wine in
-                    HistoryWineRow(wine: wine)
+                    HistoryWineRow(
+                        wine: wine,
+                        isExpanded: expandedWineId == wine.id,
+                        onEdit: { editingEntry = wine },
+                        onDelete: { cellarService.removeEntry(id: wine.id) },
+                        onRestore: { cellarService.incrementCount(id: wine.id) }
+                    )
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            expandedWineId = expandedWineId == wine.id ? nil : wine.id
+                        }
+                    }
                     Divider().padding(.leading, 16)
                 }
             }
@@ -391,12 +449,18 @@ struct CellarTab: View {
 
     // MARK: - Sorting
 
-    private func sorted(_ wines: [CellarWine]) -> [CellarWine] {
+    private func sorted(_ wines: [CellarEntry]) -> [CellarEntry] {
         wines.sorted { a, b in
             let result: Bool
             switch sortField {
             case .year:
-                result = showVintage ? a.vintage < b.vintage : a.drinkYear < b.drinkYear
+                if showVintage {
+                    result = a.vintage < b.vintage
+                } else {
+                    let aYear = a.drinkYear.isEmpty ? a.vintage : a.drinkYear
+                    let bYear = b.drinkYear.isEmpty ? b.vintage : b.drinkYear
+                    result = aYear < bYear
+                }
             case .winery:
                 result = a.winery.localizedCaseInsensitiveCompare(b.winery) == .orderedAscending
             case .wine:
@@ -423,8 +487,12 @@ struct CellarTab: View {
 // MARK: - Cellar Wine Row
 
 struct CellarWineRow: View {
-    let wine: CellarWine
+    let wine: CellarEntry
     let isExpanded: Bool
+    let onEdit: () -> Void
+    let onDelete: () -> Void
+    let onIncrement: () -> Void
+    let onDecrement: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -439,7 +507,7 @@ struct CellarWineRow: View {
                             .font(.subheadline.weight(.semibold))
                             .lineLimit(1)
                         Spacer()
-                        Text("×\(wine.count)")
+                        Text("\u{00d7}\(wine.count)")
                             .font(.caption.weight(.medium))
                             .foregroundStyle(.secondary)
                     }
@@ -466,9 +534,11 @@ struct CellarWineRow: View {
                                 .lineLimit(1)
                         }
                         Spacer()
-                        Text(wine.drinkYear)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
+                        if !wine.drinkYear.isEmpty {
+                            Text(wine.drinkYear)
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
                     }
                 }
             }
@@ -476,79 +546,198 @@ struct CellarWineRow: View {
             .padding(.horizontal, 12)
 
             if isExpanded {
-                CellarWineDetail(wine: wine)
+                CellarWineDetail(
+                    wine: wine,
+                    onEdit: onEdit,
+                    onIncrement: onIncrement,
+                    onDecrement: onDecrement
+                )
             }
         }
         .background(
             isExpanded ? Color(hex: wine.color).opacity(0.15) : Color.clear
         )
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button(role: .destructive) {
+                onDelete()
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            Button {
+                onEdit()
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+            .tint(.blue)
+        }
     }
 }
 
 // MARK: - History Wine Row
 
 private struct HistoryWineRow: View {
-    let wine: HistoryWine
+    let wine: CellarEntry
+    let isExpanded: Bool
+    let onEdit: () -> Void
+    let onDelete: () -> Void
+    let onRestore: () -> Void
+    @State private var safariURL: URL?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(wine.winery)
-                .font(.subheadline.weight(.semibold))
-                .lineLimit(1)
-            Text(wine.wineName)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
-            HStack(spacing: 8) {
-                if !wine.vintage.isEmpty {
-                    Text(wine.vintage)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
+        VStack(alignment: .leading, spacing: 0) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(wine.winery)
+                    .font(.subheadline.weight(.semibold))
+                    .lineLimit(1)
+                Text(wine.wineName)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                HStack(spacing: 8) {
+                    if !wine.vintage.isEmpty {
+                        Text(wine.vintage)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
+                    if !wine.region.isEmpty {
+                        Text(wine.region)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                            .lineLimit(1)
+                    }
+                    if !wine.country.isEmpty {
+                        Text(wine.country)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
+                    Spacer()
                 }
-                if !wine.region.isEmpty {
-                    Text(wine.region)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                        .lineLimit(1)
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 16)
+
+            if isExpanded {
+                VStack(alignment: .leading, spacing: 8) {
+                    Divider()
+
+                    HStack(spacing: 12) {
+                        ForEach(wine.links.filter { !$0.isEmpty }, id: \.self) { linkStr in
+                            if let url = URL(string: linkStr) {
+                                Button { safariURL = url } label: {
+                                    Label(linkLabel(linkStr), systemImage: "globe")
+                                        .font(.caption.weight(.medium))
+                                }
+                            }
+                        }
+                        Button(action: onEdit) {
+                            Label("Edit", systemImage: "pencil")
+                                .font(.caption.weight(.medium))
+                        }
+                        Button(action: onRestore) {
+                            Label("Restore to Cellar", systemImage: "arrow.uturn.backward")
+                                .font(.caption.weight(.medium))
+                        }
+                        Spacer()
+                    }
+
+                    if !wine.notes.isEmpty {
+                        Text(wine.notes)
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
                 }
-                if !wine.country.isEmpty {
-                    Text(wine.country)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
+                .padding(.horizontal, 28)
+                .padding(.bottom, 10)
+                .sheet(item: $safariURL) { url in
+                    SafariView(url: url)
+                        .ignoresSafeArea()
                 }
-                Spacer()
             }
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 16)
+        .background(isExpanded ? Color(.systemGray5).opacity(0.5) : Color.clear)
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button(role: .destructive) {
+                onDelete()
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            Button {
+                onEdit()
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+            .tint(.blue)
+            Button {
+                onRestore()
+            } label: {
+                Label("Restore", systemImage: "arrow.uturn.backward")
+            }
+            .tint(.green)
+        }
     }
 }
 
 // MARK: - Cellar Wine Detail
 
 struct CellarWineDetail: View {
-    let wine: CellarWine
+    let wine: CellarEntry
+    let onEdit: () -> Void
+    let onIncrement: () -> Void
+    let onDecrement: () -> Void
     @State private var safariURL: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Divider()
 
-            if !wine.link.isEmpty, let url = URL(string: wine.link) {
-                Button { safariURL = url } label: {
-                    Label("Vivino", systemImage: "globe")
+            HStack(spacing: 12) {
+                ForEach(wine.links.filter { !$0.isEmpty }, id: \.self) { linkStr in
+                    if let url = URL(string: linkStr) {
+                        Button { safariURL = url } label: {
+                            Label(linkLabel(linkStr), systemImage: "globe")
+                                .font(.caption.weight(.medium))
+                        }
+                    }
+                }
+
+                Button(action: onEdit) {
+                    Label("Edit", systemImage: "pencil")
                         .font(.caption.weight(.medium))
+                }
+
+                Spacer()
+
+                HStack(spacing: 8) {
+                    Button(action: onDecrement) {
+                        Image(systemName: "minus.circle")
+                            .font(.body)
+                    }
+                    .disabled(wine.count <= 0)
+
+                    Text("\(wine.count)")
+                        .font(.subheadline.weight(.medium).monospacedDigit())
+                        .frame(minWidth: 20)
+
+                    Button(action: onIncrement) {
+                        Image(systemName: "plus.circle")
+                            .font(.body)
+                    }
                 }
             }
 
             HStack(spacing: 16) {
-                if !wine.style.isEmpty {
-                    DetailChip(label: "Style", value: wine.style)
-                }
                 if !wine.region.isEmpty {
                     DetailChip(label: "Region", value: wine.region)
                 }
-                DetailChip(label: "Bottles", value: "\(wine.count)")
+                if !wine.country.isEmpty {
+                    DetailChip(label: "Country", value: wine.country)
+                }
+            }
+
+            if !wine.notes.isEmpty {
+                Text(wine.notes)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(.horizontal, 28)
@@ -559,3 +748,26 @@ struct CellarWineDetail: View {
         }
     }
 }
+
+// MARK: - Link Label Helper
+
+private func linkLabel(_ urlString: String) -> String {
+    guard let host = URL(string: urlString)?.host?.lowercased() else { return "Link" }
+    if host.contains("vivino") { return "Vivino" }
+    if host.contains("bukowskis") { return "Bukowskis" }
+    if host.contains("systembolaget") { return "Systembolaget" }
+    return "Link"
+}
+
+// MARK: - Activity View (Share Sheet)
+
+struct ActivityView: UIViewControllerRepresentable {
+    let activityItems: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+

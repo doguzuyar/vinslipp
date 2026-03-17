@@ -639,7 +639,9 @@ struct ProducerDetail: View {
 struct LiveWineRow: View {
     let wine: LiveWine
     let isExpanded: Bool
+    @EnvironmentObject var cellarService: CellarService
     @State private var safariURL: URL?
+    @State private var showAddToCellar = false
 
     private var barColor: Color {
         wine.category == "bordeaux" ? .vinslippBordeaux : .vinslippBurgundy
@@ -712,6 +714,12 @@ struct LiveWineRow: View {
                                     .font(.caption.weight(.medium))
                             }
                         }
+                        Button {
+                            showAddToCellar = true
+                        } label: {
+                            Label("Cellar", systemImage: "plus.circle")
+                                .font(.caption.weight(.medium))
+                        }
                         Spacer()
                     }
 
@@ -726,6 +734,27 @@ struct LiveWineRow: View {
                 .sheet(item: $safariURL) { url in
                     SafariView(url: url)
                         .ignoresSafeArea()
+                }
+                .sheet(isPresented: $showAddToCellar) {
+                    WineEditSheet(
+                        entry: CellarEntry(
+                            status: .cellar,
+                            winery: wine.vintage > 0
+                                ? wine.title
+                                    .replacingOccurrences(of: " \(wine.vintage)", with: "")
+                                    .replacingOccurrences(of: "\(wine.vintage) ", with: "")
+                                    .trimmingCharacters(in: .whitespaces)
+                                : wine.title,
+                            vintage: wine.vintage > 0 ? String(wine.vintage) : "",
+                            style: wine.category.capitalized,
+                            price: wine.hammer_price != "No bids" ? wine.hammer_price : wine.estimate,
+                            count: 1,
+                            source: .auction
+                        ),
+                        isNew: true
+                    ) { entry in
+                        cellarService.addEntry(entry)
+                    }
                 }
             }
         }

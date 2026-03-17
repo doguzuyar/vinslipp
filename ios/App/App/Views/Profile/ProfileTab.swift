@@ -3,6 +3,11 @@ import FirebaseAuth
 import FirebaseMessaging
 import UniformTypeIdentifiers
 
+enum CellarImportMode {
+    case vinslipp
+    case vivino
+}
+
 struct ProfileTab: View {
     @ObservedObject var cellarService: CellarService
     @EnvironmentObject var appDelegate: AppDelegate
@@ -12,6 +17,7 @@ struct ProfileTab: View {
     @State private var showNotifications = false
     @State private var showNotificationCenter = false
     @State private var showFilePicker = false
+    @State private var importMode: CellarImportMode?
     @State private var showDeleteConfirm = false
     @State private var deleteErrorMessage: String?
 
@@ -113,7 +119,6 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
-            cellarButton
 
             Spacer()
         }
@@ -146,7 +151,6 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
-            cellarButton
 
             Button {
                 authManager.signOut()
@@ -292,20 +296,29 @@ struct ProfileTab: View {
     // MARK: - Cellar Import
 
     private var cellarButton: some View {
-        Button {
-            showFilePicker = true
+        Menu {
+            Button {
+                importMode = .vinslipp
+                showFilePicker = true
+            } label: {
+                Label("Vinslipp Cellar", systemImage: "doc.text")
+            }
+            Button {
+                importMode = .vivino
+                showFilePicker = true
+            } label: {
+                Label("Vivino Cellar", systemImage: "doc.text")
+            }
         } label: {
             HStack {
                 Image(systemName: "cube.box")
                     .font(.subheadline)
-                Text(cellarService.cellarData != nil ? "Update Vivino data" : "Import Vivino data")
+                Text(cellarService.cellarData != nil ? "Update Cellar data" : "Import Cellar data")
                     .font(.subheadline.weight(.medium))
                 Spacer()
-                if let importedAt = cellarService.importedAt {
-                    Text(importedAt)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                Image(systemName: "chevron.down")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
             .foregroundStyle(.primary)
             .padding(.horizontal, 16)
@@ -318,7 +331,13 @@ struct ProfileTab: View {
 
     private func handleFiles(_ result: Result<[URL], Error>) {
         guard case .success(let urls) = result, !urls.isEmpty else { return }
-        cellarService.importFromURLs(urls)
+        switch importMode {
+        case .vivino:
+            cellarService.importVivinoFromURLs(urls)
+        case .vinslipp, .none:
+            cellarService.importFromURLs(urls)
+        }
+        importMode = nil
     }
 }
 

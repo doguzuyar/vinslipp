@@ -4,48 +4,67 @@ import FirebaseAuth
 struct WineDetail: View {
     let wine: ReleaseWine
     @EnvironmentObject var appDelegate: AppDelegate
+    @EnvironmentObject var cellarService: CellarService
     @State private var showBlogSheet = false
+    @State private var showAddToCellar = false
     @State private var safariURL: URL?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Divider()
 
-            if let reason = wine.ratingReason, !reason.isEmpty {
-                Text(reason)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+            VStack(alignment: .leading, spacing: 8) {
+                if let reason = wine.ratingReason, !reason.isEmpty {
+                    Text(reason)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
 
-            HStack(spacing: 12) {
-                if let url = URL(string: wine.vivinoLink) {
-                    Button { safariURL = url } label: {
-                        Label("Vivino", systemImage: "globe")
+                HStack(spacing: 12) {
+                    if let url = URL(string: wine.vivinoLink) {
+                        Button { safariURL = url } label: {
+                            Label("Vivino", systemImage: "globe")
+                                .font(.caption.weight(.medium))
+                        }
+                    }
+                    if let url = URL(string: wine.sbLink) {
+                        Button { safariURL = url } label: {
+                            Label("Systembolaget", systemImage: "cart")
+                                .font(.caption.weight(.medium))
+                        }
+                    }
+                    Button {
+                        showBlogSheet = true
+                    } label: {
+                        Label("Blog", systemImage: "square.and.pencil")
                             .font(.caption.weight(.medium))
                     }
-                }
-                if let url = URL(string: wine.sbLink) {
-                    Button { safariURL = url } label: {
-                        Label("Systembolaget", systemImage: "cart")
+                    Button {
+                        showAddToCellar = true
+                    } label: {
+                        Label("Cellar", systemImage: "plus.circle")
                             .font(.caption.weight(.medium))
                     }
+                    Spacer()
+                    favoriteButton
                 }
-                Button {
-                    showBlogSheet = true
-                } label: {
-                    Label("Blog", systemImage: "square.and.pencil")
-                        .font(.caption.weight(.medium))
-                }
-                Spacer()
-                favoriteButton
-            }
 
-            HStack(spacing: 16) {
-                if !wine.country.isEmpty {
-                    DetailChip(label: "Country", value: wine.countryEnglish)
+                HStack(spacing: 16) {
+                    if !wine.country.isEmpty {
+                        DetailChip(label: "Country", value: wine.countryEnglish)
+                    }
+                    DetailChip(label: "Type", value: wine.wineTypeEnglish)
                 }
-                DetailChip(label: "Type", value: wine.wineTypeEnglish)
+            }
+            .overlay(alignment: .trailing) {
+                if let imageUrl = wine.imageUrl, !imageUrl.isEmpty {
+                    GeometryReader { geo in
+                        WineImage(urlString: imageUrl)
+                            .frame(height: geo.size.height)
+                            .position(x: geo.size.width - 40, y: geo.size.height / 2)
+                    }
+                }
             }
         }
         .padding(.horizontal, 28)
@@ -57,6 +76,27 @@ struct WineDetail: View {
         .sheet(item: $safariURL) { url in
             SafariView(url: url)
                 .ignoresSafeArea()
+        }
+        .sheet(isPresented: $showAddToCellar) {
+            WineEditSheet(
+                entry: CellarEntry(
+                    status: .cellar,
+                    winery: wine.producer,
+                    wineName: wine.wineName,
+                    vintage: wine.vintage,
+                    region: wine.region,
+                    country: wine.countryEnglish,
+                    wineType: wine.wineTypeEnglish,
+                    price: wine.price,
+                    count: 1,
+                    drinkYear: "",
+                    links: [wine.vivinoLink],
+                    source: .release
+                ),
+                isNew: true
+            ) { entry in
+                cellarService.addEntry(entry)
+            }
         }
     }
 
@@ -188,6 +228,31 @@ private struct BlogSheet: View {
             posted = true
         }
         isPosting = false
+    }
+}
+
+private struct WineImage: View {
+    let urlString: String
+    @State private var uiImage: UIImage?
+
+    var body: some View {
+        ZStack {
+            if let uiImage {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+        }
+        .frame(maxHeight: .infinity)
+        .task(id: urlString) {
+            guard uiImage == nil, let url = URL(string: urlString) else { return }
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                if let img = UIImage(data: data) {
+                    await MainActor.run { uiImage = img }
+                }
+            } catch {}
+        }
     }
 }
 

@@ -228,6 +228,14 @@ for w in new_releases:
     sb_link = f"https://www.systembolaget.se/produkt/vin/{w.get('productNumber') or ''}"
     rating_key = f"{producer} - {wine_name} {vintage} ({price})"
     rating_data = existing_ratings.get(rating_key)
+    images = w.get('images') or []
+    if images:
+        img = images[0]
+        ext = img.get('fileType', 'png')
+        image_url = f"{img['imageUrl']}.{ext}"
+    else:
+        image_url = ''
+
     releases_json['wines'].append({
         'launchDate': raw_date,
         'launchDateFormatted': format_launch_date(raw_date),
@@ -241,6 +249,7 @@ for w in new_releases:
         'productNumber': w.get('productNumber') or '',
         'vivinoLink': vivino_link,
         'sbLink': sb_link,
+        'imageUrl': image_url,
         'ratingScore': rating_data[0] if rating_data else None,
         'ratingReason': rating_data[1] if rating_data else '',
     })

@@ -5,7 +5,7 @@ struct ReleaseData: Codable {
     let totalCount: Int
 }
 
-struct ReleaseWine: Codable, Identifiable {
+struct ReleaseWine: Identifiable {
     var id: String { productNumber }
     let launchDate: String
     let launchDateFormatted: String
@@ -19,6 +19,7 @@ struct ReleaseWine: Codable, Identifiable {
     let productNumber: String
     let vivinoLink: String
     let sbLink: String
+    let imageUrl: String?
     let ratingScore: Int?
     let ratingReason: String?
 
@@ -57,11 +58,38 @@ struct ReleaseWine: Codable, Identifiable {
 
     var wineTypeEnglish: String {
         switch wineType {
-        case "Rött vin": return "Red"
-        case "Vitt vin": return "White"
-        case "Rosévin": return "Rosé"
-        case "Mousserande vin": return "Sparkling"
+        case "Rött vin": return "Red Wine"
+        case "Vitt vin": return "White Wine"
+        case "Rosévin": return "Rosé Wine"
+        case "Mousserande vin": return "Sparkling Wine"
         default: return "Other"
         }
+    }
+}
+
+extension ReleaseWine: Codable {
+    enum CodingKeys: String, CodingKey {
+        case launchDate, launchDateFormatted, producer, wineName, vintage
+        case price, region, country, wineType, productNumber
+        case vivinoLink, sbLink, imageUrl, ratingScore, ratingReason
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        launchDate = try c.decode(String.self, forKey: .launchDate)
+        launchDateFormatted = try c.decode(String.self, forKey: .launchDateFormatted)
+        producer = try c.decode(String.self, forKey: .producer)
+        wineName = try c.decode(String.self, forKey: .wineName)
+        vintage = try c.decode(String.self, forKey: .vintage)
+        price = try c.decode(String.self, forKey: .price)
+        region = try c.decode(String.self, forKey: .region)
+        country = try c.decode(String.self, forKey: .country)
+        wineType = try c.decode(String.self, forKey: .wineType)
+        productNumber = try c.decode(String.self, forKey: .productNumber)
+        vivinoLink = try c.decode(String.self, forKey: .vivinoLink)
+        sbLink = try c.decode(String.self, forKey: .sbLink)
+        imageUrl = try c.decodeIfPresent(String.self, forKey: .imageUrl)
+        ratingScore = try c.decodeIfPresent(Int.self, forKey: .ratingScore)
+        ratingReason = try c.decodeIfPresent(String.self, forKey: .ratingReason)
     }
 }

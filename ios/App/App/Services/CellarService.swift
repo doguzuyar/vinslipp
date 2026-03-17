@@ -3,59 +3,356 @@ import SwiftUI
 
 @MainActor
 class CellarService: ObservableObject {
-    @Published var cellarData: CellarData?
-    @Published var historyData: [HistoryWine]?
+    @Published var entries: [CellarEntry] = []
     @Published var isProcessing = false
     @Published var error: String?
-    @Published var importedAt: String?
 
-    private let storageKey = "cellar_data"
-    private let historyKey = "history_data"
-    private let metaKey = "cellar_imported_at"
-
-    init() {
-        loadFromStorage()
+    var cellarData: CellarData? {
+        let cellar = entries.filter { $0.status == .cellar && $0.count > 0 }
+        return cellar.isEmpty ? nil : CellarData(from: entries)
     }
 
-    // MARK: - Import
+    var historyEntries: [CellarEntry] {
+        entries.filter { $0.status == .history }
+    }
 
-    func importFiles(cellarCSV: Data?, wineListCSV: Data? = nil, pricesCSV: Data?) {
+    var hasHistory: Bool {
+        entries.contains { $0.status == .history }
+    }
+
+    private var fileURL: URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("cellar.json")
+    }
+
+    init() {
+        loadFromFile()
+        migrateFromUserDefaultsIfNeeded()
+    }
+
+    // MARK: - CRUD
+
+    func addEntry(_ entry: CellarEntry) {
+        entries.append(entry)
+        save()
+    }
+
+    func removeEntry(id: UUID) {
+        entries.removeAll { $0.id == id }
+        save()
+    }
+
+    func updateEntry(_ entry: CellarEntry) {
+        if let index = entries.firstIndex(where: { $0.id == entry.id }) {
+            entries[index] = entry
+            save()
+        }
+    }
+
+    func incrementCount(id: UUID) {
+        if let index = entries.firstIndex(where: { $0.id == id }) {
+            entries[index].count += 1
+            if entries[index].status == .history {
+                entries[index].status = .cellar
+            }
+            save()
+        }
+    }
+
+    func decrementCount(id: UUID) {
+        if let index = entries.firstIndex(where: { $0.id == id }), entries[index].count > 0 {
+            entries[index].count -= 1
+            save()
+        }
+    }
+
+    func moveToHistory(id: UUID) {
+        if let index = entries.firstIndex(where: { $0.id == id }) {
+            entries[index].status = .history
+            entries[index].count = 0
+            entries[index].addedDate = DateFormatters.todayString
+            save()
+        }
+    }
+
+    func clearData() {
+        entries = []
+        try? FileManager.default.removeItem(at: fileURL)
+    }
+
+    // MARK: - Persistence (JSON in Documents)
+
+    private func save() {
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let data = try encoder.encode(entries)
+            try data.write(to: fileURL, options: .atomic)
+        } catch {
+            self.error = "Failed to save: \(error.localizedDescription)"
+        }
+    }
+
+    private func loadFromFile() {
+        guard FileManager.default.fileExists(atPath: fileURL.path) else { return }
+        do {
+            let data = try Data(contentsOf: fileURL)
+            entries = try JSONDecoder().decode([CellarEntry].self, from: data)
+        } catch {
+            self.error = "Failed to load cellar: \(error.localizedDescription)"
+        }
+    }
+
+    // MARK: - Migration from old UserDefaults format
+
+    private func migrateFromUserDefaultsIfNeeded() {
+        let defaults = UserDefaults.standard
+        let migrationKey = "cellar_migrated_v2"
+        guard !defaults.bool(forKey: migrationKey) else { return }
+        guard entries.isEmpty else {
+            defaults.set(true, forKey: migrationKey)
+            return
+        }
+
+        struct OldCellarWine: Codable {
+            let drinkYear: String
+            let winery: String
+            let wineName: String
+            let vintage: String
+            let region: String
+            let style: String
+            let price: String
+            let count: Int
+            let link: String
+            let color: String
+        }
+        struct OldCellarData: Codable {
+            let wines: [OldCellarWine]
+            let yearCounts: [String: Int]
+            let vintageCounts: [String: Int]
+            let totalBottles: Int
+            let totalValue: Int
+            let colorPalette: [String: String]
+            let vintagePalette: [String: String]
+        }
+        struct OldHistoryWine: Codable {
+            let winery: String
+            let wineName: String
+            let vintage: String
+            let region: String
+            let country: String
+            let style: String
+            let averageRating: String
+            let scanDate: String
+            let location: String
+            let userRating: String
+            let wineType: String
+            let link: String
+        }
+
+        if let data = defaults.data(forKey: "cellar_data"),
+           let old = try? JSONDecoder().decode(OldCellarData.self, from: data) {
+            for wine in old.wines {
+                entries.append(CellarEntry(
+                    status: .cellar,
+                    winery: wine.winery,
+                    wineName: wine.wineName,
+                    vintage: wine.vintage,
+                    region: wine.region,
+                    style: wine.style,
+                    price: wine.price,
+                    count: wine.count,
+                    drinkYear: wine.drinkYear,
+                    links: wine.link.isEmpty ? [] : [wine.link],
+                    source: .imported
+                ))
+            }
+        }
+
+        if let data = defaults.data(forKey: "history_data"),
+           let old = try? JSONDecoder().decode([OldHistoryWine].self, from: data) {
+            for wine in old {
+                entries.append(CellarEntry(
+                    status: .history,
+                    winery: wine.winery,
+                    wineName: wine.wineName,
+                    vintage: wine.vintage,
+                    region: wine.region,
+                    country: wine.country,
+                    style: wine.style,
+                    wineType: wine.wineType,
+                    links: wine.link.isEmpty ? [] : [wine.link],
+                    userRating: wine.userRating,
+                    averageRating: wine.averageRating,
+                    source: .imported
+                ))
+            }
+        }
+
+        if !entries.isEmpty {
+            save()
+        }
+
+        defaults.removeObject(forKey: "cellar_data")
+        defaults.removeObject(forKey: "history_data")
+        defaults.removeObject(forKey: "cellar_imported_at")
+        defaults.set(true, forKey: migrationKey)
+    }
+
+    // MARK: - CSV Export
+
+    func exportCSV() -> URL? {
+        let headers = [
+            "Status", "Winery", "Wine Name", "Vintage", "Region", "Country",
+            "Wine Type", "Price", "Count", "Drink Year", "Links",
+            "Notes", "Source", "Added Date"
+        ]
+
+        var lines: [String] = [headers.joined(separator: ",")]
+
+        let sorted = entries.sorted { a, b in
+            if a.status != b.status {
+                return a.status == .cellar
+            }
+            let aYear = a.drinkYear.isEmpty ? a.vintage : a.drinkYear
+            let bYear = b.drinkYear.isEmpty ? b.vintage : b.drinkYear
+            if aYear != bYear { return aYear < bYear }
+            if a.vintage != b.vintage { return a.vintage < b.vintage }
+            return a.winery.localizedCaseInsensitiveCompare(b.winery) == .orderedAscending
+        }
+
+        for entry in sorted {
+            let fields = [
+                entry.status.rawValue,
+                entry.winery,
+                entry.wineName,
+                entry.vintage,
+                entry.region,
+                entry.country,
+                entry.wineType,
+                entry.price,
+                String(entry.count),
+                entry.drinkYear,
+                entry.links.joined(separator: " | "),
+                entry.notes,
+                entry.source.rawValue,
+                entry.addedDate
+            ].map { csvEscape($0) }
+            lines.append(fields.joined(separator: ","))
+        }
+
+        let csv = lines.joined(separator: "\n")
+        let tempURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("vinslipp_cellar.csv")
+
+        do {
+            try csv.write(to: tempURL, atomically: true, encoding: .utf8)
+            return tempURL
+        } catch {
+            self.error = "Export failed: \(error.localizedDescription)"
+            return nil
+        }
+    }
+
+    private func csvEscape(_ field: String) -> String {
+        if field.contains(",") || field.contains("\"") || field.contains("\n") || field.contains("\r") {
+            return "\"\(field.replacingOccurrences(of: "\"", with: "\"\""))\""
+        }
+        return field
+    }
+
+    // MARK: - CSV Import (Vinslipp format)
+
+    func importFromURL(_ url: URL) {
+        guard url.startAccessingSecurityScopedResource() else {
+            error = "Cannot access file"
+            return
+        }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        guard let data = try? Data(contentsOf: url),
+              let text = String(data: data, encoding: .utf8) else {
+            error = "Could not read the file"
+            return
+        }
+
         isProcessing = true
-        error = nil
+        let rows = parseCSV(text)
 
-        let mainCSV = cellarCSV ?? wineListCSV
-        guard let mainData = mainCSV,
-              let cellarString = String(data: mainData, encoding: .utf8) else {
-            error = "Could not read CSV file"
+        guard !rows.isEmpty else {
+            error = "No data found in the file"
             isProcessing = false
             return
         }
 
-        let pricesString = pricesCSV.flatMap { String(data: $0, encoding: .utf8) }
-
-        let cellarRows = parseCSV(cellarString)
-        let priceRows = pricesString.map { parseCSV($0) } ?? []
-
-        var wineListRows: [[String: String]] = []
-        if let wineListData = wineListCSV,
-           let wineListString = String(data: wineListData, encoding: .utf8) {
-            wineListRows = parseCSV(wineListString)
+        let firstRow = rows[0]
+        if firstRow.keys.contains("Status") && firstRow.keys.contains("Winery") {
+            importVinslippCSV(rows)
+        } else {
+            error = "Unrecognized file format. Use a file exported from Vinslipp."
+            isProcessing = false
+            return
         }
 
-        let data = processCellar(cellarRows: cellarRows, priceRows: priceRows, wineListRows: wineListRows)
-        cellarData = data
-
-        if !wineListRows.isEmpty {
-            historyData = processHistory(rows: wineListRows)
-        }
-
-        importedAt = DateFormatters.shortTimestamp.string(from: Date())
-
-        saveToStorage()
         isProcessing = false
     }
 
     func importFromURLs(_ urls: [URL]) {
+        // Auto-detect: if any file looks like Vivino, use Vivino import
+        for url in urls {
+            guard url.startAccessingSecurityScopedResource() else { continue }
+            let data = try? Data(contentsOf: url)
+            url.stopAccessingSecurityScopedResource()
+            if let data, detectVivinoFileType(from: data) != nil {
+                importVivinoFromURLs(urls)
+                return
+            }
+        }
+        // Otherwise treat as Vinslipp format
+        guard let url = urls.first else { return }
+        importFromURL(url)
+    }
+
+    private func importVinslippCSV(_ rows: [[String: String]]) {
+        var newEntries: [CellarEntry] = []
+
+        for row in rows {
+            let statusStr = row["Status"] ?? "cellar"
+            let status = WineStatus(rawValue: statusStr) ?? .cellar
+            let sourceStr = row["Source"] ?? "imported"
+            let source = WineSource(rawValue: sourceStr) ?? .imported
+
+            let entry = CellarEntry(
+                status: status,
+                winery: row["Winery"] ?? "",
+                wineName: row["Wine Name"] ?? "",
+                vintage: row["Vintage"] ?? "",
+                region: row["Region"] ?? "",
+                country: row["Country"] ?? "",
+                style: row["Style"] ?? "",
+                wineType: row["Wine Type"] ?? "",
+                price: row["Price"] ?? "",
+                count: Int(row["Count"] ?? "1") ?? 1,
+                drinkYear: row["Drink Year"] ?? "",
+                links: (row["Links"] ?? row["Link"] ?? "")
+                    .split(separator: "|").map { $0.trimmingCharacters(in: .whitespaces) }
+                    .filter { !$0.isEmpty },
+                userRating: row["User Rating"] ?? "",
+                averageRating: row["Average Rating"] ?? "",
+                notes: row["Notes"] ?? "",
+                source: source,
+                addedDate: row["Added Date"] ?? DateFormatters.todayString
+            )
+            newEntries.append(entry)
+        }
+
+        entries = newEntries
+        save()
+    }
+
+    // MARK: - Vivino CSV Import
+
+    func importVivinoFromURLs(_ urls: [URL]) {
         var cellarData: Data?
         var pricesData: Data?
         var wineListData: Data?
@@ -65,7 +362,7 @@ class CellarService: ObservableObject {
             defer { url.stopAccessingSecurityScopedResource() }
             guard let data = try? Data(contentsOf: url) else { continue }
 
-            switch CSVFileType.detect(from: data) {
+            switch detectVivinoFileType(from: data) {
             case .prices: pricesData = data
             case .cellar: cellarData = data
             case .wineList: wineListData = data
@@ -79,22 +376,150 @@ class CellarService: ObservableObject {
             wineListData = nil
         }
 
-        if cellarData != nil || wineListData != nil {
-            importFiles(
-                cellarCSV: cellarData,
-                wineListCSV: wineListData,
-                pricesCSV: pricesData
-            )
+        guard cellarData != nil || wineListData != nil else {
+            error = "No valid Vivino files found"
+            return
         }
+
+        isProcessing = true
+
+        let cellarString = cellarData.flatMap { String(data: $0, encoding: .utf8) }
+        let pricesString = pricesData.flatMap { String(data: $0, encoding: .utf8) }
+        let wineListString = wineListData.flatMap { String(data: $0, encoding: .utf8) }
+
+        let cellarRows = cellarString.map { parseCSV($0) } ?? []
+        let priceRows = pricesString.map { parseCSV($0) } ?? []
+        let wineListRows = wineListString.map { parseCSV($0) } ?? []
+
+        processVivinoCellar(cellarRows: cellarRows, priceRows: priceRows, wineListRows: wineListRows)
+
+        isProcessing = false
     }
 
-    func clearData() {
-        cellarData = nil
-        historyData = nil
-        importedAt = nil
-        UserDefaults.standard.removeObject(forKey: storageKey)
-        UserDefaults.standard.removeObject(forKey: historyKey)
-        UserDefaults.standard.removeObject(forKey: metaKey)
+    private enum VivinoFileType {
+        case cellar, prices, wineList
+    }
+
+    private func detectVivinoFileType(from data: Data) -> VivinoFileType? {
+        guard let text = String(data: data, encoding: .utf8) else { return nil }
+        let header = String(text.prefix(500)).lowercased()
+        if header.contains("wine price") { return .prices }
+        if header.contains("user cellar count") { return .cellar }
+        if header.contains("scan date") || header.contains("drinking window") { return .wineList }
+        return nil
+    }
+
+    private func processVivinoCellar(cellarRows: [[String: String]], priceRows: [[String: String]], wineListRows: [[String: String]]) {
+        var noteLookup: [String: String] = [:]
+        var countryLookup: [String: String] = [:]
+        var wineTypeLookup: [String: String] = [:]
+        for row in wineListRows {
+            guard let link = row["Link to wine"], !link.isEmpty else { continue }
+            let note = row["Personal Note"] ?? ""
+            if !note.isEmpty { noteLookup[link] = note }
+            let country = row["Country"] ?? ""
+            if !country.isEmpty { countryLookup[link] = country }
+            let wineType = row["Wine type"] ?? ""
+            if !wineType.isEmpty { wineTypeLookup[link] = wineType }
+        }
+
+        var priceLookup: [String: String] = [:]
+        for row in priceRows {
+            guard let link = row["Link to wine"], !link.isEmpty else { continue }
+            priceLookup[link] = row["Wine price"] ?? ""
+        }
+
+        var newEntries: [CellarEntry] = []
+
+        for row in cellarRows {
+            let link = row["Link to wine"] ?? ""
+            let winery = row["Winery"] ?? ""
+            let wineName = row["Wine name"] ?? ""
+            let vintage = row["Vintage"] ?? ""
+            let region = row["Region"] ?? ""
+            let style = row["Regional wine style"] ?? ""
+            let country = countryLookup[link] ?? ""
+            let wineType = wineTypeLookup[link] ?? ""
+            let countStr = row["User cellar count"] ?? "0"
+            let totalCount = Int(countStr) ?? 0
+
+            guard totalCount > 0 else { continue }
+
+            let priceRaw = priceLookup[link] ?? ""
+            let priceNum = priceRaw.priceNumeric
+            let price = priceNum > 0 ? "\(priceNum) SEK" : ""
+
+            let note = noteLookup[link] ?? ""
+            let drinkYears = note.split(separator: ",")
+                .map { $0.trimmingCharacters(in: .whitespaces) }
+                .filter { $0.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
+
+            if drinkYears.isEmpty {
+                newEntries.append(CellarEntry(
+                    status: .cellar,
+                    winery: winery,
+                    wineName: wineName,
+                    vintage: vintage,
+                    region: region,
+                    country: country,
+                    style: style,
+                    wineType: wineType,
+                    price: price,
+                    count: totalCount,
+                    links: link.isEmpty ? [] : [link],
+                    source: .imported
+                ))
+            } else {
+                let base = totalCount / drinkYears.count
+                let remainder = totalCount % drinkYears.count
+                for (idx, yearStr) in drinkYears.enumerated() {
+                    let count = base + (idx < remainder ? 1 : 0)
+                    guard count > 0 else { continue }
+                    newEntries.append(CellarEntry(
+                        status: .cellar,
+                        winery: winery,
+                        wineName: wineName,
+                        vintage: vintage,
+                        region: region,
+                        country: country,
+                        style: style,
+                        wineType: wineType,
+                        price: price,
+                        count: count,
+                        drinkYear: yearStr,
+                        links: link.isEmpty ? [] : [link],
+                        source: .imported
+                    ))
+                }
+            }
+        }
+
+        // Process history from wine list
+        let cellarLinks = Set(newEntries.compactMap { $0.links.first })
+        for row in wineListRows {
+            let link = row["Link to wine"] ?? ""
+            let cellarCount = Int(row["User cellar count"] ?? "0") ?? 0
+            if cellarCount > 0 { continue }
+            if !link.isEmpty && cellarLinks.contains(link) { continue }
+
+            newEntries.append(CellarEntry(
+                status: .history,
+                winery: row["Winery"] ?? "",
+                wineName: row["Wine name"] ?? "",
+                vintage: row["Vintage"] ?? "",
+                region: row["Region"] ?? "",
+                country: row["Country"] ?? "",
+                style: row["Regional wine style"] ?? "",
+                wineType: row["Wine type"] ?? "",
+                links: link.isEmpty ? [] : [link],
+                userRating: row["Your rating"] ?? "",
+                averageRating: row["Average rating"] ?? "",
+                source: .imported
+            ))
+        }
+
+        entries = newEntries
+        save()
     }
 
     // MARK: - CSV Parser (RFC 4180)
@@ -162,160 +587,5 @@ class CellarService: ObservableObject {
             }
             return dict
         }
-    }
-
-    // MARK: - Process Vivino Data
-
-    private func processCellar(cellarRows: [[String: String]], priceRows: [[String: String]], wineListRows: [[String: String]] = []) -> CellarData {
-        var noteLookup: [String: String] = [:]
-        for row in wineListRows {
-            guard let link = row["Link to wine"], !link.isEmpty else { continue }
-            let note = row["Personal Note"] ?? ""
-            if !note.isEmpty { noteLookup[link] = note }
-        }
-
-        var priceLookup: [String: String] = [:]
-        for row in priceRows {
-            guard let link = row["Link to wine"], !link.isEmpty else { continue }
-            priceLookup[link] = row["Wine price"] ?? ""
-        }
-
-        var wines: [CellarWine] = []
-        var yearCounts: [String: Int] = [:]
-        var vintageCounts: [String: Int] = [:]
-        var totalBottles = 0
-        var totalValue = 0
-        var allYears: Set<Int> = []
-
-        for row in cellarRows {
-            let link = row["Link to wine"] ?? ""
-            let winery = row["Winery"] ?? ""
-            let wineName = row["Wine name"] ?? ""
-            let vintage = row["Vintage"] ?? ""
-            let region = row["Region"] ?? ""
-            let style = row["Regional wine style"] ?? ""
-            let countStr = row["User cellar count"] ?? "0"
-            let totalCount = Int(countStr) ?? 0
-
-            guard totalCount > 0 else { continue }
-
-            let priceRaw = priceLookup[link] ?? ""
-            let price = formatPrice(priceRaw)
-            let priceNum = priceRaw.priceNumeric
-
-            let note = noteLookup[link] ?? ""
-            let drinkYears = note.split(separator: ",")
-                .map { $0.trimmingCharacters(in: .whitespaces) }
-                .filter { $0.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
-
-            if drinkYears.isEmpty {
-                let year = vintage.isEmpty ? "-" : vintage
-                let yearInt = Int(year)
-                let color = yearInt.map { AppColors.color(forYear: $0) } ?? "#888888"
-                if let yearInt { allYears.insert(yearInt) }
-                wines.append(CellarWine(
-                    drinkYear: year, winery: winery, wineName: wineName,
-                    vintage: vintage, region: region, style: style,
-                    price: price, count: totalCount, link: link,
-                    color: color
-                ))
-                yearCounts[year, default: 0] += totalCount
-            } else {
-                let base = totalCount / drinkYears.count
-                let remainder = totalCount % drinkYears.count
-
-                for (idx, yearStr) in drinkYears.enumerated() {
-                    let count = base + (idx < remainder ? 1 : 0)
-                    guard count > 0 else { continue }
-                    let yearInt = Int(yearStr) ?? 2026
-                    allYears.insert(yearInt)
-                    let color = AppColors.color(forYear: yearInt)
-
-                    wines.append(CellarWine(
-                        drinkYear: yearStr, winery: winery, wineName: wineName,
-                        vintage: vintage, region: region, style: style,
-                        price: price, count: count, link: link,
-                        color: color
-                    ))
-                    yearCounts[yearStr, default: 0] += count
-                }
-            }
-
-            let vintageKey = vintage.isEmpty ? "-" : vintage
-            vintageCounts[vintageKey, default: 0] += totalCount
-
-            totalBottles += totalCount
-            totalValue += priceNum * totalCount
-        }
-
-        wines.sort {
-            if $0.drinkYear != $1.drinkYear { return $0.drinkYear < $1.drinkYear }
-            if $0.vintage != $1.vintage { return $0.vintage < $1.vintage }
-            return $0.winery < $1.winery
-        }
-
-        let palette = AppColors.buildPalette(years: Array(allYears))
-        let vintageYears = vintageCounts.keys.compactMap { Int($0) }
-        let vPalette = AppColors.buildPalette(years: vintageYears)
-
-        return CellarData(
-            wines: wines,
-            yearCounts: yearCounts,
-            vintageCounts: vintageCounts,
-            totalBottles: totalBottles,
-            totalValue: totalValue,
-            colorPalette: palette,
-            vintagePalette: vPalette
-        )
-    }
-
-    private func processHistory(rows: [[String: String]]) -> [HistoryWine] {
-        rows.map { row in
-            HistoryWine(
-                winery: row["Winery"] ?? "",
-                wineName: row["Wine name"] ?? "",
-                vintage: row["Vintage"] ?? "",
-                region: row["Region"] ?? "",
-                country: row["Country"] ?? "",
-                style: row["Regional wine style"] ?? "",
-                averageRating: row["Average rating"] ?? "",
-                scanDate: row["Scan date"] ?? "",
-                location: row["Scan/Review Location"] ?? "",
-                userRating: row["Your rating"] ?? "",
-                wineType: row["Wine type"] ?? "",
-                link: row["Link to wine"] ?? ""
-            )
-        }
-    }
-
-    private func formatPrice(_ raw: String) -> String {
-        let num = raw.priceNumeric
-        return num > 0 ? "\(num) SEK" : ""
-    }
-
-    // MARK: - Persistence
-
-    private func saveToStorage() {
-        if let cellar = cellarData,
-           let encoded = try? JSONEncoder().encode(cellar) {
-            UserDefaults.standard.set(encoded, forKey: storageKey)
-        }
-        if let history = historyData,
-           let encoded = try? JSONEncoder().encode(history) {
-            UserDefaults.standard.set(encoded, forKey: historyKey)
-        }
-        UserDefaults.standard.set(importedAt, forKey: metaKey)
-    }
-
-    private func loadFromStorage() {
-        if let data = UserDefaults.standard.data(forKey: storageKey),
-           let decoded = try? JSONDecoder().decode(CellarData.self, from: data) {
-            cellarData = decoded
-        }
-        if let data = UserDefaults.standard.data(forKey: historyKey),
-           let decoded = try? JSONDecoder().decode([HistoryWine].self, from: data) {
-            historyData = decoded
-        }
-        importedAt = UserDefaults.standard.string(forKey: metaKey)
     }
 }

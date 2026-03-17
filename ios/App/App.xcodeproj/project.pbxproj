@@ -33,6 +33,7 @@
 		EE000002000000000000EE01 /* CellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002000000000000EE00 /* CellarService.swift */; };
 		EE000003000000000000EE01 /* BottleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000003000000000000EE00 /* BottleChart.swift */; };
 		EE000004000000000000EE01 /* CellarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000004000000000000EE00 /* CellarTab.swift */; };
+		EE000005000000000000EE01 /* WineEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000005000000000000EE02 /* WineEditSheet.swift */; };
 		F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */; };
 		FF000001000000000000FF01 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000001000000000000FF00 /* SafariView.swift */; };
 		FF000002000000000000FF01 /* ShortcutSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */; };
@@ -95,6 +96,7 @@
 		EE000002000000000000EE00 /* CellarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarService.swift; sourceTree = "<group>"; };
 		EE000003000000000000EE00 /* BottleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleChart.swift; sourceTree = "<group>"; };
 		EE000004000000000000EE00 /* CellarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarTab.swift; sourceTree = "<group>"; };
+		EE000005000000000000EE02 /* WineEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineEditSheet.swift; sourceTree = "<group>"; };
 		F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF000001000000000000FF00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				EE000003000000000000EE00 /* BottleChart.swift */,
 				EE000004000000000000EE00 /* CellarTab.swift */,
+				EE000005000000000000EE02 /* WineEditSheet.swift */,
 			);
 			path = Cellar;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				EE000002000000000000EE01 /* CellarService.swift in Sources */,
 				EE000003000000000000EE01 /* BottleChart.swift in Sources */,
 				EE000004000000000000EE01 /* CellarTab.swift in Sources */,
+				EE000005000000000000EE01 /* WineEditSheet.swift in Sources */,
 				FF000001000000000000FF01 /* SafariView.swift in Sources */,
 				FF000002000000000000FF01 /* ShortcutSceneDelegate.swift in Sources */,
 				GG000001000000000000GG01 /* NotificationStore.swift in Sources */,
@@ -575,7 +579,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
@@ -603,7 +607,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
@@ -629,7 +633,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
@@ -655,7 +659,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;

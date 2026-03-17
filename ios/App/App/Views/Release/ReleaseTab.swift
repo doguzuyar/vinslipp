@@ -33,10 +33,6 @@ struct ReleaseTab: View {
         nonmutating set { selectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
     }
 
-    private var todayString: String {
-        DateFormatters.todayString
-    }
-
     private var allWines: [ReleaseWine] {
         dataService.releaseData?.wines ?? []
     }
@@ -46,11 +42,11 @@ struct ReleaseTab: View {
     }
 
     private var upcomingWines: [ReleaseWine] {
-        filtered(allWines.filter { $0.launchDate >= todayString })
+        filtered(allWines.filter { $0.launchDate >= DateFormatters.todayString })
     }
 
     private var pastWines: [ReleaseWine] {
-        filtered(allWines.filter { $0.launchDate < todayString })
+        filtered(allWines.filter { $0.launchDate < DateFormatters.todayString })
     }
 
     private var filteredDateCounts: [String: Int] {
@@ -108,7 +104,7 @@ struct ReleaseTab: View {
             }
         }
         .onChange(of: selectedDate) { _, newValue in
-            todayOnly = newValue == todayString
+            todayOnly = newValue == DateFormatters.todayString
         }
     }
 
@@ -126,7 +122,7 @@ struct ReleaseTab: View {
                 FilterChip(label: "Today", isActive: todayOnly) {
                     todayOnly.toggle()
                     if todayOnly {
-                        selectedDate = todayString
+                        selectedDate = DateFormatters.todayString
                     } else {
                         selectedDate = nil
                     }
@@ -313,7 +309,7 @@ struct ReleaseTab: View {
         return result
     }
 
-    private let knownTypes = ["Red", "White", "Sparkling", "Rosé"]
+    private let knownTypes = ["Red Wine", "White Wine", "Sparkling Wine", "Rosé Wine"]
 
     private var typeFilters: [String] {
         let present = Set(allWines.map(\.wineTypeEnglish))

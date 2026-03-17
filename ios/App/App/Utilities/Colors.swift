@@ -66,25 +66,6 @@ enum NotificationTopics {
     static let categoryTopics = ["french-red", "french-white", "italian-red", "italian-white"]
 }
 
-// MARK: - CSV File Detection
-
-enum CSVFileType {
-    case cellar, prices, wineList
-
-    static func detect(from data: Data) -> CSVFileType? {
-        guard let text = String(data: data, encoding: .utf8) else { return nil }
-        let header = String(text.prefix(500)).lowercased()
-        if header.contains("wine price") {
-            return .prices
-        } else if header.contains("user cellar count") {
-            return .cellar
-        } else if header.contains("scan date") || header.contains("drinking window") {
-            return .wineList
-        }
-        return nil
-    }
-}
-
 // MARK: - Search Bar
 
 struct SearchBar: View {
