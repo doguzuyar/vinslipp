@@ -7,18 +7,12 @@ struct AuctionData: Codable {
 
 struct AuctionSummary: Codable {
     let total_wines: Int
-    let total_sold: Int
-    let total_unsold: Int
-    let sell_rate_percent: Double
-    let overall_avg_ratio: Double
-    let overall_avg_premium_percent: Double
     let unique_producers: Int
 }
 
 struct AuctionProducerData: Codable {
     let total_lots: Int
     let sold: Int
-    let unsold: Int
     let sell_rate: Double
     let avg_estimate_sek: Int
     let avg_hammer_sek: Int

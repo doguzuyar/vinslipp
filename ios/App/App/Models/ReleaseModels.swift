@@ -5,7 +5,7 @@ struct ReleaseData: Codable {
     let totalCount: Int
 }
 
-struct ReleaseWine: Identifiable {
+struct ReleaseWine: Codable, Identifiable {
     var id: String { productNumber }
     let launchDate: String
     let launchDateFormatted: String
@@ -27,69 +27,40 @@ struct ReleaseWine: Identifiable {
         price.priceNumeric
     }
 
-    var launchDateParsed: Date? {
-        DateFormatters.iso.date(from: launchDate)
-    }
+    private static let countryTranslations: [String: String] = [
+        "Frankrike": "France",
+        "Italien": "Italy",
+        "Spanien": "Spain",
+        "Portugal": "Portugal",
+        "Grekland": "Greece",
+        "Tyskland": "Germany",
+        "Ungern": "Hungary",
+        "Österrike": "Austria",
+        "USA": "USA",
+        "Sydafrika": "South Africa",
+        "Australien": "Australia",
+        "Chile": "Chile",
+        "Argentina": "Argentina",
+        "Nya Zeeland": "New Zealand",
+        "Libanon": "Lebanon",
+        "Georgien": "Georgia",
+        "Rumänien": "Romania",
+        "Kroatien": "Croatia",
+        "Schweiz": "Switzerland",
+    ]
 
     var countryEnglish: String {
-        switch country {
-        case "Frankrike": return "France"
-        case "Italien": return "Italy"
-        case "Spanien": return "Spain"
-        case "Portugal": return "Portugal"
-        case "Grekland": return "Greece"
-        case "Tyskland": return "Germany"
-        case "Ungern": return "Hungary"
-        case "Österrike": return "Austria"
-        case "USA": return "USA"
-        case "Sydafrika": return "South Africa"
-        case "Australien": return "Australia"
-        case "Chile": return "Chile"
-        case "Argentina": return "Argentina"
-        case "Nya Zeeland": return "New Zealand"
-        case "Libanon": return "Lebanon"
-        case "Georgien": return "Georgia"
-        case "Rumänien": return "Romania"
-        case "Kroatien": return "Croatia"
-        case "Schweiz": return "Switzerland"
-        default: return country
-        }
+        Self.countryTranslations[country] ?? country
     }
+
+    private static let wineTypeTranslations: [String: String] = [
+        "Rött vin": "Red Wine",
+        "Vitt vin": "White Wine",
+        "Rosévin": "Rosé Wine",
+        "Mousserande vin": "Sparkling Wine",
+    ]
 
     var wineTypeEnglish: String {
-        switch wineType {
-        case "Rött vin": return "Red Wine"
-        case "Vitt vin": return "White Wine"
-        case "Rosévin": return "Rosé Wine"
-        case "Mousserande vin": return "Sparkling Wine"
-        default: return "Other"
-        }
-    }
-}
-
-extension ReleaseWine: Codable {
-    enum CodingKeys: String, CodingKey {
-        case launchDate, launchDateFormatted, producer, wineName, vintage
-        case price, region, country, wineType, productNumber
-        case vivinoLink, sbLink, imageUrl, ratingScore, ratingReason
-    }
-
-    init(from decoder: Decoder) throws {
-        let c = try decoder.container(keyedBy: CodingKeys.self)
-        launchDate = try c.decode(String.self, forKey: .launchDate)
-        launchDateFormatted = try c.decode(String.self, forKey: .launchDateFormatted)
-        producer = try c.decode(String.self, forKey: .producer)
-        wineName = try c.decode(String.self, forKey: .wineName)
-        vintage = try c.decode(String.self, forKey: .vintage)
-        price = try c.decode(String.self, forKey: .price)
-        region = try c.decode(String.self, forKey: .region)
-        country = try c.decode(String.self, forKey: .country)
-        wineType = try c.decode(String.self, forKey: .wineType)
-        productNumber = try c.decode(String.self, forKey: .productNumber)
-        vivinoLink = try c.decode(String.self, forKey: .vivinoLink)
-        sbLink = try c.decode(String.self, forKey: .sbLink)
-        imageUrl = try c.decodeIfPresent(String.self, forKey: .imageUrl)
-        ratingScore = try c.decodeIfPresent(Int.self, forKey: .ratingScore)
-        ratingReason = try c.decodeIfPresent(String.self, forKey: .ratingReason)
+        Self.wineTypeTranslations[wineType] ?? "Other"
     }
 }

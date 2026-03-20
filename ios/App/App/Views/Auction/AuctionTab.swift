@@ -259,7 +259,7 @@ struct AuctionTab: View {
                     Menu {
                         ForEach(liveCountryFilters, id: \.self) { country in
                             Button {
-                                toggleLiveCountry(country)
+                                toggle(country, in: liveSelectedCountries) { liveSelectedCountries = $0 }
                             } label: {
                                 HStack {
                                     Text(country)
@@ -279,7 +279,7 @@ struct AuctionTab: View {
                     Menu {
                         ForEach(liveTypeFilters, id: \.self) { type in
                             Button {
-                                toggleLiveType(type)
+                                toggle(type, in: liveSelectedTypes) { liveSelectedTypes = $0 }
                             } label: {
                                 HStack {
                                     Text(type)
@@ -317,9 +317,7 @@ struct AuctionTab: View {
                     }
 
                     if hasActiveLiveFilters {
-                        Button {
-                            clearLiveFilters()
-                        } label: {
+                        Button(action: clearLiveFilters) {
                             Image(systemName: "arrow.counterclockwise")
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
@@ -329,7 +327,7 @@ struct AuctionTab: View {
                     Menu {
                         ForEach(auctionCountryFilters, id: \.self) { country in
                             Button {
-                                toggleAuctionCountry(country)
+                                toggle(country, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
                             } label: {
                                 HStack {
                                     Text(country)
@@ -355,57 +353,57 @@ struct AuctionTab: View {
     // MARK: - Sort Bar
 
     private var sortBar: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 4) {
-                ForEach(AuctionSortField.allCases, id: \.self) { field in
-                    Button {
-                        if sortField == field {
-                            sortDirection = sortDirection == .ascending ? .descending : .ascending
-                        } else {
-                            sortField = field
-                            sortDirection = field == .producer ? .ascending : .descending
-                        }
-                    } label: {
-                        HStack(spacing: 2) {
-                            Text(field.label)
-                                .font(.system(size: 10, weight: sortField == field ? .bold : .regular))
-                            if sortField == field {
-                                Image(systemName: sortDirection == .ascending ? "chevron.up" : "chevron.down")
-                                    .font(.system(size: 8))
-                            }
-                        }
-                        .foregroundStyle(sortField == field ? .primary : .tertiary)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                    }
-                }
+        sortBarView(
+            fields: AuctionSortField.allCases,
+            current: sortField,
+            direction: sortDirection,
+            label: \.label
+        ) { field in
+            if sortField == field {
+                sortDirection = sortDirection == .ascending ? .descending : .ascending
+            } else {
+                sortField = field
+                sortDirection = field == .producer ? .ascending : .descending
             }
-            .padding(.horizontal, 12)
         }
-        .padding(.bottom, 2)
     }
 
     private var liveSortBar: some View {
+        sortBarView(
+            fields: LiveSortField.allCases,
+            current: liveSortField,
+            direction: liveSortDirection,
+            label: \.label
+        ) { field in
+            if liveSortField == field {
+                liveSortDirection = liveSortDirection == .ascending ? .descending : .ascending
+            } else {
+                liveSortField = field
+                liveSortDirection = field == .title ? .ascending : .descending
+            }
+        }
+    }
+
+    private func sortBarView<F: Hashable>(
+        fields: [F],
+        current: F,
+        direction: SortDirection,
+        label: KeyPath<F, String>,
+        onTap: @escaping (F) -> Void
+    ) -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 4) {
-                ForEach(LiveSortField.allCases, id: \.self) { field in
-                    Button {
-                        if liveSortField == field {
-                            liveSortDirection = liveSortDirection == .ascending ? .descending : .ascending
-                        } else {
-                            liveSortField = field
-                            liveSortDirection = field == .title ? .ascending : .descending
-                        }
-                    } label: {
+                ForEach(fields, id: \.self) { field in
+                    Button { onTap(field) } label: {
                         HStack(spacing: 2) {
-                            Text(field.label)
-                                .font(.system(size: 10, weight: liveSortField == field ? .bold : .regular))
-                            if liveSortField == field {
-                                Image(systemName: liveSortDirection == .ascending ? "chevron.up" : "chevron.down")
+                            Text(field[keyPath: label])
+                                .font(.system(size: 10, weight: current == field ? .bold : .regular))
+                            if current == field {
+                                Image(systemName: direction == .ascending ? "chevron.up" : "chevron.down")
                                     .font(.system(size: 8))
                             }
                         }
-                        .foregroundStyle(liveSortField == field ? .primary : .tertiary)
+                        .foregroundStyle(current == field ? .primary : .tertiary)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                     }
@@ -489,22 +487,10 @@ struct AuctionTab: View {
         }
     }
 
-    private func toggleAuctionCountry(_ value: String) {
-        var s = auctionSelectedCountries
+    private func toggle(_ value: String, in set: Set<String>, update: (Set<String>) -> Void) {
+        var s = set
         if s.contains(value) { s.remove(value) } else { s.insert(value) }
-        auctionSelectedCountries = s
-    }
-
-    private func toggleLiveCountry(_ value: String) {
-        var s = liveSelectedCountries
-        if s.contains(value) { s.remove(value) } else { s.insert(value) }
-        liveSelectedCountries = s
-    }
-
-    private func toggleLiveType(_ value: String) {
-        var s = liveSelectedTypes
-        if s.contains(value) { s.remove(value) } else { s.insert(value) }
-        liveSelectedTypes = s
+        update(s)
     }
 
     private func clearLiveFilters() {

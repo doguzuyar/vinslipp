@@ -1,43 +1,33 @@
 import AuthenticationServices
-import FirebaseAuth
 import CryptoKit
+import FirebaseAuth
 import UIKit
 
 class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                            ASAuthorizationControllerPresentationContextProviding {
 
     private var currentNonce: String?
-    var onSignIn: ((String, String, String) -> Void)? // uid, displayName, email
-
-    // MARK: - Account Deletion
-
+    /// Parameters: uid, displayName, email
+    var onSignIn: ((String, String, String) -> Void)?
     private var pendingDeletion = false
     var onDeleteSuccess: (() -> Void)?
     var onDeleteError: ((Error) -> Void)?
 
     func startDeleteAccount() {
         pendingDeletion = true
-        let nonce = randomNonceString()
-        currentNonce = nonce
-
-        let provider = ASAuthorizationAppleIDProvider()
-        let request = provider.createRequest()
-        request.requestedScopes = []
-        request.nonce = sha256(nonce)
-
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
-        controller.presentationContextProvider = self
-        controller.performRequests()
+        performRequest(scopes: [])
     }
 
     func startSignIn() {
+        performRequest(scopes: [.fullName, .email])
+    }
+
+    private func performRequest(scopes: [ASAuthorization.Scope]) {
         let nonce = randomNonceString()
         currentNonce = nonce
 
-        let provider = ASAuthorizationAppleIDProvider()
-        let request = provider.createRequest()
-        request.requestedScopes = [.fullName, .email]
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = scopes
         request.nonce = sha256(nonce)
 
         let controller = ASAuthorizationController(authorizationRequests: [request])
@@ -85,26 +75,25 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
             fullName: appleCredential.fullName
         )
 
-        let fullName = appleCredential.fullName
-        let givenName = fullName?.givenName
-        let familyName = fullName?.familyName
-        let appleDisplayName = [givenName, familyName].compactMap { $0 }.joined(separator: " ")
+        let appleDisplayName = [appleCredential.fullName?.givenName,
+                                appleCredential.fullName?.familyName]
+            .compactMap { $0 }
+            .joined(separator: " ")
 
         Auth.auth().signIn(with: credential) { [weak self] result, error in
-            guard let user = result?.user, error == nil else {
+            guard let user = result?.user, error == nil else { return }
+
+            let displayName = !appleDisplayName.isEmpty ? appleDisplayName : (user.displayName ?? "")
+
+            guard !appleDisplayName.isEmpty else {
+                self?.onSignIn?(user.uid, displayName, user.email ?? "")
                 return
             }
 
-            let nameToUse = !appleDisplayName.isEmpty ? appleDisplayName : (user.displayName ?? "")
-
-            if !appleDisplayName.isEmpty {
-                let changeRequest = user.createProfileChangeRequest()
-                changeRequest.displayName = appleDisplayName
-                changeRequest.commitChanges { _ in
-                    self?.onSignIn?(user.uid, nameToUse, user.email ?? "")
-                }
-            } else {
-                self?.onSignIn?(user.uid, nameToUse, user.email ?? "")
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = appleDisplayName
+            changeRequest.commitChanges { _ in
+                self?.onSignIn?(user.uid, displayName, user.email ?? "")
             }
         }
     }
@@ -119,7 +108,7 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
         var randomBytes = [UInt8](repeating: 0, count: length)
         _ = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
         let charset = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-        return randomBytes.map { charset[Int($0) % charset.count] }.map(String.init).joined()
+        return String(randomBytes.map { charset[Int($0) % charset.count] })
     }
 
     private func sha256(_ input: String) -> String {

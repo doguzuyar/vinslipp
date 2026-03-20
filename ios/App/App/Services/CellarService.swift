@@ -8,8 +8,8 @@ class CellarService: ObservableObject {
     @Published var error: String?
 
     var cellarData: CellarData? {
-        let cellar = entries.filter { $0.status == .cellar && $0.count > 0 }
-        return cellar.isEmpty ? nil : CellarData(from: entries)
+        let hasCellarWines = entries.contains { $0.status == .cellar && $0.count > 0 }
+        return hasCellarWines ? CellarData(from: entries) : nil
     }
 
     var historyEntries: [CellarEntry] {
@@ -285,8 +285,7 @@ class CellarService: ObservableObject {
             return
         }
 
-        let firstRow = rows[0]
-        if firstRow.keys.contains("Status") && firstRow.keys.contains("Winery") {
+        if rows[0].keys.contains("Status") && rows[0].keys.contains("Winery") {
             importVinslippCSV(rows)
         } else {
             error = "Unrecognized file format. Use a file exported from Vinslipp."
@@ -298,7 +297,6 @@ class CellarService: ObservableObject {
     }
 
     func importFromURLs(_ urls: [URL]) {
-        // Auto-detect: if any file looks like Vivino, use Vivino import
         for url in urls {
             guard url.startAccessingSecurityScopedResource() else { continue }
             let data = try? Data(contentsOf: url)
@@ -308,22 +306,14 @@ class CellarService: ObservableObject {
                 return
             }
         }
-        // Otherwise treat as Vinslipp format
         guard let url = urls.first else { return }
         importFromURL(url)
     }
 
     private func importVinslippCSV(_ rows: [[String: String]]) {
-        var newEntries: [CellarEntry] = []
-
-        for row in rows {
-            let statusStr = row["Status"] ?? "cellar"
-            let status = WineStatus(rawValue: statusStr) ?? .cellar
-            let sourceStr = row["Source"] ?? "imported"
-            let source = WineSource(rawValue: sourceStr) ?? .imported
-
-            let entry = CellarEntry(
-                status: status,
+        entries = rows.map { row in
+            CellarEntry(
+                status: WineStatus(rawValue: row["Status"] ?? "cellar") ?? .cellar,
                 winery: row["Winery"] ?? "",
                 wineName: row["Wine Name"] ?? "",
                 vintage: row["Vintage"] ?? "",
@@ -340,13 +330,10 @@ class CellarService: ObservableObject {
                 userRating: row["User Rating"] ?? "",
                 averageRating: row["Average Rating"] ?? "",
                 notes: row["Notes"] ?? "",
-                source: source,
+                source: WineSource(rawValue: row["Source"] ?? "imported") ?? .imported,
                 addedDate: row["Added Date"] ?? DateFormatters.todayString
             )
-            newEntries.append(entry)
         }
-
-        entries = newEntries
         save()
     }
 

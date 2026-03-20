@@ -61,7 +61,6 @@ struct MiniCalendar: View {
             .padding(.horizontal, 24)
             .offset(y: -20)
 
-            // Weekday headers
             HStack(spacing: 0) {
                 ForEach(["M", "T", "W", "T", "F", "S", "S"], id: \.self) { day in
                     Text(day)
@@ -87,15 +86,11 @@ struct MiniCalendar: View {
         }
     }
 
-    private var todayString: String {
-        DateFormatters.todayString
-    }
-
     @ViewBuilder
     private func dayCell(for date: Date) -> some View {
         let dateStr = DateFormatters.iso.string(from: date)
         let isSelected = dateStr == selectedDate
-        let isToday = dateStr == todayString
+        let isToday = dateStr == DateFormatters.todayString
         let color = dateColors[dateStr]
         let dayNum = calendar.component(.day, from: date)
         let wineCount = filteredDateCounts[dateStr] ?? 0
@@ -115,7 +110,7 @@ struct MiniCalendar: View {
                         .foregroundStyle(isToday ? .primary : .secondary)
 
                     if wineCount > 0, let hex = color {
-                        let dotSize: CGFloat = wineCount > 10 ? 5 : wineCount > 5 ? 4 : 3
+                        let dotSize: CGFloat = dotSize(for: wineCount)
                         Circle()
                             .fill(Color(hex: hex))
                             .frame(width: dotSize, height: dotSize)
@@ -129,5 +124,11 @@ struct MiniCalendar: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 28)
+    }
+
+    private func dotSize(for count: Int) -> CGFloat {
+        if count > 10 { return 5 }
+        if count > 5 { return 4 }
+        return 3
     }
 }

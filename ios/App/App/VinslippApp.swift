@@ -1,8 +1,4 @@
 import SwiftUI
-import FirebaseCore
-import FirebaseAuth
-import FirebaseMessaging
-import UserNotifications
 
 @main
 struct VinslippApp: App {

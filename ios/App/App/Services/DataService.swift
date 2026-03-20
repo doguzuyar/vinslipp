@@ -68,15 +68,12 @@ class DataService: ObservableObject {
         guard let url = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: FavoritesStore.appGroup)?
             .appendingPathComponent("wine_names.json") else { return }
-        var map: [String: String] = [:]
-        for w in wines {
-            map[w.productNumber] = w.wineName
-        }
+        let map = Dictionary(wines.map { ($0.productNumber, $0.wineName) }, uniquingKeysWith: { _, last in last })
         guard let data = try? JSONEncoder().encode(map) else { return }
         try? data.write(to: url, options: .atomic)
     }
 
-    private func fetch<T: Codable>(_ urlString: String) async -> T? {
+    private func fetch<T: Decodable>(_ urlString: String) async -> T? {
         guard let url = URL(string: urlString) else { return nil }
         do {
             let (data, _) = try await URLSession.shared.data(from: url)

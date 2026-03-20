@@ -199,7 +199,7 @@ private struct CommentRow: View {
                     .foregroundStyle(.tertiary)
                 Spacer()
                 if let date = post.createdAt {
-                    Text(formatDate(date))
+                    Text(DateFormatters.shortTimestamp.string(from: date))
                         .font(.caption2)
                         .foregroundStyle(.quaternary)
                 }
@@ -216,7 +216,4 @@ private struct CommentRow: View {
         .padding(.vertical, 10)
     }
 
-    private func formatDate(_ date: Date) -> String {
-        DateFormatters.shortTimestamp.string(from: date)
-    }
 }

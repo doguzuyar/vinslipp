@@ -32,10 +32,7 @@ class NotificationStore: ObservableObject {
     }
 
     func add(title: String, body: String) {
-        let notification = StoredNotification(title: title, body: body)
-        notifications.insert(notification, at: 0)
-        notifications = Array(notifications.prefix(Self.maxCount))
-        save()
+        insert(StoredNotification(title: title, body: body))
     }
 
     func addIfNew(title: String, body: String, date: Date) {
@@ -43,7 +40,10 @@ class NotificationStore: ObservableObject {
             $0.title == title && $0.body == body && abs($0.date.timeIntervalSince(date)) < 60
         }
         guard !isDuplicate else { return }
-        let notification = StoredNotification(title: title, body: body, date: date)
+        insert(StoredNotification(title: title, body: body, date: date))
+    }
+
+    private func insert(_ notification: StoredNotification) {
         notifications.insert(notification, at: 0)
         notifications = Array(notifications.prefix(Self.maxCount))
         save()

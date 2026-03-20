@@ -12,7 +12,6 @@ struct BlogPost: Identifiable {
     let userName: String
     let comment: String
     let createdAt: Date?
-    let moderationStatus: String?
 }
 
 @MainActor
@@ -54,8 +53,7 @@ class BlogService: ObservableObject {
                     userId: data["userId"] as? String ?? "",
                     userName: data["userName"] as? String ?? "",
                     comment: data["comment"] as? String ?? "",
-                    createdAt: timestamp?.dateValue(),
-                    moderationStatus: data["moderationStatus"] as? String
+                    createdAt: timestamp?.dateValue()
                 )
             }
 
@@ -97,10 +95,7 @@ class BlogService: ObservableObject {
     }
 
     func deletePost(_ postId: String) async {
-        do {
-            try await db.collection("blog_posts").document(postId).delete()
-            posts.removeAll { $0.id == postId }
-        } catch {
-        }
+        guard let _ = try? await db.collection("blog_posts").document(postId).delete() else { return }
+        posts.removeAll { $0.id == postId }
     }
 }

@@ -115,7 +115,9 @@ struct CellarTab: View {
             allowedContentTypes: [.commaSeparatedText, .plainText, .data],
             allowsMultipleSelection: true
         ) { result in
-            handleFiles(result)
+            if case .success(let urls) = result, !urls.isEmpty {
+                cellarService.importFromURLs(urls)
+            }
         }
         .sheet(isPresented: $showAddSheet) {
             WineEditSheet(entry: CellarEntry(), isNew: true) { newEntry in
@@ -478,10 +480,6 @@ struct CellarTab: View {
         }
     }
 
-    private func handleFiles(_ result: Result<[URL], Error>) {
-        guard case .success(let urls) = result, !urls.isEmpty else { return }
-        cellarService.importFromURLs(urls)
-    }
 }
 
 // MARK: - Cellar Wine Row
@@ -532,6 +530,16 @@ struct CellarWineRow: View {
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
                                 .lineLimit(1)
+                        }
+                        if !wine.country.isEmpty {
+                            Text(wine.country)
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
+                        if !wine.wineType.isEmpty {
+                            Text(wine.wineType)
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
                         }
                         Spacer()
                         if !wine.drinkYear.isEmpty {
@@ -607,6 +615,11 @@ private struct HistoryWineRow: View {
                     }
                     if !wine.country.isEmpty {
                         Text(wine.country)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                    }
+                    if !wine.wineType.isEmpty {
+                        Text(wine.wineType)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
                     }
@@ -722,15 +735,6 @@ struct CellarWineDetail: View {
                         Image(systemName: "plus.circle")
                             .font(.body)
                     }
-                }
-            }
-
-            HStack(spacing: 16) {
-                if !wine.region.isEmpty {
-                    DetailChip(label: "Region", value: wine.region)
-                }
-                if !wine.country.isEmpty {
-                    DetailChip(label: "Country", value: wine.country)
                 }
             }
 

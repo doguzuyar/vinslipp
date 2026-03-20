@@ -1,7 +1,5 @@
 import Foundation
 
-// MARK: - Wine Status & Source
-
 enum WineStatus: String, Codable, CaseIterable {
     case cellar
     case history
@@ -14,7 +12,7 @@ enum WineSource: String, Codable, CaseIterable {
     case imported
 }
 
-// MARK: - Cellar Entry (unified wine model)
+// MARK: - Cellar Entry
 
 struct CellarEntry: Identifiable, Codable, Equatable {
     let id: UUID
@@ -85,7 +83,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         self.addedDate = addedDate
     }
 
-    // Handle both old "link" (String) and new "links" ([String]) JSON
+    // Supports both legacy "link" (String) and current "links" ([String]) JSON
     enum CodingKeys: String, CodingKey {
         case id, status, winery, wineName, vintage, region, country
         case style, wineType, price, count, drinkYear
@@ -113,7 +111,6 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         source = try c.decodeIfPresent(WineSource.self, forKey: .source) ?? .manual
         addedDate = try c.decodeIfPresent(String.self, forKey: .addedDate) ?? DateFormatters.todayString
 
-        // Decode links: try array first, fall back to old single string
         if let arr = try? c.decode([String].self, forKey: .links) {
             links = arr
         } else if let single = try? c.decode(String.self, forKey: .link), !single.isEmpty {
@@ -146,7 +143,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
     }
 }
 
-// MARK: - Computed Cellar Data (for chart and summary)
+// MARK: - Cellar Data
 
 struct CellarData {
     let wines: [CellarEntry]
@@ -168,12 +165,10 @@ struct CellarData {
         var allYears: Set<Int> = []
 
         for wine in cellarWines {
-            let yearKey = wine.drinkYear.isEmpty
-                ? (wine.vintage.isEmpty ? "-" : wine.vintage)
-                : wine.drinkYear
+            let yearKey = wine.drinkYear.nonEmpty ?? wine.vintage.nonEmpty ?? "-"
             yearCounts[yearKey, default: 0] += wine.count
 
-            let vintageKey = wine.vintage.isEmpty ? "-" : wine.vintage
+            let vintageKey = wine.vintage.nonEmpty ?? "-"
             vintageCounts[vintageKey, default: 0] += wine.count
 
             if let year = Int(yearKey) { allYears.insert(year) }

@@ -1,8 +1,7 @@
-import UIKit
 import Combine
 import FirebaseCore
-import FirebaseAuth
 import FirebaseMessaging
+import UIKit
 import UserNotifications
 
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate, ObservableObject {
@@ -40,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
 
-    // MARK: - Catch background notifications on app open
-
     @objc private func appDidBecomeActive() {
         UNUserNotificationCenter.current().getDeliveredNotifications { [weak self] notifications in
             guard let self, !notifications.isEmpty else { return }
@@ -56,8 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 }
             }
             UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            DispatchQueue.main.async {
-                UIApplication.shared.applicationIconBadgeNumber = 0
+            Task { @MainActor in
+                UNUserNotificationCenter.current().setBadgeCount(0) { _ in }
             }
         }
     }
@@ -139,9 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         Task { @MainActor in
             notificationStore.add(title: content.title, body: content.body)
-        }
-        if let tab = content.userInfo["tab"] as? String {
-            DispatchQueue.main.async {
+            if let tab = content.userInfo["tab"] as? String {
                 self.selectedTab = self.tabIndex(from: tab)
             }
         }
