@@ -51,6 +51,9 @@ struct WineDetail: View {
                 }
 
                 HStack(spacing: 16) {
+                    if !wine.region.isEmpty {
+                        DetailChip(label: "Region", value: wine.region)
+                    }
                     if !wine.country.isEmpty {
                         DetailChip(label: "Country", value: wine.countryEnglish)
                     }
@@ -236,7 +239,7 @@ private struct WineImage: View {
     @State private var uiImage: UIImage?
 
     var body: some View {
-        ZStack {
+        Group {
             if let uiImage {
                 Image(uiImage: uiImage)
                     .resizable()

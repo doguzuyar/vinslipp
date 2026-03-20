@@ -50,6 +50,9 @@ struct WineRow: View {
                                 .foregroundStyle(.tertiary)
                                 .lineLimit(1)
                         }
+                        Text(wine.countryEnglish)
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
                         Text(wine.wineTypeEnglish)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)

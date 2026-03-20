@@ -20,8 +20,10 @@ struct ReleaseTab: View {
     @AppStorage("release_selectedRating") private var selectedRating = ""
     @AppStorage("release_todayOnly") private var todayOnly = false
     @State private var showPastReleases = false
-    @State private var showFilters = false
     @AppStorage("release_searchText") private var searchText = ""
+    @AppStorage("swipe_topic") private var swipeTopic = "none"
+    @AppStorage("swipe_last_shown") private var swipeLastShown = ""
+    @State private var showSwipeView = false
 
     private var selectedCountries: Set<String> {
         get { (try? JSONDecoder().decode(Set<String>.self, from: selectedCountriesData)) ?? [] }
@@ -95,7 +97,7 @@ struct ReleaseTab: View {
         }
         .safeAreaInset(edge: .bottom) {
             if dataService.releaseData != nil {
-                searchBar
+                SearchBar(text: $searchText)
             }
         }
         .task {
@@ -103,15 +105,43 @@ struct ReleaseTab: View {
                 await dataService.loadReleases()
             }
         }
+        .onChange(of: dataService.isLoading) {
+            if !dataService.isLoading && dataService.releaseData != nil {
+                autoShowSwipeIfNeeded()
+            }
+        }
+        .onAppear {
+            autoShowSwipeIfNeeded()
+        }
         .onChange(of: selectedDate) { _, newValue in
             todayOnly = newValue == DateFormatters.todayString
         }
+        .fullScreenCover(isPresented: $showSwipeView) {
+            SwipeView(wines: swipeWines)
+                .onDisappear {
+                    swipeLastShown = DateFormatters.todayString
+                }
+        }
     }
 
-    // MARK: - Search Bar
+    // MARK: - Swipe
 
-    private var searchBar: some View {
-        SearchBar(text: $searchText)
+    private var swipeWines: [ReleaseWine] {
+        let todayWines = allWines.filter { $0.launchDate == DateFormatters.todayString }
+        return SwipeTopics.filter(todayWines, topic: swipeTopic, favorites: appDelegate.favoritesStore)
+            .sorted {
+                let aIndex = knownCountries.firstIndex(of: $0.countryEnglish) ?? knownCountries.count
+                let bIndex = knownCountries.firstIndex(of: $1.countryEnglish) ?? knownCountries.count
+                if aIndex != bIndex { return aIndex < bIndex }
+                return ($0.ratingScore ?? 0) > ($1.ratingScore ?? 0)
+            }
+    }
+
+    private func autoShowSwipeIfNeeded() {
+        guard swipeTopic != "none",
+              swipeLastShown != DateFormatters.todayString,
+              !swipeWines.isEmpty else { return }
+        showSwipeView = true
     }
 
     // MARK: - Filter Bar

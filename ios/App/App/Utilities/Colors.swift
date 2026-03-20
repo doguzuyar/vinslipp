@@ -2,13 +2,14 @@ import SwiftUI
 
 extension Color {
     init(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet(charactersIn: "#"))
+        let cleaned = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
         var int: UInt64 = 0
-        Scanner(string: hex).scanHexInt64(&int)
-        let r = Double((int >> 16) & 0xFF) / 255.0
-        let g = Double((int >> 8) & 0xFF) / 255.0
-        let b = Double(int & 0xFF) / 255.0
-        self.init(red: r, green: g, blue: b)
+        Scanner(string: cleaned).scanHexInt64(&int)
+        self.init(
+            red: Double((int >> 16) & 0xFF) / 255.0,
+            green: Double((int >> 8) & 0xFF) / 255.0,
+            blue: Double(int & 0xFF) / 255.0
+        )
     }
 
     static let vinslippBordeaux = Color(hex: "4D1421")
@@ -47,6 +48,10 @@ extension String {
     var priceNumeric: Int {
         Int(replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)) ?? 0
     }
+
+    var nonEmpty: String? {
+        isEmpty ? nil : self
+    }
 }
 
 // MARK: - Notification Topics
@@ -62,8 +67,41 @@ enum NotificationTopics {
 
     static let allValues: [String] = all.map(\.value)
 
-    /// FCM topics to subscribe to when user selects "favorites".
-    static let categoryTopics = ["french-red", "french-white", "italian-red", "italian-white"]
+    /// FCM category topics (all topics except "favorites").
+    static let categoryTopics: [String] = all.map(\.value).filter { $0 != "favorites" }
+}
+
+// MARK: - Swipe Topics
+
+enum SwipeTopics {
+    static let all: [(value: String, label: String)] = [
+        ("all", "All Wines"),
+        ("favorites", "Favorites"),
+        ("french-red", "French Red"),
+        ("french-white", "French White"),
+        ("italian-red", "Italian Red"),
+        ("italian-white", "Italian White"),
+    ]
+
+    @MainActor
+    static func filter(_ wines: [ReleaseWine], topic: String, favorites: FavoritesStore) -> [ReleaseWine] {
+        switch topic {
+        case "all":
+            return wines
+        case "favorites":
+            return wines.filter { favorites.isFavorite($0.productNumber) }
+        case "french-red":
+            return wines.filter { $0.countryEnglish == "France" && $0.wineTypeEnglish == "Red Wine" }
+        case "french-white":
+            return wines.filter { $0.countryEnglish == "France" && $0.wineTypeEnglish == "White Wine" }
+        case "italian-red":
+            return wines.filter { $0.countryEnglish == "Italy" && $0.wineTypeEnglish == "Red Wine" }
+        case "italian-white":
+            return wines.filter { $0.countryEnglish == "Italy" && $0.wineTypeEnglish == "White Wine" }
+        default:
+            return wines
+        }
+    }
 }
 
 // MARK: - Search Bar

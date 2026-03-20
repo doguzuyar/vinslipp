@@ -1,23 +1,17 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseMessaging
-import UniformTypeIdentifiers
-
-enum CellarImportMode {
-    case vinslipp
-    case vivino
-}
 
 struct ProfileTab: View {
-    @ObservedObject var cellarService: CellarService
     @EnvironmentObject var appDelegate: AppDelegate
     @StateObject private var authManager = AuthManager()
     @AppStorage("notification_topic", store: UserDefaults(suiteName: FavoritesStore.appGroup)) private var notificationTopic = "none"
     @AppStorage("app_theme") private var appTheme = "dark"
+    @AppStorage("swipe_topic") private var swipeTopic = "none"
+    @AppStorage("swipe_last_shown") private var swipeLastShown = ""
     @State private var showNotifications = false
+    @State private var showSwipeSettings = false
     @State private var showNotificationCenter = false
-    @State private var showFilePicker = false
-    @State private var importMode: CellarImportMode?
     @State private var showDeleteConfirm = false
     @State private var deleteErrorMessage: String?
 
@@ -35,13 +29,6 @@ struct ProfileTab: View {
         }
         .sheet(isPresented: $showNotificationCenter) {
             NotificationCenterView(store: appDelegate.notificationStore)
-        }
-        .fileImporter(
-            isPresented: $showFilePicker,
-            allowedContentTypes: [.commaSeparatedText, .plainText, .data],
-            allowsMultipleSelection: true
-        ) { result in
-            handleFiles(result)
         }
         .onChange(of: notificationTopic) { _, newValue in
             for topic in NotificationTopics.categoryTopics {
@@ -119,6 +106,7 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
+            swipeButton
 
             Spacer()
         }
@@ -151,6 +139,7 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
+            swipeButton
 
             Button {
                 authManager.signOut()
@@ -220,11 +209,6 @@ struct ProfileTab: View {
         .frame(maxWidth: 280)
     }
 
-    private var notificationTopicLabel: String {
-        if notificationTopic == "none" { return "Off" }
-        return NotificationTopics.all.first { $0.value == notificationTopic }?.label ?? "On"
-    }
-
     private func themeIcon(for option: String) -> String {
         switch option {
         case "dark": return "moon.fill"
@@ -236,20 +220,71 @@ struct ProfileTab: View {
     // MARK: - Notifications
 
     private var notificationButton: some View {
+        ExpandableSettingButton(
+            icon: "bell",
+            title: "Notifications",
+            statusLabel: notificationTopicLabel,
+            isExpanded: $showNotifications,
+            options: NotificationTopics.all,
+            selectedValue: notificationTopic
+        ) { value in
+            notificationTopic = notificationTopic == value ? "none" : value
+        }
+    }
+
+    private var notificationTopicLabel: String {
+        if notificationTopic == "none" { return "Off" }
+        return NotificationTopics.all.first { $0.value == notificationTopic }?.label ?? "On"
+    }
+
+    // MARK: - Swipe Mode
+
+    private var swipeButton: some View {
+        ExpandableSettingButton(
+            icon: "rectangle.portrait.on.rectangle.portrait.angled",
+            title: "Swipe Mode",
+            statusLabel: swipeTopicLabel,
+            isExpanded: $showSwipeSettings,
+            options: SwipeTopics.all,
+            selectedValue: swipeTopic
+        ) { value in
+            swipeTopic = swipeTopic == value ? "none" : value
+            swipeLastShown = ""
+        }
+    }
+
+    private var swipeTopicLabel: String {
+        if swipeTopic == "none" { return "Off" }
+        return SwipeTopics.all.first { $0.value == swipeTopic }?.label ?? "On"
+    }
+}
+
+// MARK: - Expandable Setting Button
+
+private struct ExpandableSettingButton: View {
+    let icon: String
+    let title: String
+    let statusLabel: String
+    @Binding var isExpanded: Bool
+    let options: [(value: String, label: String)]
+    let selectedValue: String
+    let onSelect: (String) -> Void
+
+    var body: some View {
         VStack(spacing: 8) {
             Button {
-                withAnimation { showNotifications.toggle() }
+                withAnimation { isExpanded.toggle() }
             } label: {
                 HStack {
-                    Image(systemName: "bell")
+                    Image(systemName: icon)
                         .font(.subheadline)
-                    Text("Notifications")
+                    Text(title)
                         .font(.subheadline.weight(.medium))
                     Spacer()
-                    Text(notificationTopicLabel)
+                    Text(statusLabel)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Image(systemName: showNotifications ? "chevron.up" : "chevron.down")
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -261,18 +296,19 @@ struct ProfileTab: View {
             }
             .frame(maxWidth: 280)
 
-            if showNotifications {
+            if isExpanded {
                 VStack(spacing: 4) {
-                    ForEach(NotificationTopics.all, id: \.value) { option in
+                    ForEach(options, id: \.value) { option in
+                        let isSelected = selectedValue == option.value
                         Button {
-                            notificationTopic = notificationTopic == option.value ? "none" : option.value
+                            onSelect(option.value)
                         } label: {
                             HStack {
                                 Circle()
-                                    .fill(notificationTopic == option.value ? Color.accentColor : Color.clear)
+                                    .fill(isSelected ? Color.accentColor : Color.clear)
                                     .overlay(
                                         Circle()
-                                            .stroke(notificationTopic == option.value ? Color.clear : Color.secondary, lineWidth: 1.5)
+                                            .stroke(isSelected ? Color.clear : Color.secondary, lineWidth: 1.5)
                                     )
                                     .frame(width: 18, height: 18)
                                 Text(option.label)
@@ -282,7 +318,7 @@ struct ProfileTab: View {
                             .foregroundStyle(.primary)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 10)
-                            .background(notificationTopic == option.value ? Color.accentColor.opacity(0.15) : Color(.systemGray6))
+                            .background(isSelected ? Color.accentColor.opacity(0.15) : Color(.systemGray6))
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                     }
@@ -291,53 +327,6 @@ struct ProfileTab: View {
                 .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
-    }
-
-    // MARK: - Cellar Import
-
-    private var cellarButton: some View {
-        Menu {
-            Button {
-                importMode = .vinslipp
-                showFilePicker = true
-            } label: {
-                Label("Vinslipp Cellar", systemImage: "doc.text")
-            }
-            Button {
-                importMode = .vivino
-                showFilePicker = true
-            } label: {
-                Label("Vivino Cellar", systemImage: "doc.text")
-            }
-        } label: {
-            HStack {
-                Image(systemName: "cube.box")
-                    .font(.subheadline)
-                Text(cellarService.cellarData != nil ? "Update Cellar data" : "Import Cellar data")
-                    .font(.subheadline.weight(.medium))
-                Spacer()
-                Image(systemName: "chevron.down")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .foregroundStyle(.primary)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
-            .background(Color(.systemGray6))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-        }
-        .frame(maxWidth: 280)
-    }
-
-    private func handleFiles(_ result: Result<[URL], Error>) {
-        guard case .success(let urls) = result, !urls.isEmpty else { return }
-        switch importMode {
-        case .vivino:
-            cellarService.importVivinoFromURLs(urls)
-        case .vinslipp, .none:
-            cellarService.importFromURLs(urls)
-        }
-        importMode = nil
     }
 }
 

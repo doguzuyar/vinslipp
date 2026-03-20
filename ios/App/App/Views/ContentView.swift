@@ -35,7 +35,7 @@ struct ContentView: View {
                     }
                     .tag(3)
 
-                ProfileTab(cellarService: cellarService)
+                ProfileTab()
                     .tabItem {
                         Label("Profile", systemImage: "person.circle")
                     }
