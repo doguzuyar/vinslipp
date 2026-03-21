@@ -58,7 +58,6 @@ extension String {
 
 enum NotificationTopics {
     static let all: [(value: String, label: String)] = [
-        ("favorites", "Favorites"),
         ("french-red", "French Red"),
         ("french-white", "French White"),
         ("italian-red", "Italian Red"),
@@ -66,9 +65,6 @@ enum NotificationTopics {
     ]
 
     static let allValues: [String] = all.map(\.value)
-
-    /// FCM category topics (all topics except "favorites").
-    static let categoryTopics: [String] = all.map(\.value).filter { $0 != "favorites" }
 }
 
 // MARK: - Swipe Topics

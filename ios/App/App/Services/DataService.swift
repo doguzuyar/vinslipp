@@ -25,7 +25,6 @@ class DataService: ObservableObject {
 
         if let releases {
             releaseData = releases
-            writeWineNamesToAppGroup(releases.wines)
         } else if isFirstLoad {
             error = "Failed to load wine data"
         }
@@ -62,15 +61,6 @@ class DataService: ObservableObject {
             liveWinesError = "Failed to load live wines"
         }
         isLoadingLiveWines = false
-    }
-
-    private func writeWineNamesToAppGroup(_ wines: [ReleaseWine]) {
-        guard let url = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: FavoritesStore.appGroup)?
-            .appendingPathComponent("wine_names.json") else { return }
-        let map = Dictionary(wines.map { ($0.productNumber, $0.wineName) }, uniquingKeysWith: { _, last in last })
-        guard let data = try? JSONEncoder().encode(map) else { return }
-        try? data.write(to: url, options: .atomic)
     }
 
     private func fetch<T: Decodable>(_ urlString: String) async -> T? {

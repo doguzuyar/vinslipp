@@ -31,27 +31,11 @@ struct ProfileTab: View {
             NotificationCenterView(store: appDelegate.notificationStore)
         }
         .onChange(of: notificationTopic) { _, newValue in
-            for topic in NotificationTopics.categoryTopics {
+            for topic in NotificationTopics.allValues {
                 Messaging.messaging().unsubscribe(fromTopic: topic)
             }
-            if newValue == "favorites" {
-                for topic in NotificationTopics.categoryTopics {
-                    Messaging.messaging().subscribe(toTopic: topic)
-                }
-            } else if newValue != "none" {
+            if newValue != "none" {
                 Messaging.messaging().subscribe(toTopic: newValue)
-            }
-            if let url = FileManager.default
-                .containerURL(forSecurityApplicationGroupIdentifier: FavoritesStore.appGroup)?
-                .appendingPathComponent("notification_topic.txt") {
-                try? newValue.write(to: url, atomically: true, encoding: .utf8)
-            }
-        }
-        .onAppear {
-            if let url = FileManager.default
-                .containerURL(forSecurityApplicationGroupIdentifier: FavoritesStore.appGroup)?
-                .appendingPathComponent("notification_topic.txt") {
-                try? notificationTopic.write(to: url, atomically: true, encoding: .utf8)
             }
         }
     }

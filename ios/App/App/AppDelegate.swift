@@ -45,9 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             for n in notifications {
                 let content = n.request.content
                 guard !content.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { continue }
-                if self.isFavoritesMode, !self.notificationContainsFavorite(content.userInfo) {
-                    continue
-                }
                 Task { @MainActor in
                     self.notificationStore.addIfNew(title: content.title, body: content.body, date: n.date)
                 }
@@ -87,20 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private func restoreNotificationPreference() {
         guard let topic = Self.sharedDefaults.string(forKey: "notification_topic"),
               NotificationTopics.allValues.contains(topic) else { return }
-        if topic == "favorites" {
-            for t in NotificationTopics.categoryTopics {
-                Messaging.messaging().subscribe(toTopic: t)
-            }
-        } else {
-            Messaging.messaging().subscribe(toTopic: topic)
-        }
+        Messaging.messaging().subscribe(toTopic: topic)
     }
 
     static let sharedDefaults = UserDefaults(suiteName: FavoritesStore.appGroup) ?? .standard
-
-    private var isFavoritesMode: Bool {
-        Self.sharedDefaults.string(forKey: "notification_topic") == "favorites"
-    }
 
     // MARK: - UNUserNotificationCenterDelegate
 
@@ -109,16 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let content = notification.request.content
 
-        // Extension may have cleared title/body to suppress
         guard !content.title.isEmpty else {
             completionHandler([])
             return
         }
 
-        if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
-            completionHandler([])
-            return
-        }
         Task { @MainActor in
             notificationStore.add(title: content.title, body: content.body)
         }
@@ -129,11 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let content = response.notification.request.content
-
-        if isFavoritesMode, !notificationContainsFavorite(content.userInfo) {
-            completionHandler()
-            return
-        }
         Task { @MainActor in
             notificationStore.add(title: content.title, body: content.body)
             if let tab = content.userInfo["tab"] as? String {
@@ -141,18 +118,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         completionHandler()
-    }
-
-    private func notificationContainsFavorite(_ userInfo: [AnyHashable: Any]) -> Bool {
-        guard let ids = userInfo["productNumbers"] as? String, !ids.isEmpty else { return false }
-        let favorites = loadFavoritesFromDefaults()
-        return ids.split(separator: ",").contains { favorites.contains(String($0)) }
-    }
-
-    private func loadFavoritesFromDefaults() -> Set<String> {
-        guard let data = Self.sharedDefaults.data(forKey: FavoritesStore.storageKey),
-              let decoded = try? JSONDecoder().decode(Set<String>.self, from: data) else { return [] }
-        return decoded
     }
 
     // MARK: - Quick Actions
