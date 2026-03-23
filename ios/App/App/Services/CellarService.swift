@@ -1,5 +1,4 @@
 import Foundation
-import SwiftUI
 
 @MainActor
 class CellarService: ObservableObject {
@@ -277,11 +276,12 @@ class CellarService: ObservableObject {
         }
 
         isProcessing = true
+        defer { isProcessing = false }
+
         let rows = parseCSV(text)
 
         guard !rows.isEmpty else {
             error = "No data found in the file"
-            isProcessing = false
             return
         }
 
@@ -289,11 +289,7 @@ class CellarService: ObservableObject {
             importVinslippCSV(rows)
         } else {
             error = "Unrecognized file format. Use a file exported from Vinslipp."
-            isProcessing = false
-            return
         }
-
-        isProcessing = false
     }
 
     func importFromURLs(_ urls: [URL]) {
@@ -369,6 +365,7 @@ class CellarService: ObservableObject {
         }
 
         isProcessing = true
+        defer { isProcessing = false }
 
         let cellarString = cellarData.flatMap { String(data: $0, encoding: .utf8) }
         let pricesString = pricesData.flatMap { String(data: $0, encoding: .utf8) }
@@ -379,8 +376,6 @@ class CellarService: ObservableObject {
         let wineListRows = wineListString.map { parseCSV($0) } ?? []
 
         processVivinoCellar(cellarRows: cellarRows, priceRows: priceRows, wineListRows: wineListRows)
-
-        isProcessing = false
     }
 
     private enum VivinoFileType {
@@ -402,12 +397,9 @@ class CellarService: ObservableObject {
         var wineTypeLookup: [String: String] = [:]
         for row in wineListRows {
             guard let link = row["Link to wine"], !link.isEmpty else { continue }
-            let note = row["Personal Note"] ?? ""
-            if !note.isEmpty { noteLookup[link] = note }
-            let country = row["Country"] ?? ""
-            if !country.isEmpty { countryLookup[link] = country }
-            let wineType = row["Wine type"] ?? ""
-            if !wineType.isEmpty { wineTypeLookup[link] = wineType }
+            if let note = row["Personal Note"], !note.isEmpty { noteLookup[link] = note }
+            if let country = row["Country"], !country.isEmpty { countryLookup[link] = country }
+            if let wineType = row["Wine type"], !wineType.isEmpty { wineTypeLookup[link] = wineType }
         }
 
         var priceLookup: [String: String] = [:]

@@ -42,11 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     @objc private func appDidBecomeActive() {
         UNUserNotificationCenter.current().getDeliveredNotifications { [weak self] notifications in
             guard let self, !notifications.isEmpty else { return }
-            for n in notifications {
-                let content = n.request.content
+            for notification in notifications {
+                let content = notification.request.content
                 guard !content.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { continue }
                 Task { @MainActor in
-                    self.notificationStore.addIfNew(title: content.title, body: content.body, date: n.date)
+                    self.notificationStore.addIfNew(title: content.title, body: content.body, date: notification.date)
                 }
             }
             UNUserNotificationCenter.current().removeAllDeliveredNotifications()

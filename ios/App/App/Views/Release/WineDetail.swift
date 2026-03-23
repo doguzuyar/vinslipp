@@ -25,30 +25,23 @@ struct WineDetail: View {
                     if let url = URL(string: wine.vivinoLink) {
                         Button { safariURL = url } label: {
                             Label("Vivino", systemImage: "globe")
-                                .font(.caption.weight(.medium))
                         }
                     }
                     if let url = URL(string: wine.sbLink) {
                         Button { safariURL = url } label: {
                             Label("Systembolaget", systemImage: "cart")
-                                .font(.caption.weight(.medium))
                         }
                     }
-                    Button {
-                        showBlogSheet = true
-                    } label: {
+                    Button { showBlogSheet = true } label: {
                         Label("Blog", systemImage: "square.and.pencil")
-                            .font(.caption.weight(.medium))
                     }
-                    Button {
-                        showAddToCellar = true
-                    } label: {
+                    Button { showAddToCellar = true } label: {
                         Label("Cellar", systemImage: "plus.circle")
-                            .font(.caption.weight(.medium))
                     }
                     Spacer()
                     favoriteButton
                 }
+                .font(.caption.weight(.medium))
 
                 HStack(spacing: 16) {
                     if !wine.region.isEmpty {
@@ -112,7 +105,6 @@ struct WineDetail: View {
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
         } label: {
             Image(systemName: isFavorite ? "heart.fill" : "heart")
-                .font(.caption.weight(.medium))
                 .foregroundStyle(isFavorite ? .red : .secondary)
         }
     }
@@ -181,9 +173,7 @@ private struct BlogSheet: View {
                                 .font(.caption2)
                                 .foregroundStyle(comment.count > 130 ? .red : .secondary)
                             Spacer()
-                            Button {
-                                hideName.toggle()
-                            } label: {
+                            Button { hideName.toggle() } label: {
                                 Label("Hide name", systemImage: hideName ? "person.slash.fill" : "person.slash")
                                     .font(.subheadline.weight(.medium))
                                     .foregroundStyle(hideName ? .primary : .tertiary)
@@ -219,6 +209,7 @@ private struct BlogSheet: View {
 
     private func post() async {
         isPosting = true
+        defer { isPosting = false }
         let success = await blogService.addPost(
             wineId: wine.productNumber,
             wineName: wine.wineName,
@@ -230,7 +221,6 @@ private struct BlogSheet: View {
         if success {
             posted = true
         }
-        isPosting = false
     }
 }
 
@@ -249,12 +239,10 @@ private struct WineImage: View {
         .frame(maxHeight: .infinity)
         .task(id: urlString) {
             guard uiImage == nil, let url = URL(string: urlString) else { return }
-            do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                if let img = UIImage(data: data) {
-                    await MainActor.run { uiImage = img }
-                }
-            } catch {}
+            if let (data, _) = try? await URLSession.shared.data(from: url),
+               let img = UIImage(data: data) {
+                uiImage = img
+            }
         }
     }
 }

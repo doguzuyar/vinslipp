@@ -24,7 +24,7 @@ class NotificationStore: ObservableObject {
     private static let maxCount = 50
 
     var unreadCount: Int {
-        notifications.filter { !$0.isRead }.count
+        notifications.count { !$0.isRead }
     }
 
     init() {

@@ -1,19 +1,9 @@
+import { PageLayout } from "@/components/PageLayout";
 import { Section } from "@/components/Section";
 
 export default function Support() {
   return (
-    <div style={{
-      maxWidth: 640,
-      margin: "0 auto",
-      padding: "60px 24px 80px",
-      color: "var(--text)",
-    }}>
-      <h1 style={{ fontSize: 28, fontWeight: 600, marginBottom: 6, letterSpacing: "-0.02em" }}>
-        Support
-      </h1>
-      <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 48, marginTop: 0 }}>
-        Vinslipp | Systembolaget Release Tracker
-      </p>
+    <PageLayout title="Support" subtitle="Vinslipp | Systembolaget Release Tracker">
 
       <Section title="Contact">
         <p>
@@ -67,7 +57,7 @@ export default function Support() {
           for details on what data we collect and how it is used.
         </p>
       </Section>
-    </div>
+    </PageLayout>
   );
 }
 

@@ -66,9 +66,9 @@ struct AuctionTab: View {
         nonmutating set { auctionSelectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
     }
 
-    private var auctionCountryFilters: [String] { ["France"] }
-    private var liveCountryFilters: [String] { ["France"] }
-    private var liveTypeFilters: [String] { ["Bordeaux", "Burgundy"] }
+    private let auctionCountryFilters = ["France"]
+    private let liveCountryFilters = ["France"]
+    private let liveTypeFilters = ["Bordeaux", "Burgundy"]
 
     private var hasActiveLiveFilters: Bool {
         !liveSelectedCountries.isEmpty || !liveSelectedTypes.isEmpty || !liveSelectedRating.isEmpty
@@ -641,6 +641,27 @@ struct LiveWineRow: View {
         wine.hammer_price == "No bids" ? "Unsold" : wine.hammer_price
     }
 
+    private var cellarEntry: CellarEntry {
+        let winery: String
+        if wine.vintage > 0 {
+            winery = wine.title
+                .replacingOccurrences(of: " \(wine.vintage)", with: "")
+                .replacingOccurrences(of: "\(wine.vintage) ", with: "")
+                .trimmingCharacters(in: .whitespaces)
+        } else {
+            winery = wine.title
+        }
+        return CellarEntry(
+            status: .cellar,
+            winery: winery,
+            vintage: wine.vintage > 0 ? String(wine.vintage) : "",
+            style: wine.category.capitalized,
+            price: wine.hammer_price != "No bids" ? wine.hammer_price : wine.estimate,
+            count: 1,
+            source: .auction
+        )
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
@@ -722,23 +743,7 @@ struct LiveWineRow: View {
                         .ignoresSafeArea()
                 }
                 .sheet(isPresented: $showAddToCellar) {
-                    WineEditSheet(
-                        entry: CellarEntry(
-                            status: .cellar,
-                            winery: wine.vintage > 0
-                                ? wine.title
-                                    .replacingOccurrences(of: " \(wine.vintage)", with: "")
-                                    .replacingOccurrences(of: "\(wine.vintage) ", with: "")
-                                    .trimmingCharacters(in: .whitespaces)
-                                : wine.title,
-                            vintage: wine.vintage > 0 ? String(wine.vintage) : "",
-                            style: wine.category.capitalized,
-                            price: wine.hammer_price != "No bids" ? wine.hammer_price : wine.estimate,
-                            count: 1,
-                            source: .auction
-                        ),
-                        isNew: true
-                    ) { entry in
+                    WineEditSheet(entry: cellarEntry, isNew: true) { entry in
                         cellarService.addEntry(entry)
                     }
                 }

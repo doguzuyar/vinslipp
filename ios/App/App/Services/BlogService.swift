@@ -95,7 +95,9 @@ class BlogService: ObservableObject {
     }
 
     func deletePost(_ postId: String) async {
-        guard let _ = try? await db.collection("blog_posts").document(postId).delete() else { return }
-        posts.removeAll { $0.id == postId }
+        do {
+            try await db.collection("blog_posts").document(postId).delete()
+            posts.removeAll { $0.id == postId }
+        } catch {}
     }
 }

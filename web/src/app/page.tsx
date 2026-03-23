@@ -60,7 +60,7 @@ export default function Home() {
             maxWidth: 420,
           }}
         >
-          Releases, cellar &amp; auction insights for wine lovers
+          Releases, cellar & auction insights for wine lovers
         </p>
       </div>
 

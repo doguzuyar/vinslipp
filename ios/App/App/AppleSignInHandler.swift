@@ -7,7 +7,6 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                            ASAuthorizationControllerPresentationContextProviding {
 
     private var currentNonce: String?
-    /// Parameters: uid, displayName, email
     var onSignIn: ((String, String, String) -> Void)?
     private var pendingDeletion = false
     var onDeleteSuccess: (() -> Void)?
@@ -82,18 +81,17 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
 
         Auth.auth().signIn(with: credential) { [weak self] result, error in
             guard let user = result?.user, error == nil else { return }
-
-            let displayName = !appleDisplayName.isEmpty ? appleDisplayName : (user.displayName ?? "")
+            let email = user.email ?? ""
 
             guard !appleDisplayName.isEmpty else {
-                self?.onSignIn?(user.uid, displayName, user.email ?? "")
+                self?.onSignIn?(user.uid, user.displayName ?? "", email)
                 return
             }
 
             let changeRequest = user.createProfileChangeRequest()
             changeRequest.displayName = appleDisplayName
             changeRequest.commitChanges { _ in
-                self?.onSignIn?(user.uid, displayName, user.email ?? "")
+                self?.onSignIn?(user.uid, appleDisplayName, email)
             }
         }
     }

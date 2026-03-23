@@ -19,23 +19,15 @@ extension Color {
 // MARK: - Shared Date Formatters
 
 enum DateFormatters {
-    static let iso: DateFormatter = {
+    private static func formatter(_ format: String) -> DateFormatter {
         let f = DateFormatter()
-        f.dateFormat = "yyyy-MM-dd"
+        f.dateFormat = format
         return f
-    }()
+    }
 
-    static let shortTimestamp: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "MMM d, HH:mm"
-        return f
-    }()
-
-    static let monthAbbrev: DateFormatter = {
-        let f = DateFormatter()
-        f.dateFormat = "MMM"
-        return f
-    }()
+    static let iso = formatter("yyyy-MM-dd")
+    static let shortTimestamp = formatter("MMM d, HH:mm")
+    static let monthAbbrev = formatter("MMM")
 
     static var todayString: String {
         iso.string(from: Date())
@@ -79,6 +71,13 @@ enum SwipeTopics {
         ("italian-white", "Italian White"),
     ]
 
+    private static let topicFilters: [String: (country: String, wineType: String)] = [
+        "french-red": ("France", "Red Wine"),
+        "french-white": ("France", "White Wine"),
+        "italian-red": ("Italy", "Red Wine"),
+        "italian-white": ("Italy", "White Wine"),
+    ]
+
     @MainActor
     static func filter(_ wines: [ReleaseWine], topic: String, favorites: FavoritesStore) -> [ReleaseWine] {
         switch topic {
@@ -86,16 +85,9 @@ enum SwipeTopics {
             return wines
         case "favorites":
             return wines.filter { favorites.isFavorite($0.productNumber) }
-        case "french-red":
-            return wines.filter { $0.countryEnglish == "France" && $0.wineTypeEnglish == "Red Wine" }
-        case "french-white":
-            return wines.filter { $0.countryEnglish == "France" && $0.wineTypeEnglish == "White Wine" }
-        case "italian-red":
-            return wines.filter { $0.countryEnglish == "Italy" && $0.wineTypeEnglish == "Red Wine" }
-        case "italian-white":
-            return wines.filter { $0.countryEnglish == "Italy" && $0.wineTypeEnglish == "White Wine" }
         default:
-            return wines
+            guard let f = topicFilters[topic] else { return wines }
+            return wines.filter { $0.countryEnglish == f.country && $0.wineTypeEnglish == f.wineType }
         }
     }
 }

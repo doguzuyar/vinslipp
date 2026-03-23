@@ -207,7 +207,7 @@ struct ProfileTab: View {
         ExpandableSettingButton(
             icon: "bell",
             title: "Notifications",
-            statusLabel: notificationTopicLabel,
+            statusLabel: topicLabel(notificationTopic, in: NotificationTopics.all),
             isExpanded: $showNotifications,
             options: NotificationTopics.all,
             selectedValue: notificationTopic
@@ -216,18 +216,13 @@ struct ProfileTab: View {
         }
     }
 
-    private var notificationTopicLabel: String {
-        if notificationTopic == "none" { return "Off" }
-        return NotificationTopics.all.first { $0.value == notificationTopic }?.label ?? "On"
-    }
-
     // MARK: - Swipe Mode
 
     private var swipeButton: some View {
         ExpandableSettingButton(
             icon: "rectangle.portrait.on.rectangle.portrait.angled",
             title: "Swipe Mode",
-            statusLabel: swipeTopicLabel,
+            statusLabel: topicLabel(swipeTopic, in: SwipeTopics.all),
             isExpanded: $showSwipeSettings,
             options: SwipeTopics.all,
             selectedValue: swipeTopic
@@ -237,9 +232,9 @@ struct ProfileTab: View {
         }
     }
 
-    private var swipeTopicLabel: String {
-        if swipeTopic == "none" { return "Off" }
-        return SwipeTopics.all.first { $0.value == swipeTopic }?.label ?? "On"
+    private func topicLabel(_ selected: String, in options: [(value: String, label: String)]) -> String {
+        if selected == "none" { return "Off" }
+        return options.first { $0.value == selected }?.label ?? "On"
     }
 }
 

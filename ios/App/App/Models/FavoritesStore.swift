@@ -20,9 +20,7 @@ class FavoritesStore: ObservableObject {
     }
 
     func toggle(_ id: String) {
-        if ids.contains(id) {
-            ids.remove(id)
-        } else {
+        if ids.remove(id) == nil {
             ids.insert(id)
         }
         save()

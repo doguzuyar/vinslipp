@@ -32,35 +32,25 @@ struct WineRow: View {
                     }
                     HStack {
                         Text(wine.wineName)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
                             .lineLimit(1)
                         Spacer()
                         Text(wine.price)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
                     }
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
                     HStack(spacing: 8) {
                         Text(wine.vintage)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                         if !wine.region.isEmpty {
                             Text(wine.region)
-                                .font(.caption2)
-                                .foregroundStyle(.tertiary)
                                 .lineLimit(1)
                         }
                         Text(wine.countryEnglish)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                         Text(wine.wineTypeEnglish)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                         Spacer()
                         Text(wine.launchDateFormatted)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                     }
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
                 }
             }
             .padding(.vertical, 8)

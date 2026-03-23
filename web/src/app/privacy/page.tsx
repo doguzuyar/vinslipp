@@ -1,19 +1,9 @@
+import { PageLayout } from "@/components/PageLayout";
 import { Section } from "@/components/Section";
 
 export default function PrivacyPolicy() {
   return (
-    <div style={{
-      maxWidth: 640,
-      margin: "0 auto",
-      padding: "60px 24px 80px",
-      color: "var(--text)",
-    }}>
-      <h1 style={{ fontSize: 28, fontWeight: 600, marginBottom: 6, letterSpacing: "-0.02em" }}>
-        Privacy Policy
-      </h1>
-      <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 48, marginTop: 0 }}>
-        Last updated: February 19, 2026
-      </p>
+    <PageLayout title="Privacy Policy" subtitle="Last updated: February 19, 2026">
 
       <Section title="Data We Collect">
         <p>When you sign in with Apple, we receive your Apple-provided user ID, display name, and email address (unless you choose to hide it, in which case we never see it).</p>
@@ -62,7 +52,7 @@ export default function PrivacyPolicy() {
           .
         </p>
       </Section>
-    </div>
+    </PageLayout>
   );
 }
 
