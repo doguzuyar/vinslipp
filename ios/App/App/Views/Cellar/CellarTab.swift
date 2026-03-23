@@ -32,6 +32,10 @@ struct CellarTab: View {
     @State private var shareURL: URL?
     @State private var deleteCandidate: CellarEntry?
 
+    private var isSideBySide: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+
     private var filtered: [CellarEntry] {
         guard let data = cellarService.cellarData else { return [] }
         var wines = data.wines
@@ -77,30 +81,56 @@ struct CellarTab: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
+        Group {
             if let data = cellarService.cellarData {
                 if showHistory {
-                    historyBar
-                    historyList
+                    VStack(spacing: 0) {
+                        historyBar
+                        historyList
+                    }
+                } else if isSideBySide {
+                    HStack(alignment: .top, spacing: 0) {
+                        VStack(spacing: 8) {
+                            BottleChart(
+                                yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
+                                colorPalette: showVintage ? data.vintagePalette : data.colorPalette,
+                                selectedYear: $selectedYear,
+                                vertical: true
+                            )
+                            .padding(.horizontal, 12)
+                            .padding(.top, 4)
+
+                            Spacer()
+                            summaryBar(data: data)
+                            sortBar
+                        }
+                        .frame(width: 400)
+
+                        Divider()
+
+                        wineList
+                    }
                 } else {
-                    BottleChart(
-                        yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
-                        colorPalette: showVintage ? data.vintagePalette : data.colorPalette,
-                        selectedYear: $selectedYear
-                    )
-                    .padding(.horizontal, 12)
-                    .padding(.top, 4)
+                    VStack(spacing: 0) {
+                        BottleChart(
+                            yearCounts: showVintage ? data.vintageCounts : data.yearCounts,
+                            colorPalette: showVintage ? data.vintagePalette : data.colorPalette,
+                            selectedYear: $selectedYear
+                        )
+                        .padding(.horizontal, 12)
+                        .padding(.top, 4)
 
-                    summaryBar(data: data)
-
-                    sortBar
-
-                    wineList
+                        summaryBar(data: data)
+                        sortBar
+                        wineList
+                    }
                 }
             } else if cellarService.isProcessing {
-                Spacer()
-                ProgressView("Processing...")
-                Spacer()
+                VStack {
+                    Spacer()
+                    ProgressView("Processing...")
+                    Spacer()
+                }
             } else {
                 emptyState
             }
@@ -566,14 +596,10 @@ struct CellarWineRow: View {
             isExpanded ? Color(hex: wine.color).opacity(0.15) : Color.clear
         )
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-            Button(role: .destructive) {
-                onDelete()
-            } label: {
+            Button(role: .destructive, action: onDelete) {
                 Label("Delete", systemImage: "trash")
             }
-            Button {
-                onEdit()
-            } label: {
+            Button(action: onEdit) {
                 Label("Edit", systemImage: "pencil")
             }
             .tint(.blue)
@@ -669,20 +695,14 @@ private struct HistoryWineRow: View {
         }
         .background(isExpanded ? Color(.systemGray5).opacity(0.5) : Color.clear)
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-            Button(role: .destructive) {
-                onDelete()
-            } label: {
+            Button(role: .destructive, action: onDelete) {
                 Label("Delete", systemImage: "trash")
             }
-            Button {
-                onEdit()
-            } label: {
+            Button(action: onEdit) {
                 Label("Edit", systemImage: "pencil")
             }
             .tint(.blue)
-            Button {
-                onRestore()
-            } label: {
+            Button(action: onRestore) {
                 Label("Restore", systemImage: "arrow.uturn.backward")
             }
             .tint(.green)

@@ -19,14 +19,12 @@ class ImagePrefetcher: ObservableObject {
     }
 
     private func fetchImage(urlString: String) async {
+        defer { loading.remove(urlString) }
         guard let url = URL(string: urlString) else { return }
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let img = UIImage(data: data) {
-                cache[urlString] = img
-            }
-        } catch {}
-        loading.remove(urlString)
+        if let (data, _) = try? await URLSession.shared.data(from: url),
+           let img = UIImage(data: data) {
+            cache[urlString] = img
+        }
     }
 }
 
@@ -34,13 +32,13 @@ struct SwipeView: View {
     let wines: [ReleaseWine]
     @EnvironmentObject var appDelegate: AppDelegate
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @StateObject private var prefetcher = ImagePrefetcher()
     @State private var currentIndex = 0
     @State private var dragOffset: CGFloat = 0
     @State private var likedCount = 0
     @State private var skippedCount = 0
     @State private var safariURL: URL?
-    @State private var dismissed: Set<String> = []
 
     private var isFinished: Bool {
         currentIndex >= wines.count
@@ -54,12 +52,26 @@ struct SwipeView: View {
         Double(dragOffset) / 150.0
     }
 
+    private var isRegularWidth: Bool {
+        horizontalSizeClass == .regular
+    }
+
+    private var cardMaxWidth: CGFloat {
+        isRegularWidth ? 600 : 420
+    }
+
+    private var imageHeight: CGFloat {
+        isRegularWidth ? 480 : 340
+    }
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 if isFinished {
                     summaryView
                 } else {
+                    Spacer()
+
                     HStack {
                         Text("Today's Releases")
                             .font(.subheadline.weight(.semibold))
@@ -68,10 +80,13 @@ struct SwipeView: View {
                             .font(.caption2.weight(.medium))
                             .foregroundStyle(.secondary)
                     }
+                    .frame(maxWidth: cardMaxWidth)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 6)
 
                     cardStack
+
+                    Spacer()
                 }
             }
             .toolbar {
@@ -93,7 +108,6 @@ struct SwipeView: View {
 
     private var cardStack: some View {
         ZStack {
-            // Next card scales up as you drag the current one
             if currentIndex + 1 < wines.count {
                 let nextScale = 0.95 + 0.05 * min(abs(dragProgress), 1.0)
                 let nextOpacity = 0.5 + 0.5 * min(abs(dragProgress), 1.0)
@@ -103,7 +117,6 @@ struct SwipeView: View {
                     .allowsHitTesting(false)
             }
 
-            // Current card follows your finger
             wineCard(for: wines[currentIndex])
                 .offset(x: dragOffset)
                 .rotationEffect(.degrees(dragRotation))
@@ -157,7 +170,7 @@ struct SwipeView: View {
                         .padding(16)
                 }
             }
-            .frame(height: 340)
+            .frame(height: imageHeight)
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
@@ -173,32 +186,24 @@ struct SwipeView: View {
                 }
                 HStack {
                     Text(wine.wineName)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
                         .lineLimit(1)
                     Spacer()
                     Text(wine.price)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
                 }
+                .font(.caption)
+                .foregroundStyle(.secondary)
                 HStack(spacing: 8) {
                     Text(wine.vintage)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
                     if !wine.region.isEmpty {
                         Text(wine.region)
-                            .font(.caption2)
-                            .foregroundStyle(.tertiary)
                             .lineLimit(1)
                     }
                     Text(wine.countryEnglish)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
                     Text(wine.wineTypeEnglish)
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
                     Spacer()
                 }
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
 
                 if let reason = wine.ratingReason, !reason.isEmpty {
                     Text(reason)
@@ -212,16 +217,15 @@ struct SwipeView: View {
                     if let url = URL(string: wine.vivinoLink) {
                         Button { safariURL = url } label: {
                             Label("Vivino", systemImage: "globe")
-                                .font(.caption.weight(.medium))
                         }
                     }
                     if let url = URL(string: wine.sbLink) {
                         Button { safariURL = url } label: {
                             Label("Systembolaget", systemImage: "cart")
-                                .font(.caption.weight(.medium))
                         }
                     }
                 }
+                .font(.caption.weight(.medium))
                 .padding(.top, 2)
             }
             .padding(.horizontal, 16)
@@ -233,6 +237,7 @@ struct SwipeView: View {
         .background(Color(.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(color: .black.opacity(0.12), radius: 10, y: 4)
+        .frame(maxWidth: cardMaxWidth)
         .padding(.horizontal, 8)
         .padding(.vertical, 2)
     }
@@ -331,7 +336,6 @@ struct SwipeView: View {
             skippedCount += 1
         }
 
-        // Fly the card off screen
         withAnimation(.easeOut(duration: 0.25)) {
             dragOffset = direction == .right ? 600 : -600
         }

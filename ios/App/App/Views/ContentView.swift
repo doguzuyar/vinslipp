@@ -58,6 +58,11 @@ struct ContentView: View {
                 }
             }
         }
+        .task {
+            if dataService.releaseData == nil {
+                await dataService.loadReleases()
+            }
+        }
         .onChange(of: scenePhase) {
             if scenePhase == .active {
                 UNUserNotificationCenter.current().removeAllDeliveredNotifications()

@@ -24,6 +24,7 @@ struct ReleaseTab: View {
     @AppStorage("swipe_topic") private var swipeTopic = "none"
     @AppStorage("swipe_last_shown") private var swipeLastShown = ""
     @State private var showSwipeView = false
+    @State private var todayString = DateFormatters.todayString
 
     private var selectedCountries: Set<String> {
         get { (try? JSONDecoder().decode(Set<String>.self, from: selectedCountriesData)) ?? [] }
@@ -44,11 +45,11 @@ struct ReleaseTab: View {
     }
 
     private var upcomingWines: [ReleaseWine] {
-        filtered(allWines.filter { $0.launchDate >= DateFormatters.todayString })
+        filtered(allWines.filter { $0.launchDate >= todayString })
     }
 
     private var pastWines: [ReleaseWine] {
-        filtered(allWines.filter { $0.launchDate < DateFormatters.todayString })
+        filtered(allWines.filter { $0.launchDate < todayString })
     }
 
     private var filteredDateCounts: [String: Int] {
@@ -60,29 +61,58 @@ struct ReleaseTab: View {
         return counts
     }
 
+    private var isSideBySide: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+
     var body: some View {
-        VStack(spacing: 0) {
+        Group {
             if dataService.releaseData != nil {
-                MiniCalendar(
-                    dateColors: dateColors,
-                    filteredDateCounts: filteredDateCounts,
-                    selectedDate: $selectedDate
-                )
-                .padding(.horizontal, 12)
-                .offset(y: -15)
+                if isSideBySide {
+                    HStack(alignment: .top, spacing: 0) {
+                        VStack(spacing: 8) {
+                            MiniCalendar(
+                                dateColors: dateColors,
+                                filteredDateCounts: filteredDateCounts,
+                                selectedDate: $selectedDate,
+                                showThreeMonths: true
+                            )
+                            .padding(.horizontal, 12)
 
-                filterBar
+                            Spacer()
+                            filterBar
+                            sortBar
+                        }
+                        .frame(width: 400)
 
-                sortBar
+                        Divider()
 
-                wineList
+                        wineList
+                    }
+                } else {
+                    VStack(spacing: 0) {
+                        MiniCalendar(
+                            dateColors: dateColors,
+                            filteredDateCounts: filteredDateCounts,
+                            selectedDate: $selectedDate
+                        )
+                        .padding(.horizontal, 12)
+                        .offset(y: -15)
+
+                        filterBar
+                        sortBar
+                        wineList
+                    }
+                }
             } else if dataService.isLoading {
-                Spacer()
-                ProgressView("Loading wines...")
-                Spacer()
+                VStack {
+                    Spacer()
+                    ProgressView("Loading wines...")
+                    Spacer()
+                }
             } else if let error = dataService.error {
-                Spacer()
                 VStack(spacing: 12) {
+                    Spacer()
                     Image(systemName: "exclamationmark.triangle")
                         .font(.largeTitle)
                         .foregroundStyle(.secondary)
@@ -91,8 +121,8 @@ struct ReleaseTab: View {
                     Button("Retry") {
                         Task { await dataService.loadReleases() }
                     }
+                    Spacer()
                 }
-                Spacer()
             }
         }
         .safeAreaInset(edge: .bottom) {
@@ -111,15 +141,19 @@ struct ReleaseTab: View {
             }
         }
         .onAppear {
+            todayString = DateFormatters.todayString
             autoShowSwipeIfNeeded()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            todayString = DateFormatters.todayString
+        }
         .onChange(of: selectedDate) { _, newValue in
-            todayOnly = newValue == DateFormatters.todayString
+            todayOnly = newValue == todayString
         }
         .fullScreenCover(isPresented: $showSwipeView) {
             SwipeView(wines: swipeWines)
                 .onDisappear {
-                    swipeLastShown = DateFormatters.todayString
+                    swipeLastShown = todayString
                 }
         }
     }
@@ -127,7 +161,7 @@ struct ReleaseTab: View {
     // MARK: - Swipe
 
     private var swipeWines: [ReleaseWine] {
-        let todayWines = allWines.filter { $0.launchDate == DateFormatters.todayString }
+        let todayWines = allWines.filter { $0.launchDate == todayString }
         return SwipeTopics.filter(todayWines, topic: swipeTopic, favorites: appDelegate.favoritesStore)
             .sorted {
                 let aIndex = knownCountries.firstIndex(of: $0.countryEnglish) ?? knownCountries.count
@@ -139,7 +173,7 @@ struct ReleaseTab: View {
 
     private func autoShowSwipeIfNeeded() {
         guard swipeTopic != "none",
-              swipeLastShown != DateFormatters.todayString,
+              swipeLastShown != todayString,
               !swipeWines.isEmpty else { return }
         showSwipeView = true
     }
@@ -152,7 +186,7 @@ struct ReleaseTab: View {
                 FilterChip(label: "Today", isActive: todayOnly) {
                     todayOnly.toggle()
                     if todayOnly {
-                        selectedDate = DateFormatters.todayString
+                        selectedDate = todayString
                     } else {
                         selectedDate = nil
                     }
@@ -272,13 +306,7 @@ struct ReleaseTab: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(sorted(upcomingWines)) { wine in
-                    WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888", isFavorite: appDelegate.favoritesStore.isFavorite(wine.id))
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                expandedWineId = expandedWineId == wine.id ? nil : wine.id
-                            }
-                        }
+                    wineRow(for: wine)
                     Divider().padding(.leading, 28)
                 }
 
@@ -302,14 +330,8 @@ struct ReleaseTab: View {
 
                     if showPastReleases {
                         ForEach(pastWines.sorted { $0.launchDate > $1.launchDate }) { wine in
-                            WineRow(wine: wine, isExpanded: expandedWineId == wine.id, rowColor: dateColors[wine.launchDate] ?? "#888888", isFavorite: appDelegate.favoritesStore.isFavorite(wine.id))
+                            wineRow(for: wine)
                                 .opacity(0.6)
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    withAnimation(.easeInOut(duration: 0.2)) {
-                                        expandedWineId = expandedWineId == wine.id ? nil : wine.id
-                                    }
-                                }
                             Divider().padding(.leading, 28)
                         }
                     }
@@ -319,6 +341,21 @@ struct ReleaseTab: View {
         .contentMargins(.bottom, 16)
         .refreshable {
             await dataService.loadReleases()
+        }
+    }
+
+    private func wineRow(for wine: ReleaseWine) -> some View {
+        WineRow(
+            wine: wine,
+            isExpanded: expandedWineId == wine.id,
+            rowColor: dateColors[wine.launchDate] ?? "#888888",
+            isFavorite: appDelegate.favoritesStore.isFavorite(wine.id)
+        )
+        .contentShape(Rectangle())
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                expandedWineId = expandedWineId == wine.id ? nil : wine.id
+            }
         }
     }
 
