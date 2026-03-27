@@ -9,10 +9,7 @@ class ShortcutSceneDelegate: UIResponder, UIWindowSceneDelegate {
             completionHandler(false)
             return
         }
-        let tab = appDelegate.tabFromShortcut(shortcutItem)
-        DispatchQueue.main.async {
-            appDelegate.pendingShortcutTab = tab
-        }
+        appDelegate.pendingShortcutTab = appDelegate.tabFromShortcut(shortcutItem)
         completionHandler(true)
     }
 }
