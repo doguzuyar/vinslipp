@@ -733,7 +733,7 @@ struct LiveWineRow: View {
                     HStack(spacing: 16) {
                         DetailChip(label: "Category", value: wine.category.capitalized)
                         DetailChip(label: "Estimate", value: wine.estimate)
-                        DetailChip(label: "Hammer", value: hammerDisplay)
+                        DetailChip(label: "Bid", value: hammerDisplay)
                     }
                 }
                 .padding(.horizontal, 28)
