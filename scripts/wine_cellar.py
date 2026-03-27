@@ -223,8 +223,8 @@ for w in new_releases:
     price = f"{int(w['price'])} SEK" if w.get('price') else ''
     raw_date = (w.get('productLaunchDate') or '')[:10]
     region = w.get('originLevel2') or w.get('originLevel1') or ''
-    vivino_query = f"{wine_name} {vintage}".strip()
-    vivino_link = f"https://www.vivino.com/search/wines?q={urllib.parse.quote(vivino_query)}"
+    search_query = f"{wine_name} {vintage}".strip()
+    search_link = f"https://www.google.com/search?q={urllib.parse.quote(search_query)}"
     sb_link = f"https://www.systembolaget.se/produkt/vin/{w.get('productNumber') or ''}"
     rating_key = f"{producer} - {wine_name} {vintage} ({price})"
     rating_data = existing_ratings.get(rating_key)
@@ -247,7 +247,8 @@ for w in new_releases:
         'country': w.get('country') or '',
         'wineType': w.get('categoryLevel2') or '',
         'productNumber': w.get('productNumber') or '',
-        'vivinoLink': vivino_link,
+        'vivinoLink': search_link,
+        'searchLink': search_link,
         'sbLink': sb_link,
         'imageUrl': image_url,
         'ratingScore': rating_data[0] if rating_data else None,
