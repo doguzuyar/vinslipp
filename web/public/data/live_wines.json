@@ -1409,7 +1409,7 @@
       "category": "bordeaux",
       "vintage": 2005,
       "rating_score": 2,
-      "rating_reason": ""
+      "rating_reason": "Micro-cuvee, limited track record"
     },
     {
       "lot_id": "2406306",
@@ -1432,8 +1432,8 @@
       "auction": "D074",
       "category": "bordeaux",
       "vintage": 2006,
-      "rating_score": 2,
-      "rating_reason": ""
+      "rating_score": 4,
+      "rating_reason": "First Growth, deeply harmonious, iconic"
     },
     {
       "lot_id": "2408483",
@@ -2447,7 +2447,7 @@
       "lot_id": "2402734",
       "title": "2009 Gevrey-Chambertin 1er Cru Les Champeaux,",
       "url": "https://www.bukowskis.com/en/auctions/D074/lots/1673650-2009-gevrey-chambertin-1er-cru-les-champeaux-olivier-bernstein",
-      "estimate": null,
+      "estimate": "0 SEK",
       "hammer_price": "",
       "auction": "D074",
       "category": "burgundy",
