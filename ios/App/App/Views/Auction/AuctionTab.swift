@@ -638,7 +638,7 @@ struct LiveWineRow: View {
     }
 
     private var hammerDisplay: String {
-        wine.hammer_price == "No bids" ? "Unsold" : wine.hammer_price
+        wine.hammer_price == "No bids" ? "No bids" : wine.hammer_price
     }
 
     private var cellarEntry: CellarEntry {
@@ -687,7 +687,7 @@ struct LiveWineRow: View {
                         Spacer()
                         Text(hammerDisplay)
                             .font(.caption)
-                            .foregroundStyle(wine.hammer_price == "No bids" ? .red : .secondary)
+                            .foregroundStyle(.secondary)
                     }
                     HStack {
                         if let age = wine.age {
