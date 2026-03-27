@@ -1,0 +1,39 @@
+{
+  "name": "Vinslipp Browser Extension",
+  "version": "1.0.0",
+  "description": "Wine ratings and auction analytics for Bukowskis & Systembolaget",
+  "manifest_version": 3,
+  "permissions": [],
+  "host_permissions": ["https://vinslipp.app/*"],
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png",
+    "256": "images/icon-256.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.systembolaget.se/*",
+        "https://www.bukowskis.com/*"
+      ],
+      "js": ["./contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["vinslipp.png", "live_wines.json"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
