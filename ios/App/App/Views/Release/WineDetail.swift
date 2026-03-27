@@ -22,9 +22,9 @@ struct WineDetail: View {
                 }
 
                 HStack(spacing: 12) {
-                    if let url = URL(string: wine.vivinoLink) {
+                    if let url = URL(string: wine.searchLink) {
                         Button { safariURL = url } label: {
-                            Label("Vivino", systemImage: "globe")
+                            Label("Search", systemImage: "globe")
                         }
                     }
                     if let url = URL(string: wine.sbLink) {
@@ -86,7 +86,7 @@ struct WineDetail: View {
                     price: wine.price,
                     count: 1,
                     drinkYear: "",
-                    links: [wine.vivinoLink],
+                    links: [wine.searchLink],
                     source: .release
                 ),
                 isNew: true

@@ -214,9 +214,9 @@ struct SwipeView: View {
                 }
 
                 HStack(spacing: 12) {
-                    if let url = URL(string: wine.vivinoLink) {
+                    if let url = URL(string: wine.searchLink) {
                         Button { safariURL = url } label: {
-                            Label("Vivino", systemImage: "globe")
+                            Label("Search", systemImage: "globe")
                         }
                     }
                     if let url = URL(string: wine.sbLink) {

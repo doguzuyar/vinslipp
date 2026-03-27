@@ -17,7 +17,7 @@ struct ReleaseWine: Codable, Identifiable {
     let country: String
     let wineType: String
     let productNumber: String
-    let vivinoLink: String
+    let searchLink: String
     let sbLink: String
     let imageUrl: String?
     let ratingScore: Int?
