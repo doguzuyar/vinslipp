@@ -119,6 +119,11 @@ for w in existing_wines:
         continue
     if pn:
         seen_products.add(pn)
+    if 'searchLink' not in w:
+        query = f"{w.get('wineName', '')} {w.get('vintage', '')}".strip()
+        w['searchLink'] = f"https://www.google.com/search?q={urllib.parse.quote(query)}"
+    if 'vivinoLink' not in w:
+        w['vivinoLink'] = w['searchLink']
     past_wines.append(w)
 print(f"Keeping {len(past_wines)} past wines, replacing future wines with {len(new_releases)} from API")
 
