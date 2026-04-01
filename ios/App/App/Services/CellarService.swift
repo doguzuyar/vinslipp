@@ -74,6 +74,18 @@ class CellarService: ObservableObject {
         }
     }
 
+    func moveHistoryEntries(from source: IndexSet, to destination: Int) {
+        let indexed = entries.enumerated().filter { $0.element.status == .history }
+        let historyIndices = indexed.map { $0.offset }
+        var reordered = indexed.map { $0.element }
+        reordered.move(fromOffsets: source, toOffset: destination)
+
+        for (i, originalIndex) in historyIndices.enumerated() {
+            entries[originalIndex] = reordered[i]
+        }
+        save()
+    }
+
     func clearData() {
         entries = []
         try? FileManager.default.removeItem(at: fileURL)
@@ -209,16 +221,15 @@ class CellarService: ObservableObject {
 
         var lines: [String] = [headers.joined(separator: ",")]
 
-        let sorted = entries.sorted { a, b in
-            if a.status != b.status {
-                return a.status == .cellar
-            }
+        let cellarEntries = entries.filter { $0.status == .cellar }.sorted { a, b in
             let aYear = a.drinkYear.isEmpty ? a.vintage : a.drinkYear
             let bYear = b.drinkYear.isEmpty ? b.vintage : b.drinkYear
             if aYear != bYear { return aYear < bYear }
             if a.vintage != b.vintage { return a.vintage < b.vintage }
             return a.winery.localizedCaseInsensitiveCompare(b.winery) == .orderedAscending
         }
+        let historyEntries = entries.filter { $0.status == .history }
+        let sorted = cellarEntries + historyEntries
 
         for entry in sorted {
             let fields = [

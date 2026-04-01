@@ -19,6 +19,7 @@ struct AuctionProducerData: Codable {
     let avg_ratio: Double?
     let premium_percent: Double?
     let vintages: [Int]
+    let info: String?
 }
 
 struct AuctionProducer: Identifiable {
@@ -32,6 +33,7 @@ struct AuctionProducer: Identifiable {
     let avgRatio: Double?
     let premiumPercent: Double?
     let vintages: [Int]
+    let info: String?
 
     init(name: String, data: AuctionProducerData) {
         self.name = name
@@ -43,6 +45,7 @@ struct AuctionProducer: Identifiable {
         self.avgRatio = data.avg_ratio
         self.premiumPercent = data.premium_percent
         self.vintages = data.vintages
+        self.info = data.info
     }
 }
 

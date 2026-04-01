@@ -595,6 +595,19 @@ struct ProducerDetail: View {
         VStack(alignment: .leading, spacing: 8) {
             Divider()
 
+            if let info = producer.info, !info.isEmpty {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Info")
+                        .font(.system(size: 9))
+                        .foregroundStyle(.tertiary)
+                        .textCase(.uppercase)
+                    Text(info)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
             HStack(spacing: 16) {
                 DetailChip(label: "Sold", value: "\(producer.sold)/\(producer.totalLots)")
                 DetailChip(label: "Sell Rate", value: String(format: "%.0f%%", producer.sellRate))

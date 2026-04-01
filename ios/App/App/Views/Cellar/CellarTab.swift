@@ -77,7 +77,7 @@ struct CellarTab: View {
             }
         }
 
-        return wines.sorted { $0.addedDate > $1.addedDate }
+        return wines
     }
 
     var body: some View {
@@ -169,6 +169,12 @@ struct CellarTab: View {
                 set: { if !$0 { deleteCandidate = nil } }
             )
         ) {
+            if let entry = deleteCandidate, entry.count > 1 {
+                Button("Remove 1 Bottle") {
+                    cellarService.decrementCount(id: entry.id)
+                    deleteCandidate = nil
+                }
+            }
             Button("Move to History") {
                 if let entry = deleteCandidate {
                     cellarService.moveToHistory(id: entry.id)
@@ -186,7 +192,7 @@ struct CellarTab: View {
             }
         } message: {
             if let entry = deleteCandidate {
-                Text("Would you like to move \(entry.winery) \(entry.wineName) to history or delete it permanently?")
+                Text("What would you like to do with \(entry.winery) \(entry.wineName)?")
             }
         }
     }
@@ -401,11 +407,7 @@ struct CellarTab: View {
                         onDelete: { deleteCandidate = wine },
                         onIncrement: { cellarService.incrementCount(id: wine.id) },
                         onDecrement: {
-                            if wine.count <= 1 {
-                                deleteCandidate = wine
-                            } else {
-                                cellarService.decrementCount(id: wine.id)
-                            }
+                            deleteCandidate = wine
                         }
                     )
                     .contentShape(Rectangle())
@@ -455,6 +457,8 @@ struct CellarTab: View {
 
     // MARK: - History List
 
+    @State private var draggedHistoryWine: CellarEntry?
+
     private var historyList: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
@@ -472,6 +476,15 @@ struct CellarTab: View {
                             expandedWineId = expandedWineId == wine.id ? nil : wine.id
                         }
                     }
+                    .onDrag {
+                        draggedHistoryWine = wine
+                        return NSItemProvider(object: wine.id.uuidString as NSString)
+                    }
+                    .onDrop(of: [.text], delegate: HistoryReorderDelegate(
+                        target: wine,
+                        draggedItem: $draggedHistoryWine,
+                        cellarService: cellarService
+                    ))
                     Divider().padding(.leading, 16)
                 }
             }
@@ -676,6 +689,10 @@ private struct HistoryWineRow: View {
                             Label("Restore to Cellar", systemImage: "arrow.uturn.backward")
                                 .font(.caption.weight(.medium))
                         }
+                        Button(role: .destructive, action: onDelete) {
+                            Label("Delete", systemImage: "trash")
+                                .font(.caption.weight(.medium))
+                        }
                         Spacer()
                     }
 
@@ -694,19 +711,6 @@ private struct HistoryWineRow: View {
             }
         }
         .background(isExpanded ? Color(.systemGray5).opacity(0.5) : Color.clear)
-        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-            Button(role: .destructive, action: onDelete) {
-                Label("Delete", systemImage: "trash")
-            }
-            Button(action: onEdit) {
-                Label("Edit", systemImage: "pencil")
-            }
-            .tint(.blue)
-            Button(action: onRestore) {
-                Label("Restore", systemImage: "arrow.uturn.backward")
-            }
-            .tint(.green)
-        }
     }
 }
 
@@ -793,5 +797,35 @@ struct ActivityView: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+
+// MARK: - History Reorder Drop Delegate
+
+private struct HistoryReorderDelegate: DropDelegate {
+    let target: CellarEntry
+    @Binding var draggedItem: CellarEntry?
+    let cellarService: CellarService
+
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        DropProposal(operation: .move)
+    }
+
+    func dropEntered(info: DropInfo) {
+        guard let dragged = draggedItem, dragged.id != target.id else { return }
+        let history = cellarService.historyEntries
+        guard let fromIndex = history.firstIndex(where: { $0.id == dragged.id }),
+              let toIndex = history.firstIndex(where: { $0.id == target.id }) else { return }
+        withAnimation {
+            cellarService.moveHistoryEntries(
+                from: IndexSet(integer: fromIndex),
+                to: toIndex > fromIndex ? toIndex + 1 : toIndex
+            )
+        }
+    }
+
+    func performDrop(info: DropInfo) -> Bool {
+        draggedItem = nil
+        return true
+    }
 }
 
