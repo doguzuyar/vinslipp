@@ -30,7 +30,7 @@
   "web_accessible_resources": [
     {
       "resources": ["vinslipp.png", "live_wines.json"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://www.systembolaget.se/*", "https://www.bukowskis.com/*"]
     }
   ],
   "background": {

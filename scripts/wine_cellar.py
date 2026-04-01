@@ -37,7 +37,7 @@ def parse_launch_date(formatted):
         return None
 
 SB_API_URL = "https://api-extern.systembolaget.se/sb-api-ecommerce/v1/productsearch/search"
-SB_API_KEY = "cfc702aed3094c86b92d6d4ff7a54c84"
+SB_API_KEY = os.environ.get("SB_API_KEY", "")
 
 today = datetime.now().strftime('%Y-%m-%d')
 
