@@ -1,4 +1,5 @@
 #!/bin/bash
+source ~/.profile
 cd ~/vinslipp
 
 git pull --rebase
