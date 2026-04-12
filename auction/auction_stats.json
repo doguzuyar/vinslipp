@@ -33,6 +33,9 @@
         2018,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Romanée-Conti, La",
@@ -57,6 +60,9 @@
         2008,
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Romanée-St-Vivant",
@@ -80,6 +86,9 @@
       "vintages": [
         2014,
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Petrus (Magnum)": {
@@ -93,6 +102,9 @@
       "premium_percent": -8.0,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -116,6 +128,9 @@
       "premium_percent": -19.2,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -168,6 +183,9 @@
         2018,
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Tâche, La",
@@ -190,6 +208,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -221,6 +242,9 @@
       "vintages": [
         1990,
         2006
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -256,6 +280,9 @@
         1989,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mouton Rothschild",
@@ -278,6 +305,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -319,6 +349,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Richebourg",
@@ -341,6 +374,9 @@
       "premium_percent": 91.7,
       "vintages": [
         1969
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -378,6 +414,9 @@
         2014,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Petrus",
@@ -403,6 +442,9 @@
         1983,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cheval Blanc",
@@ -425,6 +467,9 @@
       "premium_percent": -19.2,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -465,6 +510,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Romanée-St-Vivant",
@@ -493,6 +541,9 @@
         2011,
         2012,
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -526,6 +577,9 @@
         2003,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mouton Rothschild",
@@ -554,6 +608,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Grands-Échézeaux",
@@ -578,6 +635,9 @@
         1992,
         1993,
         2008
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -615,6 +675,9 @@
         2017,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Échézeaux",
@@ -639,6 +702,9 @@
         2011,
         2015,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -665,6 +731,9 @@
         2017,
         2018,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -699,6 +768,9 @@
         2009,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -721,6 +793,9 @@
       "premium_percent": 5.3,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -752,6 +827,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Musigny",
@@ -782,6 +860,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Poyferré",
@@ -805,6 +886,9 @@
       "vintages": [
         1990,
         1998
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -839,6 +923,9 @@
         2002,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lafite Rothschild",
@@ -861,6 +948,9 @@
       "premium_percent": -20.0,
       "vintages": [
         1989
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -885,6 +975,9 @@
       "vintages": [
         1986
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pin, Le",
@@ -907,6 +1000,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -940,6 +1036,9 @@
         2012,
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Musigny",
@@ -971,6 +1070,9 @@
         1996,
         2003
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vougeot",
@@ -993,6 +1095,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1024,6 +1129,9 @@
       "vintages": [
         2012
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Palmer",
@@ -1046,6 +1154,9 @@
       "premium_percent": 57.8,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -1070,6 +1181,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lynch-Bages",
@@ -1093,6 +1207,9 @@
       "vintages": [
         2009,
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1124,6 +1241,9 @@
       "vintages": [
         1998
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -1153,6 +1273,9 @@
       "premium_percent": -20.0,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1191,6 +1314,9 @@
         1998,
         2002
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lafleur",
@@ -1215,6 +1341,9 @@
         1989,
         2007,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1246,6 +1375,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lynch-Bages",
@@ -1268,6 +1400,9 @@
       "premium_percent": 7.5,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -1293,6 +1428,9 @@
         2014,
         2016
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Bourgogne",
@@ -1315,6 +1453,9 @@
       "premium_percent": 1.2,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -1339,6 +1480,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Gruaud-Larose",
@@ -1361,6 +1505,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Richebourg, Domaine Anne Gros": {
@@ -1374,6 +1521,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Ruchottes-Chambertin, Domaine Georges Mugneret-Gibourg": {
@@ -1387,6 +1537,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1417,6 +1570,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1451,6 +1607,9 @@
         2005,
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos St-Denis",
@@ -1480,6 +1639,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1511,6 +1673,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de Vougeot",
@@ -1541,6 +1706,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Gloria",
@@ -1564,6 +1732,9 @@
       "vintages": [
         2015,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1595,6 +1766,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -1624,6 +1798,9 @@
       "premium_percent": -7.1,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Clos de la Roche Vieilles Vignes, Domaine Ponsot (Magnum)": {
@@ -1637,6 +1814,9 @@
       "premium_percent": 7.1,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1668,6 +1848,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos St-Denis",
@@ -1698,6 +1881,9 @@
       "vintages": [
         2002
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Mazis- (or Mazy-) Chambertin",
@@ -1727,6 +1913,9 @@
       "premium_percent": 23.1,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Volnay 1er Cru Cuvée Général Muteau Hospices de Beaune, Agnés Paquet (6000ml)": {
@@ -1740,6 +1929,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1764,6 +1956,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pichon Longueville Comtesse de Lalande (Pichon Lalande)",
@@ -1786,6 +1981,9 @@
       "premium_percent": 29.2,
       "vintages": [
         1995
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -1840,6 +2038,9 @@
         2019,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cheval Blanc",
@@ -1862,6 +2063,9 @@
       "premium_percent": 42.9,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -1887,6 +2091,9 @@
         1996,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Barton",
@@ -1909,6 +2116,9 @@
       "premium_percent": 5.6,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -1941,6 +2151,9 @@
         2006,
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Richebourg",
@@ -1965,6 +2178,9 @@
         2001,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Chevalier, Dom de",
@@ -1988,6 +2204,9 @@
       "vintages": [
         2013,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2014,6 +2233,9 @@
         2009,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Talbot",
@@ -2036,6 +2258,9 @@
       "premium_percent": 37.5,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2069,6 +2294,9 @@
         2012,
         2013,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2112,6 +2340,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Musigny",
@@ -2141,6 +2372,9 @@
       "premium_percent": 8.0,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Richebourg, Domaine Gros": {
@@ -2154,6 +2388,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2177,6 +2414,9 @@
       "premium_percent": -10.0,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Pontet-Canet (Magnum)": {
@@ -2190,6 +2430,9 @@
       "premium_percent": 28.6,
       "vintages": [
         2011
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -2213,6 +2456,9 @@
       "premium_percent": 33.9,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2276,6 +2522,9 @@
         2017,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lafite Rothschild",
@@ -2298,6 +2547,9 @@
       "premium_percent": 108.8,
       "vintages": [
         1971
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2329,6 +2581,9 @@
       "vintages": [
         2012
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Romanée, La",
@@ -2359,6 +2614,9 @@
       "vintages": [
         1987
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -2381,6 +2639,9 @@
       "premium_percent": 1.0,
       "vintages": [
         1988
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2420,6 +2681,9 @@
         2021,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de la Roche",
@@ -2450,6 +2714,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -2472,6 +2739,9 @@
       "premium_percent": -16.7,
       "vintages": [
         1997
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2502,6 +2772,9 @@
       "premium_percent": 25.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Haut-Brion": {
@@ -2542,6 +2815,9 @@
         2012,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Brion",
@@ -2567,6 +2843,9 @@
         2004,
         2019,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2618,6 +2897,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mission Haut-Brion, La",
@@ -2643,6 +2925,9 @@
         2020,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Richebourg, Jean Grivot": {
@@ -2657,6 +2942,9 @@
       "vintages": [
         2007,
         2008
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Latour": {
@@ -2702,6 +2990,9 @@
         2012,
         2013
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Latour",
@@ -2727,6 +3018,9 @@
         2021,
         2022,
         2023
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2758,6 +3052,9 @@
       "vintages": [
         1982
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Beau-Séjour Bécot",
@@ -2780,6 +3077,9 @@
       "premium_percent": -4.0,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -2804,6 +3104,9 @@
       "vintages": [
         2014,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2832,7 +3135,10 @@
       "avg_hammer_sek": 4700,
       "avg_ratio": 0.87,
       "premium_percent": -13.0,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "burgundy"
+      ]
     },
     "Château Gloria (6000ml)": {
       "total_lots": 1,
@@ -2845,6 +3151,9 @@
       "premium_percent": -17.5,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -2869,6 +3178,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Las Cases",
@@ -2892,6 +3204,9 @@
       "vintages": [
         2009,
         2011
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -2923,6 +3238,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Grand-Puy-Lacoste",
@@ -2950,6 +3268,9 @@
         2016,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Ausone",
@@ -2972,6 +3293,9 @@
       "premium_percent": -18.2,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Trilogie de le Pin L. 16.17.18 (Magnum)": {
@@ -2983,7 +3307,10 @@
       "avg_hammer_sek": 4500,
       "avg_ratio": 0.938,
       "premium_percent": -6.2,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Château Trotte Vieille (Magnum)": {
       "total_lots": 1,
@@ -2996,6 +3323,9 @@
       "premium_percent": -7.3,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -3020,6 +3350,9 @@
       "vintages": [
         2016,
         2018
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -3047,6 +3380,9 @@
         2017,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Romanée-St-Vivant",
@@ -3067,7 +3403,10 @@
       "avg_hammer_sek": 4400,
       "avg_ratio": 0.88,
       "premium_percent": -12.0,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "burgundy"
+      ]
     },
     "Romanée Saint-Vivant, Jean-Jacques Confuron": {
       "total_lots": 1,
@@ -3080,6 +3419,9 @@
       "premium_percent": -12.0,
       "vintages": [
         1999
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3103,6 +3445,9 @@
       "premium_percent": 10.0,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Selection of Bordeaux": {
@@ -3116,6 +3461,9 @@
       "premium_percent": 64.2,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Bonnes-Mares, Domaine Comte Georges de Vogüé": {
@@ -3134,6 +3482,9 @@
         2006,
         2009,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3202,6 +3553,9 @@
         2018,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Margaux, Ch",
@@ -3226,6 +3580,9 @@
         2015,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Canon",
@@ -3248,6 +3605,9 @@
       "premium_percent": -6.7,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3278,6 +3638,9 @@
       "premium_percent": -16.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Charmes-Chambertin, Domaine Bachelet": {
@@ -3291,6 +3654,9 @@
       "premium_percent": -6.7,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Griotte-Chambertin, Lucien le Moine (Magnum)": {
@@ -3304,6 +3670,9 @@
       "premium_percent": -16.0,
       "vintages": [
         2011
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3327,6 +3696,9 @@
       "premium_percent": 5.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3407,6 +3779,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mouton Rothschild",
@@ -3429,6 +3804,9 @@
       "premium_percent": 41.3,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -3457,6 +3835,9 @@
         2017,
         2018,
         2019
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Richebourg, Domaine Gros Frère et Soeur": {
@@ -3470,6 +3851,9 @@
       "premium_percent": -8.9,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3496,6 +3880,9 @@
         2015,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -3519,6 +3906,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -3541,6 +3931,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambolle-Musigny 1er Cru Les Combottes, Domaine G. Roumier": {
@@ -3557,6 +3950,9 @@
         2021,
         2022,
         2023
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambolle-Musigny 1er Cru Les Feusselottes, Cécile Tremblay": {
@@ -3570,6 +3966,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Charmes-Chambertin, Domaine Armand Rousseau": {
@@ -3584,6 +3983,9 @@
       "vintages": [
         2004,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3615,6 +4017,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Échézeaux",
@@ -3645,6 +4050,9 @@
       "vintages": [
         1972
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Musigny",
@@ -3667,6 +4075,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3697,6 +4108,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3730,6 +4144,9 @@
         2002,
         2006
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pichon Longueville Comtesse de Lalande (Pichon Lalande)",
@@ -3752,6 +4169,9 @@
       "premium_percent": 14.7,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -3778,6 +4198,9 @@
         2014,
         2015,
         2023
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3809,6 +4232,9 @@
       "vintages": [
         1995
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Phélan Ségur",
@@ -3832,6 +4258,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Bailly",
@@ -3852,7 +4281,10 @@
       "avg_hammer_sek": 3801,
       "avg_ratio": 1.901,
       "premium_percent": 90.1,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Chambolle-Musigny 1er Cru Les Cras, Domaine G. Roumier": {
       "total_lots": 3,
@@ -3867,6 +4299,9 @@
         2006,
         2011,
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3897,6 +4332,9 @@
       "premium_percent": 26.7,
       "vintages": [
         1989
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -3929,6 +4367,9 @@
         2015,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -3956,7 +4397,10 @@
       "avg_hammer_sek": 3700,
       "avg_ratio": 1.609,
       "premium_percent": 60.9,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Chambertin, Domaine Louis Trapet": {
       "total_lots": 3,
@@ -3971,6 +4415,9 @@
         1981,
         1985,
         1994
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4003,6 +4450,9 @@
         1982,
         1998
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mouton Rothschild",
@@ -4026,6 +4476,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pichon Longueville Comtesse de Lalande (Pichon Lalande)",
@@ -4048,6 +4501,9 @@
       "premium_percent": 71.4,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4078,6 +4534,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4113,6 +4572,9 @@
         2021,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -4143,6 +4605,9 @@
       "vintages": [
         1929
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Latour",
@@ -4169,6 +4634,9 @@
         2019,
         2020,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4200,6 +4668,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pontet-Canet",
@@ -4223,6 +4694,9 @@
       "vintages": [
         2014,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4249,6 +4723,9 @@
         2012,
         2013,
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4281,6 +4758,9 @@
         2004,
         2016
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Musigny",
@@ -4310,6 +4790,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4341,6 +4824,9 @@
       "vintages": [
         1990
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -4370,6 +4856,9 @@
       "premium_percent": 13.4,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambertin Clos de Bèze, Domaine Bruno Clair": {
@@ -4383,6 +4872,9 @@
       "premium_percent": -2.9,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Branaire-Ducru (Double Magnum)": {
@@ -4396,6 +4888,9 @@
       "premium_percent": -3.4,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -4422,6 +4917,9 @@
         2016,
         2018,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4454,6 +4952,9 @@
         1989,
         2002
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cos d’Estournel",
@@ -4476,6 +4977,9 @@
       "premium_percent": 68.8,
       "vintages": [
         1993
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4504,7 +5008,10 @@
       "avg_hammer_sek": 3375,
       "avg_ratio": 1.244,
       "premium_percent": 24.4,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "burgundy"
+      ]
     },
     "Chambertin Clos de Bèze, Domaine Robert Groffier": {
       "total_lots": 3,
@@ -4519,6 +5026,9 @@
         2017,
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4550,6 +5060,9 @@
       "vintages": [
         2018,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Clinet (Half Bottle)": {
@@ -4564,6 +5077,9 @@
       "vintages": [
         2015,
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -4587,6 +5103,9 @@
       "premium_percent": 28.2,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4620,6 +5139,9 @@
         2016,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -4642,6 +5164,9 @@
       "premium_percent": 6.7,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4675,6 +5200,9 @@
         2010,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -4705,6 +5233,9 @@
       "vintages": [
         1992
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Ducru-Beaucaillou",
@@ -4727,6 +5258,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -4751,6 +5285,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Kirwan",
@@ -4773,6 +5310,9 @@
       "premium_percent": -20.0,
       "vintages": [
         1973
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -4797,6 +5337,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Barton",
@@ -4820,6 +5363,9 @@
       "vintages": [
         2006
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Montrose",
@@ -4842,6 +5388,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4872,6 +5421,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "La Grande Rue, Domaine François Lamarche": {
@@ -4885,6 +5437,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4909,6 +5464,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Dôme, Le",
@@ -4931,6 +5489,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Haut-Brion (Half Bottle)": {
@@ -4944,6 +5505,9 @@
       "premium_percent": -9.5,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -4967,6 +5531,9 @@
       "premium_percent": 5.0,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -4997,6 +5564,9 @@
       "premium_percent": 4.6,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5029,6 +5599,9 @@
         1982,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Rauzan-Ségla",
@@ -5052,6 +5625,9 @@
       "vintages": [
         2001
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Beaune",
@@ -5074,6 +5650,9 @@
       "premium_percent": 35.0,
       "vintages": [
         1929
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -5101,6 +5680,9 @@
         2014,
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de Tart",
@@ -5121,7 +5703,10 @@
       "avg_hammer_sek": 3060,
       "avg_ratio": 1.391,
       "premium_percent": 39.1,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Vosne-Romanée 1er Cru Clos des Réas Monopole, Domaine Jean Gros": {
       "total_lots": 2,
@@ -5135,6 +5720,9 @@
       "vintages": [
         1990,
         1995
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5158,6 +5746,9 @@
       "premium_percent": 150.2,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5189,6 +5780,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -5219,6 +5813,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Calon Ségur",
@@ -5242,6 +5839,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Sociando-Mallet",
@@ -5264,6 +5864,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5294,6 +5897,9 @@
       "premium_percent": -14.3,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5326,6 +5932,9 @@
         2012,
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -5357,6 +5966,9 @@
         2017,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5392,6 +6004,9 @@
         2020,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -5421,6 +6036,9 @@
       "premium_percent": -19.4,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Malescot Saint-Exupéry (Magnum)": {
@@ -5434,6 +6052,9 @@
       "premium_percent": -19.4,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -5458,6 +6079,9 @@
       "vintages": [
         2007,
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5489,6 +6113,9 @@
       "vintages": [
         2008,
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5523,6 +6150,9 @@
         2016,
         2018,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5560,6 +6190,9 @@
         2010,
         2011
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Angélus",
@@ -5582,6 +6215,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5613,6 +6249,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morgon",
@@ -5637,6 +6276,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Côte de Nuits-Villages",
@@ -5659,6 +6301,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5690,6 +6335,9 @@
       "vintages": [
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -5712,6 +6360,9 @@
       "premium_percent": 12.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5736,6 +6387,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Bages-Libéral",
@@ -5759,6 +6413,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Rauzan-Ségla",
@@ -5779,7 +6436,10 @@
       "avg_hammer_sek": 2800,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "burgundy"
+      ]
     },
     "Gevrey-Chambertin Clos du Château, Domaine Armand Rousseau": {
       "total_lots": 1,
@@ -5792,6 +6452,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Échezeaux, Lucien Le Moine": {
@@ -5805,6 +6468,9 @@
       "premium_percent": 40.0,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Bonnes-Mares, Joseph Drouhin": {
@@ -5819,6 +6485,9 @@
       "vintages": [
         1989,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5855,6 +6524,9 @@
         2017,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Calon Ségur",
@@ -5883,6 +6555,9 @@
         2005,
         2007
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pavie",
@@ -5906,6 +6581,9 @@
       "vintages": [
         2013,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -5937,6 +6615,9 @@
       "vintages": [
         1947
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Gruaud-Larose",
@@ -5959,6 +6640,9 @@
       "premium_percent": -15.6,
       "vintages": [
         2000
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Trotanoy": {
@@ -5979,6 +6663,9 @@
         2012,
         2014,
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -6003,6 +6690,9 @@
       "vintages": [
         2000,
         2001
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6034,6 +6724,9 @@
       "vintages": [
         1995
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Latour-Martillac",
@@ -6057,6 +6750,9 @@
       "vintages": [
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Morey-Saint-Denis Très Girard, Domaine Cécile Tremblay": {
@@ -6070,6 +6766,9 @@
       "premium_percent": 18.9,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambertin, Philippe Charlopin": {
@@ -6083,6 +6782,9 @@
       "premium_percent": 62.5,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Giscours (Magnum)": {
@@ -6096,6 +6798,9 @@
       "premium_percent": -13.3,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -6119,6 +6824,9 @@
       "premium_percent": -18.8,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Grands Echezeaux, Gros, Frere et Soeur": {
@@ -6132,6 +6840,9 @@
       "premium_percent": -13.3,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6156,6 +6867,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Volnay",
@@ -6178,6 +6892,9 @@
       "premium_percent": 8.3,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6211,6 +6928,9 @@
         2012,
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -6242,6 +6962,9 @@
         2007,
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos des Lambrays",
@@ -6265,6 +6988,9 @@
       "vintages": [
         1996,
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6327,6 +7053,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Palmer",
@@ -6350,6 +7079,9 @@
       "vintages": [
         2016,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6375,6 +7107,9 @@
         2010,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Griotte-Chambertin",
@@ -6397,6 +7132,9 @@
       "premium_percent": 0.3,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6428,6 +7166,9 @@
       "vintages": [
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vougeot",
@@ -6450,6 +7191,9 @@
       "premium_percent": 38.9,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6480,6 +7224,9 @@
       "premium_percent": 25.0,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Corton Clos du Roi, La Pousse d'Or": {
@@ -6493,6 +7240,9 @@
       "premium_percent": 11.7,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6525,6 +7275,9 @@
         1971,
         1990,
         2014
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Pauillac de Latour (Magnum)": {
@@ -6538,6 +7291,9 @@
       "premium_percent": -2.4,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -6562,6 +7318,9 @@
       "vintages": [
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Échézeaux",
@@ -6584,6 +7343,9 @@
       "premium_percent": 20.5,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6614,6 +7376,9 @@
       "premium_percent": -4.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambertin Clos de Bèze, Domaine Drouhin-Laroze (Magnum)": {
@@ -6627,6 +7392,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6657,6 +7425,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6690,6 +7461,9 @@
         2015,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -6720,6 +7494,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -6749,6 +7526,9 @@
       "premium_percent": -4.0,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château L'Eglise-Clinet": {
@@ -6763,6 +7543,9 @@
       "vintages": [
         1986,
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -6787,6 +7570,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos St-Denis",
@@ -6810,6 +7596,9 @@
       "vintages": [
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin, Domaine Louis Trapet": {
@@ -6823,6 +7612,9 @@
       "premium_percent": -4.0,
       "vintages": [
         1976
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6854,6 +7646,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Latricières-Chambertin",
@@ -6877,6 +7672,9 @@
       "vintages": [
         2011
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Mazoyères-Chambertin",
@@ -6899,6 +7697,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6930,6 +7731,9 @@
       "vintages": [
         1993
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -6953,6 +7757,9 @@
       "vintages": [
         2009,
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -6984,6 +7791,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -7013,6 +7823,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Goulots Vieille Vigne, Domaine Fourrier": {
@@ -7026,6 +7839,9 @@
       "premium_percent": 30.6,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7056,6 +7872,9 @@
       "premium_percent": 17.5,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7090,6 +7909,9 @@
         2010,
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -7119,6 +7941,9 @@
       "premium_percent": 130.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7150,6 +7975,9 @@
       "vintages": [
         1985
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cheval Blanc",
@@ -7173,6 +8001,9 @@
       "vintages": [
         1986,
         1988
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7199,6 +8030,9 @@
         2016,
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Échézeaux",
@@ -7221,6 +8055,9 @@
       "premium_percent": 13.7,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7253,6 +8090,9 @@
         2008,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Mazis- (or Mazy-) Chambertin",
@@ -7275,6 +8115,9 @@
       "premium_percent": 12.5,
       "vintages": [
         1985
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -7299,6 +8142,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Mazis- (or Mazy-) Chambertin",
@@ -7321,6 +8167,9 @@
       "premium_percent": 40.6,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7345,6 +8194,9 @@
       "vintages": [
         1983,
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Nenin": {
@@ -7358,6 +8210,9 @@
       "premium_percent": 11.1,
       "vintages": [
         1980
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Vieux Château Certan": {
@@ -7377,6 +8232,9 @@
         2007,
         2009,
         2018
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -7400,6 +8258,9 @@
       "premium_percent": 10.1,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7430,6 +8291,9 @@
       "premium_percent": -21.4,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chapelle-Chambertin Grand Cru, Domaine Rossignol-Trapet": {
@@ -7443,6 +8307,9 @@
       "premium_percent": 46.7,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7474,6 +8341,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -7496,6 +8366,9 @@
       "premium_percent": -21.4,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7527,6 +8400,9 @@
       "vintages": [
         1999
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -7549,6 +8425,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7580,6 +8459,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Échézeaux",
@@ -7610,6 +8492,9 @@
       "vintages": [
         1988
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -7639,6 +8524,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée 1er Cru Les Suchots, Domaine Robert Arnoux": {
@@ -7652,6 +8540,9 @@
       "premium_percent": -21.4,
       "vintages": [
         2001
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7682,6 +8573,9 @@
       "premium_percent": -12.0,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château La Fleur-Pétrus": {
@@ -7705,6 +8599,9 @@
         2009,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Fleur-Pétrus, La",
@@ -7727,6 +8624,9 @@
       "premium_percent": 45.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7761,6 +8661,9 @@
         2012,
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -7793,6 +8696,9 @@
         2012,
         2015,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Echezeaux Les Loachausses, Domaine Anne Gros": {
@@ -7808,6 +8714,9 @@
         2014,
         2015,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7833,6 +8742,9 @@
         2011,
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos des Lambrays",
@@ -7856,6 +8768,9 @@
       "vintages": [
         2012,
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7889,6 +8804,9 @@
         2014,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -7919,6 +8837,9 @@
       "vintages": [
         2014,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -7951,6 +8872,9 @@
         2013,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -7974,6 +8898,9 @@
       "vintages": [
         2016,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8008,6 +8935,9 @@
         2013,
         2016
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de la Roche",
@@ -8041,6 +8971,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos St-Denis",
@@ -8072,6 +9005,9 @@
         2016,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Latricières-Chambertin",
@@ -8101,6 +9037,9 @@
       "premium_percent": -7.5,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8148,6 +9087,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Las Cases",
@@ -8170,6 +9112,9 @@
       "premium_percent": 33.5,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8200,6 +9145,9 @@
       "premium_percent": -9.0,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Mazis Chambertin, Domaine Faiveley": {
@@ -8213,6 +9161,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8243,6 +9194,9 @@
       "premium_percent": -9.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8275,6 +9229,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -8305,6 +9262,9 @@
       "vintages": [
         2008
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -8327,6 +9287,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Charmes-Chambertin, J. Faiveley": {
@@ -8340,6 +9303,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1990
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8371,6 +9337,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Batailley",
@@ -8393,6 +9362,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Echezeaux, Domaine du Clos Frantin": {
@@ -8406,6 +9378,9 @@
       "premium_percent": -20.0,
       "vintages": [
         1986
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8430,6 +9405,9 @@
       "vintages": [
         2011,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8460,6 +9438,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Latricières-Chambertin Vieille Vigne, Jean-Marie Fourrier": {
@@ -8473,6 +9454,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8503,6 +9487,9 @@
       "premium_percent": -9.1,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Saint-Emilion Grand Cru": {
@@ -8516,6 +9503,9 @@
       "premium_percent": 11.1,
       "vintages": [
         1989
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Savigny-Les-Beaune, Joseph Drouhin (Magnum)": {
@@ -8529,6 +9519,9 @@
       "premium_percent": 100.0,
       "vintages": [
         1995
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8559,6 +9552,9 @@
       "premium_percent": -9.1,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vonsne-Romanée 1er Cru Aux Brûlées, Domaine d'Eugenie": {
@@ -8572,6 +9568,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée 1er Cru Aux Brülées, Domaine Jean Grivot": {
@@ -8585,6 +9584,9 @@
       "premium_percent": 66.7,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8616,6 +9618,9 @@
       "vintages": [
         1992
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -8646,6 +9651,9 @@
       "vintages": [
         1978
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -8675,6 +9683,9 @@
       "premium_percent": 25.0,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château La Conseillante": {
@@ -8697,6 +9708,9 @@
         2016,
         2017,
         2020
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -8725,6 +9739,9 @@
         2012,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Evangile, L’",
@@ -8748,6 +9765,9 @@
       "vintages": [
         2011,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Figeac": {
@@ -8772,6 +9792,9 @@
         2007,
         2015,
         2018
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -8821,6 +9844,9 @@
         2017,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pichon Longueville Comtesse de Lalande (Pichon Lalande)",
@@ -8868,6 +9894,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cos d’Estournel",
@@ -8894,6 +9923,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de la Roche",
@@ -8917,6 +9949,9 @@
       "vintages": [
         1999,
         2000
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8945,7 +9980,10 @@
       "avg_hammer_sek": 1900,
       "avg_ratio": 1.017,
       "premium_percent": 1.7,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Chambolle-Musigny, Domaine Dujac": {
       "total_lots": 9,
@@ -8963,6 +10001,9 @@
         2019,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -8994,6 +10035,9 @@
       "vintages": [
         1990
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vougeot",
@@ -9024,6 +10068,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -9047,6 +10094,9 @@
       "vintages": [
         2010,
         2012
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9079,6 +10129,9 @@
         2011,
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos St-Denis",
@@ -9103,6 +10156,9 @@
         2011,
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -9125,6 +10181,9 @@
       "premium_percent": -8.4,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9156,6 +10215,9 @@
       "vintages": [
         2006
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -9180,6 +10242,9 @@
         1995,
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chapelle-Chambertin",
@@ -9202,6 +10267,10 @@
       "premium_percent": 50.8,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "bordeaux",
+        "burgundy"
       ],
       "guide": [
         {
@@ -9250,6 +10319,9 @@
         2009,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Ducru-Beaucaillou",
@@ -9296,6 +10368,9 @@
         2021,
         2022
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Montrose",
@@ -9318,6 +10393,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9342,6 +10420,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -9364,6 +10445,9 @@
       "premium_percent": -10.0,
       "vintages": [
         1969
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9395,6 +10479,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Faugères",
@@ -9419,6 +10506,9 @@
         2008,
         2009
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de Vougeot",
@@ -9441,6 +10531,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9472,6 +10565,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -9494,6 +10590,9 @@
       "premium_percent": -18.2,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9533,6 +10632,9 @@
         2008,
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -9562,6 +10664,9 @@
       "premium_percent": -10.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Pommard, Domaine Germain Pere & Fils (Double Magnum)": {
@@ -9576,6 +10681,9 @@
       "vintages": [
         2016,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9625,6 +10733,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lynch-Bages",
@@ -9647,6 +10758,9 @@
       "premium_percent": 47.9,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9679,6 +10793,9 @@
         1999,
         2003,
         2009
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambolle-Musigny, Domaine Comte Georges de Vogüé": {
@@ -9694,6 +10811,9 @@
         2008,
         2017,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9724,6 +10844,9 @@
       "premium_percent": -12.2,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9756,6 +10879,9 @@
         1995,
         1999
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Armailhac, D’",
@@ -9779,6 +10905,9 @@
       "vintages": [
         1990
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -9801,6 +10930,9 @@
       "premium_percent": -12.5,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9831,6 +10963,9 @@
       "premium_percent": 45.8,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Pommard Combes Dessus, Domaine Marquis d'Angerville & 2011 Vosne-Romanée, Domaine Arnoux-Lachaux": {
@@ -9844,6 +10979,9 @@
       "premium_percent": -2.8,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Pensées de Lafleur": {
@@ -9859,6 +10997,9 @@
         1987,
         2005,
         2017
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -9883,6 +11024,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -9905,6 +11049,9 @@
       "premium_percent": 41.7,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9929,6 +11076,9 @@
       "vintages": [
         2005,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Corton Cuvée Charlotte Dumay Hospices de Beaune, Les Caves des Hautes-Côtes (Magnum)": {
@@ -9943,6 +11093,9 @@
       "vintages": [
         2001,
         2004
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -9974,6 +11127,9 @@
       "vintages": [
         2001
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -10001,7 +11157,10 @@
       "avg_hammer_sek": 1700,
       "avg_ratio": 0.81,
       "premium_percent": -19.0,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "burgundy"
+      ]
     },
     "Nuits Saint Georges Les Cailles, Domaine Robert Chevillon": {
       "total_lots": 1,
@@ -10014,6 +11173,9 @@
       "premium_percent": 41.7,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10048,6 +11210,9 @@
         2006,
         2008,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10090,6 +11255,9 @@
         2009,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Forts de Latour, Les",
@@ -10113,6 +11281,9 @@
       "vintages": [
         2010,
         2020
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -10138,6 +11309,9 @@
         2017,
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10168,6 +11342,9 @@
       "premium_percent": 4.1,
       "vintages": [
         2023
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru, Domaine Denis Mortet": {
@@ -10182,6 +11359,9 @@
       "vintages": [
         2002,
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10214,6 +11394,9 @@
         1981,
         1982
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Certan de May",
@@ -10236,6 +11419,9 @@
       "premium_percent": -5.5,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10267,6 +11453,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -10297,6 +11486,9 @@
       "vintages": [
         2012,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10334,6 +11526,9 @@
         2006,
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Tertre Roteboeuf",
@@ -10362,6 +11557,9 @@
         2020,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10395,6 +11593,9 @@
         2019,
         2020,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10448,6 +11649,9 @@
         2015,
         2017
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pichon Longueville Comtesse de Lalande (Pichon Lalande)",
@@ -10496,6 +11700,9 @@
         2020,
         2022
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pontet-Canet",
@@ -10519,6 +11726,9 @@
       "vintages": [
         2003
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambertin",
@@ -10541,6 +11751,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10566,6 +11779,9 @@
         2010,
         2011,
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10597,6 +11813,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -10627,6 +11846,9 @@
       "vintages": [
         1975
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Beau-Séjour Bécot",
@@ -10649,6 +11871,9 @@
       "premium_percent": 60.0,
       "vintages": [
         1985
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -10673,6 +11898,9 @@
       "vintages": [
         2008
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Bélair-Monange",
@@ -10693,7 +11921,10 @@
       "avg_hammer_sek": 1600,
       "avg_ratio": 1.067,
       "premium_percent": 6.7,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Château Les Carmes Haut-Brion (Magnum)": {
       "total_lots": 1,
@@ -10706,6 +11937,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1991
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -10729,6 +11963,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Clos de Vougeot, Domaine Tortochot": {
@@ -10742,6 +11979,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10766,6 +12006,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de la Roche",
@@ -10789,6 +12032,9 @@
       "vintages": [
         2012,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10820,6 +12066,9 @@
       "vintages": [
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de la Roche",
@@ -10850,6 +12099,9 @@
       "vintages": [
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -10879,6 +12131,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin Vieilles Vignes, Geantet-Pansiot & 2016 Gevrey-Chambertin Les Evocelles, Domaine de la Vougeraie": {
@@ -10892,6 +12147,9 @@
       "premium_percent": -15.8,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10915,6 +12173,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -10946,6 +12207,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Faugères",
@@ -10968,6 +12232,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1999
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Volnay 1er Cru Clos des Chênes, Domaine Fontaine-Gagnard (Half bottle)": {
@@ -10981,6 +12248,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11012,6 +12282,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Volnay",
@@ -11041,6 +12314,9 @@
       "premium_percent": 14.3,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée Les Hautes Maizières, Domaine Arnoux-Lachaux": {
@@ -11054,6 +12330,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11086,6 +12365,9 @@
         1996,
         1997
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vougeot",
@@ -11109,6 +12391,9 @@
       "vintages": [
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11155,6 +12440,9 @@
         2019,
         2022
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Poyferré",
@@ -11179,6 +12467,9 @@
         2017,
         2019,
         2023
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11211,6 +12502,9 @@
         2008,
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -11236,6 +12530,9 @@
         2005,
         2015,
         2021
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -11266,6 +12563,9 @@
         2003,
         2009,
         2012
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -11309,6 +12609,9 @@
         2015,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Gruaud-Larose",
@@ -11331,6 +12634,9 @@
       "premium_percent": 3.3,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Le Petit Mouton de Mouton Rothschild": {
@@ -11345,6 +12651,9 @@
       "vintages": [
         1996,
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -11369,6 +12678,9 @@
       "vintages": [
         2002,
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11400,6 +12712,9 @@
       "vintages": [
         2012
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Ruchottes-Chambertin",
@@ -11429,6 +12744,9 @@
       "premium_percent": 29.2,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11462,6 +12780,9 @@
         2014,
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -11494,6 +12815,9 @@
         2016,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pédesclaux",
@@ -11518,6 +12842,9 @@
         2013,
         2015,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11549,6 +12876,9 @@
       "vintages": [
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -11579,6 +12909,9 @@
         2007,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Margaux, Ch",
@@ -11602,6 +12935,9 @@
       "vintages": [
         2019,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11633,6 +12969,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -11662,6 +13001,9 @@
       "premium_percent": -5.2,
       "vintages": [
         2011
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11694,6 +13036,9 @@
         2015,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -11716,6 +13061,9 @@
       "premium_percent": 7.1,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11747,6 +13095,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Clos de Vougeot",
@@ -11776,6 +13127,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11807,6 +13161,9 @@
       "vintages": [
         2011
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Pommard",
@@ -11836,6 +13193,9 @@
       "premium_percent": -16.7,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Volnay 1er Cru Les Brouillards, Aymé Vadim": {
@@ -11849,6 +13209,9 @@
       "premium_percent": 25.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11873,6 +13236,9 @@
       "vintages": [
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11905,6 +13271,9 @@
         2009,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -11934,6 +13303,9 @@
       "premium_percent": 31.8,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -11965,6 +13337,9 @@
       "vintages": [
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -11995,6 +13370,9 @@
       "vintages": [
         1983
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Prieuré-Lichine",
@@ -12017,6 +13395,9 @@
       "premium_percent": 20.8,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12051,6 +13432,9 @@
         2021,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morey-St-Denis",
@@ -12080,6 +13464,9 @@
       "premium_percent": -4.5,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12111,6 +13498,9 @@
       "vintages": [
         1996
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -12140,6 +13530,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Charmes-Chambertin, David Duband": {
@@ -12153,6 +13546,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12177,6 +13573,9 @@
       "vintages": [
         1982
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clos René",
@@ -12199,6 +13598,9 @@
       "premium_percent": -12.5,
       "vintages": [
         2001
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Cazetiers, Domaine Bruno Clair": {
@@ -12212,6 +13614,9 @@
       "premium_percent": -22.2,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12244,6 +13649,9 @@
         2005,
         2014
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -12273,6 +13681,9 @@
       "premium_percent": 40.0,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12304,6 +13715,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -12334,6 +13748,9 @@
       "vintages": [
         2003
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Pommard",
@@ -12357,6 +13774,9 @@
       "vintages": [
         2004
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Belgrave",
@@ -12379,6 +13799,9 @@
       "premium_percent": 25.6,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -12404,6 +13827,9 @@
         1974,
         1985
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mouton Rothschild",
@@ -12426,6 +13852,9 @@
       "premium_percent": 35.0,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Volnay 1er Cru Clos des Chênes, Domaine Michel Lafarge": {
@@ -12442,6 +13871,9 @@
         2012,
         2013,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12472,6 +13904,9 @@
       "premium_percent": -4.8,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12504,6 +13939,9 @@
         2010,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pointe, La",
@@ -12529,6 +13967,9 @@
         2015,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -12552,6 +13993,9 @@
       "vintages": [
         2019,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12582,6 +14026,9 @@
       "premium_percent": 0.8,
       "vintages": [
         1999
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Haut-Bailly": {
@@ -12605,6 +14052,9 @@
         2018,
         2022
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Bailly",
@@ -12627,6 +14077,9 @@
       "premium_percent": -13.3,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Clos Saint-Denis, Domaine André Gagey-Louis Jadot": {
@@ -12640,6 +14093,9 @@
       "premium_percent": -18.8,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12670,6 +14126,9 @@
       "premium_percent": 8.3,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Cazetiers, Domaine Bruno Clair": {
@@ -12684,6 +14143,9 @@
       "vintages": [
         2008,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12714,6 +14176,9 @@
       "premium_percent": -13.3,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Clos du Fonteny, Domaine Bruno Clair": {
@@ -12727,6 +14192,9 @@
       "premium_percent": -18.8,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12758,6 +14226,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -12780,6 +14251,9 @@
       "premium_percent": 23.8,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12811,6 +14285,9 @@
       "vintages": [
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Latricières-Chambertin",
@@ -12834,6 +14311,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Mugneret",
@@ -12856,6 +14336,9 @@
       "premium_percent": 30.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12890,6 +14373,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -12919,6 +14405,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12950,6 +14439,9 @@
       "vintages": [
         1990,
         2009
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Charmes-Chambertin, Remoissenet": {
@@ -12963,6 +14455,9 @@
       "premium_percent": -2.3,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -12987,6 +14482,9 @@
       "vintages": [
         1984,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13018,6 +14516,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -13047,6 +14548,9 @@
       "premium_percent": -20.9,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13090,6 +14594,9 @@
         2016,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Léoville Barton",
@@ -13112,6 +14619,9 @@
       "premium_percent": 4.2,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13143,6 +14653,9 @@
       "vintages": [
         2006,
         2008
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13184,6 +14697,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clos Fourtet",
@@ -13207,6 +14723,9 @@
       "vintages": [
         2009,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Le Gay": {
@@ -13221,6 +14740,9 @@
       "vintages": [
         1989,
         1999
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -13254,6 +14776,9 @@
         2015,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clinet",
@@ -13277,6 +14802,9 @@
       "vintages": [
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13303,6 +14831,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Beauséjour",
@@ -13327,6 +14858,9 @@
         2006,
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Dôme, Le",
@@ -13349,6 +14883,9 @@
       "premium_percent": 21.2,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13392,6 +14929,9 @@
         2020,
         2022
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Smith Haut Lafitte",
@@ -13413,6 +14953,9 @@
       "avg_ratio": 1.092,
       "premium_percent": 9.2,
       "vintages": [],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Heidsieck, Charles",
@@ -13442,6 +14985,9 @@
         2009,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Kirwan",
@@ -13465,6 +15011,9 @@
       "vintages": [
         2000
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Châteauneuf-du-Pape",
@@ -13487,6 +15036,9 @@
       "premium_percent": 20.1,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13512,6 +15064,9 @@
         2017,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Bourgogne",
@@ -13536,6 +15091,9 @@
         2012,
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -13559,6 +15117,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Charmes-Chambertin",
@@ -13581,6 +15142,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -13607,6 +15171,9 @@
         1999,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Latour à Pomerol",
@@ -13630,6 +15197,9 @@
       "vintages": [
         1997
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vougeot",
@@ -13652,6 +15222,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13683,6 +15256,9 @@
       "vintages": [
         1996
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -13712,6 +15288,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13743,6 +15322,9 @@
       "vintages": [
         2011
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -13773,6 +15355,9 @@
       "vintages": [
         2012
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -13802,6 +15387,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits Saint Georges 1er Cru Les Roncières, Domaine Robert Chevillon": {
@@ -13815,6 +15403,9 @@
       "premium_percent": -14.3,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13845,6 +15436,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Pommard 1er Cru Clos des Epeneaux, Comte Armand": {
@@ -13860,6 +15454,9 @@
         2016,
         2017,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Réserve de la Comtesse": {
@@ -13873,6 +15470,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2004
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Savigny-les-Beaune Les Plaisirs et les Jours, Les Horées": {
@@ -13886,6 +15486,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2023
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée 1er Cru Les Beaux Monts, Louis Jadot": {
@@ -13899,6 +15502,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -13930,6 +15536,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -13953,6 +15562,9 @@
       "vintages": [
         1973,
         1995
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -13978,6 +15590,9 @@
         2020,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14010,6 +15625,9 @@
         2015,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Chevalier, Dom de",
@@ -14033,6 +15651,9 @@
       "vintages": [
         1966,
         1997
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -14058,6 +15679,9 @@
         2009,
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -14080,6 +15704,9 @@
       "premium_percent": -2.1,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14111,6 +15738,9 @@
       "vintages": [
         2013,
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14144,6 +15774,9 @@
         1989,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pape Clément",
@@ -14166,6 +15799,9 @@
       "premium_percent": 15.5,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -14190,6 +15826,9 @@
       "vintages": [
         2010,
         2021
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Pommard 1er Cru Chaponnières, Louis Jadot": {
@@ -14203,6 +15842,9 @@
       "premium_percent": 15.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14233,6 +15875,9 @@
       "premium_percent": 15.0,
       "vintages": [
         1999
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14265,6 +15910,9 @@
         2008,
         2012
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Hosanna",
@@ -14292,6 +15940,9 @@
         2015,
         2016,
         2021
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -14325,6 +15976,9 @@
         2016,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Beychevelle",
@@ -14347,6 +16001,9 @@
       "premium_percent": 125.0,
       "vintages": [
         1986
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -14371,6 +16028,9 @@
       "vintages": [
         2007,
         2009
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14402,6 +16062,9 @@
       "vintages": [
         2008,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14435,6 +16098,9 @@
         2017,
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -14465,6 +16131,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Valandraud",
@@ -14487,6 +16156,9 @@
       "premium_percent": 10.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14517,6 +16189,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2006
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Coufran (Magnum)": {
@@ -14530,6 +16205,9 @@
       "premium_percent": 10.0,
       "vintages": [
         1986
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -14554,6 +16232,9 @@
       "vintages": [
         1975
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Figeac",
@@ -14576,6 +16257,9 @@
       "premium_percent": 10.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Corton Les Perrières, La Maison Romane": {
@@ -14589,6 +16273,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14612,6 +16299,9 @@
       "premium_percent": 10.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14643,6 +16333,9 @@
       "vintages": [
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -14665,6 +16358,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -14696,6 +16392,9 @@
       "vintages": [
         1990
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Mercurey",
@@ -14726,6 +16425,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morey-St-Denis",
@@ -14748,6 +16450,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1997
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Volnay 1er Cru Clos de la Bousse d'Or, Domaine de la Pousse d'Or": {
@@ -14761,6 +16466,9 @@
       "premium_percent": 10.0,
       "vintages": [
         1997
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14792,6 +16500,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Volnay",
@@ -14821,6 +16532,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14869,6 +16583,9 @@
         2016,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Talbot",
@@ -14894,6 +16611,9 @@
         2010,
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14924,6 +16644,9 @@
       "premium_percent": 7.9,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14956,6 +16679,9 @@
         2013,
         2020,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -14990,6 +16716,9 @@
         2017,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pauillac",
@@ -15016,6 +16745,9 @@
         2015,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Canon-la-Gaffelière",
@@ -15038,6 +16770,9 @@
       "premium_percent": 6.6,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15069,6 +16804,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -15099,6 +16837,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Conseillante, La",
@@ -15121,6 +16862,9 @@
       "premium_percent": 5.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Corton Cuvée Docteur Peste Hospices de Beaune, Morey Blanc": {
@@ -15134,6 +16878,9 @@
       "premium_percent": -12.5,
       "vintages": [
         2001
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15165,6 +16912,9 @@
       "vintages": [
         1986,
         1995
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Pernand-Vergelesses Rouge, Louis Latour": {
@@ -15178,6 +16928,9 @@
       "premium_percent": 107.0,
       "vintages": [
         1992
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15213,6 +16966,9 @@
         2016,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Chasse-Spleen",
@@ -15235,6 +16991,9 @@
       "premium_percent": 3.3,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15263,7 +17022,10 @@
       "avg_hammer_sek": 1033,
       "avg_ratio": 0.861,
       "premium_percent": -13.9,
-      "vintages": []
+      "vintages": [],
+      "regions": [
+        "bordeaux"
+      ]
     },
     "Nuits Saint Georges 1er Cru Cuvée Hors Ligne, Domaine de l'Arlot": {
       "total_lots": 1,
@@ -15276,6 +17038,9 @@
       "premium_percent": 28.1,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15307,6 +17072,9 @@
         2015,
         2017
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Grand-Puy-Lacoste",
@@ -15332,6 +17100,9 @@
         2013,
         2015,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15363,6 +17134,9 @@
         2010,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clerc Milon",
@@ -15385,6 +17159,9 @@
       "premium_percent": -16.7,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15415,6 +17192,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1992
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Rausan-Ségla": {
@@ -15429,6 +17209,9 @@
       "vintages": [
         1975,
         1983
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -15453,6 +17236,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -15476,6 +17262,9 @@
       "vintages": [
         2018,
         2019
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Gevrey-Chambertin 1er Cru Poissenot, Domaine Humbert Frères": {
@@ -15489,6 +17278,9 @@
       "premium_percent": 25.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15520,6 +17312,9 @@
       "vintages": [
         1995
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Brion",
@@ -15543,6 +17338,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morey-St-Denis",
@@ -15565,6 +17363,9 @@
       "premium_percent": -16.7,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15596,6 +17397,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Volnay",
@@ -15626,6 +17430,9 @@
       "vintages": [
         2008
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -15650,6 +17457,9 @@
         1979,
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Gazin",
@@ -15672,6 +17482,9 @@
       "premium_percent": -0.8,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château d'Issan": {
@@ -15698,6 +17511,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Issan, D’",
@@ -15720,6 +17536,9 @@
       "premium_percent": -1.5,
       "vintages": [
         2001
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15750,6 +17569,9 @@
       "premium_percent": -1.7,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Batailley": {
@@ -15772,6 +17594,9 @@
         2012,
         2015,
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -15797,6 +17622,9 @@
         2012,
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15828,6 +17656,9 @@
       "vintages": [
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15868,6 +17699,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Giscours",
@@ -15893,6 +17727,9 @@
         2015,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Vieille Cure, La",
@@ -15915,6 +17752,9 @@
       "premium_percent": -3.4,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -15940,6 +17780,9 @@
         2015,
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -15963,6 +17806,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Corbin",
@@ -15985,6 +17831,9 @@
       "premium_percent": -9.9,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Chambolle-Musigny Beaux Bruns Fouchères, Thibault Liger-Belair": {
@@ -15998,6 +17847,9 @@
       "premium_percent": 19.2,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16029,6 +17881,9 @@
       "vintages": [
         2002
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Meyney",
@@ -16053,6 +17908,9 @@
         1996,
         2001
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Branaire-Ducru",
@@ -16075,6 +17933,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16105,6 +17966,9 @@
       "premium_percent": -5.0,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Lavaux St. Jacques, Domaine Faiveley": {
@@ -16118,6 +17982,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Cazetiers, Charles van Canneyt": {
@@ -16131,6 +17998,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16154,6 +18024,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16185,6 +18058,9 @@
       "vintages": [
         1990
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Puligny-Montrachet",
@@ -16210,6 +18086,9 @@
         2012,
         2019,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Volnay 1er Cru Santenots du Milieu, Domaine des Comtes Lafon": {
@@ -16223,6 +18102,9 @@
       "premium_percent": -20.8,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée Les Champs Perdrix, Domaine Perrot-Minot": {
@@ -16236,6 +18118,9 @@
       "premium_percent": -20.8,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-Saint-Georges 1er Cru Les Damodes, Dujac Fils & Père": {
@@ -16249,6 +18134,9 @@
       "premium_percent": -6.7,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Pommard 1er Cru Les Epenots, Louis Jadot": {
@@ -16262,6 +18150,9 @@
       "premium_percent": 16.6,
       "vintages": [
         2002
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16294,6 +18185,9 @@
         1985,
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Rauzan-Gassies",
@@ -16316,6 +18210,9 @@
       "premium_percent": 15.6,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Gevrey-Chambertin, Dujac Fils & Père": {
@@ -16332,6 +18229,9 @@
         2020,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-St-Georges 1er Cru Les Crots, Domaine Chevillon-Chezeaux": {
@@ -16345,6 +18245,9 @@
       "premium_percent": 54.2,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16376,6 +18279,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -16400,6 +18306,9 @@
         1979,
         1987
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Taillefer",
@@ -16422,6 +18331,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Haut-Batailley": {
@@ -16435,6 +18347,9 @@
       "premium_percent": -10.0,
       "vintages": [
         1989
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -16458,6 +18373,9 @@
       "premium_percent": 12.5,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16489,6 +18407,9 @@
       "vintages": [
         2020,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey Chambertin 1er Cru Au Closeau, Louis Jadot": {
@@ -16504,6 +18425,9 @@
         2015,
         2016,
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16535,6 +18459,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -16564,6 +18491,9 @@
       "premium_percent": 50.0,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-St-Georges 1er Cru Aux Champs Perdrix, Domaine Chevillon-Chezeaux": {
@@ -16577,6 +18507,9 @@
       "premium_percent": 14.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16611,6 +18544,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Beaune",
@@ -16640,6 +18576,9 @@
       "premium_percent": 5.5,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16671,6 +18610,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Belle-Vue",
@@ -16693,6 +18635,9 @@
       "premium_percent": -13.3,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16723,6 +18668,9 @@
       "premium_percent": 23.7,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16763,6 +18711,9 @@
         2014,
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Branaire-Ducru",
@@ -16785,6 +18736,9 @@
       "premium_percent": -21.3,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16810,6 +18764,9 @@
         2019,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -16834,6 +18791,9 @@
         1985,
         1999
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Marquis d’Alesme",
@@ -16856,6 +18816,9 @@
       "premium_percent": 6.2,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Faurie de Souchard": {
@@ -16869,6 +18832,9 @@
       "premium_percent": -15.0,
       "vintages": [
         1970
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Verdignan (Magnum)": {
@@ -16882,6 +18848,9 @@
       "premium_percent": -15.0,
       "vintages": [
         1995
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Corton Les Maréchaudes, Pierre Laforest": {
@@ -16895,6 +18864,9 @@
       "premium_percent": -15.0,
       "vintages": [
         2004
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16919,6 +18891,9 @@
       "vintages": [
         2002
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -16942,6 +18917,9 @@
       "vintages": [
         2012
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -16964,6 +18942,9 @@
       "premium_percent": -15.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -16995,6 +18976,9 @@
       "vintages": [
         2005
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morey-St-Denis",
@@ -17018,6 +19002,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Savigny-lès-Beaune",
@@ -17040,6 +19027,9 @@
       "premium_percent": 6.2,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17065,6 +19055,9 @@
         2006,
         2012
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mission Haut-Brion, La",
@@ -17087,6 +19080,9 @@
       "premium_percent": 39.6,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17117,6 +19113,9 @@
       "premium_percent": 38.8,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-Saint-Georges 1er Cru Aux Argillas, Pierre-Olivier Garcia": {
@@ -17131,6 +19130,9 @@
       "vintages": [
         2020,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17154,6 +19156,9 @@
       "premium_percent": 63.2,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17179,6 +19184,9 @@
         2019,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -17202,6 +19210,9 @@
       "vintages": [
         2019,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17234,6 +19245,9 @@
         2016,
         2022
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Malescot St Exupéry",
@@ -17256,6 +19270,9 @@
       "premium_percent": 37.7,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17288,6 +19305,9 @@
         2000,
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Grave à Pomerol, La",
@@ -17311,6 +19331,9 @@
       "vintages": [
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Aloxe-Corton",
@@ -17333,6 +19356,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17364,6 +19390,9 @@
       "vintages": [
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -17394,6 +19423,9 @@
       "vintages": [
         2004
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Brion",
@@ -17416,6 +19448,9 @@
       "premium_percent": -20.0,
       "vintages": [
         1978
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Beauregard": {
@@ -17429,6 +19464,9 @@
       "premium_percent": -20.0,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -17452,6 +19490,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1989
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château La Garde (Half Bottle)": {
@@ -17465,6 +19506,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2008
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -17489,6 +19533,9 @@
       "vintages": [
         1995
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Monbousquet",
@@ -17512,6 +19559,9 @@
       "vintages": [
         1993
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -17534,6 +19584,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Fontenys, Charles van Canneyt": {
@@ -17547,6 +19600,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17570,6 +19626,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Les Astéries": {
@@ -17583,6 +19642,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Nuits-Saint-Georges Aux Allots, Pierre-Olivier Garcia": {
@@ -17596,6 +19658,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17619,6 +19684,9 @@
       "premium_percent": 33.3,
       "vintages": [
         2011
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17649,6 +19717,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée 1er Cru Les Suchots, François Confuron-Gindre": {
@@ -17662,6 +19733,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17687,6 +19761,9 @@
         2019,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Vosne-Romanée",
@@ -17710,6 +19787,9 @@
       "vintages": [
         2017,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17741,6 +19821,9 @@
       "vintages": [
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Beaune",
@@ -17764,6 +19847,9 @@
       "vintages": [
         2017,
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17795,6 +19881,9 @@
       "vintages": [
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clos du Marquis",
@@ -17819,6 +19908,9 @@
         2015,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Larrivet Haut-Brion",
@@ -17841,6 +19933,9 @@
       "premium_percent": 53.2,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17873,6 +19968,9 @@
         2017,
         2018,
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17907,6 +20005,9 @@
         2015,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lafon-Rochet",
@@ -17929,6 +20030,9 @@
       "premium_percent": -5.1,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -17966,6 +20070,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morgon",
@@ -17988,6 +20095,9 @@
       "premium_percent": 51.4,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18017,6 +20127,9 @@
         2019,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cantenac-Brown",
@@ -18040,6 +20153,9 @@
       "vintages": [
         1990
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Beaune",
@@ -18062,6 +20178,9 @@
       "premium_percent": -6.2,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18093,6 +20212,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Beaune",
@@ -18123,6 +20245,9 @@
       "vintages": [
         1983
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Louvière, La",
@@ -18145,6 +20270,9 @@
       "premium_percent": 7.1,
       "vintages": [
         1988
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Ségla, Château Rauzan-Segla": {
@@ -18158,6 +20286,9 @@
       "premium_percent": -6.2,
       "vintages": [
         1997
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Nuits-Saint-Georges Les Grandes Vignes, Pierre-Olivier Garcia": {
@@ -18173,6 +20304,9 @@
         2020,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18196,6 +20330,9 @@
       "premium_percent": 23.8,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18226,6 +20363,9 @@
       "premium_percent": 6.2,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18262,6 +20402,9 @@
         2010,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lascombes",
@@ -18288,6 +20431,9 @@
         2021,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -18311,6 +20457,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Fleur Cardinale",
@@ -18333,6 +20482,9 @@
       "premium_percent": 22.2,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -18358,6 +20510,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -18381,6 +20536,9 @@
       "vintages": [
         2019,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18415,6 +20573,9 @@
         2016,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "St-Pierre",
@@ -18442,6 +20603,9 @@
         2006,
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Roc de Cambes",
@@ -18466,6 +20630,9 @@
         2018,
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -18489,6 +20656,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pavie",
@@ -18511,6 +20681,9 @@
       "premium_percent": 2.3,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18550,6 +20723,9 @@
         2008,
         2009
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Pommard",
@@ -18572,6 +20748,9 @@
       "premium_percent": 42.5,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18607,6 +20786,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Beau-Séjour Bécot",
@@ -18632,6 +20814,9 @@
         2016,
         2017
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Gaffelière, La",
@@ -18654,6 +20839,9 @@
       "premium_percent": -12.1,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Nuits-Saint-Georges Aux Saint-Jacques, Pierre-Olivier Garcia": {
@@ -18667,6 +20855,9 @@
       "premium_percent": -12.1,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18691,6 +20882,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Beaune",
@@ -18714,6 +20908,9 @@
       "vintages": [
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Côte de Nuits-Villages",
@@ -18736,6 +20933,9 @@
       "premium_percent": 40.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-Saint-Georges Aux Saint-Juliens, Pierre-Olivier Garcia": {
@@ -18749,6 +20949,9 @@
       "premium_percent": -12.5,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18772,6 +20975,9 @@
       "premium_percent": 16.7,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Beaune Les Teurons 1er Cru, Domaine Bouchard Père & Fils": {
@@ -18785,6 +20991,9 @@
       "premium_percent": 39.6,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18816,6 +21025,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Tertre, Du",
@@ -18838,6 +21050,9 @@
       "premium_percent": -1.2,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -18869,6 +21084,9 @@
       "vintages": [
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Latour-Martillac",
@@ -18895,6 +21113,9 @@
         2018,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Durfort-Vivens",
@@ -18920,6 +21141,9 @@
         1989,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Lagune, La",
@@ -18943,6 +21167,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -18965,6 +21192,9 @@
       "premium_percent": 35.0,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Beaune 1er Cru Les Teurons, Domaine Bouchard & 2020 Monthélie-Les Duresses 1er Cru, Domaine des Comtes Lafon": {
@@ -18978,6 +21208,9 @@
       "premium_percent": -4.9,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19008,6 +21241,9 @@
       "premium_percent": 11.0,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Larmande": {
@@ -19021,6 +21257,9 @@
       "premium_percent": 33.2,
       "vintages": [
         1983
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19046,6 +21285,9 @@
         2006,
         2017
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -19069,6 +21311,9 @@
       "vintages": [
         2006
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Gevrey-Chambertin",
@@ -19091,6 +21336,9 @@
       "premium_percent": -4.9,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-Saint-Georges 1er Cru Les Vaucrains, Domaine Alain Michelot": {
@@ -19104,6 +21352,9 @@
       "premium_percent": 11.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19130,6 +21381,9 @@
         2016,
         2021,
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19163,6 +21417,9 @@
         2021,
         2022
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Nuits-St-Georges",
@@ -19195,6 +21452,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Phélan Ségur",
@@ -19219,6 +21479,9 @@
         2016,
         2019,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19254,6 +21517,9 @@
         2011,
         2020
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Haut-Bages-Libéral",
@@ -19276,6 +21542,9 @@
       "premium_percent": 30.7,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19307,6 +21576,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Bourgogne",
@@ -19337,6 +21609,9 @@
       "vintages": [
         1988
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chambolle-Musigny",
@@ -19366,6 +21641,9 @@
       "premium_percent": 8.3,
       "vintages": [
         2005
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Monbrison": {
@@ -19379,6 +21657,9 @@
       "premium_percent": 30.0,
       "vintages": [
         2000
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19403,6 +21684,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Pommard",
@@ -19426,6 +21710,9 @@
       "vintages": [
         2019,
         2020
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19452,6 +21739,9 @@
         2010,
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Montrose",
@@ -19474,6 +21764,9 @@
       "premium_percent": 27.7,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19505,6 +21798,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Issan, D’",
@@ -19527,6 +21823,9 @@
       "premium_percent": 5.5,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits Saint Georges 1er Cru Aux Champs Perdrix, Domaine Chevillon-Chezeaux": {
@@ -19540,6 +21839,9 @@
       "premium_percent": -20.9,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-St-Georges 1er Cru Les Pôrets Saint-Georges, Domaine Faiveley": {
@@ -19553,6 +21855,9 @@
       "premium_percent": -20.9,
       "vintages": [
         2023
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Savigny-Les-Beaune 1er Cru La Dominode, Domaine Louis Jadot": {
@@ -19566,6 +21871,9 @@
       "premium_percent": 26.6,
       "vintages": [
         2016
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19598,6 +21906,9 @@
         1991,
         2005
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Tour Carnet, La",
@@ -19622,6 +21933,9 @@
         1989,
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clos du Marquis",
@@ -19644,6 +21958,9 @@
       "premium_percent": 4.2,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19669,6 +21986,9 @@
         2011,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pavie Macquin",
@@ -19691,6 +22011,9 @@
       "premium_percent": 23.2,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19715,6 +22038,9 @@
       "vintages": [
         2017,
         2020
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Poujeaux": {
@@ -19729,6 +22055,9 @@
       "vintages": [
         1997,
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19760,6 +22089,9 @@
         2018,
         2019,
         2020
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19793,6 +22125,9 @@
         2018,
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cantemerle",
@@ -19815,6 +22150,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19846,6 +22184,9 @@
       "vintages": [
         2020
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Bourgogne",
@@ -19875,6 +22216,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2013
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -19906,6 +22250,9 @@
       "vintages": [
         1995
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Fombrauge",
@@ -19928,6 +22275,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1985
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -19952,6 +22302,9 @@
       "vintages": [
         2007
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Cabanne, La",
@@ -19975,6 +22328,9 @@
       "vintages": [
         2018,
         2020
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20005,6 +22361,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2012
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-Saint-Georges La Petit Charmotte, Pierre-Olivier Garcia": {
@@ -20018,6 +22377,9 @@
       "premium_percent": -40.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20041,6 +22403,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée Vieilles Vignes, Maison Roche de Bellene": {
@@ -20054,6 +22419,9 @@
       "premium_percent": 20.0,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuts Saint Georges Les Chaliots, Domaine Michel Gros": {
@@ -20067,6 +22435,9 @@
       "premium_percent": -1.5,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Falfas Le Chevalier": {
@@ -20080,6 +22451,9 @@
       "premium_percent": 16.6,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20104,6 +22478,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Clos l’Église",
@@ -20127,6 +22504,9 @@
       "vintages": [
         1995,
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Haut-Marbuzet": {
@@ -20142,6 +22522,9 @@
         1999,
         2014,
         2018
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20168,6 +22551,9 @@
         2001,
         2014
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Plince",
@@ -20191,6 +22577,9 @@
       "vintages": [
         2000,
         2007
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château d'Angludet": {
@@ -20207,6 +22596,9 @@
         2001,
         2003,
         2007
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20231,6 +22623,9 @@
       "vintages": [
         1998
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Auxey-Duresses",
@@ -20253,6 +22648,9 @@
       "premium_percent": 13.2,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20278,6 +22676,9 @@
         2014,
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Langoa Barton",
@@ -20300,6 +22701,9 @@
       "premium_percent": 13.2,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Pommard Croix Blanche, Christophe Vaudoisey": {
@@ -20313,6 +22717,9 @@
       "premium_percent": 13.2,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20345,6 +22752,9 @@
         2010,
         2015,
         2016
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Bellegrave": {
@@ -20358,6 +22768,9 @@
       "premium_percent": 11.6,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Chorey Les Beaunes Les Bons Ores, Jean-Pierre Guyon": {
@@ -20371,6 +22784,9 @@
       "premium_percent": -8.3,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20396,6 +22812,9 @@
         1985,
         1989
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Coufran",
@@ -20418,6 +22837,9 @@
       "premium_percent": 9.9,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20442,6 +22864,9 @@
       "vintages": [
         2001
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pibran",
@@ -20465,6 +22890,9 @@
       "vintages": [
         2003
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Corton",
@@ -20487,6 +22915,9 @@
       "premium_percent": 10.0,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20518,6 +22949,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Morey-St-Denis",
@@ -20548,6 +22982,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Pichon Baron",
@@ -20570,6 +23007,9 @@
       "premium_percent": -21.4,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20602,6 +23042,9 @@
         2007,
         2009
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Fleurie",
@@ -20625,6 +23068,9 @@
       "vintages": [
         2015
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Savigny-lès-Beaune",
@@ -20647,6 +23093,9 @@
       "premium_percent": 7.6,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20678,6 +23127,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Savigny-lès-Beaune",
@@ -20700,6 +23152,9 @@
       "premium_percent": -11.2,
       "vintages": [
         2003
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20724,6 +23179,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Labégorce",
@@ -20746,6 +23204,9 @@
       "premium_percent": 6.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -20771,6 +23232,9 @@
         2012,
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Tronquoy",
@@ -20795,6 +23259,9 @@
         1989,
         2009
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Fieuzal",
@@ -20818,6 +23285,9 @@
       "vintages": [
         2022,
         2023
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château de Marbuzet": {
@@ -20831,6 +23301,9 @@
       "premium_percent": 4.0,
       "vintages": [
         1992
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20855,6 +23328,9 @@
       "vintages": [
         2013
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Bourgogne",
@@ -20878,6 +23354,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Tour Figeac, La",
@@ -20900,6 +23379,9 @@
       "premium_percent": 3.2,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château Ormes de Pez": {
@@ -20914,6 +23396,9 @@
       "vintages": [
         2008,
         2009
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20938,6 +23423,9 @@
       "vintages": [
         2010
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Bourgneuf",
@@ -20960,6 +23448,9 @@
       "premium_percent": 0.0,
       "vintages": [
         1998
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -20984,6 +23475,9 @@
       "vintages": [
         2016
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Vray Croix de Gay",
@@ -21007,6 +23501,9 @@
       "vintages": [
         2021
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Petit Chablis Chab",
@@ -21028,6 +23525,9 @@
       "premium_percent": 0.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21052,6 +23552,9 @@
       "vintages": [
         1998
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Auxey-Duresses",
@@ -21074,6 +23577,9 @@
       "premium_percent": -3.4,
       "vintages": [
         2000
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Beaune 1er Cru Bressandes, Albert Morot": {
@@ -21087,6 +23593,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21110,6 +23619,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2015
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -21135,6 +23647,9 @@
         2020,
         2021
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Marsannay",
@@ -21157,6 +23672,9 @@
       "premium_percent": -5.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21181,6 +23699,9 @@
       "vintages": [
         2019
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Potensac",
@@ -21203,6 +23724,9 @@
       "premium_percent": -6.8,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Château Ferriere": {
@@ -21217,6 +23741,9 @@
       "vintages": [
         2007,
         2021
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -21241,6 +23768,9 @@
       "vintages": [
         2018
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Chassagne-Montrachet",
@@ -21264,6 +23794,9 @@
       "vintages": [
         2003
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Couhins-Lurton",
@@ -21286,6 +23819,9 @@
       "premium_percent": -10.0,
       "vintages": [
         2000
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Beaune Les Teurons 1er Cru, Albert Morot": {
@@ -21299,6 +23835,9 @@
       "premium_percent": -12.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21324,6 +23863,9 @@
         2009,
         2010
       ],
+      "regions": [
+        "burgundy"
+      ],
       "guide": [
         {
           "name": "Fleurie",
@@ -21347,6 +23889,9 @@
       "vintages": [
         2017
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Feytit-Clinet",
@@ -21369,6 +23914,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2010
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Château de Pez": {
@@ -21382,6 +23930,9 @@
       "premium_percent": -20.0,
       "vintages": [
         2019
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Aloxe-Corton 1er Cru Les Valozières, Charles Lachaux": {
@@ -21395,6 +23946,9 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Bonnes-Mares, Dominique Laurent (Magnum)": {
@@ -21408,6 +23962,9 @@
       "premium_percent": null,
       "vintages": [
         2003
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21438,6 +23995,9 @@
       "premium_percent": null,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Chambolle-Musigny 1er Cru Les Charmes, Domaine Bruno Clair": {
@@ -21451,6 +24011,9 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Charmes-Chambertin, By Oliver Bernstein": {
@@ -21464,6 +24027,9 @@
       "premium_percent": null,
       "vintages": [
         2007
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21488,6 +24054,9 @@
       "vintages": [
         1975
       ],
+      "regions": [
+        "bordeaux"
+      ],
       "guide": [
         {
           "name": "Mouton Rothschild",
@@ -21510,6 +24079,9 @@
       "premium_percent": null,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Clos de Vougeot, Domaine Gros": {
@@ -21523,6 +24095,9 @@
       "premium_percent": null,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Clos de la Roche, Domaine Hubert Lignier": {
@@ -21536,6 +24111,9 @@
       "premium_percent": null,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Clos de la Roche, Maison Roche de Bellene": {
@@ -21549,6 +24127,9 @@
       "premium_percent": null,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21572,6 +24153,9 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "bordeaux"
       ]
     },
     "Echezeaux, Domaine A.-F. Gros": {
@@ -21586,6 +24170,9 @@
       "vintages": [
         2019,
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Echezeaux, Domaine Mongeard-Mugneret": {
@@ -21599,6 +24186,9 @@
       "premium_percent": null,
       "vintages": [
         1995
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Domaine Faiveley": {
@@ -21612,6 +24202,9 @@
       "premium_percent": null,
       "vintages": [
         2022
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Lavaux St. Jacques, Domaine Armand Rousseau": {
@@ -21625,6 +24218,9 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Cazetiers, Domaine Armand Rousseau": {
@@ -21638,6 +24234,9 @@
       "premium_percent": null,
       "vintages": [
         1996
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Gevrey-Chambertin 1er Cru Les Champeaux, Olivier Bernstein": {
@@ -21651,6 +24250,9 @@
       "premium_percent": null,
       "vintages": [
         2009
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Latricières-Chambertin, Domaine Arnoux-Lachaux": {
@@ -21664,6 +24266,9 @@
       "premium_percent": null,
       "vintages": [
         2014
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21694,6 +24299,9 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Musigny Cuvée Vieilles Vignes, Comte Georges de Vogüé": {
@@ -21707,6 +24315,9 @@
       "premium_percent": null,
       "vintages": [
         1984
+      ],
+      "regions": [
+        "burgundy"
       ],
       "guide": [
         {
@@ -21737,6 +24348,9 @@
       "premium_percent": null,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Nuits-Saint-Georges 1er Cru Les Pruliers, Domaine Robert Chevillon": {
@@ -21750,6 +24364,9 @@
       "premium_percent": null,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Tertre Roteboeuf (Double Magnum)": {
@@ -21763,6 +24380,9 @@
       "premium_percent": null,
       "vintages": [
         2003
+      ],
+      "regions": [
+        "bordeaux"
       ],
       "guide": [
         {
@@ -21786,6 +24406,9 @@
       "premium_percent": null,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
       ]
     },
     "Vosne-Romanée 1er Cru Cros Parantoux, Emmanuel Rouget": {
@@ -21799,6 +24422,9 @@
       "premium_percent": null,
       "vintages": [
         2001
+      ],
+      "regions": [
+        "burgundy"
       ]
     }
   }
