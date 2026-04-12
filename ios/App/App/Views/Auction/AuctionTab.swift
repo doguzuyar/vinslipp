@@ -284,6 +284,30 @@ struct AuctionTab: View {
 
     // MARK: - Filter Bar
 
+    private func filterMenu(
+        label: String,
+        options: [String],
+        selected: Set<String>,
+        onToggle: @escaping (String) -> Void
+    ) -> some View {
+        Menu {
+            ForEach(options, id: \.self) { option in
+                Button {
+                    onToggle(option)
+                } label: {
+                    HStack {
+                        Text(option)
+                        if selected.contains(option) {
+                            Image(systemName: "checkmark")
+                        }
+                    }
+                }
+            }
+        } label: {
+            FilterChipLabel(label: label, isActive: !selected.isEmpty)
+        }
+    }
+
     private var filterBar: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 6) {
@@ -295,64 +319,14 @@ struct AuctionTab: View {
                 }
 
                 if showLive {
-                    Menu {
-                        ForEach(countryFilters, id: \.self) { country in
-                            Button {
-                                toggle(country, in: liveSelectedCountries) { liveSelectedCountries = $0 }
-                            } label: {
-                                HStack {
-                                    Text(country)
-                                    if liveSelectedCountries.contains(country) {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Country",
-                            isActive: !liveSelectedCountries.isEmpty
-                        )
+                    filterMenu(label: "Country", options: countryFilters, selected: liveSelectedCountries) {
+                        toggle($0, in: liveSelectedCountries) { liveSelectedCountries = $0 }
                     }
-
-                    Menu {
-                        ForEach(typeFilters, id: \.self) { type in
-                            Button {
-                                toggle(type, in: liveSelectedTypes) { liveSelectedTypes = $0 }
-                            } label: {
-                                HStack {
-                                    Text(type)
-                                    if liveSelectedTypes.contains(type) {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Type",
-                            isActive: !liveSelectedTypes.isEmpty
-                        )
+                    filterMenu(label: "Type", options: typeFilters, selected: liveSelectedTypes) {
+                        toggle($0, in: liveSelectedTypes) { liveSelectedTypes = $0 }
                     }
-
-                    Menu {
-                        ForEach(regionFilters, id: \.self) { region in
-                            Button {
-                                toggle(region, in: liveSelectedRegions) { liveSelectedRegions = $0 }
-                            } label: {
-                                HStack {
-                                    Text(region)
-                                    if liveSelectedRegions.contains(region) {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Region",
-                            isActive: !liveSelectedRegions.isEmpty
-                        )
+                    filterMenu(label: "Region", options: regionFilters, selected: liveSelectedRegions) {
+                        toggle($0, in: liveSelectedRegions) { liveSelectedRegions = $0 }
                     }
 
                     Menu {
@@ -369,10 +343,7 @@ struct AuctionTab: View {
                             }
                         }
                     } label: {
-                        FilterChipLabel(
-                            label: "Rating",
-                            isActive: !liveSelectedRating.isEmpty
-                        )
+                        FilterChipLabel(label: "Rating", isActive: !liveSelectedRating.isEmpty)
                     }
 
                     if hasActiveLiveFilters {
@@ -383,64 +354,14 @@ struct AuctionTab: View {
                         }
                     }
                 } else {
-                    Menu {
-                        ForEach(countryFilters, id: \.self) { country in
-                            Button {
-                                toggle(country, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
-                            } label: {
-                                HStack {
-                                    Text(country)
-                                    if auctionSelectedCountries.contains(country) {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Country",
-                            isActive: !auctionSelectedCountries.isEmpty
-                        )
+                    filterMenu(label: "Country", options: countryFilters, selected: auctionSelectedCountries) {
+                        toggle($0, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
                     }
-
-                    Menu {
-                        ForEach(typeFilters, id: \.self) { type in
-                            Button {
-                                toggle(type, in: auctionSelectedTypes) { auctionSelectedTypes = $0 }
-                            } label: {
-                                HStack {
-                                    Text(type)
-                                    if auctionSelectedTypes.contains(type) {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Type",
-                            isActive: !auctionSelectedTypes.isEmpty
-                        )
+                    filterMenu(label: "Type", options: typeFilters, selected: auctionSelectedTypes) {
+                        toggle($0, in: auctionSelectedTypes) { auctionSelectedTypes = $0 }
                     }
-
-                    Menu {
-                        ForEach(regionFilters, id: \.self) { region in
-                            Button {
-                                toggle(region, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
-                            } label: {
-                                HStack {
-                                    Text(region)
-                                    if auctionSelectedRegions.contains(region) {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    } label: {
-                        FilterChipLabel(
-                            label: "Region",
-                            isActive: !auctionSelectedRegions.isEmpty
-                        )
+                    filterMenu(label: "Region", options: regionFilters, selected: auctionSelectedRegions) {
+                        toggle($0, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
                     }
 
                     if hasActiveAuctionFilters {
