@@ -1,0 +1,259 @@
+import SwiftUI
+import FirebaseAuth
+
+struct WineDetail: View {
+    let wine: ReleaseWine
+    @EnvironmentObject var appDelegate: AppDelegate
+    @EnvironmentObject var cellarService: CellarService
+    @State private var showBlogSheet = false
+    @State private var showAddToCellar = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Divider()
+
+            VStack(alignment: .leading, spacing: 8) {
+                if let reason = wine.ratingReason, !reason.isEmpty {
+                    Text(reason)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                HStack(spacing: 12) {
+                    if let url = URL(string: wine.searchLink) {
+                        Button { LinkOpener.open(url) } label: {
+                            Label("Search", systemImage: "globe")
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    if let url = URL(string: wine.sbLink) {
+                        Button { LinkOpener.open(url) } label: {
+                            Label("Systembolaget", systemImage: "cart")
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    Button { showBlogSheet = true } label: {
+                        Label("Blog", systemImage: "square.and.pencil")
+                    }
+                    .buttonStyle(.plain)
+                    Button { showAddToCellar = true } label: {
+                        Label("Cellar", systemImage: "plus.circle")
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                    favoriteButton
+                }
+                .font(.caption.weight(.medium))
+
+                HStack(spacing: 16) {
+                    if !wine.region.isEmpty {
+                        DetailChip(label: "Region", value: wine.region)
+                    }
+                    if !wine.country.isEmpty {
+                        DetailChip(label: "Country", value: wine.countryEnglish)
+                    }
+                    DetailChip(label: "Type", value: wine.wineTypeEnglish)
+                }
+            }
+            .overlay(alignment: .trailing) {
+                if let imageUrl = wine.imageUrl, !imageUrl.isEmpty {
+                    GeometryReader { geo in
+                        WineImage(urlString: imageUrl)
+                            .frame(height: geo.size.height)
+                            .position(x: geo.size.width - 40, y: geo.size.height / 2)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 28)
+        .padding(.bottom, 10)
+        .sheet(isPresented: $showBlogSheet) {
+            BlogSheet(wine: wine)
+                .frame(width: 400, height: 320)
+        }
+        .sheet(isPresented: $showAddToCellar) {
+            WineEditSheet(
+                entry: CellarEntry(
+                    status: .cellar,
+                    winery: wine.producer,
+                    wineName: wine.wineName,
+                    vintage: wine.vintage,
+                    region: wine.region,
+                    country: wine.countryEnglish,
+                    wineType: wine.wineTypeEnglish,
+                    price: wine.price,
+                    count: 1,
+                    drinkYear: "",
+                    links: [wine.searchLink],
+                    source: .release
+                ),
+                isNew: true
+            ) { entry in
+                cellarService.addEntry(entry)
+            }
+        }
+    }
+
+    private var favoriteButton: some View {
+        let isFavorite = appDelegate.favoritesStore.isFavorite(wine.productNumber)
+        return Button {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                appDelegate.favoritesStore.toggle(wine.productNumber)
+            }
+        } label: {
+            Image(systemName: isFavorite ? "heart.fill" : "heart")
+                .foregroundStyle(isFavorite ? .red : .secondary)
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+// MARK: - Blog Sheet
+
+private struct BlogSheet: View {
+    let wine: ReleaseWine
+    @Environment(\.dismiss) private var dismiss
+    @State private var comment = ""
+    @State private var hideName = false
+    @State private var isPosting = false
+    @State private var posted = false
+    @StateObject private var blogService = BlogService()
+
+    private var isSignedIn: Bool {
+        Auth.auth().currentUser != nil
+    }
+
+    var body: some View {
+        VStack(spacing: 16) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(wine.producer)
+                        .font(.subheadline.weight(.semibold))
+                    Text("\(wine.wineName) \(wine.vintage)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Button("Close") { dismiss() }
+            }
+
+            if isSignedIn {
+                if posted {
+                    VStack(spacing: 8) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.title)
+                            .foregroundStyle(.green)
+                        Text("Posted!")
+                            .font(.subheadline.weight(.medium))
+                        Text("Your note will appear in the blog within a few hours.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(maxHeight: .infinity)
+                } else if blogService.hasPostedToday {
+                    VStack(spacing: 8) {
+                        Image(systemName: "clock.fill")
+                            .font(.title)
+                            .foregroundStyle(.secondary)
+                        Text("You've already posted today")
+                            .font(.subheadline.weight(.medium))
+                        Text("Come back tomorrow!")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxHeight: .infinity)
+                } else {
+                    TextField("Write your notes...", text: $comment, axis: .vertical)
+                        .lineLimit(4...6)
+                        .textFieldStyle(.roundedBorder)
+
+                    HStack {
+                        Text("\(comment.count)/140")
+                            .font(.caption2)
+                            .foregroundStyle(comment.count > 130 ? .red : .secondary)
+                        Spacer()
+                        Button { hideName.toggle() } label: {
+                            Label("Hide name", systemImage: hideName ? "person.slash.fill" : "person.slash")
+                                .font(.subheadline.weight(.medium))
+                                .foregroundStyle(hideName ? .primary : .tertiary)
+                        }
+                        .buttonStyle(.plain)
+                        Spacer()
+                        Button("Post") {
+                            Task { await post() }
+                        }
+                        .font(.subheadline.weight(.medium))
+                        .disabled(comment.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isPosting || comment.count > 140)
+                    }
+                }
+            } else {
+                Spacer()
+                Text("Sign in to write your notes")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Spacer()
+            }
+
+            Spacer()
+        }
+        .padding(20)
+    }
+
+    private func post() async {
+        isPosting = true
+        defer { isPosting = false }
+        let success = await blogService.addPost(
+            wineId: wine.productNumber,
+            wineName: wine.wineName,
+            winery: wine.producer,
+            vintage: wine.vintage,
+            comment: comment.trimmingCharacters(in: .whitespacesAndNewlines),
+            displayName: hideName ? "Vinslipp User" : nil
+        )
+        if success {
+            posted = true
+        }
+    }
+}
+
+private struct WineImage: View {
+    let urlString: String
+    @State private var nsImage: NSImage?
+
+    var body: some View {
+        Group {
+            if let nsImage {
+                Image(nsImage: nsImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+        }
+        .frame(maxHeight: .infinity)
+        .task(id: urlString) {
+            guard nsImage == nil, let url = URL(string: urlString) else { return }
+            if let (data, _) = try? await URLSession.shared.data(from: url),
+               let img = NSImage(data: data) {
+                nsImage = img
+            }
+        }
+    }
+}
+
+struct DetailChip: View {
+    let label: String
+    let value: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 1) {
+            Text(label)
+                .font(.system(size: 9))
+                .foregroundStyle(.tertiary)
+                .textCase(.uppercase)
+            Text(value)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+        }
+    }
+}

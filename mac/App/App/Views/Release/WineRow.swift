@@ -1,0 +1,67 @@
+import SwiftUI
+
+struct WineRow: View {
+    let wine: ReleaseWine
+    let isExpanded: Bool
+    var rowColor: String = "#888888"
+    var isFavorite: Bool = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 12) {
+                RoundedRectangle(cornerRadius: 2)
+                    .fill(Color(hex: rowColor))
+                    .frame(width: 4, height: 44)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack {
+                        Text(wine.producer)
+                            .font(.subheadline.weight(.semibold))
+                            .lineLimit(1)
+                        if isFavorite {
+                            Image(systemName: "heart.fill")
+                                .font(.system(size: 8))
+                                .foregroundStyle(.red)
+                        }
+                        Spacer()
+                        if let score = wine.ratingScore, score > 0 {
+                            Text(String(repeating: "\u{2605}", count: score))
+                                .font(.caption)
+                                .foregroundStyle(.yellow)
+                        }
+                    }
+                    HStack {
+                        Text(wine.wineName)
+                            .lineLimit(1)
+                        Spacer()
+                        Text(wine.price)
+                    }
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    HStack(spacing: 8) {
+                        Text(wine.vintage)
+                        if !wine.region.isEmpty {
+                            Text(wine.region)
+                                .lineLimit(1)
+                        }
+                        Text(wine.countryEnglish)
+                        Text(wine.wineTypeEnglish)
+                        Spacer()
+                        Text(wine.launchDateFormatted)
+                    }
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+                }
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+
+            if isExpanded {
+                WineDetail(wine: wine)
+            }
+        }
+        .background(
+            isExpanded ? Color(hex: rowColor).opacity(0.15) : Color.clear
+        )
+    }
+}
