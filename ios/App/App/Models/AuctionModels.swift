@@ -19,6 +19,7 @@ struct AuctionProducerData: Codable {
     let avg_ratio: Double?
     let premium_percent: Double?
     let vintages: [Int]
+    let regions: [String]?
     let info: String?
 }
 
@@ -33,6 +34,7 @@ struct AuctionProducer: Identifiable {
     let avgRatio: Double?
     let premiumPercent: Double?
     let vintages: [Int]
+    let regions: [String]
     let info: String?
 
     init(name: String, data: AuctionProducerData) {
@@ -45,6 +47,7 @@ struct AuctionProducer: Identifiable {
         self.avgRatio = data.avg_ratio
         self.premiumPercent = data.premium_percent
         self.vintages = data.vintages
+        self.regions = data.regions ?? []
         self.info = data.info
     }
 }
@@ -70,15 +73,25 @@ struct LiveWine: Identifiable {
     let rating_score: Int
     let rating_reason: String
     let vintage: Int
+    let bottles: Int
+    let estimate_per_bottle: String?
+    let hammer_price_per_bottle: String?
 
-    var estimateNumeric: Int { estimate.priceNumeric }
+    var estimateNumeric: Int { (estimate_per_bottle ?? estimate).priceNumeric }
     var age: Int? { vintage > 0 ? 2026 - vintage : nil }
+    var isMultiBottle: Bool { bottles > 1 }
+    var displayEstimate: String { estimate_per_bottle ?? estimate }
+    var displayHammer: String {
+        if hammer_price == "No bids" { return "No bids" }
+        return hammer_price_per_bottle ?? hammer_price
+    }
 }
 
 extension LiveWine: Codable {
     enum CodingKeys: String, CodingKey {
         case lot_id, title, url, estimate, hammer_price, auction, category
-        case rating_score, rating_reason, vintage
+        case rating_score, rating_reason, vintage, bottles
+        case estimate_per_bottle, hammer_price_per_bottle
     }
 
     init(from decoder: Decoder) throws {
@@ -93,5 +106,8 @@ extension LiveWine: Codable {
         rating_score = try c.decodeIfPresent(Int.self, forKey: .rating_score) ?? 0
         rating_reason = try c.decodeIfPresent(String.self, forKey: .rating_reason) ?? ""
         vintage = try c.decodeIfPresent(Int.self, forKey: .vintage) ?? 0
+        bottles = try c.decodeIfPresent(Int.self, forKey: .bottles) ?? 1
+        estimate_per_bottle = try c.decodeIfPresent(String.self, forKey: .estimate_per_bottle)
+        hammer_price_per_bottle = try c.decodeIfPresent(String.self, forKey: .hammer_price_per_bottle)
     }
 }

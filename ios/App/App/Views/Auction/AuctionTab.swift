@@ -44,11 +44,20 @@ struct AuctionTab: View {
         (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
     }()
     @AppStorage("live_selectedTypesData") private var liveSelectedTypesData: Data = {
+        (try? JSONEncoder().encode(Set(["Red Wine"]))) ?? Data()
+    }()
+    @AppStorage("live_selectedRegionsData") private var liveSelectedRegionsData: Data = {
         (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
     }()
     @AppStorage("live_selectedRating") private var liveSelectedRating = ""
     @AppStorage("auction_selectedCountriesData") private var auctionSelectedCountriesData: Data = {
         (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
+    }()
+    @AppStorage("auction_selectedTypesData") private var auctionSelectedTypesData: Data = {
+        (try? JSONEncoder().encode(Set(["Red Wine"]))) ?? Data()
+    }()
+    @AppStorage("auction_selectedRegionsData") private var auctionSelectedRegionsData: Data = {
+        (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
     }()
 
     private var liveSelectedCountries: Set<String> {
@@ -61,17 +70,36 @@ struct AuctionTab: View {
         nonmutating set { liveSelectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
     }
 
+    private var liveSelectedRegions: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedRegionsData)) ?? [] }
+        nonmutating set { liveSelectedRegionsData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
     private var auctionSelectedCountries: Set<String> {
         get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedCountriesData)) ?? [] }
         nonmutating set { auctionSelectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
     }
 
-    private let auctionCountryFilters = ["France"]
-    private let liveCountryFilters = ["France"]
-    private let liveTypeFilters = ["Bordeaux", "Burgundy"]
+    private var auctionSelectedTypes: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedTypesData)) ?? [] }
+        nonmutating set { auctionSelectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private var auctionSelectedRegions: Set<String> {
+        get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedRegionsData)) ?? [] }
+        nonmutating set { auctionSelectedRegionsData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+    }
+
+    private let countryFilters = ["France"]
+    private let typeFilters = ["Red Wine"]
+    private let regionFilters = ["Bordeaux", "Burgundy"]
 
     private var hasActiveLiveFilters: Bool {
-        !liveSelectedCountries.isEmpty || !liveSelectedTypes.isEmpty || !liveSelectedRating.isEmpty
+        !liveSelectedCountries.isEmpty || !liveSelectedTypes.isEmpty || !liveSelectedRegions.isEmpty || !liveSelectedRating.isEmpty
+    }
+
+    private var hasActiveAuctionFilters: Bool {
+        !auctionSelectedCountries.isEmpty || !auctionSelectedTypes.isEmpty || !auctionSelectedRegions.isEmpty
     }
 
     private var producers: [AuctionProducer] {
@@ -80,9 +108,20 @@ struct AuctionTab: View {
     }
 
     private var filtered: [AuctionProducer] {
-        let list = searchText.isEmpty ? producers : producers.filter {
-            $0.name.localizedCaseInsensitiveContains(searchText)
+        var list = producers
+
+        if !searchText.isEmpty {
+            let query = searchText.lowercased()
+            list = list.filter { $0.name.lowercased().contains(query) }
         }
+
+        if !auctionSelectedRegions.isEmpty {
+            let lowered = auctionSelectedRegions.map { $0.lowercased() }
+            list = list.filter { producer in
+                producer.regions.contains { lowered.contains($0) }
+            }
+        }
+
         return sorted(list)
     }
 
@@ -95,9 +134,9 @@ struct AuctionTab: View {
             result = result.filter { $0.title.lowercased().contains(query) }
         }
 
-        if !liveSelectedTypes.isEmpty {
+        if !liveSelectedRegions.isEmpty {
             result = result.filter {
-                liveSelectedTypes.contains($0.category.capitalized)
+                liveSelectedRegions.contains($0.category.capitalized)
             }
         }
 
@@ -257,7 +296,7 @@ struct AuctionTab: View {
 
                 if showLive {
                     Menu {
-                        ForEach(liveCountryFilters, id: \.self) { country in
+                        ForEach(countryFilters, id: \.self) { country in
                             Button {
                                 toggle(country, in: liveSelectedCountries) { liveSelectedCountries = $0 }
                             } label: {
@@ -277,7 +316,7 @@ struct AuctionTab: View {
                     }
 
                     Menu {
-                        ForEach(liveTypeFilters, id: \.self) { type in
+                        ForEach(typeFilters, id: \.self) { type in
                             Button {
                                 toggle(type, in: liveSelectedTypes) { liveSelectedTypes = $0 }
                             } label: {
@@ -293,6 +332,26 @@ struct AuctionTab: View {
                         FilterChipLabel(
                             label: "Type",
                             isActive: !liveSelectedTypes.isEmpty
+                        )
+                    }
+
+                    Menu {
+                        ForEach(regionFilters, id: \.self) { region in
+                            Button {
+                                toggle(region, in: liveSelectedRegions) { liveSelectedRegions = $0 }
+                            } label: {
+                                HStack {
+                                    Text(region)
+                                    if liveSelectedRegions.contains(region) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Region",
+                            isActive: !liveSelectedRegions.isEmpty
                         )
                     }
 
@@ -317,7 +376,7 @@ struct AuctionTab: View {
                     }
 
                     if hasActiveLiveFilters {
-                        Button(action: clearLiveFilters) {
+                        Button(action: clearAllFilters) {
                             Image(systemName: "arrow.counterclockwise")
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
@@ -325,7 +384,7 @@ struct AuctionTab: View {
                     }
                 } else {
                     Menu {
-                        ForEach(auctionCountryFilters, id: \.self) { country in
+                        ForEach(countryFilters, id: \.self) { country in
                             Button {
                                 toggle(country, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
                             } label: {
@@ -342,6 +401,54 @@ struct AuctionTab: View {
                             label: "Country",
                             isActive: !auctionSelectedCountries.isEmpty
                         )
+                    }
+
+                    Menu {
+                        ForEach(typeFilters, id: \.self) { type in
+                            Button {
+                                toggle(type, in: auctionSelectedTypes) { auctionSelectedTypes = $0 }
+                            } label: {
+                                HStack {
+                                    Text(type)
+                                    if auctionSelectedTypes.contains(type) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Type",
+                            isActive: !auctionSelectedTypes.isEmpty
+                        )
+                    }
+
+                    Menu {
+                        ForEach(regionFilters, id: \.self) { region in
+                            Button {
+                                toggle(region, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
+                            } label: {
+                                HStack {
+                                    Text(region)
+                                    if auctionSelectedRegions.contains(region) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        FilterChipLabel(
+                            label: "Region",
+                            isActive: !auctionSelectedRegions.isEmpty
+                        )
+                    }
+
+                    if hasActiveAuctionFilters {
+                        Button(action: clearAllFilters) {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
                     }
                 }
             }
@@ -493,10 +600,15 @@ struct AuctionTab: View {
         update(s)
     }
 
-    private func clearLiveFilters() {
+    private func clearAllFilters() {
         liveSelectedCountries = []
         liveSelectedTypes = []
+        liveSelectedRegions = []
         liveSelectedRating = ""
+        auctionSelectedCountries = []
+        auctionSelectedTypes = []
+        auctionSelectedRegions = []
+        searchText = ""
     }
 
     private func sortedLive(_ list: [LiveWine]) -> [LiveWine] {
@@ -650,10 +762,6 @@ struct LiveWineRow: View {
         String(repeating: "\u{2605}", count: wine.rating_score)
     }
 
-    private var hammerDisplay: String {
-        wine.hammer_price == "No bids" ? "No bids" : wine.hammer_price
-    }
-
     private var cellarEntry: CellarEntry {
         let winery: String
         if wine.vintage > 0 {
@@ -669,8 +777,8 @@ struct LiveWineRow: View {
             winery: winery,
             vintage: wine.vintage > 0 ? String(wine.vintage) : "",
             style: wine.category.capitalized,
-            price: wine.hammer_price != "No bids" ? wine.hammer_price : wine.estimate,
-            count: 1,
+            price: wine.hammer_price != "No bids" ? wine.displayHammer : wine.displayEstimate,
+            count: wine.bottles,
             source: .auction
         )
     }
@@ -698,13 +806,18 @@ struct LiveWineRow: View {
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
                         Spacer()
-                        Text(hammerDisplay)
+                        Text(wine.hammer_price)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
                     HStack {
                         if let age = wine.age {
                             Text("\(age) years")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
+                        if wine.isMultiBottle {
+                            Text("\(wine.bottles) bts")
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
                         }
@@ -745,8 +858,14 @@ struct LiveWineRow: View {
 
                     HStack(spacing: 16) {
                         DetailChip(label: "Category", value: wine.category.capitalized)
-                        DetailChip(label: "Estimate", value: wine.estimate)
-                        DetailChip(label: "Bid", value: hammerDisplay)
+                        if wine.isMultiBottle {
+                            DetailChip(label: "Bottles", value: "\(wine.bottles)")
+                            DetailChip(label: "Est./bt", value: wine.displayEstimate)
+                            DetailChip(label: "Hammer/bt", value: wine.displayHammer)
+                        } else {
+                            DetailChip(label: "Estimate", value: wine.estimate)
+                            DetailChip(label: "Hammer", value: wine.hammer_price)
+                        }
                     }
                 }
                 .padding(.horizontal, 28)
