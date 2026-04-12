@@ -172,6 +172,10 @@ function extractProducerFromTitle(title) {
     .trim();
 }
 
+function normalizeForMatch(str) {
+  return str.toLowerCase().replace(/[-\s]+/g, " ").trim();
+}
+
 function findProducerStats(title) {
   if (!bukowskisStats || !bukowskisStats.producers) return null;
 
@@ -182,15 +186,16 @@ function findProducerStats(title) {
     return { producer, ...bukowskisStats.producers[producer] };
   }
 
-  const lowerProducer = producer.toLowerCase();
+  const normalized = normalizeForMatch(producer);
   for (const [key, stats] of Object.entries(bukowskisStats.producers)) {
-    if (key.toLowerCase() === lowerProducer) {
+    if (normalizeForMatch(key) === normalized) {
       return { producer: key, ...stats };
     }
   }
 
   for (const [key, stats] of Object.entries(bukowskisStats.producers)) {
-    if (key.toLowerCase().includes(lowerProducer) || lowerProducer.includes(key.toLowerCase())) {
+    const normKey = normalizeForMatch(key);
+    if (normKey.includes(normalized) || normalized.includes(normKey)) {
       return { producer: key, ...stats };
     }
   }
@@ -552,8 +557,6 @@ function calculateStats(data, expectedRatio = null) {
     maxRatioForPredictions = useExpected ? expectedRatio * 1.1 : actualMaxRatio;
   }
 
-  const guaranteeRatio = (HISTORICAL_P80_RATIO + ratioForPredictions) / 2;
-
   const predictions = allLots.map((lot) => ({
     title: lot.title,
     estimate: lot.estimate,
@@ -561,7 +564,9 @@ function calculateStats(data, expectedRatio = null) {
     predictedLow: Math.round(lot.estimate * minRatioForPredictions),
     predictedAvg: Math.round(lot.estimate * ratioForPredictions),
     predictedHigh: Math.round(lot.estimate * maxRatioForPredictions),
-    guaranteePrice: Math.round(lot.estimate * guaranteeRatio),
+    guaranteePrice: Math.round(
+      lot.estimate * getGuaranteeRatioForEstimate(lot.estimate, lot.title)
+    ),
   }));
 
   const avgHammer =
@@ -590,7 +595,7 @@ function calculateStats(data, expectedRatio = null) {
     avgRatio: useExpected ? expectedRatio : actualAvgRatio || 1,
     minRatio: minRatioForPredictions,
     maxRatio: maxRatioForPredictions,
-    guaranteeRatio,
+    guaranteeRatio: bukowskisStats?.summary?.overall_avg_ratio || HISTORICAL_P80_RATIO,
     actualAvgRatio,
     predictions,
     soldData: withHammer,

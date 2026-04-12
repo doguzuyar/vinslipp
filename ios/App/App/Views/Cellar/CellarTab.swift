@@ -689,11 +689,13 @@ private struct HistoryWineRow: View {
                             Label("Restore to Cellar", systemImage: "arrow.uturn.backward")
                                 .font(.caption.weight(.medium))
                         }
+
+                        Spacer()
+
                         Button(role: .destructive, action: onDelete) {
                             Label("Delete", systemImage: "trash")
                                 .font(.caption.weight(.medium))
                         }
-                        Spacer()
                     }
 
                     if !wine.notes.isEmpty {
