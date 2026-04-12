@@ -1,13 +1,13 @@
 {
   "summary": {
-    "total_wines": 3288,
-    "total_sold": 3185,
-    "total_unsold": 103,
-    "sell_rate_percent": 96.9,
-    "overall_avg_ratio": 1.058,
-    "overall_avg_premium_percent": 5.8,
-    "unique_producers": 972,
-    "producers_with_guide": 768
+    "total_wines": 3190,
+    "total_sold": 3088,
+    "total_unsold": 102,
+    "sell_rate_percent": 96.8,
+    "overall_avg_ratio": 1.055,
+    "overall_avg_premium_percent": 5.5,
+    "unique_producers": 875,
+    "producers_with_guide": 704
   },
   "producers": {
     "Romanée-Conti, DRC": {
@@ -1363,17 +1363,6 @@
         2007
       ]
     },
-    "Nuits-Saint-Georges 1er Cru & 2015 Clos-de-Vougeot, Domaine Arnoux-Lachaux": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 10000,
-      "avg_hammer_sek": 8000,
-      "avg_ratio": 0.8,
-      "premium_percent": -20.0,
-      "vintages": []
-    },
     "Richebourg, Domaine Anne Gros": {
       "total_lots": 1,
       "sold": 1,
@@ -1510,29 +1499,6 @@
       ],
       "info": "A Premier Cru Pinot Noir from Les Amoureuses, the most celebrated climat in Chambolle-Musigny, produced by Comte Georges de Vogue, the patrician estate that also holds the dominant share of the Musigny Grand Cru. Vogüé's Les Amoureuses is widely regarded as Grand Cru in quality, and the domaine's recent move toward more whole-bunch winemaking has added an extra dimension of accessibility."
     },
-    "Charmes Chambertin & 2013 Clos de la Roche, Domaine Ponsot (Regular & Magnum)": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 9000,
-      "avg_hammer_sek": 7200,
-      "avg_ratio": 0.8,
-      "premium_percent": -20.0,
-      "vintages": [
-        2005
-      ],
-      "guide": [
-        {
-          "name": "Charmes-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "4",
-          "description": "’ 02’ 03 05’ 09’ 10’ 12’ 15’ 16 17 18’ 19’ 20’ 21 22’ 23 GEVREY GC, 31 ha, incl neighbour MAZOYÈRES-CHAMBERTIN. Abundant, smooth rich fruit, berries, cherries, sumptuous texture, fragrant finish. Best: ARLAUD , BACHELET , Castagnier, Coquard-Loison-Fleurot, DUGAT , DUJAC , DUROCHÉ , LEROY , MORTET..."
-        }
-      ],
-      "info": "Charmes-Chambertin is a 31-ha Gevrey grand cru delivering abundant, smooth red fruit, cherry richness, and a sumptuous texture with a fragrant finish. Domaine Ponsot is a historic Morey-Saint-Denis producer with an outstanding track record in Clos de la Roche, producing wines of exceptional depth and longevity."
-    },
     "Clos de Vougeot, Domaine de la Vougeraie (Double Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -1585,36 +1551,6 @@
         }
       ],
       "info": "Château Gloria in magnum format, an unclassified but highly regarded Saint-Julien estate producing Cabernet Sauvignon-dominant clarets with Fourth Growth-level quality."
-    },
-    "Clos Vougeot & Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Louis Jadot (Magnum)": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 5400,
-      "avg_hammer_sek": 6701,
-      "avg_ratio": 1.241,
-      "premium_percent": 24.1,
-      "vintages": [
-        2010
-      ],
-      "guide": [
-        {
-          "name": "Gevrey-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 09’ 10’ 12’ 15’ 16 17 18 19’ 20’ 21 22’ 23 Major AOP for reds of substance, structure, from serviceable to supreme, up to great CHAMBERTIN and GC cousins. Style less forbidding today. Some trade on name, but best brilliant."
-        },
-        {
-          "name": "Jadot, Louis",
-          "type": "producer",
-          "region": "Burg",
-          "rating": "2-3",
-          "description": "Large est BEAUNE merchant (1859): 130 ha = 200+ wines. Powerful white, wide range red. Big holdings in BEAUJ, C D’O , MÂCON incl POUILLY-FUISSÉ (DOM Ferret), MOULIN-À-VENT (CH des Jacques); GC s gaining more conviction, excitement."
-        }
-      ],
-      "info": "A magnum lot pairing Louis Jadot's Clos de Vougeot Grand Cru with their Gevrey-Chambertin Premier Cru Lavaux Saint-Jacques, from the large and well-established Beaune merchant whose Grand Cru holdings have shown growing excitement."
     },
     "Richebourg, Domaine Thibault Liger-Belair": {
       "total_lots": 2,
@@ -2554,29 +2490,6 @@
         }
       ],
       "info": "A Premier Cru red Burgundy from Clos Saint-Jacques in Gevrey-Chambertin, bearing the Armand Rousseau label, one of the most revered names in the Cote de Nuits. The domaine is celebrated for wines of effortless grace and exceptional longevity across its Gevrey holdings."
-    },
-    "Pomerol & St-Emilion": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 5800,
-      "avg_hammer_sek": 5000,
-      "avg_ratio": 0.862,
-      "premium_percent": -13.8,
-      "vintages": [
-        2006
-      ],
-      "guide": [
-        {
-          "name": "Pomerol",
-          "type": "wine",
-          "region": "Bx",
-          "rating": "3-4",
-          "description": "’ 15 16’ 18’ 19’ 20’ 22’ 23 Tiny, pricey AOP ; MERLOT -led, plummy to voluptuous, but long life. Top CHX on clay, gravel plateau: CLINET , HOSANNA , L’ÉGLISE-CLINET , L’ÉVANGILE , LA CONSEILLANTE , LAFLEUR , LA FLEUR-PÉTRUS, LE GAY , LE PIN , PETRUS , TROTANOY , Vieux Ch Certan . Relative value..."
-        }
-      ],
-      "info": "A lot from Pomerol and Saint-Emilion, two of Bordeaux's premier Right Bank appellations where Merlot dominates and wines range from plummy and voluptuous to structured and long-lived. Both appellations sit on clay and gravel plateaux and are home to some of the most sought-after estates in Bordeaux."
     },
     "Romanée-St-Vivant, Domaine de l'Arlot": {
       "total_lots": 1,
@@ -3828,19 +3741,6 @@
       ],
       "info": "A Roederer-owned Second Growth from Pauillac, consistently among the finest wines of the appellation and renowned for its longevity and elegant, refined character. It offers more elegance than power relative to Pichon Baron, making it one of Bordeaux's benchmark reds."
     },
-    "Gevrey-Chambertin Aux Echezeaux Vieille Vigne & Gevrey-Chambertin Vieille Vigne, Domaine Fourrier": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4800,
-      "avg_hammer_sek": 3900,
-      "avg_ratio": 0.812,
-      "premium_percent": -18.8,
-      "vintages": [
-        2016
-      ]
-    },
     "Château Lynch Bages (Half Bottle)": {
       "total_lots": 2,
       "sold": 2,
@@ -4015,36 +3915,6 @@
         }
       ],
       "info": "Grands-Echezeaux is a superlative 9-hectare Grand Cru in the Cote d'Or adjacent to Clos de Vougeot, offering silkiness and more conviction than most Echezeaux. Domaine Mongeard-Mugneret is a long-established Vosne-Romanee family estate producing wines of grace and restrained vigour across appellations from Bourgogne to Ruchottes-Chambertin."
-    },
-    "Morey-Saint-Denis 1er Cru Les Chaffots & Chambolle-Musigny 1er Cru Les Chabiots, Hubert Lignier": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4000,
-      "avg_hammer_sek": 3800,
-      "avg_ratio": 0.95,
-      "premium_percent": -5.0,
-      "vintages": [
-        2017
-      ],
-      "guide": [
-        {
-          "name": "Morey-St-Denis",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "3-4",
-          "description": "’ 02’ 05’ 09’ 10’ 12’ 15’ 16’ 17 18 19’ 20’ 21 22’ 23 The Janus appellation, caught between GEVREY ’s grandeur and CHAMBOLLE ’s grace. Deserves better recognition for wines of vigour with spicy note that age well; GC s CLOS DE LA ROCHE , CLOS DE LAMBRAYS, CLOS DE TART , CLOS ST-DENIS . Top: ARLAUD..."
-        },
-        {
-          "name": "Lignier",
-          "type": "producer",
-          "region": "C d'O",
-          "rating": "3",
-          "description": "Family in MOREY-ST-DENIS . Understated and stylish, from Laurent L (DOM Hubert L), esp CLOS DE LA ROCHE ; v.gd PC s from Virgile L-Michelot, esp Faconnières. Fresh, bordering on austere, from Dom Georges L."
-        }
-      ],
-      "info": "A combined lot of two Cote de Nuits premier crus from Domaine Hubert Lignier, an understated and stylish family estate in Morey-Saint-Denis led by Laurent Lignier. The domaine is especially known for its Clos de la Roche and a range of refined, fresh premier crus from both Morey and Chambolle."
     },
     "Chambolle-Musigny 1er Cru Les Amoureuses, Joseph Drouhin": {
       "total_lots": 2,
@@ -4502,19 +4372,6 @@
         2017
       ]
     },
-    "Barbaresco & 1997 Bordeaux": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 3400,
-      "avg_ratio": 1.7,
-      "premium_percent": 70.0,
-      "vintages": [
-        1996
-      ]
-    },
     "Chambertin Clos de Bèze, Domaine Bruno Clair": {
       "total_lots": 1,
       "sold": 1,
@@ -4527,29 +4384,6 @@
       "vintages": [
         2020
       ]
-    },
-    "Gevrey-Chambertin Ostrea & 2004 Gevrey-Chambertin, Domaine Trapet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2400,
-      "avg_hammer_sek": 3400,
-      "avg_ratio": 1.417,
-      "premium_percent": 41.7,
-      "vintages": [
-        2003
-      ],
-      "guide": [
-        {
-          "name": "Gevrey-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 09’ 10’ 12’ 15’ 16 17 18 19’ 20’ 21 22’ 23 Major AOP for reds of substance, structure, from serviceable to supreme, up to great CHAMBERTIN and GC cousins. Style less forbidding today. Some trade on name, but best brilliant."
-        }
-      ],
-      "info": "A mixed lot of two Gevrey-Chambertin village wines by Domaine Trapet, one of the longest-established estates in the appellation. Trapet is known for sensual, biodynamically farmed wines produced under the watch of sons Pierre and Louis, who experiment with unconventional ageing vessels."
     },
     "Château Branaire-Ducru (Double Magnum)": {
       "total_lots": 2,
@@ -5229,36 +5063,6 @@
       ],
       "info": "A mixed lot featuring Beaune Premier Cru Les Grèves from Domaine Maillard Père et Fils, a long-established family domaine based in Chorey-lès-Beaune. Les Grèves is among Beaune's most highly regarded Premier Cru vineyards, producing Pinot Noir of notable depth and complexity."
     },
-    "Chambertin Clos de Bèze & Gevrey-Chambertin 1er Cru Les Cazetiers, Domaine Faiveley": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3900,
-      "avg_hammer_sek": 3100,
-      "avg_ratio": 0.795,
-      "premium_percent": -20.5,
-      "vintages": [
-        2008
-      ],
-      "guide": [
-        {
-          "name": "Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "4",
-          "description": "’ 93 96’ 99’ 02’ 05’ 09’ 10’ 12’ 14 15’ 16 17 18’ 19’ 20’ 21 22’ 23’ Commanding in youth, compelling with age, masculine burg. Meat and muscle abound, lavish fruit in best. Imperious; more charm recently."
-        },
-        {
-          "name": "Faiveley, Dom",
-          "type": "producer",
-          "region": "Burg",
-          "rating": "2-4",
-          "description": "Was NÉGOCIANT , now DOM ; 200 yrs in 2025. Revitalized by Erwan F since 2005. Once serviceable, now exciting."
-        }
-      ],
-      "info": "A Grand Cru Pinot Noir from the prestigious Chambertin Clos de Beze vineyard in Gevrey-Chambertin, Cote d'Or, produced by Domaine Faiveley, a 200-year-old Burgundy house revitalized since 2005 by Erwan Faiveley. Chambertin Clos de Beze is one of Burgundy's most commanding red wines, masculine and muscular in youth but deeply compelling with age."
-    },
     "Mouton Cadet, Mouton Rothschild": {
       "total_lots": 2,
       "sold": 2,
@@ -5402,29 +5206,6 @@
         }
       ],
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru producing sumptuous, deeply fruited Pinot Noir with a fragrant finish and excellent aging potential. Claude Dugat is a celebrated Gevrey producer whose deeply coloured, almost ageless wines are crafted alongside cousin Bernard Dugat-Py, with the estate now flourishing under a new generation."
-    },
-    "Château Batailley & 2019 Château La Conseillante": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2800,
-      "avg_hammer_sek": 3000,
-      "avg_ratio": 1.071,
-      "premium_percent": 7.1,
-      "vintages": [
-        1982
-      ],
-      "guide": [
-        {
-          "name": "Batailley",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "3",
-          "description": "’ 11 12 15 16 17 18 19’ 20 21 22 23 24 Relatively gd value, CAB SAUV -led Fifth Growth."
-        }
-      ],
-      "info": "Chateau Batailley is a Pauillac Fifth Growth known for good-value, Cabernet Sauvignon-led wines with consistent quality, paired here with a 2019 Chateau La Conseillante from Pomerol. La Conseillante is a highly regarded Pomerol estate producing elegant, Merlot-dominant wines from a prized terroir bordering Saint-Emilion."
     },
     "Château Calon Ségur (Half Bottle)": {
       "total_lots": 1,
@@ -5642,29 +5423,6 @@
         2021
       ]
     },
-    "Château Ducru-Beaucaillou & 2000 Château Beychevelle": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2800,
-      "avg_hammer_sek": 2900,
-      "avg_ratio": 1.036,
-      "premium_percent": 3.6,
-      "vintages": [
-        1990
-      ],
-      "guide": [
-        {
-          "name": "Ducru-Beaucaillou",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "4",
-          "description": "’ 10’ 12 14 15’ 16 17 18’ 19’ 20’ 21 22 23 Outstanding Second Growth. Majors in CAB SAUV (85% in 23). Excellent form; classic cedar-scented claret for long ageing."
-        }
-      ],
-      "info": "An outstanding Second Growth Saint-Julien with a strong Cabernet Sauvignon emphasis (85%), consistently producing classic, cedar-scented clarets built for long aging. One of the most reliable addresses in the Médoc."
-    },
     "Château Malescot Saint-Exupéry (Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -5843,29 +5601,6 @@
       ],
       "info": "A premier cru red Burgundy from the Les Beaumonts vineyard in Vosne-Romanée, Côte de Nuits. Alain Hudelot-Noellat belongs to the noted Noëllat family of Vosne, a three-star producer with a strong track record across the village's premier and grand crus."
     },
-    "Château Belgrave & 2012 Château Malartic Lagraviere Rouge": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3300,
-      "avg_hammer_sek": 2840,
-      "avg_ratio": 0.861,
-      "premium_percent": -13.9,
-      "vintages": [
-        2009
-      ],
-      "guide": [
-        {
-          "name": "Belgrave",
-          "type": "wine",
-          "region": "H-Méd",
-          "rating": "2",
-          "description": "DOURTHE -owned Fifth Growth (since 1979). Steady investment. Understated but consistent."
-        }
-      ],
-      "info": "Chateau Belgrave is a Haut-Medoc Fifth Growth owned by Dourthe, offering reliable and improving Bordeaux at good value, while Chateau Malartic-Lagraviere is a classified Pessac-Leognan estate known for both its red and white wines. This lot combines two dependable classified-growth Bordeaux from different appellations."
-    },
     "Morgon Côte du Py, Jean Foillard (Double Magnum)": {
       "total_lots": 2,
       "sold": 2,
@@ -5912,29 +5647,6 @@
         }
       ],
       "info": "Cote de Nuits Villages is a Cote d'Or appellation at the northern and southern edges of the Cote de Nuits, often offering good-value red Burgundy. This bottling from Charles Lachaux, connected to the highly regarded Arnoux-Lachaux estate in Vosne, brings a meticulous, low-intervention approach well above the appellation's typical quality level."
-    },
-    "Château de Fieuzal & 1986 Clos du Marquis (Magnum and Regular)": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 2801,
-      "avg_ratio": 1.556,
-      "premium_percent": 55.6,
-      "vintages": [
-        1975
-      ],
-      "guide": [
-        {
-          "name": "Fieuzal",
-          "type": "wine",
-          "region": "Pe-Lé",
-          "rating": "3",
-          "description": "(r) 10’ 14 15 16’ 18’ 19’ 20 21 22 23 (w) 21 22 23 Classified estate. Full-bodied SAUV BL -led white; rich and firm red. Second label (r/w): L’Abeille de Fieuzal."
-        }
-      ],
-      "info": "Chateau de Fieuzal is a classified Pessac-Leognan estate producing a full-bodied Sauvignon Blanc-led white and a rich, firm red, with a second label L'Abeille de Fieuzal. This lot also includes Clos du Marquis, the well-regarded second wine of Leoville Las Cases in Saint-Julien, known for its classic character and quality."
     },
     "Chambertin Clos de Bèze, Laurent Ponsot": {
       "total_lots": 1,
@@ -6012,29 +5724,6 @@
       ],
       "info": "Charmes-Chambertin is a 4-star Grand Cru from Gevrey in the Cote d'Or, producing rich, smooth Pinot Noir with abundant berry and cherry fruit, a sumptuous texture, and a fragrant finish. Domaine Perrot-Minot is a respected Gevrey producer known for classically structured wines from this 31-hectare appellation."
     },
-    "Château Dalem & 2006 Château Clos Saint Martin": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1500,
-      "avg_hammer_sek": 2800,
-      "avg_ratio": 1.867,
-      "premium_percent": 86.7,
-      "vintages": [
-        1999
-      ],
-      "guide": [
-        {
-          "name": "Dalem",
-          "type": "wine",
-          "region": "Fron",
-          "rating": "2",
-          "description": "’ 19 20 21 22 23 MERLOT -dominated (90% in 23) property. Smooth, ripe, fresh. Eric Boissenot consults."
-        }
-      ],
-      "info": "A Fronsac estate producing Merlot-dominated (90%) wines that are smooth, ripe, and fresh, with Eric Boissenot consulting. A solid representative of the appellation."
-    },
     "Château Haut Bages Libéral (Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -6104,40 +5793,6 @@
       "vintages": [
         2021
       ]
-    },
-    "Mazoyeres Chambertin & Gevrey-Chambertin 1er Cru Bel Air, Domaine Taupenot-Merme": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2300,
-      "avg_hammer_sek": 2800,
-      "avg_ratio": 1.217,
-      "premium_percent": 21.7,
-      "vintages": [
-        2015
-      ],
-      "guide": [
-        {
-          "name": "Mazoyères-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "4",
-          "description": "Usually sold as CHARMES-CHAMBERTIN, hence below radar, but style is different: less succulence, more stony structure. Try DUGAT -Py, MARCHAND-TAWSE, MORTET , Perrot-Minot, Taupenot-Merme."
-        }
-      ],
-      "info": "A paired lot from Domaine Taupenot-Merme covering two Gevrey-area appellations, with the Mazoyeres-Chambertin representing a four-star grand cru that is often sold under the Charmes-Chambertin label but displays a less succulent, more stony and structured character when declared separately. Taupenot-Merme is among the select estates recommended for this under-the-radar appellation."
-    },
-    "Nuits-Saint-Georges & Chambolle-Musigny, Louis Jadot": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2200,
-      "avg_hammer_sek": 2800,
-      "avg_ratio": 1.273,
-      "premium_percent": 27.3,
-      "vintages": []
     },
     "Échezeaux, Lucien Le Moine": {
       "total_lots": 1,
@@ -6269,29 +5924,6 @@
         }
       ],
       "info": "A Grand Cru Burgundy from Bonnes-Mares, the structured and powerful appellation spanning Chambolle-Musigny and Morey-Saint-Denis, produced by Domaine Bruno Clair, a below-radar but quality-focused estate with an understated, refined style. Bonnes-Mares Grand Cru requires time to reach its potential but rewards patience with considerable depth."
-    },
-    "Chambolle-Musigny 1er Cru & 2015 Chambolle-Musigny 1er Cru Amoureuses, Joseph Drouhin": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3400,
-      "avg_hammer_sek": 2700,
-      "avg_ratio": 0.794,
-      "premium_percent": -20.6,
-      "vintages": [
-        2014
-      ],
-      "guide": [
-        {
-          "name": "Chambolle-Musigny",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "3-4",
-          "description": "’ 02’ 05’ 09’ 10’ 12’ 15’ 16 17 19’ 20 21 22’ 23 Even the name seduces. Silky, velvety, more structure recently: Charmes, Combe d’Orveau for substance, more chiselled from Cras, Fuées, bewitching Amoureuses, plus GC s BONNES-MARES , MUSIGNY . Stars: BARTHOD , GROFFIER , MUGNIER , ROUMIER , VOGÜÉ ."
-        }
-      ],
-      "info": "A Premier Cru Pinot Noir from Chambolle-Musigny on the Cote d'Or, produced by Joseph Drouhin, a respected Beaune grower-negociant known for stylish, biodynamically farmed Burgundy reds. Chambolle-Musigny Premier Cru wines, especially Les Amoureuses, represent some of the most sought-after and collectible wines in the appellation."
     },
     "Château Gruaud Larose (Half Bottle)": {
       "total_lots": 1,
@@ -6440,17 +6072,6 @@
         2022
       ]
     },
-    "Bordeaux (Regular & Half bottle)": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2500,
-      "avg_hammer_sek": 2600,
-      "avg_ratio": 1.04,
-      "premium_percent": 4.0,
-      "vintages": []
-    },
     "Chambertin, Philippe Charlopin": {
       "total_lots": 1,
       "sold": 1,
@@ -6487,29 +6108,6 @@
       ],
       "info": "Château Giscours in magnum format, a substantial Third Growth from Margaux owned by the Albada Jelgersma family, producing Cabernet Sauvignon-led (60%) clarets built for ageing."
     },
-    "Château Lascombes & 1983 Château Gruaud Larose": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2400,
-      "avg_hammer_sek": 2600,
-      "avg_ratio": 1.083,
-      "premium_percent": 8.3,
-      "vintages": [
-        1982
-      ],
-      "guide": [
-        {
-          "name": "Lascombes",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 14 15’ 16’ 17 18 19’ 20 21 22 23 24 Large Second Growth; chequered history. Opulent; change of style from 23; more MARG elegance. Ex-Ornellaia (see Italy ) winemaker."
-        }
-      ],
-      "info": "A large Margaux Second Growth producing opulent wines, known for its chequered history and recent shift toward greater elegance under an ex-Ornellaia winemaker."
-    },
     "Corton Clos des Cortons Faiveley, Domaine Faiveley (Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -6522,47 +6120,6 @@
       "vintages": [
         2002
       ]
-    },
-    "Corton Clos du Roi & Volnay 1er Cru Clos des 60 Ouvrées, Domaine de La Pousse d'Or": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2600,
-      "avg_ratio": 1.3,
-      "premium_percent": 30.0,
-      "vintages": [
-        2010
-      ],
-      "guide": [
-        {
-          "name": "Corton",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 05’ 09’ 10’ 12’ 15’ 17 18 19’ 20’ 21 22’ 23 Too much is GC , can be stellar, often dull. Needs trimming. Choose carefully."
-        },
-        {
-          "name": "Pousse d’Or, Dom de la",
-          "type": "producer",
-          "region": "C d'O",
-          "rating": "3",
-          "description": "Substantial VOLNAY DOM; choice holdings in CÔTE DE NUITS also, esp CHAMBOLLE . Lovely, pure Volnay PC s. Amphorae used for portion of some wines, giving lighter “weave” in texture."
-        }
-      ],
-      "info": "A pairing of grand cru Corton Clos du Roi and premier cru Volnay Clos des 60 Ouvrées from Domaine de la Pousse d'Or, a substantial Volnay estate with choice holdings across the Cote de Beaune and Cote de Nuits. The domaine is known for pure, elegant Volnay premier crus, with amphorae used for portions of select cuvees to achieve a lighter textural weave."
-    },
-    "Fixin 1er Cru & Fixin 1er Cru Clos de la Perrière, Domaine Joliet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2500,
-      "avg_hammer_sek": 2600,
-      "avg_ratio": 1.04,
-      "premium_percent": 4.0,
-      "vintages": []
     },
     "Grands Echezeaux, Gros, Frere et Soeur": {
       "total_lots": 1,
@@ -6858,29 +6415,6 @@
         }
       ],
       "info": "Corton Grand Cru from Domaine Bonneau du Martray, now owned by Stanley Kroenke and with 3 ha leased to DRC, one of the most prestigious estates on the hill of Corton. The domaine is known for intense, long-ageing wines with glorious fruit and underlying minerality."
-    },
-    "Château Pavie & 1999 Château Branaire Duluc-Ducru": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2300,
-      "avg_hammer_sek": 2500,
-      "avg_ratio": 1.087,
-      "premium_percent": 8.7,
-      "vintages": [
-        1995
-      ],
-      "guide": [
-        {
-          "name": "Pavie",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "4",
-          "description": "’ 10’ 12 14 15’ 16’ 17 18 19’ 20’ 21 22 23 24 PREMIER GRAND CRU CLASSÉ (A) owned by Gérard Perse (see MONBOUSQUET ). Splendidly sited on plateau and s côtes. Intense, powerful, for long ageing; recent vintages less extreme (more CABS FR /SAUV )."
-        }
-      ],
-      "info": "Château Pavie is a Premier Grand Cru Classé (A) from Saint-Emilion, owned by Gérard Perse and splendidly sited on the plateau and southern slopes. The wine is intense and powerful, built for long ageing, with recent vintages showing more Cabernet Franc and Sauvignon in the blend for greater balance."
     },
     "Clos Vougeot, Domaine Gros Frère et Soeur": {
       "total_lots": 1,
@@ -7217,29 +6751,6 @@
         2005
       ]
     },
-    "Château Beychevelle & 1982 Château La Louvière": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 2400,
-      "avg_ratio": 1.5,
-      "premium_percent": 50.0,
-      "vintages": [
-        1975
-      ],
-      "guide": [
-        {
-          "name": "Beychevelle",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "3",
-          "description": "’ 16’ 17 18 19’ 20 21 22 23 24 Sizeable Fourth Growth owned by Castel and Suntory. Wines of consistent elegance rather than power. Manager Philippe Blanc’s 30th vintage in 2024."
-        }
-      ],
-      "info": "Chateau Beychevelle is a sizeable Saint-Julien Fourth Growth owned by Castel and Suntory, known for consistent elegance, paired here with a 1982 Chateau La Louviere from Pessac-Leognan. The 1982 vintage is legendary in Bordeaux, and La Louviere is a well-regarded Graves estate producing both red and white wines."
-    },
     "Château L'Eglise-Clinet": {
       "total_lots": 3,
       "sold": 3,
@@ -7300,29 +6811,6 @@
         2018,
         2019
       ]
-    },
-    "Gevrey-Chambertin 1er Cru Les Fontenys & Gevrey-Chambertin, Joseph Roty": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2300,
-      "avg_hammer_sek": 2400,
-      "avg_ratio": 1.043,
-      "premium_percent": 4.3,
-      "vintages": [
-        2000
-      ],
-      "guide": [
-        {
-          "name": "Gevrey-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 09’ 10’ 12’ 15’ 16 17 18 19’ 20’ 21 22’ 23 Major AOP for reds of substance, structure, from serviceable to supreme, up to great CHAMBERTIN and GC cousins. Style less forbidding today. Some trade on name, but best brilliant."
-        }
-      ],
-      "info": "A mixed lot of Premier Cru Les Fontenys and village Gevrey-Chambertin, produced by Joseph Roty. Both wines are red Burgundy from the Cote de Nuits' most prominent appellation, known for reds of structure and substance."
     },
     "Gevrey-Chambertin, Domaine Louis Trapet": {
       "total_lots": 1,
@@ -7399,19 +6887,6 @@
         }
       ],
       "info": "Mazoyeres-Chambertin is a prestigious Cote de Nuits grand cru that is frequently sold as Charmes-Chambertin yet offers a more stony and structured character when declared under its own name. Domaine Perrot-Minot is among the select growers specifically recommended for this appellation."
-    },
-    "Nuits-St-Georges Aux Lavières & 2021 Vosne-Romanée, Domaine Jean Grivot": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2200,
-      "avg_hammer_sek": 2400,
-      "avg_ratio": 1.091,
-      "premium_percent": 9.1,
-      "vintages": [
-        2016
-      ]
     },
     "Vosne-Romanée 1er Cru Aux Malconsorts Cuvée Christiane, Domaine de Montille": {
       "total_lots": 1,
@@ -7633,19 +7108,6 @@
       ],
       "info": "Domaine Comte Georges de Vogüé is a patrician four-star Chambolle-Musigny estate holding the lion's share of the Musigny grand cru, with recent vintages showing greater accessibility in youth through the use of more whole bunches and plot-by-plot vinification. The premier cru bottling offers refined, silky Pinot Noir from one of the village's most prestigious addresses."
     },
-    "Aloxe-Corton & 1990 Beaue Grèves 1er Cru, Domaine Tollot-Beaut": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 2300,
-      "avg_ratio": 1.438,
-      "premium_percent": 43.8,
-      "vintages": [
-        1990
-      ]
-    },
     "Chassagne-Montrachet Champs de Morgeot, Lamy-Pillot & 2021 Pouilly-Fuissé 1er Cru Le Clos de Solutré, Auvigue": {
       "total_lots": 1,
       "sold": 1,
@@ -7698,29 +7160,6 @@
         }
       ],
       "info": "One of Saint-Emilion's greatest estates, widely considered a superstar that declined classification in 2022, producing iconic Merlot/Cabernet Franc blends under sustainable viticulture. Highly sought-after and consistently at the top of the Bordeaux hierarchy."
-    },
-    "Morey-Saint-Denis Clos des Orms 1er Cru & 2009 Nuits-St-Georges 1er Cru Les Vaucrains, Lucien Le Moine": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2300,
-      "avg_ratio": 1.15,
-      "premium_percent": 15.0,
-      "vintages": [
-        2006
-      ],
-      "guide": [
-        {
-          "name": "Morey-St-Denis",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "3-4",
-          "description": "’ 02’ 05’ 09’ 10’ 12’ 15’ 16’ 17 18 19’ 20’ 21 22’ 23 The Janus appellation, caught between GEVREY ’s grandeur and CHAMBOLLE ’s grace. Deserves better recognition for wines of vigour with spicy note that age well; GC s CLOS DE LA ROCHE , CLOS DE LAMBRAYS, CLOS DE TART , CLOS ST-DENIS . Top: ARLAUD..."
-        }
-      ],
-      "info": "A combined lot pairing the Clos des Orms premier cru from Morey-Saint-Denis with Nuits-Saint-Georges premier cru Les Vaucrains, both from quality-focused negociant Lucien Le Moine. Morey-Saint-Denis is prized for vigorous, spicy Pinot Noir with a spicy note that ages well, bridging the styles of Gevrey and Chambolle."
     },
     "Vosne-Romanée 1er Cru Clos des Réas Monopole, Jean Gros": {
       "total_lots": 2,
@@ -7825,19 +7264,6 @@
       ],
       "info": "Mazis-Chambertin is a four-star grand cru in Gevrey-Chambertin, Cote de Nuits, known for intense, structured Pinot Noir of exceptional quality that develops beautifully with age. Lucien Le Moine is a small, quality-focused Burgundy negociant with a focus on top appellations."
     },
-    "Bordeaux & Rhone": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2265,
-      "avg_ratio": 1.133,
-      "premium_percent": 13.3,
-      "vintages": [
-        1984
-      ]
-    },
     "Château Beychevelle (Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -7906,17 +7332,6 @@
         }
       ],
       "info": "Mazoyeres-Chambertin is a four-star Cote de Nuits grand cru that is typically sold as Charmes-Chambertin, yet when bottled under its own name it shows a more stony, structural character with less overt succulence. Taupenot-Merme is one of the few estates singled out for producing a distinguished expression of this appellation."
-    },
-    "French & Italian Red": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1900,
-      "avg_hammer_sek": 2225,
-      "avg_ratio": 1.171,
-      "premium_percent": 17.1,
-      "vintages": []
     },
     "Red Bordeaux": {
       "total_lots": 4,
@@ -8123,65 +7538,6 @@
       ],
       "info": "Charmes-Chambertin is a 4-star Grand Cru from Gevrey in the Cote d'Or, delivering rich, smooth Pinot Noir with abundant berry and cherry fruit, a sumptuous texture, and a fragrant finish. Geantet-Pansiot is a well-regarded Gevrey domaine with a track record of expressive, terroir-driven wines from this prestigious appellation."
     },
-    "Château Beau-Séjour Bécot & Château Léoville Poyferré": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2400,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 0.917,
-      "premium_percent": -8.3,
-      "vintages": [
-        2005
-      ],
-      "guide": [
-        {
-          "name": "Beau-Séjour Bécot",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "3",
-          "description": "’ 21 22 23 24 Distinguished PREMIER GRAND CRU CLASSÉ (B) on limestone plateau. Family-owned. More finesse these days, but still gd ageing potential."
-        }
-      ],
-      "info": "This lot pairs Chateau Beau-Sejour Becot, a distinguished family-owned Premier Grand Cru Classe (B) on the Saint-Emilion limestone plateau, with Chateau Leoville Poyferre, a highly regarded Saint-Julien Second Growth. Both are serious, age-worthy Bordeaux from prestigious appellations on opposite banks."
-    },
-    "Château Malescot Saint-Exupéry & Château Le Gay": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 1.222,
-      "premium_percent": 22.2,
-      "vintages": [
-        2000
-      ]
-    },
-    "Château Pichon Longueville Comtesse de Lalande & 2001 Château Bouscassé": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2500,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 0.88,
-      "premium_percent": -12.0,
-      "vintages": [
-        1989
-      ],
-      "guide": [
-        {
-          "name": "Pichon Longueville Comtesse de Lalande (Pichon Lalande)",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "4",
-          "description": "’ 10’ 11 12 14 15’ 16’ 17 18’ 19’ 20’ 21 22 23 24 ROEDERER -owned Second Growth. Always among top performers; long-lived wine of famous breed. More elegance, less power than PICHON BARON ."
-        }
-      ],
-      "info": "A Roederer-owned Second Growth from Pauillac, consistently among the finest wines of the appellation and renowned for its longevity and elegant, refined character. It offers more elegance than power relative to Pichon Baron, making it one of Bordeaux's benchmark reds."
-    },
     "Clos de Vougeot, Domaine Drouhin-Laroze (Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -8242,29 +7598,6 @@
       ],
       "info": "Echezeaux Grand Cru red from Joseph Drouhin, a respected Beaune grower-negociant with biodynamically farmed vineyards and a wide range of stylish reds across the Cote de Nuits. Rated three to four stars, Drouhin's Echezeaux reflects the appellation's hallmark elegance and finesse."
     },
-    "Gevrey-Chambertin & 2017 Vosne-Romanée 1er Cru Les Chaumes, Philippe Pacalet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2800,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 0.786,
-      "premium_percent": -21.4,
-      "vintages": [
-        2015
-      ],
-      "guide": [
-        {
-          "name": "Gevrey-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 09’ 10’ 12’ 15’ 16 17 18 19’ 20’ 21 22’ 23 Major AOP for reds of substance, structure, from serviceable to supreme, up to great CHAMBERTIN and GC cousins. Style less forbidding today. Some trade on name, but best brilliant."
-        }
-      ],
-      "info": "A combined lot pairing Gevrey-Chambertin with Vosne-Romanee Premier Cru Les Chaumes from Philippe Pacalet, a Beaune-based negociant and former Prieure-Roch winemaker known for natural, whole-bunch, low-sulphur Burgundy. Both wines represent Pacalet's finesse-driven, terroir-expressive approach across two of the Cote de Nuits' most important appellations."
-    },
     "Gevrey-Chambertin Réserve Jean Trapet, Louis Trapet": {
       "total_lots": 1,
       "sold": 1,
@@ -8295,29 +7628,6 @@
       ],
       "info": "A village-level red Burgundy from Gevrey-Chambertin carrying the Jean Trapet Reserve label, from the long-established Trapet family domaine. Trapet is one of the oldest producers in Gevrey and farms biodynamically, producing sensual wines from village level up to Grand Cru Chambertin."
     },
-    "Le Petit Mouton de Mouton Rothschild & 2016 Clos Fourtet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2800,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 0.786,
-      "premium_percent": -21.4,
-      "vintages": [
-        2008
-      ],
-      "guide": [
-        {
-          "name": "Mouton Rothschild",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "4",
-          "description": "’ 06 08’ 09’ 10’ 11 12 13 14 15’ 16’ 17’ 18’ 19’ 20’ 21 22 23 24 Rothschild-owned (1853). Most exotic, voluptuous of PAU First Growths; at top of game. 2022 label created by French artist Gérard Garouste."
-        }
-      ],
-      "info": "Le Petit Mouton de Mouton Rothschild is the second wine of Pauillac First Growth Mouton Rothschild, the most exotic and voluptuous of Pauillac's First Growths, paired in this lot with Clos Fourtet, a Premier Grand Cru Classe B estate in Saint-Emilion known for its limestone terroir and structured, age-worthy reds."
-    },
     "Red Bourgogne": {
       "total_lots": 1,
       "sold": 1,
@@ -8330,17 +7640,6 @@
       "vintages": [
         2015
       ]
-    },
-    "Red Wine & Champagne": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 2200,
-      "avg_ratio": 1.375,
-      "premium_percent": 37.5,
-      "vintages": []
     },
     "Vosne-Romanée 1er Cru Les Suchots, Domaine Robert Arnoux": {
       "total_lots": 1,
@@ -8576,42 +7875,6 @@
       ],
       "info": "A half-bottle of premier cru red Burgundy from the Premeaux end of Nuits-Saint-Georges by Jacques-Frederic Mugnier, a 4-star grower renowned for wines of finesse and intellectual precision from Chambolle-Musigny and beyond. Clos de la Marechale is an elegant Premeaux clos suited to Mugnier's characteristically refined style."
     },
-    "Château Batailley & Château Giscours": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2400,
-      "avg_hammer_sek": 2100,
-      "avg_ratio": 0.875,
-      "premium_percent": -12.5,
-      "vintages": [
-        2015
-      ]
-    },
-    "Gevrey-Chambertin & 2010 Gevrey-Chambertin Ostrea, Domaine Trapet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2200,
-      "avg_hammer_sek": 2100,
-      "avg_ratio": 0.955,
-      "premium_percent": -4.5,
-      "vintages": [
-        2007
-      ],
-      "guide": [
-        {
-          "name": "Gevrey-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 09’ 10’ 12’ 15’ 16 17 18 19’ 20’ 21 22’ 23 Major AOP for reds of substance, structure, from serviceable to supreme, up to great CHAMBERTIN and GC cousins. Style less forbidding today. Some trade on name, but best brilliant."
-        }
-      ],
-      "info": "A combined lot of two Gevrey-Chambertin village red Pinot Noirs from Domaine Trapet, a biodynamic estate in Gevrey with Grand Cru Chambertin holdings. The Gevrey-Chambertin appellation is known for structured, substantial reds, and Trapet is respected for an elegant, pure, terroir-focused style."
-    },
     "Chambolle-Musigny, Jacques Frédéric Mugnier": {
       "total_lots": 5,
       "sold": 5,
@@ -8643,19 +7906,6 @@
         }
       ],
       "info": "A village Chambolle-Musigny from four-star grower Jacques-Frederic Mugnier, whose wines across all levels are defined by finesse, restraint, and intellectual depth. As one of the village's most celebrated producers, even the village-level wine reflects Mugnier's commitment to elegance over power."
-    },
-    "Château Cos d'Estournel & 2016 Château Lascombes": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2089,
-      "avg_ratio": 1.044,
-      "premium_percent": 4.4,
-      "vintages": [
-        2014
-      ]
     },
     "Bonnes Mares, Louis Jadot": {
       "total_lots": 2,
@@ -9132,19 +8382,6 @@
       ],
       "info": "Chateau Batailley is a Pauillac Fifth Growth offering relatively good value for its classification, producing Cabernet Sauvignon-led wines with consistent quality and ageing potential. In magnum format, the 2009 vintage benefits from an exceptional Bordeaux year and the slower ageing that larger format provides."
     },
-    "Château Pichon Longueville Comtesse de Lalande & 2019 Réserve de la Comtesse": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 2000,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        2017
-      ]
-    },
     "Clos des Vougeot, Domaine Jean Grivot": {
       "total_lots": 1,
       "sold": 1,
@@ -9211,19 +8448,6 @@
         }
       ],
       "info": "A Premier Cru red Burgundy from the highly prestigious Clos Saint-Jacques climat in Gevrey-Chambertin, made by Domaine Bruno Clair. Bruno Clair's understated, lighter-structured style brings elegance to this top-ranked vineyard, with a new generation gradually taking the reins."
-    },
-    "Gevrey-Chambertin 1er Cru La Perrière & 2019 Gevrey-Chambertin Regnard, Hubert Lignier": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 2000,
-      "avg_ratio": 1.25,
-      "premium_percent": 25.0,
-      "vintages": [
-        2006
-      ]
     },
     "Gevrey-Chambertin 1er Cru Lavaux St. Jacques, Claude Dugat": {
       "total_lots": 1,
@@ -9723,29 +8947,6 @@
       "premium_percent": 1.7,
       "vintages": []
     },
-    "Chambolle-Musigny & 2021 Savigny-les-Beaunes 1er Cru, Domaine A. F. Gros": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1900,
-      "avg_ratio": 1.188,
-      "premium_percent": 18.8,
-      "vintages": [
-        2020
-      ],
-      "guide": [
-        {
-          "name": "Chambolle-Musigny",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "3-4",
-          "description": "’ 02’ 05’ 09’ 10’ 12’ 15’ 16 17 19’ 20 21 22’ 23 Even the name seduces. Silky, velvety, more structure recently: Charmes, Combe d’Orveau for substance, more chiselled from Cras, Fuées, bewitching Amoureuses, plus GC s BONNES-MARES , MUSIGNY . Stars: BARTHOD , GROFFIER , MUGNIER , ROUMIER , VOGÜÉ ."
-        }
-      ],
-      "info": "A village-level Pinot Noir from Chambolle-Musigny on the Cote d'Or, produced by Domaine A.F. Gros, part of the extended Gros family of Vosne-Romanee. Chambolle-Musigny is one of Burgundy's most seductive appellations, known for silky texture and velvety, increasingly structured Pinot Noir."
-    },
     "Chambolle-Musigny, Domaine Dujac": {
       "total_lots": 9,
       "sold": 7,
@@ -9889,36 +9090,6 @@
       ],
       "info": "A Morey-Saint-Denis Grand Cru from Lucien Le Moine, a small négociant known for carefully selected Côte d'Or parcels, offering the characteristic sumptuous youth and silky ageing potential of the Clos Saint-Denis climat."
     },
-    "Château Fonplégade & Chateauneuf-du-Pape Boisrenard, Domaine de Beaurenard": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1851,
-      "avg_ratio": 1.851,
-      "premium_percent": 85.1,
-      "vintages": [
-        2016
-      ],
-      "guide": [
-        {
-          "name": "Fonplégade",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "2",
-          "description": "’ 18’ 19 20’ 21 22 23 RIP owner Stephen Adams. GRAND CRU CLASSÉ; bio. Fruit and balance these days."
-        },
-        {
-          "name": "Beaurenard, Dom de",
-          "type": "producer",
-          "region": "S Rh",
-          "rating": "3",
-          "description": "’ 20 21’ 22’ 23’ 24’ Organic, bio CHÂTEAUNEUF estate, motivated young generation, must-try. Stylish red, handsome white. Boisrenard older-vine, deeper, some oak (r/w)."
-        }
-      ],
-      "info": "A biodynamically farmed Grand Cru Classé in Saint-Emilion, paired with a Boisrenard cuvée from Domaine de Beaurenard, an organic Châteauneuf-du-Pape estate known for its stylish, structured reds and whites from old vines."
-    },
     "Charmes-Chambertin, Claude Dugat La Gibryotte": {
       "total_lots": 2,
       "sold": 2,
@@ -9942,75 +9113,6 @@
         }
       ],
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru of 31 ha renowned for its smooth, abundant red fruit and sumptuous texture. Claude Dugat's La Gibryotte label produces deeply coloured, age-worthy Pinot Noir from this prestigious site, representing one of Gevrey-Chambertin's most respected family estates."
-    },
-    "Château Dauzac & 1986 Château Suduiraut (Regular & Half bottle)": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
-      "avg_hammer_sek": 1850,
-      "avg_ratio": 1.542,
-      "premium_percent": 54.2,
-      "vintages": [
-        1981
-      ],
-      "guide": [
-        {
-          "name": "Dauzac",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "2-3",
-          "description": "’ 17 18’ 19 20 22 Busy Fifth Growth at Labarde. Dense, rich, dark wines. Second label: La Bastide Dauzac."
-        }
-      ],
-      "info": "A Fifth Growth Margaux based at Labarde, currently undergoing revamping, with a style characterized by dense, rich, dark wines. The second label La Bastide Dauzac provides an accessible entry point."
-    },
-    "Château Léoville Poyferré & 1986 Château Pavie": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 1850,
-      "avg_ratio": 0.925,
-      "premium_percent": -7.5,
-      "vintages": [
-        1976
-      ],
-      "guide": [
-        {
-          "name": "Léoville Poyferré",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "4",
-          "description": "’ 10’ 11’ 12 13 14 15’ 16’ 17 18’ 19’ 20’ 21 22 23 24 In Cuvelier family hands since 1920. “Super Second” level; dark, rich, spicy, long-ageing; CAB SAUV -led with MERLOT /CAB FR /PETIT VERDOT . Second label: Pavillon de Léoville Poyferré."
-        }
-      ],
-      "info": "A Saint-Julien Second Growth held by the Cuvelier family since 1920, consistently reaching Super Second quality with dark, rich, and spicy wines built for long ageing. The blend is Cabernet Sauvignon-led with contributions from Merlot, Cabernet Franc, and Petit Verdot."
-    },
-    "Château Monbousquet  & 2006 Château Pape Clément Rouge": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1850,
-      "avg_ratio": 1.156,
-      "premium_percent": 15.6,
-      "vintages": [
-        2005
-      ],
-      "guide": [
-        {
-          "name": "Monbousquet",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "3",
-          "description": "’ 18 19 20 22 23 GRAND CRU CLASSÉ on sand and gravel plain; 30 yrs’ devotion from owner Gérard Perse (see PAVIE ). Voluptuous. Dry white BX discontinued."
-        }
-      ],
-      "info": "A Grand Cru Classé from Saint-Emilion's sand and gravel plain, owned by Gérard Perse who has devoted three decades to elevating its quality. The wine is known for its voluptuous, richly textured style."
     },
     "Chambertin Clos de Bèze, Domaine Drouhin-Laroze": {
       "total_lots": 1,
@@ -10304,19 +9406,6 @@
       ],
       "info": "A sizeable Grand Cru Classé Saint-Emilion owned by Silvio Denz, producing rich, bold, modern wines alongside the sister estate Péby Faugères and the Sauternes estate Lafaurie-Peyraguey. A contemporary style with considerable concentration."
     },
-    "Château Fombrauge & 1994 Château Malescot Saint-Exupéry": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1800,
-      "avg_ratio": 1.125,
-      "premium_percent": 12.5,
-      "vintages": [
-        1986
-      ]
-    },
     "Clos Vougeot Musigni, Domaine Gros": {
       "total_lots": 2,
       "sold": 2,
@@ -10499,19 +9588,6 @@
       ],
       "info": "A double magnum of village Pommard from Domaine Germain Pere et Fils, a Cote de Beaune producer, presenting structured Pinot Noir in a large format suited to long cellaring. Pommard's village wines provide an approachable entry to an appellation renowned for its Premier Crus."
     },
-    "Vosne-Romanée Aux Réas & Chambolle-Musigny, Domaine A.-F. Gros": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2300,
-      "avg_hammer_sek": 1800,
-      "avg_ratio": 0.783,
-      "premium_percent": -21.7,
-      "vintages": [
-        2019
-      ]
-    },
     "Château Lynch-Bages": {
       "total_lots": 34,
       "sold": 32,
@@ -10691,29 +9767,6 @@
       ],
       "info": "A Pauillac Fifth Growth owned by the Mouton Rothschild family, producing Cabernet Sauvignon-dominant red wines (83% Cab Sauv and Cab Franc in 2023) that represent fair value within the Pauillac appellation."
     },
-    "Aloxe-Corton & 2002 Nuits St. Georges 1er Cru Les Vaucrains": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1750,
-      "avg_ratio": 1.75,
-      "premium_percent": 75.0,
-      "vintages": [
-        1996
-      ],
-      "guide": [
-        {
-          "name": "Aloxe-Corton",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-3",
-          "description": "’ 10 ’ 12’ 15’ 17 18’ 19’ 20’ 21 22’ 23 The n end of CÔTE DE BEAUNE , famous for GC CORTON , CORTON-CHARLEMAGNE . Others don’t set pulse racing. Tasty reds improved by recent warm yrs."
-        }
-      ],
-      "info": "A red Burgundy from Aloxe-Corton, located at the northern end of the Côte de Beaune in the Côte d'Or, a village best known as the gateway to the Grand Cru vineyards of Corton and Corton-Charlemagne. Village-level reds here tend toward the sturdy and approachable, benefiting in recent warmer vintages."
-    },
     "Charmes-Chambertin, Domaine Henri Perrot-Minot": {
       "total_lots": 1,
       "sold": 1,
@@ -10736,29 +9789,6 @@
         }
       ],
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru of 31 ha known for its smooth, abundant cherry fruit, sumptuous texture, and fragrant finish. Domaine Henri Perrot-Minot is a respected estate in Morey-Saint-Denis with holdings in this and other top Cote de Nuits appellations."
-    },
-    "Château Grand-Puy Ducasse & 1986 Château Clerc Milon": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1400,
-      "avg_hammer_sek": 1750,
-      "avg_ratio": 1.25,
-      "premium_percent": 25.0,
-      "vintages": [
-        1985
-      ],
-      "guide": [
-        {
-          "name": "Grand-Puy Ducasse",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "3",
-          "description": "’ 16’ 18 19’ 20 21 22 23 24 Fifth Growth, steady rise in quality; CAB SAUV /MERLOT (60/40%). New state-of-the-art winery with suspended vats. Visitor-friendly."
-        }
-      ],
-      "info": "A mixed lot featuring Château Grand-Puy Ducasse, a Fifth Growth Pauillac of steadily rising quality with Cabernet Sauvignon/Merlot (60/40%) and a modern winery, alongside a bottle of Château Clerc Milon from 1986."
     },
     "Echezeaux, Marchand Tawse": {
       "total_lots": 2,
@@ -10814,19 +9844,6 @@
       "premium_percent": -2.8,
       "vintages": [
         2010
-      ]
-    },
-    "Vosne-Romanée & Chambolle-Musigny, Domaine Bruno Clair": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1750,
-      "avg_hammer_sek": 1750,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        2015
       ]
     },
     "Pensées de Lafleur": {
@@ -11049,29 +10066,6 @@
         }
       ],
       "info": "A premier cru red Burgundy from the Premeaux end of Nuits-Saint-Georges by Jacques-Frederic Mugnier, a 4-star grower outstanding for his Chambolle-Musigny Les Amoureuses and Musigny, producing wines of finesse and restraint rather than power. Clos de la Marechale is a Premeaux vineyard known for elegance within the appellation."
-    },
-    "Roc De Cambes & 2004 Primofiore, Giuseppe Quintarelli": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1700,
-      "avg_ratio": 1.062,
-      "premium_percent": 6.2,
-      "vintages": [
-        1999
-      ],
-      "guide": [
-        {
-          "name": "Roc de Cambes",
-          "type": "wine",
-          "region": "Bx",
-          "rating": "3",
-          "description": "’ 16’ 17 18 19 20 21 22 23 Undisputed leader in CÔTES DE BOURG ; MERLOT /CAB SAUV (80/20%); savoury, opulent, pricey. Can age. Same approach as TERTRE ROTEBOEUF ."
-        }
-      ],
-      "info": "A mixed lot anchored by Roc de Cambes, the undisputed leader of the Cotes de Bourg appellation in Bordeaux, blending roughly 80% Merlot with Cabernet Sauvignon into a savoury, opulent, age-capable wine, paired with a 2004 Primofiore from the legendary Valpolicella producer Giuseppe Quintarelli. Roc de Cambes is produced with the same philosophy as Tertre Roteboeuf and commands premium prices for the appellation."
     },
     "Les Forts de Latour": {
       "total_lots": 12,
@@ -11644,29 +10638,6 @@
       ],
       "info": "Chateau Beau-Sejour Becot is a family-owned Premier Grand Cru Classe (B) Saint-Emilion estate situated on the limestone plateau, known for wines with good ageing potential. This magnum from the 1975 vintage provides a larger-format, slower-maturing expression of a mature and collectible Saint-Emilion."
     },
-    "Château Beauséjour & Château Troplong Mondot": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1600,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        2012
-      ],
-      "guide": [
-        {
-          "name": "Beauséjour",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "3",
-          "description": "’ 19’ 20’ 22 23 24 Tiny PREMIER GRAND CRU CLASSÉ (B). Owned by Joséphine Duffau-Lagarrosse and Courtin family (Clarins cosmetics). New cuvier in 2024."
-        }
-      ],
-      "info": "This lot combines Chateau Beauseujour, a tiny Premier Grand Cru Classe (B) Saint-Emilion estate known for concentrated, age-worthy wines, with Chateau Troplong Mondot, another premier classified growth on the Saint-Emilion plateau. Both are prestigious right-bank Bordeaux properties with significant collector appeal."
-    },
     "Château Brane-Cantenac": {
       "total_lots": 1,
       "sold": 1,
@@ -11724,29 +10695,6 @@
       "premium_percent": 6.7,
       "vintages": []
     },
-    "Château Lascombes & 1996 Barolo, Prunotto": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1600,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        1981
-      ],
-      "guide": [
-        {
-          "name": "Lascombes",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 14 15’ 16’ 17 18 19’ 20 21 22 23 24 Large Second Growth; chequered history. Opulent; change of style from 23; more MARG elegance. Ex-Ornellaia (see Italy ) winemaker."
-        }
-      ],
-      "info": "A large Margaux Second Growth producing opulent wines, known for its chequered history and recent shift toward greater elegance under an ex-Ornellaia winemaker."
-    },
     "Château Les Carmes Haut-Brion (Magnum)": {
       "total_lots": 1,
       "sold": 1,
@@ -11769,29 +10717,6 @@
         }
       ],
       "info": "A tiny, high-profile Pessac-Léognan property situated in the heart of Bordeaux city, housed in a Philippe Starck-designed winery, producing structured but suave Cabernet Franc-dominant wines, presented here in magnum format."
-    },
-    "Château Talbot & 1998 Château Beauregard": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2000,
-      "avg_hammer_sek": 1600,
-      "avg_ratio": 0.8,
-      "premium_percent": -20.0,
-      "vintages": [
-        1981
-      ],
-      "guide": [
-        {
-          "name": "Talbot",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "3",
-          "description": "’ 11 14 15 16 17 18 19 20 21 22 23 24 Substantial ST-JUL Fourth Growth (110 ha). Bignon Cordier family-owned. Wine rich, age-worthy, consummately charming, reliable."
-        }
-      ],
-      "info": "A substantial 110-hectare Fourth Growth in Saint-Julien owned by the Bignon Cordier family, producing rich, age-worthy, and consistently reliable wines with considerable charm. It is one of the most dependable estates in the appellation across a wide range of vintages."
     },
     "Clos de Vougeot Grand Maupertui, Domaine Jean-Marc Millot,": {
       "total_lots": 1,
@@ -12044,29 +10969,6 @@
       "vintages": [
         1999
       ]
-    },
-    "Virginie de Valandraud & 2013 Meursault 1er Cru Les Charmes Dessus, Château de Meursault": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1600,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        2004
-      ],
-      "guide": [
-        {
-          "name": "Valandraud",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "4",
-          "description": "’ 16’ 17 18 19’ 20 21 22 23 24 PREMIER GRAND CRU CLASSÉ (B). Garage wonder turned First Growth. Creation of Jean-Luc Thunevin."
-        }
-      ],
-      "info": "A mixed lot combining the second wine of Valandraud, the Saint-Emilion Premier Grand Cru Classé B estate created by Jean-Luc Thunevin that rose from garage wine to First Growth status, with a 2013 Premier Cru white Burgundy from Château de Meursault. Les Charmes Dessus is one of Meursault's most sought-after Premier Cru sites in the Côte de Beaune."
     },
     "Volnay 1er Cru Clos des Chênes, Domaine Fontaine-Gagnard (Half bottle)": {
       "total_lots": 1,
@@ -12779,29 +11681,6 @@
       ],
       "info": "Red Burgundy grand cru from the 50-hectare Clos de Vougeot in the Cote de Nuits, produced by Domaine Jean Grivot, a highly regarded Vosne-Romanee estate now under Mathilde Grivot's direction. The domaine is celebrated for a superb range of premier and grand crus including Beaux Monts, Nuits Boudots, Echezeaux, and Richebourg, all requiring significant cellaring to show their best."
     },
-    "Château Lagrange & 1983 Château Beychevelle": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1506,
-      "avg_ratio": 0.941,
-      "premium_percent": -5.9,
-      "vintages": [
-        1982
-      ],
-      "guide": [
-        {
-          "name": "Lagrange",
-          "type": "wine",
-          "region": "Pom",
-          "rating": "2",
-          "description": "’ 16’ 17 18 19 20 21 22 23 J-P MOUEIX -owned since 1953, on n edge of plateau. 100% MERLOT . Supple, round, accessible; gd value."
-        }
-      ],
-      "info": "A Pomerol estate owned by J-P Moueix since 1953, producing 100% Merlot wines of supple, round, and accessible character representing good value for the appellation."
-    },
     "Vosne-Romanée 1er Cru Clos des Réas, Domaine Michel Gros": {
       "total_lots": 4,
       "sold": 4,
@@ -12825,134 +11704,6 @@
         }
       ],
       "info": "A premier cru red Burgundy from the Clos des Réas vineyard in Vosne-Romanée, Côte de Nuits. Domaine Michel Gros is the branch of the divided Gros family estate that retained this monopole, producing a consistently well-regarded village and premier cru range from one of Burgundy's most celebrated communes."
-    },
-    "Chambolle-Musigny & 2022 Chambolle-Musigny 1er Cru, Domaine Francois Bertheau": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1500,
-      "avg_ratio": 0.833,
-      "premium_percent": -16.7,
-      "vintages": [
-        2018
-      ]
-    },
-    "Château Chasse-Spleen & 1999 Beaune 1er Cru Les Epenottes": {
-      "total_lots": 2,
-      "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1500,
-      "avg_ratio": 0.833,
-      "premium_percent": -16.7,
-      "vintages": [
-        1983
-      ],
-      "guide": [
-        {
-          "name": "Chasse-Spleen",
-          "type": "wine",
-          "region": "Mou",
-          "rating": "3",
-          "description": "’ 17 18 19’ 20 21 22 23 Well-known CH owned by Céline Villars. Often impressive, long-maturing; classical structure, fragrance. Now 125 ha with acquisition of CH BRILLETTE in 2023."
-        }
-      ],
-      "info": "A well-known Moulis cru owned by Céline Villars, known for impressive, long-maturing wines with classical structure and fragrance. The estate has grown to 125 hectares following the 2023 acquisition of Château Brillette."
-    },
-    "Château Giscours & 2017 Bandol Pour Lulu, Domaine Tempier": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1300,
-      "avg_hammer_sek": 1500,
-      "avg_ratio": 1.154,
-      "premium_percent": 15.4,
-      "vintages": [
-        2015
-      ],
-      "guide": [
-        {
-          "name": "Giscours",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 17 18’ 19’ 20’ 21 22 23 24 Substantial Third Growth. Albada Jelgersma family-owned. CAB SAUV -led (60%)."
-        }
-      ],
-      "info": "A mixed lot featuring Château Giscours, a Cabernet Sauvignon-led Third Growth from Margaux, alongside a bottle of Bandol Pour Lulu from Domaine Tempier, a celebrated southern Rhône producer."
-    },
-    "Château Malescot Saint-Exupéry & 2000 Château Croque Michotte": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1300,
-      "avg_hammer_sek": 1500,
-      "avg_ratio": 1.154,
-      "premium_percent": 15.4,
-      "vintages": [
-        1990
-      ],
-      "guide": [
-        {
-          "name": "Malescot St Exupéry",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 16’ 17 18’ 19 20 21 22 23 24 Third Growth. Ripe, fragrant, finely structured. New-generation Léa Zuger now runing estate."
-        }
-      ],
-      "info": "A Third Growth from Margaux producing ripe, fragrant, and finely structured red Bordeaux, now guided by new-generation proprietor Léa Zuger. The estate has a consistent track record for elegant, classically styled Margaux."
-    },
-    "Château Rouget & 1981 Château Taillefer": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1700,
-      "avg_hammer_sek": 1500,
-      "avg_ratio": 0.882,
-      "premium_percent": -11.8,
-      "vintages": [
-        1979
-      ],
-      "guide": [
-        {
-          "name": "Rouget",
-          "type": "wine",
-          "region": "Pom",
-          "rating": "2",
-          "description": "’ 18 19 20 22 23 Sizeable (for POM ) estate on n edge of plateau. Labruyère family-owned. MERLOT -led (85% in 23), CAB FR ."
-        }
-      ],
-      "info": "Château Rouget is a sizeable Pomerol estate (by appellation standards) on the northern edge of the plateau, owned by the Labruyère family. The wine is Merlot-led (85%) with Cabernet Franc, in a refined style typical of the northern Pomerol plateau."
-    },
-    "Château d'Angludet & 2008 Château Cantenac Brown": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1500,
-      "avg_ratio": 0.833,
-      "premium_percent": -16.7,
-      "vintages": [
-        2005
-      ],
-      "guide": [
-        {
-          "name": "Angludet",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "2",
-          "description": "’ 16’ 18’ 19 20 21 23 Owned by NÉGOCIANT SICHEL ; bio from 23. Lots of PETIT VERDOT in blend. Fragrant, stylish."
-        }
-      ],
-      "info": "A Margaux estate owned by négociant Sichel, producing fragrant and stylish red wines with a notable proportion of Petit Verdot in the blend; this lot pairs it with a 2008 Château Cantenac Brown."
     },
     "Clos Vougeot, Bouchard": {
       "total_lots": 1,
@@ -13141,29 +11892,6 @@
       ],
       "info": "A premier cru red Burgundy from the Les Beaux Monts vineyard in Vosne-Romanée, Côte de Nuits. Domaine Georges Noëllat, led by Maxime Cheurlin, is a three-star estate from the noted Noëllat family of Vosne, producing top-form wines across Nuits, Vosne, and the grand cru Echézeaux."
     },
-    "Château de Camensac & Château Lascombes": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1300,
-      "avg_hammer_sek": 1470,
-      "avg_ratio": 1.131,
-      "premium_percent": 13.1,
-      "vintages": [
-        1985
-      ],
-      "guide": [
-        {
-          "name": "Camensac, De",
-          "type": "wine",
-          "region": "H-Méd",
-          "rating": "2",
-          "description": "’ 19 20 22 Sizeable Fifth Growth in N H-MÉD . Owned by Merlaut family (CHASSE-SPLEEN , GRUAUD-LAROSE ). Steady improvement; CAB SAUV /MERLOT ; ageing potential."
-        }
-      ],
-      "info": "A sizeable Haut-Médoc Fifth Growth owned by the Merlaut family (also of Chasse-Spleen and Gruaud-Larose), producing Cabernet Sauvignon and Merlot blends with steady improvement and good ageing potential; this lot is paired with a Château Lascombes."
-    },
     "Gevrey-Chambertin Ostrea, Domaine Trapet": {
       "total_lots": 2,
       "sold": 2,
@@ -13341,29 +12069,6 @@
       ],
       "info": "Premier cru red Burgundy from Morey-Saint-Denis by Domaine Dujac, a four-star estate originally noted for sensual, delicately intense reds that age magnificently, with grand cru holdings in Clos de la Roche, Clos Saint-Denis, and Echezeaux. The domaine has also developed a reputation for fine whites and opened a new eco-friendly winery in 2023."
     },
-    "Château Durfort Vivens & Château Rausan-Ségla": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1433,
-      "avg_ratio": 0.896,
-      "premium_percent": -10.4,
-      "vintages": [
-        1981
-      ],
-      "guide": [
-        {
-          "name": "Durfort-Vivens",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 10’ 14 15’ 16’ 17 18’ 19’ 20’ 21 22 23 24 High-flying Second Growth; recent yrs tiptop; 90% CAB SAUV . Organic, bio. Three CUVÉES parcellaires (Les Plantes, Le Plateau, Le Hameau)."
-        }
-      ],
-      "info": "A high-performing Second Growth Margaux producing predominantly Cabernet Sauvignon (90%) wines under organic and biodynamic farming. Recent vintages have been exceptional, with three single-parcel cuvees adding further depth to the range."
-    },
     "Echezeaux, Louis Jadot - Domaine Gagey": {
       "total_lots": 1,
       "sold": 1,
@@ -13424,42 +12129,6 @@
       ],
       "info": "Red Burgundy grand cru from Corton in the Cote de Beaune, sold at the Hospices de Beaune charity auction under the Charlotte Dumay cuvee, with elevage handled by Morey Blanc, an ultra-reliable Burgundy producer known for elegantly crafted, refined wines now made by Sabine Mollard."
     },
-    "Pommard En Mareau & 2022 Hautes-Côtes de Nuits Champs Perdrix, Si Tu Sais": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1400,
-      "avg_hammer_sek": 1420,
-      "avg_ratio": 1.014,
-      "premium_percent": 1.4,
-      "vintages": [
-        2021
-      ]
-    },
-    "Château La Dominique & 1986 Château La Lagune": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1400,
-      "avg_hammer_sek": 1401,
-      "avg_ratio": 1.001,
-      "premium_percent": 0.1,
-      "vintages": [
-        1983
-      ],
-      "guide": [
-        {
-          "name": "Dominique, La",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "3",
-          "description": "’ 14 15 16’ 17 18’ 19 20 21 22 23 24 GRAND CRU CLASSÉ . MERLOT -led (88% in 23); complex and refined. Visitor-friendly (restaurant)."
-        }
-      ],
-      "info": "A Saint-Emilion Grand Cru Classé producing refined, complex Merlot-dominant wines (88%), with visitor facilities including an on-site restaurant."
-    },
     "Bourgogne Rouge, Cécile Tremblay & 2020 Beaune 1er Cru Les Montrevenots, Antoine Jobard": {
       "total_lots": 1,
       "sold": 1,
@@ -13496,157 +12165,6 @@
       ],
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru known for its abundant, smooth cherry fruit and sumptuous, fragrant character. David Duband is a respected Cote de Nuits producer with holdings across several premier and grand cru sites, crafting wines that balance richness with precision."
     },
-    "Château Giscours & 1989 Château d'Angludet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 0.778,
-      "premium_percent": -22.2,
-      "vintages": [
-        1982
-      ],
-      "guide": [
-        {
-          "name": "Giscours",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 17 18’ 19’ 20’ 21 22 23 24 Substantial Third Growth. Albada Jelgersma family-owned. CAB SAUV -led (60%)."
-        }
-      ],
-      "info": "A mixed lot featuring Château Giscours, a Cabernet Sauvignon-led Third Growth from Margaux owned by the Albada Jelgersma family, alongside a bottle of Château d'Angludet from the 1989 vintage."
-    },
-    "Château Giscours & Château Pontet-Canet": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 0.875,
-      "premium_percent": -12.5,
-      "vintages": [
-        1974
-      ],
-      "guide": [
-        {
-          "name": "Giscours",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 17 18’ 19’ 20’ 21 22 23 24 Substantial Third Growth. Albada Jelgersma family-owned. CAB SAUV -led (60%)."
-        }
-      ],
-      "info": "A mixed lot pairing Château Giscours, a Cabernet Sauvignon-led Third Growth from Margaux, with Château Pontet-Canet, a renowned Fifth Growth from Pauillac."
-    },
-    "Château La Croix de Gay & 1992 Château Laroque": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 1.4,
-      "premium_percent": 40.0,
-      "vintages": [
-        1988
-      ],
-      "guide": [
-        {
-          "name": "Croix de Gay, La",
-          "type": "wine",
-          "region": "Pom",
-          "rating": "3",
-          "description": "Tiny MERLOT -dominant (95%) vyd on gravelly soils. Rich, round wines."
-        }
-      ],
-      "info": "A tiny Pomerol estate planted almost entirely to Merlot (95%) on gravelly soils, producing rich and rounded wines with immediate appeal."
-    },
-    "Château Potensac & 2010 Château Lascombes": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1300,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 1.077,
-      "premium_percent": 7.7,
-      "vintages": [
-        2005
-      ],
-      "guide": [
-        {
-          "name": "Potensac",
-          "type": "wine",
-          "region": "Méd",
-          "rating": "2-3",
-          "description": "’ 17 18’ 19’ 20’ 21 22 23 Firm, long-ageing wines; gd value. Usually MERLOT -led, but lots of old-vine CAB FR too. Owned by Domaines Delon (see LÉOVILLE LAS CASES )."
-        }
-      ],
-      "info": "An esteemed Médoc estate owned by Domaines Delon (of Léoville Las Cases), producing firm, long-ageing wines that represent good value for the appellation. The blend is usually Merlot-led with a significant share of old-vine Cabernet Franc."
-    },
-    "Château d'Angludet & 2011 Alter Ego de Palmer": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 0.778,
-      "premium_percent": -22.2,
-      "vintages": [
-        2001
-      ],
-      "guide": [
-        {
-          "name": "Angludet",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "2",
-          "description": "’ 16’ 18’ 19 20 21 23 Owned by NÉGOCIANT SICHEL ; bio from 23. Lots of PETIT VERDOT in blend. Fragrant, stylish."
-        }
-      ],
-      "info": "A Margaux estate owned by négociant Sichel, producing fragrant and stylish red wines with a notable proportion of Petit Verdot in the blend; this lot pairs it with a 2011 Alter Ego de Palmer."
-    },
-    "Château de Camensac & 1988 Château Saint-Pierre": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1400,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        1981
-      ],
-      "guide": [
-        {
-          "name": "Camensac, De",
-          "type": "wine",
-          "region": "H-Méd",
-          "rating": "2",
-          "description": "’ 19 20 22 Sizeable Fifth Growth in N H-MÉD . Owned by Merlaut family (CHASSE-SPLEEN , GRUAUD-LAROSE ). Steady improvement; CAB SAUV /MERLOT ; ageing potential."
-        }
-      ],
-      "info": "A sizeable Haut-Médoc Fifth Growth owned by the Merlaut family (also of Chasse-Spleen and Gruaud-Larose), producing Cabernet Sauvignon and Merlot blends with steady improvement and good ageing potential; this lot is paired with a 1988 Château Saint-Pierre."
-    },
-    "Château l'Arrosée & 2001 Château Bahans Haut-Brion": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1300,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 1.077,
-      "premium_percent": 7.7,
-      "vintages": [
-        1989
-      ]
-    },
     "Clos René": {
       "total_lots": 1,
       "sold": 1,
@@ -13682,29 +12200,6 @@
       "vintages": [
         2001
       ]
-    },
-    "Domaine de Chevalier Rouge & Château Saint-Pierre": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
-      "avg_hammer_sek": 1400,
-      "avg_ratio": 0.778,
-      "premium_percent": -22.2,
-      "vintages": [
-        2006
-      ],
-      "guide": [
-        {
-          "name": "St-Pierre",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "3",
-          "description": "’ 12 14 15’ 16’ 18’ 19’ 20 21 22 23 24 Tiny Fourth Growth; CAB SAUV -led, stylish, consistent, classic. Worth following. Same stable as GLORIA ."
-        }
-      ],
-      "info": "A combined lot pairing Domaine de Chevalier Rouge, a reliable Pessac-Leognan Classed Growth, with Chateau Saint-Pierre, a small Fourth Growth from Saint-Julien in the same stable as Gloria. Saint-Pierre is a Cabernet Sauvignon-led wine known for stylish, consistent, classic character."
     },
     "Gevrey-Chambertin 1er Cru Les Cazetiers, Domaine Bruno Clair": {
       "total_lots": 1,
@@ -13872,42 +12367,6 @@
         }
       ],
       "info": "Chateau Belgrave is a Haut-Medoc Fifth Growth owned by Dourthe since 1979, consistently improved over the decades and offering understated but reliable Bordeaux at a price below many of its peers. It represents steady, dependable quality in a prestigious classification."
-    },
-    "Bordeaux & 2017 Toro": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1500,
-      "avg_hammer_sek": 1350,
-      "avg_ratio": 0.9,
-      "premium_percent": -10.0,
-      "vintages": [
-        2012
-      ]
-    },
-    "Château Kirwan & 2007 L'Hospitalet de Gazin": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
-      "avg_hammer_sek": 1350,
-      "avg_ratio": 1.125,
-      "premium_percent": 12.5,
-      "vintages": [
-        2005
-      ],
-      "guide": [
-        {
-          "name": "Kirwan",
-          "type": "wine",
-          "region": "Marg",
-          "rating": "3",
-          "description": "’ 14 15’ 16’ 18 19’ 20’ 21 22 23 Third Growth owned by Schÿler family. Freshness, finesse, charm. Visitor-friendly."
-        }
-      ],
-      "info": "A mixed lot featuring Château Kirwan, a fresh and charming Third Growth from Margaux, alongside a bottle of L'Hospitalet de Gazin, the second label of the renowned Pomerol estate Château Gazin."
     },
     "Château Meyney": {
       "total_lots": 2,
@@ -14170,32 +12629,6 @@
         2019
       ]
     },
-    "Château Magdelaine & 2000 Château Fonroque": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1300,
-      "avg_hammer_sek": 1300,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        1998
-      ]
-    },
-    "Château l'Arrosée & 2016 Château d'Armailhac": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1400,
-      "avg_hammer_sek": 1300,
-      "avg_ratio": 0.929,
-      "premium_percent": -7.1,
-      "vintages": [
-        1985
-      ]
-    },
     "Clos Saint-Denis, Domaine André Gagey-Louis Jadot": {
       "total_lots": 1,
       "sold": 1,
@@ -14411,19 +12844,6 @@
         }
       ],
       "info": "A mixed lot combining a Pernand-Vergelesses Premier Cru from the Mugneret family of Vosne-Romanee, known for wines of grace and restrained vigour across appellations from Bourgogne to Ruchottes-Chambertin, with a 2006 Chateauneuf-du-Pape from Louis Bernard. Both Domaine Gerard Mugneret and the Mugneret-Gibourg branch produce compelling wines with a new generation now on board."
-    },
-    "Sonoma Vineyards Alexanders Crown Cabernet Sauvignon & 1978 Château Chasse-Spleen": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
-      "avg_hammer_sek": 1300,
-      "avg_ratio": 0.812,
-      "premium_percent": -18.8,
-      "vintages": [
-        1974
-      ]
     },
     "Volnay 1er Cru, Domaine Marquis d'Angerville": {
       "total_lots": 1,
@@ -14680,29 +13100,6 @@
         }
       ],
       "info": "A Second Growth from Saint-Julien, owned by the Anglo-Irish Barton family since 1826, producing classic, harmonious, and long-ageing claret with Cabernet Sauvignon as the dominant grape (87%). One of the most consistent and traditional estates in the Médoc, now led by Lilian Barton alongside her children."
-    },
-    "Château Chasse-Spleen & 1998 Château Fonroque": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1250,
-      "avg_ratio": 1.25,
-      "premium_percent": 25.0,
-      "vintages": [
-        1994
-      ],
-      "guide": [
-        {
-          "name": "Chasse-Spleen",
-          "type": "wine",
-          "region": "Mou",
-          "rating": "3",
-          "description": "’ 17 18 19’ 20 21 22 23 Well-known CH owned by Céline Villars. Often impressive, long-maturing; classical structure, fragrance. Now 125 ha with acquisition of CH BRILLETTE in 2023."
-        }
-      ],
-      "info": "A well-known Moulis cru owned by Céline Villars, known for impressive, long-maturing wines with classical structure and fragrance. The estate has grown to 125 hectares following the 2023 acquisition of Château Brillette."
     },
     "Gevrey-Chambertin 1er Cru Capita, Jean & Jean-Louis Trapet": {
       "total_lots": 2,
@@ -14971,19 +13368,6 @@
       ],
       "info": "Premier Cru Pinot Noir from Volnay, Côte de Beaune, produced by the celebrated biodynamic Domaine des Comtes Lafon, primarily known for its benchmark Meursaults. Volnay Santenots is singled out as one of the finest red wines of the entire Côte de Beaune."
     },
-    "Château Tahbilk Shiraz & 1989 Château Grand-Corbin-Despagne": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1211,
-      "avg_ratio": 1.211,
-      "premium_percent": 21.1,
-      "vintages": [
-        1982
-      ]
-    },
     "Château Smith Haut-Lafitte Rouge": {
       "total_lots": 16,
       "sold": 16,
@@ -15018,29 +13402,6 @@
         }
       ],
       "info": "A celebrated Classed Growth red from Pessac-Léognan, known for precision and generosity and produced at an estate that also operates its own cooperage and the Caudalie spa hotel. The red is precise and rewarding across vintages."
-    },
-    "Bourgogne Rouge & Bourgogne Rouge Cuvée Halinard, Bernard Dugat-Py": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1202,
-      "avg_ratio": 1.202,
-      "premium_percent": 20.2,
-      "vintages": [
-        2012
-      ],
-      "guide": [
-        {
-          "name": "Bourgogne",
-          "type": "wine",
-          "region": "Burg",
-          "rating": "1-3",
-          "description": "(r) 15’ 17 18’ 19’ 20’ 21 22’ 23 (w) 14’ 17’ 18 19’ 20’ 21 22’ 23 Basic Burg AOP . Seek brilliant egs from top DOMS . Can state subregion, eg."
-        }
-      ],
-      "info": "Entry-level Pinot Noir from the Bourgogne AOC produced by Bernard Dugat-Py, one of Gevrey-Chambertin's most celebrated domaines. Despite the regional classification, wines from this domaine are sought after for their exceptional quality and depth."
     },
     "Blanc de Blancs Brut, Charles Heidsieck (Disgorged 2017) & 2006 Château Beauséjour": {
       "total_lots": 1,
@@ -15091,29 +13452,6 @@
         }
       ],
       "info": "A Third Growth in Margaux owned by the Schÿler family, producing fresh, fine, and charming reds and known as a visitor-friendly estate."
-    },
-    "Château Plince & Château Brane-Cantenac": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1100,
-      "avg_hammer_sek": 1201,
-      "avg_ratio": 1.092,
-      "premium_percent": 9.2,
-      "vintages": [
-        2007
-      ],
-      "guide": [
-        {
-          "name": "Plince",
-          "type": "wine",
-          "region": "Pom",
-          "rating": "2",
-          "description": "’ 18 19 20 22 23 Lighter POM on sandy soils. MERLOT -led. Oaky when young."
-        }
-      ],
-      "info": "A Merlot-led Pomerol estate on sandy soils, producing a lighter, softer style than the plateau estates of the appellation. The wine can be oaky in youth but is approachable for Pomerol."
     },
     "Châteauneuf-du-Pape, Mont Redon & 2009 Connétable Talbot": {
       "total_lots": 1,
@@ -15185,19 +13523,6 @@
       ],
       "info": "A village-level Pinot Noir from the Bourgogne AOC by Arnaud Ente, a highly regarded Burgundy producer. While Ente is best known for his whites, his Bourgogne Rouge offers the elegant, terroir-driven character expected from a top domaine."
     },
-    "Brunello di Montalcino Castelgiocondo & 2005 Château de Camensac": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1200,
-      "avg_ratio": 1.2,
-      "premium_percent": 20.0,
-      "vintages": [
-        2002
-      ]
-    },
     "Chambolle-Musigny 1er Cru La Combe d'Orveaux Vielles Vignes, Domaine Bruno Clavelier": {
       "total_lots": 2,
       "sold": 2,
@@ -15244,88 +13569,6 @@
         }
       ],
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru delivering sumptuous, smooth Pinot Noir with abundant red fruit and fragrant finish. Domaine Coquard Loison-Fleurot is name-checked among the top producers for this appellation, crafting wines with the richness and depth that define the grand cru."
-    },
-    "Château Grand Mayne & 2004 Idus de Vall Lach, Celler Vall-Llach": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1200,
-      "avg_ratio": 1.2,
-      "premium_percent": 20.0,
-      "vintages": [
-        1996
-      ],
-      "guide": [
-        {
-          "name": "Grand Mayne",
-          "type": "wine",
-          "region": "St-Ém",
-          "rating": "3",
-          "description": "’ 17 18 19’ 20 21 22 23 24 Consistent GRAND CRU CLASSÉ on the côtes and pied de côtes. MERLOT /CAB FR (80/20%); full-bodied, structured. Owned by the Nony family."
-        }
-      ],
-      "info": "A mixed lot featuring Château Grand Mayne, a consistent Grand Cru Classé from Saint-Emilion, alongside a bottle of Idus de Vall Lach from the celebrated Priorat producer Celler Vall-Llach."
-    },
-    "Château Grand-Puy-Lacoste & 2000 Château Belair Dubois-Challon": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
-      "avg_hammer_sek": 1200,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        1998
-      ],
-      "guide": [
-        {
-          "name": "Grand-Puy-Lacoste",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "3",
-          "description": "’ 10’ 12 14 15’ 16’ 17’ 18’ 19’ 20 22 23 24 Fifth Growth famous for CAB SAUV -driven (75%+) PAU to lay down; vyd in one block around CH . Borie family-owned."
-        }
-      ],
-      "info": "A mixed lot pairing Château Grand-Puy-Lacoste, a Borie family-owned Fifth Growth Pauillac renowned for age-worthy Cabernet Sauvignon-led wines, with a bottle of Château Belair from the 2000 vintage."
-    },
-    "Château Haut Bages Libéral & 1984 Château Batailley": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1400,
-      "avg_hammer_sek": 1200,
-      "avg_ratio": 0.857,
-      "premium_percent": -14.3,
-      "vintages": [
-        1973
-      ],
-      "guide": [
-        {
-          "name": "Haut-Bages-Libéral",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "3",
-          "description": "’ 14 15’ 16 18 19’ 20’ 21 22 23 Improving Fifth Growth; CAB SAUV -led (86% in 23); organic, bio. Reasonable value. Also Ceres: 100% Merlot, no sulphur."
-        }
-      ],
-      "info": "A mixed lot featuring Château Haut Bages Libéral, an improving organic Fifth Growth from Pauillac led by Cabernet Sauvignon, alongside a bottle of Château Batailley from the 1984 vintage."
-    },
-    "Château L'Arrosée & 1983 Château De Sales": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
-      "avg_hammer_sek": 1200,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        1981
-      ]
     },
     "Château Langoa Barton (Magnum)": {
       "total_lots": 1,
@@ -15374,29 +13617,6 @@
         }
       ],
       "info": "A J-P Moueix-owned Pomerol property producing 100% Merlot wines of consistent quality, with structured yet balanced character suited to aging."
-    },
-    "Château Talbot & 1981 Château Trotte Vieille": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1200,
-      "avg_ratio": 1.2,
-      "premium_percent": 20.0,
-      "vintages": [
-        1979
-      ],
-      "guide": [
-        {
-          "name": "Talbot",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "3",
-          "description": "’ 11 14 15 16 17 18 19 20 21 22 23 24 Substantial ST-JUL Fourth Growth (110 ha). Bignon Cordier family-owned. Wine rich, age-worthy, consummately charming, reliable."
-        }
-      ],
-      "info": "A substantial 110-hectare Fourth Growth in Saint-Julien owned by the Bignon Cordier family, producing rich, age-worthy, and consistently reliable wines with considerable charm. It is one of the most dependable estates in the appellation across a wide range of vintages."
     },
     "Clos Vougeot, Jean Raphet": {
       "total_lots": 1,
@@ -16233,29 +14453,6 @@
       ],
       "info": "A village Chambolle-Musigny Pinot Noir from the Hudelot-Noellat estate in Vougeot, a three-star Cote de Nuits producer known for pure, refined and harmonious wines with distinguished grand cru holdings in Romanee-Saint-Vivant and Richebourg. The Chambolle bottling reflects the village's characteristic silkiness and elegance."
     },
-    "Château Plince & Château du Tertre": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1100,
-      "avg_hammer_sek": 1101,
-      "avg_ratio": 1.001,
-      "premium_percent": 0.1,
-      "vintages": [
-        2010
-      ],
-      "guide": [
-        {
-          "name": "Plince",
-          "type": "wine",
-          "region": "Pom",
-          "rating": "2",
-          "description": "’ 18 19 20 22 23 Lighter POM on sandy soils. MERLOT -led. Oaky when young."
-        }
-      ],
-      "info": "A Merlot-led Pomerol estate on sandy soils, producing a lighter, softer style than the plateau estates of the appellation. The wine can be oaky in youth but is approachable for Pomerol."
-    },
     "3 de Valandraud": {
       "total_lots": 1,
       "sold": 1,
@@ -16433,36 +14630,6 @@
         }
       ],
       "info": "Corton is a Cote d'Or Grand Cru red wine appellation capable of stellar results but highly variable, requiring careful producer selection. Louis Jadot is a major Beaune merchant founded in 1859 with over 200 wines and extensive Burgundy holdings, with its Grand Crus gaining increasing conviction."
-    },
-    "Gevrey-Chambertin 1er Cru Champeaux & Gevrey-Chambertin  Aux Etelois, Marchand Tawse": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 850,
-      "avg_hammer_sek": 1100,
-      "avg_ratio": 1.294,
-      "premium_percent": 29.4,
-      "vintages": [
-        2021
-      ],
-      "guide": [
-        {
-          "name": "Gevrey-Chambertin",
-          "type": "wine",
-          "region": "C d'O",
-          "rating": "2-4",
-          "description": "’ 09’ 10’ 12’ 15’ 16 17 18 19’ 20’ 21 22’ 23 Major AOP for reds of substance, structure, from serviceable to supreme, up to great CHAMBERTIN and GC cousins. Style less forbidding today. Some trade on name, but best brilliant."
-        },
-        {
-          "name": "Marchand-Tawse",
-          "type": "producer",
-          "region": "C d'O",
-          "rating": "3",
-          "description": "Grower-NÉGOCE in NUITS . Pascal M shows deft touch across wide range. Style previously hearty, robust."
-        }
-      ],
-      "info": "A mixed lot of Premier Cru and village-level red Burgundy from Gevrey-Chambertin, produced by Marchand-Tawse, a grower-negociant based in Nuits-Saint-Georges. Pascal Marchand is known for a deft, wide-ranging style that was previously hearty and robust."
     },
     "Gevrey-Chambertin, Domaine Belleville & Mersault, Les Parcellaires de Saulx": {
       "total_lots": 1,
@@ -17207,19 +15374,6 @@
       ],
       "info": "A Fifth Growth Pauillac owned by Mouton Rothschild since 1970, producing Cabernet Sauvignon-based wines that are powerful yet harmonious. Quality has been consistently high, though prices have risen accordingly."
     },
-    "Chambolle-Musigny Les Cras & 2021 Aloxe-Corton 1er Cru Les Fourniéres, Antonin Guyon": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 750,
-      "avg_hammer_sek": 1000,
-      "avg_ratio": 1.333,
-      "premium_percent": 33.3,
-      "vintages": [
-        2019
-      ]
-    },
     "Chassagne-Montrachet 1er Cru Clos Saint-Jean, Paul Pillot": {
       "total_lots": 1,
       "sold": 1,
@@ -17262,29 +15416,6 @@
       "vintages": [
         1992
       ]
-    },
-    "Château Lynch-Moussas & 2002 Château Montus": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
-      "avg_hammer_sek": 1000,
-      "avg_ratio": 1.0,
-      "premium_percent": 0.0,
-      "vintages": [
-        1999
-      ],
-      "guide": [
-        {
-          "name": "Lynch-Moussas",
-          "type": "wine",
-          "region": "Pau",
-          "rating": "2",
-          "description": "’ 14 15 16 18 19’ 20 22 23 Fifth Growth owned by Castéja family (BORIE-MANOUX ). Less gravitas than top PAU, but improving."
-        }
-      ],
-      "info": "A Fifth Growth from Pauillac, owned by the Castéja family through Borie-Manoux, positioned below the top Pauillac estates in reputation but showing steady improvement. The wine carries less gravitas than the appellation's leading names but offers an honest, improving claret."
     },
     "Château Rausan-Ségla": {
       "total_lots": 2,
@@ -17976,19 +16107,6 @@
         1996
       ]
     },
-    "Gevrey Chambertin Clos Tamisot & Fixin Les Mogottes, Pierre Damoy": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 850,
-      "avg_hammer_sek": 950,
-      "avg_ratio": 1.118,
-      "premium_percent": 11.8,
-      "vintages": [
-        2017
-      ]
-    },
     "Gevrey-Chambertin 1er Cru Lavaux St. Jacques, Domaine Faiveley": {
       "total_lots": 1,
       "sold": 1,
@@ -18434,19 +16552,6 @@
         }
       ],
       "info": "A village-level red Burgundy from the Aux Corvees lieu-dit in Gevrey-Chambertin, produced by Domaine Henri Rebourseau. Backed by major investment from the Bouygues family, this resurgent domaine now operates from a splendid new winery with 13 hectares including significant Grand Cru holdings, producing a sumptuous, sweet-fruit style."
-    },
-    "Marsannay Les Longeroies & Les Grasses Têtes, Domaine Bruno Claire": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 850,
-      "avg_hammer_sek": 900,
-      "avg_ratio": 1.059,
-      "premium_percent": 5.9,
-      "vintages": [
-        2009
-      ]
     },
     "Volnay 1er Cru En Caillerets, Domaine de la Pousse d'Or": {
       "total_lots": 1,
@@ -20596,29 +18701,6 @@
         }
       ],
       "info": "A village-level red Burgundy from Beaune, produced by Domaine Michel Gaunoux, a respected Pommard-based estate known for traditionally made, cellarworthy Pinot Noir. Beaune village wines offer an accessible entry point to the appellation's characteristic style, with Gaunoux's reputation lending confidence in quality."
-    },
-    "Château Saint-Pierre & 1986 Château Chasse-Spleen": {
-      "total_lots": 1,
-      "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 900,
-      "avg_hammer_sek": 700,
-      "avg_ratio": 0.778,
-      "premium_percent": -22.2,
-      "vintages": [
-        1983
-      ],
-      "guide": [
-        {
-          "name": "St-Pierre",
-          "type": "wine",
-          "region": "St-Jul",
-          "rating": "3",
-          "description": "’ 12 14 15’ 16’ 18’ 19’ 20 21 22 23 24 Tiny Fourth Growth; CAB SAUV -led, stylish, consistent, classic. Worth following. Same stable as GLORIA ."
-        }
-      ],
-      "info": "A tiny Fourth Growth from Saint-Julien in the same stable as Château Gloria, producing stylish, consistent, Cabernet Sauvignon-led wines in a classic Médoc vein. Despite its small production, it is well worth following for its reliability and elegance."
     },
     "Côte de Nuits Villages Clos du Chapeu, Domaine de l'Arlot": {
       "total_lots": 1,
@@ -23416,19 +21498,6 @@
         }
       ],
       "info": "The most exotic and voluptuous of the Pauillac First Growths, owned by the Rothschild family since 1853 and now considered at the top of its game. This large-format (Jeroboam) bottling of the wine is celebrated for its rich, complex character and remarkable ageing capacity."
-    },
-    "Clos Vougeot & 2017 Clos-Saint-Denis, Domaine Amiot-Servelle": {
-      "total_lots": 1,
-      "sold": 0,
-      "unsold": 1,
-      "sell_rate": 0.0,
-      "avg_estimate_sek": 2600,
-      "avg_hammer_sek": 0,
-      "avg_ratio": null,
-      "premium_percent": null,
-      "vintages": [
-        2001
-      ]
     },
     "Clos de Vougeot Grand Maupertuis, Domaine Michel Gros": {
       "total_lots": 1,
