@@ -141,7 +141,13 @@ struct CellarTab: View {
             }
         }
         .sheet(item: $editingEntry) { entry in
-            WineEditSheet(entry: entry, isNew: false) { updated in
+            WineEditSheet(
+                entry: entry,
+                isNew: false,
+                onDuplicate: { edited in
+                    cellarService.addEntry(edited.duplicated())
+                }
+            ) { updated in
                 cellarService.updateEntry(updated)
             }
         }

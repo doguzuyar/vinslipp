@@ -120,6 +120,27 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         }
     }
 
+    func duplicated() -> CellarEntry {
+        CellarEntry(
+            status: status,
+            winery: winery,
+            wineName: wineName,
+            vintage: vintage,
+            region: region,
+            country: country,
+            style: style,
+            wineType: wineType,
+            price: price,
+            count: count,
+            drinkYear: drinkYear,
+            links: links,
+            userRating: userRating,
+            averageRating: averageRating,
+            notes: notes,
+            source: source
+        )
+    }
+
     func encode(to encoder: Encoder) throws {
         var c = encoder.container(keyedBy: CodingKeys.self)
         try c.encode(id, forKey: .id)

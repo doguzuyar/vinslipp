@@ -23,15 +23,15 @@ struct ContentView: View {
                     }
                     .tag(1)
 
-                BlogTab()
-                    .tabItem {
-                        Label("Blog", systemImage: "doc.text")
-                    }
-                    .tag(2)
-
                 AuctionTab(dataService: dataService)
                     .tabItem {
                         Label("Auction", systemImage: "dollarsign.circle")
+                    }
+                    .tag(2)
+
+                BlogTab()
+                    .tabItem {
+                        Label("Blog", systemImage: "doc.text")
                     }
                     .tag(3)
 
@@ -43,6 +43,7 @@ struct ContentView: View {
             }
             .tint(Color.primary)
             .environmentObject(cellarService)
+            .environmentObject(dataService)
 
             if showSplash {
                 SplashView()

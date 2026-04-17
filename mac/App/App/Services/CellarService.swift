@@ -32,7 +32,12 @@ class CellarService: ObservableObject {
     // MARK: - CRUD
 
     func addEntry(_ entry: CellarEntry) {
-        entries.append(entry)
+        if entry.status == .history,
+           let firstHistoryIdx = entries.firstIndex(where: { $0.status == .history }) {
+            entries.insert(entry, at: firstHistoryIdx)
+        } else {
+            entries.append(entry)
+        }
         save()
     }
 
@@ -66,12 +71,17 @@ class CellarService: ObservableObject {
     }
 
     func moveToHistory(id: UUID) {
-        if let index = entries.firstIndex(where: { $0.id == id }) {
-            entries[index].status = .history
-            entries[index].count = 0
-            entries[index].addedDate = DateFormatters.todayString
-            save()
+        guard let index = entries.firstIndex(where: { $0.id == id }) else { return }
+        var entry = entries.remove(at: index)
+        entry.status = .history
+        entry.count = 0
+        entry.addedDate = DateFormatters.todayString
+        if let firstHistoryIdx = entries.firstIndex(where: { $0.status == .history }) {
+            entries.insert(entry, at: firstHistoryIdx)
+        } else {
+            entries.append(entry)
         }
+        save()
     }
 
     func moveHistoryEntries(from source: IndexSet, to destination: Int) {

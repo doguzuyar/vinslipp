@@ -91,8 +91,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         switch name {
         case "release": return 0
         case "cellar": return 1
-        case "blog": return 2
-        case "auction": return 3
+        case "auction": return 2
+        case "blog": return 3
         case "profile": return 4
         default: return 0
         }

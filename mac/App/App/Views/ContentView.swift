@@ -10,8 +10,8 @@ struct ContentView: View {
     private let tabs: [(label: String, icon: String)] = [
         ("Releases", "clock"),
         ("Cellar", "cube.box"),
-        ("Blog", "doc.text"),
         ("Auction", "dollarsign.circle"),
+        ("Blog", "doc.text"),
         ("Profile", "person.circle"),
     ]
 
@@ -64,9 +64,9 @@ struct ContentView: View {
                 case 1:
                     CellarTab(cellarService: cellarService)
                 case 2:
-                    BlogTab()
-                case 3:
                     AuctionTab(dataService: dataService)
+                case 3:
+                    BlogTab()
                 case 4:
                     ProfileTab()
                 default:
@@ -74,6 +74,7 @@ struct ContentView: View {
                 }
             }
             .environmentObject(cellarService)
+            .environmentObject(dataService)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .onChange(of: scenePhase) {
