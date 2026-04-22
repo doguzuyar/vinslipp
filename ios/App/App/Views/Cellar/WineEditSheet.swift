@@ -19,9 +19,13 @@ struct WineEditSheet: View {
     static let currencies = ["SEK", "USD", "EUR"]
 
     private var suggestionIndex: WineSuggestionIndex {
-        WineSuggestionIndex(
+        let producers = dataService.auctionData?.producers.map {
+            AuctionProducer(name: $0.key, data: $0.value)
+        } ?? []
+        return WineSuggestionIndex(
             releases: dataService.releaseData?.wines ?? [],
-            cellar: cellarService.entries
+            cellar: cellarService.entries,
+            auctionProducers: producers
         )
     }
 
@@ -50,14 +54,19 @@ struct WineEditSheet: View {
     }
 
     private func apply(_ suggestion: WineSuggestion) {
-        entry.winery = suggestion.winery
-        entry.wineName = suggestion.wineName
-        if entry.vintage.isEmpty { entry.vintage = suggestion.vintage }
-        if !suggestion.region.isEmpty { entry.region = suggestion.region }
-        if !suggestion.country.isEmpty { entry.country = suggestion.country }
-        if !suggestion.wineType.isEmpty { entry.wineType = suggestion.wineType }
-        enabled.remove(.winery)
-        enabled.remove(.wineName)
+        switch focusedField {
+        case .winery:
+            entry.winery = suggestion.winery
+            if !suggestion.region.isEmpty { entry.region = suggestion.region }
+            if !suggestion.country.isEmpty { entry.country = suggestion.country }
+            if !suggestion.wineType.isEmpty { entry.wineType = suggestion.wineType }
+            enabled.remove(.winery)
+        case .wineName:
+            entry.wineName = suggestion.wineName
+            enabled.remove(.wineName)
+        default:
+            break
+        }
     }
 
     private func applyValue(_ field: Field, _ keyPath: WritableKeyPath<CellarEntry, String>, _ value: String) {

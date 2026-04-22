@@ -63,6 +63,9 @@ struct ContentView: View {
             if dataService.releaseData == nil {
                 await dataService.loadReleases()
             }
+            if dataService.auctionData == nil {
+                await dataService.loadAuction()
+            }
         }
         .onChange(of: scenePhase) {
             if scenePhase == .active {

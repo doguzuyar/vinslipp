@@ -40,6 +40,17 @@ struct WineSuggestion: Identifiable, Hashable {
             wineType: entry.wineType
         )
     }
+
+    init(from producer: AuctionProducer) {
+        self.init(
+            winery: producer.name,
+            wineName: "",
+            vintage: "",
+            region: producer.regions.first?.capitalized ?? "",
+            country: "France",
+            wineType: "Red Wine"
+        )
+    }
 }
 
 enum WineSuggestionField {
@@ -49,7 +60,7 @@ enum WineSuggestionField {
 struct WineSuggestionIndex {
     let suggestions: [WineSuggestion]
 
-    init(releases: [ReleaseWine], cellar: [CellarEntry]) {
+    init(releases: [ReleaseWine], cellar: [CellarEntry], auctionProducers: [AuctionProducer] = []) {
         var seen: Set<String> = []
         var result: [WineSuggestion] = []
         for release in releases {
@@ -60,6 +71,12 @@ struct WineSuggestionIndex {
         }
         for entry in cellar where !entry.winery.isEmpty {
             let suggestion = WineSuggestion(from: entry)
+            if seen.insert(suggestion.id).inserted {
+                result.append(suggestion)
+            }
+        }
+        for producer in auctionProducers where !producer.name.isEmpty {
+            let suggestion = WineSuggestion(from: producer)
             if seen.insert(suggestion.id).inserted {
                 result.append(suggestion)
             }
