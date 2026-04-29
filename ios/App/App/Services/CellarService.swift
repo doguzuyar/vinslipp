@@ -32,9 +32,8 @@ class CellarService: ObservableObject {
     // MARK: - CRUD
 
     func addEntry(_ entry: CellarEntry) {
-        if entry.status == .history,
-           let firstHistoryIdx = entries.firstIndex(where: { $0.status == .history }) {
-            entries.insert(entry, at: firstHistoryIdx)
+        if entry.status == .history {
+            insertHistoryEntry(entry)
         } else {
             entries.append(entry)
         }
@@ -76,12 +75,16 @@ class CellarService: ObservableObject {
         entry.status = .history
         entry.count = 0
         entry.addedDate = DateFormatters.todayString
+        insertHistoryEntry(entry)
+        save()
+    }
+
+    private func insertHistoryEntry(_ entry: CellarEntry) {
         if let firstHistoryIdx = entries.firstIndex(where: { $0.status == .history }) {
             entries.insert(entry, at: firstHistoryIdx)
         } else {
             entries.append(entry)
         }
-        save()
     }
 
     func moveHistoryEntries(from source: IndexSet, to destination: Int) {

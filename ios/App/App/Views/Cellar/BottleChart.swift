@@ -17,6 +17,10 @@ struct BottleChart: View {
         sortedYears.map(\.count).max() ?? 1
     }
 
+    private func selectionOpacity(for year: String, dim: Double) -> Double {
+        selectedYear == nil || selectedYear == year ? 1 : dim
+    }
+
     var body: some View {
         if vertical {
             verticalChart
@@ -46,7 +50,7 @@ struct BottleChart: View {
                                     RoundedRectangle(cornerRadius: 3)
                                         .fill(Color(hex: colorPalette[entry.year] ?? "#888888"))
                                         .frame(height: barHeight)
-                                        .opacity(selectedYear == nil || selectedYear == entry.year ? 1 : 0.3)
+                                        .opacity(selectionOpacity(for: entry.year, dim: 0.3))
                                 }
                             }
                             .frame(height: 100)
@@ -57,7 +61,7 @@ struct BottleChart: View {
                         }
                         .frame(width: 32)
                     }
-                    .opacity(selectedYear == nil || selectedYear == entry.year ? 1 : 0.5)
+                    .opacity(selectionOpacity(for: entry.year, dim: 0.5))
                 }
             }
         }
@@ -85,7 +89,7 @@ struct BottleChart: View {
                                     RoundedRectangle(cornerRadius: 3)
                                         .fill(Color(hex: colorPalette[entry.year] ?? "#888888"))
                                         .frame(width: barWidth)
-                                        .opacity(selectedYear == nil || selectedYear == entry.year ? 1 : 0.3)
+                                        .opacity(selectionOpacity(for: entry.year, dim: 0.3))
                                     Spacer(minLength: 0)
                                 }
                             }
@@ -97,7 +101,7 @@ struct BottleChart: View {
                                 .frame(width: 20, alignment: .leading)
                         }
                     }
-                    .opacity(selectedYear == nil || selectedYear == entry.year ? 1 : 0.5)
+                    .opacity(selectionOpacity(for: entry.year, dim: 0.5))
                 }
             }
             .padding(.vertical, 4)

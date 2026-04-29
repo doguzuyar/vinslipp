@@ -63,23 +63,19 @@ struct WineSuggestionIndex {
     init(releases: [ReleaseWine], cellar: [CellarEntry], auctionProducers: [AuctionProducer] = []) {
         var seen: Set<String> = []
         var result: [WineSuggestion] = []
-        for release in releases {
-            let suggestion = WineSuggestion(from: release)
+        func add(_ suggestion: WineSuggestion) {
             if seen.insert(suggestion.id).inserted {
                 result.append(suggestion)
             }
+        }
+        for release in releases {
+            add(WineSuggestion(from: release))
         }
         for entry in cellar where !entry.winery.isEmpty {
-            let suggestion = WineSuggestion(from: entry)
-            if seen.insert(suggestion.id).inserted {
-                result.append(suggestion)
-            }
+            add(WineSuggestion(from: entry))
         }
         for producer in auctionProducers where !producer.name.isEmpty {
-            let suggestion = WineSuggestion(from: producer)
-            if seen.insert(suggestion.id).inserted {
-                result.append(suggestion)
-            }
+            add(WineSuggestion(from: producer))
         }
         self.suggestions = result
     }

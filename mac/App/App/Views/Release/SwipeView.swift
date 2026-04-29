@@ -273,32 +273,24 @@ struct SwipeView: View {
 
     private var actionButtons: some View {
         HStack(spacing: 40) {
-            Button {
-                completeSwipe(direction: .left)
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.title2.weight(.bold))
-                    .foregroundStyle(.red)
-                    .frame(width: 56, height: 56)
-                    .background(Color.tertiarySystemBackground)
-                    .clipShape(Circle())
-                    .shadow(color: .black.opacity(0.06), radius: 3, y: 2)
-            }
-            .buttonStyle(.plain)
-
-            Button {
-                completeSwipe(direction: .right)
-            } label: {
-                Image(systemName: "heart.fill")
-                    .font(.title2.weight(.bold))
-                    .foregroundStyle(.green)
-                    .frame(width: 56, height: 56)
-                    .background(Color.tertiarySystemBackground)
-                    .clipShape(Circle())
-                    .shadow(color: .black.opacity(0.06), radius: 3, y: 2)
-            }
-            .buttonStyle(.plain)
+            actionButton(direction: .left, icon: "xmark", color: .red)
+            actionButton(direction: .right, icon: "heart.fill", color: .green)
         }
+    }
+
+    private func actionButton(direction: SwipeDirection, icon: String, color: Color) -> some View {
+        Button {
+            completeSwipe(direction: direction)
+        } label: {
+            Image(systemName: icon)
+                .font(.title2.weight(.bold))
+                .foregroundStyle(color)
+                .frame(width: 56, height: 56)
+                .background(Color.tertiarySystemBackground)
+                .clipShape(Circle())
+                .shadow(color: .black.opacity(0.06), radius: 3, y: 2)
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Swipe Logic

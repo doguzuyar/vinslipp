@@ -33,22 +33,9 @@ struct MiniCalendar: View {
 
                 Spacer()
 
-                Button {
-                    withAnimation { displayMonth = calendar.date(byAdding: .month, value: -1, to: displayMonth)! }
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.trailing, 12)
-
-                Button {
-                    withAnimation { displayMonth = calendar.date(byAdding: .month, value: 1, to: displayMonth)! }
-                } label: {
-                    Image(systemName: "chevron.right")
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.secondary)
-                }
+                monthNavButton(offset: -1, icon: "chevron.left")
+                    .padding(.trailing, 12)
+                monthNavButton(offset: 1, icon: "chevron.right")
             }
             .padding(.horizontal, 24)
             .offset(y: -20)
@@ -186,6 +173,16 @@ struct MiniCalendar: View {
 
     private func monthLabel(for date: Date) -> String {
         DateFormatters.monthAbbrev.string(from: date)
+    }
+
+    private func monthNavButton(offset: Int, icon: String) -> some View {
+        Button {
+            withAnimation { displayMonth = calendar.date(byAdding: .month, value: offset, to: displayMonth)! }
+        } label: {
+            Image(systemName: icon)
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(.secondary)
+        }
     }
 
     private func weeksForMonth(_ month: Date) -> [[Date?]] {

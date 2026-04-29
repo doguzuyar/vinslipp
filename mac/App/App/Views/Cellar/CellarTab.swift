@@ -49,31 +49,21 @@ struct CellarTab: View {
             }
         }
 
-        if !searchText.isEmpty {
-            let query = searchText.lowercased()
-            wines = wines.filter {
-                $0.winery.lowercased().contains(query) ||
-                $0.wineName.lowercased().contains(query) ||
-                $0.region.lowercased().contains(query)
-            }
-        }
-
-        return sorted(wines)
+        return sorted(filteredBySearch(wines))
     }
 
     private var filteredHistory: [CellarEntry] {
-        var wines = cellarService.historyEntries
+        filteredBySearch(cellarService.historyEntries)
+    }
 
-        if !searchText.isEmpty {
-            let query = searchText.lowercased()
-            wines = wines.filter {
-                $0.winery.lowercased().contains(query) ||
-                $0.wineName.lowercased().contains(query) ||
-                $0.region.lowercased().contains(query)
-            }
+    private func filteredBySearch(_ wines: [CellarEntry]) -> [CellarEntry] {
+        guard !searchText.isEmpty else { return wines }
+        let query = searchText.lowercased()
+        return wines.filter {
+            $0.winery.lowercased().contains(query) ||
+            $0.wineName.lowercased().contains(query) ||
+            $0.region.lowercased().contains(query)
         }
-
-        return wines
     }
 
     var body: some View {
@@ -658,15 +648,7 @@ private struct HistoryWineRow: View {
                     Divider()
 
                     HStack(spacing: 12) {
-                        ForEach(wine.links.filter { !$0.isEmpty }, id: \.self) { linkStr in
-                            if let url = URL(string: linkStr) {
-                                Button { LinkOpener.open(url) } label: {
-                                    Label(linkLabel(linkStr), systemImage: "globe")
-                                        .font(.caption.weight(.medium))
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
+                        linkButtons(wine.links)
                         Button(action: onEdit) {
                             Label("Edit", systemImage: "pencil")
                                 .font(.caption.weight(.medium))
@@ -723,15 +705,7 @@ struct CellarWineDetail: View {
             Divider()
 
             HStack(spacing: 12) {
-                ForEach(wine.links.filter { !$0.isEmpty }, id: \.self) { linkStr in
-                    if let url = URL(string: linkStr) {
-                        Button { LinkOpener.open(url) } label: {
-                            Label(linkLabel(linkStr), systemImage: "globe")
-                                .font(.caption.weight(.medium))
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
+                linkButtons(wine.links)
 
                 Button(action: onEdit) {
                     Label("Edit", systemImage: "pencil")
@@ -773,6 +747,19 @@ struct CellarWineDetail: View {
 }
 
 // MARK: - Link Label Helper
+
+@ViewBuilder
+private func linkButtons(_ links: [String]) -> some View {
+    ForEach(links.filter { !$0.isEmpty }, id: \.self) { linkStr in
+        if let url = URL(string: linkStr) {
+            Button { LinkOpener.open(url) } label: {
+                Label(linkLabel(linkStr), systemImage: "globe")
+                    .font(.caption.weight(.medium))
+            }
+            .buttonStyle(.plain)
+        }
+    }
+}
 
 private func linkLabel(_ urlString: String) -> String {
     guard let host = URL(string: urlString)?.host?.lowercased() else { return "Link" }

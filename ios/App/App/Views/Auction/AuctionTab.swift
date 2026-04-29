@@ -60,34 +60,48 @@ struct AuctionTab: View {
         (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
     }()
 
+    private func decodeSet(_ data: Data) -> Set<String> {
+        (try? JSONDecoder().decode(Set<String>.self, from: data)) ?? []
+    }
+
+    private func encodeSet(_ set: Set<String>) -> Data {
+        (try? JSONEncoder().encode(set)) ?? Data()
+    }
+
+    private func toggleExpanded(_ binding: Binding<String?>, to id: String) {
+        withAnimation(.easeInOut(duration: 0.2)) {
+            binding.wrappedValue = binding.wrappedValue == id ? nil : id
+        }
+    }
+
     private var liveSelectedCountries: Set<String> {
-        get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedCountriesData)) ?? [] }
-        nonmutating set { liveSelectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+        get { decodeSet(liveSelectedCountriesData) }
+        nonmutating set { liveSelectedCountriesData = encodeSet(newValue) }
     }
 
     private var liveSelectedTypes: Set<String> {
-        get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedTypesData)) ?? [] }
-        nonmutating set { liveSelectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+        get { decodeSet(liveSelectedTypesData) }
+        nonmutating set { liveSelectedTypesData = encodeSet(newValue) }
     }
 
     private var liveSelectedRegions: Set<String> {
-        get { (try? JSONDecoder().decode(Set<String>.self, from: liveSelectedRegionsData)) ?? [] }
-        nonmutating set { liveSelectedRegionsData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+        get { decodeSet(liveSelectedRegionsData) }
+        nonmutating set { liveSelectedRegionsData = encodeSet(newValue) }
     }
 
     private var auctionSelectedCountries: Set<String> {
-        get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedCountriesData)) ?? [] }
-        nonmutating set { auctionSelectedCountriesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+        get { decodeSet(auctionSelectedCountriesData) }
+        nonmutating set { auctionSelectedCountriesData = encodeSet(newValue) }
     }
 
     private var auctionSelectedTypes: Set<String> {
-        get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedTypesData)) ?? [] }
-        nonmutating set { auctionSelectedTypesData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+        get { decodeSet(auctionSelectedTypesData) }
+        nonmutating set { auctionSelectedTypesData = encodeSet(newValue) }
     }
 
     private var auctionSelectedRegions: Set<String> {
-        get { (try? JSONDecoder().decode(Set<String>.self, from: auctionSelectedRegionsData)) ?? [] }
-        nonmutating set { auctionSelectedRegionsData = (try? JSONEncoder().encode(newValue)) ?? Data() }
+        get { decodeSet(auctionSelectedRegionsData) }
+        nonmutating set { auctionSelectedRegionsData = encodeSet(newValue) }
     }
 
     private let countryFilters = ["France"]
@@ -450,11 +464,7 @@ struct AuctionTab: View {
                 ForEach(filtered) { producer in
                     ProducerRow(producer: producer, isExpanded: expandedProducerId == producer.id)
                         .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                expandedProducerId = expandedProducerId == producer.id ? nil : producer.id
-                            }
-                        }
+                        .onTapGesture { toggleExpanded($expandedProducerId, to: producer.id) }
                     Divider().padding(.leading, 28)
                 }
             }
@@ -473,11 +483,7 @@ struct AuctionTab: View {
                 ForEach(filteredLiveWines) { wine in
                     LiveWineRow(wine: wine, isExpanded: expandedLiveWineId == wine.id)
                         .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                expandedLiveWineId = expandedLiveWineId == wine.id ? nil : wine.id
-                            }
-                        }
+                        .onTapGesture { toggleExpanded($expandedLiveWineId, to: wine.id) }
                     Divider().padding(.leading, 28)
                 }
             }
