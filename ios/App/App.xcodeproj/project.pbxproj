@@ -30,7 +30,6 @@
 		DD000001000000000000DD01 /* AuctionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000001000000000000DD00 /* AuctionModels.swift */; };
 		DD000002000000000000DD01 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002000000000000DD00 /* AuctionTab.swift */; };
 		EE000001000000000000EE01 /* CellarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000001000000000000EE00 /* CellarModels.swift */; };
-		WS000001000000000000WS01 /* WineSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS000001000000000000WS00 /* WineSuggestion.swift */; };
 		EE000002000000000000EE01 /* CellarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002000000000000EE00 /* CellarService.swift */; };
 		EE000003000000000000EE01 /* BottleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000003000000000000EE00 /* BottleChart.swift */; };
 		EE000004000000000000EE01 /* CellarTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000004000000000000EE00 /* CellarTab.swift */; };
@@ -44,6 +43,7 @@
 		NS000001000000000000NS01 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = NS000001000000000000NS00 /* NotificationService.swift */; };
 		NS000010000000000000NS01 /* NotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = NS000004000000000000NS00 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		SW000001000000000000SW01 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SW000001000000000000SW00 /* SwipeView.swift */; };
+		WS000001000000000000WS01 /* WineSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS000001000000000000WS00 /* WineSuggestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +95,6 @@
 		DD000001000000000000DD00 /* AuctionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionModels.swift; sourceTree = "<group>"; };
 		DD000002000000000000DD00 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
 		EE000001000000000000EE00 /* CellarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarModels.swift; sourceTree = "<group>"; };
-		WS000001000000000000WS00 /* WineSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSuggestion.swift; sourceTree = "<group>"; };
 		EE000002000000000000EE00 /* CellarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarService.swift; sourceTree = "<group>"; };
 		EE000003000000000000EE00 /* BottleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleChart.swift; sourceTree = "<group>"; };
 		EE000004000000000000EE00 /* CellarTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarTab.swift; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		NS000003000000000000NS00 /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		NS000004000000000000NS00 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		SW000001000000000000SW00 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		WS000001000000000000WS00 /* WineSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSuggestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,7 +587,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
@@ -615,7 +615,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6XH2FW8MMS;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vinslipp;
