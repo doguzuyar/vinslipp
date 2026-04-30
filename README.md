@@ -252,7 +252,7 @@ A Chrome Manifest V3 extension that enhances Systembolaget and Bukowskis pages:
 
 - **Systembolaget**: injects Vinslipp rating badges on wine product cards
 - **Bukowskis**: links auction lots to relevant data
-- Uses a local copy of `live_wines.json` bundled with the extension
+- Fetches `releases.json`, `auction_stats.json`, and `live_wines.json` from `https://vinslipp.app/data/` at runtime
 
 ---
 

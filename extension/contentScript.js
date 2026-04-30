@@ -34,7 +34,7 @@ let liveWinesLoaded = false;
 async function loadLiveWines() {
   if (liveWinesLoaded) return liveWinesById;
   try {
-    const response = await fetch(chrome.runtime.getURL("live_wines.json"));
+    const response = await fetch("https://vinslipp.app/data/live_wines.json");
     if (response.ok) {
       const data = await response.json();
       liveWinesById = new Map();
