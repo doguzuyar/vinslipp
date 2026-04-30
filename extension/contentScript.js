@@ -168,8 +168,17 @@ function extractProducerFromTitle(title) {
   return title
     .replace(/^\d{4}\s+/, "")
     .replace(/\s*\([^)]*\)\s*$/, "")
-    .replace(/\.$/, "")
+    .replace(/[.,]$/, "")
     .trim();
+}
+
+function getBukowskisLotTitle(card) {
+  const artist = card.querySelector(".c-lot-index-lot__artist")?.textContent?.trim() || "";
+  const titleEl = card.querySelector("div.c-lot-index-lot__title");
+  const title = titleEl?.textContent?.trim() || "";
+  const combined = [artist, title].filter(Boolean).join(" ").replace(/\.$/, "").trim();
+  if (combined) return combined;
+  return card.querySelector(".c-lot-cell__title")?.textContent?.trim() || "";
 }
 
 function normalizeForMatch(str) {
@@ -362,7 +371,7 @@ function addBadge(card) {
     const hammerEl = card.querySelector("[class*='result-value']");
     const estimateText = estimateEl?.textContent;
     const hammerText = hammerEl?.textContent;
-    const lotTitle = card.querySelector(".c-lot-index-lot__artist, [class*='title']")?.textContent?.trim() || wineName;
+    const lotTitle = getBukowskisLotTitle(card) || wineName;
 
     if (estimateText) {
       const estimate = parseInt(estimateText.replace(/[^\d]/g, ""), 10);
@@ -480,12 +489,8 @@ function extractTitleParts(card) {
     .filter(Boolean);
   if (primary.length) return primary;
 
-  const lotIndexTitle = card.querySelector(
-    ".c-lot-index-lot__artist, a.c-lot-index-lot__title, .c-lot-index-lot__title"
-  );
-  if (lotIndexTitle?.innerText.trim()) {
-    return [lotIndexTitle.innerText.trim()];
-  }
+  const lotIndexTitle = getBukowskisLotTitle(card);
+  if (lotIndexTitle) return [lotIndexTitle];
 
   const lotCellTitle = card.querySelector(".c-lot-cell__title");
   if (lotCellTitle?.innerText.trim()) {
@@ -509,11 +514,10 @@ function scrapeBukowskisData() {
   lots.forEach((lot) => {
     const hammerEl = lot.querySelector("[class*='result-value']");
     const estimateEl = lot.querySelector("[class*='estimate-value']");
-    const titleEl = lot.querySelector(".c-lot-index-lot__artist, [class*='title']");
 
     const hammer = parsePrice(hammerEl?.textContent);
     const estimate = parsePrice(estimateEl?.textContent);
-    const title = titleEl?.textContent?.trim() || "Unknown";
+    const title = getBukowskisLotTitle(lot) || "Unknown";
 
     if (hammer && estimate) {
       data.withHammer.push({
@@ -657,10 +661,9 @@ function updateAllBadgeIndicators() {
 
     const estimateEl = card.querySelector("[class*='estimate-value']");
     const hammerEl = card.querySelector("[class*='result-value']");
-    const titleEl = card.querySelector(".c-lot-index-lot__artist, [class*='title']");
     const estimateText = estimateEl?.textContent;
     const hammerText = hammerEl?.textContent;
-    const wineTitle = titleEl?.textContent?.trim() || "";
+    const wineTitle = getBukowskisLotTitle(card);
 
     if (!estimateText) return;
 
