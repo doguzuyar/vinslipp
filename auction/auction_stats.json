@@ -1,12 +1,12 @@
 {
   "summary": {
-    "total_wines": 3190,
+    "total_wines": 3647,
     "total_sold": 3088,
-    "total_unsold": 102,
-    "sell_rate_percent": 96.8,
+    "total_unsold": 559,
+    "sell_rate_percent": 84.7,
     "overall_avg_ratio": 1.055,
     "overall_avg_premium_percent": 5.5,
-    "unique_producers": 875,
+    "unique_producers": 940,
     "producers_with_guide": 704
   },
   "producers": {
@@ -265,11 +265,11 @@
       "info": "A Grand Cru Burgundy from Bonnes-Mares, produced by Domaine Georges Roumier, widely considered the reference producer for this appellation and one of Burgundy's most sought-after estates. Winemaker Christophe Roumier crafts long-lived but approachable wines with extraordinary depth, and this bottling commands significant collector interest."
     },
     "Château Mouton Rothschild (Magnum)": {
-      "total_lots": 7,
+      "total_lots": 9,
       "sold": 7,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 20714,
+      "unsold": 2,
+      "sell_rate": 77.8,
+      "avg_estimate_sek": 24444,
       "avg_hammer_sek": 24214,
       "avg_ratio": 1.122,
       "premium_percent": 12.2,
@@ -328,11 +328,11 @@
       "info": "A premier cru red Burgundy from the prestigious Malconsorts vineyard in Vosne-Romanée, Côte de Nuits, presented in magnum. Domaine de Montille is a three-star estate known for wines of supple intensity across Côte de Nuits, Pommard, and Volnay, with the Malconsorts being a flagship holding; the Christiane cuvée is a special selection named for the family."
     },
     "Richebourg, DRC": {
-      "total_lots": 15,
+      "total_lots": 16,
       "sold": 15,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 26933,
+      "unsold": 1,
+      "sell_rate": 93.8,
+      "avg_estimate_sek": 26812,
       "avg_hammer_sek": 23667,
       "avg_ratio": 0.882,
       "premium_percent": -11.8,
@@ -390,17 +390,18 @@
       "info": "An historic bottling of the Romanée-St-Vivant Grand Cru in Vosne-Romanée under the original Domaine de Marey-Monge label before the vineyard was fully managed by DRC, offering a rare glimpse of an older era. Romanée-St-Vivant is prized for seductive perfume and a combination of delicacy and intensity considered by many more immediately beautiful than its illustrious neighbours."
     },
     "Pétrus": {
-      "total_lots": 20,
+      "total_lots": 24,
       "sold": 20,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 22950,
+      "unsold": 4,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 23708,
       "avg_hammer_sek": 22626,
       "avg_ratio": 1.013,
       "premium_percent": 1.3,
       "vintages": [
         1971,
         1973,
+        1982,
         1985,
         1989,
         1998,
@@ -411,8 +412,10 @@
         2008,
         2011,
         2012,
+        2013,
         2014,
-        2020
+        2020,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -483,11 +486,11 @@
       "info": "A Grand Cru Pinot Noir from Vosne-Romanée, Côte de Nuits, produced by Domaine de la Romanée-Conti from the historic Marey-Monge holdings. The vineyard sits downslope from Romanée-Conti and is prized for seductive perfume and an intensity that some consider even more beautiful than its famous neighbours."
     },
     "Romanée-St-Vivant, DRC": {
-      "total_lots": 21,
+      "total_lots": 23,
       "sold": 21,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 21333,
+      "unsold": 2,
+      "sell_rate": 91.3,
+      "avg_estimate_sek": 21304,
       "avg_hammer_sek": 20221,
       "avg_ratio": 0.973,
       "premium_percent": -2.7,
@@ -651,17 +654,18 @@
       "info": "The unofficial First Growth of Pomerol and one of the world's most coveted wines, made entirely from Merlot grown on a unique blue-clay plateau of just 11.5 hectares. Owned by Jean-François Moueix and his son Jean, it produces massively rich, concentrated wines built for very long ageing."
     },
     "Échézeaux, DRC": {
-      "total_lots": 15,
+      "total_lots": 18,
       "sold": 15,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 18667,
+      "unsold": 3,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 19000,
       "avg_hammer_sek": 17607,
       "avg_ratio": 0.934,
       "premium_percent": -6.6,
       "vintages": [
         1984,
         1990,
+        1991,
         1995,
         2000,
         2004,
@@ -690,16 +694,18 @@
       "info": "Domaine de la Romanée-Conti (DRC) is Burgundy's most iconic estate, and its Échézeaux is a grand cru wine from the Côte de Nuits known for its lacy, scintillating character. The 38-hectare Échézeaux appellation is highly fragmented in ownership, and DRC's holdings consistently produce wines of benchmark quality and collectability."
     },
     "Corton, DRC": {
-      "total_lots": 3,
+      "total_lots": 5,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 19333,
+      "unsold": 2,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 17600,
       "avg_hammer_sek": 17500,
       "avg_ratio": 0.911,
       "premium_percent": -8.9,
       "vintages": [
         2011,
+        2013,
+        2014,
         2015,
         2016
       ],
@@ -718,16 +724,17 @@
       "info": "Corton is a large and variable Grand Cru appellation in the Cote d'Or, capable of producing outstanding Pinot Noir when in the right hands. This bottling carries the Domaine de la Romanee-Conti label, making it among the rarest and most sought-after expressions of the appellation."
     },
     "Chambertin, Domaine Armand Rousseau": {
-      "total_lots": 6,
+      "total_lots": 8,
       "sold": 6,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 20333,
+      "unsold": 2,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 20250,
       "avg_hammer_sek": 17447,
       "avg_ratio": 0.856,
       "premium_percent": -14.4,
       "vintages": [
         2013,
+        2014,
         2017,
         2018,
         2021
@@ -754,11 +761,11 @@
       "info": "Grand Cru Pinot Noir from Chambertin in Gevrey-Chambertin, produced by Domaine Armand Rousseau, the definitive reference point for this legendary vineyard and a cornerstone of Burgundy's greatest red wines. Rousseau's Chambertin is renowned for its balance, fragrance, and majestic structure that rewards extended cellaring."
     },
     "Vosne-Romanée 1er Cru Cuvée Duvault-Blochet, DRC": {
-      "total_lots": 7,
+      "total_lots": 8,
       "sold": 7,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 16143,
+      "unsold": 1,
+      "sell_rate": 87.5,
+      "avg_estimate_sek": 16000,
       "avg_hammer_sek": 17430,
       "avg_ratio": 1.081,
       "premium_percent": 8.1,
@@ -964,16 +971,17 @@
       "info": "Grands-Echezeaux is a superlative 9-hectare Grand Cru in the Cote d'Or adjacent to Clos de Vougeot, producing wines of exceptional silkiness and structure with fine ageing potential. Domaine Rene Engel was a highly respected Vosne-Romanee estate that has since been absorbed into what is now Domaine Eugenie, making older bottles from this label increasingly rare and collectible."
     },
     "Le Pin": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 15000,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 12500,
       "avg_hammer_sek": 12000,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
       "vintages": [
-        1986
+        1986,
+        1993
       ],
       "regions": [
         "bordeaux"
@@ -1695,15 +1703,16 @@
       "info": "Red Burgundy grand cru from Clos de Vougeot in the Cote de Nuits, produced by Domaine de la Vougeraie and presented in double magnum format. The Boisset family's biodynamic estate is praised for sensual, perfumed, whole-bunch vinified grand crus that reward extended cellaring."
     },
     "Château Gloria (Magnum)": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 6000,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 3500,
       "avg_hammer_sek": 6800,
       "avg_ratio": 1.133,
       "premium_percent": 13.3,
       "vintages": [
+        2010,
         2015
       ],
       "regions": [
@@ -1788,16 +1797,17 @@
       "info": "A premier cru red Burgundy from the Malconsorts vineyard in Vosne-Romanée, Côte de Nuits, in magnum format. Domaine de Montille is a three-star estate known for reds of supple intensity; the Malconsorts is one of the estate's signature holdings in the Côte de Nuits."
     },
     "Bonnes Mares, Lucien Le Moine": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 7000,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 5500,
       "avg_hammer_sek": 6500,
       "avg_ratio": 0.929,
       "premium_percent": -7.1,
       "vintages": [
-        2016
+        2016,
+        2021
       ],
       "regions": [
         "burgundy"
@@ -1997,11 +2007,11 @@
       "info": "A well-known Moulis cru owned by Céline Villars, known for impressive, long-maturing wines with classical structure and fragrance. The estate has grown to 125 hectares following the 2023 acquisition of Château Brillette."
     },
     "Château Cheval Blanc": {
-      "total_lots": 56,
+      "total_lots": 60,
       "sold": 56,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4807,
+      "unsold": 4,
+      "sell_rate": 93.3,
+      "avg_estimate_sek": 4795,
       "avg_hammer_sek": 6074,
       "avg_ratio": 1.152,
       "premium_percent": 15.2,
@@ -2036,7 +2046,8 @@
         2016,
         2018,
         2019,
-        2021
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -2166,16 +2177,17 @@
       "info": "Lucien Le Moine is a small Beaune-based negociant known for meticulous sourcing and minimal-intervention winemaking in small parcels, offering Richebourg from this Grand Cru in Vosne-Romanee. Richebourg, adjacent to Romanee-Conti in the Cote de Nuits, is one of Burgundy's most sought-after and age-worthy Pinot Noir sites."
     },
     "Domaine de Chevalier Rouge (Magnum)": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 7000,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 5467,
       "avg_hammer_sek": 5650,
       "avg_ratio": 0.825,
       "premium_percent": -17.5,
       "vintages": [
         2001,
+        2009,
         2015
       ],
       "regions": [
@@ -2281,11 +2293,11 @@
       "info": "Echezeaux Grand Cru red from Emmanuel Rouget, nephew and successor to the legendary Henri Jayer, making him one of the most historically significant producers in this celebrated Cote de Nuits appellation. The appellation is known for lacy, ethereal, and scintillating Pinot Noir, and Rouget's bottles are among the most sought-after."
     },
     "Clos de la Roche, Domaine Armand Rousseau": {
-      "total_lots": 6,
+      "total_lots": 8,
       "sold": 6,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 5250,
+      "unsold": 2,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 5188,
       "avg_hammer_sek": 5475,
       "avg_ratio": 1.032,
       "premium_percent": 3.2,
@@ -2293,6 +2305,7 @@
         2010,
         2012,
         2013,
+        2014,
         2017
       ],
       "regions": [
@@ -2317,11 +2330,11 @@
       "info": "Red Burgundy grand cru from Clos de la Roche in Morey-Saint-Denis, Cote de Nuits, produced by the legendary Domaine Armand Rousseau of Gevrey-Chambertin. Clos de la Roche is the finest grand cru of Morey-Saint-Denis, offering a more savory than sumptuous character that rewards considerable aging."
     },
     "Musigny Vieilles Vignes, Domaine Comte Georges de Vogüé": {
-      "total_lots": 44,
+      "total_lots": 46,
       "sold": 43,
-      "unsold": 1,
-      "sell_rate": 97.7,
-      "avg_estimate_sek": 6170,
+      "unsold": 3,
+      "sell_rate": 93.5,
+      "avg_estimate_sek": 6207,
       "avg_hammer_sek": 5423,
       "avg_ratio": 0.885,
       "premium_percent": -11.5,
@@ -2479,11 +2492,11 @@
       "info": "Musigny from Domaine Drouhin-Laroze, a Gevrey-Chambertin estate with holdings across several Cote de Nuits grand crus including this supreme Chambolle-Musigny site. Musigny is rated four stars and described as the most beautiful red Burgundy, combining ethereal fragrance with deceptive delicacy that cloaks real power."
     },
     "Château Lafite-Rothschild": {
-      "total_lots": 60,
+      "total_lots": 70,
       "sold": 55,
-      "unsold": 5,
-      "sell_rate": 91.7,
-      "avg_estimate_sek": 6092,
+      "unsold": 15,
+      "sell_rate": 78.6,
+      "avg_estimate_sek": 5950,
       "avg_hammer_sek": 5304,
       "avg_ratio": 0.899,
       "premium_percent": -10.1,
@@ -2503,6 +2516,7 @@
         1981,
         1982,
         1983,
+        1986,
         1987,
         1988,
         1989,
@@ -2520,6 +2534,7 @@
         2015,
         2016,
         2017,
+        2019,
         2021
       ],
       "regions": [
@@ -2762,31 +2777,33 @@
       "info": "A Premier Cru red Burgundy from Clos Saint-Jacques in Gevrey-Chambertin, bearing the Armand Rousseau label, one of the most revered names in the Cote de Nuits. The domaine is celebrated for wines of effortless grace and exceptional longevity across its Gevrey holdings."
     },
     "Romanée-St-Vivant, Domaine de l'Arlot": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 4000,
       "avg_hammer_sek": 5000,
       "avg_ratio": 1.25,
       "premium_percent": 25.0,
       "vintages": [
-        2019
+        2019,
+        2021
       ],
       "regions": [
         "burgundy"
       ]
     },
     "Château Haut-Brion": {
-      "total_lots": 43,
+      "total_lots": 50,
       "sold": 41,
-      "unsold": 2,
-      "sell_rate": 95.3,
-      "avg_estimate_sek": 4709,
+      "unsold": 9,
+      "sell_rate": 82.0,
+      "avg_estimate_sek": 4830,
       "avg_hammer_sek": 4988,
       "avg_ratio": 1.056,
       "premium_percent": 5.6,
       "vintages": [
+        1958,
         1961,
         1966,
         1974,
@@ -2802,6 +2819,7 @@
         1988,
         1989,
         1990,
+        1993,
         1995,
         1997,
         1998,
@@ -2813,6 +2831,7 @@
         2008,
         2009,
         2012,
+        2014,
         2016
       ],
       "regions": [
@@ -2866,11 +2885,11 @@
       "info": "Mazy-Chambertin (alternate spelling of Mazis-Chambertin) from Domaine Armand Rousseau, the most iconic and highly regarded estate in Gevrey-Chambertin and one of the reference producers across the entire Cote de Nuits. Rousseau's wines command great respect for their structure in youth that resolves into extraordinary complexity with age."
     },
     "Château La Mission Haut-Brion": {
-      "total_lots": 46,
+      "total_lots": 52,
       "sold": 46,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4596,
+      "unsold": 6,
+      "sell_rate": 88.5,
+      "avg_estimate_sek": 4460,
       "avg_hammer_sek": 4900,
       "avg_ratio": 1.074,
       "premium_percent": 7.4,
@@ -2887,9 +2906,11 @@
         1986,
         1989,
         1993,
+        1994,
         1998,
         2003,
         2005,
+        2007,
         2008,
         2012,
         2016,
@@ -2948,11 +2969,11 @@
       ]
     },
     "Château Latour": {
-      "total_lots": 78,
+      "total_lots": 85,
       "sold": 78,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4758,
+      "unsold": 7,
+      "sell_rate": 91.8,
+      "avg_estimate_sek": 4866,
       "avg_hammer_sek": 4805,
       "avg_ratio": 1.025,
       "premium_percent": 2.5,
@@ -2969,6 +2990,7 @@
         1984,
         1985,
         1986,
+        1987,
         1988,
         1989,
         1990,
@@ -3467,11 +3489,11 @@
       ]
     },
     "Bonnes-Mares, Domaine Comte Georges de Vogüé": {
-      "total_lots": 8,
+      "total_lots": 9,
       "sold": 7,
-      "unsold": 1,
-      "sell_rate": 87.5,
-      "avg_estimate_sek": 3812,
+      "unsold": 2,
+      "sell_rate": 77.8,
+      "avg_estimate_sek": 3778,
       "avg_hammer_sek": 4322,
       "avg_ratio": 1.129,
       "premium_percent": 12.9,
@@ -3505,11 +3527,11 @@
       "info": "A Grand Cru Burgundy from Bonnes-Mares, produced by Domaine Comte Georges de Vogüé, one of Burgundy's most patrician estates based in Chambolle-Musigny and best known for its dominant holding in Musigny. The domaine's Bonnes-Mares is made with increasing use of whole bunches and plot-by-plot vinification, building toward both power and accessibility."
     },
     "Château Margaux": {
-      "total_lots": 73,
+      "total_lots": 82,
       "sold": 73,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3973,
+      "unsold": 9,
+      "sell_rate": 89.0,
+      "avg_estimate_sek": 3970,
       "avg_hammer_sek": 4309,
       "avg_ratio": 1.062,
       "premium_percent": 6.2,
@@ -3524,6 +3546,7 @@
         1976,
         1978,
         1979,
+        1982,
         1983,
         1985,
         1986,
@@ -3535,6 +3558,7 @@
         1993,
         1994,
         1995,
+        1996,
         1997,
         1998,
         1999,
@@ -3595,10 +3619,10 @@
       "info": "An esteemed Premier Grand Cru Classé (B) Saint-Emilion estate on the limestone plateau, owned by the Wertheimer family (also owners of Rauzan-Ségla) with significant investment. The wine is a Merlot/Cabernet Franc blend (70/30%) built for long aging."
     },
     "Chambertin Clos de Bèze Les Ouvrées Rodin, Domaine Faiveley": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 4500,
       "avg_hammer_sek": 4200,
       "avg_ratio": 0.933,
@@ -3719,16 +3743,17 @@
       "info": "A premier cru red Burgundy from the Malconsorts vineyard in Vosne-Romanée, Côte de Nuits. Domaine de Montille is a three-star estate recognised for reds of supple intensity across key Côte de Nuits and Côte de Beaune appellations, with Malconsorts as one of its defining crus."
     },
     "Château Mouton Rothschild": {
-      "total_lots": 223,
+      "total_lots": 239,
       "sold": 221,
-      "unsold": 2,
-      "sell_rate": 99.1,
-      "avg_estimate_sek": 4335,
+      "unsold": 18,
+      "sell_rate": 92.5,
+      "avg_estimate_sek": 4313,
       "avg_hammer_sek": 4132,
       "avg_ratio": 1.004,
       "premium_percent": 0.4,
       "vintages": [
         1953,
+        1958,
         1960,
         1962,
         1970,
@@ -3820,10 +3845,10 @@
       "info": "A highly regarded Fifth Growth from Pauillac, owned by the Cazes family, consistently outperforming its classification ranking. The wine is Cabernet Sauvignon-dominant (71%) and is made for long ageing, with a rich, dense character."
     },
     "Château La Gaffelière (Magnum)": {
-      "total_lots": 6,
+      "total_lots": 8,
       "sold": 4,
-      "unsold": 2,
-      "sell_rate": 66.7,
+      "unsold": 4,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 4800,
       "avg_hammer_sek": 4100,
       "avg_ratio": 0.854,
@@ -3937,11 +3962,11 @@
       ]
     },
     "Chambolle-Musigny 1er Cru Les Combottes, Domaine G. Roumier": {
-      "total_lots": 4,
+      "total_lots": 7,
       "sold": 1,
-      "unsold": 3,
-      "sell_rate": 25.0,
-      "avg_estimate_sek": 6250,
+      "unsold": 6,
+      "sell_rate": 14.3,
+      "avg_estimate_sek": 6429,
       "avg_hammer_sek": 4000,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
@@ -4039,15 +4064,16 @@
       "info": "Echezeaux Grand Cru red from Arnoux-Lachaux, a Vosne superstar under Charles Lachaux using whole bunches, minimal-intervention vinification, and greatly reduced oak for wines of outstanding purity. The domaine is consistently cited for quality and value within this lacy, ethereal, and scintillating Grand Cru appellation."
     },
     "Musigny, Domaine Ponnelle": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 5000,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 4500,
       "avg_hammer_sek": 4000,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
       "vintages": [
+        1961,
         1972
       ],
       "regions": [
@@ -4185,11 +4211,11 @@
       "info": "A highly regarded Fifth Growth from Pauillac, owned by the Cazes family, consistently outperforming its classification ranking. The wine is Cabernet Sauvignon-dominant (71%) and is made for long ageing, with a rich, dense character."
     },
     "Chambertin Clos de Bèze, Domaine Faiveley": {
-      "total_lots": 6,
+      "total_lots": 8,
       "sold": 2,
-      "unsold": 4,
-      "sell_rate": 33.3,
-      "avg_estimate_sek": 4083,
+      "unsold": 6,
+      "sell_rate": 25.0,
+      "avg_estimate_sek": 4000,
       "avg_hammer_sek": 3844,
       "avg_ratio": 0.911,
       "premium_percent": -8.9,
@@ -4355,10 +4381,10 @@
       "info": "Grands-Echezeaux is a superlative 9-hectare Grand Cru in the Cote d'Or adjacent to Clos de Vougeot, offering silkiness and more conviction than most Echezeaux. Domaine Mongeard-Mugneret is a long-established Vosne-Romanee family estate producing wines of grace and restrained vigour across appellations from Bourgogne to Ruchottes-Chambertin."
     },
     "Chambolle-Musigny 1er Cru Les Amoureuses, Joseph Drouhin": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 66.7,
       "avg_estimate_sek": 4000,
       "avg_hammer_sek": 3766,
       "avg_ratio": 0.942,
@@ -4524,15 +4550,16 @@
       "info": "A regional Bourgogne Rouge from Domaine Hubert Lamy, now run by Olivier Lamy and based in St-Aubin on the Cote d'Or. The domaine is particularly celebrated for breathtakingly fresh, concentrated, and tensely structured wines, and even its entry-level red reflects this precise, high-density approach."
     },
     "Chambertin-Clos de Bèze, Joseph Drouhin": {
-      "total_lots": 1,
+      "total_lots": 3,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4500,
+      "unsold": 2,
+      "sell_rate": 33.3,
+      "avg_estimate_sek": 3833,
       "avg_hammer_sek": 3600,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
       "vintages": [
+        2012,
         2017
       ],
       "regions": [
@@ -4746,16 +4773,17 @@
       "info": "A Premier Cru Pinot Noir from Les Amoureuses in Chambolle-Musigny, one of Burgundy's most coveted single-vineyard wines, produced by Domaine Robert Groffier, whose wines are celebrated for a flavour-packed yet delicate and bewitching style. Groffier's Les Amoureuses is considered among the finest expressions of this near-Grand Cru climat."
     },
     "Musigny, Domaine Jacques Prieur": {
-      "total_lots": 3,
+      "total_lots": 4,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 4333,
+      "unsold": 1,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 4500,
       "avg_hammer_sek": 3467,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
       "vintages": [
         2004,
+        2009,
         2016
       ],
       "regions": [
@@ -5828,16 +5856,17 @@
       "info": "A Third Growth Saint-Estèphe on top form, now dominated by Cabernet Sauvignon (72%), producing powerful yet fine and complex wines. Widely regarded as one of the appellation's most reliable estates."
     },
     "Château Sociando-Mallet (Magnum)": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3200,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 2200,
       "avg_hammer_sek": 3000,
       "avg_ratio": 0.938,
       "premium_percent": -6.2,
       "vintages": [
-        2005
+        2005,
+        2006
       ],
       "regions": [
         "bordeaux"
@@ -5989,11 +6018,11 @@
       "info": "The Clos de la Bussiere is a premier cru monopole in Morey-Saint-Denis held by Domaine Georges Roumier, one of Burgundy's four-star reference estates primarily celebrated for its Bonnes-Mares and Chambolle-Musigny wines. Roumier's wines are long-lived yet attractive in youth, and command exceptional collector demand."
     },
     "Vosne-Romanée 1er Cru Les Beaux Monts, Domaine Dujac": {
-      "total_lots": 5,
+      "total_lots": 6,
       "sold": 5,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3100,
+      "unsold": 1,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 3167,
       "avg_hammer_sek": 2920,
       "avg_ratio": 0.947,
       "premium_percent": -5.3,
@@ -6136,16 +6165,17 @@
       "info": "Jean Grivot is a four-star Vosne-Romanée domaine producing a superb range of premiers crus and grands crus, including Échézeaux, Clos de Vougeot, and Richebourg. Échézeaux is a grand cru of lacy, ethereal character adjacent to Clos de Vougeot, offering outstanding quality relative to price among Burgundy's top appellations."
     },
     "Chambertin, Domaine Trapet": {
-      "total_lots": 7,
+      "total_lots": 8,
       "sold": 7,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2286,
+      "unsold": 1,
+      "sell_rate": 87.5,
+      "avg_estimate_sek": 2375,
       "avg_hammer_sek": 2877,
       "avg_ratio": 1.29,
       "premium_percent": 29.0,
       "vintages": [
         1992,
+        1994,
         2015,
         2016,
         2018,
@@ -6173,22 +6203,25 @@
       "info": "Grand Cru Pinot Noir from Chambertin in Gevrey-Chambertin by Domaine Trapet, one of Gevrey's longest-established domaines, now farming biodynamically and producing sensual, bio-expressive wines. Trapet's Chambertin is considered one of the finest expressions of this great vineyard, ranging from deeply classical to experimentally refined."
     },
     "Château Angélus": {
-      "total_lots": 10,
+      "total_lots": 14,
       "sold": 9,
-      "unsold": 1,
-      "sell_rate": 90.0,
-      "avg_estimate_sek": 2888,
+      "unsold": 5,
+      "sell_rate": 64.3,
+      "avg_estimate_sek": 2812,
       "avg_hammer_sek": 2865,
       "avg_ratio": 1.046,
       "premium_percent": 4.6,
       "vintages": [
+        1981,
         1985,
+        1989,
         1996,
         2005,
         2006,
         2008,
         2010,
-        2011
+        2011,
+        2015
       ],
       "regions": [
         "bordeaux"
@@ -6508,19 +6541,23 @@
       "info": "A Grand Cru Burgundy from Bonnes-Mares, produced by Joseph Drouhin, one of Burgundy's most respected grower-négociants with biodynamically farmed estate vineyards and a wide range of stylish reds. Drouhin's approach to this structured, age-demanding Grand Cru emphasises elegance and purity alongside the appellation's natural power."
     },
     "Château Calon-Ségur": {
-      "total_lots": 6,
+      "total_lots": 13,
       "sold": 6,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2250,
+      "unsold": 7,
+      "sell_rate": 46.2,
+      "avg_estimate_sek": 1654,
       "avg_hammer_sek": 2740,
       "avg_ratio": 1.095,
       "premium_percent": 9.5,
       "vintages": [
         1928,
         1960,
+        1982,
         1995,
         2001,
+        2008,
+        2011,
+        2016,
         2017,
         2018
       ],
@@ -6539,15 +6576,16 @@
       "info": "A Third Growth Saint-Estèphe on top form, now dominated by Cabernet Sauvignon (72%), producing powerful yet fine and complex wines. Widely regarded as one of the appellation's most reliable estates."
     },
     "Château Pavie": {
-      "total_lots": 9,
+      "total_lots": 11,
       "sold": 9,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2811,
+      "unsold": 2,
+      "sell_rate": 81.8,
+      "avg_estimate_sek": 2700,
       "avg_hammer_sek": 2723,
       "avg_ratio": 0.985,
       "premium_percent": -1.5,
       "vintages": [
+        1985,
         1991,
         1999,
         2000,
@@ -6646,16 +6684,18 @@
       ]
     },
     "Château Trotanoy": {
-      "total_lots": 13,
+      "total_lots": 15,
       "sold": 13,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2265,
+      "unsold": 2,
+      "sell_rate": 86.7,
+      "avg_estimate_sek": 2163,
       "avg_hammer_sek": 2694,
       "avg_ratio": 1.169,
       "premium_percent": 16.9,
       "vintages": [
         1982,
+        1983,
+        1989,
         1995,
         1998,
         2004,
@@ -6915,16 +6955,17 @@
       "info": "A premier cru red Burgundy from the Les Malconsorts vineyard in Vosne-Romanée, Côte de Nuits, in magnum format, produced by Domaine du Clos Frantin under the Albert Bichot label. Albert Bichot is a major Beaune-based négociant-grower rated two-to-four stars, with a track record of significant quality improvement across its portfolio."
     },
     "Chambertin Clos de Bèze, Domaine Louis Jadot": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2625,
+      "unsold": 1,
+      "sell_rate": 80.0,
+      "avg_estimate_sek": 2600,
       "avg_hammer_sek": 2550,
       "avg_ratio": 0.973,
       "premium_percent": -2.7,
       "vintages": [
         1993,
+        2011,
         2012,
         2020
       ],
@@ -7011,11 +7052,11 @@
       "info": "A premier cru red Burgundy from the Les Beaux Monts vineyard, one of the estate's signature crus, in Vosne-Romanée, Côte de Nuits. Domaine Jean Grivot is a three-to-four-star estate now transitioning to Mathilde Grivot, producing beautiful wines including grand crus Clos de Vougeot, Echézeaux, and Richebourg."
     },
     "Château Palmer": {
-      "total_lots": 60,
+      "total_lots": 63,
       "sold": 60,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2428,
+      "unsold": 3,
+      "sell_rate": 95.2,
+      "avg_estimate_sek": 2416,
       "avg_hammer_sek": 2539,
       "avg_ratio": 1.062,
       "premium_percent": 6.2,
@@ -7095,16 +7136,17 @@
       "info": "A Premier Cru Pinot Noir from Les Amoureuses in Chambolle-Musigny, produced by Domaine Francois Bertheau, a small, traditional domaine with deep roots in the appellation. Les Amoureuses is the most bewitching of all Chambolle Premier Cru sites and is routinely considered Grand Cru in quality by collectors."
     },
     "Griotte-Chambertin, Lucien le Moine": {
-      "total_lots": 3,
+      "total_lots": 4,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2600,
+      "unsold": 1,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 2700,
       "avg_hammer_sek": 2522,
       "avg_ratio": 0.968,
       "premium_percent": -3.2,
       "vintages": [
         2010,
+        2014,
         2019
       ],
       "regions": [
@@ -7532,17 +7574,19 @@
       ]
     },
     "Château L'Eglise-Clinet": {
-      "total_lots": 3,
+      "total_lots": 5,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2467,
+      "unsold": 2,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 2180,
       "avg_hammer_sek": 2400,
       "avg_ratio": 0.965,
       "premium_percent": -3.5,
       "vintages": [
         1986,
-        1998
+        1998,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -7585,17 +7629,18 @@
       "info": "A Morey-Saint-Denis Grand Cru renowned for wines that are sumptuous when young and develop silky texture with age, produced here as a domaine and selection bottling."
     },
     "Clos de Vougeot, Lucien Le Moine": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2500,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 2667,
       "avg_hammer_sek": 2400,
       "avg_ratio": 0.96,
       "premium_percent": -4.0,
       "vintages": [
         2018,
-        2019
+        2019,
+        2020
       ],
       "regions": [
         "burgundy"
@@ -7635,16 +7680,17 @@
       "info": "A red Burgundy from one of Gevrey-Chambertin's longest-established estates, producing sensual biodynamic Pinot Noir ranging from village-level Coteaux Bourguignons to the majestic Grand Cru Chambertin. Sons Pierre and Louis Trapet are experimenting with glass globes, steel barrels, and egg-shaped vessels, continuing to evolve the estate's style."
     },
     "Latricières-Chambertin, Lucien le Moine": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 3000,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 3250,
       "avg_hammer_sek": 2400,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
       "vintages": [
-        2013
+        2013,
+        2017
       ],
       "regions": [
         "burgundy"
@@ -7746,11 +7792,11 @@
       "info": "A premier cru red Burgundy from the Clos des Réas vineyard in Vosne-Romanée, Côte de Nuits. The Gros family has long been associated with this walled monopole site; this is one of the most historic expressions of this premier cru from this prestigious village."
     },
     "Vosne-Romanée 1er Cru Les Chaumes, Domaine Arnoux-Lachaux": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 1,
-      "unsold": 1,
-      "sell_rate": 50.0,
-      "avg_estimate_sek": 2750,
+      "unsold": 2,
+      "sell_rate": 33.3,
+      "avg_estimate_sek": 2667,
       "avg_hammer_sek": 2400,
       "avg_ratio": 0.8,
       "premium_percent": -20.0,
@@ -8157,15 +8203,16 @@
       "info": "Mazis-Chambertin is one of Gevrey-Chambertin's most prestigious grand crus, producing top-class, intense red Burgundy from the upper slope that is built to age; Oliver Bernstein is explicitly named among the very best producers of this cru. The domaine focuses on meticulous sourcing from exceptional terroirs."
     },
     "Mazoyeres Chambertin, Domaine Taupenot-Merme": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 1700,
       "avg_hammer_sek": 2250,
       "avg_ratio": 1.406,
       "premium_percent": 40.6,
       "vintages": [
+        2010,
         2017
       ],
       "regions": [
@@ -8183,16 +8230,17 @@
       "info": "Mazoyeres-Chambertin is a four-star Cote de Nuits grand cru that is typically sold as Charmes-Chambertin, yet when bottled under its own name it shows a more stony, structural character with less overt succulence. Taupenot-Merme is one of the few estates singled out for producing a distinguished expression of this appellation."
     },
     "Red Bordeaux": {
-      "total_lots": 4,
+      "total_lots": 7,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2125,
+      "unsold": 3,
+      "sell_rate": 57.1,
+      "avg_estimate_sek": 2186,
       "avg_hammer_sek": 2225,
       "avg_ratio": 1.046,
       "premium_percent": 4.6,
       "vintages": [
         1983,
+        2004,
         2015
       ],
       "regions": [
@@ -8216,11 +8264,11 @@
       ]
     },
     "Vieux Château Certan": {
-      "total_lots": 8,
+      "total_lots": 11,
       "sold": 8,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2225,
+      "unsold": 3,
+      "sell_rate": 72.7,
+      "avg_estimate_sek": 2391,
       "avg_hammer_sek": 2211,
       "avg_ratio": 1.026,
       "premium_percent": 2.6,
@@ -8563,10 +8611,10 @@
       "info": "A premier cru red Burgundy from the Les Suchots vineyard in Vosne-Romanée, Côte de Nuits, produced under the Robert Arnoux label before the domaine became Arnoux-Lachaux. The estate is now a four-star Vosne superstar under Charles Lachaux with a thoroughly modernised, low-intervention approach."
     },
     "Échézeaux, Louis Latour": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 2500,
       "avg_hammer_sek": 2200,
       "avg_ratio": 0.88,
@@ -8993,11 +9041,11 @@
       "info": "Clos Saint-Denis Grand Cru in Morey-Saint-Denis produced by Benjamin Leroux, a respected Beaune-based négociant known for rock-solid consistency and subtle, refined wines across the Côte d'Or."
     },
     "Latricières-Chambertin, Domaine Trapet": {
-      "total_lots": 3,
+      "total_lots": 4,
       "sold": 2,
-      "unsold": 1,
-      "sell_rate": 66.7,
-      "avg_estimate_sek": 2500,
+      "unsold": 2,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 2375,
       "avg_hammer_sek": 2050,
       "avg_ratio": 0.82,
       "premium_percent": -18.0,
@@ -9053,11 +9101,11 @@
       "info": "A premier cru red Burgundy from the Les Gaudichots vineyard in Vosne-Romanée, Côte de Nuits, a site that borders the grand cru La Tâche. Domaine du Palais is a small producer working one of Vosne's most intriguing premier cru plots, historically associated with the Romanée-Conti estate."
     },
     "Château Léoville-Las Cases": {
-      "total_lots": 33,
+      "total_lots": 34,
       "sold": 33,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1791,
+      "unsold": 1,
+      "sell_rate": 97.1,
+      "avg_estimate_sek": 1812,
       "avg_hammer_sek": 2024,
       "avg_ratio": 1.117,
       "premium_percent": 11.7,
@@ -9085,7 +9133,8 @@
         2006,
         2008,
         2018,
-        2019
+        2019,
+        2021
       ],
       "regions": [
         "bordeaux"
@@ -9394,11 +9443,11 @@
       "info": "Echezeaux Grand Cru red Pinot Noir from Domaine du Clos Frantin, a Vosne-Romanee estate associated with Albert Bichot, offering a mature vintage from this 38 ha Grand Cru adjacent to Clos de Vougeot. The appellation is known for its lacy, ethereal, and scintillating character distinct from its neighbors."
     },
     "Gevrey-Chambertin 1er Cru Clos Saint-Jacques, Domaine Bruno Clair": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 1,
-      "unsold": 1,
-      "sell_rate": 50.0,
-      "avg_estimate_sek": 2500,
+      "unsold": 2,
+      "sell_rate": 33.3,
+      "avg_estimate_sek": 2667,
       "avg_hammer_sek": 2000,
       "avg_ratio": 1.0,
       "premium_percent": 0.0,
@@ -9477,10 +9526,10 @@
       "info": "Latricieres-Chambertin is a Grand Cru in the Cote d'Or adjacent to Chambertin, with deep soils and a cooler microclimate producing structured, meaty Pinot Noir particularly in warm, dry years. Domaine Fourrier in Gevrey-Chambertin is a four-star estate celebrated for sensual, vibrant reds from ancient vines that age beautifully, with the vieilles vignes designation highlighting the elevated parcel age."
     },
     "Nuits-Saint-Georges 1er Cru Clos des Porrets St-Georges, Domaine Henri Gouges (Magnum)": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 66.7,
       "avg_estimate_sek": 2200,
       "avg_hammer_sek": 2000,
       "avg_ratio": 0.909,
@@ -9689,17 +9738,20 @@
       ]
     },
     "Château La Conseillante": {
-      "total_lots": 15,
+      "total_lots": 25,
       "sold": 15,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1667,
+      "unsold": 10,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 1724,
       "avg_hammer_sek": 1991,
       "avg_ratio": 1.219,
       "premium_percent": 21.9,
       "vintages": [
         1990,
         2000,
+        2002,
+        2003,
+        2007,
         2008,
         2009,
         2010,
@@ -9707,7 +9759,10 @@
         2014,
         2016,
         2017,
-        2020
+        2019,
+        2020,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -9724,11 +9779,11 @@
       "info": "A prestigious four-star Pomerol estate owned by the Nicolas family for over 150 years, known for producing some of the appellation's most noble and fragrant wines. Organic practices are employed in the vineyard."
     },
     "Château L'Evangile": {
-      "total_lots": 10,
+      "total_lots": 13,
       "sold": 9,
-      "unsold": 1,
-      "sell_rate": 90.0,
-      "avg_estimate_sek": 2160,
+      "unsold": 4,
+      "sell_rate": 69.2,
+      "avg_estimate_sek": 1977,
       "avg_hammer_sek": 1972,
       "avg_ratio": 0.896,
       "premium_percent": -10.4,
@@ -9737,7 +9792,9 @@
         1984,
         2002,
         2012,
-        2016
+        2016,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -9771,17 +9828,18 @@
       ]
     },
     "Château Figeac": {
-      "total_lots": 14,
+      "total_lots": 18,
       "sold": 12,
-      "unsold": 2,
-      "sell_rate": 85.7,
-      "avg_estimate_sek": 2057,
+      "unsold": 6,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 2000,
       "avg_hammer_sek": 1956,
       "avg_ratio": 1.049,
       "premium_percent": 4.9,
       "vintages": [
         1975,
         1976,
+        1978,
         1983,
         1985,
         1986,
@@ -9808,10 +9866,10 @@
       "info": "A Premier Grand Cru Classé (A) in Saint-Emilion, family-owned by the Manoncourts, distinguished by its unusually high proportion of Cabernet Franc and Cabernet Sauvignon (70% combined) on gravelly soils, placing it among the appellation's finest estates."
     },
     "Château Pichon Longueville Comtesse de Lalande": {
-      "total_lots": 53,
+      "total_lots": 55,
       "sold": 52,
-      "unsold": 1,
-      "sell_rate": 98.1,
+      "unsold": 3,
+      "sell_rate": 94.5,
       "avg_estimate_sek": 1790,
       "avg_hammer_sek": 1945,
       "avg_ratio": 1.136,
@@ -9859,11 +9917,11 @@
       "info": "A Roederer-owned Second Growth from Pauillac, consistently among the finest wines of the appellation and renowned for its longevity and elegant, refined character. It offers more elegance than power relative to Pichon Baron, making it one of Bordeaux's benchmark reds."
     },
     "Château Cos d'Estournel": {
-      "total_lots": 43,
+      "total_lots": 46,
       "sold": 42,
-      "unsold": 1,
-      "sell_rate": 97.7,
-      "avg_estimate_sek": 1812,
+      "unsold": 4,
+      "sell_rate": 91.3,
+      "avg_estimate_sek": 1817,
       "avg_hammer_sek": 1943,
       "avg_ratio": 1.088,
       "premium_percent": 8.8,
@@ -9875,12 +9933,14 @@
         1985,
         1986,
         1989,
+        1991,
         1993,
         1995,
         2000,
         2001,
         2002,
         2003,
+        2004,
         2005,
         2006,
         2007,
@@ -9909,15 +9969,16 @@
       "info": "A prominent Second Growth Saint-Estèphe owned by Michel Reybier, producing refined, suave, long-aging red wines of considerable reputation. A Sauvignon Blanc-dominated white is also produced, now made with more freshness and zest."
     },
     "Clos de la Roche, Lucien le Moine": {
-      "total_lots": 4,
+      "total_lots": 6,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 2125,
+      "unsold": 2,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 2333,
       "avg_hammer_sek": 1925,
       "avg_ratio": 0.912,
       "premium_percent": -8.8,
       "vintages": [
+        2005,
         2011,
         2014,
         2018,
@@ -10117,17 +10178,18 @@
       "info": "A premier cru red Burgundy from Nuits-Saint-Georges by Domaine Arnoux-Lachaux, a 4-star Vosne superstar under Charles Lachaux, now vinifying with no-till viticulture, high-trellised vines, whole bunches, and minimal oak for a lighter, more precise style. Clos des Corvees Pagets is a Premeaux clos known for elegance within the appellation."
     },
     "Clos Saint-Denis, Lucien Le Moine": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1800,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 2033,
       "avg_hammer_sek": 1880,
       "avg_ratio": 1.049,
       "premium_percent": 4.9,
       "vintages": [
         2011,
-        2013
+        2013,
+        2019
       ],
       "regions": [
         "burgundy"
@@ -10290,11 +10352,11 @@
       "info": "A mixed lot pairing Petit-Figeac, the second wine of Chateau Figeac, a Premier Grand Cru Classe (A) in Saint-Emilion, with a 2018 Gevrey-Chambertin Premier Cru from Domaine Faiveley. Figeac is distinguished by unusually gravelly soils and a rare 70% Cabernet Franc and Cabernet Sauvignon blend, setting it apart from most Right Bank Bordeaux."
     },
     "Château Ducru-Beaucaillou": {
-      "total_lots": 25,
+      "total_lots": 31,
       "sold": 25,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1768,
+      "unsold": 6,
+      "sell_rate": 80.6,
+      "avg_estimate_sek": 1916,
       "avg_hammer_sek": 1805,
       "avg_ratio": 1.049,
       "premium_percent": 4.9,
@@ -10334,11 +10396,11 @@
       "info": "An outstanding Second Growth Saint-Julien with a strong Cabernet Sauvignon emphasis (85%), consistently producing classic, cedar-scented clarets built for long aging. One of the most reliable addresses in the Médoc."
     },
     "Château Montrose": {
-      "total_lots": 51,
+      "total_lots": 58,
       "sold": 51,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1810,
+      "unsold": 7,
+      "sell_rate": 87.9,
+      "avg_estimate_sek": 1843,
       "avg_hammer_sek": 1801,
       "avg_ratio": 1.013,
       "premium_percent": 1.3,
@@ -10620,11 +10682,11 @@
       "info": "A mixed lot pairing a Gevrey-Chambertin Les Seuvrées from the bewitching Domaine Robert Groffier with a Nuits-Saint-Georges Premier Cru Les Roncieres from the reference Domaine Robert Chevillon. Groffier's flavour-packed yet delicate style contrasts with Chevillon's dark-fruited, muscular Premier Crus."
     },
     "Nuits-Saint-Georges 1er Cru Les Procès, Domaine Arnoux-Lachaux": {
-      "total_lots": 3,
+      "total_lots": 4,
       "sold": 2,
-      "unsold": 1,
-      "sell_rate": 66.7,
-      "avg_estimate_sek": 2133,
+      "unsold": 2,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 2100,
       "avg_hammer_sek": 1800,
       "avg_ratio": 0.818,
       "premium_percent": -18.2,
@@ -10697,11 +10759,11 @@
       "info": "A double magnum of village Pommard from Domaine Germain Pere et Fils, a Cote de Beaune producer, presenting structured Pinot Noir in a large format suited to long cellaring. Pommard's village wines provide an approachable entry to an appellation renowned for its Premier Crus."
     },
     "Château Lynch-Bages": {
-      "total_lots": 34,
+      "total_lots": 47,
       "sold": 32,
-      "unsold": 2,
-      "sell_rate": 94.1,
-      "avg_estimate_sek": 1612,
+      "unsold": 15,
+      "sell_rate": 68.1,
+      "avg_estimate_sek": 1617,
       "avg_hammer_sek": 1784,
       "avg_ratio": 1.107,
       "premium_percent": 10.7,
@@ -10723,12 +10785,15 @@
         2001,
         2002,
         2003,
+        2004,
         2005,
         2006,
         2007,
+        2008,
         2009,
         2010,
         2016,
+        2017,
         2018,
         2020,
         2021
@@ -10799,11 +10864,11 @@
       ]
     },
     "Chambolle-Musigny, Domaine Comte Georges de Vogüé": {
-      "total_lots": 3,
+      "total_lots": 4,
       "sold": 2,
-      "unsold": 1,
-      "sell_rate": 66.7,
-      "avg_estimate_sek": 3200,
+      "unsold": 2,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 3900,
       "avg_hammer_sek": 1766,
       "avg_ratio": 0.967,
       "premium_percent": -3.3,
@@ -10867,17 +10932,22 @@
       "info": "Charmes-Chambertin is a 4-star Grand Cru from Gevrey in the Cote d'Or, offering rich, smooth Pinot Noir with abundant berry and cherry fruit and a sumptuous texture. Joseph Drouhin is a distinguished Beaune-based grower-negociant known for a wide range of stylish reds and whites, including holdings across major Cote d'Or appellations."
     },
     "Château d'Armailhac": {
-      "total_lots": 2,
+      "total_lots": 8,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1700,
+      "unsold": 6,
+      "sell_rate": 25.0,
+      "avg_estimate_sek": 1012,
       "avg_hammer_sek": 1755,
       "avg_ratio": 1.11,
       "premium_percent": 11.0,
       "vintages": [
         1995,
-        1999
+        1999,
+        2004,
+        2005,
+        2009,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -11196,11 +11266,11 @@
       "info": "Les Cailles is a premier cru from the central, most prestigious zone of Nuits-Saint-Georges, known for dense, dark plummy wines built for long aging. Domaine Robert Chevillon, a benchmark estate in the appellation, produces dark-fruited, structured but balanced wines with Les Cailles among its top long-term cuvees."
     },
     "Nuits-Saint-Georges 1er Cru Clos de la Maréchale, Jacques-Frédéric Mugnier": {
-      "total_lots": 6,
+      "total_lots": 8,
       "sold": 5,
-      "unsold": 1,
-      "sell_rate": 83.3,
-      "avg_estimate_sek": 1883,
+      "unsold": 3,
+      "sell_rate": 62.5,
+      "avg_estimate_sek": 1862,
       "avg_hammer_sek": 1700,
       "avg_ratio": 0.889,
       "premium_percent": -11.1,
@@ -11209,6 +11279,7 @@
         2005,
         2006,
         2008,
+        2009,
         2016
       ],
       "regions": [
@@ -11233,11 +11304,11 @@
       "info": "A premier cru red Burgundy from the Premeaux end of Nuits-Saint-Georges by Jacques-Frederic Mugnier, a 4-star grower outstanding for his Chambolle-Musigny Les Amoureuses and Musigny, producing wines of finesse and restraint rather than power. Clos de la Marechale is a Premeaux vineyard known for elegance within the appellation."
     },
     "Les Forts de Latour": {
-      "total_lots": 12,
+      "total_lots": 13,
       "sold": 12,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1633,
+      "unsold": 1,
+      "sell_rate": 92.3,
+      "avg_estimate_sek": 1623,
       "avg_hammer_sek": 1692,
       "avg_ratio": 1.057,
       "premium_percent": 5.7,
@@ -11475,11 +11546,11 @@
       "info": "A Premier Cru red Burgundy from Lavaut Saint-Jacques in Gevrey-Chambertin, made by Domaine Duroché. Pierre Duroché is regarded as a flag carrier for the Gevrey appellation, producing wines that balance richness and depth with elegance and finesse that reward cellaring."
     },
     "Charmes-Chambertin, Domaine Arlaud": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1500,
+      "unsold": 1,
+      "sell_rate": 80.0,
+      "avg_estimate_sek": 1520,
       "avg_hammer_sek": 1632,
       "avg_ratio": 1.088,
       "premium_percent": 8.8,
@@ -11580,11 +11651,11 @@
       "info": "Domaine Dujac is a four-star Morey-Saint-Denis grower producing Pinot Noirs across all levels from village wine to outstanding grand crus, celebrated for sensual reds that age into wines of delicate intensity. Strengths include Clos de la Roche, Clos Saint-Denis, and Echezeaux, alongside good whites from Morey and Puligny."
     },
     "Chambolle-Musigny 1er Cru Les Sentiers, Domaine Robert Groffier": {
-      "total_lots": 5,
+      "total_lots": 6,
       "sold": 4,
-      "unsold": 1,
-      "sell_rate": 80.0,
-      "avg_estimate_sek": 1540,
+      "unsold": 2,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 1533,
       "avg_hammer_sek": 1619,
       "avg_ratio": 1.044,
       "premium_percent": 4.4,
@@ -11616,11 +11687,11 @@
       "info": "Les Sentiers is a Chambolle-Musigny premier cru delivering the village's hallmark silky, flavour-packed Pinot Noir character from the Cote de Nuits. Domaine Robert Groffier produces wines that are simultaneously intense and delicate, with a bewitching style widely praised by collectors."
     },
     "Château Pichon Longueville Baron": {
-      "total_lots": 31,
+      "total_lots": 36,
       "sold": 31,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1526,
+      "unsold": 5,
+      "sell_rate": 86.1,
+      "avg_estimate_sek": 1550,
       "avg_hammer_sek": 1612,
       "avg_ratio": 1.067,
       "premium_percent": 6.7,
@@ -11638,6 +11709,7 @@
         2001,
         2002,
         2003,
+        2004,
         2005,
         2006,
         2007,
@@ -11647,7 +11719,8 @@
         2011,
         2014,
         2015,
-        2017
+        2017,
+        2021
       ],
       "regions": [
         "bordeaux"
@@ -11664,11 +11737,11 @@
       "info": "A Roederer-owned Second Growth from Pauillac, consistently ranked among the top performers of the appellation and capable of very long ageing. The wine shows famous breed with elegance, though slightly less power than its neighbour Pichon Baron."
     },
     "Château Pontet-Canet": {
-      "total_lots": 55,
+      "total_lots": 69,
       "sold": 55,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1627,
+      "unsold": 14,
+      "sell_rate": 79.7,
+      "avg_estimate_sek": 1585,
       "avg_hammer_sek": 1604,
       "avg_ratio": 1.004,
       "premium_percent": 0.4,
@@ -11691,6 +11764,7 @@
         2009,
         2010,
         2011,
+        2012,
         2014,
         2015,
         2016,
@@ -11767,10 +11841,10 @@
       "info": "A Premier Cru old-vine Pinot Noir from La Combe d'Orveau in Chambolle-Musigny, produced by Domaine Perrot-Minot. La Combe d'Orveau is one of Chambolle-Musigny's most substantive Premier Cru sites, adding structure to the appellation's characteristic silkiness, and old vines further concentrate and deepen the wine's character."
     },
     "Chambolle-Musigny, Domaine Arnoux-Lachaux": {
-      "total_lots": 3,
+      "total_lots": 5,
       "sold": 2,
-      "unsold": 1,
-      "sell_rate": 66.7,
+      "unsold": 3,
+      "sell_rate": 40.0,
       "avg_estimate_sek": 2000,
       "avg_hammer_sek": 1600,
       "avg_ratio": 0.8,
@@ -12021,10 +12095,10 @@
       "info": "Red Burgundy grand cru from Clos de la Roche in Morey-Saint-Denis, Cote de Nuits, produced by Coquard Loison-Fleurot. The appellation is regarded as the finest grand cru of Morey-Saint-Denis, combining savory depth with elegance and a renowned ability to develop over many years in the cellar."
     },
     "Clos de la Roche, Domaine Arlaud": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 1,
-      "unsold": 1,
-      "sell_rate": 50.0,
+      "unsold": 2,
+      "sell_rate": 33.3,
       "avg_estimate_sek": 2000,
       "avg_hammer_sek": 1600,
       "avg_ratio": 0.8,
@@ -12407,11 +12481,11 @@
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru known for its abundant, smooth fruit and sumptuous texture, including the adjacent Mazoyeres-Chambertin. Domaine Taupenot-Merme is a respected estate in Morey-Saint-Denis with holdings across multiple grand cru sites in the Cote de Nuits."
     },
     "Château Léoville Poyferré": {
-      "total_lots": 37,
+      "total_lots": 38,
       "sold": 37,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1405,
+      "unsold": 1,
+      "sell_rate": 97.4,
+      "avg_estimate_sek": 1411,
       "avg_hammer_sek": 1586,
       "avg_ratio": 1.15,
       "premium_percent": 15.0,
@@ -12455,11 +12529,11 @@
       "info": "A Saint-Julien Second Growth held by the Cuvelier family since 1920, consistently reaching Super Second quality with dark, rich, and spicy wines built for long ageing. The blend is Cabernet Sauvignon-led with contributions from Merlot, Cabernet Franc, and Petit Verdot."
     },
     "Clos de Vougeot, Domaine Faiveley": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 3,
-      "unsold": 1,
-      "sell_rate": 75.0,
-      "avg_estimate_sek": 1525,
+      "unsold": 2,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 1540,
       "avg_hammer_sek": 1583,
       "avg_ratio": 1.056,
       "premium_percent": 5.6,
@@ -12517,18 +12591,21 @@
       "info": "Corton Rognet is a parcel within the large and variable Cote d'Or Grand Cru appellation, producing Pinot Noir that can range from dull to stellar. Domaine Taupenot-Merme is a family estate based in Morey-Saint-Denis with holdings across the Cote de Nuits and Cote de Beaune."
     },
     "Château Canon": {
-      "total_lots": 5,
+      "total_lots": 8,
       "sold": 5,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1360,
+      "unsold": 3,
+      "sell_rate": 62.5,
+      "avg_estimate_sek": 1262,
       "avg_hammer_sek": 1565,
       "avg_ratio": 1.135,
       "premium_percent": 13.5,
       "vintages": [
         1990,
         2005,
+        2007,
+        2009,
         2015,
+        2017,
         2021
       ],
       "regions": [
@@ -12546,11 +12623,11 @@
       "info": "An esteemed Premier Grand Cru Classé (B) Saint-Emilion estate on the limestone plateau, owned by the Wertheimer family (also owners of Rauzan-Ségla) with significant investment. The wine is a Merlot/Cabernet Franc blend (70/30%) built for long aging."
     },
     "Carruades de Lafite": {
-      "total_lots": 8,
+      "total_lots": 9,
       "sold": 7,
-      "unsold": 1,
-      "sell_rate": 87.5,
-      "avg_estimate_sek": 1862,
+      "unsold": 2,
+      "sell_rate": 77.8,
+      "avg_estimate_sek": 2011,
       "avg_hammer_sek": 1558,
       "avg_ratio": 0.929,
       "premium_percent": -7.1,
@@ -12579,11 +12656,11 @@
       "info": "The second label of Chateau Lafite Rothschild in Pauillac, Bordeaux, producing around 20,000 cases per year from younger vines and declassified lots. Typically more accessible in youth than the grand vin, it nonetheless shares the estate's Cabernet Sauvignon-dominant DNA and genuine aging potential, often trading at Second Growth prices."
     },
     "Château Gruaud Larose": {
-      "total_lots": 29,
+      "total_lots": 32,
       "sold": 29,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1566,
+      "unsold": 3,
+      "sell_rate": 90.6,
+      "avg_estimate_sek": 1531,
       "avg_hammer_sek": 1552,
       "avg_ratio": 1.044,
       "premium_percent": 4.4,
@@ -12604,6 +12681,7 @@
         2005,
         2006,
         2008,
+        2009,
         2010,
         2013,
         2015,
@@ -12640,16 +12718,17 @@
       ]
     },
     "Le Petit Mouton de Mouton Rothschild": {
-      "total_lots": 2,
+      "total_lots": 5,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1600,
+      "unsold": 3,
+      "sell_rate": 40.0,
+      "avg_estimate_sek": 1840,
       "avg_hammer_sek": 1550,
       "avg_ratio": 1.025,
       "premium_percent": 2.5,
       "vintages": [
         1996,
+        2005,
         2015
       ],
       "regions": [
@@ -12667,17 +12746,18 @@
       "info": "Le Petit Mouton de Mouton Rothschild is the second wine of Chateau Mouton Rothschild, the Pauillac First Growth owned by the Rothschild family since 1853 and celebrated as the most exotic and voluptuous of Pauillac's First Growths. It delivers the estate's opulent, Cabernet Sauvignon-driven style in a slightly lighter and earlier-drinking format."
     },
     "Pommard 1er Cru Epenots, Louis Jadot": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1200,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 1000,
       "avg_hammer_sek": 1550,
       "avg_ratio": 1.282,
       "premium_percent": 28.2,
       "vintages": [
         2002,
-        2005
+        2005,
+        2007
       ],
       "regions": [
         "burgundy"
@@ -12767,11 +12847,11 @@
       "info": "A premier cru red Burgundy from old vines in the Les Chaumes vineyard of Vosne-Romanée, Côte de Nuits. Domaine Fourrier is a four-star Gevrey-Chambertin estate producing sensual, vibrant reds with magical fruit from ancient vines, best known for Clos Saint-Jacques, Combe aux Moines, and Griotte-Chambertin."
     },
     "Vosne-Romanée, Domaine Arnoux-Lachaux": {
-      "total_lots": 5,
+      "total_lots": 6,
       "sold": 4,
-      "unsold": 1,
-      "sell_rate": 80.0,
-      "avg_estimate_sek": 1760,
+      "unsold": 2,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 1667,
       "avg_hammer_sek": 1544,
       "avg_ratio": 0.812,
       "premium_percent": -18.8,
@@ -12924,10 +13004,10 @@
       "info": "Pavillon Rouge is the second label of Chateau Margaux, the First Growth of the Margaux appellation, known for extraordinary perfume, seductive texture, and long aging potential dominated by Cabernet Sauvignon. Owned by the Mentzelopoulos family since 1977, it offers a consistent and approachable entry point to the Margaux style across many vintages."
     },
     "Chambolle-Musigny 1er Cru Les Hauts-Doix, Domaine Robert Groffier": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 3,
-      "unsold": 1,
-      "sell_rate": 75.0,
+      "unsold": 2,
+      "sell_rate": 60.0,
       "avg_estimate_sek": 1500,
       "avg_hammer_sek": 1517,
       "avg_ratio": 1.011,
@@ -13815,16 +13895,17 @@
       "info": "A well-positioned estate in Saint-Estèphe with a large riverside vineyard adjacent to Montrose, producing structured, age-worthy claret led by Cabernet Sauvignon with a notable proportion of Petit Verdot. It is considered a strong value proposition among the appellation's Cru Bourgeois-level estates."
     },
     "Château Mouton Baronne Philippe": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1250,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 1333,
       "avg_hammer_sek": 1350,
       "avg_ratio": 1.117,
       "premium_percent": 11.7,
       "vintages": [
         1974,
+        1978,
         1985
       ],
       "regions": [
@@ -14032,11 +14113,11 @@
       ]
     },
     "Château Haut-Bailly": {
-      "total_lots": 10,
+      "total_lots": 11,
       "sold": 10,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1160,
+      "unsold": 1,
+      "sell_rate": 90.9,
+      "avg_estimate_sek": 1145,
       "avg_hammer_sek": 1302,
       "avg_ratio": 1.112,
       "premium_percent": 11.2,
@@ -14132,11 +14213,11 @@
       ]
     },
     "Gevrey-Chambertin 1er Cru Cazetiers, Domaine Bruno Clair": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1550,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 1567,
       "avg_hammer_sek": 1300,
       "avg_ratio": 0.84,
       "premium_percent": -16.0,
@@ -14359,11 +14440,11 @@
       "info": "Premier Cru Pinot Noir from Volnay, Côte de Beaune, produced by the biodynamic Domaine Marquis d'Angerville, widely regarded as the reference estate of the appellation. The domaine is known for elegant, balanced, and harmonious wines that are the quintessential expression of Volnay."
     },
     "Nuits-Saint-Georges 1er Cru Les Saint-Georges, Thibault Liger-Belair": {
-      "total_lots": 8,
+      "total_lots": 9,
       "sold": 8,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1188,
+      "unsold": 1,
+      "sell_rate": 88.9,
+      "avg_estimate_sek": 1189,
       "avg_hammer_sek": 1296,
       "avg_ratio": 1.109,
       "premium_percent": 10.9,
@@ -14571,11 +14652,11 @@
       "info": "Latricieres-Chambertin is a Grand Cru in the Cote d'Or adjacent to Chambertin, producing structured and meaty Pinot Noir from a cool, deep-soiled site. Domaine Faiveley, a historic Burgundy house of nearly 200 years, has been transformed by Erwan Faiveley since 2005 from a serviceable producer into an exciting one."
     },
     "Château Léoville Barton": {
-      "total_lots": 26,
+      "total_lots": 30,
       "sold": 25,
-      "unsold": 1,
-      "sell_rate": 96.2,
-      "avg_estimate_sek": 1304,
+      "unsold": 5,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 1250,
       "avg_hammer_sek": 1260,
       "avg_ratio": 0.976,
       "premium_percent": -2.4,
@@ -14592,7 +14673,10 @@
         2011,
         2012,
         2016,
-        2018
+        2018,
+        2020,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -14756,11 +14840,11 @@
       "info": "A Pomerol estate owned by Henri Parent, producing Merlot-dominant (90%+) wines of rich, suave character with genuine aging potential."
     },
     "Château Clinet": {
-      "total_lots": 12,
+      "total_lots": 13,
       "sold": 12,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1217,
+      "unsold": 1,
+      "sell_rate": 92.3,
+      "avg_estimate_sek": 1215,
       "avg_hammer_sek": 1235,
       "avg_ratio": 0.994,
       "premium_percent": -0.6,
@@ -14906,11 +14990,11 @@
       "info": "Premier Cru Pinot Noir from Volnay, Côte de Beaune, produced by the celebrated biodynamic Domaine des Comtes Lafon, primarily known for its benchmark Meursaults. Volnay Santenots is singled out as one of the finest red wines of the entire Côte de Beaune."
     },
     "Château Smith Haut-Lafitte Rouge": {
-      "total_lots": 16,
+      "total_lots": 17,
       "sold": 16,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1119,
+      "unsold": 1,
+      "sell_rate": 94.1,
+      "avg_estimate_sek": 1141,
       "avg_hammer_sek": 1206,
       "avg_ratio": 1.082,
       "premium_percent": 8.2,
@@ -14920,6 +15004,7 @@
         1979,
         1995,
         1998,
+        2005,
         2006,
         2008,
         2009,
@@ -15551,15 +15636,16 @@
       "info": "A red Burgundy from the Les Malconsorts vineyard in Vosne-Romanée, Côte de Nuits, produced by Domaine du Clos Frantin, the Nuits-based estate of négociant Albert Bichot. Malconsorts is one of Vosne's most celebrated premier cru sites, bordering La Tâche."
     },
     "Château La Tour Haut-Brion": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 2333,
       "avg_hammer_sek": 1194,
       "avg_ratio": 1.194,
       "premium_percent": 19.4,
       "vintages": [
+        1959,
         1973,
         1995
       ],
@@ -15606,15 +15692,16 @@
       "info": "Red Burgundy grand cru from Corton in the Cote de Beaune, produced by Pierre-Olivier Garcia under the Baie par Baie label, denoting a meticulous berry-by-berry selection approach. Corton is a large and variable grand cru appellation where such attention to detail is key to achieving stellar results."
     },
     "Domaine de Chevalier Rouge": {
-      "total_lots": 14,
+      "total_lots": 20,
       "sold": 12,
-      "unsold": 2,
-      "sell_rate": 85.7,
-      "avg_estimate_sek": 1207,
+      "unsold": 8,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 1170,
       "avg_hammer_sek": 1187,
       "avg_ratio": 1.073,
       "premium_percent": 7.3,
       "vintages": [
+        1978,
         1988,
         1995,
         1999,
@@ -15623,7 +15710,9 @@
         2008,
         2009,
         2015,
-        2016
+        2016,
+        2017,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -15815,17 +15904,19 @@
       "info": "A Premier Grand Cru Classé (B) Saint-Emilion estate owned by Moueix, situated on the limestone plateau and côtes. Major investment in both vineyard and a Herzog & de Meuron-designed winery signals serious long-term ambition."
     },
     "Château Les Carmes Haut-Brion": {
-      "total_lots": 2,
+      "total_lots": 6,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1250,
+      "unsold": 4,
+      "sell_rate": 33.3,
+      "avg_estimate_sek": 1350,
       "avg_hammer_sek": 1150,
       "avg_ratio": 0.95,
       "premium_percent": -5.0,
       "vintages": [
+        2005,
         2010,
-        2021
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -15956,11 +16047,11 @@
       "info": "A leading Second Growth from Margaux owned by the Wertheimer family of Chanel, producing fragrant, structured red wines from limestone-clay and gravel soils with a predominantly Cabernet Sauvignon blend. It consistently ranks among the top performers in the appellation."
     },
     "Château Beychevelle": {
-      "total_lots": 16,
+      "total_lots": 25,
       "sold": 16,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1169,
+      "unsold": 9,
+      "sell_rate": 64.0,
+      "avg_estimate_sek": 1052,
       "avg_hammer_sek": 1132,
       "avg_ratio": 0.983,
       "premium_percent": -1.7,
@@ -15974,7 +16065,10 @@
         2007,
         2013,
         2016,
-        2019
+        2019,
+        2020,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -16555,11 +16649,11 @@
       "info": "A premier cru red Burgundy from the Les Malconsorts vineyard in Vosne-Romanée, Côte de Nuits, produced by Domaine du Clos Frantin under the Albert Bichot umbrella. Albert Bichot is a major Beaune négociant-grower with biodynamic estates across Burgundy, showing impressive quality improvement in recent vintages."
     },
     "Château Talbot": {
-      "total_lots": 23,
+      "total_lots": 32,
       "sold": 23,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1039,
+      "unsold": 9,
+      "sell_rate": 71.9,
+      "avg_estimate_sek": 1122,
       "avg_hammer_sek": 1098,
       "avg_ratio": 1.052,
       "premium_percent": 5.2,
@@ -16581,6 +16675,7 @@
         2010,
         2012,
         2016,
+        2018,
         2020
       ],
       "regions": [
@@ -16702,11 +16797,11 @@
       "info": "A Premier Cru red Burgundy from the Cazetiers vineyard in Gevrey-Chambertin, produced by Domaine Faiveley, a venerable Burgundy house celebrating 200 years in 2025. Once a straightforward negociant, Faiveley has been revitalised by Erwan Faiveley since 2005 and now produces genuinely exciting wines."
     },
     "Pauillac de Latour": {
-      "total_lots": 5,
+      "total_lots": 6,
       "sold": 5,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1040,
+      "unsold": 1,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 1033,
       "avg_hammer_sek": 1072,
       "avg_ratio": 1.035,
       "premium_percent": 3.5,
@@ -16731,11 +16826,11 @@
       "info": "Pauillac de Latour is the second wine of Chateau Latour, one of Pauillac's three First Growths in the Haut-Medoc, offering access to the estate's Cabernet Sauvignon-dominant style at a more approachable level. Pauillac is celebrated for producing some of Bordeaux's longest-lived red wines, and the second label retains the appellation's characteristic structure."
     },
     "Château Canon La Gaffelière": {
-      "total_lots": 4,
+      "total_lots": 7,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1100,
+      "unsold": 3,
+      "sell_rate": 57.1,
+      "avg_estimate_sek": 1071,
       "avg_hammer_sek": 1070,
       "avg_ratio": 0.968,
       "premium_percent": -3.2,
@@ -16743,7 +16838,8 @@
         2009,
         2010,
         2015,
-        2016
+        2016,
+        2021
       ],
       "regions": [
         "bordeaux"
@@ -17054,11 +17150,11 @@
       "info": "A premier cru red Burgundy from Nuits-Saint-Georges by Domaine de l'Arlot, a well-regarded estate in this important Cote d'Or appellation known for structured, dark-fruited wines with good aging potential. The appellation spans three distinct zones ranging from elegant Premeaux clos to dense central vineyards and finer northern sites."
     },
     "Château Grand-Puy-Lacoste": {
-      "total_lots": 11,
+      "total_lots": 18,
       "sold": 11,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 873,
+      "unsold": 7,
+      "sell_rate": 61.1,
+      "avg_estimate_sek": 922,
       "avg_hammer_sek": 1020,
       "avg_ratio": 1.157,
       "premium_percent": 15.7,
@@ -17066,6 +17162,7 @@
         1978,
         1983,
         1986,
+        2004,
         2005,
         2010,
         2014,
@@ -17116,11 +17213,11 @@
       "info": "A premier cru red Burgundy from the Premeaux end of Nuits-Saint-Georges, known for elegance within the appellation's structured, dark-fruited character. Domaine de l'Arlot is a respected estate in this major Cote d'Or appellation, which rates between 2 and 4 stars depending on vineyard and vintage."
     },
     "Château Clerc Milon": {
-      "total_lots": 9,
+      "total_lots": 10,
       "sold": 9,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 944,
+      "unsold": 1,
+      "sell_rate": 90.0,
+      "avg_estimate_sek": 1450,
       "avg_hammer_sek": 1011,
       "avg_ratio": 1.084,
       "premium_percent": 8.4,
@@ -17130,6 +17227,7 @@
         1996,
         2002,
         2004,
+        2005,
         2006,
         2010,
         2016
@@ -17198,16 +17296,17 @@
       ]
     },
     "Château Rausan-Ségla": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1100,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 1400,
       "avg_hammer_sek": 1000,
       "avg_ratio": 0.917,
       "premium_percent": -8.3,
       "vintages": [
         1975,
+        1982,
         1983
       ],
       "regions": [
@@ -17445,17 +17544,20 @@
       "info": "A village-level red Burgundy from Vosne-Romanée, Côte de Nuits, produced by Camille Giroud, a historic Beaune négociant known for traditional, long-aged wines. Vosne-Romanée is considered the most patrician village in Burgundy, consistently producing wines of special character."
     },
     "Château Gazin": {
-      "total_lots": 2,
+      "total_lots": 5,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 800,
+      "unsold": 3,
+      "sell_rate": 40.0,
+      "avg_estimate_sek": 840,
       "avg_hammer_sek": 996,
       "avg_ratio": 1.343,
       "premium_percent": 34.3,
       "vintages": [
         1979,
-        2015
+        2013,
+        2015,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -17488,11 +17590,11 @@
       ]
     },
     "Château d'Issan": {
-      "total_lots": 15,
+      "total_lots": 16,
       "sold": 15,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 920,
+      "unsold": 1,
+      "sell_rate": 93.8,
+      "avg_estimate_sek": 900,
       "avg_hammer_sek": 986,
       "avg_ratio": 1.121,
       "premium_percent": 12.1,
@@ -17501,6 +17603,7 @@
         1981,
         1982,
         1989,
+        1994,
         2002,
         2009,
         2012,
@@ -17575,11 +17678,11 @@
       ]
     },
     "Château Batailley": {
-      "total_lots": 14,
+      "total_lots": 17,
       "sold": 14,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 879,
+      "unsold": 3,
+      "sell_rate": 82.4,
+      "avg_estimate_sek": 835,
       "avg_hammer_sek": 980,
       "avg_ratio": 1.157,
       "premium_percent": 15.7,
@@ -17590,10 +17693,13 @@
         1998,
         1999,
         2009,
+        2010,
         2011,
         2012,
         2015,
-        2016
+        2016,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -17672,17 +17778,18 @@
       "info": "A premier cru monopole red Burgundy from Nuits-Saint-Georges by Domaine de l'Arlot, one of the estate's flagship clos situated in the Premeaux end of the appellation, known for producing more elegant expressions within this major Cote d'Or AOP. The appellation spans three terroir zones rated between 2 and 4 stars."
     },
     "Château Giscours": {
-      "total_lots": 29,
+      "total_lots": 36,
       "sold": 29,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 926,
+      "unsold": 7,
+      "sell_rate": 80.6,
+      "avg_estimate_sek": 924,
       "avg_hammer_sek": 972,
       "avg_ratio": 1.056,
       "premium_percent": 5.6,
       "vintages": [
         1975,
         1979,
+        1986,
         1992,
         1995,
         1996,
@@ -17692,8 +17799,11 @@
         2001,
         2002,
         2003,
+        2005,
         2006,
+        2008,
         2009,
+        2010,
         2015,
         2016,
         2020,
@@ -17896,15 +18006,16 @@
       "info": "A well-positioned estate in Saint-Estèphe with a large riverside vineyard adjacent to Montrose, producing structured, age-worthy claret led by Cabernet Sauvignon with a notable proportion of Petit Verdot. It is considered a strong value proposition among the appellation's Cru Bourgeois-level estates."
     },
     "Château Branaire Duluc-Ducru": {
-      "total_lots": 2,
+      "total_lots": 5,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 900,
+      "unsold": 3,
+      "sell_rate": 40.0,
+      "avg_estimate_sek": 960,
       "avg_hammer_sek": 950,
       "avg_ratio": 1.069,
       "premium_percent": 6.9,
       "vintages": [
+        1986,
         1996,
         2001
       ],
@@ -17956,16 +18067,17 @@
       "info": "A Clos de Vougeot Grand Cru from Olivier Guyot, a producer from this multi-owner Côte de Nuits Grand Cru that has been steadily improving and shedding its previously variable reputation."
     },
     "Corton Le Rognet, Maison Ambroise": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 1000,
       "avg_hammer_sek": 950,
       "avg_ratio": 0.95,
       "premium_percent": -5.0,
       "vintages": [
-        1996
+        1996,
+        2009
       ],
       "regions": [
         "burgundy"
@@ -18337,16 +18449,17 @@
       ]
     },
     "Château Haut-Batailley": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 1000,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 800,
       "avg_hammer_sek": 900,
       "avg_ratio": 0.9,
       "premium_percent": -10.0,
       "vintages": [
-        1989
+        1989,
+        2015
       ],
       "regions": [
         "bordeaux"
@@ -18396,10 +18509,10 @@
       "info": "Corton Grand Cru red from Domaine Rapet Pere et Fils, a family estate with over 4 ha on the hill of Corton as the foundation of their 25 ha holding. Rapet's style ranges from lush, plump Corton-Charlemagne to lean, mineral expressions across the appellation."
     },
     "Corton-Pougets, Héritiers Louis Jadot - Louis Jadot": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 66.7,
       "avg_estimate_sek": 1000,
       "avg_hammer_sek": 900,
       "avg_ratio": 0.9,
@@ -18448,11 +18561,11 @@
       "info": "Gevrey-Chambertin Premier Cru Au Closeau is a structured red Pinot Noir from one of the Cote de Nuits' most important appellations, produced by Louis Jadot, the major Beaune merchant with extensive Burgundy holdings since 1859. Gevrey-Chambertin is known for reds of substance and structure, and Jadot's Premier Cru and Grand Cru portfolio has been gaining conviction."
     },
     "Gevrey-Chambertin Aux Corvées, Domaine Henri Rebourseau": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 600,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 700,
       "avg_hammer_sek": 900,
       "avg_ratio": 1.5,
       "premium_percent": 50.0,
@@ -18691,11 +18804,11 @@
       "info": "A Premier Cru red Burgundy from Beaune's Champs Pimont vineyard, made by Domaine Jacques Prieur, a major Meursault-based estate with Grand Cru holdings stretching from Montrachet to Musigny. Prieur's style favours weight through late-picking and generous oak, producing structured wines suited to ageing."
     },
     "Château Branaire-Ducru": {
-      "total_lots": 12,
+      "total_lots": 17,
       "sold": 12,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 817,
+      "unsold": 5,
+      "sell_rate": 70.6,
+      "avg_estimate_sek": 747,
       "avg_hammer_sek": 866,
       "avg_ratio": 1.063,
       "premium_percent": 6.3,
@@ -18705,11 +18818,13 @@
         1995,
         2003,
         2005,
+        2006,
         2007,
         2009,
         2010,
         2014,
-        2018
+        2018,
+        2019
       ],
       "regions": [
         "bordeaux"
@@ -19070,11 +19185,11 @@
       "info": "La Chapelle de La Mission Haut-Brion is the second wine of Chateau La Mission Haut-Brion, a consistently grand-scale, full-blooded Pessac-Leognan estate owned by the Dillon family alongside Haut-Brion and Quintus. It delivers the estate's long-maturing style in a slightly more approachable format."
     },
     "Volnay 1er Cru les Santenots, Vincent Girardin": {
-      "total_lots": 5,
+      "total_lots": 6,
       "sold": 5,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 600,
+      "unsold": 1,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 633,
       "avg_hammer_sek": 837,
       "avg_ratio": 1.396,
       "premium_percent": 39.6,
@@ -19199,11 +19314,11 @@
       "info": "A small, traditional producer based in Vosne-Romanée, the Côte de Nuits village renowned for its grand crus and sublime premiers crus including Beaumonts, Brûlées, Malconsorts, and Suchots. The wines reflect the classic, terroir-driven character that defines this exceptional appellation."
     },
     "Vosne-Romanée, Cyprien Arlaud": {
-      "total_lots": 5,
+      "total_lots": 6,
       "sold": 5,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 700,
+      "unsold": 1,
+      "sell_rate": 83.3,
+      "avg_estimate_sek": 717,
       "avg_hammer_sek": 809,
       "avg_ratio": 1.156,
       "premium_percent": 15.6,
@@ -19293,17 +19408,18 @@
       "info": "A Premier Cru red Burgundy from the Grèves vineyard in Beaune, produced by Domaine Jacques Prieur, a major Meursault-based estate with Grand Cru holdings across the Côte d'Or. Grèves is one of Beaune's finest Premier Cru sites, and Prieur's characteristically weighty, oak-influenced style suits its naturally concentrated fruit."
     },
     "Château La Grave à Pomerol Trigant de Boisset": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 600,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 567,
       "avg_hammer_sek": 802,
       "avg_ratio": 1.336,
       "premium_percent": 33.6,
       "vintages": [
         2000,
-        2009
+        2009,
+        2014
       ],
       "regions": [
         "bordeaux"
@@ -20111,15 +20227,16 @@
       "info": "A Premier Cru Pinot Noir from Grands Epenots in Pommard, one of the Cote de Beaune appellation's most graceful vineyard sites, produced by Domaine Rebourgeon-Mure. Pommard's evolving reputation now favors elegance and structure over the heavy tannins that once defined the appellation."
     },
     "Château Cantenac Brown": {
-      "total_lots": 7,
+      "total_lots": 10,
       "sold": 7,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 571,
+      "unsold": 3,
+      "sell_rate": 70.0,
+      "avg_estimate_sek": 600,
       "avg_hammer_sek": 751,
       "avg_ratio": 1.311,
       "premium_percent": 31.1,
       "vintages": [
+        1995,
         2000,
         2009,
         2012,
@@ -20276,10 +20393,10 @@
       ]
     },
     "Ségla, Château Rauzan-Segla": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 800,
       "avg_hammer_sek": 750,
       "avg_ratio": 0.938,
@@ -20353,16 +20470,17 @@
       "info": "Chassagne-Montrachet Premier Cru Morgeot Clos de la Chapelle is a white Burgundy from one of the Cote d'Or's most acclaimed communes, vinified by Louis Jadot under the Duc de Magenta label. Jadot is a large, long-established Beaune merchant (founded 1859) with 130 hectares and over 200 wines, producing powerful whites and a wide range of reds across the region."
     },
     "Vosne Romanée, A & Arlaud": {
-      "total_lots": 6,
+      "total_lots": 7,
       "sold": 6,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 85.7,
       "avg_estimate_sek": 700,
       "avg_hammer_sek": 743,
       "avg_ratio": 1.062,
       "premium_percent": 6.2,
       "vintages": [
-        2016
+        2016,
+        2018
       ],
       "regions": [
         "burgundy"
@@ -20386,17 +20504,18 @@
       "info": "Village-level Pinot Noir from Vosne-Romanée, Côte de Nuits, produced by Arlaud, a leading Morey-Saint-Denis estate energised by Cyprien Arlaud and known for poised, refined wines from Bourgogne level up to Grand Crus. Vosne-Romanée is the most patrician village in Burgundy, expected to deliver wines of consistent distinction."
     },
     "Château Lascombes": {
-      "total_lots": 7,
+      "total_lots": 8,
       "sold": 7,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 786,
+      "unsold": 1,
+      "sell_rate": 87.5,
+      "avg_estimate_sek": 812,
       "avg_hammer_sek": 742,
       "avg_ratio": 0.959,
       "premium_percent": -4.1,
       "vintages": [
         1970,
         1983,
+        1988,
         1997,
         2007,
         2010,
@@ -20525,10 +20644,10 @@
       "info": "A village-level red Burgundy from Nuits-Saint-Georges by Pierre-Olivier Garcia, sourced from a lieu-dit within an appellation known for structured, dark-fruited Pinot Noir with good aging potential. Nuits-Saint-Georges is divided into three distinct terroir zones, and this lieu-dit reflects the diversity of expression available across the appellation."
     },
     "Beaune 1er Cru Champs-Pimont Rouge, Domaine Jacques Prieur": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 80.0,
       "avg_estimate_sek": 700,
       "avg_hammer_sek": 729,
       "avg_ratio": 1.041,
@@ -20588,11 +20707,11 @@
       "info": "A tiny Fourth Growth from Saint-Julien in the same stable as Château Gloria, producing stylish, consistent, Cabernet Sauvignon-led wines in a classic Médoc vein. Despite its small production, it is well worth following for its reliability and elegance."
     },
     "Roc de Cambes": {
-      "total_lots": 5,
+      "total_lots": 9,
       "sold": 5,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 768,
+      "unsold": 4,
+      "sell_rate": 55.6,
+      "avg_estimate_sek": 782,
       "avg_hammer_sek": 722,
       "avg_ratio": 0.935,
       "premium_percent": -6.5,
@@ -20601,7 +20720,9 @@
         2003,
         2005,
         2006,
-        2014
+        2014,
+        2020,
+        2021
       ],
       "regions": [
         "bordeaux"
@@ -20671,16 +20792,17 @@
       "info": "The second wine of Château Pavie, a Premier Grand Cru Classé (A) estate in Saint-Emilion owned by Gérard Perse, planted on a well-situated plateau and south-facing slopes. Recent vintages have shifted toward a more Cabernet Franc and Sauvignon-influenced blend, moving away from the estate's earlier reputation for extreme concentration."
     },
     "Nuits St-Georges 1er Cru Aux Chaignots Cuvée Joseph, Cyprien Arlaud": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 66.7,
       "avg_estimate_sek": 700,
       "avg_hammer_sek": 716,
       "avg_ratio": 1.023,
       "premium_percent": 2.3,
       "vintages": [
-        2019
+        2019,
+        2020
       ],
       "regions": [
         "burgundy"
@@ -21099,11 +21221,11 @@
       "info": "A Pessac-Léognan Cru Classé owned by the Kressmann family, producing fresh and fragrant red wines alongside an appetizing white."
     },
     "Château Durfort Vivens": {
-      "total_lots": 6,
+      "total_lots": 9,
       "sold": 6,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 567,
+      "unsold": 3,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 556,
       "avg_hammer_sek": 685,
       "avg_ratio": 1.219,
       "premium_percent": 21.9,
@@ -21111,7 +21233,9 @@
         2009,
         2014,
         2018,
-        2020
+        2019,
+        2020,
+        2021
       ],
       "regions": [
         "bordeaux"
@@ -21128,18 +21252,19 @@
       "info": "A high-performing Second Growth Margaux producing predominantly Cabernet Sauvignon (90%) wines under organic and biodynamic farming. Recent vintages have been exceptional, with three single-parcel cuvees adding further depth to the range."
     },
     "Château La Lagune": {
-      "total_lots": 3,
+      "total_lots": 4,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 600,
+      "unsold": 1,
+      "sell_rate": 75.0,
+      "avg_estimate_sek": 575,
       "avg_hammer_sek": 684,
       "avg_ratio": 1.135,
       "premium_percent": 13.5,
       "vintages": [
         1972,
         1989,
-        2020
+        2020,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -21726,18 +21851,19 @@
       "info": "A Fourth Growth Pauillac owned and managed by Lafite Rothschild, producing Cabernet Sauvignon-dominated (80%) wines of very fine quality. Consistently improving and increasingly sought-after given its prestigious stable."
     },
     "La Dame de Montrose": {
-      "total_lots": 3,
+      "total_lots": 5,
       "sold": 3,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 667,
+      "unsold": 2,
+      "sell_rate": 60.0,
+      "avg_estimate_sek": 640,
       "avg_hammer_sek": 639,
       "avg_ratio": 0.974,
       "premium_percent": -2.6,
       "vintages": [
         2005,
         2010,
-        2014
+        2014,
+        2019
       ],
       "regions": [
         "bordeaux"
@@ -21787,10 +21913,10 @@
       "info": "A village Pommard from Benjamin Leroux, a Beaune-based negociant of consistent quality working exclusively within the Cote d'Or, with strengths in Meursault for whites and Blagny, Gevrey, and Volnay for reds. His approach favors subtlety and refinement, reflected in wines and labels alike."
     },
     "Blason d'Issan": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 633,
       "avg_ratio": 1.266,
@@ -21829,16 +21955,17 @@
       ]
     },
     "Nuits Saint Georges 1er Cru Aux Champs Perdrix, Domaine Chevillon-Chezeaux": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 800,
       "avg_hammer_sek": 633,
       "avg_ratio": 0.791,
       "premium_percent": -20.9,
       "vintages": [
-        2018
+        2018,
+        2019
       ],
       "regions": [
         "burgundy"
@@ -21894,17 +22021,18 @@
       "info": "Premier Cru Pinot Noir from Savigny-lès-Beaune, Côte de Beaune, produced by Louis Jadot, the major Beaune-based merchant with extensive vineyard holdings across Burgundy since 1859. La Dominode is among the most respected Premier Cru vineyards in this village neighbouring Beaune."
     },
     "Château La Tour Carnet": {
-      "total_lots": 2,
+      "total_lots": 3,
       "sold": 2,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 550,
+      "unsold": 1,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 533,
       "avg_hammer_sek": 626,
       "avg_ratio": 1.152,
       "premium_percent": 15.2,
       "vintages": [
         1991,
-        2005
+        2005,
+        2008
       ],
       "regions": [
         "bordeaux"
@@ -22071,11 +22199,11 @@
       "info": "A large Moulis estate with Cabernet Sauvignon-led wines grown on gravelly soils, producing full, robust reds with solid ageing potential. It is one of the leading estates in the Moulis appellation."
     },
     "Château Sociando-Mallet": {
-      "total_lots": 14,
+      "total_lots": 17,
       "sold": 13,
-      "unsold": 1,
-      "sell_rate": 92.9,
-      "avg_estimate_sek": 586,
+      "unsold": 4,
+      "sell_rate": 76.5,
+      "avg_estimate_sek": 582,
       "avg_hammer_sek": 606,
       "avg_ratio": 1.028,
       "premium_percent": 2.8,
@@ -22105,11 +22233,11 @@
       "info": "A large (83-hectare), unclassified but highly esteemed estate in the Haut-Médoc, blending Merlot, Cabernet Sauvignon, and Cabernet Franc in a style firmly built for ageing. It consistently punches above its classification and is a benchmark for the appellation."
     },
     "Château Cantemerle": {
-      "total_lots": 13,
+      "total_lots": 15,
       "sold": 13,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 608,
+      "unsold": 2,
+      "sell_rate": 86.7,
+      "avg_estimate_sek": 607,
       "avg_hammer_sek": 601,
       "avg_ratio": 1.006,
       "premium_percent": 0.6,
@@ -22538,18 +22666,20 @@
       "info": "An unclassified Saint-Estèphe estate owned by the Duboscq family, situated between Montrose and Cos d'Estournel, producing unctuous, richly oaked reds aged in 100% new oak that are easy to love and widely available direct from the château."
     },
     "Château Plince": {
-      "total_lots": 6,
+      "total_lots": 9,
       "sold": 6,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 517,
+      "unsold": 3,
+      "sell_rate": 66.7,
+      "avg_estimate_sek": 678,
       "avg_hammer_sek": 575,
       "avg_ratio": 1.109,
       "premium_percent": 10.9,
       "vintages": [
         2000,
         2001,
-        2014
+        2012,
+        2014,
+        2015
       ],
       "regions": [
         "bordeaux"
@@ -22583,17 +22713,18 @@
       ]
     },
     "Château d'Angludet": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 525,
+      "unsold": 1,
+      "sell_rate": 80.0,
+      "avg_estimate_sek": 740,
       "avg_hammer_sek": 571,
       "avg_ratio": 1.1,
       "premium_percent": 10.0,
       "vintages": [
         1994,
         2001,
+        2002,
         2003,
         2007
       ],
@@ -22938,10 +23069,10 @@
       "info": "A village-level red Burgundy from the En Pallud lieu-dit in Gevrey-Chambertin, produced by Marchand-Tawse. Pascal Marchand's grower-negociant operation in Nuits-Saint-Georges covers a wide range of appellations with a deft hand and a previously robust style."
     },
     "Morey-Saint-Denis, Domaine Arlaud": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 550,
       "avg_ratio": 1.1,
@@ -22970,11 +23101,11 @@
       ],
       "info": "Village-level Morey-Saint-Denis from Domaine Arlaud, the leading estate of the appellation that has been transformed by Cyprien Arlaud into one of the most exciting producers in the Cote de Nuits. The domaine covers the full range from Bourgogne Roncevie up through grand crus, with Morey premier crus among its highlights."
     },
-    "Pichon Comtesse Reserve": {
-      "total_lots": 1,
+    "Pichon Comtesse Réserve": {
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 550,
       "avg_ratio": 1.1,
@@ -23168,16 +23299,18 @@
       "info": "Chateau Belair-Monange is a Premier Grand Cru Classe (B) Saint-Emilion estate on the limestone plateau and cotes, owned by the Moueix family, who have made major investments in both the vineyard and a new winery designed by the acclaimed architects Herzog and de Meuron. It is among the most ambitious classified properties in the appellation."
     },
     "Château Labegorce": {
-      "total_lots": 1,
+      "total_lots": 3,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 2,
+      "sell_rate": 33.3,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 533,
       "avg_ratio": 1.066,
       "premium_percent": 6.6,
       "vintages": [
-        2010
+        2010,
+        2021,
+        2022
       ],
       "regions": [
         "bordeaux"
@@ -23317,11 +23450,11 @@
       "info": "Chateau de Marbuzet is an unclassified Saint-Estephe estate situated between Montrose and Cos d'Estournel, owned by the Duboscq family. It is known for an unctuous, generous style matured in 100% new oak, and over 60% is sold directly from the chateau."
     },
     "Bourgogne Rouge, Lucien Le Moine": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
-      "avg_estimate_sek": 500,
+      "unsold": 1,
+      "sell_rate": 50.0,
+      "avg_estimate_sek": 1000,
       "avg_hammer_sek": 516,
       "avg_ratio": 1.032,
       "premium_percent": 3.2,
@@ -23412,15 +23545,16 @@
       "info": "A Saint-Estèphe estate owned by the Cazes family of Lynch-Bages, producing cool, classic, and age-worthy Cabernet Sauvignon-led claret. It offers reliable quality with the pedigree of a well-regarded ownership group behind it."
     },
     "Château Bourgneuf": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 500,
       "avg_ratio": 1.0,
       "premium_percent": 0.0,
       "vintages": [
+        1996,
         2010
       ],
       "regions": [
@@ -23609,16 +23743,17 @@
       "info": "A Premier Cru red Burgundy from the Bressandes vineyard in Beaune, one of the appellation's more distinguished Premier Cru sites, produced by Domaine Albert Morot. Albert Morot is a traditionally minded estate known for estate-grown, single-vineyard Beaune Premier Crus with good ageing potential."
     },
     "Les Griffons de Pichon Baron": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 1,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 50.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 475,
       "avg_ratio": 0.95,
       "premium_percent": -5.0,
       "vintages": [
-        2015
+        2015,
+        2016
       ],
       "regions": [
         "bordeaux"
@@ -23730,10 +23865,10 @@
       ]
     },
     "Château Ferriere": {
-      "total_lots": 4,
+      "total_lots": 5,
       "sold": 4,
-      "unsold": 0,
-      "sell_rate": 100.0,
+      "unsold": 1,
+      "sell_rate": 80.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 462,
       "avg_ratio": 0.924,
@@ -23951,6 +24086,86 @@
         "burgundy"
       ]
     },
+    "Aloxe-Corton 1er Cru Les Vercots, Dubreuil-Fontaine": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 700,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1999
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Beaune 1er Cru Boucherottes, Domaine des Héritiers - Louis Jadot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2016
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Beaune 1er Cru Cuvée Guigone de Salins Hospice de Beaune, Pierre Ponnelle": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1924
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Beaune 1er Cru Les Teurons, Domaine Bouchard": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2018
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Beaune Cent-Vignes 1er Cru, Château de Meursault": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 800,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1996
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
     "Bonnes-Mares, Dominique Laurent (Magnum)": {
       "total_lots": 1,
       "sold": 0,
@@ -23984,10 +24199,42 @@
       ],
       "info": "A Grand Cru Burgundy from Bonnes-Mares in magnum format, produced by négociant Dominique Laurent, known for purchasing and éleving top Burgundy crus with a bold, oaky house style. Bonnes-Mares in magnum offers exceptional ageing potential, combining the appellation's robust, structured character with the superior maturation conditions of a larger format."
     },
-    "Chambolle-Musigny 1er Cru Les Amoureuses, Domaine Louis Jadot": {
+    "Chambertin Clos de Bèze, Domaine Clair-Daü": {
       "total_lots": 1,
       "sold": 0,
       "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 12000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1983
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Chambertin, Domaine Ponsot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 6000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2005
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Chambolle-Musigny 1er Cru Les Amoureuses, Domaine Louis Jadot": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 3000,
       "avg_hammer_sek": 0,
@@ -24001,9 +24248,9 @@
       ]
     },
     "Chambolle-Musigny 1er Cru Les Charmes, Domaine Bruno Clair": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 0,
-      "unsold": 1,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 2000,
       "avg_hammer_sek": 0,
@@ -24011,6 +24258,54 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Chambolle-Musigny 1er Cru Les Charmes, Jean-Claude Boisset": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2014
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Chambolle-Musigny 1er Cru, Joseph Drouhin": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2005
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Chambolle-Musigny, Gilbert et Christine Felettig & 2009 Meursault 1er Cru Le Poruzot, Domaine Laurent": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1400,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2006
       ],
       "regions": [
         "burgundy"
@@ -24042,6 +24337,184 @@
       ],
       "info": "Charmes-Chambertin is a four-star Gevrey grand cru delivering rich, sumptuous Pinot Noir with abundant fruit and a fragrant finish from one of the Cote de Nuits' most revered sites. Olivier Bernstein is a quality-focused small negociant producing wines from premier and grand cru sites in Burgundy."
     },
+    "Château Angludet": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 800,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2010
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château Clarke": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2000
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château L'Enclos": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 700,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1974
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château La Conseillante (3000ml)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 4800,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2021
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château La Conseillante (Double Magnum)": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 6000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2022
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château La Conseillante (Magnum)": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 9600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2021,
+        2022
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château La Fleur Pourret": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château La Gravette de Certan": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2017
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château La Tour Carnet (Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château Lagrange": {
+      "total_lots": 3,
+      "sold": 0,
+      "unsold": 3,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2014,
+        2018
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château Les Ormes de Pez (Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
     "Château Mouton Rothschild (4500ml)": {
       "total_lots": 1,
       "sold": 0,
@@ -24068,10 +24541,123 @@
       ],
       "info": "The most exotic and voluptuous of the Pauillac First Growths, owned by the Rothschild family since 1853 and now considered at the top of its game. This large-format (Jeroboam) bottling of the wine is celebrated for its rich, complex character and remarkable ageing capacity."
     },
-    "Clos de Vougeot Grand Maupertuis, Domaine Michel Gros": {
+    "Château Poujeaux (Magnum)": {
       "total_lots": 1,
       "sold": 0,
       "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château Prieuré-Lichine": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2005
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château Quintus": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2019
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château Siran": {
+      "total_lots": 4,
+      "sold": 0,
+      "unsold": 4,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 575,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2005,
+        2019
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château de Camensac": {
+      "total_lots": 3,
+      "sold": 0,
+      "unsold": 3,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2005
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Château de Cruzeau Rouge": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1988
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Clos Vougeot, Château de la Tour - Labet & Déchelette": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1993
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Clos de Vougeot Grand Maupertuis, Domaine Michel Gros": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 2000,
       "avg_hammer_sek": 0,
@@ -24085,9 +24671,9 @@
       ]
     },
     "Clos de Vougeot, Domaine Gros": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 0,
-      "unsold": 1,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 2000,
       "avg_hammer_sek": 0,
@@ -24095,6 +24681,22 @@
       "premium_percent": null,
       "vintages": [
         2017
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Clos de Vougeot, Nicole Lamarche": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020
       ],
       "regions": [
         "burgundy"
@@ -24142,10 +24744,74 @@
       ],
       "info": "Red Burgundy grand cru from Clos de la Roche in Morey-Saint-Denis, Cote de Nuits, produced by Maison Roche de Bellene. Clos de la Roche is considered the finest grand cru of Morey-Saint-Denis, admired for its counterpoint of grace and savory gravitas and renowned for its development with age."
     },
-    "Couvent des Jacobins": {
+    "Clos du Marquis (Double Magnum)": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 3600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2012
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
+    "Corton Pougets, Domaine d'Ardhuy & 2021 Vosne-Romanée, François Confuron-Gindre": {
       "total_lots": 1,
       "sold": 0,
       "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2003
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Corton-Perrières, Dubreuil-Fontaine": {
+      "total_lots": 3,
+      "sold": 0,
+      "unsold": 3,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1999
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Corton-Pougets, Domaine des Héritiers Louis Jadot - Louis Jadot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2008
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Couvent des Jacobins": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 500,
       "avg_hammer_sek": 0,
@@ -24159,9 +24825,9 @@
       ]
     },
     "Echezeaux, Domaine A.-F. Gros": {
-      "total_lots": 2,
+      "total_lots": 4,
       "sold": 0,
-      "unsold": 2,
+      "unsold": 4,
       "sell_rate": 0.0,
       "avg_estimate_sek": 4500,
       "avg_hammer_sek": 0,
@@ -24191,7 +24857,69 @@
         "burgundy"
       ]
     },
+    "Echézeaux, Domaine Gros": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2014
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "French Wines": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Gevrey-Chambertin 1er Cru Combe au Moine, Lucien Le Moine": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1200,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2018
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
     "Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Domaine Faiveley": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2022
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Louis Jadot": {
       "total_lots": 1,
       "sold": 0,
       "unsold": 1,
@@ -24201,7 +24929,7 @@
       "avg_ratio": null,
       "premium_percent": null,
       "vintages": [
-        2022
+        2009
       ],
       "regions": [
         "burgundy"
@@ -24218,6 +24946,22 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Gevrey-Chambertin 1er Cru Lavaux St. Jacques, Harmand Geoffroy": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2010
       ],
       "regions": [
         "burgundy"
@@ -24255,6 +24999,86 @@
         "burgundy"
       ]
     },
+    "Gevrey-Chambertin Vieilles Vignes, Domaine Faiveley": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2016
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Gevrey-Chambertin, Harmand Geoffroy": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2010
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Grands Échézeaux Vieilles Vignes, Bruno Desaunay-Bissey": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1996
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Grands-Échezeaux, Lucien Le Moine": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "La Mondotte (Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 6000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2016
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
     "Latricières-Chambertin, Domaine Arnoux-Lachaux": {
       "total_lots": 1,
       "sold": 0,
@@ -24288,6 +25112,22 @@
       ],
       "info": "Latricieres-Chambertin is a Grand Cru in the Cote d'Or adjacent to Chambertin, with deep soils and a cooler site producing structured, meaty wines in warm dry years. Domaine Arnoux-Lachaux is regarded as a Vosne superstar under Charles Lachaux, who employs no-till viticulture, high trellising, whole-bunch vinification, and a light hand with oak to produce wines of exceptional purity."
     },
+    "Le Plus de La Fleur de Bouard": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "bordeaux"
+      ]
+    },
     "Morey Saint-Denis , Domaine Dujac": {
       "total_lots": 1,
       "sold": 0,
@@ -24299,6 +25139,22 @@
       "premium_percent": null,
       "vintages": [
         2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Morgon, M. & C. Lapierre": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2019
       ],
       "regions": [
         "burgundy"
@@ -24338,9 +25194,9 @@
       "info": "Musigny Vieilles Vignes from Comte Georges de Vogüe is one of Burgundy's most coveted wines, combining the most beautiful red grand cru on the Cote de Nuits with old-vine concentration from the estate that holds the largest share of this appellation. De Vogüe's patrician Chambolle estate has refined its style toward greater accessibility in youth under winemaker Jean Lupatelli while maintaining its reputation for fragrant, sinuous power."
     },
     "Nuits-Saint-George 1er Cru Les Perriéres, Méo-Camuzet": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 0,
-      "unsold": 1,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 1500,
       "avg_hammer_sek": 0,
@@ -24353,10 +25209,90 @@
         "burgundy"
       ]
     },
-    "Nuits-Saint-Georges 1er Cru Les Pruliers, Domaine Robert Chevillon": {
+    "Nuits-Saint-Georges 1er Cru Aux Vignerondes, Dufouleur": {
       "total_lots": 1,
       "sold": 0,
       "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2019
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Nuits-Saint-Georges 1er Cru Aux Vignerondes, Dufouleur (Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2019
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Nuits-Saint-Georges 1er Cru Clos de Thorey, Domaine Thomas-Moillard": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 800,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1999
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Nuits-Saint-Georges 1er Cru Les Damodes, Domaine Armelle & Bernard Rion & 2018 Beaune 1er Cru, Louis Jadot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1050,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2016
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Nuits-Saint-Georges 1er Cru Les Porrets St-Georges, Domaine Chevillon-Chezeaux": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 800,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Nuits-Saint-Georges 1er Cru Les Pruliers, Domaine Robert Chevillon": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
       "sell_rate": 0.0,
       "avg_estimate_sek": 1000,
       "avg_hammer_sek": 0,
@@ -24364,6 +25300,70 @@
       "premium_percent": null,
       "vintages": [
         2021
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Pommard 1er Cru Jarollières, Jean-Marc Boillot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1996
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Pommard Auprès du Clos, Charles Lachaux": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2018
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Pommard Noizons, Domaine Berthelemot": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Savigny-les-Beaune 1er Cru Les Vergelesses, Dubreuil-Fontaine": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1999
       ],
       "regions": [
         "burgundy"
@@ -24396,16 +25396,98 @@
       "info": "An unclassified Saint-Emilion côtes star producing lush, concentrated, toasty Merlot-based red wine, presented in double magnum format. Created by François Mitjavile, this four-star estate commands prices that reflect its cult status, and the large format offers exceptional ageing conditions."
     },
     "Volnay 1er Cru En Champans, Domaine de Montille": {
-      "total_lots": 1,
+      "total_lots": 2,
       "sold": 0,
-      "unsold": 1,
+      "unsold": 2,
       "sell_rate": 0.0,
-      "avg_estimate_sek": 1600,
+      "avg_estimate_sek": 1350,
       "avg_hammer_sek": 0,
       "avg_ratio": null,
       "premium_percent": null,
       "vintages": [
         2018
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Volnay 1er Cru Les Caillerets, Lucien Le Moine": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2018
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Volnay 1er Cru Les Santenots, Camille Giroud": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        1971
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Volnay 1er Cru Les Taillepieds, Domaine de Montille (Magnum)": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Volnay, Fernand & Laurent Pillot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2015
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée 1er Cru Aux Malconsorts Christiane, Domaine de Montille": {
+      "total_lots": 3,
+      "sold": 0,
+      "unsold": 3,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 5000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020,
+        2021,
+        2022
       ],
       "regions": [
         "burgundy"
@@ -24422,6 +25504,103 @@
       "premium_percent": null,
       "vintages": [
         2001
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée 1er Cru Les Beaux-Monts, Domaine Daniel Rion": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 1500,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2010
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée 1er Cru Les Gaudichots, Domaine Forey": {
+      "total_lots": 2,
+      "sold": 0,
+      "unsold": 2,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 3000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2008,
+        2009
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée Vieilles Vignes, Domaine Cécile Tremblay": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 4000,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2012
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée, Domaine Coquard Loison-Fleurot": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2020
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée, Domaine Michel Noëllat": {
+      "total_lots": 3,
+      "sold": 0,
+      "unsold": 3,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 600,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2013
+      ],
+      "regions": [
+        "burgundy"
+      ]
+    },
+    "Vosne-Romanée, Sylvain Cathiard & Kammerberg Pinot Noir, Weingut Frederich Becker": {
+      "total_lots": 1,
+      "sold": 0,
+      "unsold": 1,
+      "sell_rate": 0.0,
+      "avg_estimate_sek": 2400,
+      "avg_hammer_sek": 0,
+      "avg_ratio": null,
+      "premium_percent": null,
+      "vintages": [
+        2014
       ],
       "regions": [
         "burgundy"
