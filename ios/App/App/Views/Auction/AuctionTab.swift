@@ -17,38 +17,13 @@ enum AuctionSortField: String, CaseIterable {
     }
 }
 
-enum LiveSortField: String, CaseIterable {
-    case title, category, estimate, rating
-
-    var label: String {
-        switch self {
-        case .title: return "Title"
-        case .category: return "Category"
-        case .estimate: return "Est."
-        case .rating: return "Rating"
-        }
-    }
-}
-
 struct AuctionTab: View {
     @ObservedObject var dataService: DataService
     @AppStorage("auction_searchText") private var searchText = ""
     @State private var expandedProducerId: String?
-    @State private var expandedLiveWineId: String?
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
     @AppStorage("auction_showLive") private var showLive = false
-    @AppStorage("live_sortField") private var liveSortField: LiveSortField = .rating
-    @AppStorage("live_sortDirection") private var liveSortDirection: SortDirection = .descending
-    @AppStorage("live_selectedCountriesData") private var liveSelectedCountriesData: Data = {
-        (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
-    }()
-    @AppStorage("live_selectedTypesData") private var liveSelectedTypesData: Data = {
-        (try? JSONEncoder().encode(Set(["Red Wine"]))) ?? Data()
-    }()
-    @AppStorage("live_selectedRegionsData") private var liveSelectedRegionsData: Data = {
-        (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
-    }()
     @AppStorage("live_selectedRating") private var liveSelectedRating = ""
     @AppStorage("auction_selectedCountriesData") private var auctionSelectedCountriesData: Data = {
         (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
@@ -74,21 +49,6 @@ struct AuctionTab: View {
         }
     }
 
-    private var liveSelectedCountries: Set<String> {
-        get { decodeSet(liveSelectedCountriesData) }
-        nonmutating set { liveSelectedCountriesData = encodeSet(newValue) }
-    }
-
-    private var liveSelectedTypes: Set<String> {
-        get { decodeSet(liveSelectedTypesData) }
-        nonmutating set { liveSelectedTypesData = encodeSet(newValue) }
-    }
-
-    private var liveSelectedRegions: Set<String> {
-        get { decodeSet(liveSelectedRegionsData) }
-        nonmutating set { liveSelectedRegionsData = encodeSet(newValue) }
-    }
-
     private var auctionSelectedCountries: Set<String> {
         get { decodeSet(auctionSelectedCountriesData) }
         nonmutating set { auctionSelectedCountriesData = encodeSet(newValue) }
@@ -108,12 +68,49 @@ struct AuctionTab: View {
     private let typeFilters = ["Red Wine"]
     private let regionFilters = ["Bordeaux", "Burgundy"]
 
-    private var hasActiveLiveFilters: Bool {
-        !liveSelectedCountries.isEmpty || !liveSelectedTypes.isEmpty || !liveSelectedRegions.isEmpty || !liveSelectedRating.isEmpty
+    private var hasActiveFilters: Bool {
+        !auctionSelectedCountries.isEmpty
+            || !auctionSelectedTypes.isEmpty
+            || !auctionSelectedRegions.isEmpty
+            || (showLive && !liveSelectedRating.isEmpty)
     }
 
-    private var hasActiveAuctionFilters: Bool {
-        !auctionSelectedCountries.isEmpty || !auctionSelectedTypes.isEmpty || !auctionSelectedRegions.isEmpty
+    private var liveLotsByProducer: [String: [LiveWine]] {
+        guard let data = dataService.liveWinesData else { return [:] }
+        var map: [String: [LiveWine]] = [:]
+        for w in data.wines {
+            map[normalizedProducerKey(liveProducerKey(w.title)), default: []].append(w)
+        }
+        return map
+    }
+
+    private func liveProducerKey(_ title: String) -> String {
+        var s = title
+        if let r = s.range(of: #"^\d{4}(-\d{4})?\s+"#, options: .regularExpression) {
+            s.removeSubrange(r)
+        }
+        return s.trimmingCharacters(in: CharacterSet(charactersIn: ".").union(.whitespaces))
+    }
+
+    private func normalizedProducerKey(_ s: String) -> String {
+        let withoutParens = s.replacingOccurrences(
+            of: #"\s*\([^)]*\)"#,
+            with: "",
+            options: .regularExpression
+        )
+        let folded = withoutParens.folding(options: .diacriticInsensitive, locale: Locale(identifier: "en"))
+            .lowercased()
+            .replacingOccurrences(of: "-", with: " ")
+        return folded.split(separator: " ").joined(separator: " ")
+    }
+
+    private func matchesRatingFilter(_ wine: LiveWine) -> Bool {
+        switch liveSelectedRating {
+        case "4 Stars": return wine.rating_score == 4
+        case "3+ Stars": return wine.rating_score >= 3
+        case "3 Stars": return wine.rating_score == 3
+        default: return true
+        }
     }
 
     private var producers: [AuctionProducer] {
@@ -123,6 +120,7 @@ struct AuctionTab: View {
 
     private var filtered: [AuctionProducer] {
         var list = producers
+        let map = liveLotsByProducer
 
         if !searchText.isEmpty {
             let query = searchText.lowercased()
@@ -136,48 +134,23 @@ struct AuctionTab: View {
             }
         }
 
+        if showLive {
+            list = list.filter { producer in
+                guard let lots = map[normalizedProducerKey(producer.name)], !lots.isEmpty else { return false }
+                if liveSelectedRating.isEmpty { return true }
+                return lots.contains { matchesRatingFilter($0) }
+            }
+        }
+
         return sorted(list)
-    }
-
-    private var filteredLiveWines: [LiveWine] {
-        guard let data = dataService.liveWinesData else { return [] }
-        var result = data.wines
-
-        if !searchText.isEmpty {
-            let query = searchText.lowercased()
-            result = result.filter { $0.title.lowercased().contains(query) }
-        }
-
-        if !liveSelectedRegions.isEmpty {
-            result = result.filter {
-                liveSelectedRegions.contains($0.category.capitalized)
-            }
-        }
-
-        if !liveSelectedRating.isEmpty {
-            result = result.filter {
-                switch liveSelectedRating {
-                case "4 Stars": return $0.rating_score == 4
-                case "3+ Stars": return $0.rating_score >= 3
-                case "3 Stars": return $0.rating_score == 3
-                default: return true
-                }
-            }
-        }
-
-        return sortedLive(result)
     }
 
     var body: some View {
         VStack(spacing: 0) {
-            if showLive {
-                liveContent
-            } else {
-                aggregateContent
-            }
+            aggregateContent
         }
         .safeAreaInset(edge: .bottom) {
-            if showLive ? dataService.liveWinesData != nil : dataService.auctionData != nil {
+            if dataService.auctionData != nil {
                 searchBar
             }
         }
@@ -185,13 +158,11 @@ struct AuctionTab: View {
             if dataService.auctionData == nil {
                 await dataService.loadAuction()
             }
-            if showLive && dataService.liveWinesData == nil {
+            if dataService.liveWinesData == nil {
                 await dataService.loadLiveWines()
             }
         }
     }
-
-    // MARK: - Aggregate Content
 
     @ViewBuilder
     private var aggregateContent: some View {
@@ -224,49 +195,9 @@ struct AuctionTab: View {
         }
     }
 
-    // MARK: - Live Content
-
-    @ViewBuilder
-    private var liveContent: some View {
-        if let data = dataService.liveWinesData {
-            liveHeader(data: data)
-
-            VStack(spacing: 0) {
-                filterBar
-                liveSortBar
-                liveList
-            }
-            .padding(.top, -15)
-        } else if dataService.isLoadingLiveWines {
-            Spacer()
-            ProgressView("Loading recent auction...")
-            Spacer()
-        } else if let error = dataService.liveWinesError {
-            Spacer()
-            VStack(spacing: 12) {
-                Image(systemName: "exclamationmark.triangle")
-                    .font(.largeTitle)
-                    .foregroundStyle(.secondary)
-                Text(error)
-                    .foregroundStyle(.secondary)
-                Button("Retry") {
-                    Task { await dataService.loadLiveWines() }
-                }
-            }
-            Spacer()
-        }
-    }
-
-    // MARK: - Search Bar
-
     private var searchBar: some View {
-        SearchBar(
-            text: $searchText,
-            placeholder: showLive ? "Search wines..." : "Search producers..."
-        )
+        SearchBar(text: $searchText, placeholder: "Search producers...")
     }
-
-    // MARK: - Summary Bar
 
     private func summaryBar(data: AuctionData) -> some View {
         HStack {
@@ -274,29 +205,19 @@ struct AuctionTab: View {
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.secondary)
             Spacer()
-            Text("\(data.summary.total_wines) lots")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.secondary)
+            if showLive, let live = dataService.liveWinesData {
+                Text("\(live.total_wines) live lots")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("\(data.summary.total_wines) lots")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+            }
         }
         .padding(.horizontal, 24)
         .offset(y: -40)
     }
-
-    private func liveHeader(data: LiveWinesData) -> some View {
-        HStack {
-            Text("\(data.bordeaux_count) Bx \u{00B7} \(data.burgundy_count) Burg")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Spacer()
-            Text("\(data.total_wines) lots")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.secondary)
-        }
-        .padding(.horizontal, 24)
-        .offset(y: -40)
-    }
-
-    // MARK: - Filter Bar
 
     private func filterMenu(
         label: String,
@@ -332,17 +253,17 @@ struct AuctionTab: View {
                     }
                 }
 
-                if showLive {
-                    filterMenu(label: "Country", options: countryFilters, selected: liveSelectedCountries) {
-                        toggle($0, in: liveSelectedCountries) { liveSelectedCountries = $0 }
-                    }
-                    filterMenu(label: "Type", options: typeFilters, selected: liveSelectedTypes) {
-                        toggle($0, in: liveSelectedTypes) { liveSelectedTypes = $0 }
-                    }
-                    filterMenu(label: "Region", options: regionFilters, selected: liveSelectedRegions) {
-                        toggle($0, in: liveSelectedRegions) { liveSelectedRegions = $0 }
-                    }
+                filterMenu(label: "Country", options: countryFilters, selected: auctionSelectedCountries) {
+                    toggle($0, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
+                }
+                filterMenu(label: "Type", options: typeFilters, selected: auctionSelectedTypes) {
+                    toggle($0, in: auctionSelectedTypes) { auctionSelectedTypes = $0 }
+                }
+                filterMenu(label: "Region", options: regionFilters, selected: auctionSelectedRegions) {
+                    toggle($0, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
+                }
 
+                if showLive {
                     Menu {
                         ForEach(["3 Stars", "3+ Stars", "4 Stars"], id: \.self) { rating in
                             Button {
@@ -359,31 +280,13 @@ struct AuctionTab: View {
                     } label: {
                         FilterChipLabel(label: "Rating", isActive: !liveSelectedRating.isEmpty)
                     }
+                }
 
-                    if hasActiveLiveFilters {
-                        Button(action: clearAllFilters) {
-                            Image(systemName: "arrow.counterclockwise")
-                                .font(.caption2)
-                                .foregroundStyle(.tertiary)
-                        }
-                    }
-                } else {
-                    filterMenu(label: "Country", options: countryFilters, selected: auctionSelectedCountries) {
-                        toggle($0, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
-                    }
-                    filterMenu(label: "Type", options: typeFilters, selected: auctionSelectedTypes) {
-                        toggle($0, in: auctionSelectedTypes) { auctionSelectedTypes = $0 }
-                    }
-                    filterMenu(label: "Region", options: regionFilters, selected: auctionSelectedRegions) {
-                        toggle($0, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
-                    }
-
-                    if hasActiveAuctionFilters {
-                        Button(action: clearAllFilters) {
-                            Image(systemName: "arrow.counterclockwise")
-                                .font(.caption2)
-                                .foregroundStyle(.tertiary)
-                        }
+                if hasActiveFilters {
+                    Button(action: clearAllFilters) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
                     }
                 }
             }
@@ -392,60 +295,27 @@ struct AuctionTab: View {
         }
     }
 
-    // MARK: - Sort Bar
-
     private var sortBar: some View {
-        sortBarView(
-            fields: AuctionSortField.allCases,
-            current: sortField,
-            direction: sortDirection,
-            label: \.label
-        ) { field in
-            if sortField == field {
-                sortDirection = sortDirection == .ascending ? .descending : .ascending
-            } else {
-                sortField = field
-                sortDirection = field == .producer ? .ascending : .descending
-            }
-        }
-    }
-
-    private var liveSortBar: some View {
-        sortBarView(
-            fields: LiveSortField.allCases,
-            current: liveSortField,
-            direction: liveSortDirection,
-            label: \.label
-        ) { field in
-            if liveSortField == field {
-                liveSortDirection = liveSortDirection == .ascending ? .descending : .ascending
-            } else {
-                liveSortField = field
-                liveSortDirection = field == .title ? .ascending : .descending
-            }
-        }
-    }
-
-    private func sortBarView<F: Hashable>(
-        fields: [F],
-        current: F,
-        direction: SortDirection,
-        label: KeyPath<F, String>,
-        onTap: @escaping (F) -> Void
-    ) -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 4) {
-                ForEach(fields, id: \.self) { field in
-                    Button { onTap(field) } label: {
+                ForEach(AuctionSortField.allCases, id: \.self) { field in
+                    Button {
+                        if sortField == field {
+                            sortDirection = sortDirection == .ascending ? .descending : .ascending
+                        } else {
+                            sortField = field
+                            sortDirection = field == .producer ? .ascending : .descending
+                        }
+                    } label: {
                         HStack(spacing: 2) {
-                            Text(field[keyPath: label])
-                                .font(.system(size: 10, weight: current == field ? .bold : .regular))
-                            if current == field {
-                                Image(systemName: direction == .ascending ? "chevron.up" : "chevron.down")
+                            Text(field.label)
+                                .font(.system(size: 10, weight: sortField == field ? .bold : .regular))
+                            if sortField == field {
+                                Image(systemName: sortDirection == .ascending ? "chevron.up" : "chevron.down")
                                     .font(.system(size: 8))
                             }
                         }
-                        .foregroundStyle(current == field ? .primary : .tertiary)
+                        .foregroundStyle(sortField == field ? .primary : .tertiary)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                     }
@@ -456,15 +326,21 @@ struct AuctionTab: View {
         .padding(.bottom, 2)
     }
 
-    // MARK: - Producer List
-
     private var producerList: some View {
-        ScrollView {
+        let map = liveLotsByProducer
+        let ratingActive = showLive && !liveSelectedRating.isEmpty
+        return ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(filtered) { producer in
-                    ProducerRow(producer: producer, isExpanded: expandedProducerId == producer.id)
-                        .contentShape(Rectangle())
-                        .onTapGesture { toggleExpanded($expandedProducerId, to: producer.id) }
+                    let allLots = map[normalizedProducerKey(producer.name)] ?? []
+                    let lots = ratingActive ? allLots.filter(matchesRatingFilter) : allLots
+                    ProducerRow(
+                        producer: producer,
+                        liveLots: lots,
+                        isExpanded: expandedProducerId == producer.id
+                    )
+                    .contentShape(Rectangle())
+                    .onTapGesture { toggleExpanded($expandedProducerId, to: producer.id) }
                     Divider().padding(.leading, 28)
                 }
             }
@@ -472,29 +348,9 @@ struct AuctionTab: View {
         .contentMargins(.bottom, 16)
         .refreshable {
             await dataService.loadAuction()
-        }
-    }
-
-    // MARK: - Live List
-
-    private var liveList: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                ForEach(filteredLiveWines) { wine in
-                    LiveWineRow(wine: wine, isExpanded: expandedLiveWineId == wine.id)
-                        .contentShape(Rectangle())
-                        .onTapGesture { toggleExpanded($expandedLiveWineId, to: wine.id) }
-                    Divider().padding(.leading, 28)
-                }
-            }
-        }
-        .contentMargins(.bottom, 16)
-        .refreshable {
             await dataService.loadLiveWines()
         }
     }
-
-    // MARK: - Sorting
 
     private func sorted(_ list: [AuctionProducer]) -> [AuctionProducer] {
         list.sorted { a, b in
@@ -528,31 +384,11 @@ struct AuctionTab: View {
     }
 
     private func clearAllFilters() {
-        liveSelectedCountries = []
-        liveSelectedTypes = []
-        liveSelectedRegions = []
-        liveSelectedRating = ""
         auctionSelectedCountries = []
         auctionSelectedTypes = []
         auctionSelectedRegions = []
+        liveSelectedRating = ""
         searchText = ""
-    }
-
-    private func sortedLive(_ list: [LiveWine]) -> [LiveWine] {
-        list.sorted { a, b in
-            let result: Bool
-            switch liveSortField {
-            case .title:
-                result = a.title.localizedCaseInsensitiveCompare(b.title) == .orderedAscending
-            case .category:
-                result = a.category < b.category
-            case .estimate:
-                result = a.estimateNumeric < b.estimateNumeric
-            case .rating:
-                result = a.rating_score < b.rating_score
-            }
-            return liveSortDirection == .ascending ? result : !result
-        }
     }
 }
 
@@ -560,7 +396,9 @@ struct AuctionTab: View {
 
 struct ProducerRow: View {
     let producer: AuctionProducer
+    let liveLots: [LiveWine]
     let isExpanded: Bool
+    @State private var expandedLotId: String?
 
     private var barColor: Color {
         guard let ratio = producer.avgRatio else { return .gray }
@@ -579,6 +417,15 @@ struct ProducerRow: View {
                         Text(producer.name)
                             .font(.subheadline.weight(.semibold))
                             .lineLimit(1)
+                        if !liveLots.isEmpty {
+                            Text("\(liveLots.count) live")
+                                .font(.system(size: 9, weight: .semibold))
+                                .padding(.horizontal, 5)
+                                .padding(.vertical, 1)
+                                .background(Color.accentColor.opacity(0.15))
+                                .foregroundStyle(Color.accentColor)
+                                .clipShape(Capsule())
+                        }
                         Spacer()
                         if let ratio = producer.avgRatio {
                             Text(String(format: "%.3f", ratio))
@@ -616,7 +463,11 @@ struct ProducerRow: View {
             .padding(.horizontal, 12)
 
             if isExpanded {
-                ProducerDetail(producer: producer)
+                ProducerDetail(
+                    producer: producer,
+                    liveLots: liveLots,
+                    expandedLotId: $expandedLotId
+                )
             }
         }
         .background(
@@ -629,6 +480,8 @@ struct ProducerRow: View {
 
 struct ProducerDetail: View {
     let producer: AuctionProducer
+    let liveLots: [LiveWine]
+    @Binding var expandedLotId: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -666,9 +519,35 @@ struct ProducerDetail: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
+
+            if !liveLots.isEmpty {
+                Divider().padding(.top, 4)
+                Text("Current Lots")
+                    .font(.system(size: 9))
+                    .foregroundStyle(.tertiary)
+                    .textCase(.uppercase)
+                VStack(spacing: 0) {
+                    ForEach(liveLots.sorted(by: liveLotOrder)) { lot in
+                        LiveWineRow(wine: lot, isExpanded: expandedLotId == lot.id)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    expandedLotId = expandedLotId == lot.id ? nil : lot.id
+                                }
+                            }
+                        Divider()
+                    }
+                }
+                .padding(.horizontal, -28)
+            }
         }
         .padding(.horizontal, 28)
         .padding(.bottom, 10)
+    }
+
+    private func liveLotOrder(_ a: LiveWine, _ b: LiveWine) -> Bool {
+        if a.rating_score != b.rating_score { return a.rating_score > b.rating_score }
+        return a.vintage > b.vintage
     }
 }
 

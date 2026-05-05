@@ -16,9 +16,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 2,
-      "rating_reason": "One exceptional, one modest producer",
-      "vintage": 1997
+      "vintage": 1997,
+      "rating_score": 1,
+      "rating_reason": "Weak vintage, one-star producer"
     },
     {
       "lot_id": "2414090",
@@ -29,9 +29,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1981,
       "rating_score": 3,
-      "rating_reason": "Top producers, weak vintages",
-      "vintage": 1981
+      "rating_reason": "Weak 81, stellar 88 Sauternes"
     },
     {
       "lot_id": "2420103",
@@ -42,9 +42,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Iconic producer, 1958 age/condition uncertain",
-      "vintage": 1958
+      "vintage": 1958,
+      "rating_score": 2,
+      "rating_reason": "Old, off-vintage, past prime"
     },
     {
       "lot_id": "2412458",
@@ -55,9 +55,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1958,
       "rating_score": 3,
-      "rating_reason": "1958 vintage, condition risk uncertain",
-      "vintage": 1958
+      "rating_reason": "aged, off-peak vintage"
     },
     {
       "lot_id": "2423561",
@@ -68,9 +68,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1959,
       "rating_score": 3,
-      "rating_reason": "Great vintage, secondary Haut-Brion property",
-      "vintage": 1959
+      "rating_reason": "Exceptional vintage, uncertain 67yr condition"
     },
     {
       "lot_id": "2419406",
@@ -83,9 +83,9 @@
       "bottles": 2,
       "estimate_per_bottle": "5 000 SEK",
       "hammer_price_per_bottle": "2 500 SEK",
-      "rating_score": 4,
-      "rating_reason": "First Growth, 1960 vintage uncertain",
-      "vintage": 1960
+      "vintage": 1960,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, aged risk"
     },
     {
       "lot_id": "2425042",
@@ -96,9 +96,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1961,
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, proven producer excellence",
-      "vintage": 1961
+      "rating_reason": "Legendary year, great age"
     },
     {
       "lot_id": "2419486",
@@ -110,9 +110,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "First Growth at perfect maturity",
-      "vintage": 1973
+      "vintage": 1973,
+      "rating_score": 2,
+      "rating_reason": "Off year, poor vintage"
     },
     {
       "lot_id": "2422977",
@@ -125,9 +125,9 @@
       "bottles": 11,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "363 SEK",
-      "rating_score": 2,
-      "rating_reason": "Solid producer, aging risk",
-      "vintage": 1974
+      "vintage": 1974,
+      "rating_score": 1,
+      "rating_reason": "Poor vintage, age risk"
     },
     {
       "lot_id": "2414089",
@@ -138,9 +138,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1975,
       "rating_score": 2,
-      "rating_reason": "Pre-2011, unbid, condition uncertain",
-      "vintage": 1975
+      "rating_reason": "Poor vintage, past peak"
     },
     {
       "lot_id": "2420578",
@@ -153,9 +153,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "1 200 SEK",
-      "rating_score": 3,
-      "rating_reason": "Vintage age, provenance unverified",
-      "vintage": 1976
+      "vintage": 1976,
+      "rating_score": 2,
+      "rating_reason": "Old, weak vintage"
     },
     {
       "lot_id": "2412711",
@@ -168,9 +168,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "666 SEK",
+      "vintage": 1978,
       "rating_score": 3,
-      "rating_reason": "Past peak, no bidder interest",
-      "vintage": 1978
+      "rating_reason": "Non-top vintage, undersold"
     },
     {
       "lot_id": "2423550",
@@ -181,9 +181,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1978,
       "rating_score": 2,
-      "rating_reason": "Age and storage risk",
-      "vintage": 1978
+      "rating_reason": "Non-top vintage, fifth growth"
     },
     {
       "lot_id": "2413299",
@@ -194,9 +194,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1978,
       "rating_score": 3,
-      "rating_reason": "First Growth from non-exceptional vintage",
-      "vintage": 1978
+      "rating_reason": "decent non-top year"
     },
     {
       "lot_id": "2412723",
@@ -208,9 +208,9 @@
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 1978,
       "rating_score": 3,
-      "rating_reason": "Mature, top producer, condition uncertain",
-      "vintage": 1978
+      "rating_reason": "Very old, non-top vintage"
     },
     {
       "lot_id": "2423560",
@@ -221,9 +221,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1979,
       "rating_score": 2,
-      "rating_reason": "Solid producers, mature years questionable",
-      "vintage": 1979
+      "rating_reason": "Strong 1985 offset by aged 1979"
     },
     {
       "lot_id": "2419379",
@@ -234,9 +234,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Premier producer, harmonious vintage quality",
-      "vintage": 1979
+      "vintage": 1979,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, sold far below"
     },
     {
       "lot_id": "2421721",
@@ -247,9 +247,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "First Growth, verify storage condition",
-      "vintage": 1979
+      "vintage": 1979,
+      "rating_score": 3,
+      "rating_reason": "Off-peak, not top year"
     },
     {
       "lot_id": "2412764",
@@ -260,9 +260,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 0,
       "rating_score": 2,
-      "rating_reason": "Generic vintage lacks collector appeal",
-      "vintage": 0
+      "rating_reason": "1982/85 boost generic tier"
     },
     {
       "lot_id": "2418633",
@@ -274,9 +274,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "Excellent producer, but 1981 declining",
-      "vintage": 1981
+      "vintage": 1981,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, zero market interest"
     },
     {
       "lot_id": "2421726",
@@ -287,9 +287,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Excellent secondary label, authentic expression",
-      "vintage": 1981
+      "vintage": 1981,
+      "rating_score": 3,
+      "rating_reason": "4-star label, weak vintage"
     },
     {
       "lot_id": "2420902",
@@ -301,9 +301,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 1982,
       "rating_score": 3,
-      "rating_reason": "Age demands perfect provenance",
-      "vintage": 1982
+      "rating_reason": "Legendary Bordeaux vintage"
     },
     {
       "lot_id": "2421452",
@@ -314,9 +314,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Iconic vintage, respected producer",
-      "vintage": 1982
+      "rating_reason": "Iconic vintage, peak maturity"
     },
     {
       "lot_id": "2423400",
@@ -327,9 +327,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, exemplary aging potential",
-      "vintage": 1982
+      "rating_reason": "Legendary vintage, peak drinking"
     },
     {
       "lot_id": "2418015",
@@ -340,9 +340,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary 1982 vintage",
-      "vintage": 1982
+      "rating_reason": "Legendary vintage, peak quality"
     },
     {
       "lot_id": "2423413",
@@ -353,9 +353,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Exceptional vintage, condition verification essential",
-      "vintage": 1982
+      "rating_reason": "Same legendary vintage"
     },
     {
       "lot_id": "2423392",
@@ -366,9 +366,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Greatest vintage decade, peak maturity",
-      "vintage": 1982
+      "rating_reason": "Iconic, legendary vintage"
     },
     {
       "lot_id": "2423394",
@@ -381,9 +381,9 @@
       "bottles": 2,
       "estimate_per_bottle": "13 000 SEK",
       "hammer_price_per_bottle": "500 SEK",
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary 1982, mature First Growth",
-      "vintage": 1982
+      "rating_reason": "Same iconic vintage"
     },
     {
       "lot_id": "2423403",
@@ -396,9 +396,9 @@
       "bottles": 2,
       "estimate_per_bottle": "5 000 SEK",
       "hammer_price_per_bottle": "3 500 SEK",
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary vintage",
-      "vintage": 1982
+      "rating_reason": "Legendary, iconic year"
     },
     {
       "lot_id": "2386331",
@@ -409,9 +409,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "First Growth, legendary 1982 vintage",
-      "vintage": 1982
+      "rating_reason": "iconic year, large format"
     },
     {
       "lot_id": "2422265",
@@ -422,9 +422,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary 1982 vintage, First Growth",
-      "vintage": 1982
+      "rating_reason": "iconic year, lower ask"
     },
     {
       "lot_id": "2414087",
@@ -435,9 +435,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Iconic 1982 Bordeaux vintage, mature",
-      "vintage": 1982
+      "rating_reason": "Top vintage, iconic Second Growth"
     },
     {
       "lot_id": "2425289",
@@ -450,9 +450,9 @@
       "bottles": 2,
       "estimate_per_bottle": "25 000 SEK",
       "hammer_price_per_bottle": "16 000 SEK",
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Iconic First Growth, but vintage predates guide recommendations",
-      "vintage": 1982
+      "rating_reason": "Legendary vintage, peak Merlot"
     },
     {
       "lot_id": "2420922",
@@ -464,9 +464,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Iconic vintage at peak age",
-      "vintage": 1982
+      "rating_reason": "Top vintage, unsold lot"
     },
     {
       "lot_id": "2420923",
@@ -478,9 +478,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary producer, vintage at peak",
-      "vintage": 1982
+      "rating_reason": "Duplicate unsold lot"
     },
     {
       "lot_id": "2423396",
@@ -491,9 +491,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, refined maker",
-      "vintage": 1982
+      "rating_reason": "Lower est., sold below"
     },
     {
       "lot_id": "2424623",
@@ -504,9 +504,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 1,
-      "rating_reason": "Uncompelling, no collector appeal",
-      "vintage": 0
+      "vintage": 0,
+      "rating_score": 2,
+      "rating_reason": "Wide spread, 1982 anchors"
     },
     {
       "lot_id": "2419396",
@@ -517,9 +517,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Prestigious pedigree justifies patient cellaring",
-      "vintage": 1983
+      "rating_reason": "Top right-bank vintage"
     },
     {
       "lot_id": "2419400",
@@ -530,9 +530,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top-rated producer, cellaring verification needed",
-      "vintage": 1983
+      "rating_reason": "Top vintage, no bids"
     },
     {
       "lot_id": "2420932",
@@ -544,9 +544,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "2 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "Aged past prime condition uncertain",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 4,
+      "rating_reason": "Top vintage, high estimate lot"
     },
     {
       "lot_id": "2423552",
@@ -557,9 +557,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "First Growth, immortal aging potential",
-      "vintage": 1983
+      "rating_reason": "Top-tier classic year"
     },
     {
       "lot_id": "2419490",
@@ -571,9 +571,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 1983,
       "rating_score": 3,
-      "rating_reason": "Elite producer, advanced age risky",
-      "vintage": 1983
+      "rating_reason": "Great vintage, age risk"
     },
     {
       "lot_id": "2423554",
@@ -586,9 +586,9 @@
       "bottles": 2,
       "estimate_per_bottle": "4 500 SEK",
       "hammer_price_per_bottle": "3 500 SEK",
-      "rating_score": 3,
-      "rating_reason": "Grand Cru, but vintage unguided",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 4,
+      "rating_reason": "Top-decade classic year"
     },
     {
       "lot_id": "2417945",
@@ -599,9 +599,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Legendary producer, 1983 vintage risky",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 4,
+      "rating_reason": "top classic year"
     },
     {
       "lot_id": "2422953",
@@ -612,9 +612,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Aged but not peak year",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 4,
+      "rating_reason": "top year, twin lot"
     },
     {
       "lot_id": "2419402",
@@ -625,9 +625,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Aged bottle, non-prime vintage year",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 4,
+      "rating_reason": "Top vintage, classic era"
     },
     {
       "lot_id": "2421742",
@@ -638,9 +638,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Premier Cru, non-stellar vintage, aging",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 4,
+      "rating_reason": "Top vintage, aged gracefully"
     },
     {
       "lot_id": "2423085",
@@ -651,9 +651,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1984,
       "rating_score": 2,
-      "rating_reason": "Older vintage, lacks collector appeal",
-      "vintage": 1984
+      "rating_reason": "Weak vintage, minor second wine"
     },
     {
       "lot_id": "2420830",
@@ -664,9 +664,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1985,
       "rating_score": 2,
-      "rating_reason": "Dated vintages, weak pairing",
-      "vintage": 1985
+      "rating_reason": "Mixed lot; weak 1994 Plince drags"
     },
     {
       "lot_id": "2421612",
@@ -677,9 +677,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Top producer, doubtful vintage condition",
-      "vintage": 1985
+      "vintage": 1985,
+      "rating_score": 4,
+      "rating_reason": "1985 top Bordeaux vintage"
     },
     {
       "lot_id": "2412313",
@@ -691,9 +691,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Classic Fourth Growth, verify condition",
-      "vintage": 1986
+      "rating_reason": "Non-top vintage, very mature"
     },
     {
       "lot_id": "2412314",
@@ -706,9 +706,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "500 SEK",
+      "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Mature vintage, verify provenance first",
-      "vintage": 1986
+      "rating_reason": "Non-top vintage, very mature"
     },
     {
       "lot_id": "2412315",
@@ -721,9 +721,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Mature vintage, verify provenance carefully",
-      "vintage": 1986
+      "rating_reason": "Non-top vintage, very mature"
     },
     {
       "lot_id": "2412460",
@@ -736,9 +736,9 @@
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "500 SEK",
+      "vintage": 1986,
       "rating_score": 2,
-      "rating_reason": "Vintage beyond peak drinking window",
-      "vintage": 1986
+      "rating_reason": "Weak year, below estimate"
     },
     {
       "lot_id": "2423417",
@@ -751,9 +751,9 @@
       "bottles": 2,
       "estimate_per_bottle": "12 000 SEK",
       "hammer_price_per_bottle": "9 000 SEK",
+      "vintage": 1986,
       "rating_score": 4,
-      "rating_reason": "Elite classification, respectable 1986 vintage",
-      "vintage": 1986
+      "rating_reason": "Exceptional year, prime drinking"
     },
     {
       "lot_id": "2416114",
@@ -764,9 +764,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Iconic producer, proven aging record",
-      "vintage": 1986
+      "vintage": 1986,
+      "rating_score": 3,
+      "rating_reason": "Good but not top vintage"
     },
     {
       "lot_id": "2414634",
@@ -777,9 +777,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Provenance and storage condition paramount",
-      "vintage": 1986
+      "vintage": 1986,
+      "rating_score": 3,
+      "rating_reason": "Good left bank year"
     },
     {
       "lot_id": "2420574",
@@ -790,9 +790,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Legendary First Growth, beautifully aged",
-      "vintage": 1986
+      "vintage": 1986,
+      "rating_score": 3,
+      "rating_reason": "Good but not iconic"
     },
     {
       "lot_id": "2423407",
@@ -805,9 +805,9 @@
       "bottles": 2,
       "estimate_per_bottle": "5 000 SEK",
       "hammer_price_per_bottle": "150 SEK",
-      "rating_score": 4,
-      "rating_reason": "First Growth, legendary finesse",
-      "vintage": 1986
+      "vintage": 1986,
+      "rating_score": 3,
+      "rating_reason": "Decent, not top-tier year"
     },
     {
       "lot_id": "2423425",
@@ -820,9 +820,9 @@
       "bottles": 2,
       "estimate_per_bottle": "6 000 SEK",
       "hammer_price_per_bottle": "5 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "Iconic producer, mature drinking now",
-      "vintage": 1986
+      "vintage": 1986,
+      "rating_score": 3,
+      "rating_reason": "off top-list year"
     },
     {
       "lot_id": "2423419",
@@ -833,9 +833,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Second Growth, not best vintage",
-      "vintage": 1986
+      "rating_reason": "Good but not top vintage"
     },
     {
       "lot_id": "2412718",
@@ -846,9 +846,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Legendary producer, exceptional aging",
-      "vintage": 1987
+      "vintage": 1987,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage overall"
     },
     {
       "lot_id": "2412453",
@@ -859,9 +859,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "First Growth, 1987 aging risk",
-      "vintage": 1987
+      "vintage": 1987,
+      "rating_score": 2,
+      "rating_reason": "Weak, challenging vintage"
     },
     {
       "lot_id": "2415737",
@@ -872,9 +872,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Iconic First Growth, fully matured",
-      "vintage": 1987
+      "vintage": 1987,
+      "rating_score": 2,
+      "rating_reason": "Weak, challenging vintage"
     },
     {
       "lot_id": "2415030",
@@ -887,9 +887,9 @@
       "bottles": 6,
       "estimate_per_bottle": "2 500 SEK",
       "hammer_price_per_bottle": "2 166 SEK",
+      "vintage": 1987,
       "rating_score": 3,
-      "rating_reason": "Weak vintage despite iconic producer",
-      "vintage": 1987
+      "rating_reason": "weak vintage, good hammer"
     },
     {
       "lot_id": "2419733",
@@ -902,9 +902,9 @@
       "bottles": 6,
       "estimate_per_bottle": "2 500 SEK",
       "hammer_price_per_bottle": "250 SEK",
-      "rating_score": 3,
-      "rating_reason": "Top producer, mediocre 1987 vintage",
-      "vintage": 1987
+      "vintage": 1987,
+      "rating_score": 2,
+      "rating_reason": "weak year, suspect price"
     },
     {
       "lot_id": "2412762",
@@ -917,9 +917,9 @@
       "bottles": 2,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "550 SEK",
-      "rating_score": 1,
-      "rating_reason": "Graves vintage outdated, zero bidder interest",
-      "vintage": 1988
+      "vintage": 1988,
+      "rating_score": 2,
+      "rating_reason": "solid unclassified Graves, mature"
     },
     {
       "lot_id": "2424634",
@@ -931,9 +931,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
-      "rating_score": 2,
-      "rating_reason": "Vintage not in guide, failed sale",
-      "vintage": 1988
+      "vintage": 1988,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, classic aging potential"
     },
     {
       "lot_id": "2421749",
@@ -944,9 +944,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Aged past optimal drinking window",
-      "vintage": 1988
+      "vintage": 1988,
+      "rating_score": 4,
+      "rating_reason": "Outstanding structured year"
     },
     {
       "lot_id": "2423567",
@@ -957,9 +957,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "First Growth, but weak vintage year",
-      "vintage": 1988
+      "vintage": 1988,
+      "rating_score": 4,
+      "rating_reason": "top classic vintage"
     },
     {
       "lot_id": "2423429",
@@ -970,9 +970,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Vintage older than guide ratings",
-      "vintage": 1989
+      "rating_reason": "Top vintage, age risk"
     },
     {
       "lot_id": "2423418",
@@ -983,9 +983,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Legendary producer, excellent maturity point",
-      "vintage": 1989
+      "rating_reason": "Exceptional year, iconic estate"
     },
     {
       "lot_id": "2421725",
@@ -996,9 +996,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Complex, structured, long aging potential",
-      "vintage": 1989
+      "rating_reason": "Superb warm harvest"
     },
     {
       "lot_id": "2412455",
@@ -1009,9 +1009,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "First Growth at peak maturity",
-      "vintage": 1989
+      "rating_reason": "Rich, top-tier year"
     },
     {
       "lot_id": "2423959",
@@ -1022,9 +1022,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Second Growth; 1989 needs cellaring check",
-      "vintage": 1989
+      "vintage": 1989,
+      "rating_score": 4,
+      "rating_reason": "Top Bordeaux vintage, aged"
     },
     {
       "lot_id": "2424378",
@@ -1036,9 +1036,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Solid aging, charming style",
-      "vintage": 1989
+      "rating_reason": "Top vintage, no bids"
     },
     {
       "lot_id": "2424608",
@@ -1050,9 +1050,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Solid classic, likely past prime",
-      "vintage": 1989
+      "rating_reason": "Top vintage, lower estimate"
     },
     {
       "lot_id": "2424609",
@@ -1064,9 +1064,9 @@
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Mature Fourth Growth, approaching peak",
-      "vintage": 1989
+      "rating_reason": "Top vintage, larger format likely"
     },
     {
       "lot_id": "2418579",
@@ -1077,9 +1077,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Dense, powerful, excellent aging potential",
-      "vintage": 1989
+      "rating_reason": "Exceptional vintage, peak Pomerol"
     },
     {
       "lot_id": "2421450",
@@ -1090,9 +1090,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 1,
-      "rating_reason": "Outside recommended vintages, aging risk",
-      "vintage": 1990
+      "vintage": 1990,
+      "rating_score": 3,
+      "rating_reason": "Top vintages, extreme value"
     },
     {
       "lot_id": "2420900",
@@ -1105,9 +1105,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "900 SEK",
-      "rating_score": 3,
-      "rating_reason": "Mature vintage, verification essential",
-      "vintage": 1991
+      "vintage": 1991,
+      "rating_score": 2,
+      "rating_reason": "Weak frost-affected vintage"
     },
     {
       "lot_id": "2412715",
@@ -1118,9 +1118,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1993,
       "rating_score": 3,
-      "rating_reason": "Vintage predates guide's recommendations",
-      "vintage": 1993
+      "rating_reason": "Weak year, still fine"
     },
     {
       "lot_id": "2411923",
@@ -1131,9 +1131,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1993,
       "rating_score": 3,
-      "rating_reason": "Excellent pedigree, but age concerns",
-      "vintage": 1993
+      "rating_reason": "Off year, weaker vintage"
     },
     {
       "lot_id": "2420581",
@@ -1144,9 +1144,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1993,
       "rating_score": 2,
-      "rating_reason": "Predates strong recent vintages",
-      "vintage": 1993
+      "rating_reason": "Weak vintage, no bids"
     },
     {
       "lot_id": "2419057",
@@ -1157,9 +1157,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1993,
       "rating_score": 2,
-      "rating_reason": "Solid terroir, off-vintage years",
-      "vintage": 1993
+      "rating_reason": "Poor vintage, likely faded"
     },
     {
       "lot_id": "2420548",
@@ -1170,9 +1170,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1993,
       "rating_score": 4,
-      "rating_reason": "Iconic producer, 1993 aging risk",
-      "vintage": 1993
+      "rating_reason": "Iconic, but weak vintage"
     },
     {
       "lot_id": "2417801",
@@ -1185,9 +1185,9 @@
       "bottles": 7,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "485 SEK",
+      "vintage": 1994,
       "rating_score": 3,
-      "rating_reason": "Third Growth, decent vintage, drinkable now",
-      "vintage": 1994
+      "rating_reason": "Third Growth, mediocre vintage"
     },
     {
       "lot_id": "2423960",
@@ -1198,9 +1198,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Aging past likely peak condition",
-      "vintage": 1994
+      "vintage": 1994,
+      "rating_score": 2,
+      "rating_reason": "Weak, rainy harvest year"
     },
     {
       "lot_id": "2423955",
@@ -1211,9 +1211,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Iconic First Growth, producer rating applies",
-      "vintage": 1994
+      "vintage": 1994,
+      "rating_score": 3,
+      "rating_reason": "off-peak year"
     },
     {
       "lot_id": "2422910",
@@ -1226,9 +1226,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "668 SEK",
+      "vintage": 1995,
       "rating_score": 3,
-      "rating_reason": "Age and storage condition uncertain",
-      "vintage": 1995
+      "rating_reason": "Top vintage, sold near est"
     },
     {
       "lot_id": "2424898",
@@ -1241,9 +1241,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "266 SEK",
-      "rating_score": 1,
-      "rating_reason": "Aged beyond peak, no buyer interest",
-      "vintage": 1996
+      "vintage": 1996,
+      "rating_score": 2,
+      "rating_reason": "1996 good, modest producer"
     },
     {
       "lot_id": "2423555",
@@ -1256,9 +1256,9 @@
       "bottles": 2,
       "estimate_per_bottle": "7 000 SEK",
       "hammer_price_per_bottle": "5 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "Aging wine needs perfect provenance",
-      "vintage": 1996
+      "vintage": 1996,
+      "rating_score": 4,
+      "rating_reason": "Classic top-rated year"
     },
     {
       "lot_id": "2424237",
@@ -1271,9 +1271,9 @@
       "bottles": 2,
       "estimate_per_bottle": "4 000 SEK",
       "hammer_price_per_bottle": "3 600 SEK",
+      "vintage": 1996,
       "rating_score": 4,
-      "rating_reason": "First Growth from celebrated vintage",
-      "vintage": 1996
+      "rating_reason": "excellent top vintage"
     },
     {
       "lot_id": "2424239",
@@ -1286,9 +1286,9 @@
       "bottles": 4,
       "estimate_per_bottle": "4 000 SEK",
       "hammer_price_per_bottle": "1 875 SEK",
-      "rating_score": 4,
-      "rating_reason": "First Growth, excellent aging window",
-      "vintage": 1996
+      "vintage": 1996,
+      "rating_score": 3,
+      "rating_reason": "top year, condition risk"
     },
     {
       "lot_id": "2423957",
@@ -1299,9 +1299,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "1996 vintage predates recent improvements",
-      "vintage": 1996
+      "rating_reason": "Great vintage, pre-improvement era"
     },
     {
       "lot_id": "2418219",
@@ -1314,9 +1314,9 @@
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "650 SEK",
+      "vintage": 1997,
       "rating_score": 2,
-      "rating_reason": "Second label, weak vintage year",
-      "vintage": 1997
+      "rating_reason": "Second label, weak vintage"
     },
     {
       "lot_id": "2423138",
@@ -1329,9 +1329,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "700 SEK",
+      "vintage": 1998,
       "rating_score": 4,
-      "rating_reason": "Top producer, mature, exceptional value",
-      "vintage": 1998
+      "rating_reason": "Top vintage, long-aged classic"
     },
     {
       "lot_id": "2419505",
@@ -1342,9 +1342,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Solid second label, good ageing potential",
-      "vintage": 1999
+      "vintage": 1999,
+      "rating_score": 2,
+      "rating_reason": "off-vintage, second label declining"
     },
     {
       "lot_id": "2423135",
@@ -1357,9 +1357,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "366 SEK",
-      "rating_score": 2,
-      "rating_reason": "Old vintage, pre-improvement era",
-      "vintage": 2000
+      "vintage": 2000,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, improving estate"
     },
     {
       "lot_id": "2420453",
@@ -1370,9 +1370,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2002,
       "rating_score": 2,
-      "rating_reason": "Good value, older off-vintage",
-      "vintage": 2002
+      "rating_reason": "Good vintages, modest Margaux tier"
     },
     {
       "lot_id": "2424203",
@@ -1385,9 +1385,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "950 SEK",
+      "vintage": 2002,
       "rating_score": 3,
-      "rating_reason": "Top producer, secondary vintage",
-      "vintage": 2002
+      "rating_reason": "Off-vintage, not a top year"
     },
     {
       "lot_id": "2424611",
@@ -1400,9 +1400,9 @@
       "bottles": 4,
       "estimate_per_bottle": "3 500 SEK",
       "hammer_price_per_bottle": "2 750 SEK",
+      "vintage": 2002,
       "rating_score": 4,
-      "rating_reason": "Top tier, older, holds well",
-      "vintage": 2002
+      "rating_reason": "strong modern vintage"
     },
     {
       "lot_id": "2423954",
@@ -1413,9 +1413,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2002,
       "rating_score": 3,
-      "rating_reason": "Good producer, mature non-prime vintage",
-      "vintage": 2002
+      "rating_reason": "Weak vintage, no market interest"
     },
     {
       "lot_id": "2424201",
@@ -1426,9 +1426,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2003,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, ordinary vintage year",
-      "vintage": 2003
+      "rating_reason": "Hot, atypical Bordeaux year"
     },
     {
       "lot_id": "2414918",
@@ -1441,9 +1441,9 @@
       "bottles": 3,
       "estimate_per_bottle": "2 800 SEK",
       "hammer_price_per_bottle": "1 633 SEK",
+      "vintage": 2003,
       "rating_score": 3,
-      "rating_reason": "Top estate, but 2003 uncertain",
-      "vintage": 2003
+      "rating_reason": "2003 not starred, sold below est"
     },
     {
       "lot_id": "2269158",
@@ -1454,9 +1454,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2004,
       "rating_score": 4,
-      "rating_reason": "Second Growth, excellent aging potential",
-      "vintage": 2004
+      "rating_reason": "Second Growth, stellar 2005 included"
     },
     {
       "lot_id": "2269227",
@@ -1467,9 +1467,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 1,
-      "rating_reason": "Generic producer, unidentified, no bids",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "2005 redeems ordinary appellation"
     },
     {
       "lot_id": "2269157",
@@ -1482,9 +1482,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 100 SEK",
       "hammer_price_per_bottle": "166 SEK",
-      "rating_score": 4,
-      "rating_reason": "Second Growth Bordeaux, age-worthy structure",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "Average year, sold far below estimate"
     },
     {
       "lot_id": "2268912",
@@ -1496,9 +1496,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
-      "rating_score": 3,
-      "rating_reason": "Older vintage, condition assessment crucial",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, no bids"
     },
     {
       "lot_id": "2268909",
@@ -1510,9 +1510,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "1 200 SEK",
+      "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Producer excellent, older vintage concerns",
-      "vintage": 2004
+      "rating_reason": "Off-peak, decent vintage"
     },
     {
       "lot_id": "2269197",
@@ -1524,9 +1524,9 @@
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "800 SEK",
-      "rating_score": 3,
-      "rating_reason": "Solid reputation, drinking peak reached",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, no interest"
     },
     {
       "lot_id": "2269199",
@@ -1538,9 +1538,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Absent from guide's featured vintages",
-      "vintage": 2004
+      "rating_reason": "Weak vintage, no interest"
     },
     {
       "lot_id": "2269202",
@@ -1552,9 +1552,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
-      "rating_score": 3,
-      "rating_reason": "Fifth Growth, not peak vintage",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, no interest"
     },
     {
       "lot_id": "2269179",
@@ -1565,9 +1565,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Solid but not a standout vintage",
-      "vintage": 2004
+      "rating_reason": "Decent non-premier year"
     },
     {
       "lot_id": "2269180",
@@ -1579,9 +1579,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "4 500 SEK",
+      "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Legendary producer, ordinary year",
-      "vintage": 2004
+      "rating_reason": "Same vintage, larger format"
     },
     {
       "lot_id": "2268903",
@@ -1593,9 +1593,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
-      "rating_score": 4,
-      "rating_reason": "Mature Fifth Growth, excellent producer",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 3,
+      "rating_reason": "Average year, no bids"
     },
     {
       "lot_id": "2268886",
@@ -1606,9 +1606,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Perfumed elegance, consistent aging",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 3,
+      "rating_reason": "Solid, not exceptional year"
     },
     {
       "lot_id": "2268875",
@@ -1621,9 +1621,9 @@
       "bottles": 5,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
+      "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, 2004 vintage ordinary",
-      "vintage": 2004
+      "rating_reason": "decent year, past peak"
     },
     {
       "lot_id": "2415742",
@@ -1634,9 +1634,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Third Growth, prime vintage",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 3,
+      "rating_reason": "Average year, passed unsold"
     },
     {
       "lot_id": "2268892",
@@ -1648,9 +1648,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "Predates quality surge period",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "Off-year, early transition period"
     },
     {
       "lot_id": "2268907",
@@ -1663,9 +1663,9 @@
       "bottles": 10,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "640 SEK",
-      "rating_score": 3,
-      "rating_reason": "Trustworthy producer, vintage ageing now",
-      "vintage": 2004
+      "vintage": 2004,
+      "rating_score": 2,
+      "rating_reason": "Modest vintage year"
     },
     {
       "lot_id": "2268467",
@@ -1676,9 +1676,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2004,
       "rating_score": 4,
-      "rating_reason": "Second Growth, exceptional 2005 vintage",
-      "vintage": 2004
+      "rating_reason": "top-rated; 05 exceptional vintage"
     },
     {
       "lot_id": "2424206",
@@ -1689,9 +1689,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Legendary vintage, Fifth Growth quality",
-      "vintage": 2005
+      "rating_reason": "2005 top Bordeaux vintage"
     },
     {
       "lot_id": "2268908",
@@ -1704,9 +1704,9 @@
       "bottles": 2,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "750 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Reliable producer, soft auction demand",
-      "vintage": 2005
+      "rating_reason": "Excellent top vintage"
     },
     {
       "lot_id": "2268864",
@@ -1719,9 +1719,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2005,
       "rating_score": 2,
-      "rating_reason": "Steady producer, mature vintage, reliable",
-      "vintage": 2005
+      "rating_reason": "Top vintage, Fifth Growth level"
     },
     {
       "lot_id": "2268866",
@@ -1734,9 +1734,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "250 SEK",
+      "vintage": 2005,
       "rating_score": 2,
-      "rating_reason": "Solid vintage, mature, good value",
-      "vintage": 2005
+      "rating_reason": "Top vintage, Fifth Growth level"
     },
     {
       "lot_id": "2268869",
@@ -1748,9 +1748,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2005,
       "rating_score": 2,
-      "rating_reason": "Fifth Growth, lesser vintage, no takers",
-      "vintage": 2005
+      "rating_reason": "Top vintage, no bids placed"
     },
     {
       "lot_id": "2269070",
@@ -1763,9 +1763,9 @@
       "bottles": 3,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "666 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Second Growth Bordeaux at peak maturity",
-      "vintage": 2005
+      "rating_reason": "Top vintage, single bottle"
     },
     {
       "lot_id": "2269071",
@@ -1778,9 +1778,9 @@
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 600 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Superb vintage, elegant structure, aging potential",
-      "vintage": 2005
+      "rating_reason": "Top vintage, single bottle"
     },
     {
       "lot_id": "2269088",
@@ -1793,9 +1793,9 @@
       "bottles": 5,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Outstanding Second Growth, classic aging frame",
-      "vintage": 2005
+      "rating_reason": "Top vintage, likely magnum"
     },
     {
       "lot_id": "2269091",
@@ -1808,9 +1808,9 @@
       "bottles": 4,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Fully mature, excellent aging potential",
-      "vintage": 2005
+      "rating_reason": "Top vintage, multi-bottle"
     },
     {
       "lot_id": "2422947",
@@ -1823,9 +1823,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "900 SEK",
-      "rating_score": 2,
-      "rating_reason": "Weak vintage, aged 20 years",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, strong result"
     },
     {
       "lot_id": "2269189",
@@ -1838,9 +1838,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Built for long-term aging",
-      "vintage": 2005
+      "rating_reason": "Top year, sold below estimate"
     },
     {
       "lot_id": "2269191",
@@ -1852,9 +1852,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "1 200 SEK",
-      "rating_score": 2,
-      "rating_reason": "Not a marked exceptional vintage",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "Top year, no bids"
     },
     {
       "lot_id": "2269195",
@@ -1866,9 +1866,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "1 200 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Classic Fifth Growth, built to age",
-      "vintage": 2005
+      "rating_reason": "Top year, no bids"
     },
     {
       "lot_id": "2269152",
@@ -1881,9 +1881,9 @@
       "bottles": 4,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "1 177 SEK",
-      "rating_score": 3,
-      "rating_reason": "Stellar producer, overlooked 2005 vintage",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "Top vintage, age-worthy"
     },
     {
       "lot_id": "2269153",
@@ -1896,9 +1896,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "1 050 SEK",
-      "rating_score": 3,
-      "rating_reason": "Excellent producer, decent vintage year",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "Top vintage, smaller lot"
     },
     {
       "lot_id": "2269181",
@@ -1909,9 +1909,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Complex maturity, cellaring potential",
-      "vintage": 2005
+      "rating_reason": "Top vintage, iconic quality"
     },
     {
       "lot_id": "2269182",
@@ -1922,9 +1922,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Iconic estate, perfect vintage year",
-      "vintage": 2005
+      "rating_reason": "Top year, First Growth"
     },
     {
       "lot_id": "2269185",
@@ -1936,9 +1936,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "6 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "First Growth, vintage lacks distinction",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "Great year, larger format"
     },
     {
       "lot_id": "2268914",
@@ -1951,9 +1951,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 600 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Super Second, excellent drinking window",
-      "vintage": 2005
+      "rating_reason": "Super Second, exceptional vintage year"
     },
     {
       "lot_id": "2269135",
@@ -1966,9 +1966,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Outstanding vintage, niche, limited appeal",
-      "vintage": 2005
+      "rating_reason": "Top vintage, some age"
     },
     {
       "lot_id": "2268893",
@@ -1981,9 +1981,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 800 SEK",
       "hammer_price_per_bottle": "1 250 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Exceptional vintage, consistent overperformer",
-      "vintage": 2005
+      "rating_reason": "Top year, large lot"
     },
     {
       "lot_id": "2268895",
@@ -1996,9 +1996,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 800 SEK",
       "hammer_price_per_bottle": "1 333 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Peak vintage, excellent cellaring window",
-      "vintage": 2005
+      "rating_reason": "Top year, mid lot"
     },
     {
       "lot_id": "2268896",
@@ -2011,9 +2011,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 800 SEK",
       "hammer_price_per_bottle": "1 450 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Fine vintage, excellent aging potential",
-      "vintage": 2005
+      "rating_reason": "Top year, smaller lot"
     },
     {
       "lot_id": "2268910",
@@ -2025,9 +2025,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 800 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Excellent producer, prime drinking window",
-      "vintage": 2005
+      "rating_reason": "Top year, unsold"
     },
     {
       "lot_id": "2268861",
@@ -2040,9 +2040,9 @@
       "bottles": 5,
       "estimate_per_bottle": "2 500 SEK",
       "hammer_price_per_bottle": "1 600 SEK",
-      "rating_score": 3,
-      "rating_reason": "Mature Second Growth, weak vintage",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "exceptional vintage, peak drinking"
     },
     {
       "lot_id": "2268865",
@@ -2055,9 +2055,9 @@
       "bottles": 4,
       "estimate_per_bottle": "2 500 SEK",
       "hammer_price_per_bottle": "2 000 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Second Growth, forceful long-aging potential",
-      "vintage": 2005
+      "rating_reason": "exceptional top vintage"
     },
     {
       "lot_id": "2421532",
@@ -2068,9 +2068,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Proper drinking age, excellent pedigree",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "likely half bottle format"
     },
     {
       "lot_id": "2268880",
@@ -2081,9 +2081,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "First Growth, perfect vintage",
-      "vintage": 2005
+      "rating_reason": "guide-starred exceptional year"
     },
     {
       "lot_id": "2268879",
@@ -2095,9 +2095,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "Drinking well, predates recent quality leap",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "Outstanding vintage, transforming estate"
     },
     {
       "lot_id": "2268882",
@@ -2110,9 +2110,9 @@
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 500 SEK",
-      "rating_score": 3,
-      "rating_reason": "Solid but pre-improvement vintage",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "Outstanding vintage, transforming estate"
     },
     {
       "lot_id": "2269214",
@@ -2125,9 +2125,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Classic Fourth Growth, well-established producer",
-      "vintage": 2005
+      "rating_reason": "Top vintage, Fourth Growth value"
     },
     {
       "lot_id": "2269134",
@@ -2139,9 +2139,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
-      "rating_score": 2,
-      "rating_reason": "Vintage predates noted good years",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, unsold"
     },
     {
       "lot_id": "2269138",
@@ -2154,9 +2154,9 @@
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "400 SEK",
-      "rating_score": 2,
-      "rating_reason": "Decent but unclassified, lacks distinction",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, below estimate"
     },
     {
       "lot_id": "2269139",
@@ -2169,9 +2169,9 @@
       "bottles": 5,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
-      "rating_score": 2,
-      "rating_reason": "Solid producer, unremarkable vintage year",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, near estimate"
     },
     {
       "lot_id": "2423308",
@@ -2184,9 +2184,9 @@
       "bottles": 4,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "1 200 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Outstanding producer, ready to drink",
-      "vintage": 2005
+      "rating_reason": "Top vintage, precise and generous"
     },
     {
       "lot_id": "2424823",
@@ -2199,9 +2199,9 @@
       "bottles": 12,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "480 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Quality producer, mature, drink now",
-      "vintage": 2005
+      "rating_reason": "Peak vintage, mature now"
     },
     {
       "lot_id": "2268904",
@@ -2214,9 +2214,9 @@
       "bottles": 12,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "833 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Age-worthy, in peak drinking window",
-      "vintage": 2005
+      "rating_reason": "Top vintage, larger lot"
     },
     {
       "lot_id": "2268911",
@@ -2229,9 +2229,9 @@
       "bottles": 4,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "912 SEK",
-      "rating_score": 2,
-      "rating_reason": "Good producer, vintage not standout",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, smaller lot"
     },
     {
       "lot_id": "2268868",
@@ -2244,9 +2244,9 @@
       "bottles": 4,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 500 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "First Growth pedigree, exceptional vintage",
-      "vintage": 2005
+      "rating_reason": "Second label, stellar vintage"
     },
     {
       "lot_id": "2268871",
@@ -2259,9 +2259,9 @@
       "bottles": 6,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 683 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Reliable secondary from iconic producer",
-      "vintage": 2005
+      "rating_reason": "Same; strong 05 expression"
     },
     {
       "lot_id": "2268873",
@@ -2274,9 +2274,9 @@
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 600 SEK",
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Second label, excellent vintage",
-      "vintage": 2005
+      "rating_reason": "Top year, entry price"
     },
     {
       "lot_id": "2423944",
@@ -2287,9 +2287,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Older vintage, lacks collector interest",
-      "vintage": 2006
+      "vintage": 2006,
+      "rating_score": 4,
+      "rating_reason": "Top-rated vintage, drinking well"
     },
     {
       "lot_id": "2423452",
@@ -2302,9 +2302,9 @@
       "bottles": 12,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "416 SEK",
+      "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Solid quality, now at peak",
-      "vintage": 2006
+      "rating_reason": "Top vintage, drinking well now"
     },
     {
       "lot_id": "2423585",
@@ -2317,9 +2317,9 @@
       "bottles": 10,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "75 SEK",
-      "rating_score": 3,
-      "rating_reason": "Fourth Growth, consistent value, ageing potential",
-      "vintage": 2006
+      "vintage": 2006,
+      "rating_score": 2,
+      "rating_reason": "Top vintage, suspect condition"
     },
     {
       "lot_id": "2415744",
@@ -2330,9 +2330,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "First Growth, elegant, cellaring potential",
-      "vintage": 2006
+      "rating_reason": "Top-list vintage"
     },
     {
       "lot_id": "2420326",
@@ -2344,9 +2344,9 @@
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "1 800 SEK",
+      "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "Prestigious Second Growth, ages superbly",
-      "vintage": 2006
+      "rating_reason": "top year, classic style"
     },
     {
       "lot_id": "2424738",
@@ -2357,9 +2357,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Mature vintage, serious estate producer",
-      "vintage": 2006
+      "rating_reason": "Good year, magnum format"
     },
     {
       "lot_id": "2425236",
@@ -2370,9 +2370,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "Iconic producer, secondary vintage",
-      "vintage": 2006
+      "rating_reason": "Solid top-vintage year"
     },
     {
       "lot_id": "2423851",
@@ -2385,9 +2385,9 @@
       "bottles": 12,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "83 SEK",
-      "rating_score": 4,
-      "rating_reason": "Elegant, complex, built for aging",
-      "vintage": 2007
+      "vintage": 2007,
+      "rating_score": 2,
+      "rating_reason": "Difficult off-peak vintage year"
     },
     {
       "lot_id": "2423891",
@@ -2399,9 +2399,9 @@
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "2 200 SEK",
+      "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Vintage outside benchmark years",
-      "vintage": 2007
+      "rating_reason": "Weak vintage, six bottles"
     },
     {
       "lot_id": "2424151",
@@ -2413,9 +2413,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "2 200 SEK",
+      "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Not a marked prime vintage",
-      "vintage": 2007
+      "rating_reason": "Weak vintage, single bottle"
     },
     {
       "lot_id": "2424154",
@@ -2427,9 +2427,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "2 200 SEK",
+      "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, unremarkable vintage",
-      "vintage": 2007
+      "rating_reason": "Weak vintage, two bottles"
     },
     {
       "lot_id": "2424156",
@@ -2441,9 +2441,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "2 200 SEK",
+      "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, secondary vintage year",
-      "vintage": 2007
+      "rating_reason": "Weak vintage, three bottles"
     },
     {
       "lot_id": "2423947",
@@ -2454,9 +2454,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Weaker vintage, strong producer",
-      "vintage": 2007
+      "vintage": 2007,
+      "rating_score": 2,
+      "rating_reason": "Poor year, absent from guide"
     },
     {
       "lot_id": "2424534",
@@ -2468,9 +2468,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Decent Third Growth; 2008 weaker",
-      "vintage": 2008
+      "rating_reason": "Solid year, not starred"
     },
     {
       "lot_id": "2422898",
@@ -2483,9 +2483,9 @@
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "650 SEK",
+      "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Solid Third Growth, worth cellaring",
-      "vintage": 2008
+      "rating_reason": "Top year, slight underperformance"
     },
     {
       "lot_id": "2421175",
@@ -2496,9 +2496,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Top Graves producer, consistent quality",
-      "vintage": 2008
+      "vintage": 2008,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, no prime marker"
     },
     {
       "lot_id": "2423946",
@@ -2509,9 +2509,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Fine Left Bank pedigree, mature drinking",
-      "vintage": 2008
+      "vintage": 2008,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, no prime marker"
     },
     {
       "lot_id": "2424731",
@@ -2523,9 +2523,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Solid producer, peak likely passed",
-      "vintage": 2008
+      "rating_reason": "Good vintage, no bids"
     },
     {
       "lot_id": "2423289",
@@ -2538,9 +2538,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "966 SEK",
+      "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Excellent vintage, structured for aging",
-      "vintage": 2008
+      "rating_reason": "Top vintage, confirmed sale"
     },
     {
       "lot_id": "2421531",
@@ -2551,9 +2551,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Powerful, complex, merlot backbone",
-      "vintage": 2008
+      "rating_reason": "Top vintage, confirmed sale"
     },
     {
       "lot_id": "2423327",
@@ -2565,9 +2565,9 @@
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "1 400 SEK",
+      "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Proven producer, generous refined style",
-      "vintage": 2008
+      "rating_reason": "Excellent year, full potential"
     },
     {
       "lot_id": "2424162",
@@ -2579,9 +2579,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 400 SEK",
+      "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Excellent vintage, peak quality era",
-      "vintage": 2008
+      "rating_reason": "Excellent year, full potential"
     },
     {
       "lot_id": "2424164",
@@ -2593,9 +2593,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "1 400 SEK",
+      "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Fifth Growth, refined structure, quality producer",
-      "vintage": 2008
+      "rating_reason": "Excellent year, full potential"
     },
     {
       "lot_id": "2421174",
@@ -2606,9 +2606,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Elegant Premier Cru, excellent aging",
-      "vintage": 2009
+      "rating_reason": "Outstanding, top-tier vintage"
     },
     {
       "lot_id": "2422926",
@@ -2620,9 +2620,9 @@
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "1 200 SEK",
-      "rating_score": 3,
-      "rating_reason": "Classified growth, solid vintage",
-      "vintage": 2009
+      "vintage": 2009,
+      "rating_score": 4,
+      "rating_reason": "Legendary vintage, rich structure"
     },
     {
       "lot_id": "2421533",
@@ -2635,9 +2635,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "133 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Fifth Growth, aged past peak drinking",
-      "vintage": 2009
+      "rating_reason": "Exceptional Bordeaux vintage year"
     },
     {
       "lot_id": "2420492",
@@ -2650,9 +2650,9 @@
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "650 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Mature Third Growth, drink soon",
-      "vintage": 2009
+      "rating_reason": "Exceptional Bordeaux year"
     },
     {
       "lot_id": "2418116",
@@ -2665,9 +2665,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "950 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Fair value, good investment",
-      "vintage": 2009
+      "rating_reason": "Outstanding vintage, sold"
     },
     {
       "lot_id": "2421524",
@@ -2680,9 +2680,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "500 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Fifth Growth Pauillac, solid 2009",
-      "vintage": 2009
+      "rating_reason": "Same top vintage, larger format"
     },
     {
       "lot_id": "2421510",
@@ -2695,9 +2695,9 @@
       "bottles": 12,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "75 SEK",
-      "rating_score": 3,
-      "rating_reason": "Full-bodied, evolving, proven longevity",
-      "vintage": 2009
+      "vintage": 2009,
+      "rating_score": 2,
+      "rating_reason": "Top year, alarming hammer discount"
     },
     {
       "lot_id": "2422949",
@@ -2710,9 +2710,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
-      "rating_score": 2,
-      "rating_reason": "Vintage beyond optimal drinking window",
-      "vintage": 2009
+      "vintage": 2009,
+      "rating_score": 3,
+      "rating_reason": "Excellent vintage, fair result"
     },
     {
       "lot_id": "2421516",
@@ -2725,9 +2725,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "1 001 SEK",
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Prestigious claret, excellent aging potential",
-      "vintage": 2009
+      "rating_reason": "Guide-starred exceptional year"
     },
     {
       "lot_id": "2423331",
@@ -2740,9 +2740,9 @@
       "bottles": 12,
       "estimate_per_bottle": "2 500 SEK",
       "hammer_price_per_bottle": "1 666 SEK",
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage from celebrated house",
-      "vintage": 2009
+      "rating_reason": "Extraordinary year, peak expression"
     },
     {
       "lot_id": "2421508",
@@ -2755,9 +2755,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Solid Fourth Growth, modest vintage",
-      "vintage": 2009
+      "rating_reason": "Top vintage, undersold"
     },
     {
       "lot_id": "2424606",
@@ -2770,9 +2770,9 @@
       "bottles": 5,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Reliable producer, uninspired vintage",
-      "vintage": 2009
+      "rating_reason": "Top vintage, undersold"
     },
     {
       "lot_id": "2423320",
@@ -2784,9 +2784,9 @@
       "category": "bordeaux",
       "bottles": 9,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Classified growth, outstanding vintage year",
-      "vintage": 2009
+      "rating_reason": "Exceptional, guide-starred top vintage"
     },
     {
       "lot_id": "2423189",
@@ -2797,9 +2797,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Elegant structure, excellent vintage, collectible",
-      "vintage": 2009
+      "rating_reason": "Top vintage, premium magnum"
     },
     {
       "lot_id": "2424347",
@@ -2812,9 +2812,9 @@
       "bottles": 5,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "640 SEK",
-      "rating_score": 2,
-      "rating_reason": "Decent value, off-peak year",
-      "vintage": 2010
+      "vintage": 2010,
+      "rating_score": 3,
+      "rating_reason": "Exceptional 2010 vintage uplifts"
     },
     {
       "lot_id": "2423322",
@@ -2826,9 +2826,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Good vintage, reputable producer, fair price",
-      "vintage": 2010
+      "rating_reason": "Guide-marked top vintage"
     },
     {
       "lot_id": "2422928",
@@ -2840,9 +2840,9 @@
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "1 200 SEK",
-      "rating_score": 3,
-      "rating_reason": "Premier Grand Cru, excellent 2010 vintage",
-      "vintage": 2010
+      "vintage": 2010,
+      "rating_score": 4,
+      "rating_reason": "Guide-starred year, outstanding"
     },
     {
       "lot_id": "2422950",
@@ -2855,9 +2855,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Solid third growth, classic profile",
-      "vintage": 2010
+      "rating_reason": "Exceptional year, solid result"
     },
     {
       "lot_id": "2423336",
@@ -2869,9 +2869,9 @@
       "category": "bordeaux",
       "bottles": 10,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Reliable Third Growth, decent year",
-      "vintage": 2010
+      "rating_reason": "Great year, no bids placed"
     },
     {
       "lot_id": "2422938",
@@ -2882,9 +2882,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "2010 excellence, magnum aging potential",
-      "vintage": 2010
+      "rating_reason": "Top vintage, magnum ages well"
     },
     {
       "lot_id": "2415786",
@@ -2897,9 +2897,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "666 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Noted vintage, excellent aging potential",
-      "vintage": 2010
+      "rating_reason": "Top year, excellent Bordeaux"
     },
     {
       "lot_id": "2424447",
@@ -2912,9 +2912,9 @@
       "bottles": 3,
       "estimate_per_bottle": "2 200 SEK",
       "hammer_price_per_bottle": "2 166 SEK",
+      "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Stellar vintage from noble house",
-      "vintage": 2010
+      "rating_reason": "Prime vintage, marked excellent"
     },
     {
       "lot_id": "2424610",
@@ -2927,9 +2927,9 @@
       "bottles": 3,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 333 SEK",
+      "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage from premier producer",
-      "vintage": 2010
+      "rating_reason": "Outstanding vintage"
     },
     {
       "lot_id": "2424777",
@@ -2942,9 +2942,9 @@
       "bottles": 12,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "420 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Esteemed producer, excellent vintage, ageworthy",
-      "vintage": 2010
+      "rating_reason": "Guide-starred exceptional vintage"
     },
     {
       "lot_id": "2424536",
@@ -2957,9 +2957,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
-      "rating_score": 4,
-      "rating_reason": "Third Growth, classic structure",
-      "vintage": 2011
+      "vintage": 2011,
+      "rating_score": 3,
+      "rating_reason": "Decent year, below prime"
     },
     {
       "lot_id": "2424621",
@@ -2971,9 +2971,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2011,
       "rating_score": 4,
-      "rating_reason": "Top Classed Growth, classic choice",
-      "vintage": 2011
+      "rating_reason": "Top-quality, elegant, top vintage"
     },
     {
       "lot_id": "2424184",
@@ -2984,9 +2984,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 2,
-      "rating_reason": "Good house, poor 2011 vintage",
-      "vintage": 2011
+      "vintage": 2011,
+      "rating_score": 3,
+      "rating_reason": "Solid year, dependable quality"
     },
     {
       "lot_id": "2424334",
@@ -2997,9 +2997,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2012,
       "rating_score": 2,
-      "rating_reason": "Good 2015 vintage, lighter style",
-      "vintage": 2012
+      "rating_reason": "sandy soils, lighter style"
     },
     {
       "lot_id": "2421689",
@@ -3010,9 +3010,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Excellent house, weak 2012 vintage",
-      "vintage": 2012
+      "rating_reason": "Off-vintage, not top year"
     },
     {
       "lot_id": "2414378",
@@ -3023,9 +3023,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Quality improvement trend, solid vintage",
-      "vintage": 2012
+      "vintage": 2012,
+      "rating_score": 3,
+      "rating_reason": "Decent year, honest value"
     },
     {
       "lot_id": "2423133",
@@ -3037,9 +3037,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, mid-tier vintage",
-      "vintage": 2012
+      "rating_reason": "Decent year, honest value"
     },
     {
       "lot_id": "2420925",
@@ -3050,9 +3050,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2012,
       "rating_score": 2,
-      "rating_reason": "Vintage absent from guide's selections",
-      "vintage": 2012
+      "rating_reason": "Weak vintage, large format"
     },
     {
       "lot_id": "2420930",
@@ -3063,9 +3063,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2012,
       "rating_score": 2,
-      "rating_reason": "Second label, respectable but unexciting",
-      "vintage": 2012
+      "rating_reason": "Same; weak vintage, large format"
     },
     {
       "lot_id": "2424729",
@@ -3077,9 +3077,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
+      "vintage": 2013,
       "rating_score": 2,
-      "rating_reason": "2013 vintage, weaker than rated years",
-      "vintage": 2013
+      "rating_reason": "Weak vintage, no bids"
     },
     {
       "lot_id": "2424505",
@@ -3090,9 +3090,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Massive concentration, built for decades",
-      "vintage": 2013
+      "vintage": 2013,
+      "rating_score": 3,
+      "rating_reason": "Weak vintage, off year"
     },
     {
       "lot_id": "2421451",
@@ -3104,9 +3104,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "4 000 SEK",
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "First Growth, solid vintage",
-      "vintage": 2014
+      "rating_reason": "Fine vintage, still developing"
     },
     {
       "lot_id": "2419495",
@@ -3117,9 +3117,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Elegant, unclassified, exceptional aging potential",
-      "vintage": 2014
+      "rating_reason": "Top vintage, magnum format"
     },
     {
       "lot_id": "2424349",
@@ -3132,9 +3132,9 @@
       "bottles": 2,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "350 SEK",
+      "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Good structure, ages gracefully",
-      "vintage": 2014
+      "rating_reason": "Top vintage, value price"
     },
     {
       "lot_id": "2424440",
@@ -3147,9 +3147,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "533 SEK",
+      "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Third Growth, solid vintage",
-      "vintage": 2014
+      "rating_reason": "Top vintage, sold firm"
     },
     {
       "lot_id": "2424442",
@@ -3162,9 +3162,9 @@
       "bottles": 4,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "450 SEK",
+      "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Consistent producer, 2014 wasn't standout",
-      "vintage": 2014
+      "rating_reason": "Top vintage, below estimate"
     },
     {
       "lot_id": "2415746",
@@ -3175,9 +3175,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Strong provenance, excellent drinking window",
-      "vintage": 2014
+      "rating_reason": "guide-highlighted top year"
     },
     {
       "lot_id": "2419930",
@@ -3188,9 +3188,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Iconic estate, decent vintage",
-      "vintage": 2014
+      "rating_reason": "top year, peer lot"
     },
     {
       "lot_id": "2421170",
@@ -3201,9 +3201,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Top-rated producer, exceptional vintage year",
-      "vintage": 2015
+      "rating_reason": "Guide-starred exceptional year"
     },
     {
       "lot_id": "2424829",
@@ -3216,9 +3216,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "516 SEK",
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Solid Fifth Growth, forgettable vintage",
-      "vintage": 2015
+      "rating_reason": "top vintage, Fifth Growth value"
     },
     {
       "lot_id": "2420092",
@@ -3231,9 +3231,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Solid vintage, lacked bidder interest",
-      "vintage": 2015
+      "rating_reason": "Minor GCC, good vintage boost"
     },
     {
       "lot_id": "2419496",
@@ -3244,9 +3244,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Fine, elegant form, long-ageing",
-      "vintage": 2015
+      "rating_reason": "Equally strong vintage, magnum"
     },
     {
       "lot_id": "2424740",
@@ -3257,9 +3257,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Magrez ownership, solid aging potential",
-      "vintage": 2015
+      "rating_reason": "Top vintage, magnum format"
     },
     {
       "lot_id": "2424733",
@@ -3270,9 +3270,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Reliable, age-worthy, good vintage",
-      "vintage": 2015
+      "rating_reason": "Top vintage, magnum format"
     },
     {
       "lot_id": "2419938",
@@ -3283,9 +3283,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Iconic First Growth, exceptional vintage",
-      "vintage": 2015
+      "rating_reason": "guide-starred top year"
     },
     {
       "lot_id": "2424315",
@@ -3297,9 +3297,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "600 SEK",
+      "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Lighter style, unremarkable 2015 vintage",
-      "vintage": 2015
+      "rating_reason": "Top vintage, lighter sandy style"
     },
     {
       "lot_id": "2424316",
@@ -3312,9 +3312,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "483 SEK",
+      "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Not an especially strong vintage",
-      "vintage": 2015
+      "rating_reason": "Top vintage, sold at discount"
     },
     {
       "lot_id": "2424739",
@@ -3325,9 +3325,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Reliable estate, special vintage year",
-      "vintage": 2015
+      "rating_reason": "Top vintage, magnum ages well"
     },
     {
       "lot_id": "2419451",
@@ -3340,9 +3340,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 400 SEK",
       "hammer_price_per_bottle": "500 SEK",
+      "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Perfect maturity, outstanding producer quality",
-      "vintage": 2015
+      "rating_reason": "Outstanding starred Bordeaux vintage"
     },
     {
       "lot_id": "2420627",
@@ -3355,9 +3355,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Premium cuvée, dark modern Merlot",
-      "vintage": 2015
+      "rating_reason": "Top vintage, premium cuvée"
     },
     {
       "lot_id": "2421676",
@@ -3370,9 +3370,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Modern concentration, lacks exceptional vintage",
-      "vintage": 2015
+      "rating_reason": "Top vintage, premium cuvée"
     },
     {
       "lot_id": "2423807",
@@ -3385,9 +3385,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "966 SEK",
+      "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Third Growth, exceptional vintage year",
-      "vintage": 2016
+      "rating_reason": "Starred year, excellent form"
     },
     {
       "lot_id": "2423870",
@@ -3400,9 +3400,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "966 SEK",
+      "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Powerful third growth, excellent year",
-      "vintage": 2016
+      "rating_reason": "Starred year, excellent form"
     },
     {
       "lot_id": "2420104",
@@ -3415,9 +3415,9 @@
       "bottles": 4,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Fair value Cru Classé",
-      "vintage": 2016
+      "rating_reason": "Guide-noted, strong vintage"
     },
     {
       "lot_id": "2419803",
@@ -3428,9 +3428,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Exceptional vintage, impressive ageing potential",
-      "vintage": 2016
+      "rating_reason": "outstanding starred vintage"
     },
     {
       "lot_id": "2419790",
@@ -3441,9 +3441,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Modern amphora aging elevates traditional style",
-      "vintage": 2016
+      "rating_reason": "Brilliant year, at height"
     },
     {
       "lot_id": "2419492",
@@ -3456,9 +3456,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "833 SEK",
+      "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Grand Cru classé, dependable producer",
-      "vintage": 2016
+      "rating_reason": "Excellent starred Bordeaux vintage"
     },
     {
       "lot_id": "2421535",
@@ -3469,9 +3469,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Premier Grand Cru, vintage unmarked exceptional",
-      "vintage": 2016
+      "vintage": 2016,
+      "rating_score": 4,
+      "rating_reason": "Premier GCC, top vintage, magnum"
     },
     {
       "lot_id": "2420102",
@@ -3484,9 +3484,9 @@
       "bottles": 4,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "539 SEK",
+      "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Prestigious second wine, exceptional vintage",
-      "vintage": 2016
+      "rating_reason": "Top vintage, prestigious second label"
     },
     {
       "lot_id": "2423895",
@@ -3499,9 +3499,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "633 SEK",
-      "rating_score": 4,
-      "rating_reason": "Elegant, complex, age-worthy investment",
-      "vintage": 2017
+      "vintage": 2017,
+      "rating_score": 3,
+      "rating_reason": "Good but frost-affected year"
     },
     {
       "lot_id": "2421685",
@@ -3514,9 +3514,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "83 SEK",
+      "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Refined Pomerol, good aging potential",
-      "vintage": 2017
+      "rating_reason": "Second wine, iconic estate"
     },
     {
       "lot_id": "2420381",
@@ -3529,9 +3529,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "Rich, dense, worth aging",
-      "vintage": 2017
+      "vintage": 2017,
+      "rating_score": 3,
+      "rating_reason": "Solid but not top year"
     },
     {
       "lot_id": "2421684",
@@ -3543,9 +3543,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "Generous, refined classic style",
-      "vintage": 2017
+      "vintage": 2017,
+      "rating_score": 3,
+      "rating_reason": "Good year, not stellar"
     },
     {
       "lot_id": "2420105",
@@ -3557,9 +3557,9 @@
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "Elegant Graves, restrained vintage",
-      "vintage": 2017
+      "vintage": 2017,
+      "rating_score": 3,
+      "rating_reason": "Modest, unstarred frost year"
     },
     {
       "lot_id": "2416273",
@@ -3572,9 +3572,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "866 SEK",
+      "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Top Pauillac, solid 2017 vintage",
-      "vintage": 2017
+      "rating_reason": "Third label, non-standout vintage"
     },
     {
       "lot_id": "2420496",
@@ -3586,9 +3586,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2018,
       "rating_score": 2,
-      "rating_reason": "Second label; solid but unremarkable",
-      "vintage": 2018
+      "rating_reason": "Second label, not the château"
     },
     {
       "lot_id": "2422909",
@@ -3600,9 +3600,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Reliable for cellaring, solid vintage",
-      "vintage": 2018
+      "rating_reason": "Exceptional year, excellent potential"
     },
     {
       "lot_id": "2423841",
@@ -3615,9 +3615,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "133 SEK",
+      "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Powerful cab-forward, age-worthy complex",
-      "vintage": 2018
+      "rating_reason": "Top starred vintage"
     },
     {
       "lot_id": "2423853",
@@ -3629,9 +3629,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
+      "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Third Growth, excellent 2018",
-      "vintage": 2018
+      "rating_reason": "Top starred vintage"
     },
     {
       "lot_id": "2424765",
@@ -3643,9 +3643,9 @@
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Third Growth, solid vintage",
-      "vintage": 2018
+      "rating_reason": "Top vintage, case, no bids"
     },
     {
       "lot_id": "2419493",
@@ -3658,9 +3658,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
+      "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Dense Cabernet, ages beautifully well",
-      "vintage": 2018
+      "rating_reason": "Top recent vintage"
     },
     {
       "lot_id": "2423872",
@@ -3673,9 +3673,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "1 183 SEK",
+      "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Excellent, age-worthy Fifth Growth",
-      "vintage": 2018
+      "rating_reason": "Top year, larger lot"
     },
     {
       "lot_id": "2423354",
@@ -3688,9 +3688,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "116 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Consummately charming, age-worthy potential",
-      "vintage": 2018
+      "rating_reason": "Top vintage, dramatically undersold"
     },
     {
       "lot_id": "2420078",
@@ -3703,9 +3703,9 @@
       "bottles": 2,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "430 SEK",
-      "rating_score": 4,
-      "rating_reason": "Top vintage, Second Growth excellence",
-      "vintage": 2018
+      "vintage": 2018,
+      "rating_score": 3,
+      "rating_reason": "Second label, excellent vintage"
     },
     {
       "lot_id": "2420858",
@@ -3718,9 +3718,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "416 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Excellent year from proven producer",
-      "vintage": 2019
+      "rating_reason": "Guide-marked great vintage"
     },
     {
       "lot_id": "2424796",
@@ -3732,9 +3732,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Consistent Fourth Growth, good value",
-      "vintage": 2019
+      "rating_reason": "Top vintage, early drinking window"
     },
     {
       "lot_id": "2424797",
@@ -3746,9 +3746,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Consistent producer, regularly good value",
-      "vintage": 2019
+      "rating_reason": "Top vintage, early drinking window"
     },
     {
       "lot_id": "2422952",
@@ -3760,9 +3760,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Excellent vintage, estate recently revamped",
-      "vintage": 2019
+      "rating_reason": "Guide-noted strong year"
     },
     {
       "lot_id": "2422934",
@@ -3775,9 +3775,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "635 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Second Growth, excellent recent form",
-      "vintage": 2019
+      "rating_reason": "Top primed vintage"
     },
     {
       "lot_id": "2423913",
@@ -3788,9 +3788,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Organic estate, fine aging potential",
-      "vintage": 2019
+      "rating_reason": "Prime vintage, marked excellent"
     },
     {
       "lot_id": "2423897",
@@ -3803,9 +3803,9 @@
       "bottles": 6,
       "estimate_per_bottle": "5 000 SEK",
       "hammer_price_per_bottle": "166 SEK",
+      "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "First Growth, needs decades of aging",
-      "vintage": 2019
+      "rating_reason": "Guide-starred exceptional year"
     },
     {
       "lot_id": "2415741",
@@ -3816,9 +3816,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Excellent vintage, powerful, age-worthy",
-      "vintage": 2019
+      "rating_reason": "stellar recent starred year"
     },
     {
       "lot_id": "2424802",
@@ -3830,9 +3830,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
+      "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Radical improvement, excellent vintage",
-      "vintage": 2019
+      "rating_reason": "Top-tier recent vintage"
     },
     {
       "lot_id": "2424758",
@@ -3844,9 +3844,9 @@
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Strong 2019, aging potential",
-      "vintage": 2019
+      "rating_reason": "top vintage, rising estate"
     },
     {
       "lot_id": "2424767",
@@ -3859,9 +3859,9 @@
       "bottles": 12,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "58 SEK",
-      "rating_score": 2,
-      "rating_reason": "Solid producer, unremarkable 2019",
-      "vintage": 2019
+      "vintage": 2019,
+      "rating_score": 3,
+      "rating_reason": "Prime year, far below estimate"
     },
     {
       "lot_id": "2424751",
@@ -3874,9 +3874,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "333 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Solid second label, good value",
-      "vintage": 2019
+      "rating_reason": "Top vintage, sold below estimate"
     },
     {
       "lot_id": "2424798",
@@ -3888,9 +3888,9 @@
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "600 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Forceful, elegant, age-worthy claret reserve",
-      "vintage": 2019
+      "rating_reason": "Top vintage, unsold at estimate"
     },
     {
       "lot_id": "2420856",
@@ -3903,9 +3903,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "670 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Excellent vintage, consistent producer",
-      "vintage": 2020
+      "rating_reason": "Top vintage, fair price"
     },
     {
       "lot_id": "2420857",
@@ -3918,9 +3918,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "333 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Consistently elegant, underrated growth",
-      "vintage": 2020
+      "rating_reason": "Top vintage, underpriced"
     },
     {
       "lot_id": "2422932",
@@ -3933,9 +3933,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Second Growth, stellar 2020 vintage",
-      "vintage": 2020
+      "rating_reason": "Primed, excellent recent year"
     },
     {
       "lot_id": "2424799",
@@ -3946,9 +3946,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2020,
       "rating_score": 4,
-      "rating_reason": "Elegant, long-aging Second Growth",
-      "vintage": 2020
+      "rating_reason": "Primed, top-list vintage"
     },
     {
       "lot_id": "2419494",
@@ -3961,9 +3961,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "350 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Strong aging wine, exceptional vintage",
-      "vintage": 2020
+      "rating_reason": "Solid recent vintage"
     },
     {
       "lot_id": "2419373",
@@ -3976,9 +3976,9 @@
       "bottles": 12,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
-      "rating_score": 2,
-      "rating_reason": "Young, traditional style, cellaring potential",
-      "vintage": 2020
+      "vintage": 2020,
+      "rating_score": 3,
+      "rating_reason": "Grand Cru, top vintage"
     },
     {
       "lot_id": "2424776",
@@ -3991,9 +3991,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Leader in region, ages well",
-      "vintage": 2020
+      "rating_reason": "Strong vintage, age-worthy"
     },
     {
       "lot_id": "2424786",
@@ -4006,9 +4006,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Savoury, structured, excellent aging potential",
-      "vintage": 2020
+      "rating_reason": "Strong vintage, age-worthy"
     },
     {
       "lot_id": "2423822",
@@ -4020,9 +4020,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Solid structure, good value",
-      "vintage": 2021
+      "rating_reason": "Solid but unremarkable year"
     },
     {
       "lot_id": "2420848",
@@ -4035,9 +4035,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "116 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Elegant and reliable, typical vintage",
-      "vintage": 2021
+      "rating_reason": "Average year, consistent quality"
     },
     {
       "lot_id": "2420850",
@@ -4050,9 +4050,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "566 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Fourth Growth, consistent elegance",
-      "vintage": 2021
+      "rating_reason": "Average year, fair price"
     },
     {
       "lot_id": "2422925",
@@ -4064,9 +4064,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Stylish, organic, Premier Grand Cru",
-      "vintage": 2021
+      "rating_reason": "Solid but off-peak vintage"
     },
     {
       "lot_id": "2423924",
@@ -4079,9 +4079,9 @@
       "bottles": 6,
       "estimate_per_bottle": "4 500 SEK",
       "hammer_price_per_bottle": "3 166 SEK",
-      "rating_score": 4,
-      "rating_reason": "Iconic Grand Cru, challenging vintage",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Recent, non-prime vintage"
     },
     {
       "lot_id": "2423979",
@@ -4094,9 +4094,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "966 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Sumptuous, structured, built to age",
-      "vintage": 2021
+      "rating_reason": "Sumptuous Merlot, solid vintage"
     },
     {
       "lot_id": "2423887",
@@ -4109,9 +4109,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
-      "rating_score": 3,
-      "rating_reason": "Reliable Fifth Growth, solid vintage",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 2,
+      "rating_reason": "Solid but unremarkable year"
     },
     {
       "lot_id": "2422931",
@@ -4124,9 +4124,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
-      "rating_score": 3,
-      "rating_reason": "Recent years demonstrate consistent quality",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 2,
+      "rating_reason": "Lighter, unprimed vintage"
     },
     {
       "lot_id": "2422921",
@@ -4138,9 +4138,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Organic Third Growth, aging potential",
-      "vintage": 2021
+      "rating_reason": "Third Growth, organic, non-top vintage"
     },
     {
       "lot_id": "2423811",
@@ -4153,9 +4153,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "680 SEK",
-      "rating_score": 3,
-      "rating_reason": "Plateau-grown merlot, patient aging potential",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 2,
+      "rating_reason": "Off-year, modest result"
     },
     {
       "lot_id": "2423888",
@@ -4167,9 +4167,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Prestigious tiny producer; long aging needed",
-      "vintage": 2021
+      "rating_reason": "Top estate, strong vintage"
     },
     {
       "lot_id": "2423820",
@@ -4181,9 +4181,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
-      "rating_score": 4,
-      "rating_reason": "Outstanding Pomerol, consistent excellence",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Good but not standout vintage"
     },
     {
       "lot_id": "2423834",
@@ -4196,9 +4196,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "1 000 SEK",
-      "rating_score": 4,
-      "rating_reason": "Top producer, finest Pomerol, excellent pedigree",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Solid but lesser vintage"
     },
     {
       "lot_id": "2423830",
@@ -4209,9 +4209,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Noble producer, organic, fragrant",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Lesser vintage, large format"
     },
     {
       "lot_id": "2423800",
@@ -4222,9 +4222,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Top producer, weak vintage, pricey",
-      "vintage": 2021
+      "rating_reason": "Lesser vintage, magnum"
     },
     {
       "lot_id": "2423880",
@@ -4236,9 +4236,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2021,
       "rating_score": 2,
-      "rating_reason": "Unclassified, failed to attract bidders",
-      "vintage": 2021
+      "rating_reason": "Solid but unexceptional year"
     },
     {
       "lot_id": "2423836",
@@ -4250,9 +4250,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
-      "rating_score": 4,
-      "rating_reason": "Classic structure, exceptional aging potential",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Solid but unprimed year"
     },
     {
       "lot_id": "2424726",
@@ -4264,9 +4264,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "2 500 SEK",
+      "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Excellent vintage, elegant complexity",
-      "vintage": 2021
+      "rating_reason": "Super Second, non-peak vintage"
     },
     {
       "lot_id": "2423938",
@@ -4278,9 +4278,9 @@
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Structured, suave Bordeaux, decent vintage",
-      "vintage": 2021
+      "rating_reason": "Unprimed, decent year"
     },
     {
       "lot_id": "2423981",
@@ -4293,9 +4293,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "141 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Suave and structured Cab blend",
-      "vintage": 2021
+      "rating_reason": "Unprimed, decent year"
     },
     {
       "lot_id": "2420412",
@@ -4308,9 +4308,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "783 SEK",
-      "rating_score": 4,
-      "rating_reason": "Second Growth, consistently excellent performer",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Non-prime, sold above estimate"
     },
     {
       "lot_id": "2420846",
@@ -4323,9 +4323,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "835 SEK",
-      "rating_score": 4,
-      "rating_reason": "Powerful structure, age potential",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Non-prime, strong hammer price"
     },
     {
       "lot_id": "2424761",
@@ -4337,9 +4337,9 @@
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "1 800 SEK",
-      "rating_score": 4,
-      "rating_reason": "Second Growth, powerful, long-aged",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Non-prime, larger format, no bids"
     },
     {
       "lot_id": "2424763",
@@ -4352,9 +4352,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
-      "rating_score": 3,
-      "rating_reason": "Undisputed regional leader, cellaring potential",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 2,
+      "rating_reason": "Weaker year, off-peak vintage"
     },
     {
       "lot_id": "2424782",
@@ -4367,9 +4367,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
-      "rating_score": 3,
-      "rating_reason": "Appellation leader, standard vintage",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 2,
+      "rating_reason": "Weaker year, off-peak vintage"
     },
     {
       "lot_id": "2423893",
@@ -4382,9 +4382,9 @@
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "83 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Established producer, consistent quality, young",
-      "vintage": 2022
+      "rating_reason": "Top Bordeaux vintage year"
     },
     {
       "lot_id": "2420853",
@@ -4397,9 +4397,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "566 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Solid Fourth Growth, consistent quality",
-      "vintage": 2022
+      "rating_reason": "Top vintage, strong year"
     },
     {
       "lot_id": "2420855",
@@ -4412,9 +4412,9 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "566 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Elegant Fourth Growth, typical year",
-      "vintage": 2022
+      "rating_reason": "Top vintage, consistent"
     },
     {
       "lot_id": "2423925",
@@ -4427,9 +4427,9 @@
       "bottles": 6,
       "estimate_per_bottle": "5 000 SEK",
       "hammer_price_per_bottle": "3 333 SEK",
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Iconic wine, premium priced",
-      "vintage": 2022
+      "rating_reason": "Top vintage, great year"
     },
     {
       "lot_id": "2423898",
@@ -4442,9 +4442,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Strong vintage, fair-priced, quality producer",
-      "vintage": 2022
+      "rating_reason": "Guide-highlighted standout year"
     },
     {
       "lot_id": "2423816",
@@ -4457,9 +4457,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "700 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Long-aging potential, excellent form",
-      "vintage": 2022
+      "rating_reason": "Top vintage, three-star estate"
     },
     {
       "lot_id": "2423847",
@@ -4471,9 +4471,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Tiny, top-flight, needs aging",
-      "vintage": 2022
+      "rating_reason": "Top estate, excellent vintage"
     },
     {
       "lot_id": "2423819",
@@ -4485,9 +4485,9 @@
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 600 SEK",
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Prestigious producer, mature vintage",
-      "vintage": 2022
+      "rating_reason": "Top Bordeaux vintage, four-star"
     },
     {
       "lot_id": "2423850",
@@ -4500,9 +4500,9 @@
       "bottles": 6,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 833 SEK",
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Family legacy, organic, supremely fragrant",
-      "vintage": 2022
+      "rating_reason": "Top vintage, guide-listed"
     },
     {
       "lot_id": "2423917",
@@ -4513,9 +4513,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Exceptional producer, fine aged expressions",
-      "vintage": 2022
+      "rating_reason": "Top vintage, double magnum"
     },
     {
       "lot_id": "2423920",
@@ -4526,9 +4526,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Noble, fragrant, exceptional producer",
-      "vintage": 2022
+      "rating_reason": "Top vintage, double magnum"
     },
     {
       "lot_id": "2423832",
@@ -4539,9 +4539,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Noble, fragrant, young, excellent aging",
-      "vintage": 2022
+      "rating_reason": "Top vintage, magnum format"
     },
     {
       "lot_id": "2424730",
@@ -4554,9 +4554,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "250 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Reliable Third Growth, well-managed estate",
-      "vintage": 2022
+      "rating_reason": "Top vintage, structured Third Growth"
     },
     {
       "lot_id": "2423803",
@@ -4569,9 +4569,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
-      "rating_score": 2,
-      "rating_reason": "Modern style, 2022 not exceptional",
-      "vintage": 2022
+      "vintage": 2022,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, strong result"
     },
     {
       "lot_id": "2423838",
@@ -4584,9 +4584,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "633 SEK",
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Second Growth, excellent aging potential",
-      "vintage": 2022
+      "rating_reason": "Top-list vintage, unprimed"
     },
     {
       "lot_id": "2423980",
@@ -4599,9 +4599,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 600 SEK",
       "hammer_price_per_bottle": "141 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Structured yet suave, quality producer",
-      "vintage": 2022
+      "rating_reason": "Prime marked, strong year"
     },
     {
       "lot_id": "2423985",
@@ -4614,9 +4614,9 @@
       "bottles": 6,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "633 SEK",
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Elegant, finely textured, age-worthy",
-      "vintage": 2022
+      "rating_reason": "Strong modern top vintage"
     },
     {
       "lot_id": "2424618",
@@ -4627,9 +4627,9 @@
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "First Growth, pure merlot, concentrated",
-      "vintage": 2022
+      "rating_reason": "Top vintage, still young"
     },
     {
       "lot_id": "2422355",
@@ -4640,9 +4640,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Strong vintage compensates weak half",
-      "vintage": 2006
+      "rating_reason": "Strong 1er Cru offsets village"
     },
     {
       "lot_id": "2424223",
@@ -4653,9 +4653,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 1,
-      "rating_reason": "Unclear description, zero market interest",
-      "vintage": 0
+      "vintage": 0,
+      "rating_score": 2,
+      "rating_reason": "Mixed lot, unknown producers"
     },
     {
       "lot_id": "2421815",
@@ -4668,9 +4668,9 @@
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "2 219 SEK",
+      "vintage": 1924,
       "rating_score": 3,
-      "rating_reason": "Iconic Hospice, 1er Cru rarity",
-      "vintage": 1924
+      "rating_reason": "Iconic domaine, century-old risk"
     },
     {
       "lot_id": "2421792",
@@ -4681,9 +4681,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 1961,
       "rating_score": 3,
-      "rating_reason": "Prestigious Grand Cru, age risk",
-      "vintage": 1961
+      "rating_reason": "Legendary vintage, unknown condition risk"
     },
     {
       "lot_id": "2413268",
@@ -4694,9 +4694,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 1971,
       "rating_score": 3,
-      "rating_reason": "Best vineyard, unexceptional vintage year",
-      "vintage": 1971
+      "rating_reason": "Top vyd, but 55yr survival risk"
     },
     {
       "lot_id": "2423571",
@@ -4707,9 +4707,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Grand Cru elegance, top producer",
-      "vintage": 1983
+      "vintage": 1983,
+      "rating_score": 3,
+      "rating_reason": "difficult vintage, significant aging risk"
     },
     {
       "lot_id": "2419353",
@@ -4720,9 +4720,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 1991,
       "rating_score": 3,
-      "rating_reason": "Weak vintage despite legendary producer",
-      "vintage": 1991
+      "rating_reason": "Off vintage, great pedigree"
     },
     {
       "lot_id": "2420826",
@@ -4735,9 +4735,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "950 SEK",
+      "vintage": 1993,
       "rating_score": 4,
-      "rating_reason": "Top producer, excellent maturity, collectible",
-      "vintage": 1993
+      "rating_reason": "Top grower, peak Burgundy vintage"
     },
     {
       "lot_id": "2419491",
@@ -4748,9 +4748,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Masculine structure, improves with time",
-      "vintage": 1994
+      "vintage": 1994,
+      "rating_score": 3,
+      "rating_reason": "Weak vintage, likely past peak"
     },
     {
       "lot_id": "2415107",
@@ -4763,9 +4763,9 @@
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "650 SEK",
+      "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Producer with strong whites, mature vintage",
-      "vintage": 1996
+      "rating_reason": "Top vintage, solid Premier Cru"
     },
     {
       "lot_id": "2419500",
@@ -4778,9 +4778,9 @@
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 600 SEK",
-      "rating_score": 3,
-      "rating_reason": "Mature Grand Cru, holding value",
-      "vintage": 1996
+      "vintage": 1996,
+      "rating_score": 4,
+      "rating_reason": "Grand Cru, top '96 vintage"
     },
     {
       "lot_id": "2412692",
@@ -4793,9 +4793,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "1996 vintage, secondary producer",
-      "vintage": 1996
+      "rating_reason": "Top vintage, unlisted producer"
     },
     {
       "lot_id": "2412694",
@@ -4808,9 +4808,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
-      "rating_score": 4,
-      "rating_reason": "Old vines, exceptional vintage",
-      "vintage": 1996
+      "vintage": 1996,
+      "rating_score": 3,
+      "rating_reason": "Identical lot, same quality"
     },
     {
       "lot_id": "2412751",
@@ -4823,9 +4823,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "518 SEK",
+      "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Long-lived from stellar vintage",
-      "vintage": 1996
+      "rating_reason": "Top vintage, long-lived premier cru"
     },
     {
       "lot_id": "2412788",
@@ -4838,9 +4838,9 @@
       "bottles": 3,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "566 SEK",
+      "vintage": 1999,
       "rating_score": 2,
-      "rating_reason": "Respectable producer, 1er cru, aged",
-      "vintage": 1999
+      "rating_reason": "good vintage, sold below estimate"
     },
     {
       "lot_id": "2412791",
@@ -4853,9 +4853,9 @@
       "bottles": 4,
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "500 SEK",
+      "vintage": 1999,
       "rating_score": 2,
-      "rating_reason": "Quality producer, past optimal drinking",
-      "vintage": 1999
+      "rating_reason": "good vintage, higher hammer price"
     },
     {
       "lot_id": "2412795",
@@ -4867,9 +4867,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
-      "rating_score": 2,
-      "rating_reason": "Respectable, but 1999 shows age",
-      "vintage": 1999
+      "vintage": 1999,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, Grand Cru"
     },
     {
       "lot_id": "2412801",
@@ -4881,9 +4881,9 @@
       "category": "burgundy",
       "bottles": 4,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Grand Cru site, auction passed unsold",
-      "vintage": 1999
+      "rating_reason": "Top vintage, Grand Cru"
     },
     {
       "lot_id": "2412803",
@@ -4895,9 +4895,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Excellent year, Premier Cru level",
-      "vintage": 1999
+      "rating_reason": "Top vintage, lower entry price"
     },
     {
       "lot_id": "2415135",
@@ -4909,9 +4909,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
-      "rating_score": 3,
-      "rating_reason": "Premier Cru from excellent vintage",
-      "vintage": 1999
+      "vintage": 1999,
+      "rating_score": 2,
+      "rating_reason": "Négociant quality, not domaine-level"
     },
     {
       "lot_id": "2412783",
@@ -4924,9 +4924,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "300 SEK",
+      "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Premier Cru from leading producer",
-      "vintage": 1999
+      "rating_reason": "Top vineyard, excellent vintage"
     },
     {
       "lot_id": "2415112",
@@ -4937,9 +4937,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Celebrated site in strong vintage",
-      "vintage": 1999
+      "rating_reason": "Top vintage, solid 1er Cru site"
     },
     {
       "lot_id": "2419475",
@@ -4950,9 +4950,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Grand Cru from elite producer",
-      "vintage": 2001
+      "vintage": 2001,
+      "rating_score": 3,
+      "rating_reason": "Weaker, unlisted vintage year"
     },
     {
       "lot_id": "2420584",
@@ -4963,9 +4963,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2003,
       "rating_score": 3,
-      "rating_reason": "Mature GC, solid young producer",
-      "vintage": 2003
+      "rating_reason": "GC offset by 2003 heat"
     },
     {
       "lot_id": "2423935",
@@ -4976,9 +4976,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Excellent vintage, producer expertise elsewhere",
-      "vintage": 2005
+      "vintage": 2005,
+      "rating_score": 4,
+      "rating_reason": "Grand Cru, legendary '05 vintage"
     },
     {
       "lot_id": "2422356",
@@ -4989,9 +4989,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Elegant premier cru, excellent vintage",
-      "vintage": 2005
+      "rating_reason": "top vintage, silky 1er Cru"
     },
     {
       "lot_id": "2409722",
@@ -5004,9 +5004,9 @@
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
       "hammer_price_per_bottle": "2 000 SEK",
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Perfectly aged classic Grand Cru",
-      "vintage": 2005
+      "rating_reason": "Prime vintage, fully developed"
     },
     {
       "lot_id": "2415595",
@@ -5017,9 +5017,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Grandest estate, exceptional year",
-      "vintage": 2005
+      "rating_reason": "Top marked vintage"
     },
     {
       "lot_id": "2415596",
@@ -5030,9 +5030,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "World-class producer, exceptional vintage",
-      "vintage": 2005
+      "rating_reason": "Top marked vintage"
     },
     {
       "lot_id": "2415590",
@@ -5043,9 +5043,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Legendary producer, supremely elegant expression",
-      "vintage": 2005
+      "rating_reason": "Legendary vintage, peak expression"
     },
     {
       "lot_id": "2419426",
@@ -5057,9 +5057,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "1 600 SEK",
+      "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Top producer, elegant premier cru",
-      "vintage": 2006
+      "rating_reason": "Top producer, off-peak vintage"
     },
     {
       "lot_id": "2414266",
@@ -5070,9 +5070,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Stellar maker, excellent not iconic",
-      "vintage": 2006
+      "vintage": 2006,
+      "rating_score": 4,
+      "rating_reason": "DRC craft, softer vintage"
     },
     {
       "lot_id": "2415854",
@@ -5085,9 +5085,9 @@
       "bottles": 12,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "483 SEK",
+      "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Premier Cru grace, well-made Jadot",
-      "vintage": 2007
+      "rating_reason": "Epenots noted for grace"
     },
     {
       "lot_id": "2415860",
@@ -5099,9 +5099,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
+      "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Grand Cru from solid producer, weak vintage",
-      "vintage": 2008
+      "rating_reason": "Top vintage, GC at peak"
     },
     {
       "lot_id": "2416635",
@@ -5112,9 +5112,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Top Premier Cru, mature vintage",
-      "vintage": 2008
+      "rating_reason": "Top PC site, top vintage"
     },
     {
       "lot_id": "2416633",
@@ -5125,9 +5125,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Strong producer, 2008 not standout",
-      "vintage": 2008
+      "vintage": 2008,
+      "rating_score": 4,
+      "rating_reason": "Elite producer, excellent vintage"
     },
     {
       "lot_id": "2421240",
@@ -5138,9 +5138,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Solid producer, 1er cru, weak year",
-      "vintage": 2008
+      "rating_reason": "Good vintage, solid 1er Cru"
     },
     {
       "lot_id": "2417719",
@@ -5151,9 +5151,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Top Grand Cru vineyard, mature now",
-      "vintage": 2009
+      "rating_reason": "top-listed site, stellar vintage"
     },
     {
       "lot_id": "2417704",
@@ -5166,9 +5166,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "800 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Premier cru, top producer, excellent year",
-      "vintage": 2009
+      "rating_reason": "Great vintage, premier cru depth"
     },
     {
       "lot_id": "2421203",
@@ -5179,9 +5179,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Grand Cru Burgundy, excellent vintage",
-      "vintage": 2009
+      "rating_reason": "Grand Cru, peak Burgundy year"
     },
     {
       "lot_id": "2417705",
@@ -5193,9 +5193,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Top producer, premier vineyard, elegant",
-      "vintage": 2009
+      "rating_reason": "Top producer, stellar vintage"
     },
     {
       "lot_id": "2419502",
@@ -5206,9 +5206,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Elite burgundy producer, premier cru",
-      "vintage": 2009
+      "rating_reason": "top vintage, superstar domaine"
     },
     {
       "lot_id": "2421245",
@@ -5219,9 +5219,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Celebrated appellation, mature premier cru",
-      "vintage": 2009
+      "rating_reason": "Top vintage lifts the lot"
     },
     {
       "lot_id": "2419093",
@@ -5232,9 +5232,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Grand Cru presence, modest vintage",
-      "vintage": 2010
+      "rating_reason": "Grand Cru offsets weak 2011 vintage"
     },
     {
       "lot_id": "2412754",
@@ -5245,9 +5245,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage",
-      "vintage": 2010
+      "rating_reason": "Prime vintage, top-listed producer"
     },
     {
       "lot_id": "2410238",
@@ -5260,9 +5260,9 @@
       "bottles": 5,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "480 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage",
-      "vintage": 2010
+      "rating_reason": "Top producer, peak vintage"
     },
     {
       "lot_id": "2417716",
@@ -5273,9 +5273,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Top producer, sound vintage",
-      "vintage": 2010
+      "rating_reason": "Cited producer, exceptional vintage"
     },
     {
       "lot_id": "2415140",
@@ -5287,9 +5287,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Premier Cru site, reliable producer",
-      "vintage": 2010
+      "rating_reason": "top vintage, celebrated lieu-dit"
     },
     {
       "lot_id": "2414263",
@@ -5301,9 +5301,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "2 500 SEK",
+      "vintage": 2011,
       "rating_score": 4,
-      "rating_reason": "Grand Cru from excellent producer",
-      "vintage": 2011
+      "rating_reason": "Off-vintage Grand Cru, still compelling"
     },
     {
       "lot_id": "2419506",
@@ -5314,9 +5314,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2011,
       "rating_score": 3,
-      "rating_reason": "Outstanding producer, village-level, soft year",
-      "vintage": 2011
+      "rating_reason": "Weak vintage, top maker"
     },
     {
       "lot_id": "2419507",
@@ -5328,9 +5328,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "1 200 SEK",
-      "rating_score": 3,
-      "rating_reason": "Superb producer, village-level only",
-      "vintage": 2011
+      "vintage": 2011,
+      "rating_score": 4,
+      "rating_reason": "stellar domaine, weak vintage"
     },
     {
       "lot_id": "2421521",
@@ -5343,9 +5343,9 @@
       "bottles": 2,
       "estimate_per_bottle": "3 500 SEK",
       "hammer_price_per_bottle": "750 SEK",
+      "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Grand Cru site, elite house",
-      "vintage": 2012
+      "rating_reason": "Grand Cru, top vintage"
     },
     {
       "lot_id": "2421522",
@@ -5358,9 +5358,9 @@
       "bottles": 4,
       "estimate_per_bottle": "3 500 SEK",
       "hammer_price_per_bottle": "750 SEK",
+      "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Grand Cru elegance, prime vintage",
-      "vintage": 2012
+      "rating_reason": "Grand Cru, top vintage"
     },
     {
       "lot_id": "2414272",
@@ -5372,9 +5372,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 600 SEK",
+      "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Top producer, prestigious Grand Cru",
-      "vintage": 2012
+      "rating_reason": "Top-listed producer, prime vintage"
     },
     {
       "lot_id": "2419504",
@@ -5385,9 +5385,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Grand Cru, excellent producer, good vintage",
-      "vintage": 2012
+      "vintage": 2012,
+      "rating_score": 4,
+      "rating_reason": "Reference grower, excellent vintage"
     },
     {
       "lot_id": "2399367",
@@ -5398,9 +5398,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Grand Cru from legendary producer",
-      "vintage": 2013
+      "vintage": 2013,
+      "rating_score": 3,
+      "rating_reason": "Weaker, underripe vintage"
     },
     {
       "lot_id": "2400479",
@@ -5411,9 +5411,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2013,
       "rating_score": 4,
-      "rating_reason": "Legendary producer, excellent aging potential",
-      "vintage": 2013
+      "rating_reason": "Off-peak year, still stellar"
     },
     {
       "lot_id": "2421224",
@@ -5424,9 +5424,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Grand Cru from Burgundy's finest",
-      "vintage": 2013
+      "vintage": 2013,
+      "rating_score": 3,
+      "rating_reason": "Off-vintage, no bids"
     },
     {
       "lot_id": "2412306",
@@ -5438,9 +5438,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
-      "rating_score": 3,
-      "rating_reason": "Emerging producer, village wine, solid",
-      "vintage": 2013
+      "vintage": 2013,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, village level"
     },
     {
       "lot_id": "2412307",
@@ -5452,9 +5452,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
-      "rating_score": 3,
-      "rating_reason": "Solid Burgundy, producer on rise",
-      "vintage": 2013
+      "vintage": 2013,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, village level"
     },
     {
       "lot_id": "2412461",
@@ -5466,9 +5466,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
-      "rating_score": 3,
-      "rating_reason": "Very good producer, uninspiring vintage",
-      "vintage": 2013
+      "vintage": 2013,
+      "rating_score": 2,
+      "rating_reason": "Weak vintage, village level"
     },
     {
       "lot_id": "2423931",
@@ -5479,9 +5479,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Graceful Grand Cru from specialists",
-      "vintage": 2014
+      "rating_reason": "Named top producer, prime vintage"
     },
     {
       "lot_id": "2400473",
@@ -5492,9 +5492,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Legendary producer, excellent vintage",
-      "vintage": 2014
+      "rating_reason": "Top vintage, peak expression"
     },
     {
       "lot_id": "2423082",
@@ -5505,9 +5505,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 3,
-      "rating_reason": "Charmes Premier Cru, weak vintage",
-      "vintage": 2014
+      "vintage": 2014,
+      "rating_score": 2,
+      "rating_reason": "Négociant, not a domaine specialist"
     },
     {
       "lot_id": "2416632",
@@ -5518,9 +5518,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top producer, solid appellation",
-      "vintage": 2014
+      "rating_reason": "Good vintage, no takers"
     },
     {
       "lot_id": "2400481",
@@ -5531,9 +5531,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Legendary Grand Cru, age-worthy",
-      "vintage": 2014
+      "rating_reason": "Top vintage, slight discount"
     },
     {
       "lot_id": "2421225",
@@ -5544,9 +5544,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Legendary producer, exceptional terroir",
-      "vintage": 2014
+      "rating_reason": "Top Burgundy vintage, sold"
     },
     {
       "lot_id": "2419740",
@@ -5557,9 +5557,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Quality producer, modest vintage year",
-      "vintage": 2014
+      "rating_reason": "Top-listed producer, top vintage"
     },
     {
       "lot_id": "2415805",
@@ -5570,9 +5570,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Reputable producer, pristine pedigree",
-      "vintage": 2014
+      "vintage": 2014,
+      "rating_score": 3,
+      "rating_reason": "Good vintage, unlisted négociant"
     },
     {
       "lot_id": "2421211",
@@ -5583,9 +5583,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Excellent producer, celebrated appellation",
-      "vintage": 2014
+      "vintage": 2014,
+      "rating_score": 3,
+      "rating_reason": "Top producer, village-level only"
     },
     {
       "lot_id": "2421514",
@@ -5597,9 +5597,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "4 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "Revered Premier Cru, proven producer",
-      "vintage": 2015
+      "vintage": 2015,
+      "rating_score": 4,
+      "rating_reason": "Bewitching site, stellar vintage"
     },
     {
       "lot_id": "2414268",
@@ -5612,9 +5612,9 @@
       "bottles": 2,
       "estimate_per_bottle": "8 000 SEK",
       "hammer_price_per_bottle": "2 500 SEK",
+      "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Finest Burgundy producer, excellent vintage",
-      "vintage": 2015
+      "rating_reason": "Top vintage, Grand Cru peak"
     },
     {
       "lot_id": "2412303",
@@ -5627,9 +5627,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Recommended cru, strong 2015 vintage",
-      "vintage": 2015
+      "rating_reason": "Top vintage, village level"
     },
     {
       "lot_id": "2412304",
@@ -5642,9 +5642,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Excellent 2015, well-sited village wine",
-      "vintage": 2015
+      "rating_reason": "Top vintage, village level"
     },
     {
       "lot_id": "2423163",
@@ -5657,9 +5657,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Trusted producer, modest village level",
-      "vintage": 2015
+      "rating_reason": "Top vintage, village level"
     },
     {
       "lot_id": "2421539",
@@ -5672,9 +5672,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "500 SEK",
-      "rating_score": 2,
-      "rating_reason": "Reliable merchant, good vintage",
-      "vintage": 2016
+      "vintage": 2016,
+      "rating_score": 3,
+      "rating_reason": "Top vintage, Premier Cru level"
     },
     {
       "lot_id": "2423084",
@@ -5685,9 +5685,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Grand Cru, proven producer, solid vintage",
-      "vintage": 2016
+      "rating_reason": "Grand Cru, good vintage, not top producer"
     },
     {
       "lot_id": "2423151",
@@ -5700,9 +5700,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Aged vines, solid structure",
-      "vintage": 2016
+      "rating_reason": "Top producer, excellent vintage"
     },
     {
       "lot_id": "2423324",
@@ -5714,9 +5714,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 050 SEK",
-      "rating_score": 3,
-      "rating_reason": "Premier cru from stellar producer",
-      "vintage": 2016
+      "vintage": 2016,
+      "rating_score": 2,
+      "rating_reason": "Mid-tier producers, solid crus"
     },
     {
       "lot_id": "2419437",
@@ -5729,9 +5729,9 @@
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
       "hammer_price_per_bottle": "1 550 SEK",
-      "rating_score": 3,
-      "rating_reason": "Top producer, Grand Cru, ready",
-      "vintage": 2017
+      "vintage": 2017,
+      "rating_score": 4,
+      "rating_reason": "Top-listed producer, great vintage"
     },
     {
       "lot_id": "2423611",
@@ -5743,9 +5743,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "3 500 SEK",
+      "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Strong vintage, secondary producer",
-      "vintage": 2017
+      "rating_reason": "Négociant, not top grower"
     },
     {
       "lot_id": "2425226",
@@ -5756,9 +5756,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Lighter elegant style, premier cru",
-      "vintage": 2017
+      "rating_reason": "Named great cru, top vintage"
     },
     {
       "lot_id": "2423953",
@@ -5769,9 +5769,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2017,
       "rating_score": 4,
-      "rating_reason": "Finest producer, world-renowned terroir, iconic",
-      "vintage": 2017
+      "rating_reason": "Pinnacle Grand Cru, top producer"
     },
     {
       "lot_id": "2416408",
@@ -5783,9 +5783,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Premier Cru, improving reds",
-      "vintage": 2017
+      "rating_reason": "Top vintage, structured elegance"
     },
     {
       "lot_id": "2415427",
@@ -5797,9 +5797,9 @@
       "category": "burgundy",
       "bottles": 4,
       "estimate_per_bottle": "3 500 SEK",
+      "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Top premier cru, superb vintage",
-      "vintage": 2017
+      "rating_reason": "Outstanding PC site, good vintage"
     },
     {
       "lot_id": "2416349",
@@ -5812,9 +5812,9 @@
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Premier Cru in superb vintage",
-      "vintage": 2018
+      "rating_reason": "Top vintage, solid Premier Cru"
     },
     {
       "lot_id": "2423586",
@@ -5827,9 +5827,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "833 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top-tier Premier Cru site, solid producer",
-      "vintage": 2018
+      "rating_reason": "Top 1er cru, prime vintage"
     },
     {
       "lot_id": "2416272",
@@ -5842,9 +5842,9 @@
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "640 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Quality producer, excellent vintage",
-      "vintage": 2018
+      "rating_reason": "Top vintage, resurgent estate investment"
     },
     {
       "lot_id": "2419429",
@@ -5857,9 +5857,9 @@
       "bottles": 2,
       "estimate_per_bottle": "6 000 SEK",
       "hammer_price_per_bottle": "4 500 SEK",
+      "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Patrician grand cru, vieilles vignes",
-      "vintage": 2018
+      "rating_reason": "Strong year, more approachable now"
     },
     {
       "lot_id": "2419383",
@@ -5872,9 +5872,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "750 SEK",
-      "rating_score": 3,
-      "rating_reason": "Elite producer, excellent premier site",
-      "vintage": 2018
+      "vintage": 2018,
+      "rating_score": 4,
+      "rating_reason": "Top producer, top vintage value"
     },
     {
       "lot_id": "2425016",
@@ -5885,9 +5885,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Stellar producer, not Grand Cru",
-      "vintage": 2018
+      "rating_reason": "Village level, breathtaking price"
     },
     {
       "lot_id": "2423951",
@@ -5898,9 +5898,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Finest producer, legendary Grand Cru",
-      "vintage": 2018
+      "rating_reason": "Highlighted year, elegant style"
     },
     {
       "lot_id": "2419423",
@@ -5911,9 +5911,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Premier Cru from proven grower",
-      "vintage": 2018
+      "rating_reason": "Top site, excellent vintage"
     },
     {
       "lot_id": "2423613",
@@ -5925,9 +5925,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top vineyard site, strong vintage",
-      "vintage": 2018
+      "rating_reason": "Top cru, strong vintage"
     },
     {
       "lot_id": "2423614",
@@ -5939,9 +5939,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Excellent site, non-stellar vintage",
-      "vintage": 2018
+      "rating_reason": "Likely larger format bottle"
     },
     {
       "lot_id": "2416401",
@@ -5953,9 +5953,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "700 SEK",
-      "rating_score": 3,
-      "rating_reason": "Top village, mid-tier producer",
-      "vintage": 2018
+      "vintage": 2018,
+      "rating_score": 2,
+      "rating_reason": "Village level, minor producer"
     },
     {
       "lot_id": "2421541",
@@ -5966,9 +5966,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 0,
       "rating_score": 2,
-      "rating_reason": "Respected house, regional, modest appeal",
-      "vintage": 0
+      "rating_reason": "Overpriced for regional level"
     },
     {
       "lot_id": "2423608",
@@ -5980,9 +5980,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "2 500 SEK",
+      "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Top Grand Cru, stellar vintage",
-      "vintage": 2019
+      "rating_reason": "Stellar vintage, no bids"
     },
     {
       "lot_id": "2423607",
@@ -5994,9 +5994,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "2 500 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Grand Cru, special vintage, reliable maker",
-      "vintage": 2019
+      "rating_reason": "Grand Cru, top vintage"
     },
     {
       "lot_id": "2418480",
@@ -6007,9 +6007,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Outstanding producer, excellent vintage, buy",
-      "vintage": 2019
+      "rating_reason": "Prime vintage, outstanding producer"
     },
     {
       "lot_id": "2416404",
@@ -6021,9 +6021,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Leading producer, village-level expression",
-      "vintage": 2019
+      "rating_reason": "Top vintage, rising estate"
     },
     {
       "lot_id": "2423154",
@@ -6036,9 +6036,9 @@
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Natural winemaker, excellent Morgon cru",
-      "vintage": 2019
+      "rating_reason": "age-worthy sulphur-free natural"
     },
     {
       "lot_id": "2416407",
@@ -6051,9 +6051,9 @@
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "633 SEK",
+      "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Dark fruit, elegant structure, age-worthy",
-      "vintage": 2019
+      "rating_reason": "Top vintage, elegant northern PC"
     },
     {
       "lot_id": "2416298",
@@ -6066,9 +6066,9 @@
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "366 SEK",
+      "vintage": 2019,
       "rating_score": 2,
-      "rating_reason": "Decent but not elite producer",
-      "vintage": 2019
+      "rating_reason": "Solid vintage, unexceptional négociant"
     },
     {
       "lot_id": "2416411",
@@ -6079,9 +6079,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2019,
       "rating_score": 2,
-      "rating_reason": "Solid bottle, mid-tier producer",
-      "vintage": 2019
+      "rating_reason": "Magnum adds aging potential"
     },
     {
       "lot_id": "2416157",
@@ -6093,9 +6093,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "700 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Good producer, Premier tier, lacks prestige",
-      "vintage": 2020
+      "rating_reason": "Solid premier cru, warm vintage"
     },
     {
       "lot_id": "2419393",
@@ -6106,9 +6106,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2020,
       "rating_score": 4,
-      "rating_reason": "Iconic producer, 2020 needs age",
-      "vintage": 2020
+      "rating_reason": "firm structure rewards patient cellaring"
     },
     {
       "lot_id": "2419452",
@@ -6120,9 +6120,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Understated producer, steady quality wine",
-      "vintage": 2020
+      "rating_reason": "2020 excellence, silky elegant texture"
     },
     {
       "lot_id": "2419489",
@@ -6133,9 +6133,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Top producer, solid premier cru",
-      "vintage": 2020
+      "rating_reason": "Good but unstarred vintage"
     },
     {
       "lot_id": "2419394",
@@ -6146,9 +6146,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
-      "rating_score": 4,
-      "rating_reason": "Prestigious house, classic Chambolle",
-      "vintage": 2020
+      "vintage": 2020,
+      "rating_score": 3,
+      "rating_reason": "Village tier, non-exceptional vintage"
     },
     {
       "lot_id": "2423622",
@@ -6161,9 +6161,9 @@
       "bottles": 3,
       "estimate_per_bottle": "3 000 SEK",
       "hammer_price_per_bottle": "2 166 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Grand Cru needs aging, solid producer",
-      "vintage": 2020
+      "rating_reason": "Excellent year, unlisted producer"
     },
     {
       "lot_id": "2424913",
@@ -6176,9 +6176,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "1 301 SEK",
-      "rating_score": 3,
-      "rating_reason": "Young Grand Cru, needs cellaring",
-      "vintage": 2020
+      "vintage": 2020,
+      "rating_score": 4,
+      "rating_reason": "Grand Cru, stellar 2020 vintage"
     },
     {
       "lot_id": "2423590",
@@ -6190,9 +6190,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "4 000 SEK",
-      "rating_score": 3,
-      "rating_reason": "Grand Cru, lesser-known producer",
-      "vintage": 2020
+      "vintage": 2020,
+      "rating_score": 4,
+      "rating_reason": "Superlative site, top vintage year"
     },
     {
       "lot_id": "2416348",
@@ -6204,9 +6204,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "700 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Top producer, premier cru, solid vintage",
-      "vintage": 2020
+      "rating_reason": "Premier Cru, northern finesse site"
     },
     {
       "lot_id": "2416296",
@@ -6218,9 +6218,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Premier cru from top producer",
-      "vintage": 2020
+      "rating_reason": "Top vintage, solid 1er Cru site"
     },
     {
       "lot_id": "2423629",
@@ -6231,9 +6231,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Premier Cru, top-rated producer",
-      "vintage": 2020
+      "rating_reason": "Taillepieds specifically cited for producer"
     },
     {
       "lot_id": "2423568",
@@ -6245,9 +6245,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "5 000 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Premier Cru from celebrated producer site",
-      "vintage": 2020
+      "rating_reason": "Good marked vintage year"
     },
     {
       "lot_id": "2416279",
@@ -6259,9 +6259,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
+      "vintage": 2020,
       "rating_score": 2,
-      "rating_reason": "Solid appellation, unfamiliar producer",
-      "vintage": 2020
+      "rating_reason": "not a top Vosne producer"
     },
     {
       "lot_id": "2416303",
@@ -6274,9 +6274,9 @@
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "466 SEK",
+      "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Reliable producer, strong 2020 vintage",
-      "vintage": 2020
+      "rating_reason": "Top producer, below estimate"
     },
     {
       "lot_id": "2423595",
@@ -6288,9 +6288,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "4 000 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Excellent site, strong vintage, respectable",
-      "vintage": 2021
+      "rating_reason": "Grand Cru, unlisted négociant"
     },
     {
       "lot_id": "2419419",
@@ -6301,9 +6301,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Exceptional vineyard, reliable producer",
-      "vintage": 2021
+      "rating_reason": "bewitching site, reliable negociant"
     },
     {
       "lot_id": "2419433",
@@ -6316,9 +6316,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "750 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, elegant vintage",
-      "vintage": 2021
+      "rating_reason": "Top producer, half estimate"
     },
     {
       "lot_id": "2419436",
@@ -6330,9 +6330,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Silky elegance, finely balanced structure",
-      "vintage": 2021
+      "rating_reason": "Stellar house, leaner vintage"
     },
     {
       "lot_id": "2415799",
@@ -6343,9 +6343,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Reliable producer, not top vineyard site",
-      "vintage": 2021
+      "rating_reason": "Grand Cru, average vintage"
     },
     {
       "lot_id": "2418478",
@@ -6356,9 +6356,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Outstanding producer, solid vintage",
-      "vintage": 2021
+      "rating_reason": "Listed but not prime year"
     },
     {
       "lot_id": "2419375",
@@ -6370,9 +6370,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Premier Cru site, excellent year",
-      "vintage": 2021
+      "rating_reason": "Exceptional site, below-top vintage"
     },
     {
       "lot_id": "2419470",
@@ -6384,9 +6384,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
+      "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Prestigious Grand Cru, top producer",
-      "vintage": 2021
+      "rating_reason": "Top producer, non-prime vintage"
     },
     {
       "lot_id": "2419428",
@@ -6399,9 +6399,9 @@
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "300 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Accessible premier cru, age helps",
-      "vintage": 2021
+      "rating_reason": "Top producer, accessible premier cru"
     },
     {
       "lot_id": "2384856",
@@ -6414,9 +6414,9 @@
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
       "hammer_price_per_bottle": "966 SEK",
-      "rating_score": 4,
-      "rating_reason": "Top vineyard, accomplished producer",
-      "vintage": 2021
+      "vintage": 2021,
+      "rating_score": 3,
+      "rating_reason": "Near-GC site, average vintage"
     },
     {
       "lot_id": "2421761",
@@ -6429,9 +6429,9 @@
       "bottles": 2,
       "estimate_per_bottle": "4 000 SEK",
       "hammer_price_per_bottle": "2 500 SEK",
+      "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, seductive perfume, expert producer",
-      "vintage": 2021
+      "rating_reason": "Sold well below estimate"
     },
     {
       "lot_id": "2423569",
@@ -6443,9 +6443,9 @@
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "5 000 SEK",
+      "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Excellent vineyard, consistent producer",
-      "vintage": 2021
+      "rating_reason": "Decent but unmarked vintage"
     },
     {
       "lot_id": "2419487",
@@ -6456,9 +6456,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Excellent producer, silky young burgundy",
-      "vintage": 2022
+      "rating_reason": "Excellent starred vintage"
     },
     {
       "lot_id": "2419450",
@@ -6470,9 +6470,9 @@
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top site, proven producer",
-      "vintage": 2022
+      "rating_reason": "Top producer, stellar vintage"
     },
     {
       "lot_id": "2423570",
@@ -6485,9 +6485,9 @@
       "bottles": 3,
       "estimate_per_bottle": "5 000 SEK",
       "hammer_price_per_bottle": "4 000 SEK",
+      "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Outstanding vineyard, consistent quality maker",
-      "vintage": 2022
+      "rating_reason": "Top vintage, sold below est"
     },
     {
       "lot_id": "2421196",
@@ -6498,9 +6498,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Excellent vintage, well-regarded producer",
-      "vintage": 2012
+      "rating_reason": "Top vintage, old vines depth"
     },
     {
       "lot_id": "2419442",
@@ -6512,9 +6512,9 @@
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "3 500 SEK",
+      "vintage": 2023,
       "rating_score": 4,
-      "rating_reason": "Grand Cru from elite producer",
-      "vintage": 2023
+      "rating_reason": "Prime vintage, top producer"
     },
     {
       "lot_id": "2419488",
@@ -6525,9 +6525,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2023,
       "rating_score": 3,
-      "rating_reason": "Excellent producer, solid 1er cru",
-      "vintage": 2023
+      "rating_reason": "Young, unstarred vintage"
     },
     {
       "lot_id": "2419434",
@@ -6540,9 +6540,9 @@
       "bottles": 3,
       "estimate_per_bottle": "1 600 SEK",
       "hammer_price_per_bottle": "1 166 SEK",
-      "rating_score": 3,
-      "rating_reason": "Grand Cru, needs aging patience",
-      "vintage": 2023
+      "vintage": 2023,
+      "rating_score": 4,
+      "rating_reason": "Top-listed producer, hammered below estimate"
     },
     {
       "lot_id": "2423430",
@@ -6553,9 +6553,9 @@
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
+      "vintage": 2008,
       "rating_score": 2,
-      "rating_reason": "Unheralded producer, weaker vintage",
-      "vintage": 2008
+      "rating_reason": "Village level, unlisted producer"
     }
   ]
 }
