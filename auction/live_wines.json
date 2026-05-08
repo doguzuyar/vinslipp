@@ -1,5 +1,5 @@
 {
-  "scrape_date": "2026-05-05T22:01:44.743227",
+  "scrape_date": "2026-05-08T12:33:26.499328",
   "total_wines": 467,
   "bordeaux_count": 328,
   "burgundy_count": 139,
@@ -18,7 +18,7 @@
       "bottles": 1,
       "vintage": 1997,
       "rating_score": 1,
-      "rating_reason": "Weak vintage, one-star producer"
+      "rating_reason": "Weak vintage, likely past peak"
     },
     {
       "lot_id": "2414090",
@@ -31,7 +31,7 @@
       "bottles": 1,
       "vintage": 1981,
       "rating_score": 3,
-      "rating_reason": "Weak 81, stellar 88 Sauternes"
+      "rating_reason": "Mixed: 88 stellar, 81 risky"
     },
     {
       "lot_id": "2420103",
@@ -44,7 +44,7 @@
       "bottles": 1,
       "vintage": 1958,
       "rating_score": 2,
-      "rating_reason": "Old, off-vintage, past prime"
+      "rating_reason": "Risky old, weak vintage"
     },
     {
       "lot_id": "2412458",
@@ -56,8 +56,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1958,
-      "rating_score": 3,
-      "rating_reason": "aged, off-peak vintage"
+      "rating_score": 2,
+      "rating_reason": "Risky old vintage, past peak"
     },
     {
       "lot_id": "2423561",
@@ -70,7 +70,7 @@
       "bottles": 1,
       "vintage": 1959,
       "rating_score": 3,
-      "rating_reason": "Exceptional vintage, uncertain 67yr condition"
+      "rating_reason": "Legendary year, risky age"
     },
     {
       "lot_id": "2419406",
@@ -85,7 +85,7 @@
       "hammer_price_per_bottle": "2 500 SEK",
       "vintage": 1960,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, aged risk"
+      "rating_reason": "Risky old, past peak"
     },
     {
       "lot_id": "2425042",
@@ -97,8 +97,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1961,
-      "rating_score": 4,
-      "rating_reason": "Legendary year, great age"
+      "rating_score": 2,
+      "rating_reason": "Very old, condition risk"
     },
     {
       "lot_id": "2419486",
@@ -111,8 +111,8 @@
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
       "vintage": 1973,
-      "rating_score": 2,
-      "rating_reason": "Off year, poor vintage"
+      "rating_score": 1,
+      "rating_reason": "Poor year, past prime"
     },
     {
       "lot_id": "2422977",
@@ -127,7 +127,7 @@
       "hammer_price_per_bottle": "363 SEK",
       "vintage": 1974,
       "rating_score": 1,
-      "rating_reason": "Poor vintage, age risk"
+      "rating_reason": "Poor vintage, past peak"
     },
     {
       "lot_id": "2414089",
@@ -140,7 +140,7 @@
       "bottles": 1,
       "vintage": 1975,
       "rating_score": 2,
-      "rating_reason": "Poor vintage, past peak"
+      "rating_reason": "Risky old vintage"
     },
     {
       "lot_id": "2420578",
@@ -155,22 +155,22 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "vintage": 1976,
       "rating_score": 2,
-      "rating_reason": "Old, weak vintage"
+      "rating_reason": "Risky old vintage, drink now"
     },
     {
       "lot_id": "2412711",
       "title": "1978 Château Figeac",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708236-1978-chateau-figeac",
       "estimate": "3 600 SEK",
-      "hammer_price": "2 000 SEK",
+      "hammer_price": "2 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "1 200 SEK",
-      "hammer_price_per_bottle": "666 SEK",
+      "hammer_price_per_bottle": "733 SEK",
       "vintage": 1978,
       "rating_score": 3,
-      "rating_reason": "Non-top vintage, undersold"
+      "rating_reason": "Risky old vintage"
     },
     {
       "lot_id": "2423550",
@@ -183,34 +183,35 @@
       "bottles": 1,
       "vintage": 1978,
       "rating_score": 2,
-      "rating_reason": "Non-top vintage, fifth growth"
+      "rating_reason": "Old, likely past peak"
     },
     {
       "lot_id": "2413299",
       "title": "1978 Château Mouton Rothschild",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708550-1978-chateau-mouton-rothschild",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 000 SEK",
+      "hammer_price": "2 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1978,
       "rating_score": 3,
-      "rating_reason": "decent non-top year"
+      "rating_reason": "Mature, drink now"
     },
     {
       "lot_id": "2412723",
       "title": "1978 Domaine de Chevalier Rouge",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708247-1978-domaine-de-chevalier-rouge",
       "estimate": "4 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 001 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "800 SEK",
+      "hammer_price_per_bottle": "400 SEK",
       "vintage": 1978,
-      "rating_score": 3,
-      "rating_reason": "Very old, non-top vintage"
+      "rating_score": 2,
+      "rating_reason": "Past peak, drink now"
     },
     {
       "lot_id": "2423560",
@@ -223,33 +224,33 @@
       "bottles": 1,
       "vintage": 1979,
       "rating_score": 2,
-      "rating_reason": "Strong 1985 offset by aged 1979"
+      "rating_reason": "Old vintages, drink now"
     },
     {
       "lot_id": "2419379",
       "title": "1979 Château Haut Brion",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1704392-1979-chateau-haut-brion",
       "estimate": "3 000 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "2 100 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1979,
-      "rating_score": 2,
-      "rating_reason": "Weak vintage, sold far below"
+      "rating_score": 3,
+      "rating_reason": "Mature, past peak likely"
     },
     {
       "lot_id": "2421721",
       "title": "1979 Château Latour",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713357-1979-chateau-latour",
       "estimate": "3 500 SEK",
-      "hammer_price": "2 200 SEK",
+      "hammer_price": "2 400 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1979,
       "rating_score": 3,
-      "rating_reason": "Off-peak, not top year"
+      "rating_reason": "Risky old vintage, drink now"
     },
     {
       "lot_id": "2412764",
@@ -262,7 +263,7 @@
       "bottles": 1,
       "vintage": 0,
       "rating_score": 2,
-      "rating_reason": "1982/85 boost generic tier"
+      "rating_reason": "Great years, mostly past peak"
     },
     {
       "lot_id": "2418633",
@@ -276,7 +277,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 1981,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, zero market interest"
+      "rating_reason": "Weak year, very risky now"
     },
     {
       "lot_id": "2421726",
@@ -288,8 +289,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1981,
-      "rating_score": 3,
-      "rating_reason": "4-star label, weak vintage"
+      "rating_score": 2,
+      "rating_reason": "45 years old, past peak"
     },
     {
       "lot_id": "2420902",
@@ -303,7 +304,7 @@
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 1982,
       "rating_score": 3,
-      "rating_reason": "Legendary Bordeaux vintage"
+      "rating_reason": "Legendary year, mature now"
     },
     {
       "lot_id": "2421452",
@@ -316,25 +317,38 @@
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Iconic vintage, peak maturity"
+      "rating_reason": "Legendary year, drink now"
     },
     {
       "lot_id": "2423400",
       "title": "1982 Château Cheval Blanc",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714406-1982-chateau-cheval-blanc",
       "estimate": "6 000 SEK",
-      "hammer_price": "4 800 SEK",
+      "hammer_price": "5 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, peak drinking"
+      "rating_reason": "Legendary year, drink now"
     },
     {
       "lot_id": "2418015",
       "title": "1982 Château Haut-Brion",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1711273-1982-chateau-haut-brion",
+      "estimate": "7 000 SEK",
+      "hammer_price": "5 600 SEK",
+      "auction": "D075",
+      "category": "bordeaux",
+      "bottles": 1,
+      "vintage": 1982,
+      "rating_score": 4,
+      "rating_reason": "Past peak, drink now"
+    },
+    {
+      "lot_id": "2423413",
+      "title": "1982 Château Haut-Brion",
+      "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714413-1982-chateau-haut-brion",
       "estimate": "7 000 SEK",
       "hammer_price": "No bids",
       "auction": "D075",
@@ -342,20 +356,7 @@
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, peak quality"
-    },
-    {
-      "lot_id": "2423413",
-      "title": "1982 Château Haut-Brion",
-      "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714413-1982-chateau-haut-brion",
-      "estimate": "6 000 SEK",
-      "hammer_price": "No bids",
-      "auction": "D075",
-      "category": "bordeaux",
-      "bottles": 1,
-      "vintage": 1982,
-      "rating_score": 4,
-      "rating_reason": "Same legendary vintage"
+      "rating_reason": "Mature, risky at age"
     },
     {
       "lot_id": "2423392",
@@ -368,7 +369,7 @@
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Iconic, legendary vintage"
+      "rating_reason": "Legendary year, peaking now"
     },
     {
       "lot_id": "2423394",
@@ -383,7 +384,7 @@
       "hammer_price_per_bottle": "500 SEK",
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Same iconic vintage"
+      "rating_reason": "Legendary year, verify condition"
     },
     {
       "lot_id": "2423403",
@@ -398,7 +399,7 @@
       "hammer_price_per_bottle": "3 500 SEK",
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary, iconic year"
+      "rating_reason": "Legendary year, mature now"
     },
     {
       "lot_id": "2386331",
@@ -411,7 +412,7 @@
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "iconic year, large format"
+      "rating_reason": "Legendary year, still age-worthy"
     },
     {
       "lot_id": "2422265",
@@ -424,35 +425,35 @@
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "iconic year, lower ask"
+      "rating_reason": "Iconic year, magnum longevity"
     },
     {
       "lot_id": "2414087",
       "title": "1982 Château Rausan-Ségla",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708961-1982-chateau-rausan-segla",
       "estimate": "2 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Top vintage, iconic Second Growth"
+      "rating_reason": "Mature, possibly past peak"
     },
     {
       "lot_id": "2425289",
       "title": "1982 Petrus",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1707952-1982-petrus",
       "estimate": "50 000 SEK",
-      "hammer_price": "32 000 SEK",
+      "hammer_price": "35 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "25 000 SEK",
-      "hammer_price_per_bottle": "16 000 SEK",
+      "hammer_price_per_bottle": "17 500 SEK",
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, peak Merlot"
+      "rating_reason": "Iconic vintage, fully mature"
     },
     {
       "lot_id": "2420922",
@@ -466,7 +467,7 @@
       "estimate_per_bottle": "3 000 SEK",
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Top vintage, unsold lot"
+      "rating_reason": "Legendary year, drink soon"
     },
     {
       "lot_id": "2420923",
@@ -480,7 +481,7 @@
       "estimate_per_bottle": "3 000 SEK",
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Duplicate unsold lot"
+      "rating_reason": "Mature, peaking or past"
     },
     {
       "lot_id": "2423396",
@@ -493,7 +494,7 @@
       "bottles": 1,
       "vintage": 1982,
       "rating_score": 4,
-      "rating_reason": "Lower est., sold below"
+      "rating_reason": "At peak, drink up"
     },
     {
       "lot_id": "2424623",
@@ -506,7 +507,7 @@
       "bottles": 1,
       "vintage": 0,
       "rating_score": 2,
-      "rating_reason": "Wide spread, 1982 anchors"
+      "rating_reason": "Wide span, uneven drinking windows"
     },
     {
       "lot_id": "2419396",
@@ -519,7 +520,7 @@
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top right-bank vintage"
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2419400",
@@ -532,7 +533,7 @@
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top vintage, no bids"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2420932",
@@ -546,20 +547,20 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top vintage, high estimate lot"
+      "rating_reason": "Top year, hold if magnum"
     },
     {
       "lot_id": "2423552",
       "title": "1983 Château Latour",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714458-1983-chateau-latour",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 400 SEK",
+      "hammer_price": "2 600 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top-tier classic year"
+      "rating_reason": "Top year, mature and ready"
     },
     {
       "lot_id": "2419490",
@@ -573,7 +574,7 @@
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 1983,
       "rating_score": 3,
-      "rating_reason": "Great vintage, age risk"
+      "rating_reason": "Top year, but very aged"
     },
     {
       "lot_id": "2423554",
@@ -588,7 +589,7 @@
       "hammer_price_per_bottle": "3 500 SEK",
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top-decade classic year"
+      "rating_reason": "Top year, drink now"
     },
     {
       "lot_id": "2417945",
@@ -601,7 +602,7 @@
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "top classic year"
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2422953",
@@ -614,7 +615,7 @@
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "top year, twin lot"
+      "rating_reason": "Top year, drink soon"
     },
     {
       "lot_id": "2419402",
@@ -627,7 +628,7 @@
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 4,
-      "rating_reason": "Top vintage, classic era"
+      "rating_reason": "Peak, drink up soon"
     },
     {
       "lot_id": "2421742",
@@ -639,8 +640,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1983,
-      "rating_score": 4,
-      "rating_reason": "Top vintage, aged gracefully"
+      "rating_score": 3,
+      "rating_reason": "Very old, drink immediately"
     },
     {
       "lot_id": "2423085",
@@ -653,20 +654,20 @@
       "bottles": 1,
       "vintage": 1984,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, minor second wine"
+      "rating_reason": "1984 past peak, risky"
     },
     {
       "lot_id": "2420830",
       "title": "1985 Château Grand-Puy Ducasse  & 1994 Château Plince",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712685-1985-chateau-grand-puy-ducasse-1994-chateau-plince",
       "estimate": "1 200 SEK",
-      "hammer_price": "800 SEK",
+      "hammer_price": "1 100 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1985,
       "rating_score": 2,
-      "rating_reason": "Mixed lot; weak 1994 Plince drags"
+      "rating_reason": "Both wines likely past peak"
     },
     {
       "lot_id": "2421612",
@@ -679,7 +680,7 @@
       "bottles": 1,
       "vintage": 1985,
       "rating_score": 4,
-      "rating_reason": "1985 top Bordeaux vintage"
+      "rating_reason": "Top year, very mature now"
     },
     {
       "lot_id": "2412313",
@@ -692,8 +693,8 @@
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 1986,
-      "rating_score": 3,
-      "rating_reason": "Non-top vintage, very mature"
+      "rating_score": 2,
+      "rating_reason": "40 years old, risky"
     },
     {
       "lot_id": "2412314",
@@ -707,8 +708,8 @@
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "500 SEK",
       "vintage": 1986,
-      "rating_score": 3,
-      "rating_reason": "Non-top vintage, very mature"
+      "rating_score": 2,
+      "rating_reason": "Past peak, drink soon"
     },
     {
       "lot_id": "2412315",
@@ -722,8 +723,8 @@
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 1986,
-      "rating_score": 3,
-      "rating_reason": "Non-top vintage, very mature"
+      "rating_score": 2,
+      "rating_reason": "Likely fading, fragile now"
     },
     {
       "lot_id": "2412460",
@@ -738,22 +739,22 @@
       "hammer_price_per_bottle": "500 SEK",
       "vintage": 1986,
       "rating_score": 2,
-      "rating_reason": "Weak year, below estimate"
+      "rating_reason": "Past peak, drink soon"
     },
     {
       "lot_id": "2423417",
       "title": "1989 Château Haut-Brion",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714417-1989-chateau-haut-brion",
       "estimate": "24 000 SEK",
-      "hammer_price": "18 000 SEK",
+      "hammer_price": "19 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "12 000 SEK",
-      "hammer_price_per_bottle": "9 000 SEK",
+      "hammer_price_per_bottle": "9 500 SEK",
       "vintage": 1986,
       "rating_score": 4,
-      "rating_reason": "Exceptional year, prime drinking"
+      "rating_reason": "Peaking, drink through 2030"
     },
     {
       "lot_id": "2416114",
@@ -766,7 +767,7 @@
       "bottles": 1,
       "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Good but not top vintage"
+      "rating_reason": "Old, possibly past peak"
     },
     {
       "lot_id": "2414634",
@@ -779,7 +780,7 @@
       "bottles": 1,
       "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Good left bank year"
+      "rating_reason": "Good year, mature now"
     },
     {
       "lot_id": "2420574",
@@ -792,7 +793,7 @@
       "bottles": 1,
       "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Good but not iconic"
+      "rating_reason": "Solid, drink through 2030"
     },
     {
       "lot_id": "2423407",
@@ -807,7 +808,7 @@
       "hammer_price_per_bottle": "150 SEK",
       "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Decent, not top-tier year"
+      "rating_reason": "Decent year, drink immediately"
     },
     {
       "lot_id": "2423425",
@@ -821,60 +822,60 @@
       "estimate_per_bottle": "6 000 SEK",
       "hammer_price_per_bottle": "5 000 SEK",
       "vintage": 1986,
-      "rating_score": 3,
-      "rating_reason": "off top-list year"
+      "rating_score": 4,
+      "rating_reason": "Classic year, drinking well"
     },
     {
       "lot_id": "2423419",
       "title": "1986 Château Pichon Longueville Comtesse de Lalande",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714419-1986-chateau-pichon-longueville-comtesse-de-lalande",
       "estimate": "2 000 SEK",
-      "hammer_price": "1 900 SEK",
+      "hammer_price": "2 100 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1986,
       "rating_score": 3,
-      "rating_reason": "Good but not top vintage"
+      "rating_reason": "Mature, likely fading"
     },
     {
       "lot_id": "2412718",
       "title": "1987 Château Latour",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708242-1987-chateau-latour",
       "estimate": "2 500 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "2 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1987,
-      "rating_score": 2,
-      "rating_reason": "Weak vintage overall"
+      "rating_score": 3,
+      "rating_reason": "Weak year, past prime"
     },
     {
       "lot_id": "2412453",
       "title": "1987 Château Margaux",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708040-1987-chateau-margaux",
       "estimate": "2 500 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "1 500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1987,
       "rating_score": 2,
-      "rating_reason": "Weak, challenging vintage"
+      "rating_reason": "Weak year, past prime"
     },
     {
       "lot_id": "2415737",
       "title": "1987 Château Margaux",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710048-1987-chateau-margaux",
       "estimate": "2 500 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "2 250 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1987,
       "rating_score": 2,
-      "rating_reason": "Weak, challenging vintage"
+      "rating_reason": "Same weak year, fading"
     },
     {
       "lot_id": "2415030",
@@ -888,8 +889,8 @@
       "estimate_per_bottle": "2 500 SEK",
       "hammer_price_per_bottle": "2 166 SEK",
       "vintage": 1987,
-      "rating_score": 3,
-      "rating_reason": "weak vintage, good hammer"
+      "rating_score": 2,
+      "rating_reason": "Weak year, past peak"
     },
     {
       "lot_id": "2419733",
@@ -904,36 +905,37 @@
       "hammer_price_per_bottle": "250 SEK",
       "vintage": 1987,
       "rating_score": 2,
-      "rating_reason": "weak year, suspect price"
+      "rating_reason": "Weak year, likely declined"
     },
     {
       "lot_id": "2412762",
       "title": "1988 Château de Cruzeau Rouge",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708281-1988-chateau-de-cruzeau-rouge",
       "estimate": "1 000 SEK",
-      "hammer_price": "1 100 SEK",
+      "hammer_price": "1 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "550 SEK",
+      "hammer_price_per_bottle": "600 SEK",
       "vintage": 1988,
       "rating_score": 2,
-      "rating_reason": "solid unclassified Graves, mature"
+      "rating_reason": "Risky, likely past peak"
     },
     {
       "lot_id": "2424634",
       "title": "1988 Château Lascombes",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715206-1988-chateau-lascombes",
       "estimate": "2 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "250 SEK",
       "vintage": 1988,
       "rating_score": 3,
-      "rating_reason": "Top vintage, classic aging potential"
+      "rating_reason": "Mature, possibly past peak"
     },
     {
       "lot_id": "2421749",
@@ -946,33 +948,33 @@
       "bottles": 1,
       "vintage": 1988,
       "rating_score": 4,
-      "rating_reason": "Outstanding structured year"
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2423567",
       "title": "1988 Château Mouton Rothschild",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714468-1988-chateau-mouton-rothschild",
       "estimate": "3 500 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "1 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1988,
       "rating_score": 4,
-      "rating_reason": "top classic vintage"
+      "rating_reason": "Top year, drink through 2030"
     },
     {
       "lot_id": "2423429",
       "title": "1989 Château Angelus",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714429-1989-chateau-angelus",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 400 SEK",
+      "hammer_price": "3 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1989,
-      "rating_score": 3,
-      "rating_reason": "Top vintage, age risk"
+      "rating_score": 4,
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2423418",
@@ -985,20 +987,20 @@
       "bottles": 1,
       "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Exceptional year, iconic estate"
+      "rating_reason": "Legendary year, peaking now"
     },
     {
       "lot_id": "2421725",
       "title": "1989 Château Latour",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713359-1989-chateau-latour",
       "estimate": "4 000 SEK",
-      "hammer_price": "3 000 SEK",
+      "hammer_price": "3 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Superb warm harvest"
+      "rating_reason": "Stellar year, still age-worthy"
     },
     {
       "lot_id": "2412455",
@@ -1011,7 +1013,7 @@
       "bottles": 1,
       "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Rich, top-tier year"
+      "rating_reason": "Stellar year, at peak"
     },
     {
       "lot_id": "2423959",
@@ -1024,7 +1026,7 @@
       "bottles": 1,
       "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Top Bordeaux vintage, aged"
+      "rating_reason": "Mature, drink very soon"
     },
     {
       "lot_id": "2424378",
@@ -1038,7 +1040,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Top vintage, no bids"
+      "rating_reason": "Mature, drink immediately"
     },
     {
       "lot_id": "2424608",
@@ -1052,7 +1054,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Top vintage, lower estimate"
+      "rating_reason": "Fading, open now"
     },
     {
       "lot_id": "2424609",
@@ -1066,7 +1068,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 1989,
       "rating_score": 3,
-      "rating_reason": "Top vintage, larger format likely"
+      "rating_reason": "Past peak, act fast"
     },
     {
       "lot_id": "2418579",
@@ -1079,20 +1081,20 @@
       "bottles": 1,
       "vintage": 1989,
       "rating_score": 4,
-      "rating_reason": "Exceptional vintage, peak Pomerol"
+      "rating_reason": "Stellar year, mature now"
     },
     {
       "lot_id": "2421450",
       "title": "1990 Château Lagrange & 2000 Château Péby Faugères",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713150-1990-chateau-lagrange-2000-chateau-peby-faugeres",
       "estimate": "1 800 SEK",
-      "hammer_price": "300 SEK",
+      "hammer_price": "600 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1990,
-      "rating_score": 3,
-      "rating_reason": "Top vintages, extreme value"
+      "rating_score": 2,
+      "rating_reason": "Risky old vintages, drink soon"
     },
     {
       "lot_id": "2420900",
@@ -1107,20 +1109,20 @@
       "hammer_price_per_bottle": "900 SEK",
       "vintage": 1991,
       "rating_score": 2,
-      "rating_reason": "Weak frost-affected vintage"
+      "rating_reason": "Poor year, risky at 35"
     },
     {
       "lot_id": "2412715",
       "title": "1993 Château Cheval Blanc",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708239-1993-chateau-cheval-blanc",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 400 SEK",
+      "hammer_price": "2 800 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1993,
       "rating_score": 3,
-      "rating_reason": "Weak year, still fine"
+      "rating_reason": "Weak year, past peak"
     },
     {
       "lot_id": "2411923",
@@ -1133,33 +1135,33 @@
       "bottles": 1,
       "vintage": 1993,
       "rating_score": 3,
-      "rating_reason": "Off year, weaker vintage"
+      "rating_reason": "Weak vintage, declining now"
     },
     {
       "lot_id": "2420581",
       "title": "1993 Château Lynch-Bages",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712560-1993-chateau-lynch-bages",
       "estimate": "2 400 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1993,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, no bids"
+      "rating_reason": "Weak year, past peak"
     },
     {
       "lot_id": "2419057",
       "title": "1993 Château Soutard & 2002 Château Jean Faure",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1711832-1993-chateau-soutard-2002-chateau-jean-faure",
       "estimate": "1 000 SEK",
-      "hammer_price": "850 SEK",
+      "hammer_price": "951 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1993,
       "rating_score": 2,
-      "rating_reason": "Poor vintage, likely faded"
+      "rating_reason": "Both vintages past peak"
     },
     {
       "lot_id": "2420548",
@@ -1172,7 +1174,7 @@
       "bottles": 1,
       "vintage": 1993,
       "rating_score": 4,
-      "rating_reason": "Iconic, but weak vintage"
+      "rating_reason": "Weak year, likely past peak"
     },
     {
       "lot_id": "2417801",
@@ -1187,7 +1189,7 @@
       "hammer_price_per_bottle": "485 SEK",
       "vintage": 1994,
       "rating_score": 3,
-      "rating_reason": "Third Growth, mediocre vintage"
+      "rating_reason": "32 yrs old, drink soon"
     },
     {
       "lot_id": "2423960",
@@ -1199,8 +1201,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1994,
-      "rating_score": 2,
-      "rating_reason": "Weak, rainy harvest year"
+      "rating_score": 3,
+      "rating_reason": "Weak vintage, fading now"
     },
     {
       "lot_id": "2423955",
@@ -1213,37 +1215,37 @@
       "bottles": 1,
       "vintage": 1994,
       "rating_score": 3,
-      "rating_reason": "off-peak year"
+      "rating_reason": "Average year, drink now"
     },
     {
       "lot_id": "2422910",
       "title": "1995 Château Cantenac Brown",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714021-1995-chateau-cantenac-brown",
       "estimate": "4 200 SEK",
-      "hammer_price": "4 010 SEK",
+      "hammer_price": "4 210 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
-      "hammer_price_per_bottle": "668 SEK",
+      "hammer_price_per_bottle": "701 SEK",
       "vintage": 1995,
       "rating_score": 3,
-      "rating_reason": "Top vintage, sold near est"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2424898",
       "title": "1996 Château Bourgneuf",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715371-1996-chateau-bourgneuf",
       "estimate": "1 500 SEK",
-      "hammer_price": "800 SEK",
+      "hammer_price": "1 300 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "266 SEK",
+      "hammer_price_per_bottle": "433 SEK",
       "vintage": 1996,
       "rating_score": 2,
-      "rating_reason": "1996 good, modest producer"
+      "rating_reason": "Mature, possibly past peak"
     },
     {
       "lot_id": "2423555",
@@ -1258,7 +1260,7 @@
       "hammer_price_per_bottle": "5 000 SEK",
       "vintage": 1996,
       "rating_score": 4,
-      "rating_reason": "Classic top-rated year"
+      "rating_reason": "Great year, still evolving"
     },
     {
       "lot_id": "2424237",
@@ -1273,7 +1275,7 @@
       "hammer_price_per_bottle": "3 600 SEK",
       "vintage": 1996,
       "rating_score": 4,
-      "rating_reason": "excellent top vintage"
+      "rating_reason": "Top year, peak window now"
     },
     {
       "lot_id": "2424239",
@@ -1287,21 +1289,21 @@
       "estimate_per_bottle": "4 000 SEK",
       "hammer_price_per_bottle": "1 875 SEK",
       "vintage": 1996,
-      "rating_score": 3,
-      "rating_reason": "top year, condition risk"
+      "rating_score": 4,
+      "rating_reason": "Top year, hold or drink"
     },
     {
       "lot_id": "2423957",
       "title": "1996 Château Pontet-Canet",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714800-1996-chateau-pontet-canet",
       "estimate": "1 200 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Great vintage, pre-improvement era"
+      "rating_reason": "Approaching or past peak"
     },
     {
       "lot_id": "2418219",
@@ -1316,50 +1318,50 @@
       "hammer_price_per_bottle": "650 SEK",
       "vintage": 1997,
       "rating_score": 2,
-      "rating_reason": "Second label, weak vintage"
+      "rating_reason": "Past peak, weak vintage"
     },
     {
       "lot_id": "2423138",
       "title": "1998 Château Léoville Barton",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714218-1998-chateau-leoville-barton",
       "estimate": "6 000 SEK",
-      "hammer_price": "4 200 SEK",
+      "hammer_price": "5 300 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
-      "hammer_price_per_bottle": "700 SEK",
+      "hammer_price_per_bottle": "883 SEK",
       "vintage": 1998,
       "rating_score": 4,
-      "rating_reason": "Top vintage, long-aged classic"
+      "rating_reason": "Mature, drinking beautifully now"
     },
     {
       "lot_id": "2419505",
       "title": "1999 Carruades de Lafite",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1704053-1999-carruades-de-lafite",
       "estimate": "3 200 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 1999,
-      "rating_score": 2,
-      "rating_reason": "off-vintage, second label declining"
+      "rating_score": 3,
+      "rating_reason": "Mature, likely past peak"
     },
     {
       "lot_id": "2423135",
       "title": "2000 Château Clarke",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714215-2000-chateau-clarke",
       "estimate": "3 600 SEK",
-      "hammer_price": "2 200 SEK",
+      "hammer_price": "3 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
-      "hammer_price_per_bottle": "366 SEK",
+      "hammer_price_per_bottle": "500 SEK",
       "vintage": 2000,
-      "rating_score": 3,
-      "rating_reason": "Top vintage, improving estate"
+      "rating_score": 2,
+      "rating_reason": "Mature, likely past peak"
     },
     {
       "lot_id": "2420453",
@@ -1372,7 +1374,7 @@
       "bottles": 1,
       "vintage": 2002,
       "rating_score": 2,
-      "rating_reason": "Good vintages, modest Margaux tier"
+      "rating_reason": "Mixed vintages, 2010 best"
     },
     {
       "lot_id": "2424203",
@@ -1387,7 +1389,7 @@
       "hammer_price_per_bottle": "950 SEK",
       "vintage": 2002,
       "rating_score": 3,
-      "rating_reason": "Off-vintage, not a top year"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2424611",
@@ -1401,8 +1403,8 @@
       "estimate_per_bottle": "3 500 SEK",
       "hammer_price_per_bottle": "2 750 SEK",
       "vintage": 2002,
-      "rating_score": 4,
-      "rating_reason": "strong modern vintage"
+      "rating_score": 3,
+      "rating_reason": "Decent year, mature now"
     },
     {
       "lot_id": "2423954",
@@ -1415,7 +1417,7 @@
       "bottles": 1,
       "vintage": 2002,
       "rating_score": 3,
-      "rating_reason": "Weak vintage, no market interest"
+      "rating_reason": "Off year, likely past peak"
     },
     {
       "lot_id": "2424201",
@@ -1428,22 +1430,22 @@
       "bottles": 1,
       "vintage": 2003,
       "rating_score": 3,
-      "rating_reason": "Hot, atypical Bordeaux year"
+      "rating_reason": "Hot year, past prime"
     },
     {
       "lot_id": "2414918",
       "title": "2003 Château Pavie",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709507-2003-chateau-pavie",
       "estimate": "8 400 SEK",
-      "hammer_price": "4 900 SEK",
+      "hammer_price": "6 800 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "2 800 SEK",
-      "hammer_price_per_bottle": "1 633 SEK",
+      "hammer_price_per_bottle": "2 266 SEK",
       "vintage": 2003,
       "rating_score": 3,
-      "rating_reason": "2003 not starred, sold below est"
+      "rating_reason": "Difficult year, drink soon"
     },
     {
       "lot_id": "2269158",
@@ -1456,7 +1458,7 @@
       "bottles": 1,
       "vintage": 2004,
       "rating_score": 4,
-      "rating_reason": "Second Growth, stellar 2005 included"
+      "rating_reason": "2005 stellar, peaking now"
     },
     {
       "lot_id": "2269227",
@@ -1469,7 +1471,7 @@
       "bottles": 1,
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "2005 redeems ordinary appellation"
+      "rating_reason": "Mature, 2005 saves it"
     },
     {
       "lot_id": "2269157",
@@ -1483,8 +1485,8 @@
       "estimate_per_bottle": "1 100 SEK",
       "hammer_price_per_bottle": "166 SEK",
       "vintage": 2004,
-      "rating_score": 2,
-      "rating_reason": "Average year, sold far below estimate"
+      "rating_score": 3,
+      "rating_reason": "Decent year, drink now"
     },
     {
       "lot_id": "2268912",
@@ -1498,7 +1500,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, no bids"
+      "rating_reason": "Past peak, drink soon"
     },
     {
       "lot_id": "2268909",
@@ -1512,21 +1514,22 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Off-peak, decent vintage"
+      "rating_reason": "Secondary year, drink soon"
     },
     {
       "lot_id": "2269197",
       "title": "2004 Château Grand-Puy Lacoste",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622337-2004-chateau-grand-puy-lacoste",
       "estimate": "4 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "800 SEK",
+      "hammer_price_per_bottle": "200 SEK",
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, no interest"
+      "rating_reason": "Past peak, drink now"
     },
     {
       "lot_id": "2269199",
@@ -1540,7 +1543,7 @@
       "estimate_per_bottle": "800 SEK",
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, no interest"
+      "rating_reason": "Fading, act soon"
     },
     {
       "lot_id": "2269202",
@@ -1554,7 +1557,7 @@
       "estimate_per_bottle": "800 SEK",
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, no interest"
+      "rating_reason": "Risky old vintage"
     },
     {
       "lot_id": "2269179",
@@ -1567,7 +1570,7 @@
       "bottles": 1,
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Decent non-premier year"
+      "rating_reason": "Average year, drink now"
     },
     {
       "lot_id": "2269180",
@@ -1581,7 +1584,7 @@
       "estimate_per_bottle": "4 500 SEK",
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Same vintage, larger format"
+      "rating_reason": "Average year, no rush"
     },
     {
       "lot_id": "2268903",
@@ -1595,20 +1598,20 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Average year, no bids"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2268886",
       "title": "2004 Château Margaux",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622118-2004-chateau-margaux",
       "estimate": "3 500 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "2 800 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Solid, not exceptional year"
+      "rating_reason": "Decent year, drink soon"
     },
     {
       "lot_id": "2268875",
@@ -1623,20 +1626,20 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "decent year, past peak"
+      "rating_reason": "Mature, fading, drink soon"
     },
     {
       "lot_id": "2415742",
       "title": "2004 Château Palmer",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710051-2004-chateau-palmer",
       "estimate": "2 500 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2004,
       "rating_score": 3,
-      "rating_reason": "Average year, passed unsold"
+      "rating_reason": "Mature, drink up now"
     },
     {
       "lot_id": "2268892",
@@ -1650,7 +1653,7 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Off-year, early transition period"
+      "rating_reason": "Lean year, drink soon"
     },
     {
       "lot_id": "2268907",
@@ -1665,7 +1668,7 @@
       "hammer_price_per_bottle": "640 SEK",
       "vintage": 2004,
       "rating_score": 2,
-      "rating_reason": "Modest vintage year"
+      "rating_reason": "Lighter year, fully mature"
     },
     {
       "lot_id": "2268467",
@@ -1678,7 +1681,7 @@
       "bottles": 1,
       "vintage": 2004,
       "rating_score": 4,
-      "rating_reason": "top-rated; 05 exceptional vintage"
+      "rating_reason": "Stellar 2005, both peaking"
     },
     {
       "lot_id": "2424206",
@@ -1691,7 +1694,7 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "2005 top Bordeaux vintage"
+      "rating_reason": "Stellar year, at peak"
     },
     {
       "lot_id": "2268908",
@@ -1706,7 +1709,7 @@
       "hammer_price_per_bottle": "750 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Excellent top vintage"
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2268864",
@@ -1720,8 +1723,8 @@
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2005,
-      "rating_score": 2,
-      "rating_reason": "Top vintage, Fifth Growth level"
+      "rating_score": 3,
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2268866",
@@ -1735,8 +1738,8 @@
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "250 SEK",
       "vintage": 2005,
-      "rating_score": 2,
-      "rating_reason": "Top vintage, Fifth Growth level"
+      "rating_score": 3,
+      "rating_reason": "Drink soon, near peak"
     },
     {
       "lot_id": "2268869",
@@ -1749,38 +1752,38 @@
       "bottles": 4,
       "estimate_per_bottle": "500 SEK",
       "vintage": 2005,
-      "rating_score": 2,
-      "rating_reason": "Top vintage, no bids placed"
+      "rating_score": 3,
+      "rating_reason": "At peak, drink now"
     },
     {
       "lot_id": "2269070",
       "title": "2005 Château Ducru-Beaucaillou",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622229-2005-chateau-ducru-beaucaillou",
       "estimate": "6 000 SEK",
-      "hammer_price": "2 000 SEK",
+      "hammer_price": "4 800 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "2 000 SEK",
-      "hammer_price_per_bottle": "666 SEK",
+      "hammer_price_per_bottle": "1 600 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, single bottle"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2269071",
       "title": "2005 Château Ducru-Beaucaillou",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622230-2005-chateau-ducru-beaucaillou",
       "estimate": "4 000 SEK",
-      "hammer_price": "3 200 SEK",
+      "hammer_price": "4 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
-      "hammer_price_per_bottle": "1 600 SEK",
+      "hammer_price_per_bottle": "2 000 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, single bottle"
+      "rating_reason": "Drink through 2030"
     },
     {
       "lot_id": "2269088",
@@ -1795,22 +1798,22 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, likely magnum"
+      "rating_reason": "Still has years ahead"
     },
     {
       "lot_id": "2269091",
       "title": "2005 Château Ducru-Beaucaillou",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622246-2005-chateau-ducru-beaucaillou",
       "estimate": "8 000 SEK",
-      "hammer_price": "4 000 SEK",
+      "hammer_price": "6 400 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "2 000 SEK",
-      "hammer_price_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "1 600 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, multi-bottle"
+      "rating_reason": "Mature, drink through 2032"
     },
     {
       "lot_id": "2422947",
@@ -1825,22 +1828,22 @@
       "hammer_price_per_bottle": "900 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, strong result"
+      "rating_reason": "Peaking now, drink through 2032"
     },
     {
       "lot_id": "2269189",
       "title": "2005 Château Grand-Puy Lacoste",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622329-2005-chateau-grand-puy-lacoste",
       "estimate": "2 400 SEK",
-      "hammer_price": "1 600 SEK",
+      "hammer_price": "1 900 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
-      "hammer_price_per_bottle": "800 SEK",
+      "hammer_price_per_bottle": "950 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top year, sold below estimate"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2269191",
@@ -1854,7 +1857,7 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top year, no bids"
+      "rating_reason": "Hold through 2034"
     },
     {
       "lot_id": "2269195",
@@ -1868,7 +1871,7 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top year, no bids"
+      "rating_reason": "Still age-worthy"
     },
     {
       "lot_id": "2269152",
@@ -1883,7 +1886,7 @@
       "hammer_price_per_bottle": "1 177 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, age-worthy"
+      "rating_reason": "Mature, approaching peak now"
     },
     {
       "lot_id": "2269153",
@@ -1898,7 +1901,7 @@
       "hammer_price_per_bottle": "1 050 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, smaller lot"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2269181",
@@ -1911,7 +1914,7 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, iconic quality"
+      "rating_reason": "Top year, still evolving"
     },
     {
       "lot_id": "2269182",
@@ -1924,7 +1927,7 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top year, First Growth"
+      "rating_reason": "Stellar year, hold longer"
     },
     {
       "lot_id": "2269185",
@@ -1938,7 +1941,7 @@
       "estimate_per_bottle": "6 000 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Great year, larger format"
+      "rating_reason": "Great year, age-worthy"
     },
     {
       "lot_id": "2268914",
@@ -1953,7 +1956,7 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Super Second, exceptional vintage year"
+      "rating_reason": "Mature, at peak now"
     },
     {
       "lot_id": "2269135",
@@ -1968,7 +1971,7 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, some age"
+      "rating_reason": "Peak now, drink soon"
     },
     {
       "lot_id": "2268893",
@@ -1983,7 +1986,7 @@
       "hammer_price_per_bottle": "1 250 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top year, large lot"
+      "rating_reason": "Stellar year, still developing"
     },
     {
       "lot_id": "2268895",
@@ -1998,7 +2001,7 @@
       "hammer_price_per_bottle": "1 333 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top year, mid lot"
+      "rating_reason": "Top year, drink through 2035"
     },
     {
       "lot_id": "2268896",
@@ -2013,7 +2016,7 @@
       "hammer_price_per_bottle": "1 450 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top year, smaller lot"
+      "rating_reason": "Peaking, drink through 2034"
     },
     {
       "lot_id": "2268910",
@@ -2027,7 +2030,7 @@
       "estimate_per_bottle": "1 800 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top year, unsold"
+      "rating_reason": "Stellar year, drink soon"
     },
     {
       "lot_id": "2268861",
@@ -2042,7 +2045,7 @@
       "hammer_price_per_bottle": "1 600 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "exceptional vintage, peak drinking"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2268865",
@@ -2057,7 +2060,7 @@
       "hammer_price_per_bottle": "2 000 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "exceptional top vintage"
+      "rating_reason": "Top year, drink or hold"
     },
     {
       "lot_id": "2421532",
@@ -2069,8 +2072,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2005,
-      "rating_score": 3,
-      "rating_reason": "likely half bottle format"
+      "rating_score": 4,
+      "rating_reason": "Peak window, enjoy now"
     },
     {
       "lot_id": "2268880",
@@ -2083,7 +2086,7 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "guide-starred exceptional year"
+      "rating_reason": "Exceptional year, still evolving"
     },
     {
       "lot_id": "2268879",
@@ -2097,7 +2100,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, transforming estate"
+      "rating_reason": "Stellar year, still evolving"
     },
     {
       "lot_id": "2268882",
@@ -2112,22 +2115,22 @@
       "hammer_price_per_bottle": "1 500 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage, transforming estate"
+      "rating_reason": "Peak window 2026-2030"
     },
     {
       "lot_id": "2269214",
       "title": "2005 Château Prieuré-Lichine",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622352-2005-chateau-prieure-lichine",
       "estimate": "1 500 SEK",
-      "hammer_price": "1 200 SEK",
+      "hammer_price": "1 310 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "400 SEK",
+      "hammer_price_per_bottle": "436 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, Fourth Growth value"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2269134",
@@ -2141,7 +2144,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, unsold"
+      "rating_reason": "Mature now, don't wait"
     },
     {
       "lot_id": "2269138",
@@ -2156,7 +2159,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, below estimate"
+      "rating_reason": "Drink through 2028"
     },
     {
       "lot_id": "2269139",
@@ -2171,7 +2174,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, near estimate"
+      "rating_reason": "At peak, drink soon"
     },
     {
       "lot_id": "2423308",
@@ -2186,7 +2189,7 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top vintage, precise and generous"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2424823",
@@ -2201,7 +2204,7 @@
       "hammer_price_per_bottle": "480 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Peak vintage, mature now"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2268904",
@@ -2216,22 +2219,22 @@
       "hammer_price_per_bottle": "833 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, larger lot"
+      "rating_reason": "Stellar year, approaching peak"
     },
     {
       "lot_id": "2268911",
       "title": "2005 Château Talbot",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1622142-2005-chateau-talbot",
       "estimate": "4 800 SEK",
-      "hammer_price": "3 650 SEK",
+      "hammer_price": "3 850 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "1 200 SEK",
-      "hammer_price_per_bottle": "912 SEK",
+      "hammer_price_per_bottle": "962 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top vintage, smaller lot"
+      "rating_reason": "Peaking now, drink 2026-2032"
     },
     {
       "lot_id": "2268868",
@@ -2246,7 +2249,7 @@
       "hammer_price_per_bottle": "1 500 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Second label, stellar vintage"
+      "rating_reason": "Mature, drinking well now"
     },
     {
       "lot_id": "2268871",
@@ -2261,7 +2264,7 @@
       "hammer_price_per_bottle": "1 683 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Same; strong 05 expression"
+      "rating_reason": "Peak window, enjoy soon"
     },
     {
       "lot_id": "2268873",
@@ -2276,20 +2279,20 @@
       "hammer_price_per_bottle": "1 600 SEK",
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "Top year, entry price"
+      "rating_reason": "21 years, near peak"
     },
     {
       "lot_id": "2423944",
       "title": "2006 Château Angélus",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714787-2006-chateau-angelus",
       "estimate": "2 500 SEK",
-      "hammer_price": "2 200 SEK",
+      "hammer_price": "2 400 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "Top-rated vintage, drinking well"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2423452",
@@ -2304,22 +2307,22 @@
       "hammer_price_per_bottle": "416 SEK",
       "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Top vintage, drinking well now"
+      "rating_reason": "Mature, drinking well now"
     },
     {
       "lot_id": "2423585",
       "title": "2006 Château Branaire-Ducru",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714484-2006-chateau-branaire-ducru",
       "estimate": "6 000 SEK",
-      "hammer_price": "750 SEK",
+      "hammer_price": "3 500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 10,
       "estimate_per_bottle": "600 SEK",
-      "hammer_price_per_bottle": "75 SEK",
+      "hammer_price_per_bottle": "350 SEK",
       "vintage": 2006,
-      "rating_score": 2,
-      "rating_reason": "Top vintage, suspect condition"
+      "rating_score": 3,
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2415744",
@@ -2332,7 +2335,7 @@
       "bottles": 1,
       "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "Top-list vintage"
+      "rating_reason": "Excellent year, needs time"
     },
     {
       "lot_id": "2420326",
@@ -2346,7 +2349,7 @@
       "estimate_per_bottle": "1 800 SEK",
       "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "top year, classic style"
+      "rating_reason": "Top year, near peak"
     },
     {
       "lot_id": "2424738",
@@ -2359,20 +2362,20 @@
       "bottles": 1,
       "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Good year, magnum format"
+      "rating_reason": "Magnum, drink through 2034"
     },
     {
       "lot_id": "2425236",
       "title": "2006 Petrus",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1705325-2006-petrus",
       "estimate": "25 000 SEK",
-      "hammer_price": "17 000 SEK",
+      "hammer_price": "20 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "Solid top-vintage year"
+      "rating_reason": "Near peak, drink now"
     },
     {
       "lot_id": "2423851",
@@ -2387,7 +2390,7 @@
       "hammer_price_per_bottle": "83 SEK",
       "vintage": 2007,
       "rating_score": 2,
-      "rating_reason": "Difficult off-peak vintage year"
+      "rating_reason": "Weak vintage, likely past peak"
     },
     {
       "lot_id": "2423891",
@@ -2401,7 +2404,7 @@
       "estimate_per_bottle": "2 200 SEK",
       "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Weak vintage, six bottles"
+      "rating_reason": "Off-vintage, peaking now"
     },
     {
       "lot_id": "2424151",
@@ -2415,7 +2418,7 @@
       "estimate_per_bottle": "2 200 SEK",
       "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Weak vintage, single bottle"
+      "rating_reason": "Lighter year, drink now"
     },
     {
       "lot_id": "2424154",
@@ -2429,7 +2432,7 @@
       "estimate_per_bottle": "2 200 SEK",
       "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Weak vintage, two bottles"
+      "rating_reason": "Nearing peak, act soon"
     },
     {
       "lot_id": "2424156",
@@ -2443,7 +2446,7 @@
       "estimate_per_bottle": "2 200 SEK",
       "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Weak vintage, three bottles"
+      "rating_reason": "Mature, fading slowly"
     },
     {
       "lot_id": "2423947",
@@ -2455,8 +2458,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2007,
-      "rating_score": 2,
-      "rating_reason": "Poor year, absent from guide"
+      "rating_score": 3,
+      "rating_reason": "Soft year, drink soon"
     },
     {
       "lot_id": "2424534",
@@ -2469,23 +2472,23 @@
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2008,
-      "rating_score": 3,
-      "rating_reason": "Solid year, not starred"
+      "rating_score": 4,
+      "rating_reason": "Peaking, drink through 2032"
     },
     {
       "lot_id": "2422898",
       "title": "2008 Château Giscours",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714012-2008-chateau-giscours",
       "estimate": "1 600 SEK",
-      "hammer_price": "1 300 SEK",
+      "hammer_price": "1 400 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "800 SEK",
-      "hammer_price_per_bottle": "650 SEK",
+      "hammer_price_per_bottle": "700 SEK",
       "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Top year, slight underperformance"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2421175",
@@ -2497,8 +2500,8 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2008,
-      "rating_score": 3,
-      "rating_reason": "Top vintage, no prime marker"
+      "rating_score": 4,
+      "rating_reason": "Top year, at peak"
     },
     {
       "lot_id": "2423946",
@@ -2510,22 +2513,23 @@
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2008,
-      "rating_score": 3,
-      "rating_reason": "Top vintage, no prime marker"
+      "rating_score": 4,
+      "rating_reason": "Prime vintage, drink now"
     },
     {
       "lot_id": "2424731",
       "title": "2008 Château La Tour Carnet",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715233-2008-chateau-la-tour-carnet",
       "estimate": "3 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 001 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "hammer_price_per_bottle": "333 SEK",
       "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Good vintage, no bids"
+      "rating_reason": "Mature, likely past peak"
     },
     {
       "lot_id": "2423289",
@@ -2540,7 +2544,7 @@
       "hammer_price_per_bottle": "966 SEK",
       "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Top vintage, confirmed sale"
+      "rating_reason": "Stellar year, drinking now"
     },
     {
       "lot_id": "2421531",
@@ -2553,7 +2557,7 @@
       "bottles": 1,
       "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Top vintage, confirmed sale"
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2423327",
@@ -2567,7 +2571,7 @@
       "estimate_per_bottle": "1 400 SEK",
       "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Excellent year, full potential"
+      "rating_reason": "Exceptional vintage, peak opening"
     },
     {
       "lot_id": "2424162",
@@ -2581,7 +2585,7 @@
       "estimate_per_bottle": "1 400 SEK",
       "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Excellent year, full potential"
+      "rating_reason": "Drink 2026-2035"
     },
     {
       "lot_id": "2424164",
@@ -2595,20 +2599,20 @@
       "estimate_per_bottle": "1 400 SEK",
       "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Excellent year, full potential"
+      "rating_reason": "Prime year, mature now"
     },
     {
       "lot_id": "2421174",
       "title": "2009 Château Canon",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712980-2009-chateau-canon",
       "estimate": "1 500 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "1 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Outstanding, top-tier vintage"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2422926",
@@ -2621,8 +2625,8 @@
       "bottles": 12,
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2009,
-      "rating_score": 4,
-      "rating_reason": "Legendary vintage, rich structure"
+      "rating_score": 3,
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2421533",
@@ -2637,7 +2641,7 @@
       "hammer_price_per_bottle": "133 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Exceptional Bordeaux vintage year"
+      "rating_reason": "Top year, mature now"
     },
     {
       "lot_id": "2420492",
@@ -2652,7 +2656,7 @@
       "hammer_price_per_bottle": "650 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Exceptional Bordeaux year"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2418116",
@@ -2667,7 +2671,7 @@
       "hammer_price_per_bottle": "950 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Outstanding vintage, sold"
+      "rating_reason": "Stellar year, drink now"
     },
     {
       "lot_id": "2421524",
@@ -2682,7 +2686,7 @@
       "hammer_price_per_bottle": "500 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Same top vintage, larger format"
+      "rating_reason": "Large format, hold longer"
     },
     {
       "lot_id": "2421510",
@@ -2696,8 +2700,8 @@
       "estimate_per_bottle": "1 000 SEK",
       "hammer_price_per_bottle": "75 SEK",
       "vintage": 2009,
-      "rating_score": 2,
-      "rating_reason": "Top year, alarming hammer discount"
+      "rating_score": 3,
+      "rating_reason": "Stellar year, still evolving"
     },
     {
       "lot_id": "2422949",
@@ -2712,7 +2716,7 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Excellent vintage, fair result"
+      "rating_reason": "Exceptional vintage, near peak"
     },
     {
       "lot_id": "2421516",
@@ -2727,7 +2731,7 @@
       "hammer_price_per_bottle": "1 001 SEK",
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Guide-starred exceptional year"
+      "rating_reason": "Stellar year, hold longer"
     },
     {
       "lot_id": "2423331",
@@ -2742,7 +2746,7 @@
       "hammer_price_per_bottle": "1 666 SEK",
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Extraordinary year, peak expression"
+      "rating_reason": "Iconic year, peaking now"
     },
     {
       "lot_id": "2421508",
@@ -2757,7 +2761,7 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Top vintage, undersold"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2424606",
@@ -2772,7 +2776,7 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Top vintage, undersold"
+      "rating_reason": "Still developing, be patient"
     },
     {
       "lot_id": "2423320",
@@ -2786,7 +2790,7 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Exceptional, guide-starred top vintage"
+      "rating_reason": "Stellar year, drinking beautifully"
     },
     {
       "lot_id": "2423189",
@@ -2799,22 +2803,22 @@
       "bottles": 1,
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Top vintage, premium magnum"
+      "rating_reason": "Magnum, needs more time"
     },
     {
       "lot_id": "2424347",
       "title": "2010 Château Angludet",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714998-2010-chateau-angludet",
       "estimate": "4 000 SEK",
-      "hammer_price": "3 200 SEK",
+      "hammer_price": "3 600 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 5,
       "estimate_per_bottle": "800 SEK",
-      "hammer_price_per_bottle": "640 SEK",
+      "hammer_price_per_bottle": "720 SEK",
       "vintage": 2010,
-      "rating_score": 3,
-      "rating_reason": "Exceptional 2010 vintage uplifts"
+      "rating_score": 2,
+      "rating_reason": "Stellar year, drink now"
     },
     {
       "lot_id": "2423322",
@@ -2828,21 +2832,22 @@
       "estimate_per_bottle": "800 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Guide-marked top vintage"
+      "rating_reason": "Peaking now, drink soon"
     },
     {
       "lot_id": "2422928",
       "title": "2010 Château Canon La Gaffelière",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714035-2010-chateau-canon-la-gaffeliere",
       "estimate": "14 400 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "11 500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 12,
       "estimate_per_bottle": "1 200 SEK",
+      "hammer_price_per_bottle": "958 SEK",
       "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Guide-starred year, outstanding"
+      "rating_reason": "Top vintage, peak now"
     },
     {
       "lot_id": "2422950",
@@ -2857,7 +2862,7 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Exceptional year, solid result"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2423336",
@@ -2871,7 +2876,7 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Great year, no bids placed"
+      "rating_reason": "Age-worthy, hold to 2035"
     },
     {
       "lot_id": "2422938",
@@ -2884,7 +2889,7 @@
       "bottles": 1,
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Top vintage, magnum ages well"
+      "rating_reason": "Top vintage, magnum at peak"
     },
     {
       "lot_id": "2415786",
@@ -2899,22 +2904,22 @@
       "hammer_price_per_bottle": "666 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Top year, excellent Bordeaux"
+      "rating_reason": "Hold 5-10 more years"
     },
     {
       "lot_id": "2424447",
       "title": "2010 Château La Conseillante",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715072-2010-chateau-la-conseillante",
       "estimate": "6 600 SEK",
-      "hammer_price": "6 500 SEK",
+      "hammer_price": "7 558 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "2 200 SEK",
-      "hammer_price_per_bottle": "2 166 SEK",
+      "hammer_price_per_bottle": "2 519 SEK",
       "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Prime vintage, marked excellent"
+      "rating_reason": "Peaking now, drink through 2032"
     },
     {
       "lot_id": "2424610",
@@ -2929,7 +2934,7 @@
       "hammer_price_per_bottle": "1 333 SEK",
       "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Outstanding vintage"
+      "rating_reason": "Exceptional year, hold 5+ years"
     },
     {
       "lot_id": "2424777",
@@ -2944,7 +2949,7 @@
       "hammer_price_per_bottle": "420 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Guide-starred exceptional vintage"
+      "rating_reason": "Guide pick, hold 5+ years"
     },
     {
       "lot_id": "2424536",
@@ -2959,21 +2964,22 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 2011,
       "rating_score": 3,
-      "rating_reason": "Decent year, below prime"
+      "rating_reason": "Decent year, maturing now"
     },
     {
       "lot_id": "2424621",
       "title": "2011 Château Haut-Bailly",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715193-2011-chateau-haut-bailly",
       "estimate": "4 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "3 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "800 SEK",
       "vintage": 2011,
       "rating_score": 4,
-      "rating_reason": "Top-quality, elegant, top vintage"
+      "rating_reason": "Mature, drink through 2032"
     },
     {
       "lot_id": "2424184",
@@ -2986,7 +2992,7 @@
       "bottles": 1,
       "vintage": 2011,
       "rating_score": 3,
-      "rating_reason": "Solid year, dependable quality"
+      "rating_reason": "Good year, drink through 2030"
     },
     {
       "lot_id": "2424334",
@@ -2999,20 +3005,20 @@
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 2,
-      "rating_reason": "sandy soils, lighter style"
+      "rating_reason": "Both vintages peaking now"
     },
     {
       "lot_id": "2421689",
       "title": "2012 Château L'Evangile",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713328-2012-chateau-l-evangile",
       "estimate": "1 300 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Off-vintage, not top year"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2414378",
@@ -3025,34 +3031,35 @@
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Decent year, honest value"
+      "rating_reason": "Average year, drink soon"
     },
     {
       "lot_id": "2423133",
       "title": "2012 Château Pontet-Canet",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714213-2012-chateau-pontet-canet",
       "estimate": "6 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "3 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "500 SEK",
       "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Decent year, honest value"
+      "rating_reason": "Drink through 2028"
     },
     {
       "lot_id": "2420925",
       "title": "2012 Clos du Marquis (Double Magnum)",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712764-2012-clos-du-marquis-double-magnum",
       "estimate": "4 800 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "3 000 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, large format"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2420930",
@@ -3065,34 +3072,35 @@
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 2,
-      "rating_reason": "Same; weak vintage, large format"
+      "rating_reason": "Ready now, don't wait"
     },
     {
       "lot_id": "2424729",
       "title": "2013 Château Gazin",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715231-2013-chateau-gazin",
       "estimate": "2 400 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 900 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 2,
       "estimate_per_bottle": "1 200 SEK",
+      "hammer_price_per_bottle": "950 SEK",
       "vintage": 2013,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, no bids"
+      "rating_reason": "Weak year, drink soon"
     },
     {
       "lot_id": "2424505",
       "title": "2013 Petrus",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715119-2013-petrus",
       "estimate": "20 000 SEK",
-      "hammer_price": "16 000 SEK",
+      "hammer_price": "18 100 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2013,
       "rating_score": 3,
-      "rating_reason": "Weak vintage, off year"
+      "rating_reason": "Weaker year, drink soon"
     },
     {
       "lot_id": "2421451",
@@ -3106,7 +3114,7 @@
       "estimate_per_bottle": "4 000 SEK",
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Fine vintage, still developing"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2419495",
@@ -3119,7 +3127,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top vintage, magnum format"
+      "rating_reason": "Mature, approaching peak now"
     },
     {
       "lot_id": "2424349",
@@ -3134,7 +3142,7 @@
       "hammer_price_per_bottle": "350 SEK",
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top vintage, value price"
+      "rating_reason": "2014 top year, peaking now"
     },
     {
       "lot_id": "2424440",
@@ -3149,22 +3157,22 @@
       "hammer_price_per_bottle": "533 SEK",
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top vintage, sold firm"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2424442",
       "title": "2014 Château Lagrange",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715068-2014-chateau-lagrange",
       "estimate": "2 000 SEK",
-      "hammer_price": "1 800 SEK",
+      "hammer_price": "2 400 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "450 SEK",
+      "hammer_price_per_bottle": "600 SEK",
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top vintage, below estimate"
+      "rating_reason": "Drink through 2030"
     },
     {
       "lot_id": "2415746",
@@ -3177,7 +3185,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "guide-highlighted top year"
+      "rating_reason": "Top year, needs more time"
     },
     {
       "lot_id": "2419930",
@@ -3190,20 +3198,20 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "top year, peer lot"
+      "rating_reason": "Top year, hold 5+ years"
     },
     {
       "lot_id": "2421170",
       "title": "2015 Château Angélus",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712978-2015-chateau-angelus",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 400 SEK",
+      "hammer_price": "2 600 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Guide-starred exceptional year"
+      "rating_reason": "Stellar year, hold longer"
     },
     {
       "lot_id": "2424829",
@@ -3218,22 +3226,22 @@
       "hammer_price_per_bottle": "516 SEK",
       "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "top vintage, Fifth Growth value"
+      "rating_reason": "Peaking, drink through 2030"
     },
     {
       "lot_id": "2420092",
       "title": "2015 Château La Fleur Pourret",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712257-2015-chateau-la-fleur-pourret",
       "estimate": "1 500 SEK",
-      "hammer_price": "1 200 SEK",
+      "hammer_price": "1 300 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "400 SEK",
+      "hammer_price_per_bottle": "433 SEK",
       "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Minor GCC, good vintage boost"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2419496",
@@ -3246,7 +3254,7 @@
       "bottles": 1,
       "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Equally strong vintage, magnum"
+      "rating_reason": "Hold 2-3 more years"
     },
     {
       "lot_id": "2424740",
@@ -3259,7 +3267,7 @@
       "bottles": 1,
       "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Top vintage, magnum format"
+      "rating_reason": "Top year, magnum holds longer"
     },
     {
       "lot_id": "2424733",
@@ -3272,7 +3280,7 @@
       "bottles": 1,
       "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Top vintage, magnum format"
+      "rating_reason": "Stellar year, drink now"
     },
     {
       "lot_id": "2419938",
@@ -3285,49 +3293,50 @@
       "bottles": 1,
       "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "guide-starred top year"
+      "rating_reason": "Stellar year, hold 10+ years"
     },
     {
       "lot_id": "2424315",
       "title": "2015 Château Plince",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714988-2015-chateau-plince",
       "estimate": "2 400 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "600 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 4,
       "estimate_per_bottle": "600 SEK",
+      "hammer_price_per_bottle": "150 SEK",
       "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Top vintage, lighter sandy style"
+      "rating_reason": "Peaking now, drink soon"
     },
     {
       "lot_id": "2424316",
       "title": "2015 Château Plince",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714989-2015-chateau-plince",
       "estimate": "3 600 SEK",
-      "hammer_price": "2 900 SEK",
+      "hammer_price": "3 200 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "600 SEK",
-      "hammer_price_per_bottle": "483 SEK",
+      "hammer_price_per_bottle": "533 SEK",
       "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Top vintage, sold at discount"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2424739",
       "title": "2015 Château Poujeaux (Magnum)",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1715240-2015-chateau-poujeaux-magnum",
       "estimate": "2 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 500 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 1,
       "vintage": 2015,
       "rating_score": 2,
-      "rating_reason": "Top vintage, magnum ages well"
+      "rating_reason": "Prime year, Magnum ages longer"
     },
     {
       "lot_id": "2419451",
@@ -3342,7 +3351,7 @@
       "hammer_price_per_bottle": "500 SEK",
       "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Outstanding starred Bordeaux vintage"
+      "rating_reason": "Prime year, hold longer"
     },
     {
       "lot_id": "2420627",
@@ -3357,7 +3366,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Top vintage, premium cuvée"
+      "rating_reason": "Top vintage, peaking now"
     },
     {
       "lot_id": "2421676",
@@ -3372,7 +3381,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Top vintage, premium cuvée"
+      "rating_reason": "Mature, drink through 2029"
     },
     {
       "lot_id": "2423807",
@@ -3387,7 +3396,7 @@
       "hammer_price_per_bottle": "966 SEK",
       "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Starred year, excellent form"
+      "rating_reason": "Starred year, hold 5+ years"
     },
     {
       "lot_id": "2423870",
@@ -3402,7 +3411,7 @@
       "hammer_price_per_bottle": "966 SEK",
       "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Starred year, excellent form"
+      "rating_reason": "Hold until 2030-2035"
     },
     {
       "lot_id": "2420104",
@@ -3417,7 +3426,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Guide-noted, strong vintage"
+      "rating_reason": "Hold 3–5 more years"
     },
     {
       "lot_id": "2419803",
@@ -3430,7 +3439,7 @@
       "bottles": 1,
       "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "outstanding starred vintage"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2419790",
@@ -3443,7 +3452,7 @@
       "bottles": 1,
       "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Brilliant year, at height"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2419492",
@@ -3458,7 +3467,7 @@
       "hammer_price_per_bottle": "833 SEK",
       "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Excellent starred Bordeaux vintage"
+      "rating_reason": "Prime vintage, still needs time"
     },
     {
       "lot_id": "2421535",
@@ -3471,7 +3480,7 @@
       "bottles": 1,
       "vintage": 2016,
       "rating_score": 4,
-      "rating_reason": "Premier GCC, top vintage, magnum"
+      "rating_reason": "Hold 10+ years, magnum"
     },
     {
       "lot_id": "2420102",
@@ -3486,7 +3495,7 @@
       "hammer_price_per_bottle": "539 SEK",
       "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Top vintage, prestigious second label"
+      "rating_reason": "Peak window, drink through 2030"
     },
     {
       "lot_id": "2423895",
@@ -3501,7 +3510,7 @@
       "hammer_price_per_bottle": "633 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Good but frost-affected year"
+      "rating_reason": "Average year, needs more time"
     },
     {
       "lot_id": "2421685",
@@ -3516,7 +3525,7 @@
       "hammer_price_per_bottle": "83 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Second wine, iconic estate"
+      "rating_reason": "Drink now through 2028"
     },
     {
       "lot_id": "2420381",
@@ -3531,7 +3540,7 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Solid but not top year"
+      "rating_reason": "Good year, needs more time"
     },
     {
       "lot_id": "2421684",
@@ -3545,7 +3554,7 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Good year, not stellar"
+      "rating_reason": "Approachable, drink 2026-2030"
     },
     {
       "lot_id": "2420105",
@@ -3559,7 +3568,7 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Modest, unstarred frost year"
+      "rating_reason": "Decent year, drink soon"
     },
     {
       "lot_id": "2416273",
@@ -3574,21 +3583,22 @@
       "hammer_price_per_bottle": "866 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Third label, non-standout vintage"
+      "rating_reason": "Drink now through 2028"
     },
     {
       "lot_id": "2420496",
       "title": "2018 Blason d'Issan",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712492-2018-blason-d-issan",
       "estimate": "1 500 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "400 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
+      "hammer_price_per_bottle": "133 SEK",
       "vintage": 2018,
       "rating_score": 2,
-      "rating_reason": "Second label, not the château"
+      "rating_reason": "Top year, drink through 2030"
     },
     {
       "lot_id": "2422909",
@@ -3602,7 +3612,7 @@
       "estimate_per_bottle": "500 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Exceptional year, excellent potential"
+      "rating_reason": "Starred year, hold longer"
     },
     {
       "lot_id": "2423841",
@@ -3617,7 +3627,7 @@
       "hammer_price_per_bottle": "133 SEK",
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Top starred vintage"
+      "rating_reason": "Too young, hold a decade"
     },
     {
       "lot_id": "2423853",
@@ -3631,7 +3641,7 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Top starred vintage"
+      "rating_reason": "Needs 10+ years cellaring"
     },
     {
       "lot_id": "2424765",
@@ -3645,7 +3655,7 @@
       "estimate_per_bottle": "800 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top vintage, case, no bids"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2419493",
@@ -3660,7 +3670,7 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Top recent vintage"
+      "rating_reason": "Outstanding year, hold 8+ years"
     },
     {
       "lot_id": "2423872",
@@ -3675,7 +3685,7 @@
       "hammer_price_per_bottle": "1 183 SEK",
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Top year, larger lot"
+      "rating_reason": "Large format, decades ahead"
     },
     {
       "lot_id": "2423354",
@@ -3690,7 +3700,7 @@
       "hammer_price_per_bottle": "116 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top vintage, dramatically undersold"
+      "rating_reason": "Far too young, cellar"
     },
     {
       "lot_id": "2420078",
@@ -3705,7 +3715,7 @@
       "hammer_price_per_bottle": "430 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Second label, excellent vintage"
+      "rating_reason": "Peak window, drink now"
     },
     {
       "lot_id": "2420858",
@@ -3720,7 +3730,7 @@
       "hammer_price_per_bottle": "416 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Guide-marked great vintage"
+      "rating_reason": "Prime year, peaking soon"
     },
     {
       "lot_id": "2424796",
@@ -3734,7 +3744,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top vintage, early drinking window"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2424797",
@@ -3748,21 +3758,22 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top vintage, early drinking window"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2422952",
       "title": "2019 Château Cantenac Brown",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714054-2019-chateau-cantenac-brown",
       "estimate": "3 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 005 SEK",
       "auction": "D075",
       "category": "bordeaux",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
+      "hammer_price_per_bottle": "167 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Guide-noted strong year"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2422934",
@@ -3777,7 +3788,7 @@
       "hammer_price_per_bottle": "635 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top primed vintage"
+      "rating_reason": "Peaking, drink through 2030"
     },
     {
       "lot_id": "2423913",
@@ -3790,7 +3801,7 @@
       "bottles": 1,
       "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Prime vintage, marked excellent"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2423897",
@@ -3805,7 +3816,7 @@
       "hammer_price_per_bottle": "166 SEK",
       "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Guide-starred exceptional year"
+      "rating_reason": "Exceptional year, decades ahead"
     },
     {
       "lot_id": "2415741",
@@ -3818,7 +3829,7 @@
       "bottles": 1,
       "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "stellar recent starred year"
+      "rating_reason": "Too young, hold 10+"
     },
     {
       "lot_id": "2424802",
@@ -3832,7 +3843,7 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Top-tier recent vintage"
+      "rating_reason": "Young, needs cellaring"
     },
     {
       "lot_id": "2424758",
@@ -3846,7 +3857,7 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "top vintage, rising estate"
+      "rating_reason": "Stellar year, needs cellaring"
     },
     {
       "lot_id": "2424767",
@@ -3861,7 +3872,7 @@
       "hammer_price_per_bottle": "58 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Prime year, far below estimate"
+      "rating_reason": "Hold 3-5 more years"
     },
     {
       "lot_id": "2424751",
@@ -3876,7 +3887,7 @@
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top vintage, sold below estimate"
+      "rating_reason": "2019 peak, drink through 2032"
     },
     {
       "lot_id": "2424798",
@@ -3890,7 +3901,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top vintage, unsold at estimate"
+      "rating_reason": "Approachable now, short hold"
     },
     {
       "lot_id": "2420856",
@@ -3905,7 +3916,7 @@
       "hammer_price_per_bottle": "670 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Top vintage, fair price"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2420857",
@@ -3920,7 +3931,7 @@
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Top vintage, underpriced"
+      "rating_reason": "Needs more cellaring"
     },
     {
       "lot_id": "2422932",
@@ -3935,7 +3946,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Primed, excellent recent year"
+      "rating_reason": "Still tight, hold 3+ years"
     },
     {
       "lot_id": "2424799",
@@ -3948,7 +3959,7 @@
       "bottles": 1,
       "vintage": 2020,
       "rating_score": 4,
-      "rating_reason": "Primed, top-list vintage"
+      "rating_reason": "Top year, hold 5+ years"
     },
     {
       "lot_id": "2419494",
@@ -3963,7 +3974,7 @@
       "hammer_price_per_bottle": "350 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Solid recent vintage"
+      "rating_reason": "Too young, hold 5+ years"
     },
     {
       "lot_id": "2419373",
@@ -3978,7 +3989,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Grand Cru, top vintage"
+      "rating_reason": "Top year, needs more time"
     },
     {
       "lot_id": "2424776",
@@ -3993,7 +4004,7 @@
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Strong vintage, age-worthy"
+      "rating_reason": "Hold 3+ more years"
     },
     {
       "lot_id": "2424786",
@@ -4008,7 +4019,7 @@
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Strong vintage, age-worthy"
+      "rating_reason": "Peak around 2030"
     },
     {
       "lot_id": "2423822",
@@ -4022,7 +4033,7 @@
       "estimate_per_bottle": "500 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Solid but unremarkable year"
+      "rating_reason": "Hold 3-4 more years"
     },
     {
       "lot_id": "2420848",
@@ -4036,8 +4047,8 @@
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "116 SEK",
       "vintage": 2021,
-      "rating_score": 3,
-      "rating_reason": "Average year, consistent quality"
+      "rating_score": 2,
+      "rating_reason": "Lighter year, drink early"
     },
     {
       "lot_id": "2420850",
@@ -4051,8 +4062,8 @@
       "estimate_per_bottle": "700 SEK",
       "hammer_price_per_bottle": "566 SEK",
       "vintage": 2021,
-      "rating_score": 3,
-      "rating_reason": "Average year, fair price"
+      "rating_score": 2,
+      "rating_reason": "Medium-term, drink by 2030"
     },
     {
       "lot_id": "2422925",
@@ -4065,8 +4076,8 @@
       "bottles": 6,
       "estimate_per_bottle": "700 SEK",
       "vintage": 2021,
-      "rating_score": 3,
-      "rating_reason": "Solid but off-peak vintage"
+      "rating_score": 2,
+      "rating_reason": "Too young, hold 5+ years"
     },
     {
       "lot_id": "2423924",
@@ -4081,7 +4092,7 @@
       "hammer_price_per_bottle": "3 166 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Recent, non-prime vintage"
+      "rating_reason": "Hold 10+ more years"
     },
     {
       "lot_id": "2423979",
@@ -4096,7 +4107,7 @@
       "hammer_price_per_bottle": "966 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Sumptuous Merlot, solid vintage"
+      "rating_reason": "Hold several more years"
     },
     {
       "lot_id": "2423887",
@@ -4111,7 +4122,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2021,
       "rating_score": 2,
-      "rating_reason": "Solid but unremarkable year"
+      "rating_reason": "Weak year, hold briefly"
     },
     {
       "lot_id": "2422931",
@@ -4126,7 +4137,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2021,
       "rating_score": 2,
-      "rating_reason": "Lighter, unprimed vintage"
+      "rating_reason": "Lighter year, drink early"
     },
     {
       "lot_id": "2422921",
@@ -4140,7 +4151,7 @@
       "estimate_per_bottle": "500 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Third Growth, organic, non-top vintage"
+      "rating_reason": "Hold a few more years"
     },
     {
       "lot_id": "2423811",
@@ -4154,8 +4165,8 @@
       "estimate_per_bottle": "600 SEK",
       "hammer_price_per_bottle": "680 SEK",
       "vintage": 2021,
-      "rating_score": 2,
-      "rating_reason": "Off-year, modest result"
+      "rating_score": 3,
+      "rating_reason": "Needs 3-5 more years"
     },
     {
       "lot_id": "2423888",
@@ -4169,7 +4180,7 @@
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Top estate, strong vintage"
+      "rating_reason": "Hold 5+ more years"
     },
     {
       "lot_id": "2423820",
@@ -4183,7 +4194,7 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Good but not standout vintage"
+      "rating_reason": "Young, hold 5+ years"
     },
     {
       "lot_id": "2423834",
@@ -4198,7 +4209,7 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Solid but lesser vintage"
+      "rating_reason": "Too young, wait 3-5 years"
     },
     {
       "lot_id": "2423830",
@@ -4211,7 +4222,7 @@
       "bottles": 1,
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Lesser vintage, large format"
+      "rating_reason": "Large format, needs decade"
     },
     {
       "lot_id": "2423800",
@@ -4224,7 +4235,7 @@
       "bottles": 1,
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Lesser vintage, magnum"
+      "rating_reason": "Magnum, needs 5+ years"
     },
     {
       "lot_id": "2423880",
@@ -4238,7 +4249,7 @@
       "estimate_per_bottle": "500 SEK",
       "vintage": 2021,
       "rating_score": 2,
-      "rating_reason": "Solid but unexceptional year"
+      "rating_reason": "Drink 2026–2030, modest year"
     },
     {
       "lot_id": "2423836",
@@ -4252,7 +4263,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Solid but unprimed year"
+      "rating_reason": "Lighter year, drink earlier"
     },
     {
       "lot_id": "2424726",
@@ -4266,7 +4277,7 @@
       "estimate_per_bottle": "2 500 SEK",
       "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Super Second, non-peak vintage"
+      "rating_reason": "Young, hold several years"
     },
     {
       "lot_id": "2423938",
@@ -4279,8 +4290,8 @@
       "bottles": 3,
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 2021,
-      "rating_score": 3,
-      "rating_reason": "Unprimed, decent year"
+      "rating_score": 2,
+      "rating_reason": "Modest year, hold 2-3 years"
     },
     {
       "lot_id": "2423981",
@@ -4294,8 +4305,8 @@
       "estimate_per_bottle": "1 500 SEK",
       "hammer_price_per_bottle": "141 SEK",
       "vintage": 2021,
-      "rating_score": 3,
-      "rating_reason": "Unprimed, decent year"
+      "rating_score": 2,
+      "rating_reason": "Modest year, drink from 2028"
     },
     {
       "lot_id": "2420412",
@@ -4310,7 +4321,7 @@
       "hammer_price_per_bottle": "783 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Non-prime, sold above estimate"
+      "rating_reason": "Young, needs 5+ years"
     },
     {
       "lot_id": "2420846",
@@ -4325,7 +4336,7 @@
       "hammer_price_per_bottle": "835 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Non-prime, strong hammer price"
+      "rating_reason": "Hold, not ready yet"
     },
     {
       "lot_id": "2424761",
@@ -4339,7 +4350,7 @@
       "estimate_per_bottle": "1 800 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Non-prime, larger format, no bids"
+      "rating_reason": "Needs more cellaring"
     },
     {
       "lot_id": "2424763",
@@ -4353,8 +4364,8 @@
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2021,
-      "rating_score": 2,
-      "rating_reason": "Weaker year, off-peak vintage"
+      "rating_score": 3,
+      "rating_reason": "Drink from 2026-2029"
     },
     {
       "lot_id": "2424782",
@@ -4368,8 +4379,8 @@
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2021,
-      "rating_score": 2,
-      "rating_reason": "Weaker year, off-peak vintage"
+      "rating_score": 3,
+      "rating_reason": "Lighter year, drink sooner"
     },
     {
       "lot_id": "2423893",
@@ -4384,7 +4395,7 @@
       "hammer_price_per_bottle": "83 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top Bordeaux vintage year"
+      "rating_reason": "Stellar year, hold 5+"
     },
     {
       "lot_id": "2420853",
@@ -4399,7 +4410,7 @@
       "hammer_price_per_bottle": "566 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top vintage, strong year"
+      "rating_reason": "Stellar year, long aging"
     },
     {
       "lot_id": "2420855",
@@ -4414,7 +4425,7 @@
       "hammer_price_per_bottle": "566 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top vintage, consistent"
+      "rating_reason": "Hold through 2035+"
     },
     {
       "lot_id": "2423925",
@@ -4429,7 +4440,7 @@
       "hammer_price_per_bottle": "3 333 SEK",
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top vintage, great year"
+      "rating_reason": "Top year, needs decades"
     },
     {
       "lot_id": "2423898",
@@ -4444,7 +4455,7 @@
       "hammer_price_per_bottle": "333 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Guide-highlighted standout year"
+      "rating_reason": "Top year, hold 5+ years"
     },
     {
       "lot_id": "2423816",
@@ -4459,7 +4470,7 @@
       "hammer_price_per_bottle": "700 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top vintage, three-star estate"
+      "rating_reason": "Top year, hold long"
     },
     {
       "lot_id": "2423847",
@@ -4473,7 +4484,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top estate, excellent vintage"
+      "rating_reason": "Top year, hold long"
     },
     {
       "lot_id": "2423819",
@@ -4487,7 +4498,7 @@
       "estimate_per_bottle": "1 600 SEK",
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top Bordeaux vintage, four-star"
+      "rating_reason": "Top vintage, hold 8+ years"
     },
     {
       "lot_id": "2423850",
@@ -4502,7 +4513,7 @@
       "hammer_price_per_bottle": "1 833 SEK",
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top vintage, guide-listed"
+      "rating_reason": "Hold 10+ years"
     },
     {
       "lot_id": "2423917",
@@ -4515,7 +4526,7 @@
       "bottles": 1,
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top vintage, double magnum"
+      "rating_reason": "Large format, long aging"
     },
     {
       "lot_id": "2423920",
@@ -4528,7 +4539,7 @@
       "bottles": 1,
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top vintage, double magnum"
+      "rating_reason": "Top year, cellar now"
     },
     {
       "lot_id": "2423832",
@@ -4541,7 +4552,7 @@
       "bottles": 1,
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top vintage, magnum format"
+      "rating_reason": "Stellar year, cellar long"
     },
     {
       "lot_id": "2424730",
@@ -4556,7 +4567,7 @@
       "hammer_price_per_bottle": "250 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top vintage, structured Third Growth"
+      "rating_reason": "Top vintage, hold 5+ years"
     },
     {
       "lot_id": "2423803",
@@ -4571,7 +4582,7 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top vintage, strong result"
+      "rating_reason": "Stellar year, hold 5+ years"
     },
     {
       "lot_id": "2423838",
@@ -4586,7 +4597,7 @@
       "hammer_price_per_bottle": "633 SEK",
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top-list vintage, unprimed"
+      "rating_reason": "Stellar year, needs cellaring"
     },
     {
       "lot_id": "2423980",
@@ -4601,7 +4612,7 @@
       "hammer_price_per_bottle": "141 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Prime marked, strong year"
+      "rating_reason": "Stellar year, hold until 2030"
     },
     {
       "lot_id": "2423985",
@@ -4615,8 +4626,8 @@
       "estimate_per_bottle": "800 SEK",
       "hammer_price_per_bottle": "633 SEK",
       "vintage": 2022,
-      "rating_score": 4,
-      "rating_reason": "Strong modern top vintage"
+      "rating_score": 3,
+      "rating_reason": "Too young, hold decade"
     },
     {
       "lot_id": "2424618",
@@ -4629,7 +4640,7 @@
       "bottles": 1,
       "vintage": 2022,
       "rating_score": 4,
-      "rating_reason": "Top vintage, still young"
+      "rating_reason": "Too young, hold decades"
     },
     {
       "lot_id": "2422355",
@@ -4642,7 +4653,7 @@
       "bottles": 1,
       "vintage": 2006,
       "rating_score": 3,
-      "rating_reason": "Strong 1er Cru offsets village"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2424223",
@@ -4655,7 +4666,7 @@
       "bottles": 1,
       "vintage": 0,
       "rating_score": 2,
-      "rating_reason": "Mixed lot, unknown producers"
+      "rating_reason": "Mature to past peak"
     },
     {
       "lot_id": "2421815",
@@ -4670,7 +4681,7 @@
       "hammer_price_per_bottle": "2 219 SEK",
       "vintage": 1924,
       "rating_score": 3,
-      "rating_reason": "Iconic domaine, century-old risk"
+      "rating_reason": "Likely past peak, historical"
     },
     {
       "lot_id": "2421792",
@@ -4683,7 +4694,7 @@
       "bottles": 1,
       "vintage": 1961,
       "rating_score": 3,
-      "rating_reason": "Legendary vintage, unknown condition risk"
+      "rating_reason": "Very old, likely past peak"
     },
     {
       "lot_id": "2413268",
@@ -4696,7 +4707,7 @@
       "bottles": 1,
       "vintage": 1971,
       "rating_score": 3,
-      "rating_reason": "Top vyd, but 55yr survival risk"
+      "rating_reason": "55 yrs old, risky now"
     },
     {
       "lot_id": "2423571",
@@ -4709,7 +4720,7 @@
       "bottles": 1,
       "vintage": 1983,
       "rating_score": 3,
-      "rating_reason": "difficult vintage, significant aging risk"
+      "rating_reason": "Old, likely past peak"
     },
     {
       "lot_id": "2419353",
@@ -4722,7 +4733,7 @@
       "bottles": 1,
       "vintage": 1991,
       "rating_score": 3,
-      "rating_reason": "Off vintage, great pedigree"
+      "rating_reason": "Old vintage, drink now"
     },
     {
       "lot_id": "2420826",
@@ -4737,7 +4748,7 @@
       "hammer_price_per_bottle": "950 SEK",
       "vintage": 1993,
       "rating_score": 4,
-      "rating_reason": "Top grower, peak Burgundy vintage"
+      "rating_reason": "Mature, drink now"
     },
     {
       "lot_id": "2419491",
@@ -4749,8 +4760,8 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 1994,
-      "rating_score": 3,
-      "rating_reason": "Weak vintage, likely past peak"
+      "rating_score": 4,
+      "rating_reason": "Past peak, drink soon"
     },
     {
       "lot_id": "2415107",
@@ -4765,7 +4776,7 @@
       "hammer_price_per_bottle": "650 SEK",
       "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Top vintage, solid Premier Cru"
+      "rating_reason": "30yr old, drink immediately"
     },
     {
       "lot_id": "2419500",
@@ -4780,7 +4791,7 @@
       "hammer_price_per_bottle": "1 600 SEK",
       "vintage": 1996,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, top '96 vintage"
+      "rating_reason": "Top vintage, mature now"
     },
     {
       "lot_id": "2412692",
@@ -4795,7 +4806,7 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Top vintage, unlisted producer"
+      "rating_reason": "Mature, drink now"
     },
     {
       "lot_id": "2412694",
@@ -4810,22 +4821,22 @@
       "hammer_price_per_bottle": "800 SEK",
       "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Identical lot, same quality"
+      "rating_reason": "Peaking, drink soon"
     },
     {
       "lot_id": "2412751",
       "title": "1996 Pommard 1er Cru Jarollières, Jean-Marc Boillot",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708271-1996-pommard-1er-cru-jarollieres-jean-marc-boillot",
       "estimate": "1 500 SEK",
-      "hammer_price": "1 555 SEK",
+      "hammer_price": "1 655 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "518 SEK",
+      "hammer_price_per_bottle": "551 SEK",
       "vintage": 1996,
       "rating_score": 3,
-      "rating_reason": "Top vintage, long-lived premier cru"
+      "rating_reason": "Mature, drink now"
     },
     {
       "lot_id": "2412788",
@@ -4840,7 +4851,7 @@
       "hammer_price_per_bottle": "566 SEK",
       "vintage": 1999,
       "rating_score": 2,
-      "rating_reason": "good vintage, sold below estimate"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2412791",
@@ -4855,7 +4866,7 @@
       "hammer_price_per_bottle": "500 SEK",
       "vintage": 1999,
       "rating_score": 2,
-      "rating_reason": "good vintage, higher hammer price"
+      "rating_reason": "Past peak, act fast"
     },
     {
       "lot_id": "2412795",
@@ -4869,77 +4880,80 @@
       "estimate_per_bottle": "1 000 SEK",
       "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Top vintage, Grand Cru"
+      "rating_reason": "Peak window closing soon"
     },
     {
       "lot_id": "2412801",
       "title": "1999 Corton-Perrières, Dubreuil-Fontaine",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708312-1999-corton-perrieres-dubreuil-fontaine",
       "estimate": "4 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "3 200 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 4,
       "estimate_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "800 SEK",
       "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Top vintage, Grand Cru"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2412803",
       "title": "1999 Corton-Perrières, Dubreuil-Fontaine",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708313-1999-corton-perrieres-dubreuil-fontaine",
       "estimate": "2 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "500 SEK",
       "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Top vintage, lower entry price"
+      "rating_reason": "Likely past peak now"
     },
     {
       "lot_id": "2415135",
       "title": "1999 Nuits-Saint-Georges 1er Cru Clos de Thorey, Domaine Thomas-Moillard",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709694-1999-nuits-saint-georges-1er-cru-clos-de-thorey-domaine-thomas-moillard",
       "estimate": "2 400 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 900 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
+      "hammer_price_per_bottle": "633 SEK",
       "vintage": 1999,
       "rating_score": 2,
-      "rating_reason": "Négociant quality, not domaine-level"
+      "rating_reason": "Past peak, drink now"
     },
     {
       "lot_id": "2412783",
       "title": "1999 Savigny-les-Beaune 1er Cru Les Vergelesses, Dubreuil-Fontaine",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1708302-1999-savigny-les-beaune-1er-cru-les-vergelesses-dubreuil-fontaine",
       "estimate": "1 500 SEK",
-      "hammer_price": "900 SEK",
+      "hammer_price": "1 500 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "300 SEK",
+      "hammer_price_per_bottle": "500 SEK",
       "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Top vineyard, excellent vintage"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2415112",
       "title": "1999 Vosne-Romanée & Vosne-Romanée 1er Cru Les Chaumes, Armelle et Bernard Rion",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709671-1999-vosne-romanee-vosne-romanee-1er-cru-les-chaumes-armelle-et-bernard-rion",
       "estimate": "2 600 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 675 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 1999,
       "rating_score": 3,
-      "rating_reason": "Top vintage, solid 1er Cru site"
+      "rating_reason": "Stellar vintage, mature now"
     },
     {
       "lot_id": "2419475",
@@ -4952,7 +4966,7 @@
       "bottles": 1,
       "vintage": 2001,
       "rating_score": 3,
-      "rating_reason": "Weaker, unlisted vintage year"
+      "rating_reason": "Fading, drink now"
     },
     {
       "lot_id": "2420584",
@@ -4965,7 +4979,7 @@
       "bottles": 1,
       "vintage": 2003,
       "rating_score": 3,
-      "rating_reason": "GC offset by 2003 heat"
+      "rating_reason": "2003 mature, drink both soon"
     },
     {
       "lot_id": "2423935",
@@ -4978,7 +4992,7 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, legendary '05 vintage"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2422356",
@@ -4991,22 +5005,22 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 3,
-      "rating_reason": "top vintage, silky 1er Cru"
+      "rating_reason": "Stellar vintage, peaking now"
     },
     {
       "lot_id": "2409722",
       "title": "2005 Clos de la Roche, Lucien Le Moine",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1706174-2005-clos-de-la-roche-lucien-le-moine",
       "estimate": "6 000 SEK",
-      "hammer_price": "4 000 SEK",
+      "hammer_price": "4 800 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "3 000 SEK",
-      "hammer_price_per_bottle": "2 000 SEK",
+      "hammer_price_per_bottle": "2 400 SEK",
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Prime vintage, fully developed"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2415595",
@@ -5019,7 +5033,7 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top marked vintage"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2415596",
@@ -5032,20 +5046,20 @@
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Top marked vintage"
+      "rating_reason": "Stellar year, drink through 2032"
     },
     {
       "lot_id": "2415590",
       "title": "2005 Romanée-St-Vivant, DRC",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709947-2005-romanee-st-vivant-drc",
       "estimate": "22 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2005,
       "rating_score": 4,
-      "rating_reason": "Legendary vintage, peak expression"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2419426",
@@ -5058,8 +5072,8 @@
       "bottles": 3,
       "estimate_per_bottle": "1 600 SEK",
       "vintage": 2006,
-      "rating_score": 3,
-      "rating_reason": "Top producer, off-peak vintage"
+      "rating_score": 2,
+      "rating_reason": "Mature, likely past peak"
     },
     {
       "lot_id": "2414266",
@@ -5072,7 +5086,7 @@
       "bottles": 1,
       "vintage": 2006,
       "rating_score": 4,
-      "rating_reason": "DRC craft, softer vintage"
+      "rating_reason": "Mature, peak window now"
     },
     {
       "lot_id": "2415854",
@@ -5087,7 +5101,7 @@
       "hammer_price_per_bottle": "483 SEK",
       "vintage": 2007,
       "rating_score": 3,
-      "rating_reason": "Epenots noted for grace"
+      "rating_reason": "Mature, possibly past peak"
     },
     {
       "lot_id": "2415860",
@@ -5101,20 +5115,20 @@
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Top vintage, GC at peak"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2416635",
       "title": "2008 Gevrey-Chambertin 1er Cru Cazetiers, Domaine Bruno Clair",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710746-2008-gevrey-chambertin-1er-cru-cazetiers-domaine-bruno-clair",
       "estimate": "1 600 SEK",
-      "hammer_price": "1 300 SEK",
+      "hammer_price": "1 500 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Top PC site, top vintage"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2416633",
@@ -5127,7 +5141,7 @@
       "bottles": 1,
       "vintage": 2008,
       "rating_score": 4,
-      "rating_reason": "Elite producer, excellent vintage"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2421240",
@@ -5140,7 +5154,7 @@
       "bottles": 1,
       "vintage": 2008,
       "rating_score": 3,
-      "rating_reason": "Good vintage, solid 1er Cru"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2417719",
@@ -5153,22 +5167,22 @@
       "bottles": 1,
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "top-listed site, stellar vintage"
+      "rating_reason": "Mature, peak window now"
     },
     {
       "lot_id": "2417704",
       "title": "2009 Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Louis Jadot",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1711153-2009-gevrey-chambertin-1er-cru-lavaux-saint-jacques-louis-jadot",
       "estimate": "2 000 SEK",
-      "hammer_price": "1 600 SEK",
+      "hammer_price": "1 700 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 000 SEK",
-      "hammer_price_per_bottle": "800 SEK",
+      "hammer_price_per_bottle": "850 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Great vintage, premier cru depth"
+      "rating_reason": "Mature, at peak now"
     },
     {
       "lot_id": "2421203",
@@ -5181,7 +5195,7 @@
       "bottles": 1,
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, peak Burgundy year"
+      "rating_reason": "Top vintage, peaking now"
     },
     {
       "lot_id": "2417705",
@@ -5195,7 +5209,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2419502",
@@ -5208,7 +5222,7 @@
       "bottles": 1,
       "vintage": 2009,
       "rating_score": 4,
-      "rating_reason": "top vintage, superstar domaine"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2421245",
@@ -5221,20 +5235,20 @@
       "bottles": 1,
       "vintage": 2009,
       "rating_score": 3,
-      "rating_reason": "Top vintage lifts the lot"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2419093",
       "title": "2010 Beaune 1er Cru Cuvée Rousseau-Deslandes & 2011 Corton Cuvée Docteur Peste Hospices de Beaune, Maison Champy",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1711846-2010-beaune-1er-cru-cuvee-rousseau-deslandes-2011-corton-cuvee-docteur-peste-hospices-de-beaune-maison-champy",
       "estimate": "2 400 SEK",
-      "hammer_price": "1 900 SEK",
+      "hammer_price": "2 400 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Grand Cru offsets weak 2011 vintage"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2412754",
@@ -5247,22 +5261,22 @@
       "bottles": 1,
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Prime vintage, top-listed producer"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2410238",
       "title": "2010 Gevrey-Chambertin, Harmand Geoffroy",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1706579-2010-gevrey-chambertin-harmand-geoffroy",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 400 SEK",
+      "hammer_price": "3 200 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 5,
       "estimate_per_bottle": "600 SEK",
-      "hammer_price_per_bottle": "480 SEK",
+      "hammer_price_per_bottle": "640 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "Top producer, peak vintage"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2417716",
@@ -5275,7 +5289,7 @@
       "bottles": 1,
       "vintage": 2010,
       "rating_score": 4,
-      "rating_reason": "Cited producer, exceptional vintage"
+      "rating_reason": "Stellar year, near peak"
     },
     {
       "lot_id": "2415140",
@@ -5289,7 +5303,7 @@
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 2010,
       "rating_score": 3,
-      "rating_reason": "top vintage, celebrated lieu-dit"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2414263",
@@ -5303,7 +5317,7 @@
       "estimate_per_bottle": "2 500 SEK",
       "vintage": 2011,
       "rating_score": 4,
-      "rating_reason": "Off-vintage Grand Cru, still compelling"
+      "rating_reason": "Mature, drink soon"
     },
     {
       "lot_id": "2419506",
@@ -5315,8 +5329,8 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2011,
-      "rating_score": 3,
-      "rating_reason": "Weak vintage, top maker"
+      "rating_score": 2,
+      "rating_reason": "Weak year, likely fading"
     },
     {
       "lot_id": "2419507",
@@ -5329,8 +5343,8 @@
       "bottles": 3,
       "estimate_per_bottle": "1 200 SEK",
       "vintage": 2011,
-      "rating_score": 4,
-      "rating_reason": "stellar domaine, weak vintage"
+      "rating_score": 3,
+      "rating_reason": "Mature, non-top vintage"
     },
     {
       "lot_id": "2421521",
@@ -5345,7 +5359,7 @@
       "hammer_price_per_bottle": "750 SEK",
       "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, top vintage"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2421522",
@@ -5360,21 +5374,22 @@
       "hammer_price_per_bottle": "750 SEK",
       "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, top vintage"
+      "rating_reason": "Drink through 2032"
     },
     {
       "lot_id": "2414272",
       "title": "2012 Charmes-Chambertin, Domaine Arlaud",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709118-2012-charmes-chambertin-domaine-arlaud",
       "estimate": "3 200 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 600 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 600 SEK",
+      "hammer_price_per_bottle": "1 300 SEK",
       "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Top-listed producer, prime vintage"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2419504",
@@ -5387,7 +5402,7 @@
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 4,
-      "rating_reason": "Reference grower, excellent vintage"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2399367",
@@ -5399,8 +5414,8 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2013,
-      "rating_score": 3,
-      "rating_reason": "Weaker, underripe vintage"
+      "rating_score": 4,
+      "rating_reason": "Approachable now, drink soon"
     },
     {
       "lot_id": "2400479",
@@ -5413,20 +5428,20 @@
       "bottles": 1,
       "vintage": 2013,
       "rating_score": 4,
-      "rating_reason": "Off-peak year, still stellar"
+      "rating_reason": "Soft year, maturing now"
     },
     {
       "lot_id": "2421224",
       "title": "2013 Corton, DRC",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713025-2013-corton-drc",
       "estimate": "16 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "5 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2013,
       "rating_score": 3,
-      "rating_reason": "Off-vintage, no bids"
+      "rating_reason": "Lean vintage, drink now"
     },
     {
       "lot_id": "2412306",
@@ -5440,7 +5455,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2013,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, village level"
+      "rating_reason": "Mature now, drink soon"
     },
     {
       "lot_id": "2412307",
@@ -5454,7 +5469,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2013,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, village level"
+      "rating_reason": "Peaking, don't delay"
     },
     {
       "lot_id": "2412461",
@@ -5468,7 +5483,7 @@
       "estimate_per_bottle": "600 SEK",
       "vintage": 2013,
       "rating_score": 2,
-      "rating_reason": "Weak vintage, village level"
+      "rating_reason": "Drink now or risk decline"
     },
     {
       "lot_id": "2423931",
@@ -5481,7 +5496,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Named top producer, prime vintage"
+      "rating_reason": "Mature, drink through 2035"
     },
     {
       "lot_id": "2400473",
@@ -5494,7 +5509,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Top vintage, peak expression"
+      "rating_reason": "Top year, hold 5+ years"
     },
     {
       "lot_id": "2423082",
@@ -5507,7 +5522,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 2,
-      "rating_reason": "Négociant, not a domaine specialist"
+      "rating_reason": "Mature, drink through 2029"
     },
     {
       "lot_id": "2416632",
@@ -5520,7 +5535,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Good vintage, no takers"
+      "rating_reason": "Top vintage, drinking well now"
     },
     {
       "lot_id": "2400481",
@@ -5533,7 +5548,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Top vintage, slight discount"
+      "rating_reason": "Top year, peak 2028+"
     },
     {
       "lot_id": "2421225",
@@ -5546,7 +5561,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 4,
-      "rating_reason": "Top Burgundy vintage, sold"
+      "rating_reason": "Strong year, peaking now"
     },
     {
       "lot_id": "2419740",
@@ -5559,7 +5574,7 @@
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top-listed producer, top vintage"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2415805",
@@ -5571,21 +5586,21 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2014,
-      "rating_score": 3,
-      "rating_reason": "Good vintage, unlisted négociant"
+      "rating_score": 4,
+      "rating_reason": "Mature, drink through 2032"
     },
     {
       "lot_id": "2421211",
       "title": "2014 Vosne-Romanée, Sylvain Cathiard & Kammerberg Pinot Noir, Weingut Frederich Becker",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713012-2014-vosne-romanee-sylvain-cathiard-kammerberg-pinot-noir-weingut-frederich-becker",
       "estimate": "2 400 SEK",
-      "hammer_price": "1 800 SEK",
+      "hammer_price": "1 900 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2014,
       "rating_score": 3,
-      "rating_reason": "Top producer, village-level only"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2421514",
@@ -5599,22 +5614,22 @@
       "estimate_per_bottle": "4 000 SEK",
       "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Bewitching site, stellar vintage"
+      "rating_reason": "Mature, drink through 2035"
     },
     {
       "lot_id": "2414268",
       "title": "2015 Musigny Vieilles Vignes, Domaine Comte Georges de Vogüé",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709114-2015-musigny-vieilles-vignes-domaine-comte-georges-de-vogue",
       "estimate": "16 000 SEK",
-      "hammer_price": "5 000 SEK",
+      "hammer_price": "9 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "8 000 SEK",
-      "hammer_price_per_bottle": "2 500 SEK",
+      "hammer_price_per_bottle": "4 500 SEK",
       "vintage": 2015,
       "rating_score": 4,
-      "rating_reason": "Top vintage, Grand Cru peak"
+      "rating_reason": "Approaching peak, drink soon"
     },
     {
       "lot_id": "2412303",
@@ -5628,8 +5643,8 @@
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2015,
-      "rating_score": 3,
-      "rating_reason": "Top vintage, village level"
+      "rating_score": 2,
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2412304",
@@ -5643,8 +5658,8 @@
       "estimate_per_bottle": "500 SEK",
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2015,
-      "rating_score": 3,
-      "rating_reason": "Top vintage, village level"
+      "rating_score": 2,
+      "rating_reason": "Drink through 2028"
     },
     {
       "lot_id": "2423163",
@@ -5659,22 +5674,22 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2015,
       "rating_score": 3,
-      "rating_reason": "Top vintage, village level"
+      "rating_reason": "Mature, peaking now"
     },
     {
       "lot_id": "2421539",
       "title": "2016 Beaune 1er Cru Boucherottes, Domaine des Héritiers - Louis Jadot",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1713220-2016-beaune-1er-cru-boucherottes-domaine-des-heritiers-louis-jadot",
       "estimate": "1 500 SEK",
-      "hammer_price": "1 500 SEK",
+      "hammer_price": "1 600 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "500 SEK",
+      "hammer_price_per_bottle": "533 SEK",
       "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Top vintage, Premier Cru level"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2423084",
@@ -5687,22 +5702,22 @@
       "bottles": 1,
       "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Grand Cru, good vintage, not top producer"
+      "rating_reason": "Mature, drink through 2030"
     },
     {
       "lot_id": "2423151",
       "title": "2016 Gevrey-Chambertin Vieilles Vignes, Domaine Faiveley",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714226-2016-gevrey-chambertin-vieilles-vignes-domaine-faiveley",
       "estimate": "3 000 SEK",
-      "hammer_price": "2 400 SEK",
+      "hammer_price": "3 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "400 SEK",
+      "hammer_price_per_bottle": "500 SEK",
       "vintage": 2016,
       "rating_score": 3,
-      "rating_reason": "Top producer, excellent vintage"
+      "rating_reason": "Peaking now, drink soon"
     },
     {
       "lot_id": "2423324",
@@ -5715,8 +5730,8 @@
       "bottles": 2,
       "estimate_per_bottle": "1 050 SEK",
       "vintage": 2016,
-      "rating_score": 2,
-      "rating_reason": "Mid-tier producers, solid crus"
+      "rating_score": 3,
+      "rating_reason": "Both vintages peaking now"
     },
     {
       "lot_id": "2419437",
@@ -5731,7 +5746,7 @@
       "hammer_price_per_bottle": "1 550 SEK",
       "vintage": 2017,
       "rating_score": 4,
-      "rating_reason": "Top-listed producer, great vintage"
+      "rating_reason": "Approaching peak, hold 3+ years"
     },
     {
       "lot_id": "2423611",
@@ -5745,33 +5760,33 @@
       "estimate_per_bottle": "3 500 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Négociant, not top grower"
+      "rating_reason": "Maturing, drink through 2030"
     },
     {
       "lot_id": "2425226",
       "title": "2017 Nuits-Saint-Georges 1er Cru Clos des Porrets St-Georges, Domaine Henri Gouges (Magnum)",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1706541-2017-nuits-saint-georges-1er-cru-clos-des-porrets-st-georges-domaine-henri-gouges-magnum",
       "estimate": "2 200 SEK",
-      "hammer_price": "1 000 SEK",
+      "hammer_price": "1 700 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Named great cru, top vintage"
+      "rating_reason": "Magnum, hold 3-5 years"
     },
     {
       "lot_id": "2423953",
       "title": "2017 Richebourg, DRC",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714796-2017-richebourg-drc",
       "estimate": "25 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "5 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2017,
       "rating_score": 4,
-      "rating_reason": "Pinnacle Grand Cru, top producer"
+      "rating_reason": "Forward vintage, drink now-2035"
     },
     {
       "lot_id": "2416408",
@@ -5785,36 +5800,37 @@
       "estimate_per_bottle": "800 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Top vintage, structured elegance"
+      "rating_reason": "Top year, peaking now"
     },
     {
       "lot_id": "2415427",
       "title": "2017 Vosne-Romanée 1er Cru Les Beaux Monts, Domaine Dujac",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1709852-2017-vosne-romanee-1er-cru-les-beaux-monts-domaine-dujac",
       "estimate": "14 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "11 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 4,
       "estimate_per_bottle": "3 500 SEK",
+      "hammer_price_per_bottle": "2 750 SEK",
       "vintage": 2017,
       "rating_score": 3,
-      "rating_reason": "Outstanding PC site, good vintage"
+      "rating_reason": "Peak window now through 2032"
     },
     {
       "lot_id": "2416349",
       "title": "2018 Beaune 1er Cru Les Teurons, Domaine Bouchard",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710490-2018-beaune-1er-cru-les-teurons-domaine-bouchard",
       "estimate": "1 500 SEK",
-      "hammer_price": "1 200 SEK",
+      "hammer_price": "1 300 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "500 SEK",
-      "hammer_price_per_bottle": "400 SEK",
+      "hammer_price_per_bottle": "433 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top vintage, solid Premier Cru"
+      "rating_reason": "Good year, drink through 2032"
     },
     {
       "lot_id": "2423586",
@@ -5829,7 +5845,7 @@
       "hammer_price_per_bottle": "833 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top 1er cru, prime vintage"
+      "rating_reason": "Drink now through 2033"
     },
     {
       "lot_id": "2416272",
@@ -5844,37 +5860,37 @@
       "hammer_price_per_bottle": "640 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top vintage, resurgent estate investment"
+      "rating_reason": "Good year, peaking now"
     },
     {
       "lot_id": "2419429",
       "title": "2018 Musigny Vieilles Vignes, Domaine Comte Georges de Vogüé",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1699567-2018-musigny-vieilles-vignes-domaine-comte-georges-de-vogue",
       "estimate": "12 000 SEK",
-      "hammer_price": "9 000 SEK",
+      "hammer_price": "9 500 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "6 000 SEK",
-      "hammer_price_per_bottle": "4 500 SEK",
+      "hammer_price_per_bottle": "4 750 SEK",
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Strong year, more approachable now"
+      "rating_reason": "Young, hold 5+ years"
     },
     {
       "lot_id": "2419383",
       "title": "2018 Nuits-Saint-George 1er Cru Les Perriéres, Méo-Camuzet",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1699865-2018-nuits-saint-george-1er-cru-les-perrieres-meo-camuzet",
       "estimate": "3 000 SEK",
-      "hammer_price": "1 500 SEK",
+      "hammer_price": "1 600 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
-      "hammer_price_per_bottle": "750 SEK",
+      "hammer_price_per_bottle": "800 SEK",
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Top producer, top vintage value"
+      "rating_reason": "Stellar vintage, peaking soon"
     },
     {
       "lot_id": "2425016",
@@ -5886,8 +5902,8 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2018,
-      "rating_score": 3,
-      "rating_reason": "Village level, breathtaking price"
+      "rating_score": 4,
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2423951",
@@ -5900,7 +5916,7 @@
       "bottles": 1,
       "vintage": 2018,
       "rating_score": 4,
-      "rating_reason": "Highlighted year, elegant style"
+      "rating_reason": "Young, hold 5+ years"
     },
     {
       "lot_id": "2419423",
@@ -5913,21 +5929,22 @@
       "bottles": 1,
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top site, excellent vintage"
+      "rating_reason": "Peaking now, drink 2026-2032"
     },
     {
       "lot_id": "2423613",
       "title": "2018 Volnay 1er Cru Les Caillerets, Lucien Le Moine",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1714507-2018-volnay-1er-cru-les-caillerets-lucien-le-moine",
       "estimate": "3 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 400 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "1 500 SEK",
+      "hammer_price_per_bottle": "1 200 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Top cru, strong vintage"
+      "rating_reason": "Drink now through 2030"
     },
     {
       "lot_id": "2423614",
@@ -5941,7 +5958,7 @@
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 2018,
       "rating_score": 3,
-      "rating_reason": "Likely larger format bottle"
+      "rating_reason": "Same vintage, drink now"
     },
     {
       "lot_id": "2416401",
@@ -5955,7 +5972,7 @@
       "estimate_per_bottle": "700 SEK",
       "vintage": 2018,
       "rating_score": 2,
-      "rating_reason": "Village level, minor producer"
+      "rating_reason": "Peaking now, drink soon"
     },
     {
       "lot_id": "2421541",
@@ -5968,7 +5985,7 @@
       "bottles": 1,
       "vintage": 0,
       "rating_score": 2,
-      "rating_reason": "Overpriced for regional level"
+      "rating_reason": "Mature, drink through 2028"
     },
     {
       "lot_id": "2423608",
@@ -5982,7 +5999,7 @@
       "estimate_per_bottle": "2 500 SEK",
       "vintage": 2019,
       "rating_score": 4,
-      "rating_reason": "Stellar vintage, no bids"
+      "rating_reason": "Excellent year, hold 5+"
     },
     {
       "lot_id": "2423607",
@@ -5995,8 +6012,8 @@
       "bottles": 3,
       "estimate_per_bottle": "2 500 SEK",
       "vintage": 2019,
-      "rating_score": 3,
-      "rating_reason": "Grand Cru, top vintage"
+      "rating_score": 4,
+      "rating_reason": "Prime vintage, hold 5+ years"
     },
     {
       "lot_id": "2418480",
@@ -6009,7 +6026,7 @@
       "bottles": 1,
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Prime vintage, outstanding producer"
+      "rating_reason": "Hold 3-5 more years"
     },
     {
       "lot_id": "2416404",
@@ -6023,7 +6040,7 @@
       "estimate_per_bottle": "500 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top vintage, rising estate"
+      "rating_reason": "Stellar year, drink through 2032"
     },
     {
       "lot_id": "2423154",
@@ -6038,37 +6055,37 @@
       "hammer_price_per_bottle": "400 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "age-worthy sulphur-free natural"
+      "rating_reason": "2019 peak, drink now"
     },
     {
       "lot_id": "2416407",
       "title": "2019 Nuits Saint Georges 1er Cru Aux Champs Perdrix, Domaine Chevillon-Chezeaux",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710534-2019-nuits-saint-georges-1er-cru-aux-champs-perdrix-domaine-chevillon-chezeaux",
       "estimate": "2 400 SEK",
-      "hammer_price": "1 900 SEK",
+      "hammer_price": "2 400 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
-      "hammer_price_per_bottle": "633 SEK",
+      "hammer_price_per_bottle": "800 SEK",
       "vintage": 2019,
       "rating_score": 3,
-      "rating_reason": "Top vintage, elegant northern PC"
+      "rating_reason": "Prime vintage, hold 3-5 years"
     },
     {
       "lot_id": "2416298",
       "title": "2019 Nuits-Saint-Georges 1er Cru Aux Vignerondes, Dufouleur",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710459-2019-nuits-saint-georges-1er-cru-aux-vignerondes-dufouleur",
       "estimate": "1 800 SEK",
-      "hammer_price": "1 100 SEK",
+      "hammer_price": "1 700 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
-      "hammer_price_per_bottle": "366 SEK",
+      "hammer_price_per_bottle": "566 SEK",
       "vintage": 2019,
       "rating_score": 2,
-      "rating_reason": "Solid vintage, unexceptional négociant"
+      "rating_reason": "Peaking now, drink through 2030"
     },
     {
       "lot_id": "2416411",
@@ -6081,7 +6098,7 @@
       "bottles": 1,
       "vintage": 2019,
       "rating_score": 2,
-      "rating_reason": "Magnum adds aging potential"
+      "rating_reason": "Magnum needs 3+ more years"
     },
     {
       "lot_id": "2416157",
@@ -6095,7 +6112,7 @@
       "estimate_per_bottle": "700 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Solid premier cru, warm vintage"
+      "rating_reason": "Hold 2-3 more years"
     },
     {
       "lot_id": "2419393",
@@ -6108,21 +6125,22 @@
       "bottles": 1,
       "vintage": 2020,
       "rating_score": 4,
-      "rating_reason": "firm structure rewards patient cellaring"
+      "rating_reason": "Hold, peak 2030+"
     },
     {
       "lot_id": "2419452",
       "title": "2020 Chambolle-Musigny 1er Cru Les Charmes, Domaine Bruno Clair",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1699089-2020-chambolle-musigny-1er-cru-les-charmes-domaine-bruno-clair",
       "estimate": "4 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 000 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 2,
       "estimate_per_bottle": "2 000 SEK",
+      "hammer_price_per_bottle": "1 000 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "2020 excellence, silky elegant texture"
+      "rating_reason": "Drink now through 2032"
     },
     {
       "lot_id": "2419489",
@@ -6135,7 +6153,7 @@
       "bottles": 1,
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Good but unstarred vintage"
+      "rating_reason": "Hold 3–4 more years"
     },
     {
       "lot_id": "2419394",
@@ -6147,8 +6165,8 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2020,
-      "rating_score": 3,
-      "rating_reason": "Village tier, non-exceptional vintage"
+      "rating_score": 4,
+      "rating_reason": "Stellar year, drink through 2032"
     },
     {
       "lot_id": "2423622",
@@ -6163,7 +6181,7 @@
       "hammer_price_per_bottle": "2 166 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Excellent year, unlisted producer"
+      "rating_reason": "Top year, hold 5+ years"
     },
     {
       "lot_id": "2424913",
@@ -6178,7 +6196,7 @@
       "hammer_price_per_bottle": "1 301 SEK",
       "vintage": 2020,
       "rating_score": 4,
-      "rating_reason": "Grand Cru, stellar 2020 vintage"
+      "rating_reason": "Top vintage, needs more cellaring"
     },
     {
       "lot_id": "2423590",
@@ -6192,21 +6210,22 @@
       "estimate_per_bottle": "4 000 SEK",
       "vintage": 2020,
       "rating_score": 4,
-      "rating_reason": "Superlative site, top vintage year"
+      "rating_reason": "Top vintage, hold 5+ years"
     },
     {
       "lot_id": "2416348",
       "title": "2020 Nuits St-Georges 1er Cru Aux Chaignots Cuvée Joseph, Cyprien Arlaud",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710489-2020-nuits-st-georges-1er-cru-aux-chaignots-cuvee-joseph-cyprien-arlaud",
       "estimate": "2 100 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "2 100 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "700 SEK",
+      "hammer_price_per_bottle": "700 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Premier Cru, northern finesse site"
+      "rating_reason": "Just entering drinking window"
     },
     {
       "lot_id": "2416296",
@@ -6220,7 +6239,7 @@
       "estimate_per_bottle": "800 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Top vintage, solid 1er Cru site"
+      "rating_reason": "Hold 3-5 more years"
     },
     {
       "lot_id": "2423629",
@@ -6233,7 +6252,7 @@
       "bottles": 1,
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Taillepieds specifically cited for producer"
+      "rating_reason": "Hold several more years"
     },
     {
       "lot_id": "2423568",
@@ -6247,36 +6266,37 @@
       "estimate_per_bottle": "5 000 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Good marked vintage year"
+      "rating_reason": "Drink from 2030 onward"
     },
     {
       "lot_id": "2416279",
       "title": "2020 Vosne-Romanée, Cyprien Arlaud",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710440-2020-vosne-romanee-cyprien-arlaud",
       "estimate": "2 400 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "1 900 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "800 SEK",
+      "hammer_price_per_bottle": "633 SEK",
       "vintage": 2020,
       "rating_score": 2,
-      "rating_reason": "not a top Vosne producer"
+      "rating_reason": "Drink through 2029"
     },
     {
       "lot_id": "2416303",
       "title": "2020 Vosne-Romanée, Domaine Coquard Loison-Fleurot",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1710464-2020-vosne-romanee-domaine-coquard-loison-fleurot",
       "estimate": "1 800 SEK",
-      "hammer_price": "1 400 SEK",
+      "hammer_price": "1 600 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 3,
       "estimate_per_bottle": "600 SEK",
-      "hammer_price_per_bottle": "466 SEK",
+      "hammer_price_per_bottle": "533 SEK",
       "vintage": 2020,
       "rating_score": 3,
-      "rating_reason": "Top producer, below estimate"
+      "rating_reason": "Drinking well now"
     },
     {
       "lot_id": "2423595",
@@ -6290,7 +6310,7 @@
       "estimate_per_bottle": "4 000 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Grand Cru, unlisted négociant"
+      "rating_reason": "Hold 3-5 more years"
     },
     {
       "lot_id": "2419419",
@@ -6303,7 +6323,7 @@
       "bottles": 1,
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "bewitching site, reliable negociant"
+      "rating_reason": "Hold 3-5 more years"
     },
     {
       "lot_id": "2419433",
@@ -6318,7 +6338,7 @@
       "hammer_price_per_bottle": "750 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Top producer, half estimate"
+      "rating_reason": "Young, hold 3+ years"
     },
     {
       "lot_id": "2419436",
@@ -6332,7 +6352,7 @@
       "estimate_per_bottle": "1 500 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Stellar house, leaner vintage"
+      "rating_reason": "Young, hold a few years"
     },
     {
       "lot_id": "2415799",
@@ -6345,7 +6365,7 @@
       "bottles": 1,
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Grand Cru, average vintage"
+      "rating_reason": "Hold several more years"
     },
     {
       "lot_id": "2418478",
@@ -6358,7 +6378,7 @@
       "bottles": 1,
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Listed but not prime year"
+      "rating_reason": "Lighter year, drink sooner"
     },
     {
       "lot_id": "2419375",
@@ -6372,7 +6392,7 @@
       "estimate_per_bottle": "3 000 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Exceptional site, below-top vintage"
+      "rating_reason": "Young, hold 5+ years"
     },
     {
       "lot_id": "2419470",
@@ -6386,7 +6406,7 @@
       "estimate_per_bottle": "2 000 SEK",
       "vintage": 2021,
       "rating_score": 4,
-      "rating_reason": "Top producer, non-prime vintage"
+      "rating_reason": "Young, hold 5+ years"
     },
     {
       "lot_id": "2419428",
@@ -6401,22 +6421,22 @@
       "hammer_price_per_bottle": "300 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Top producer, accessible premier cru"
+      "rating_reason": "Accessible PC, drink soon"
     },
     {
       "lot_id": "2384856",
       "title": "2021 Nuits-Saint-Georges 1er Cru Les Saint Georges, Thibault Liger-Belair",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1690582-2021-nuits-saint-georges-1er-cru-les-saint-georges-thibault-liger-belair",
       "estimate": "7 200 SEK",
-      "hammer_price": "5 800 SEK",
+      "hammer_price": "8 200 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 200 SEK",
-      "hammer_price_per_bottle": "966 SEK",
+      "hammer_price_per_bottle": "1 366 SEK",
       "vintage": 2021,
-      "rating_score": 3,
-      "rating_reason": "Near-GC site, average vintage"
+      "rating_score": 4,
+      "rating_reason": "Hold, peaks mid-2030s"
     },
     {
       "lot_id": "2421761",
@@ -6430,8 +6450,8 @@
       "estimate_per_bottle": "4 000 SEK",
       "hammer_price_per_bottle": "2 500 SEK",
       "vintage": 2021,
-      "rating_score": 4,
-      "rating_reason": "Sold well below estimate"
+      "rating_score": 3,
+      "rating_reason": "Not a starred year, drink soon"
     },
     {
       "lot_id": "2423569",
@@ -6445,7 +6465,7 @@
       "estimate_per_bottle": "5 000 SEK",
       "vintage": 2021,
       "rating_score": 3,
-      "rating_reason": "Decent but unmarked vintage"
+      "rating_reason": "Lighter year, drink soon"
     },
     {
       "lot_id": "2419487",
@@ -6457,22 +6477,23 @@
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2022,
-      "rating_score": 4,
-      "rating_reason": "Excellent starred vintage"
+      "rating_score": 3,
+      "rating_reason": "Stellar year, needs time"
     },
     {
       "lot_id": "2419450",
       "title": "2022 Gevrey-Chambertin 1er Cru Lavaux Saint-Jacques, Domaine Faiveley",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1705558-2022-gevrey-chambertin-1er-cru-lavaux-saint-jacques-domaine-faiveley",
       "estimate": "6 000 SEK",
-      "hammer_price": "No bids",
+      "hammer_price": "4 800 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 6,
       "estimate_per_bottle": "1 000 SEK",
+      "hammer_price_per_bottle": "800 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top producer, stellar vintage"
+      "rating_reason": "Hold 3-5 more years"
     },
     {
       "lot_id": "2423570",
@@ -6487,20 +6508,20 @@
       "hammer_price_per_bottle": "4 000 SEK",
       "vintage": 2022,
       "rating_score": 3,
-      "rating_reason": "Top vintage, sold below est"
+      "rating_reason": "Stellar year, hold 5+"
     },
     {
       "lot_id": "2421196",
       "title": "2012 Vosne-Romanée Vieilles Vignes, Domaine Cécile Tremblay",
       "url": "https://www.bukowskis.com/en/auctions/D075/lots/1712997-2012-vosne-romanee-vieilles-vignes-domaine-cecile-tremblay",
       "estimate": "4 000 SEK",
-      "hammer_price": "3 120 SEK",
+      "hammer_price": "3 200 SEK",
       "auction": "D075",
       "category": "burgundy",
       "bottles": 1,
       "vintage": 2012,
       "rating_score": 3,
-      "rating_reason": "Top vintage, old vines depth"
+      "rating_reason": "Stellar year, peaking now"
     },
     {
       "lot_id": "2419442",
@@ -6514,7 +6535,7 @@
       "estimate_per_bottle": "3 500 SEK",
       "vintage": 2023,
       "rating_score": 4,
-      "rating_reason": "Prime vintage, top producer"
+      "rating_reason": "Too young, hold 10+ years"
     },
     {
       "lot_id": "2419488",
@@ -6527,7 +6548,7 @@
       "bottles": 1,
       "vintage": 2023,
       "rating_score": 3,
-      "rating_reason": "Young, unstarred vintage"
+      "rating_reason": "Very young, wait 5+ years"
     },
     {
       "lot_id": "2419434",
@@ -6542,7 +6563,7 @@
       "hammer_price_per_bottle": "1 166 SEK",
       "vintage": 2023,
       "rating_score": 4,
-      "rating_reason": "Top-listed producer, hammered below estimate"
+      "rating_reason": "Hold 10+ more years"
     },
     {
       "lot_id": "2423430",
@@ -6555,7 +6576,7 @@
       "bottles": 1,
       "vintage": 2008,
       "rating_score": 2,
-      "rating_reason": "Village level, unlisted producer"
+      "rating_reason": "Mature, drink through 2028"
     }
   ]
 }
