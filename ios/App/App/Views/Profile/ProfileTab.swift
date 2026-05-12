@@ -4,6 +4,7 @@ import FirebaseMessaging
 
 struct ProfileTab: View {
     @EnvironmentObject var appDelegate: AppDelegate
+    @EnvironmentObject var cellarService: CellarService
     @StateObject private var authManager = AuthManager()
     @AppStorage("notification_topic", store: UserDefaults(suiteName: FavoritesStore.appGroup)) private var notificationTopic = "none"
     @AppStorage("app_theme") private var appTheme = "dark"
@@ -121,6 +122,8 @@ struct ProfileTab: View {
                     .foregroundStyle(.secondary)
             }
 
+            cellarSyncStatus
+
             themeButton
             notificationButton
             swipeButton
@@ -163,6 +166,52 @@ struct ProfileTab: View {
         } message: {
             Text(deleteErrorMessage ?? "")
         }
+    }
+
+    // MARK: - Cellar Sync Status
+
+    private var cellarSyncStatus: some View {
+        HStack(spacing: 6) {
+            Image(systemName: syncStatusIcon)
+                .font(.caption)
+                .foregroundStyle(syncStatusColor)
+            Text(syncStatusLabel)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var syncStatusIcon: String {
+        switch cellarService.syncStatus {
+        case .syncing: return "arrow.triangle.2.circlepath"
+        case .synced: return "checkmark.icloud"
+        case .error: return "exclamationmark.icloud"
+        case .offline: return "icloud.slash"
+        }
+    }
+
+    private var syncStatusColor: Color {
+        switch cellarService.syncStatus {
+        case .synced: return .green
+        case .error: return .orange
+        case .syncing: return .secondary
+        case .offline: return .secondary
+        }
+    }
+
+    private var syncStatusLabel: String {
+        switch cellarService.syncStatus {
+        case .syncing: return "Syncing cellar..."
+        case .synced(let date): return "Cellar synced \(relativeTime(date))"
+        case .error(let msg): return "Sync error: \(msg)"
+        case .offline: return "Cellar saved on this device"
+        }
+    }
+
+    private func relativeTime(_ date: Date) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: date, relativeTo: Date())
     }
 
     // MARK: - Theme

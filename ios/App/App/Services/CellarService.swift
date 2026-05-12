@@ -1,10 +1,34 @@
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
+
+enum CloudCellarError: LocalizedError {
+    case notSignedIn
+
+    var errorDescription: String? {
+        switch self {
+        case .notSignedIn: return "Sign in to back up your cellar"
+        }
+    }
+}
+
+enum CloudSyncStatus: Equatable {
+    case offline
+    case syncing
+    case synced(Date)
+    case error(String)
+}
 
 @MainActor
 class CellarService: ObservableObject {
     @Published var entries: [CellarEntry] = []
     @Published var isProcessing = false
     @Published var error: String?
+    @Published var syncStatus: CloudSyncStatus = .offline
+
+    private var authHandle: AuthStateDidChangeListenerHandle?
+    private var pendingPushTask: Task<Void, Never>?
+    private var suppressAutoPush = false
 
     var cellarData: CellarData? {
         let hasCellarWines = entries.contains { $0.status == .cellar && $0.count > 0 }
@@ -27,6 +51,13 @@ class CellarService: ObservableObject {
     init() {
         loadFromFile()
         migrateFromUserDefaultsIfNeeded()
+        setupAuthListener()
+    }
+
+    deinit {
+        if let authHandle {
+            Auth.auth().removeStateDidChangeListener(authHandle)
+        }
     }
 
     // MARK: - CRUD
@@ -107,6 +138,13 @@ class CellarService: ObservableObject {
     // MARK: - Persistence (JSON in Documents)
 
     private func save() {
+        saveLocal()
+        if !suppressAutoPush {
+            schedulePush()
+        }
+    }
+
+    private func saveLocal() {
         do {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
@@ -523,6 +561,166 @@ class CellarService: ObservableObject {
 
         entries = newEntries
         save()
+    }
+
+    // MARK: - Cloud Sync (Firestore, automatic)
+
+    private func userCellarDocRef() throws -> DocumentReference {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw CloudCellarError.notSignedIn
+        }
+        return Firestore.firestore()
+            .collection("cellar")
+            .document(uid)
+    }
+
+    private func setupAuthListener() {
+        authHandle = Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                if user != nil {
+                    await self.syncOnSignIn()
+                } else {
+                    self.pendingPushTask?.cancel()
+                    self.pendingPushTask = nil
+                    self.syncStatus = .offline
+                }
+            }
+        }
+    }
+
+    private static let lastSyncedUidKey = "cellar_last_synced_uid"
+
+    private func syncOnSignIn() async {
+        syncStatus = .syncing
+        do {
+            guard let uid = Auth.auth().currentUser?.uid else {
+                syncStatus = .offline
+                return
+            }
+            let cloud = try await fetchCloudEntries()
+            let previousUid = UserDefaults.standard.string(forKey: Self.lastSyncedUidKey)
+            let isFirstSyncOnDevice = previousUid == nil
+
+            if cloud.isEmpty {
+                if !entries.isEmpty { try await pushAll() }
+            } else if isFirstSyncOnDevice && !entries.isEmpty {
+                // First sign-in on this device with both local and cloud data:
+                // union by id so wines added while signed-out aren't lost.
+                // Cloud wins on id conflicts.
+                let cloudIds = Set(cloud.map(\.id))
+                let merged = cloud + entries.filter { !cloudIds.contains($0.id) }
+                suppressAutoPush = true
+                entries = merged
+                saveLocal()
+                suppressAutoPush = false
+                if merged.count != cloud.count {
+                    try await pushAll()
+                }
+            } else {
+                // Subsequent sign-in (or account switch): cloud is the truth
+                // so deletions made on other devices propagate.
+                suppressAutoPush = true
+                entries = cloud
+                saveLocal()
+                suppressAutoPush = false
+            }
+
+            UserDefaults.standard.set(uid, forKey: Self.lastSyncedUidKey)
+            syncStatus = .synced(Date())
+        } catch CloudCellarError.notSignedIn {
+            syncStatus = .offline
+        } catch {
+            syncStatus = .error(error.localizedDescription)
+        }
+    }
+
+    private func schedulePush() {
+        guard Auth.auth().currentUser != nil else { return }
+        pendingPushTask?.cancel()
+        pendingPushTask = Task { @MainActor [weak self] in
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            guard !Task.isCancelled, let self else { return }
+            await self.runPush()
+        }
+    }
+
+    private func runPush() async {
+        guard Auth.auth().currentUser != nil else { return }
+        syncStatus = .syncing
+        do {
+            try await pushAll()
+            syncStatus = .synced(Date())
+        } catch CloudCellarError.notSignedIn {
+            syncStatus = .offline
+        } catch {
+            syncStatus = .error(error.localizedDescription)
+        }
+    }
+
+    private func pushAll() async throws {
+        let ref = try userCellarDocRef()
+        let payload: [String: Any] = [
+            "entries": entries.map { encodeForCloud($0) },
+            "updatedAt": FieldValue.serverTimestamp(),
+            "schemaVersion": 1
+        ]
+        try await ref.setData(payload)
+    }
+
+    private func fetchCloudEntries() async throws -> [CellarEntry] {
+        let ref = try userCellarDocRef()
+        let snapshot = try await ref.getDocument()
+        guard let data = snapshot.data(),
+              let arr = data["entries"] as? [[String: Any]] else { return [] }
+        return arr.compactMap { decodeFromCloud(dict: $0) }
+    }
+
+    private func encodeForCloud(_ entry: CellarEntry) -> [String: Any] {
+        [
+            "id": entry.id.uuidString,
+            "status": entry.status.rawValue,
+            "winery": entry.winery,
+            "wineName": entry.wineName,
+            "vintage": entry.vintage,
+            "region": entry.region,
+            "country": entry.country,
+            "style": entry.style,
+            "wineType": entry.wineType,
+            "price": entry.price,
+            "count": entry.count,
+            "drinkYear": entry.drinkYear,
+            "links": entry.links,
+            "userRating": entry.userRating,
+            "averageRating": entry.averageRating,
+            "notes": entry.notes,
+            "source": entry.source.rawValue,
+            "addedDate": entry.addedDate
+        ]
+    }
+
+    private func decodeFromCloud(dict d: [String: Any]) -> CellarEntry? {
+        guard let idStr = d["id"] as? String, let id = UUID(uuidString: idStr) else { return nil }
+        return CellarEntry(
+            id: id,
+            status: WineStatus(rawValue: d["status"] as? String ?? "cellar") ?? .cellar,
+            winery: d["winery"] as? String ?? "",
+            wineName: d["wineName"] as? String ?? "",
+            vintage: d["vintage"] as? String ?? "",
+            region: d["region"] as? String ?? "",
+            country: d["country"] as? String ?? "",
+            style: d["style"] as? String ?? "",
+            wineType: d["wineType"] as? String ?? "",
+            price: d["price"] as? String ?? "",
+            count: d["count"] as? Int ?? 1,
+            drinkYear: d["drinkYear"] as? String ?? "",
+            links: d["links"] as? [String] ?? [],
+            userRating: d["userRating"] as? String ?? "",
+            averageRating: d["averageRating"] as? String ?? "",
+            notes: d["notes"] as? String ?? "",
+            source: WineSource(rawValue: d["source"] as? String ?? "imported") ?? .imported,
+            addedDate: d["addedDate"] as? String ?? DateFormatters.todayString
+        )
     }
 
     // MARK: - CSV Parser (RFC 4180)
