@@ -10,7 +10,6 @@
 		504EC3081FED79650016851F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EC3071FED79650016851F /* AppDelegate.swift */; };
 		504EC30F1FED79650016851F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30E1FED79650016851F /* Assets.xcassets */; };
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
-		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
 		7E59BEE32F3CF263005F7386 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59BEE22F3CF263005F7386 /* FirebaseAuth */; };
 		7E59BEE72F3D02BF005F7386 /* AppleSignInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59BEE62F3D02BF005F7386 /* AppleSignInHandler.swift */; };
 		7EA44BD42F3A5C2E006789FF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA44BD32F3A5C2E006789FF /* FirebaseMessaging */; };
@@ -76,7 +75,6 @@
 		504EC30E1FED79650016851F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		504EC3111FED79650016851F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		504EC3131FED79650016851F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50B271D01FEDC1A000F3C39B /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
 		7E59BEE62F3D02BF005F7386 /* AppleSignInHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInHandler.swift; sourceTree = "<group>"; };
 		7EA44BDD2F3A5C63006789FF /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -170,7 +168,6 @@
 				504EC3101FED79650016851F /* LaunchScreen.storyboard */,
 				504EC3131FED79650016851F /* Info.plist */,
 				F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */,
-				50B271D01FEDC1A000F3C39B /* public */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -375,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */,
-				50B271D11FEDC1A000F3C39B /* public in Resources */,
 				504EC30F1FED79650016851F /* Assets.xcassets in Resources */,
 				F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */,
 			);
