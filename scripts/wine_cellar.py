@@ -71,6 +71,7 @@ def fetch_systembolaget_releases():
         page += 1
     return all_products
 
+fetch_ok = True
 try:
     new_releases = sorted(
         [w for w in fetch_systembolaget_releases()
@@ -97,6 +98,7 @@ try:
 except Exception as e:
     print(f"Warning: Could not fetch Systembolaget data: {e}")
     new_releases = []
+    fetch_ok = False
 
 # Load existing releases.json to preserve past wines
 existing_wines = []
@@ -112,7 +114,9 @@ except (FileNotFoundError, json.JSONDecodeError):
 seen_products = set()
 past_wines = []
 for w in existing_wines:
-    if w.get('launchDate', '') >= today:
+    # Only drop future wines when the API actually answered - otherwise a failed
+    # fetch would wipe every upcoming release.
+    if fetch_ok and w.get('launchDate', '') >= today:
         continue
     pn = w.get('productNumber', '')
     if pn and pn in seen_products:
@@ -125,7 +129,10 @@ for w in existing_wines:
     if 'vivinoLink' not in w:
         w['vivinoLink'] = w['searchLink']
     past_wines.append(w)
-print(f"Keeping {len(past_wines)} past wines, replacing future wines with {len(new_releases)} from API")
+if fetch_ok:
+    print(f"Keeping {len(past_wines)} past wines, replacing future wines with {len(new_releases)} from API")
+else:
+    print(f"API fetch failed - keeping all {len(past_wines)} existing wines, including upcoming ones")
 
 RELEASE_FILES = [
     ('data/french_red_releases.txt', 'Frankrike', 'Rött vin'),
@@ -159,7 +166,7 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
                 date_match = re.match(r'^\[(.+?)\]', line)
                 if date_match:
                     parsed_date = parse_launch_date(date_match.group(1))
-                    if parsed_date and parsed_date < today:
+                    if parsed_date and (not fetch_ok or parsed_date < today):
                         past_lines.append(line)
     except FileNotFoundError:
         pass
@@ -207,6 +214,17 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
             f.write(line + "\n")
 
 existing_ratings = all_existing_ratings
+
+if not fetch_ok:
+    # Upcoming wines were carried over from the old releases.json rather than rebuilt
+    # from the API, so refresh their ratings from the txt files or new ratings never land.
+    for w in past_wines:
+        if (w.get('launchDate') or '') < today:
+            continue
+        key = f"{w.get('producer', '')} - {w.get('wineName', '')} {w.get('vintage', '')} ({w.get('price', '')})"
+        rating_data = existing_ratings.get(key)
+        if rating_data:
+            w['ratingScore'], w['ratingReason'] = rating_data
 
 os.makedirs('data', exist_ok=True)
 
