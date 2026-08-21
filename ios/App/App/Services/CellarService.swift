@@ -130,6 +130,16 @@ class CellarService: ObservableObject {
         save()
     }
 
+    /// Stores a hand-picked order for a group of cellar wines: each id gets its
+    /// position in `ids` as its manualOrder.
+    func setCellarOrder(_ ids: [UUID]) {
+        for (position, id) in ids.enumerated() {
+            guard let index = entries.firstIndex(where: { $0.id == id }) else { continue }
+            entries[index].manualOrder = position
+        }
+        save()
+    }
+
     func clearData() {
         entries = []
         try? FileManager.default.removeItem(at: fileURL)
@@ -677,7 +687,7 @@ class CellarService: ObservableObject {
     }
 
     private func encodeForCloud(_ entry: CellarEntry) -> [String: Any] {
-        [
+        var dict: [String: Any] = [
             "id": entry.id.uuidString,
             "status": entry.status.rawValue,
             "winery": entry.winery,
@@ -697,6 +707,10 @@ class CellarService: ObservableObject {
             "source": entry.source.rawValue,
             "addedDate": entry.addedDate
         ]
+        if let manualOrder = entry.manualOrder {
+            dict["manualOrder"] = manualOrder
+        }
+        return dict
     }
 
     private func decodeFromCloud(dict d: [String: Any]) -> CellarEntry? {
@@ -719,7 +733,8 @@ class CellarService: ObservableObject {
             averageRating: d["averageRating"] as? String ?? "",
             notes: d["notes"] as? String ?? "",
             source: WineSource(rawValue: d["source"] as? String ?? "imported") ?? .imported,
-            addedDate: d["addedDate"] as? String ?? DateFormatters.todayString
+            addedDate: d["addedDate"] as? String ?? DateFormatters.todayString,
+            manualOrder: d["manualOrder"] as? Int
         )
     }
 

@@ -33,6 +33,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
     var notes: String
     var source: WineSource
     var addedDate: String
+    var manualOrder: Int?
 
     var priceNumeric: Int {
         price.priceNumeric
@@ -61,7 +62,8 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         averageRating: String = "",
         notes: String = "",
         source: WineSource = .manual,
-        addedDate: String = DateFormatters.todayString
+        addedDate: String = DateFormatters.todayString,
+        manualOrder: Int? = nil
     ) {
         self.id = id
         self.status = status
@@ -81,6 +83,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         self.notes = notes
         self.source = source
         self.addedDate = addedDate
+        self.manualOrder = manualOrder
     }
 
     // Supports both legacy "link" (String) and current "links" ([String]) JSON
@@ -89,6 +92,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         case style, wineType, price, count, drinkYear
         case links, link
         case userRating, averageRating, notes, source, addedDate
+        case manualOrder
     }
 
     init(from decoder: Decoder) throws {
@@ -110,6 +114,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         notes = try c.decodeIfPresent(String.self, forKey: .notes) ?? ""
         source = try c.decodeIfPresent(WineSource.self, forKey: .source) ?? .manual
         addedDate = try c.decodeIfPresent(String.self, forKey: .addedDate) ?? DateFormatters.todayString
+        manualOrder = try c.decodeIfPresent(Int.self, forKey: .manualOrder)
 
         if let arr = try? c.decode([String].self, forKey: .links) {
             links = arr
@@ -137,7 +142,8 @@ struct CellarEntry: Identifiable, Codable, Equatable {
             userRating: userRating,
             averageRating: averageRating,
             notes: notes,
-            source: source
+            source: source,
+            manualOrder: manualOrder
         )
     }
 
@@ -161,6 +167,7 @@ struct CellarEntry: Identifiable, Codable, Equatable {
         try c.encode(notes, forKey: .notes)
         try c.encode(source, forKey: .source)
         try c.encode(addedDate, forKey: .addedDate)
+        try c.encodeIfPresent(manualOrder, forKey: .manualOrder)
     }
 }
 

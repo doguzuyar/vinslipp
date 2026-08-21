@@ -392,11 +392,13 @@ struct CellarTab: View {
 
     // MARK: - Wine List
 
+    @State private var draggedCellarWine: CellarEntry?
+
     private var wineList: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(filtered) { wine in
-                    CellarWineRow(
+                    let row = CellarWineRow(
                         wine: wine,
                         isExpanded: expandedWineId == wine.id,
                         onEdit: { editingEntry = wine },
@@ -411,6 +413,22 @@ struct CellarTab: View {
                         withAnimation(.easeInOut(duration: 0.2)) {
                             expandedWineId = expandedWineId == wine.id ? nil : wine.id
                         }
+                    }
+
+                    if canReorder {
+                        row
+                            .onDrag {
+                                draggedCellarWine = wine
+                                return NSItemProvider(object: wine.id.uuidString as NSString)
+                            }
+                            .onDrop(of: [.text], delegate: CellarReorderDelegate(
+                                target: wine,
+                                draggedItem: $draggedCellarWine,
+                                group: { yearGroup(for: $0) },
+                                cellarService: cellarService
+                            ))
+                    } else {
+                        row
                     }
                     Divider().padding(.leading, 28)
                 }
@@ -490,6 +508,22 @@ struct CellarTab: View {
 
     // MARK: - Sorting
 
+    // Hand ordering only makes sense while the list is grouped by drink year.
+    private var canReorder: Bool {
+        sortField == .year && !showVintage
+    }
+
+    private func drinkYearKey(_ wine: CellarEntry) -> String {
+        wine.drinkYear.isEmpty ? wine.vintage : wine.drinkYear
+    }
+
+    /// All cellar wines sharing a wine's drink year, in display order.
+    private func yearGroup(for wine: CellarEntry) -> [CellarEntry] {
+        guard let wines = cellarService.cellarData?.wines else { return [] }
+        let key = drinkYearKey(wine)
+        return sorted(wines.filter { drinkYearKey($0) == key })
+    }
+
     private func sorted(_ wines: [CellarEntry]) -> [CellarEntry] {
         wines.sorted { a, b in
             let result: Bool
@@ -498,8 +532,16 @@ struct CellarTab: View {
                 if showVintage {
                     result = a.vintage < b.vintage
                 } else {
-                    let aYear = a.drinkYear.isEmpty ? a.vintage : a.drinkYear
-                    let bYear = b.drinkYear.isEmpty ? b.vintage : b.drinkYear
+                    let aYear = drinkYearKey(a)
+                    let bYear = drinkYearKey(b)
+                    if aYear == bYear {
+                        // Same drink year: hand order first, vintage for the rest.
+                        // Both stay ascending so flipping the year arrow doesn't
+                        // reverse an order set by hand.
+                        let aOrder = a.manualOrder ?? Int.max
+                        let bOrder = b.manualOrder ?? Int.max
+                        return aOrder == bOrder ? a.vintage < b.vintage : aOrder < bOrder
+                    }
                     result = aYear < bYear
                 }
             case .winery:
@@ -816,6 +858,39 @@ private struct HistoryReorderDelegate: DropDelegate {
                 from: IndexSet(integer: fromIndex),
                 to: toIndex > fromIndex ? toIndex + 1 : toIndex
             )
+        }
+    }
+
+    func performDrop(info: DropInfo) -> Bool {
+        draggedItem = nil
+        return true
+    }
+}
+
+// MARK: - Cellar Reorder Drop Delegate
+
+private struct CellarReorderDelegate: DropDelegate {
+    let target: CellarEntry
+    @Binding var draggedItem: CellarEntry?
+    let group: (CellarEntry) -> [CellarEntry]
+    let cellarService: CellarService
+
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        DropProposal(operation: .move)
+    }
+
+    func dropEntered(info: DropInfo) {
+        guard let dragged = draggedItem, dragged.id != target.id else { return }
+        var wines = group(dragged)
+        // Wines only move within their own drink year.
+        guard let fromIndex = wines.firstIndex(where: { $0.id == dragged.id }),
+              let toIndex = wines.firstIndex(where: { $0.id == target.id }) else { return }
+        wines.move(
+            fromOffsets: IndexSet(integer: fromIndex),
+            toOffset: toIndex > fromIndex ? toIndex + 1 : toIndex
+        )
+        withAnimation {
+            cellarService.setCellarOrder(wines.map(\.id))
         }
     }
 
