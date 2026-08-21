@@ -337,6 +337,7 @@ struct AuctionTab: View {
                     ProducerRow(
                         producer: producer,
                         liveLots: lots,
+                        vintageIndex: dataService.auctionData?.vintage_index ?? [:],
                         isExpanded: expandedProducerId == producer.id
                     )
                     .contentShape(Rectangle())
@@ -397,6 +398,7 @@ struct AuctionTab: View {
 struct ProducerRow: View {
     let producer: AuctionProducer
     let liveLots: [LiveWine]
+    let vintageIndex: [String: [String: Double]]
     let isExpanded: Bool
     @State private var expandedLotId: String?
 
@@ -466,6 +468,7 @@ struct ProducerRow: View {
                 ProducerDetail(
                     producer: producer,
                     liveLots: liveLots,
+                    vintageIndex: vintageIndex,
                     expandedLotId: $expandedLotId
                 )
             }
@@ -481,7 +484,18 @@ struct ProducerRow: View {
 struct ProducerDetail: View {
     let producer: AuctionProducer
     let liveLots: [LiveWine]
+    let vintageIndex: [String: [String: Double]]
     @Binding var expandedLotId: String?
+
+    private func vintageFactor(for lot: LiveWine) -> Double? {
+        guard lot.vintage > 0 else { return nil }
+        return vintageIndex[lot.category]?[String(lot.vintage)]
+    }
+
+    private func expectedPerBottle(for lot: LiveWine) -> Int? {
+        guard producer.avgHammerSek > 0, let factor = vintageFactor(for: lot) else { return nil }
+        return Int((Double(producer.avgHammerSek) * factor).rounded())
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -528,7 +542,12 @@ struct ProducerDetail: View {
                     .textCase(.uppercase)
                 VStack(spacing: 0) {
                     ForEach(liveLots.sorted(by: liveLotOrder)) { lot in
-                        LiveWineRow(wine: lot, isExpanded: expandedLotId == lot.id)
+                        LiveWineRow(
+                            wine: lot,
+                            isExpanded: expandedLotId == lot.id,
+                            vintageFactor: vintageFactor(for: lot),
+                            expectedPerBottle: expectedPerBottle(for: lot)
+                        )
                             .contentShape(Rectangle())
                             .onTapGesture {
                                 withAnimation(.easeInOut(duration: 0.2)) {
@@ -556,6 +575,8 @@ struct ProducerDetail: View {
 struct LiveWineRow: View {
     let wine: LiveWine
     let isExpanded: Bool
+    var vintageFactor: Double?
+    var expectedPerBottle: Int?
     @EnvironmentObject var cellarService: CellarService
     @State private var safariURL: URL?
     @State private var showAddToCellar = false
@@ -671,6 +692,16 @@ struct LiveWineRow: View {
                         } else {
                             DetailChip(label: "Estimate", value: wine.estimate)
                             DetailChip(label: "Hammer", value: wine.hammer_price)
+                        }
+                    }
+
+                    if let factor = vintageFactor, let expected = expectedPerBottle {
+                        HStack(spacing: 16) {
+                            DetailChip(label: "Vintage Index", value: String(format: "%.2fx", factor))
+                            DetailChip(
+                                label: wine.isMultiBottle ? "Expected/bt" : "Expected",
+                                value: "\(expected.formatted()) SEK"
+                            )
                         }
                     }
                 }

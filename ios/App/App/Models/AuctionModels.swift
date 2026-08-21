@@ -3,6 +3,8 @@ import Foundation
 struct AuctionData: Codable {
     let summary: AuctionSummary
     let producers: [String: AuctionProducerData]
+    // region -> vintage year -> price index (1.0 = same wine's average price)
+    let vintage_index: [String: [String: Double]]?
 }
 
 struct AuctionSummary: Codable {
