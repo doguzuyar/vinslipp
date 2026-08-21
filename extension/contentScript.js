@@ -410,9 +410,15 @@ function addBadge(card) {
         ? parseInt(hammerText.replace(/[^\d]/g, ""), 10)
         : null;
       if (estimate > 0) {
-        const guaranteePrice = Math.round(
-          estimate * getGuaranteeRatioForEstimate(estimate, lotTitle)
-        );
+        // Win price: vintage-adjusted expected value (producer avg hammer/bt x
+        // vintage index x bottles) when the lot resolves in live data; otherwise
+        // the estimate x producer ratio fallback.
+        const vintageInfo = getVintageExpected(lotTitle);
+        const liveWine = findLiveWineRating(card);
+        const vintageBased = vintageInfo && liveWine;
+        const guaranteePrice = vintageBased
+          ? vintageInfo.expected * (liveWine.bottles || 1)
+          : Math.round(estimate * getGuaranteeRatioForEstimate(estimate, lotTitle));
 
         const producerInfo = getProducerStatsInfo(lotTitle);
 
@@ -421,7 +427,9 @@ function addBadge(card) {
           guaranteeEl.dataset.guaranteePrice = "true";
 
           let guaranteeText = `Win: ${guaranteePrice.toLocaleString("sv-SE")} SEK`;
-          if (producerInfo && producerInfo.lots >= 3) {
+          if (vintageBased) {
+            guaranteeText += ` (${vintageInfo.factor.toFixed(2)}x)`;
+          } else if (producerInfo && producerInfo.lots >= 3) {
             const premiumSign = producerInfo.premium >= 0 ? "+" : "";
             guaranteeText += ` (${premiumSign}${producerInfo.premium}%)`;
           }
@@ -437,7 +445,10 @@ function addBadge(card) {
             display: "block",
           });
 
-          if (producerInfo) {
+          if (vintageBased) {
+            const bt = liveWine.bottles || 1;
+            guaranteeEl.title = `Producer avg hammer/bt x ${vintageInfo.factor.toFixed(2)} vintage index (${vintageInfo.vintage})${bt > 1 ? ` x ${bt} bottles` : ""}`;
+          } else if (producerInfo) {
             guaranteeEl.title = `Based on ${producerInfo.lots} historical sales\nAvg: ${producerInfo.premium >= 0 ? "+" : ""}${producerInfo.premium}% vs estimate`;
           }
 
@@ -445,26 +456,6 @@ function addBadge(card) {
             guaranteeEl,
             estimateEl.nextSibling
           );
-
-          const vintageInfo = getVintageExpected(lotTitle);
-          if (vintageInfo) {
-            const expectedEl = document.createElement("div");
-            expectedEl.dataset.vintageExpected = "true";
-            expectedEl.textContent = `Exp/bt: ${vintageInfo.expected.toLocaleString("sv-SE")} SEK (${vintageInfo.factor.toFixed(2)}x)`;
-            Object.assign(expectedEl.style, {
-              fontSize: "11px",
-              fontWeight: "500",
-              color: "#666",
-              textAlign: "right",
-              marginLeft: "auto",
-              display: "block",
-            });
-            expectedEl.title = `Producer avg hammer/bt x ${vintageInfo.factor.toFixed(2)} vintage index for ${vintageInfo.vintage}`;
-            guaranteeEl.parentNode.insertBefore(
-              expectedEl,
-              guaranteeEl.nextSibling
-            );
-          }
         }
 
         if (lotVintageIsBest(card, lotTitle)) {
@@ -686,11 +677,16 @@ function getGuaranteeRatioForEstimate(estimate, wineTitle = null) {
   return HISTORICAL_P80_RATIO;
 }
 
+// Large formats hold multiples of a 750ml bottle, so the per-bottle producer
+// average does not apply; those lots keep the estimate-based win price.
+const LARGE_FORMAT_RE = /magnum|jeroboam|imperial|rehoboam|salmanazar|marie-jeanne|half\s*bottle|\d{3,5}\s*ml/i;
+
 // Vintage-adjusted expected price per bottle: producer avg hammer x vintage index.
 // Index region comes from the page URL, else the producer's single known region.
 function getVintageExpected(wineTitle) {
   const vi = bukowskisStats?.vintage_index;
   if (!vi) return null;
+  if (LARGE_FORMAT_RE.test(wineTitle || "")) return null;
   const stats = findProducerStats(wineTitle);
   if (!stats || !stats.avg_hammer_sek) return null;
   const match = (wineTitle || "").match(/\b(19\d{2}|20\d{2})\b/);
@@ -747,9 +743,11 @@ function updateAllBadgeIndicators() {
 
     let indicatorColor = "#22c55e";
     if (hammer && hammer > 0) {
-      const guaranteePrice = Math.round(
-        estimate * getGuaranteeRatioForEstimate(estimate, wineTitle)
-      );
+      const vintageInfo = getVintageExpected(wineTitle);
+      const liveWine = findLiveWineRating(card);
+      const guaranteePrice = vintageInfo && liveWine
+        ? vintageInfo.expected * (liveWine.bottles || 1)
+        : Math.round(estimate * getGuaranteeRatioForEstimate(estimate, wineTitle));
       indicatorColor = hammer <= guaranteePrice ? "#22c55e" : "#ef4444";
     }
 
