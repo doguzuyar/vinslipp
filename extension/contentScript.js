@@ -445,6 +445,26 @@ function addBadge(card) {
             guaranteeEl,
             estimateEl.nextSibling
           );
+
+          const vintageInfo = getVintageExpected(lotTitle);
+          if (vintageInfo) {
+            const expectedEl = document.createElement("div");
+            expectedEl.dataset.vintageExpected = "true";
+            expectedEl.textContent = `Exp/bt: ${vintageInfo.expected.toLocaleString("sv-SE")} SEK (${vintageInfo.factor.toFixed(2)}x)`;
+            Object.assign(expectedEl.style, {
+              fontSize: "11px",
+              fontWeight: "500",
+              color: "#666",
+              textAlign: "right",
+              marginLeft: "auto",
+              display: "block",
+            });
+            expectedEl.title = `Producer avg hammer/bt x ${vintageInfo.factor.toFixed(2)} vintage index for ${vintageInfo.vintage}`;
+            guaranteeEl.parentNode.insertBefore(
+              expectedEl,
+              guaranteeEl.nextSibling
+            );
+          }
         }
 
         if (lotVintageIsBest(card, lotTitle)) {
@@ -664,6 +684,24 @@ function getGuaranteeRatioForEstimate(estimate, wineTitle = null) {
   }
 
   return HISTORICAL_P80_RATIO;
+}
+
+// Vintage-adjusted expected price per bottle: producer avg hammer x vintage index.
+// Index region comes from the page URL, else the producer's single known region.
+function getVintageExpected(wineTitle) {
+  const vi = bukowskisStats?.vintage_index;
+  if (!vi) return null;
+  const stats = findProducerStats(wineTitle);
+  if (!stats || !stats.avg_hammer_sek) return null;
+  const match = (wineTitle || "").match(/\b(19\d{2}|20\d{2})\b/);
+  if (!match) return null;
+  const vintage = match[1];
+  let region = getBestVintageRegion();
+  if (!region && stats.regions && stats.regions.length === 1) region = stats.regions[0];
+  if (!region) return null;
+  const factor = vi[region]?.[vintage];
+  if (!factor) return null;
+  return { vintage, factor, expected: Math.round(stats.avg_hammer_sek * factor) };
 }
 
 function getProducerStatsInfo(wineTitle) {
