@@ -10,7 +10,7 @@
 [Sep 4] Domaine Pinson - Chablis Premier Cru Mont de Milieu Domaine Pinson 2024 (500 SEK) [★★★] (Premier cru, top-ranked site)
 [Sep 4] Scev Julien Et Clement Raimbault – Domaine Du Pre Semele - Sancerre Les Chasseignes Domaine Du Pré Sémelé 2023 (299 SEK) [★★] (Solid village-level Sancerre)
 [Sep 3] Trimbach - Trimbach Clos Sainte Hune Riesling 2020 (3299 SEK) [★★★★] (Legendary single-vineyard, ages magnificently)
-[Aug 31] Urban Wines - Rocheline Sancerre 2025 (199 SEK)
+[Aug 31] Urban Wines - Rocheline Sancerre 2025 (199 SEK) [★] (Unknown producer, skip)
 [Aug 28] Domaine du Pélican - Domaine du Pélican Savagnin Ouillé 2024 (419 SEK) [★★] (Solid oxidative Jura white)
 [Aug 28] Domaine Louis Michel & Fils - Chablis Premier Cru Montée de Tonnerre 2024 (479 SEK) [★★★] (Top Premier Cru site)
 [Aug 28] Domaine Pinson - Chablis Premier Cru Vaugiraut Domaine Pinson 2023 (529 SEK) [★★★] (Racy, pure, satisfying Premier Cru)
