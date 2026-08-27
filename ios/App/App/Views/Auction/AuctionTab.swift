@@ -269,7 +269,7 @@ struct AuctionTab: View {
                 }
 
                 if !showLive {
-                    FilterChip(label: "Vintage Analysis", isActive: showVintageAnalysis) {
+                    FilterChip(label: "Vintage", isActive: showVintageAnalysis) {
                         showVintageAnalysis.toggle()
                     }
                 }
@@ -388,7 +388,7 @@ struct AuctionTab: View {
         VStack(alignment: .leading, spacing: 0) {
             Text(region)
                 .font(.subheadline.weight(.semibold))
-                .foregroundStyle(region == "Bordeaux" ? Color.vinslippBordeaux : Color.vinslippBurgundy)
+                .foregroundStyle(.primary)
                 .padding(.horizontal, 16)
                 .padding(.top, 14)
                 .padding(.bottom, 6)
