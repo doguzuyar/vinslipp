@@ -384,6 +384,12 @@ struct AuctionTab: View {
         }
     }
 
+    private func vintageFactorColor(_ factor: Double) -> Color {
+        if factor >= 1 { return .green }
+        if factor >= 0.8 { return .yellow }
+        return .red
+    }
+
     private func vintageSection(region: String, factors: [String: Double]) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(region)
@@ -400,10 +406,11 @@ struct AuctionTab: View {
                         Spacer()
                         Text(String(format: "%.2fx", factor))
                             .font(.caption.weight(.medium))
-                            .foregroundStyle(factor >= 1 ? .green : .red)
+                            .foregroundStyle(vintageFactorColor(factor))
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 6)
+                    .background(vintageFactorColor(factor).opacity(0.08))
                     Divider().padding(.leading, 16)
                 }
             }
