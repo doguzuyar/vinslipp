@@ -6,18 +6,6 @@ const CARD_SELECTORS = [
 
 const BADGE_SRC = chrome.runtime.getURL("vinslipp.png");
 
-const BEST_VINTAGES = {
-  bordeaux: new Set([
-    1982, 1983, 1985, 1988, 1989, 1990, 1995, 1996, 1998, 2000, 2001, 2004,
-    2005, 2006, 2008, 2009, 2010, 2011, 2014, 2015, 2016, 2018, 2019, 2020,
-    2022,
-  ]),
-  burgundy: new Set([
-    1989, 1990, 1993, 1996, 1999, 2002, 2005, 2008, 2009, 2010, 2012, 2014,
-    2015, 2016, 2017, 2018, 2019, 2022,
-  ]),
-};
-
 // Region comes from the Bukowskis category URL, e.g. ".../france-bordeaux".
 function getBestVintageRegion() {
   const url = window.location.href.toLowerCase();
@@ -26,15 +14,16 @@ function getBestVintageRegion() {
   return null;
 }
 
-// The hammer-vs-guarantee dot is only shown for best vintages of the
-// current region's category page; otherwise it stays hidden.
+// The hammer-vs-guarantee dot is only shown when the vintage index for the
+// current region's category page is at least 0.8x; otherwise it stays hidden.
 function lotVintageIsBest(card, title) {
   const region = getBestVintageRegion();
   if (!region) return false;
   const text = `${title || ""} ${card?.innerText || ""}`;
   const match = text.match(/\b(19\d{2}|20\d{2})\b/);
   if (!match) return false;
-  return BEST_VINTAGES[region].has(parseInt(match[1], 10));
+  const factor = bukowskisStats?.vintage_index?.[region]?.[match[1]];
+  return factor !== undefined && factor >= 0.8;
 }
 
 function wineSearchUrl(wineName) {
