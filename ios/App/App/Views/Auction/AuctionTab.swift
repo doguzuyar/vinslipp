@@ -24,6 +24,7 @@ struct AuctionTab: View {
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
     @AppStorage("auction_showLive") private var showLive = false
+    @AppStorage("auction_showVintageAnalysis") private var showVintageAnalysis = false
     @AppStorage("live_selectedRating") private var liveSelectedRating = ""
     @AppStorage("auction_selectedCountriesData") private var auctionSelectedCountriesData: Data = {
         (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
@@ -150,7 +151,7 @@ struct AuctionTab: View {
             aggregateContent
         }
         .safeAreaInset(edge: .bottom) {
-            if dataService.auctionData != nil {
+            if dataService.auctionData != nil && !(showVintageAnalysis && !showLive) {
                 searchBar
             }
         }
@@ -171,8 +172,12 @@ struct AuctionTab: View {
 
             VStack(spacing: 0) {
                 filterBar
-                sortBar
-                producerList
+                if showVintageAnalysis && !showLive {
+                    vintageAnalysisList
+                } else {
+                    sortBar
+                    producerList
+                }
             }
             .padding(.top, -15)
         } else if dataService.isLoadingAuction {
@@ -263,6 +268,12 @@ struct AuctionTab: View {
                     toggle($0, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
                 }
 
+                if !showLive {
+                    FilterChip(label: "Vintage Analysis", isActive: showVintageAnalysis) {
+                        showVintageAnalysis.toggle()
+                    }
+                }
+
                 if showLive {
                     Menu {
                         ForEach(["3 Stars", "3+ Stars", "4 Stars"], id: \.self) { rating in
@@ -350,6 +361,52 @@ struct AuctionTab: View {
         .refreshable {
             await dataService.loadAuction()
             await dataService.loadLiveWines()
+        }
+    }
+
+    private var vintageAnalysisList: some View {
+        let index = dataService.auctionData?.vintage_index ?? [:]
+        let regions = regionFilters.filter {
+            auctionSelectedRegions.isEmpty || auctionSelectedRegions.contains($0)
+        }
+        return ScrollView {
+            LazyVStack(alignment: .leading, spacing: 0) {
+                ForEach(regions, id: \.self) { region in
+                    if let factors = index[region.lowercased()], !factors.isEmpty {
+                        vintageSection(region: region, factors: factors)
+                    }
+                }
+            }
+        }
+        .contentMargins(.bottom, 16)
+        .refreshable {
+            await dataService.loadAuction()
+        }
+    }
+
+    private func vintageSection(region: String, factors: [String: Double]) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text(region)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(region == "Bordeaux" ? Color.vinslippBordeaux : Color.vinslippBurgundy)
+                .padding(.horizontal, 16)
+                .padding(.top, 14)
+                .padding(.bottom, 6)
+            ForEach(factors.keys.sorted(by: >), id: \.self) { vintage in
+                if let factor = factors[vintage] {
+                    HStack {
+                        Text(vintage)
+                            .font(.caption.weight(.medium))
+                        Spacer()
+                        Text(String(format: "%.2fx", factor))
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(factor >= 1 ? .green : .red)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 6)
+                    Divider().padding(.leading, 16)
+                }
+            }
         }
     }
 
