@@ -211,7 +211,7 @@ struct AuctionTab: View {
                 .foregroundStyle(.secondary)
             Spacer()
             if showLive, let live = dataService.liveWinesData {
-                Text("\(live.total_wines) live lots")
+                Text("\(live.total_wines) recent lots")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
             } else {
@@ -484,7 +484,7 @@ struct ProducerRow: View {
                             .font(.subheadline.weight(.semibold))
                             .lineLimit(1)
                         if !liveLots.isEmpty {
-                            Text("\(liveLots.count) live")
+                            Text("\(liveLots.count) recent")
                                 .font(.system(size: 9, weight: .semibold))
                                 .padding(.horizontal, 5)
                                 .padding(.vertical, 1)
@@ -587,14 +587,27 @@ struct ProducerDetail: View {
 
             if !producer.vintages.isEmpty {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Vintages")
+                    Text("Vintages / Avg Hammer")
                         .font(.system(size: 9))
                         .foregroundStyle(.tertiary)
                         .textCase(.uppercase)
-                    Text(producer.vintages.sorted().map(String.init).joined(separator: ", "))
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
+                    ForEach(producer.vintages.sorted(by: >), id: \.self) { vintage in
+                        HStack {
+                            Text(String(vintage))
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            if let avg = producer.vintageAvgHammerSek[String(vintage)] {
+                                Text("\(avg.formatted()) SEK")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Text("Unsold")
+                                    .font(.caption2)
+                                    .foregroundStyle(.tertiary)
+                            }
+                        }
+                    }
                 }
             }
 
