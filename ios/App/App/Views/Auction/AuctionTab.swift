@@ -366,6 +366,7 @@ struct AuctionTab: View {
 
     private var vintageAnalysisList: some View {
         let index = dataService.auctionData?.vintage_index ?? [:]
+        let lotsIndex = dataService.auctionData?.vintage_index_lots ?? [:]
         let regions = regionFilters.filter {
             auctionSelectedRegions.isEmpty || auctionSelectedRegions.contains($0)
         }
@@ -373,7 +374,7 @@ struct AuctionTab: View {
             LazyVStack(alignment: .leading, spacing: 0) {
                 ForEach(regions, id: \.self) { region in
                     if let factors = index[region.lowercased()], !factors.isEmpty {
-                        vintageSection(region: region, factors: factors)
+                        vintageSection(region: region, factors: factors, lots: lotsIndex[region.lowercased()] ?? [:])
                     }
                 }
             }
@@ -384,7 +385,7 @@ struct AuctionTab: View {
         }
     }
 
-    private func vintageSection(region: String, factors: [String: Double]) -> some View {
+    private func vintageSection(region: String, factors: [String: Double], lots: [String: Int]) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(region)
                 .font(.subheadline.weight(.semibold))
@@ -394,9 +395,14 @@ struct AuctionTab: View {
                 .padding(.bottom, 6)
             ForEach(factors.keys.sorted(by: >), id: \.self) { vintage in
                 if let factor = factors[vintage] {
-                    HStack {
+                    HStack(spacing: 8) {
                         Text(vintage)
                             .font(.caption.weight(.medium))
+                        if let n = lots[vintage] {
+                            Text("\(n) \(n == 1 ? "lot" : "lots")")
+                                .font(.caption2)
+                                .foregroundStyle(.tertiary)
+                        }
                         Spacer()
                         Text(String(format: "%.2fx", factor))
                             .font(.caption.weight(.medium))

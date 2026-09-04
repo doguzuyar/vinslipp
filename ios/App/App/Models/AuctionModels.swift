@@ -5,6 +5,8 @@ struct AuctionData: Codable {
     let producers: [String: AuctionProducerData]
     // region -> vintage year -> price index (1.0 = same wine's average price)
     let vintage_index: [String: [String: Double]]?
+    // region -> vintage year -> number of sold lots behind that index value
+    let vintage_index_lots: [String: [String: Int]]?
 }
 
 struct AuctionSummary: Codable {
