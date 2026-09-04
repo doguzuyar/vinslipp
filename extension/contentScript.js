@@ -14,16 +14,21 @@ function getBestVintageRegion() {
   return null;
 }
 
-// The hammer-vs-guarantee dot is only shown when the vintage index for the
-// current region's category page is at least 0.8x; otherwise it stays hidden.
+// BUY light threshold: the vintage must trade at >= 0.8x. The ratio comes from the
+// producer's own sales in that vintage when available (vintage_stats), and falls
+// back to the region's vintage index otherwise.
+const BUY_MIN_FACTOR = 0.8;
+
 function lotVintageIsBest(card, title) {
+  const info = getVintageExpected(title);
+  if (info) return info.factor >= BUY_MIN_FACTOR;
   const region = getBestVintageRegion();
   if (!region) return false;
   const text = `${title || ""} ${card?.innerText || ""}`;
   const match = text.match(/\b(19\d{2}|20\d{2})\b/);
   if (!match) return false;
   const factor = bukowskisStats?.vintage_index?.[region]?.[match[1]];
-  return factor !== undefined && factor >= 0.8;
+  return factor !== undefined && factor >= BUY_MIN_FACTOR;
 }
 
 function wineSearchUrl(wineName) {
@@ -436,7 +441,10 @@ function addBadge(card) {
 
           if (vintageBased) {
             const bt = liveWine.bottles || 1;
-            guaranteeEl.title = `Producer avg hammer/bt x ${vintageInfo.factor.toFixed(2)} vintage index (${vintageInfo.vintage})${bt > 1 ? ` x ${bt} bottles` : ""}`;
+            const bottlesNote = bt > 1 ? ` x ${bt} bottles` : "";
+            guaranteeEl.title = vintageInfo.source === "producer"
+              ? `Producer's own ${vintageInfo.vintage} avg hammer/bt (${vintageInfo.lots} ${vintageInfo.lots === 1 ? "lot" : "lots"}), ${vintageInfo.factor.toFixed(2)}x producer avg${bottlesNote}`
+              : `Producer avg hammer/bt x ${vintageInfo.factor.toFixed(2)} ${vintageInfo.region} vintage index (${vintageInfo.vintage}), no producer sales in this vintage${bottlesNote}`;
           } else if (producerInfo) {
             guaranteeEl.title = `Based on ${producerInfo.lots} historical sales\nAvg: ${producerInfo.premium >= 0 ? "+" : ""}${producerInfo.premium}% vs estimate`;
           }
@@ -670,23 +678,45 @@ function getGuaranteeRatioForEstimate(estimate, wineTitle = null) {
 // average does not apply; those lots keep the estimate-based win price.
 const LARGE_FORMAT_RE = /magnum|jeroboam|imperial|rehoboam|salmanazar|marie-jeanne|half\s*bottle|\d{3,5}\s*ml/i;
 
-// Vintage-adjusted expected price per bottle: producer avg hammer x vintage index.
-// Index region comes from the page URL, else the producer's single known region.
+// Vintage-adjusted expected price per bottle (normal bottles only).
+// 1. Producer's own average hammer for that vintage (vintage_stats); factor is
+//    that average relative to the producer's overall average.
+// 2. Fallback: producer avg hammer x region vintage index. Index region comes
+//    from the page URL, else the producer's single known region.
 function getVintageExpected(wineTitle) {
-  const vi = bukowskisStats?.vintage_index;
-  if (!vi) return null;
+  if (!bukowskisStats) return null;
   if (LARGE_FORMAT_RE.test(wineTitle || "")) return null;
   const stats = findProducerStats(wineTitle);
   if (!stats || !stats.avg_hammer_sek) return null;
   const match = (wineTitle || "").match(/\b(19\d{2}|20\d{2})\b/);
   if (!match) return null;
   const vintage = match[1];
+
+  const own = stats.vintage_stats?.[vintage];
+  if (own && own.avg_hammer_sek > 0) {
+    return {
+      vintage,
+      source: "producer",
+      lots: own.lots,
+      factor: own.avg_hammer_sek / stats.avg_hammer_sek,
+      expected: own.avg_hammer_sek,
+    };
+  }
+
+  const vi = bukowskisStats.vintage_index;
+  if (!vi) return null;
   let region = getBestVintageRegion();
   if (!region && stats.regions && stats.regions.length === 1) region = stats.regions[0];
   if (!region) return null;
   const factor = vi[region]?.[vintage];
   if (!factor) return null;
-  return { vintage, factor, expected: Math.round(stats.avg_hammer_sek * factor) };
+  return {
+    vintage,
+    source: "region",
+    region,
+    factor,
+    expected: Math.round(stats.avg_hammer_sek * factor),
+  };
 }
 
 function getProducerStatsInfo(wineTitle) {
