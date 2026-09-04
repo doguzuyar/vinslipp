@@ -492,7 +492,10 @@ function injectAllRatings() {
       if (card.querySelector("[data-wine-rating]")) return;
       const wine = findLiveWineRating(card);
       if (!wine || !wine.rating_score) return;
-      card.appendChild(createRatingEl(wine.rating_score, wine.rating_reason));
+      // Inside the price block, right under the Estimate row: the card itself is a
+      // flex column with a gap, so appending to the card leaves an empty band.
+      const target = card.querySelector("[class*='price-block']") || card;
+      target.appendChild(createRatingEl(wine.rating_score, wine.rating_reason));
     });
   }
 
