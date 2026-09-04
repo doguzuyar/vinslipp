@@ -230,7 +230,7 @@ The website at [vinslipp.app](https://vinslipp.app) serves two purposes:
 
 ### Auction Data
 
-`scraper.py` collects data from Bukowskis auction catalogs (D001-D076):
+`scraper.py` collects data from Bukowskis auction catalogs (D001-D077):
 
 - Parses lot HTML for titles, estimates, hammer prices, auction IDs, and vintages
 - Handles accent normalization for producer name matching
