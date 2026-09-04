@@ -420,23 +420,15 @@ function addBadge(card) {
           const guaranteeEl = document.createElement("div");
           guaranteeEl.dataset.guaranteePrice = "true";
 
-          let guaranteeText = `Win: ${guaranteePrice.toLocaleString("sv-SE")} SEK`;
-          if (vintageBased) {
-            guaranteeText += ` (${vintageInfo.factor.toFixed(2)}x)`;
-          } else if (producerInfo && producerInfo.lots >= 3) {
-            const premiumSign = producerInfo.premium >= 0 ? "+" : "";
-            guaranteeText += ` (${premiumSign}${producerInfo.premium}%)`;
-          }
-
-          guaranteeEl.textContent = guaranteeText;
+          guaranteeEl.textContent = `Win: ${guaranteePrice.toLocaleString("sv-SE")} SEK`;
+          // Same row as "Estimate ...": inline, pushed to the right edge.
           Object.assign(guaranteeEl.style, {
             fontSize: "13px",
             fontWeight: "600",
             color: "#1a1a1a",
-            textAlign: "right",
-            marginLeft: "auto",
-            marginTop: "-16px",
-            display: "block",
+            display: "inline",
+            float: "right",
+            marginLeft: "12px",
           });
 
           if (vintageBased) {
