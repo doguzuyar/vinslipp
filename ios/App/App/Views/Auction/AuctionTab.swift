@@ -384,12 +384,6 @@ struct AuctionTab: View {
         }
     }
 
-    private func vintageFactorColor(_ factor: Double) -> Color {
-        if factor >= 1 { return .green }
-        if factor >= 0.8 { return .yellow }
-        return .red
-    }
-
     private func vintageSection(region: String, factors: [String: Double]) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(region)
@@ -455,6 +449,13 @@ struct AuctionTab: View {
         liveSelectedRating = ""
         searchText = ""
     }
+}
+
+// Green at or above the reference (1.0x), yellow down to 0.8x, red below.
+func vintageFactorColor(_ factor: Double) -> Color {
+    if factor >= 1 { return .green }
+    if factor >= 0.8 { return .yellow }
+    return .red
 }
 
 // MARK: - Producer Row
@@ -586,23 +587,35 @@ struct ProducerDetail: View {
             }
 
             if !producer.vintages.isEmpty {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Vintages / Avg Hammer")
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("Vintage / Lots / Avg Hammer per bt / vs Producer Avg")
                         .font(.system(size: 9))
                         .foregroundStyle(.tertiary)
                         .textCase(.uppercase)
                     ForEach(producer.vintages.sorted(by: >), id: \.self) { vintage in
-                        HStack {
+                        HStack(spacing: 8) {
                             Text(String(vintage))
-                                .font(.caption2)
+                                .font(.caption2.weight(.medium))
                                 .foregroundStyle(.secondary)
-                            Spacer()
-                            if let avg = producer.vintageAvgHammerSek[String(vintage)] {
-                                Text("\(avg.formatted()) SEK")
+                                .frame(width: 32, alignment: .leading)
+                            if let stat = producer.vintageStats[String(vintage)] {
+                                Text("\(stat.lots) \(stat.lots == 1 ? "lot" : "lots")")
+                                    .font(.caption2)
+                                    .foregroundStyle(.tertiary)
+                                Spacer()
+                                Text("\(stat.avg_hammer_sek.formatted()) SEK")
                                     .font(.caption2)
                                     .foregroundStyle(.secondary)
+                                if producer.avgHammerSek > 0 {
+                                    let ratio = Double(stat.avg_hammer_sek) / Double(producer.avgHammerSek)
+                                    Text(String(format: "%.2fx", ratio))
+                                        .font(.caption2.weight(.medium))
+                                        .foregroundStyle(vintageFactorColor(ratio))
+                                        .frame(width: 42, alignment: .trailing)
+                                }
                             } else {
-                                Text("Unsold")
+                                Spacer()
+                                Text("No sales")
                                     .font(.caption2)
                                     .foregroundStyle(.tertiary)
                             }

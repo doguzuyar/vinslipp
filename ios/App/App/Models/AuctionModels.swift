@@ -21,10 +21,15 @@ struct AuctionProducerData: Codable {
     let avg_ratio: Double?
     let premium_percent: Double?
     let vintages: [Int]
-    // vintage year -> average per-bottle hammer for this producer
-    let vintage_avg_hammer_sek: [String: Int]?
+    // vintage year -> sold lot count and average per-bottle hammer for this producer
+    let vintage_stats: [String: AuctionVintageStat]?
     let regions: [String]?
     let info: String?
+}
+
+struct AuctionVintageStat: Codable {
+    let lots: Int
+    let avg_hammer_sek: Int
 }
 
 struct AuctionProducer: Identifiable {
@@ -38,7 +43,7 @@ struct AuctionProducer: Identifiable {
     let avgRatio: Double?
     let premiumPercent: Double?
     let vintages: [Int]
-    let vintageAvgHammerSek: [String: Int]
+    let vintageStats: [String: AuctionVintageStat]
     let regions: [String]
     let info: String?
 
@@ -52,7 +57,7 @@ struct AuctionProducer: Identifiable {
         self.avgRatio = data.avg_ratio
         self.premiumPercent = data.premium_percent
         self.vintages = data.vintages
-        self.vintageAvgHammerSek = data.vintage_avg_hammer_sek ?? [:]
+        self.vintageStats = data.vintage_stats ?? [:]
         self.regions = data.regions ?? []
         self.info = data.info
     }
