@@ -14,14 +14,12 @@ function getBestVintageRegion() {
   return null;
 }
 
-// BUY light threshold: the vintage must trade at >= 0.8x. The ratio comes from the
-// producer's own sales in that vintage when available (vintage_stats), and falls
-// back to the region's vintage index otherwise.
+// The BUY light is shown only when the REGION vintage index (Bordeaux/Burgundy
+// vintage ratio) is not red, i.e. at least 0.8x. The producer's own vintage ratio
+// drives the Win price, never the light's visibility.
 const BUY_MIN_FACTOR = 0.8;
 
 function lotVintageIsBest(card, title) {
-  const info = getVintageExpected(title);
-  if (info) return info.factor >= BUY_MIN_FACTOR;
   const region = getBestVintageRegion();
   if (!region) return false;
   const text = `${title || ""} ${card?.innerText || ""}`;
