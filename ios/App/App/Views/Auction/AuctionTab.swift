@@ -562,6 +562,27 @@ struct ProducerDetail: View {
         return Int((Double(producer.avgHammerSek) * factor).rounded())
     }
 
+    private var producerRegion: String? { producer.regions.first }
+
+    private var regionIndexLabel: String {
+        guard let region = producerRegion else { return "Region" }
+        return region == "bordeaux" ? "Bdx" : region == "burgundy" ? "Burg" : region
+    }
+
+    // Region-level vintage index (the Vintage view's factor) for this producer's region.
+    @ViewBuilder
+    private func regionIndexText(for vintage: Int) -> some View {
+        if let region = producerRegion, let factor = vintageIndex[region]?[String(vintage)] {
+            Text(String(format: "%.2fx", factor))
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(vintageFactorColor(factor))
+        } else {
+            Text("n/a")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Divider()
@@ -588,10 +609,17 @@ struct ProducerDetail: View {
 
             if !producer.vintages.isEmpty {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("Vintage / Lots / Avg Hammer per bt / vs Producer Avg")
-                        .font(.system(size: 9))
-                        .foregroundStyle(.tertiary)
-                        .textCase(.uppercase)
+                    HStack(spacing: 8) {
+                        Text("Vintage / Lots / Avg Hammer per bt")
+                        Spacer()
+                        Text("vs Avg")
+                            .frame(width: 42, alignment: .trailing)
+                        Text(regionIndexLabel)
+                            .frame(width: 42, alignment: .trailing)
+                    }
+                    .font(.system(size: 9))
+                    .foregroundStyle(.tertiary)
+                    .textCase(.uppercase)
                     ForEach(producer.vintages.sorted(by: >), id: \.self) { vintage in
                         HStack(spacing: 8) {
                             Text(String(vintage))
@@ -619,6 +647,8 @@ struct ProducerDetail: View {
                                     .font(.caption2)
                                     .foregroundStyle(.tertiary)
                             }
+                            regionIndexText(for: vintage)
+                                .frame(width: 42, alignment: .trailing)
                         }
                     }
                 }
