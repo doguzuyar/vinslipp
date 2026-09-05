@@ -544,9 +544,6 @@ struct ProducerRow: View {
                 )
             }
         }
-        .background(
-            isExpanded ? barColor.opacity(0.15) : Color.clear
-        )
     }
 }
 
@@ -626,37 +623,46 @@ struct ProducerDetail: View {
                     .font(.system(size: 9))
                     .foregroundStyle(.tertiary)
                     .textCase(.uppercase)
-                    ForEach(producer.vintages.sorted(by: >), id: \.self) { vintage in
-                        HStack(spacing: 8) {
-                            Text(String(vintage))
-                                .font(.caption2.weight(.medium))
-                                .foregroundStyle(.secondary)
-                                .frame(width: 32, alignment: .leading)
-                            if let stat = producer.vintageStats[String(vintage)] {
-                                Text("\(stat.lots) \(stat.lots == 1 ? "lot" : "lots")")
-                                    .font(.caption2)
-                                    .foregroundStyle(.tertiary)
-                                Spacer()
-                                Text("\(stat.avg_hammer_sek.formatted()) SEK")
-                                    .font(.caption2)
+                    VStack(spacing: 0) {
+                        ForEach(producer.vintages.sorted(by: >), id: \.self) { vintage in
+                            let stat = producer.vintageStats[String(vintage)]
+                            let ratio: Double? = (stat != nil && producer.avgHammerSek > 0)
+                                ? Double(stat!.avg_hammer_sek) / Double(producer.avgHammerSek)
+                                : nil
+                            HStack(spacing: 8) {
+                                Text(String(vintage))
+                                    .font(.caption2.weight(.medium))
                                     .foregroundStyle(.secondary)
-                                if producer.avgHammerSek > 0 {
-                                    let ratio = Double(stat.avg_hammer_sek) / Double(producer.avgHammerSek)
-                                    Text(String(format: "%.2fx", ratio))
-                                        .font(.caption2.weight(.medium))
-                                        .foregroundStyle(vintageFactorColor(ratio))
-                                        .frame(width: 42, alignment: .trailing)
+                                    .frame(width: 32, alignment: .leading)
+                                if let stat {
+                                    Text("\(stat.lots) \(stat.lots == 1 ? "lot" : "lots")")
+                                        .font(.caption2)
+                                        .foregroundStyle(.tertiary)
+                                    Spacer()
+                                    Text("\(stat.avg_hammer_sek.formatted()) SEK")
+                                        .font(.caption2)
+                                        .foregroundStyle(.secondary)
+                                    if let ratio {
+                                        Text(String(format: "%.2fx", ratio))
+                                            .font(.caption2.weight(.medium))
+                                            .foregroundStyle(vintageFactorColor(ratio))
+                                            .frame(width: 42, alignment: .trailing)
+                                    }
+                                } else {
+                                    Spacer()
+                                    Text("No sales")
+                                        .font(.caption2)
+                                        .foregroundStyle(.tertiary)
                                 }
-                            } else {
-                                Spacer()
-                                Text("No sales")
-                                    .font(.caption2)
-                                    .foregroundStyle(.tertiary)
+                                regionIndexText(for: vintage)
+                                    .frame(width: 42, alignment: .trailing)
                             }
-                            regionIndexText(for: vintage)
-                                .frame(width: 42, alignment: .trailing)
+                            .padding(.horizontal, 28)
+                            .padding(.vertical, 4)
+                            .background(ratio.map { vintageFactorColor($0).opacity(0.08) } ?? Color.clear)
                         }
                     }
+                    .padding(.horizontal, -28)
                 }
             }
 
