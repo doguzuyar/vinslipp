@@ -403,13 +403,14 @@ function addBadge(card) {
         : null;
       if (estimate > 0) {
         // Win price: vintage-adjusted expected value (producer avg hammer/bt x
-        // vintage index x bottles) when the lot resolves in live data; otherwise
-        // the estimate x producer ratio fallback.
+        // vintage index x bottles); bottle count from live data when the lot is
+        // in it, else inferred from the estimate (closed auctions). Falls back
+        // to estimate x producer ratio when the producer has no vintage data.
         const vintageInfo = getVintageExpected(lotTitle);
-        const liveWine = findLiveWineRating(card);
-        const vintageBased = vintageInfo && liveWine;
+        const vintageBased = !!vintageInfo;
+        const bottles = vintageBased ? lotBottleCount(card, lotTitle, estimate) : 1;
         const guaranteePrice = vintageBased
-          ? vintageInfo.expected * (liveWine.bottles || 1)
+          ? vintageInfo.expected * bottles
           : Math.round(estimate * getGuaranteeRatioForEstimate(estimate, lotTitle));
 
         const producerInfo = getProducerStatsInfo(lotTitle);
@@ -430,7 +431,7 @@ function addBadge(card) {
           });
 
           if (vintageBased) {
-            const bt = liveWine.bottles || 1;
+            const bt = bottles;
             const bottlesNote = bt > 1 ? ` x ${bt} bottles` : "";
             guaranteeEl.title = vintageInfo.source === "producer"
               ? `Producer's own ${vintageInfo.vintage} avg hammer/bt (${vintageInfo.lots} ${vintageInfo.lots === 1 ? "lot" : "lots"}), ${vintageInfo.factor.toFixed(2)}x producer avg${bottlesNote}`
@@ -712,6 +713,29 @@ function getVintageExpected(wineTitle) {
   };
 }
 
+// Bottles in a lot: from live data when the lot is in it. Closed-auction lots
+// are not, so mirror the scraper's inference: lot estimate / the producer's
+// single-bottle estimate (x region vintage index), snapped to a count Bukowskis
+// actually sells.
+const PLAUSIBLE_BOTTLE_COUNTS = [1, 2, 3, 4, 5, 6, 12];
+
+function lotBottleCount(card, wineTitle, estimate) {
+  const liveWine = findLiveWineRating(card);
+  if (liveWine) return liveWine.bottles || 1;
+  const stats = findProducerStats(wineTitle);
+  let ref = stats?.avg_estimate_sek;
+  if (!ref || !estimate) return 1;
+  const match = (wineTitle || "").match(/\b(19\d{2}|20\d{2})\b/);
+  let region = getBestVintageRegion();
+  if (!region && stats.regions && stats.regions.length === 1) region = stats.regions[0];
+  const factor = match && region ? bukowskisStats?.vintage_index?.[region]?.[match[1]] : null;
+  if (factor) ref *= factor;
+  const ratio = estimate / ref;
+  return PLAUSIBLE_BOTTLE_COUNTS.reduce((best, c) =>
+    Math.abs(ratio - c) < Math.abs(ratio - best) ? c : best
+  );
+}
+
 function getProducerStatsInfo(wineTitle) {
   if (!bukowskisStats) return null;
   const stats = findProducerStats(wineTitle);
@@ -756,9 +780,8 @@ function updateAllBadgeIndicators() {
     let indicatorColor = "#22c55e";
     if (hammer && hammer > 0) {
       const vintageInfo = getVintageExpected(wineTitle);
-      const liveWine = findLiveWineRating(card);
-      const guaranteePrice = vintageInfo && liveWine
-        ? vintageInfo.expected * (liveWine.bottles || 1)
+      const guaranteePrice = vintageInfo
+        ? vintageInfo.expected * lotBottleCount(card, wineTitle, estimate)
         : Math.round(estimate * getGuaranteeRatioForEstimate(estimate, wineTitle));
       indicatorColor = hammer <= guaranteePrice ? "#22c55e" : "#ef4444";
     }
