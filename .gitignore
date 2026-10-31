@@ -45,6 +45,7 @@ auction/cookies.txt
 auction/scraper.py
 auction/wines.json
 auction/rate_auction_wines.py
+auction/daily_auction.py
 auction/fix_producer_names.py
 auction/merge_stats.py
 auction/auction_stats copy.json
