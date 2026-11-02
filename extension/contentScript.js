@@ -2,7 +2,12 @@ const CARD_SELECTORS = [
   "a.bg-white.flex.flex-col.border-1.grow.border-black\\/10.rounded-sm.shadow-md.overflow-hidden.text-inherit.transition",
   "div.c-lot-index-lot",
   "div.c-lot-cell",
+  "div.c-my-pages-lot-card",
 ];
+
+// My pages (favourites) cards hold "Estimate 1 200 SEK" / "Current bid 2 000 SEK" as plain text.
+const ESTIMATE_SELECTOR = "[class*='estimate-value'], .c-my-pages-lot-card__estimate";
+const HAMMER_SELECTOR = "[class*='result-value'], .c-my-pages-lot-card__price";
 
 const BADGE_SRC = chrome.runtime.getURL("vinslipp.png");
 
@@ -201,7 +206,7 @@ function getBukowskisLotTitle(card) {
   const title = titleEl?.textContent?.trim() || "";
   const combined = [artist, title].filter(Boolean).join(" ").replace(/\.$/, "").trim();
   if (combined) return combined;
-  return card.querySelector(".c-lot-cell__title")?.textContent?.trim() || "";
+  return card.querySelector(".c-lot-cell__title, .c-my-pages-lot-card__title")?.textContent?.trim() || "";
 }
 
 function normalizeForMatch(str) {
@@ -318,7 +323,7 @@ function addBadge(card) {
   const titleParts = extractTitleParts(card);
   if (!titleParts.length) return;
 
-  const isBukowskis = card.matches("div.c-lot-index-lot, div.c-lot-cell");
+  const isBukowskis = card.matches("div.c-lot-index-lot, div.c-lot-cell, div.c-my-pages-lot-card");
   const normalizedParts = titleParts.map((part) =>
     isBukowskis ? part.replace(/\.$/, "").trim() : part
   );
@@ -390,8 +395,8 @@ function addBadge(card) {
   card.dataset.badgeInjected = "true";
 
   if (isBukowskis) {
-    const estimateEl = card.querySelector("[class*='estimate-value']");
-    const hammerEl = card.querySelector("[class*='result-value']");
+    const estimateEl = card.querySelector(ESTIMATE_SELECTOR);
+    const hammerEl = card.querySelector(HAMMER_SELECTOR);
     const estimateText = estimateEl?.textContent;
     const hammerText = hammerEl?.textContent;
     const lotTitle = getBukowskisLotTitle(card) || wineName;
@@ -440,10 +445,14 @@ function addBadge(card) {
             guaranteeEl.title = `Based on ${producerInfo.lots} historical sales\nAvg: ${producerInfo.premium >= 0 ? "+" : ""}${producerInfo.premium}% vs estimate`;
           }
 
-          estimateEl.parentNode.insertBefore(
-            guaranteeEl,
-            estimateEl.nextSibling
-          );
+          if (estimateEl.matches(".c-my-pages-lot-card__estimate")) {
+            estimateEl.appendChild(guaranteeEl);
+          } else {
+            estimateEl.parentNode.insertBefore(
+              guaranteeEl,
+              estimateEl.nextSibling
+            );
+          }
         }
 
         if (lotVintageIsBest(card, lotTitle)) {
@@ -487,14 +496,21 @@ function injectAllRatings() {
   const url = window.location.href;
 
   if (url.includes("bukowskis.com") && liveWinesById) {
-    document.querySelectorAll("div.c-lot-index-lot, div.c-lot-cell").forEach((card) => {
+    document.querySelectorAll("div.c-lot-index-lot, div.c-lot-cell, div.c-my-pages-lot-card").forEach((card) => {
       if (card.querySelector("[data-wine-rating]")) return;
       const wine = findLiveWineRating(card);
       if (!wine || !wine.rating_score) return;
+      const ratingEl = createRatingEl(wine.rating_score, wine.rating_reason);
+      // My pages cards: keep the rating above the "Place a bid" button.
+      const cta = card.querySelector(".c-my-pages-lot-card__call-to-action");
+      if (cta) {
+        card.insertBefore(ratingEl, cta);
+        return;
+      }
       // Inside the price block, right under the Estimate row: the card itself is a
       // flex column with a gap, so appending to the card leaves an empty band.
       const target = card.querySelector("[class*='price-block']") || card;
-      target.appendChild(createRatingEl(wine.rating_score, wine.rating_reason));
+      target.appendChild(ratingEl);
     });
   }
 
@@ -762,8 +778,8 @@ function updateAllBadgeIndicators() {
     );
     if (!indicator) return;
 
-    const estimateEl = card.querySelector("[class*='estimate-value']");
-    const hammerEl = card.querySelector("[class*='result-value']");
+    const estimateEl = card.querySelector(ESTIMATE_SELECTOR);
+    const hammerEl = card.querySelector(HAMMER_SELECTOR);
     const estimateText = estimateEl?.textContent;
     const hammerText = hammerEl?.textContent;
     const wineTitle = getBukowskisLotTitle(card);
