@@ -29,17 +29,11 @@ struct ContentView: View {
                     }
                     .tag(2)
 
-                BlogTab()
-                    .tabItem {
-                        Label("Blog", systemImage: "doc.text")
-                    }
-                    .tag(3)
-
                 ProfileTab()
                     .tabItem {
                         Label("Profile", systemImage: "person.circle")
                     }
-                    .tag(4)
+                    .tag(3)
             }
             .tint(Color.primary)
             .environmentObject(cellarService)
@@ -52,16 +46,13 @@ struct ContentView: View {
             }
         }
         .statusBarHidden()
-        .onChange(of: dataService.isLoading) {
-            if !dataService.isLoading && dataService.releaseData != nil {
-                withAnimation(.easeInOut(duration: 0.8)) {
-                    showSplash = false
-                }
-            }
-        }
         .task {
             if dataService.releaseData == nil {
                 await dataService.loadReleases()
+            }
+            // Lift the splash after the first attempt either way, so a failed load shows ReleaseTab's Retry.
+            withAnimation(.easeInOut(duration: 0.8)) {
+                showSplash = false
             }
             if dataService.auctionData == nil {
                 await dataService.loadAuction()
@@ -72,11 +63,6 @@ struct ContentView: View {
                 UNUserNotificationCenter.current().removeAllDeliveredNotifications()
                 UNUserNotificationCenter.current().setBadgeCount(0) { _ in }
             }
-        }
-        .onReceive(appDelegate.$pendingShortcutTab) { tab in
-            guard let tab else { return }
-            appDelegate.pendingShortcutTab = nil
-            appDelegate.selectedTab = appDelegate.tabIndex(from: tab)
         }
     }
 }

@@ -25,7 +25,13 @@ enum DateFormatters {
         return f
     }
 
-    static let iso = formatter("yyyy-MM-dd")
+    // Fixed Gregorian/POSIX so yyyy-MM-dd matches the data's launch dates on any device calendar.
+    static let iso: DateFormatter = {
+        let f = formatter("yyyy-MM-dd")
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.calendar = Calendar(identifier: .gregorian)
+        return f
+    }()
     static let shortTimestamp = formatter("MMM d, HH:mm")
     static let monthAbbrev = formatter("MMM")
 
@@ -57,39 +63,6 @@ enum NotificationTopics {
     ]
 
     static let allValues: [String] = all.map(\.value)
-}
-
-// MARK: - Swipe Topics
-
-enum SwipeTopics {
-    static let all: [(value: String, label: String)] = [
-        ("all", "All Wines"),
-        ("favorites", "Favorites"),
-        ("french-red", "French Red"),
-        ("french-white", "French White"),
-        ("italian-red", "Italian Red"),
-        ("italian-white", "Italian White"),
-    ]
-
-    private static let topicFilters: [String: (country: String, wineType: String)] = [
-        "french-red": ("France", "Red Wine"),
-        "french-white": ("France", "White Wine"),
-        "italian-red": ("Italy", "Red Wine"),
-        "italian-white": ("Italy", "White Wine"),
-    ]
-
-    @MainActor
-    static func filter(_ wines: [ReleaseWine], topic: String, favorites: FavoritesStore) -> [ReleaseWine] {
-        switch topic {
-        case "all":
-            return wines
-        case "favorites":
-            return wines.filter { favorites.isFavorite($0.productNumber) }
-        default:
-            guard let f = topicFilters[topic] else { return wines }
-            return wines.filter { $0.countryEnglish == f.country && $0.wineTypeEnglish == f.wineType }
-        }
-    }
 }
 
 // MARK: - Search Bar

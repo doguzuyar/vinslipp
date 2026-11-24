@@ -3,16 +3,11 @@ import FirebaseAuth
 import FirebaseMessaging
 
 struct ProfileTab: View {
-    @EnvironmentObject var appDelegate: AppDelegate
     @EnvironmentObject var cellarService: CellarService
     @StateObject private var authManager = AuthManager()
-    @AppStorage("notification_topic", store: UserDefaults(suiteName: FavoritesStore.appGroup)) private var notificationTopic = "none"
+    @AppStorage("notification_topic", store: AppDelegate.sharedDefaults) private var notificationTopic = "none"
     @AppStorage("app_theme") private var appTheme = "dark"
-    @AppStorage("swipe_topic") private var swipeTopic = "none"
-    @AppStorage("swipe_last_shown") private var swipeLastShown = ""
     @State private var showNotifications = false
-    @State private var showSwipeSettings = false
-    @State private var showNotificationCenter = false
     @State private var showDeleteConfirm = false
     @State private var deleteErrorMessage: String?
 
@@ -25,12 +20,6 @@ struct ProfileTab: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .overlay(alignment: .topTrailing) {
-            notificationBellButton
-        }
-        .sheet(isPresented: $showNotificationCenter) {
-            NotificationCenterView(store: appDelegate.notificationStore)
-        }
         .onChange(of: notificationTopic) { _, newValue in
             for topic in NotificationTopics.allValues {
                 Messaging.messaging().unsubscribe(fromTopic: topic)
@@ -39,33 +28,6 @@ struct ProfileTab: View {
                 Messaging.messaging().subscribe(toTopic: newValue)
             }
         }
-    }
-
-    // MARK: - Notification Bell
-
-    private var notificationBellButton: some View {
-        Button {
-            showNotificationCenter = true
-        } label: {
-            ZStack(alignment: .topTrailing) {
-                Image(systemName: "bell")
-                    .font(.system(size: 18))
-                    .foregroundStyle(.primary)
-                    .padding(10)
-
-                if appDelegate.notificationStore.unreadCount > 0 {
-                    Text("\(appDelegate.notificationStore.unreadCount)")
-                        .font(.system(size: 10, weight: .bold))
-                        .foregroundStyle(.white)
-                        .frame(minWidth: 16, minHeight: 16)
-                        .background(Color.red)
-                        .clipShape(Circle())
-                        .offset(x: -2, y: 2)
-                }
-            }
-        }
-        .padding(.top, 8)
-        .padding(.trailing, 12)
     }
 
     // MARK: - Signed Out
@@ -91,7 +53,6 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
-            swipeButton
 
             Spacer()
         }
@@ -126,7 +87,6 @@ struct ProfileTab: View {
 
             themeButton
             notificationButton
-            swipeButton
 
             Button {
                 authManager.signOut()
@@ -152,8 +112,9 @@ struct ProfileTab: View {
         }
         .alert("Delete Account", isPresented: $showDeleteConfirm) {
             Button("Delete Account", role: .destructive) {
+                cellarService.cancelPendingPush()
                 authManager.deleteAccount(
-                    onSuccess: { },
+                    onSuccess: { cellarService.forgetCloudAccount() },
                     onError: { err in deleteErrorMessage = err.localizedDescription }
                 )
             }
@@ -262,22 +223,6 @@ struct ProfileTab: View {
             selectedValue: notificationTopic
         ) { value in
             notificationTopic = notificationTopic == value ? "none" : value
-        }
-    }
-
-    // MARK: - Swipe Mode
-
-    private var swipeButton: some View {
-        ExpandableSettingButton(
-            icon: "rectangle.portrait.on.rectangle.portrait.angled",
-            title: "Swipe Mode",
-            statusLabel: topicLabel(swipeTopic, in: SwipeTopics.all),
-            isExpanded: $showSwipeSettings,
-            options: SwipeTopics.all,
-            selectedValue: swipeTopic
-        ) { value in
-            swipeTopic = swipeTopic == value ? "none" : value
-            swipeLastShown = ""
         }
     }
 

@@ -24,8 +24,6 @@
 		AA00000A000000000000AA01 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000A000000000000AA00 /* Colors.swift */; };
 		BB000001000000000000BB01 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000001000000000000BB00 /* ProfileTab.swift */; };
 		CC000001000000000000CC01 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CC000001000000000000CC00 /* FirebaseFirestore */; };
-		CC000002000000000000CC01 /* BlogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002000000000000CC00 /* BlogService.swift */; };
-		CC000003000000000000CC01 /* BlogTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000003000000000000CC00 /* BlogTab.swift */; };
 		DD000001000000000000DD01 /* AuctionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000001000000000000DD00 /* AuctionModels.swift */; };
 		DD000002000000000000DD01 /* AuctionTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002000000000000DD00 /* AuctionTab.swift */; };
 		EE000001000000000000EE01 /* CellarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000001000000000000EE00 /* CellarModels.swift */; };
@@ -35,39 +33,8 @@
 		EE000005000000000000EE01 /* WineEditSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000005000000000000EE02 /* WineEditSheet.swift */; };
 		F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */; };
 		FF000001000000000000FF01 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000001000000000000FF00 /* SafariView.swift */; };
-		FF000002000000000000FF01 /* ShortcutSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */; };
-		GG000001000000000000GG01 /* NotificationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = GG000001000000000000GG00 /* NotificationStore.swift */; };
-		GG000002000000000000GG01 /* NotificationCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = GG000002000000000000GG00 /* NotificationCenterView.swift */; };
-		HH000001000000000000HH01 /* FavoritesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = HH000001000000000000HH00 /* FavoritesStore.swift */; };
-		NS000001000000000000NS01 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = NS000001000000000000NS00 /* NotificationService.swift */; };
-		NS000010000000000000NS01 /* NotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = NS000004000000000000NS00 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		SW000001000000000000SW01 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = SW000001000000000000SW00 /* SwipeView.swift */; };
 		WS000001000000000000WS01 /* WineSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = WS000001000000000000WS00 /* WineSuggestion.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		NS00000D000000000000NS00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = NS000006000000000000NS00;
-			remoteInfo = NotificationServiceExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		NS00000F000000000000NS00 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				NS000010000000000000NS01 /* NotificationServiceExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		504EC3041FED79650016851F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,8 +55,6 @@
 		AA000008000000000000AA00 /* WineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineDetail.swift; sourceTree = "<group>"; };
 		AA00000A000000000000AA00 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BB000001000000000000BB00 /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
-		CC000002000000000000CC00 /* BlogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogService.swift; sourceTree = "<group>"; };
-		CC000003000000000000CC00 /* BlogTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTab.swift; sourceTree = "<group>"; };
 		DD000001000000000000DD00 /* AuctionModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionModels.swift; sourceTree = "<group>"; };
 		DD000002000000000000DD00 /* AuctionTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuctionTab.swift; sourceTree = "<group>"; };
 		EE000001000000000000EE00 /* CellarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellarModels.swift; sourceTree = "<group>"; };
@@ -99,15 +64,6 @@
 		EE000005000000000000EE02 /* WineEditSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineEditSheet.swift; sourceTree = "<group>"; };
 		F1F1F1F12F3A5C2E00F1F1F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF000001000000000000FF00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSceneDelegate.swift; sourceTree = "<group>"; };
-		GG000001000000000000GG00 /* NotificationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStore.swift; sourceTree = "<group>"; };
-		GG000002000000000000GG00 /* NotificationCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterView.swift; sourceTree = "<group>"; };
-		HH000001000000000000HH00 /* FavoritesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStore.swift; sourceTree = "<group>"; };
-		NS000001000000000000NS00 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		NS000002000000000000NS00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		NS000003000000000000NS00 /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
-		NS000004000000000000NS00 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		SW000001000000000000SW00 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		WS000001000000000000WS00 /* WineSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSuggestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,13 +78,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		NS000008000000000000NS00 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -137,7 +86,6 @@
 			children = (
 				958DCC722DB07C7200EA8C5F /* debug.xcconfig */,
 				504EC3061FED79650016851F /* App */,
-				NS000005000000000000NS00 /* NotificationServiceExtension */,
 				7E59BEE12F3CF263005F7386 /* Frameworks */,
 				504EC3051FED79650016851F /* Products */,
 			);
@@ -147,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				504EC3041FED79650016851F /* App.app */,
-				NS000004000000000000NS00 /* NotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,7 +105,6 @@
 				7EA44BDD2F3A5C63006789FF /* App.entitlements */,
 				AA000001000000000000AA00 /* VinslippApp.swift */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
-				FF000002000000000000FF00 /* ShortcutSceneDelegate.swift */,
 				7E59BEE62F3D02BF005F7386 /* AppleSignInHandler.swift */,
 				AA00000B000000000000AA00 /* Models */,
 				AA00000C000000000000AA00 /* Services */,
@@ -186,8 +132,6 @@
 				DD000001000000000000DD00 /* AuctionModels.swift */,
 				EE000001000000000000EE00 /* CellarModels.swift */,
 				WS000001000000000000WS00 /* WineSuggestion.swift */,
-				GG000001000000000000GG00 /* NotificationStore.swift */,
-				HH000001000000000000HH00 /* FavoritesStore.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				AA000003000000000000AA00 /* DataService.swift */,
-				CC000002000000000000CC00 /* BlogService.swift */,
 				EE000002000000000000EE00 /* CellarService.swift */,
 			);
 			path = Services;
@@ -208,7 +151,6 @@
 				AA000004000000000000AA00 /* ContentView.swift */,
 				FF000001000000000000FF00 /* SafariView.swift */,
 				AA00000F000000000000AA00 /* Release */,
-				CC000004000000000000CC00 /* Blog */,
 				DD000003000000000000DD00 /* Auction */,
 				EE000005000000000000EE00 /* Cellar */,
 				BB000002000000000000BB00 /* Profile */,
@@ -231,7 +173,6 @@
 				AA000006000000000000AA00 /* MiniCalendar.swift */,
 				AA000007000000000000AA00 /* WineRow.swift */,
 				AA000008000000000000AA00 /* WineDetail.swift */,
-				SW000001000000000000SW00 /* SwipeView.swift */,
 			);
 			path = Release;
 			sourceTree = "<group>";
@@ -240,17 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				BB000001000000000000BB00 /* ProfileTab.swift */,
-				GG000002000000000000GG00 /* NotificationCenterView.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		CC000004000000000000CC00 /* Blog */ = {
-			isa = PBXGroup;
-			children = (
-				CC000003000000000000CC00 /* BlogTab.swift */,
-			);
-			path = Blog;
 			sourceTree = "<group>";
 		};
 		DD000003000000000000DD00 /* Auction */ = {
@@ -271,16 +203,6 @@
 			path = Cellar;
 			sourceTree = "<group>";
 		};
-		NS000005000000000000NS00 /* NotificationServiceExtension */ = {
-			isa = PBXGroup;
-			children = (
-				NS000003000000000000NS00 /* NotificationServiceExtension.entitlements */,
-				NS000001000000000000NS00 /* NotificationService.swift */,
-				NS000002000000000000NS00 /* Info.plist */,
-			);
-			path = NotificationServiceExtension;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,12 +213,10 @@
 				504EC3001FED79650016851F /* Sources */,
 				504EC3011FED79650016851F /* Frameworks */,
 				504EC3021FED79650016851F /* Resources */,
-				NS00000F000000000000NS00 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				NS00000E000000000000NS00 /* PBXTargetDependency */,
 			);
 			name = App;
 			packageProductDependencies = (
@@ -307,23 +227,6 @@
 			productName = App;
 			productReference = 504EC3041FED79650016851F /* App.app */;
 			productType = "com.apple.product-type.application";
-		};
-		NS000006000000000000NS00 /* NotificationServiceExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = NS00000C000000000000NS00 /* Build configuration list for PBXNativeTarget "NotificationServiceExtension" */;
-			buildPhases = (
-				NS000007000000000000NS00 /* Sources */,
-				NS000008000000000000NS00 /* Frameworks */,
-				NS000009000000000000NS00 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = NotificationServiceExtension;
-			productName = NotificationServiceExtension;
-			productReference = NS000004000000000000NS00 /* NotificationServiceExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -338,9 +241,6 @@
 					504EC3031FED79650016851F = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1100;
-					};
-					NS000006000000000000NS00 = {
-						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -361,7 +261,6 @@
 			projectRoot = "";
 			targets = (
 				504EC3031FED79650016851F /* App */,
-				NS000006000000000000NS00 /* NotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -374,13 +273,6 @@
 				504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */,
 				504EC30F1FED79650016851F /* Assets.xcassets in Resources */,
 				F1F1F1F22F3A5C2E00F1F1F1 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		NS000009000000000000NS00 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +295,6 @@
 				AA000008000000000000AA01 /* WineDetail.swift in Sources */,
 				AA00000A000000000000AA01 /* Colors.swift in Sources */,
 				BB000001000000000000BB01 /* ProfileTab.swift in Sources */,
-				CC000002000000000000CC01 /* BlogService.swift in Sources */,
-				CC000003000000000000CC01 /* BlogTab.swift in Sources */,
 				DD000001000000000000DD01 /* AuctionModels.swift in Sources */,
 				DD000002000000000000DD01 /* AuctionTab.swift in Sources */,
 				EE000001000000000000EE01 /* CellarModels.swift in Sources */,
@@ -414,31 +304,10 @@
 				EE000004000000000000EE01 /* CellarTab.swift in Sources */,
 				EE000005000000000000EE01 /* WineEditSheet.swift in Sources */,
 				FF000001000000000000FF01 /* SafariView.swift in Sources */,
-				FF000002000000000000FF01 /* ShortcutSceneDelegate.swift in Sources */,
-				GG000001000000000000GG01 /* NotificationStore.swift in Sources */,
-				GG000002000000000000GG01 /* NotificationCenterView.swift in Sources */,
-				HH000001000000000000HH01 /* FavoritesStore.swift in Sources */,
-				SW000001000000000000SW01 /* SwipeView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		NS000007000000000000NS00 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				NS000001000000000000NS01 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		NS00000E000000000000NS00 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = NS000006000000000000NS00 /* NotificationServiceExtension */;
-			targetProxy = NS00000D000000000000NS00 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		504EC3101FED79650016851F /* LaunchScreen.storyboard */ = {
@@ -631,57 +500,6 @@
 			};
 			name = Release;
 		};
-		NS00000A000000000000NS00 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6XH2FW8MMS;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nybroans.vinslipp.notificationservice;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		NS00000B000000000000NS00 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6XH2FW8MMS;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nybroans.vinslipp.notificationservice;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -699,15 +517,6 @@
 			buildConfigurations = (
 				504EC3171FED79650016851F /* Debug */,
 				504EC3181FED79650016851F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		NS00000C000000000000NS00 /* Build configuration list for PBXNativeTarget "NotificationServiceExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				NS00000A000000000000NS00 /* Debug */,
-				NS00000B000000000000NS00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

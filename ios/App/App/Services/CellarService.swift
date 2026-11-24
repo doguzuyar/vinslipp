@@ -50,7 +50,6 @@ class CellarService: ObservableObject {
 
     init() {
         loadFromFile()
-        migrateFromUserDefaultsIfNeeded()
         setupAuthListener()
     }
 
@@ -118,18 +117,6 @@ class CellarService: ObservableObject {
         }
     }
 
-    func moveHistoryEntries(from source: IndexSet, to destination: Int) {
-        let indexed = entries.enumerated().filter { $0.element.status == .history }
-        let historyIndices = indexed.map { $0.offset }
-        var reordered = indexed.map { $0.element }
-        reordered.move(fromOffsets: source, toOffset: destination)
-
-        for (i, originalIndex) in historyIndices.enumerated() {
-            entries[originalIndex] = reordered[i]
-        }
-        save()
-    }
-
     /// Stores a hand-picked order for a group of cellar wines: each id gets its
     /// position in `ids` as its manualOrder.
     func setCellarOrder(_ ids: [UUID]) {
@@ -142,7 +129,20 @@ class CellarService: ObservableObject {
 
     func clearData() {
         entries = []
-        try? FileManager.default.removeItem(at: fileURL)
+        save()
+    }
+
+    /// After account deletion the local cellar stays on the device but no longer belongs to any
+    /// account, so the next sign-in treats it as fresh device data instead of another user's.
+    /// Stops a queued upload so it can't recreate cellar/{uid} while the account is being deleted.
+    func cancelPendingPush() {
+        pendingPushTask?.cancel()
+        pendingPushTask = nil
+    }
+
+    func forgetCloudAccount() {
+        UserDefaults.standard.removeObject(forKey: Self.lastSyncedUidKey)
+        syncStatus = .offline
     }
 
     // MARK: - Persistence (JSON in Documents)
@@ -173,102 +173,6 @@ class CellarService: ObservableObject {
         } catch {
             self.error = "Failed to load cellar: \(error.localizedDescription)"
         }
-    }
-
-    // MARK: - Migration from old UserDefaults format
-
-    private func migrateFromUserDefaultsIfNeeded() {
-        let defaults = UserDefaults.standard
-        let migrationKey = "cellar_migrated_v2"
-        guard !defaults.bool(forKey: migrationKey) else { return }
-        guard entries.isEmpty else {
-            defaults.set(true, forKey: migrationKey)
-            return
-        }
-
-        struct OldCellarWine: Codable {
-            let drinkYear: String
-            let winery: String
-            let wineName: String
-            let vintage: String
-            let region: String
-            let style: String
-            let price: String
-            let count: Int
-            let link: String
-            let color: String
-        }
-        struct OldCellarData: Codable {
-            let wines: [OldCellarWine]
-            let yearCounts: [String: Int]
-            let vintageCounts: [String: Int]
-            let totalBottles: Int
-            let totalValue: Int
-            let colorPalette: [String: String]
-            let vintagePalette: [String: String]
-        }
-        struct OldHistoryWine: Codable {
-            let winery: String
-            let wineName: String
-            let vintage: String
-            let region: String
-            let country: String
-            let style: String
-            let averageRating: String
-            let scanDate: String
-            let location: String
-            let userRating: String
-            let wineType: String
-            let link: String
-        }
-
-        if let data = defaults.data(forKey: "cellar_data"),
-           let old = try? JSONDecoder().decode(OldCellarData.self, from: data) {
-            for wine in old.wines {
-                entries.append(CellarEntry(
-                    status: .cellar,
-                    winery: wine.winery,
-                    wineName: wine.wineName,
-                    vintage: wine.vintage,
-                    region: wine.region,
-                    style: wine.style,
-                    price: wine.price,
-                    count: wine.count,
-                    drinkYear: wine.drinkYear,
-                    links: wine.link.isEmpty ? [] : [wine.link],
-                    source: .imported
-                ))
-            }
-        }
-
-        if let data = defaults.data(forKey: "history_data"),
-           let old = try? JSONDecoder().decode([OldHistoryWine].self, from: data) {
-            for wine in old {
-                entries.append(CellarEntry(
-                    status: .history,
-                    winery: wine.winery,
-                    wineName: wine.wineName,
-                    vintage: wine.vintage,
-                    region: wine.region,
-                    country: wine.country,
-                    style: wine.style,
-                    wineType: wine.wineType,
-                    links: wine.link.isEmpty ? [] : [wine.link],
-                    userRating: wine.userRating,
-                    averageRating: wine.averageRating,
-                    source: .imported
-                ))
-            }
-        }
-
-        if !entries.isEmpty {
-            save()
-        }
-
-        defaults.removeObject(forKey: "cellar_data")
-        defaults.removeObject(forKey: "history_data")
-        defaults.removeObject(forKey: "cellar_imported_at")
-        defaults.set(true, forKey: migrationKey)
     }
 
     // MARK: - CSV Export
@@ -612,9 +516,22 @@ class CellarService: ObservableObject {
             let previousUid = UserDefaults.standard.string(forKey: Self.lastSyncedUidKey)
             let isFirstSyncOnDevice = previousUid == nil
 
-            if cloud.isEmpty {
-                if !entries.isEmpty { try await pushAll() }
-            } else if isFirstSyncOnDevice && !entries.isEmpty {
+            // nil means this account has never backed up; an existing but empty
+            // cellar is a deliberate Clear All and must not be refilled from this device.
+            guard let cloud else {
+                if !entries.isEmpty && (isFirstSyncOnDevice || previousUid == uid) {
+                    try await pushAll()
+                } else {
+                    suppressAutoPush = true
+                    entries = []
+                    saveLocal()
+                    suppressAutoPush = false
+                }
+                UserDefaults.standard.set(uid, forKey: Self.lastSyncedUidKey)
+                syncStatus = .synced(Date())
+                return
+            }
+            if isFirstSyncOnDevice && !entries.isEmpty {
                 // First sign-in on this device with both local and cloud data:
                 // union by id so wines added while signed-out aren't lost.
                 // Cloud wins on id conflicts.
@@ -629,7 +546,8 @@ class CellarService: ObservableObject {
                 }
             } else {
                 // Subsequent sign-in (or account switch): cloud is the truth
-                // so deletions made on other devices propagate.
+                // so deletions made on other devices propagate, and a previous
+                // account's local cellar is never uploaded into a different account.
                 suppressAutoPush = true
                 entries = cloud
                 saveLocal()
@@ -678,11 +596,11 @@ class CellarService: ObservableObject {
         try await ref.setData(payload)
     }
 
-    private func fetchCloudEntries() async throws -> [CellarEntry] {
+    private func fetchCloudEntries() async throws -> [CellarEntry]? {
         let ref = try userCellarDocRef()
         let snapshot = try await ref.getDocument()
         guard let data = snapshot.data(),
-              let arr = data["entries"] as? [[String: Any]] else { return [] }
+              let arr = data["entries"] as? [[String: Any]] else { return nil }
         return arr.compactMap { decodeFromCloud(dict: $0) }
     }
 

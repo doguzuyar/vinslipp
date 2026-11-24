@@ -23,7 +23,7 @@ struct CellarTab: View {
     @State private var expandedWineId: UUID?
     @AppStorage("cellar_sortField") private var sortField: CellarSortField = .year
     @AppStorage("cellar_sortDirection") private var sortDirection: SortDirection = .ascending
-    @AppStorage("cellar_searchText") private var searchText = ""
+    @State private var searchText = ""
     @State private var showFilePicker = false
     @AppStorage("cellar_chartMode") private var showVintage = false
     @AppStorage("cellar_showHistory") private var showHistory = false
@@ -31,6 +31,8 @@ struct CellarTab: View {
     @State private var editingEntry: CellarEntry?
     @State private var shareURL: URL?
     @State private var deleteCandidate: CellarEntry?
+    @State private var showClearConfirm = false
+    @State private var showImportConfirm = false
 
     private var isSideBySide: Bool {
         UIDevice.current.userInterfaceIdiom == .pad
@@ -72,13 +74,13 @@ struct CellarTab: View {
 
     var body: some View {
         Group {
-            if let data = cellarService.cellarData {
-                if showHistory {
-                    VStack(spacing: 0) {
-                        historyBar
-                        historyList
-                    }
-                } else if isSideBySide {
+            if showHistory && cellarService.hasHistory {
+                VStack(spacing: 0) {
+                    historyBar
+                    historyList
+                }
+            } else if let data = cellarService.cellarData {
+                if isSideBySide {
                     HStack(alignment: .top, spacing: 0) {
                         VStack(spacing: 8) {
                             BottleChart(
@@ -126,7 +128,7 @@ struct CellarTab: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            if cellarService.cellarData != nil || showHistory {
+            if cellarService.cellarData != nil || (showHistory && cellarService.hasHistory) {
                 searchBar
             }
         }
@@ -191,6 +193,40 @@ struct CellarTab: View {
                 Text("What would you like to do with \(entry.winery) \(entry.wineName)?")
             }
         }
+        .alert("Clear All Wines?", isPresented: $showClearConfirm) {
+            Button("Clear All", role: .destructive) {
+                cellarService.clearData()
+                selectedYear = nil
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("This removes every wine in your cellar and history. Export first if you want a backup.")
+        }
+        .alert("Replace Your Cellar?", isPresented: $showImportConfirm) {
+            Button("Import", role: .destructive) { showFilePicker = true }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Importing replaces all wines currently in your cellar and history. Export first if you want a backup.")
+        }
+        .alert(
+            "Cellar Error",
+            isPresented: Binding(
+                get: { cellarService.error != nil },
+                set: { if !$0 { cellarService.error = nil } }
+            )
+        ) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(cellarService.error ?? "")
+        }
+    }
+
+    private func requestImport() {
+        if cellarService.entries.isEmpty {
+            showFilePicker = true
+        } else {
+            showImportConfirm = true
+        }
     }
 
     // MARK: - Empty State
@@ -223,7 +259,7 @@ struct CellarTab: View {
                 }
 
                 Button {
-                    showFilePicker = true
+                    requestImport()
                 } label: {
                     Label("Import Cellar", systemImage: "doc.badge.plus")
                         .font(.subheadline.weight(.medium))
@@ -234,10 +270,13 @@ struct CellarTab: View {
                 }
             }
 
-            if let error = cellarService.error {
-                Text(error)
-                    .font(.caption)
-                    .foregroundStyle(.red)
+            if cellarService.hasHistory {
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) { showHistory = true }
+                } label: {
+                    Label("View History", systemImage: "clock.arrow.circlepath")
+                        .font(.caption.weight(.medium))
+                }
             }
 
             VStack(alignment: .leading, spacing: 10) {
@@ -267,7 +306,7 @@ struct CellarTab: View {
                     Image(systemName: "doc.badge.plus")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text("Import a previously exported Vinslipp cellar file")
+                    Text("Import a Vinslipp export, or your Vivino cellar CSV export")
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                 }
@@ -284,7 +323,7 @@ struct CellarTab: View {
     private func summaryBar(data: CellarData) -> some View {
         HStack(spacing: 6) {
             if cellarService.hasHistory {
-                FilterChip(label: "Cellar", isActive: false) {
+                FilterChip(label: "History", isActive: false) {
                     withAnimation(.easeInOut(duration: 0.2)) {
                         showHistory = true
                     }
@@ -330,14 +369,13 @@ struct CellarTab: View {
                     Label("Export Cellar", systemImage: "square.and.arrow.up")
                 }
                 Button {
-                    showFilePicker = true
+                    requestImport()
                 } label: {
                     Label("Import Cellar", systemImage: "doc.badge.plus")
                 }
                 Divider()
                 Button(role: .destructive) {
-                    cellarService.clearData()
-                    selectedYear = nil
+                    showClearConfirm = true
                 } label: {
                     Label("Clear All", systemImage: "trash")
                 }
@@ -402,7 +440,6 @@ struct CellarTab: View {
                         wine: wine,
                         isExpanded: expandedWineId == wine.id,
                         onEdit: { editingEntry = wine },
-                        onDelete: { deleteCandidate = wine },
                         onIncrement: { cellarService.incrementCount(id: wine.id) },
                         onDecrement: {
                             deleteCandidate = wine
@@ -441,7 +478,7 @@ struct CellarTab: View {
 
     private var historyBar: some View {
         HStack(spacing: 6) {
-            FilterChip(label: "History", isActive: false) {
+            FilterChip(label: "Cellar", isActive: false) {
                 withAnimation(.easeInOut(duration: 0.2)) {
                     showHistory = false
                 }
@@ -471,8 +508,6 @@ struct CellarTab: View {
 
     // MARK: - History List
 
-    @State private var draggedHistoryWine: CellarEntry?
-
     private var historyList: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
@@ -490,15 +525,6 @@ struct CellarTab: View {
                             expandedWineId = expandedWineId == wine.id ? nil : wine.id
                         }
                     }
-                    .onDrag {
-                        draggedHistoryWine = wine
-                        return NSItemProvider(object: wine.id.uuidString as NSString)
-                    }
-                    .onDrop(of: [.text], delegate: HistoryReorderDelegate(
-                        target: wine,
-                        draggedItem: $draggedHistoryWine,
-                        cellarService: cellarService
-                    ))
                     Divider().padding(.leading, 16)
                 }
             }
@@ -569,7 +595,6 @@ struct CellarWineRow: View {
     let wine: CellarEntry
     let isExpanded: Bool
     let onEdit: () -> Void
-    let onDelete: () -> Void
     let onIncrement: () -> Void
     let onDecrement: () -> Void
 
@@ -646,15 +671,6 @@ struct CellarWineRow: View {
         .background(
             isExpanded ? Color(hex: wine.color).opacity(0.15) : Color.clear
         )
-        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-            Button(role: .destructive, action: onDelete) {
-                Label("Delete", systemImage: "trash")
-            }
-            Button(action: onEdit) {
-                Label("Edit", systemImage: "pencil")
-            }
-            .tint(.blue)
-        }
     }
 }
 
@@ -835,36 +851,6 @@ struct ActivityView: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
-}
-
-// MARK: - History Reorder Drop Delegate
-
-private struct HistoryReorderDelegate: DropDelegate {
-    let target: CellarEntry
-    @Binding var draggedItem: CellarEntry?
-    let cellarService: CellarService
-
-    func dropUpdated(info: DropInfo) -> DropProposal? {
-        DropProposal(operation: .move)
-    }
-
-    func dropEntered(info: DropInfo) {
-        guard let dragged = draggedItem, dragged.id != target.id else { return }
-        let history = cellarService.historyEntries
-        guard let fromIndex = history.firstIndex(where: { $0.id == dragged.id }),
-              let toIndex = history.firstIndex(where: { $0.id == target.id }) else { return }
-        withAnimation {
-            cellarService.moveHistoryEntries(
-                from: IndexSet(integer: fromIndex),
-                to: toIndex > fromIndex ? toIndex + 1 : toIndex
-            )
-        }
-    }
-
-    func performDrop(info: DropInfo) -> Bool {
-        draggedItem = nil
-        return true
-    }
 }
 
 // MARK: - Cellar Reorder Drop Delegate

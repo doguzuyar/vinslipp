@@ -26,49 +26,6 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemIconSymbolName</key>
-			<string>clock</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Releases</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.nybroans.vinslipp.release</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconSymbolName</key>
-			<string>cube.box</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Cellar</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.nybroans.vinslipp.cellar</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconSymbolName</key>
-			<string>doc.text</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Blog</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.nybroans.vinslipp.blog</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconSymbolName</key>
-			<string>dollarsign.circle</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Auction</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.nybroans.vinslipp.auction</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconSymbolName</key>
-			<string>person.circle</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Profile</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.nybroans.vinslipp.profile</string>
-		</dict>
-	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -79,6 +36,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -90,8 +49,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIStatusBarHidden</key>
-	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>

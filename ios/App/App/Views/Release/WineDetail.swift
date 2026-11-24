@@ -1,11 +1,8 @@
 import SwiftUI
-import FirebaseAuth
 
 struct WineDetail: View {
     let wine: ReleaseWine
-    @EnvironmentObject var appDelegate: AppDelegate
     @EnvironmentObject var cellarService: CellarService
-    @State private var showBlogSheet = false
     @State private var showAddToCellar = false
     @State private var safariURL: URL?
 
@@ -32,14 +29,10 @@ struct WineDetail: View {
                             Label("Systembolaget", systemImage: "cart")
                         }
                     }
-                    Button { showBlogSheet = true } label: {
-                        Label("Blog", systemImage: "square.and.pencil")
-                    }
                     Button { showAddToCellar = true } label: {
                         Label("Cellar", systemImage: "plus.circle")
                     }
                     Spacer()
-                    favoriteButton
                 }
                 .font(.caption.weight(.medium))
 
@@ -65,10 +58,6 @@ struct WineDetail: View {
         }
         .padding(.horizontal, 28)
         .padding(.bottom, 10)
-        .sheet(isPresented: $showBlogSheet) {
-            BlogSheet(wine: wine)
-                .presentationDetents([.medium])
-        }
         .sheet(item: $safariURL) { url in
             SafariView(url: url)
                 .ignoresSafeArea()
@@ -93,133 +82,6 @@ struct WineDetail: View {
             ) { entry in
                 cellarService.addEntry(entry)
             }
-        }
-    }
-
-    private var favoriteButton: some View {
-        let isFavorite = appDelegate.favoritesStore.isFavorite(wine.productNumber)
-        return Button {
-            withAnimation(.easeInOut(duration: 0.2)) {
-                appDelegate.favoritesStore.toggle(wine.productNumber)
-            }
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        } label: {
-            Image(systemName: isFavorite ? "heart.fill" : "heart")
-                .foregroundStyle(isFavorite ? .red : .secondary)
-        }
-    }
-}
-
-// MARK: - Blog Sheet
-
-private struct BlogSheet: View {
-    let wine: ReleaseWine
-    @Environment(\.dismiss) private var dismiss
-    @State private var comment = ""
-    @State private var hideName = false
-    @State private var isPosting = false
-    @State private var posted = false
-    @StateObject private var blogService = BlogService()
-
-    private var isSignedIn: Bool {
-        Auth.auth().currentUser != nil
-    }
-
-    var body: some View {
-        NavigationStack {
-            VStack(spacing: 16) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(wine.producer)
-                        .font(.subheadline.weight(.semibold))
-                    Text("\(wine.wineName) \(wine.vintage)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                if isSignedIn {
-                    if posted {
-                        VStack(spacing: 8) {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.title)
-                                .foregroundStyle(.green)
-                            Text("Posted!")
-                                .font(.subheadline.weight(.medium))
-                            Text("Your note will appear in the blog within a few hours.")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                        }
-                        .frame(maxHeight: .infinity)
-                    } else if blogService.hasPostedToday {
-                        VStack(spacing: 8) {
-                            Image(systemName: "clock.fill")
-                                .font(.title)
-                                .foregroundStyle(.secondary)
-                            Text("You've already posted today")
-                                .font(.subheadline.weight(.medium))
-                            Text("Come back tomorrow!")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        .frame(maxHeight: .infinity)
-                    } else {
-                        TextField("Write your notes...", text: $comment, axis: .vertical)
-                            .lineLimit(4...6)
-                            .textFieldStyle(.roundedBorder)
-
-                        HStack {
-                            Text("\(comment.count)/140")
-                                .font(.caption2)
-                                .foregroundStyle(comment.count > 130 ? .red : .secondary)
-                            Spacer()
-                            Button { hideName.toggle() } label: {
-                                Label("Hide name", systemImage: hideName ? "person.slash.fill" : "person.slash")
-                                    .font(.subheadline.weight(.medium))
-                                    .foregroundStyle(hideName ? .primary : .tertiary)
-                            }
-                            Spacer()
-                            Button("Post") {
-                                Task { await post() }
-                            }
-                            .font(.subheadline.weight(.medium))
-                            .disabled(comment.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isPosting || comment.count > 140)
-                        }
-                    }
-                } else {
-                    Spacer()
-                    Text("Sign in to write your notes")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                }
-
-                Spacer()
-            }
-            .padding(20)
-            .navigationTitle("Blog")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") { dismiss() }
-                }
-            }
-        }
-    }
-
-    private func post() async {
-        isPosting = true
-        defer { isPosting = false }
-        let success = await blogService.addPost(
-            wineId: wine.productNumber,
-            wineName: wine.wineName,
-            winery: wine.producer,
-            vintage: wine.vintage,
-            comment: comment.trimmingCharacters(in: .whitespacesAndNewlines),
-            displayName: hideName ? "Vinslipp User" : nil
-        )
-        if success {
-            posted = true
         }
     }
 }

@@ -12,16 +12,13 @@ service cloud.firestore {
       allow read, write: if request.auth != null && request.auth.uid == uid;
     }
 
-    // Blog posts. Reads are public (the client filters by moderationStatus).
-    // Authenticated users may create posts attributed to themselves only,
-    // and may delete only their own posts. No edits.
+    // Blog posts (feature retired). Reads stay public so older app versions
+    // still load; nobody can post anymore. Owners may delete their own posts
+    // (used by account deletion). No edits.
     match /blog_posts/{postId} {
       allow read: if true;
 
-      allow create: if request.auth != null
-                    && request.resource.data.userId == request.auth.uid
-                    && request.resource.data.comment is string
-                    && request.resource.data.comment.size() <= 2000;
+      allow create: if false;
 
       allow delete: if request.auth != null
                     && resource.data.userId == request.auth.uid;
