@@ -1,37 +1,27 @@
 import SwiftUI
 
 enum AuctionSortField: String, CaseIterable {
-    case producer, lots, sold, sellRate, estimate, hammer, ratio, premium
+    case producer, lots, ratio, hammer
 
     var label: String {
         switch self {
         case .producer: return "Producer"
         case .lots: return "Lots"
-        case .sold: return "Sold"
-        case .sellRate: return "Sell %"
-        case .estimate: return "Est."
-        case .hammer: return "Hammer"
         case .ratio: return "Ratio"
-        case .premium: return "Prem."
+        case .hammer: return "Hammer"
         }
     }
 }
 
 struct AuctionTab: View {
     @ObservedObject var dataService: DataService
-    @AppStorage("auction_searchText") private var searchText = ""
+    @State private var searchText = ""
     @State private var expandedProducerId: String?
     @AppStorage("auction_sortField") private var sortField: AuctionSortField = .lots
     @AppStorage("auction_sortDirection") private var sortDirection: SortDirection = .descending
     @AppStorage("auction_showLive") private var showLive = false
     @AppStorage("auction_showVintageAnalysis") private var showVintageAnalysis = false
     @AppStorage("live_selectedRating") private var liveSelectedRating = ""
-    @AppStorage("auction_selectedCountriesData") private var auctionSelectedCountriesData: Data = {
-        (try? JSONEncoder().encode(Set(["France"]))) ?? Data()
-    }()
-    @AppStorage("auction_selectedTypesData") private var auctionSelectedTypesData: Data = {
-        (try? JSONEncoder().encode(Set(["Red Wine"]))) ?? Data()
-    }()
     @AppStorage("auction_selectedRegionsData") private var auctionSelectedRegionsData: Data = {
         (try? JSONEncoder().encode(Set(["Bordeaux", "Burgundy"]))) ?? Data()
     }()
@@ -50,29 +40,27 @@ struct AuctionTab: View {
         }
     }
 
-    private var auctionSelectedCountries: Set<String> {
-        get { decodeSet(auctionSelectedCountriesData) }
-        nonmutating set { auctionSelectedCountriesData = encodeSet(newValue) }
-    }
-
-    private var auctionSelectedTypes: Set<String> {
-        get { decodeSet(auctionSelectedTypesData) }
-        nonmutating set { auctionSelectedTypesData = encodeSet(newValue) }
-    }
-
     private var auctionSelectedRegions: Set<String> {
         get { decodeSet(auctionSelectedRegionsData) }
         nonmutating set { auctionSelectedRegionsData = encodeSet(newValue) }
     }
 
-    private let countryFilters = ["France"]
-    private let typeFilters = ["Red Wine"]
     private let regionFilters = ["Bordeaux", "Burgundy"]
 
+    // Vintages backed by fewer lots than this are noise, so they are hidden everywhere.
+    static let minLots = 3
+
+    /// Region vintage index without the thinly traded vintages.
+    private var vintageIndex: [String: [String: Double]] {
+        let index = dataService.auctionData?.vintage_index ?? [:]
+        let lots = dataService.auctionData?.vintage_index_lots ?? [:]
+        return index.reduce(into: [:]) { result, entry in
+            result[entry.key] = entry.value.filter { (lots[entry.key]?[$0.key] ?? 0) >= Self.minLots }
+        }
+    }
+
     private var hasActiveFilters: Bool {
-        !auctionSelectedCountries.isEmpty
-            || !auctionSelectedTypes.isEmpty
-            || !auctionSelectedRegions.isEmpty
+        !auctionSelectedRegions.isEmpty
             || (showLive && !liveSelectedRating.isEmpty)
     }
 
@@ -258,12 +246,6 @@ struct AuctionTab: View {
                     }
                 }
 
-                filterMenu(label: "Country", options: countryFilters, selected: auctionSelectedCountries) {
-                    toggle($0, in: auctionSelectedCountries) { auctionSelectedCountries = $0 }
-                }
-                filterMenu(label: "Type", options: typeFilters, selected: auctionSelectedTypes) {
-                    toggle($0, in: auctionSelectedTypes) { auctionSelectedTypes = $0 }
-                }
                 filterMenu(label: "Region", options: regionFilters, selected: auctionSelectedRegions) {
                     toggle($0, in: auctionSelectedRegions) { auctionSelectedRegions = $0 }
                 }
@@ -339,6 +321,7 @@ struct AuctionTab: View {
 
     private var producerList: some View {
         let map = liveLotsByProducer
+        let index = vintageIndex
         let ratingActive = showLive && !liveSelectedRating.isEmpty
         return ScrollView {
             LazyVStack(spacing: 0) {
@@ -348,7 +331,7 @@ struct AuctionTab: View {
                     ProducerRow(
                         producer: producer,
                         liveLots: lots,
-                        vintageIndex: dataService.auctionData?.vintage_index ?? [:],
+                        vintageIndex: index,
                         isExpanded: expandedProducerId == producer.id
                     )
                     .contentShape(Rectangle())
@@ -365,7 +348,7 @@ struct AuctionTab: View {
     }
 
     private var vintageAnalysisList: some View {
-        let index = dataService.auctionData?.vintage_index ?? [:]
+        let index = vintageIndex
         let lotsIndex = dataService.auctionData?.vintage_index_lots ?? [:]
         let regions = regionFilters.filter {
             auctionSelectedRegions.isEmpty || auctionSelectedRegions.contains($0)
@@ -425,18 +408,10 @@ struct AuctionTab: View {
                 result = a.name.localizedCaseInsensitiveCompare(b.name) == .orderedAscending
             case .lots:
                 result = a.totalLots < b.totalLots
-            case .sold:
-                result = a.sold < b.sold
-            case .sellRate:
-                result = a.sellRate < b.sellRate
-            case .estimate:
-                result = a.avgEstimateSek < b.avgEstimateSek
             case .hammer:
                 result = a.avgHammerSek < b.avgHammerSek
             case .ratio:
                 result = (a.avgRatio ?? 0) < (b.avgRatio ?? 0)
-            case .premium:
-                result = (a.premiumPercent ?? -999) < (b.premiumPercent ?? -999)
             }
             return sortDirection == .ascending ? result : !result
         }
@@ -449,8 +424,6 @@ struct AuctionTab: View {
     }
 
     private func clearAllFilters() {
-        auctionSelectedCountries = []
-        auctionSelectedTypes = []
         auctionSelectedRegions = []
         liveSelectedRating = ""
         searchText = ""
@@ -626,7 +599,7 @@ struct ProducerDetail: View {
                     VStack(spacing: 0) {
                         ForEach(producer.vintages.sorted(by: >), id: \.self) { vintage in
                             let stat = producer.vintageStats[String(vintage)]
-                            let ratio: Double? = (stat != nil && producer.avgHammerSek > 0)
+                            let ratio: Double? = (stat != nil && stat!.lots >= AuctionTab.minLots && producer.avgHammerSek > 0)
                                 ? Double(stat!.avg_hammer_sek) / Double(producer.avgHammerSek)
                                 : nil
                             HStack(spacing: 8) {
@@ -642,12 +615,18 @@ struct ProducerDetail: View {
                                     Text("\(stat.avg_hammer_sek.formatted()) SEK")
                                         .font(.caption2)
                                         .foregroundStyle(.secondary)
-                                    if let ratio {
-                                        Text(String(format: "%.2fx", ratio))
-                                            .font(.caption2.weight(.medium))
-                                            .foregroundStyle(vintageFactorColor(ratio))
-                                            .frame(width: 42, alignment: .trailing)
+                                    Group {
+                                        if let ratio {
+                                            Text(String(format: "%.2fx", ratio))
+                                                .font(.caption2.weight(.medium))
+                                                .foregroundStyle(vintageFactorColor(ratio))
+                                        } else {
+                                            Text("n/a")
+                                                .font(.caption2)
+                                                .foregroundStyle(.tertiary)
+                                        }
                                     }
+                                    .frame(width: 42, alignment: .trailing)
                                 } else {
                                     Spacer()
                                     Text("No sales")

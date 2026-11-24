@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum SortField: String, CaseIterable {
-    case date, producer, wine, vintage, region, price, rating
+    case date, price, rating
 }
 
 enum SortDirection: String {
@@ -10,7 +10,6 @@ enum SortDirection: String {
 
 struct ReleaseTab: View {
     @ObservedObject var dataService: DataService
-    @EnvironmentObject var appDelegate: AppDelegate
     @State private var expandedWineId: String?
     @AppStorage("release_sortField") private var sortField: SortField = .date
     @AppStorage("release_sortDirection") private var sortDirection: SortDirection = .ascending
@@ -20,10 +19,7 @@ struct ReleaseTab: View {
     @AppStorage("release_selectedRating") private var selectedRating = ""
     @AppStorage("release_todayOnly") private var todayOnly = false
     @State private var showPastReleases = false
-    @AppStorage("release_searchText") private var searchText = ""
-    @AppStorage("swipe_topic") private var swipeTopic = "none"
-    @AppStorage("swipe_last_shown") private var swipeLastShown = ""
-    @State private var showSwipeView = false
+    @State private var searchText = ""
     @State private var todayString = DateFormatters.todayString
 
     private var selectedCountries: Set<String> {
@@ -130,19 +126,8 @@ struct ReleaseTab: View {
                 SearchBar(text: $searchText)
             }
         }
-        .task {
-            if dataService.releaseData == nil {
-                await dataService.loadReleases()
-            }
-        }
-        .onChange(of: dataService.isLoading) {
-            if !dataService.isLoading && dataService.releaseData != nil {
-                autoShowSwipeIfNeeded()
-            }
-        }
         .onAppear {
             todayString = DateFormatters.todayString
-            autoShowSwipeIfNeeded()
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
             todayString = DateFormatters.todayString
@@ -150,32 +135,6 @@ struct ReleaseTab: View {
         .onChange(of: selectedDate) { _, newValue in
             todayOnly = newValue == todayString
         }
-        .fullScreenCover(isPresented: $showSwipeView) {
-            SwipeView(wines: swipeWines)
-                .onDisappear {
-                    swipeLastShown = todayString
-                }
-        }
-    }
-
-    // MARK: - Swipe
-
-    private var swipeWines: [ReleaseWine] {
-        let todayWines = allWines.filter { $0.launchDate == todayString }
-        return SwipeTopics.filter(todayWines, topic: swipeTopic, favorites: appDelegate.favoritesStore)
-            .sorted {
-                let aIndex = knownCountries.firstIndex(of: $0.countryEnglish) ?? knownCountries.count
-                let bIndex = knownCountries.firstIndex(of: $1.countryEnglish) ?? knownCountries.count
-                if aIndex != bIndex { return aIndex < bIndex }
-                return ($0.ratingScore ?? 0) > ($1.ratingScore ?? 0)
-            }
-    }
-
-    private func autoShowSwipeIfNeeded() {
-        guard swipeTopic != "none",
-              swipeLastShown != todayString,
-              !swipeWines.isEmpty else { return }
-        showSwipeView = true
     }
 
     // MARK: - Filter Bar
@@ -348,8 +307,7 @@ struct ReleaseTab: View {
         WineRow(
             wine: wine,
             isExpanded: expandedWineId == wine.id,
-            rowColor: dateColors[wine.launchDate] ?? "#888888",
-            isFavorite: appDelegate.favoritesStore.isFavorite(wine.id)
+            rowColor: dateColors[wine.launchDate] ?? "#888888"
         )
         .contentShape(Rectangle())
         .onTapGesture {
@@ -442,14 +400,6 @@ struct ReleaseTab: View {
             switch sortField {
             case .date:
                 result = a.launchDate < b.launchDate
-            case .producer:
-                result = a.producer.localizedCaseInsensitiveCompare(b.producer) == .orderedAscending
-            case .wine:
-                result = a.wineName.localizedCaseInsensitiveCompare(b.wineName) == .orderedAscending
-            case .vintage:
-                result = a.vintage < b.vintage
-            case .region:
-                result = a.region.localizedCaseInsensitiveCompare(b.region) == .orderedAscending
             case .price:
                 result = a.priceNumeric < b.priceNumeric
             case .rating:

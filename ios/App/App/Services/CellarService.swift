@@ -118,18 +118,6 @@ class CellarService: ObservableObject {
         }
     }
 
-    func moveHistoryEntries(from source: IndexSet, to destination: Int) {
-        let indexed = entries.enumerated().filter { $0.element.status == .history }
-        let historyIndices = indexed.map { $0.offset }
-        var reordered = indexed.map { $0.element }
-        reordered.move(fromOffsets: source, toOffset: destination)
-
-        for (i, originalIndex) in historyIndices.enumerated() {
-            entries[originalIndex] = reordered[i]
-        }
-        save()
-    }
-
     /// Stores a hand-picked order for a group of cellar wines: each id gets its
     /// position in `ids` as its manualOrder.
     func setCellarOrder(_ ids: [UUID]) {
@@ -142,7 +130,20 @@ class CellarService: ObservableObject {
 
     func clearData() {
         entries = []
-        try? FileManager.default.removeItem(at: fileURL)
+        save()
+    }
+
+    /// Stops a queued upload so it can't recreate cellar/{uid} while the account is being deleted.
+    func cancelPendingPush() {
+        pendingPushTask?.cancel()
+        pendingPushTask = nil
+    }
+
+    /// After account deletion the local cellar stays on the device but no longer belongs to any
+    /// account, so the next sign-in treats it as fresh device data instead of another user's.
+    func forgetCloudAccount() {
+        UserDefaults.standard.removeObject(forKey: Self.lastSyncedUidKey)
+        syncStatus = .offline
     }
 
     // MARK: - Persistence (JSON in Documents)
@@ -174,8 +175,6 @@ class CellarService: ObservableObject {
             self.error = "Failed to load cellar: \(error.localizedDescription)"
         }
     }
-
-    // MARK: - Migration from old UserDefaults format
 
     private func migrateFromUserDefaultsIfNeeded() {
         let defaults = UserDefaults.standard
@@ -612,8 +611,25 @@ class CellarService: ObservableObject {
             let previousUid = UserDefaults.standard.string(forKey: Self.lastSyncedUidKey)
             let isFirstSyncOnDevice = previousUid == nil
 
-            if cloud.isEmpty {
-                if !entries.isEmpty { try await pushAll() }
+            // nil means this account has never backed up; an existing but empty
+            // cellar is a deliberate Clear All and must not be refilled from this device.
+            guard let cloud else {
+                if !entries.isEmpty && (isFirstSyncOnDevice || previousUid == uid) {
+                    try await pushAll()
+                } else {
+                    suppressAutoPush = true
+                    entries = []
+                    saveLocal()
+                    suppressAutoPush = false
+                }
+                UserDefaults.standard.set(uid, forKey: Self.lastSyncedUidKey)
+                syncStatus = .synced(Date())
+                return
+            }
+            if cloud.isEmpty && previousUid == uid && !entries.isEmpty {
+                // After a Clear All, wines added here that never reached the cloud
+                // (app closed before the upload) would otherwise be wiped.
+                try await pushAll()
             } else if isFirstSyncOnDevice && !entries.isEmpty {
                 // First sign-in on this device with both local and cloud data:
                 // union by id so wines added while signed-out aren't lost.
@@ -629,7 +645,8 @@ class CellarService: ObservableObject {
                 }
             } else {
                 // Subsequent sign-in (or account switch): cloud is the truth
-                // so deletions made on other devices propagate.
+                // so deletions made on other devices propagate, and a previous
+                // account's local cellar is never uploaded into a different account.
                 suppressAutoPush = true
                 entries = cloud
                 saveLocal()
@@ -678,11 +695,11 @@ class CellarService: ObservableObject {
         try await ref.setData(payload)
     }
 
-    private func fetchCloudEntries() async throws -> [CellarEntry] {
+    private func fetchCloudEntries() async throws -> [CellarEntry]? {
         let ref = try userCellarDocRef()
         let snapshot = try await ref.getDocument()
         guard let data = snapshot.data(),
-              let arr = data["entries"] as? [[String: Any]] else { return [] }
+              let arr = data["entries"] as? [[String: Any]] else { return nil }
         return arr.compactMap { decodeFromCloud(dict: $0) }
     }
 

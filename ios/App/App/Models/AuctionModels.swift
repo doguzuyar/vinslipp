@@ -91,7 +91,7 @@ struct LiveWine: Identifiable {
     let hammer_price_per_bottle: String?
 
     var estimateNumeric: Int { (estimate_per_bottle ?? estimate).priceNumeric }
-    var age: Int? { vintage > 0 ? 2026 - vintage : nil }
+    var age: Int? { vintage > 0 ? Calendar(identifier: .gregorian).component(.year, from: Date()) - vintage : nil }
     var isMultiBottle: Bool { bottles > 1 }
     var displayEstimate: String { estimate_per_bottle ?? estimate }
     var displayHammer: String {

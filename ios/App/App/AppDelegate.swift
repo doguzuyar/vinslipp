@@ -1,4 +1,3 @@
-import Combine
 import FirebaseCore
 import FirebaseMessaging
 import UIKit
@@ -8,20 +7,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     @Published var selectedTab: Int = 0
-    @Published var pendingShortcutTab: String?
-    let notificationStore = NotificationStore()
-    let favoritesStore = FavoritesStore()
-    private var cancellables = Set<AnyCancellable>()
-
-    override init() {
-        super.init()
-        favoritesStore.objectWillChange
-            .sink { [weak self] _ in self?.objectWillChange.send() }
-            .store(in: &cancellables)
-        notificationStore.objectWillChange
-            .sink { [weak self] _ in self?.objectWillChange.send() }
-            .store(in: &cancellables)
-    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -31,38 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in }
         application.registerForRemoteNotifications()
 
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(appDidBecomeActive),
-            name: UIApplication.didBecomeActiveNotification, object: nil
-        )
-
         return true
-    }
-
-    @objc private func appDidBecomeActive() {
-        UNUserNotificationCenter.current().getDeliveredNotifications { [weak self] notifications in
-            guard let self, !notifications.isEmpty else { return }
-            for notification in notifications {
-                let content = notification.request.content
-                guard !content.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { continue }
-                Task { @MainActor in
-                    self.notificationStore.addIfNew(title: content.title, body: content.body, date: notification.date)
-                }
-            }
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            Task { @MainActor in
-                UNUserNotificationCenter.current().setBadgeCount(0) { _ in }
-            }
-        }
-    }
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        if let shortcut = options.shortcutItem {
-            pendingShortcutTab = tabFromShortcut(shortcut)
-        }
-        let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
-        config.delegateClass = ShortcutSceneDelegate.self
-        return config
     }
 
     // MARK: - APNs Token Registration
@@ -87,22 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Messaging.messaging().subscribe(toTopic: topic)
     }
 
-    static let sharedDefaults = UserDefaults(suiteName: FavoritesStore.appGroup) ?? .standard
+    // The topic preference has always lived in the App Group suite; keep reading it there.
+    static let appGroup = "group.com.nybroans.vinslipp"
+    static let sharedDefaults = UserDefaults(suiteName: appGroup) ?? .standard
 
     // MARK: - UNUserNotificationCenterDelegate
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let content = notification.request.content
-
-        guard !content.title.isEmpty else {
+        guard !notification.request.content.title.isEmpty else {
             completionHandler([])
             return
-        }
-
-        Task { @MainActor in
-            notificationStore.add(title: content.title, body: content.body)
         }
         completionHandler([.banner, .badge, .sound])
     }
@@ -112,7 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let content = response.notification.request.content
         Task { @MainActor in
-            notificationStore.add(title: content.title, body: content.body)
             if let tab = content.userInfo["tab"] as? String {
                 self.selectedTab = self.tabIndex(from: tab)
             }
@@ -120,23 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler()
     }
 
-    // MARK: - Quick Actions
-
-    private static let shortcutPrefix = "com.nybroans.vinslipp."
-    private static let validTabs: Set<String> = ["release", "cellar", "blog", "auction", "profile"]
-
-    func tabFromShortcut(_ item: UIApplicationShortcutItem) -> String {
-        let name = item.type.replacingOccurrences(of: Self.shortcutPrefix, with: "")
-        return Self.validTabs.contains(name) ? name : "release"
-    }
-
     func tabIndex(from name: String) -> Int {
         switch name {
         case "release": return 0
         case "cellar": return 1
         case "auction": return 2
-        case "blog": return 3
-        case "profile": return 4
+        case "profile": return 3
         default: return 0
         }
     }
