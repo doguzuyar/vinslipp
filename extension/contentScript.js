@@ -11,28 +11,9 @@ const HAMMER_SELECTOR = "[class*='result-value'], .c-my-pages-lot-card__price";
 
 const BADGE_SRC = chrome.runtime.getURL("vinslipp.png");
 
-// Region comes from the Bukowskis category URL, e.g. ".../france-bordeaux".
-function getBestVintageRegion() {
-  const url = window.location.href.toLowerCase();
-  if (url.includes("bordeaux")) return "bordeaux";
-  if (url.includes("burgundy")) return "burgundy";
-  return null;
-}
-
-// The BUY light is shown only when the REGION vintage index (Bordeaux/Burgundy
-// vintage ratio) is not red, i.e. at least 0.8x. The producer's own vintage ratio
-// drives the Win price, never the light's visibility.
+// The BUY light shows when the lot's region vintage index (published per lot as
+// vintage_factor) is not red, i.e. at least 0.8x.
 const BUY_MIN_FACTOR = 0.8;
-
-function lotVintageIsBest(card, title) {
-  const region = getBestVintageRegion();
-  if (!region) return false;
-  const text = `${title || ""} ${card?.innerText || ""}`;
-  const match = text.match(/\b(19\d{2}|20\d{2})\b/);
-  if (!match) return false;
-  const factor = bukowskisStats?.vintage_index?.[region]?.[match[1]];
-  return factor !== undefined && factor >= BUY_MIN_FACTOR;
-}
 
 function wineSearchUrl(wineName) {
   return "https://www.google.com/search?q=" + encodeURIComponent(wineName);
@@ -52,9 +33,6 @@ function wineSearchUrl(wineName) {
     window.location.replace(url.toString());
   }
 })();
-
-let bukowskisStats = null;
-let bukowskisStatsLoaded = false;
 
 let liveWinesById = null;
 let liveWinesLoaded = false;
@@ -174,70 +152,6 @@ function findReleaseRating(cardOrUrl) {
   }
   if (!productNumber) return null;
   return releasesMap.get(productNumber) || null;
-}
-
-async function loadBukowskisStats() {
-  if (bukowskisStatsLoaded) return bukowskisStats;
-  try {
-    const response = await fetch("https://vinslipp.app/data/auction_stats.json");
-    if (response.ok) {
-      bukowskisStats = await response.json();
-      bukowskisStatsLoaded = true;
-      console.log(`[Auction Stats] Loaded ${Object.keys(bukowskisStats.producers).length} producers`);
-    }
-  } catch (err) {
-    console.warn("[Auction Stats] Failed to load:", err);
-  }
-  return bukowskisStats;
-}
-
-function extractProducerFromTitle(title) {
-  if (!title) return null;
-  return title
-    .replace(/^\d{4}\s+/, "")
-    .replace(/\s*\([^)]*\)\s*$/, "")
-    .replace(/[.,]$/, "")
-    .trim();
-}
-
-function getBukowskisLotTitle(card) {
-  const artist = card.querySelector(".c-lot-index-lot__artist")?.textContent?.trim() || "";
-  const titleEl = card.querySelector("div.c-lot-index-lot__title");
-  const title = titleEl?.textContent?.trim() || "";
-  const combined = [artist, title].filter(Boolean).join(" ").replace(/\.$/, "").trim();
-  if (combined) return combined;
-  return card.querySelector(".c-lot-cell__title, .c-my-pages-lot-card__title")?.textContent?.trim() || "";
-}
-
-function normalizeForMatch(str) {
-  return str.toLowerCase().replace(/[-\s]+/g, " ").trim();
-}
-
-function findProducerStats(title) {
-  if (!bukowskisStats || !bukowskisStats.producers) return null;
-
-  const producer = extractProducerFromTitle(title);
-  if (!producer) return null;
-
-  if (bukowskisStats.producers[producer]) {
-    return { producer, ...bukowskisStats.producers[producer] };
-  }
-
-  const normalized = normalizeForMatch(producer);
-  for (const [key, stats] of Object.entries(bukowskisStats.producers)) {
-    if (normalizeForMatch(key) === normalized) {
-      return { producer: key, ...stats };
-    }
-  }
-
-  for (const [key, stats] of Object.entries(bukowskisStats.producers)) {
-    const normKey = normalizeForMatch(key);
-    if (normKey.includes(normalized) || normalized.includes(normKey)) {
-      return { producer: key, ...stats };
-    }
-  }
-
-  return null;
 }
 
 function isSystembolagetPage() {
@@ -395,87 +309,50 @@ function addBadge(card) {
   card.dataset.badgeInjected = "true";
 
   if (isBukowskis) {
+    // Win price and BUY light come precomputed per lot in live_wines.json.
     const estimateEl = card.querySelector(ESTIMATE_SELECTOR);
-    const hammerEl = card.querySelector(HAMMER_SELECTOR);
-    const estimateText = estimateEl?.textContent;
-    const hammerText = hammerEl?.textContent;
-    const lotTitle = getBukowskisLotTitle(card) || wineName;
+    const wine = findLiveWineRating(card);
+    if (estimateEl && wine?.expected_per_bottle) {
+      const bottles = wine.bottles || 1;
+      const winPrice = wine.expected_per_bottle * bottles;
 
-    if (estimateText) {
-      const estimate = parseInt(estimateText.replace(/[^\d]/g, ""), 10);
-      const hammer = hammerText
-        ? parseInt(hammerText.replace(/[^\d]/g, ""), 10)
-        : null;
-      if (estimate > 0) {
-        // Win price: vintage-adjusted expected value (producer avg hammer/bt x
-        // vintage index x bottles); bottle count from live data when the lot is
-        // in it, else inferred from the estimate (closed auctions). Falls back
-        // to estimate x producer ratio when the producer has no vintage data.
-        const vintageInfo = getVintageExpected(lotTitle);
-        const vintageBased = !!vintageInfo;
-        const bottles = vintageBased ? lotBottleCount(card, lotTitle, estimate) : 1;
-        const guaranteePrice = vintageBased
-          ? vintageInfo.expected * bottles
-          : Math.round(estimate * getGuaranteeRatioForEstimate(estimate, lotTitle));
+      if (!card.querySelector("[data-guarantee-price]")) {
+        const guaranteeEl = document.createElement("div");
+        guaranteeEl.dataset.guaranteePrice = "true";
+        guaranteeEl.textContent = `Win: ${winPrice.toLocaleString("sv-SE")} SEK`;
+        guaranteeEl.title = wine.expected_basis + (bottles > 1 ? ` x ${bottles} bottles` : "");
+        // Same row as "Estimate ...": inline, pushed to the right edge.
+        Object.assign(guaranteeEl.style, {
+          fontSize: "13px",
+          fontWeight: "600",
+          color: "#1a1a1a",
+          display: "inline",
+          float: "right",
+          marginLeft: "12px",
+        });
 
-        const producerInfo = getProducerStatsInfo(lotTitle);
-
-        if (!card.querySelector("[data-guarantee-price]")) {
-          const guaranteeEl = document.createElement("div");
-          guaranteeEl.dataset.guaranteePrice = "true";
-
-          guaranteeEl.textContent = `Win: ${guaranteePrice.toLocaleString("sv-SE")} SEK`;
-          // Same row as "Estimate ...": inline, pushed to the right edge.
-          Object.assign(guaranteeEl.style, {
-            fontSize: "13px",
-            fontWeight: "600",
-            color: "#1a1a1a",
-            display: "inline",
-            float: "right",
-            marginLeft: "12px",
-          });
-
-          if (vintageBased) {
-            const bt = bottles;
-            const bottlesNote = bt > 1 ? ` x ${bt} bottles` : "";
-            guaranteeEl.title = vintageInfo.source === "producer"
-              ? `Producer's own ${vintageInfo.vintage} avg hammer/bt (${vintageInfo.lots} ${vintageInfo.lots === 1 ? "lot" : "lots"}), ${vintageInfo.factor.toFixed(2)}x producer avg${bottlesNote}`
-              : `Producer avg hammer/bt x ${vintageInfo.factor.toFixed(2)} ${vintageInfo.region} vintage index (${vintageInfo.vintage}), no producer sales in this vintage${bottlesNote}`;
-          } else if (producerInfo) {
-            guaranteeEl.title = `Based on ${producerInfo.lots} historical sales\nAvg: ${producerInfo.premium >= 0 ? "+" : ""}${producerInfo.premium}% vs estimate`;
-          }
-
-          if (estimateEl.matches(".c-my-pages-lot-card__estimate")) {
-            estimateEl.appendChild(guaranteeEl);
-          } else {
-            estimateEl.parentNode.insertBefore(
-              guaranteeEl,
-              estimateEl.nextSibling
-            );
-          }
+        if (estimateEl.matches(".c-my-pages-lot-card__estimate")) {
+          estimateEl.appendChild(guaranteeEl);
+        } else {
+          estimateEl.parentNode.insertBefore(guaranteeEl, estimateEl.nextSibling);
         }
+      }
 
-        if (lotVintageIsBest(card, lotTitle)) {
-          const indicator = document.createElement("div");
-          let indicatorColor = "#22c55e";
-
-          if (hammer && hammer > 0) {
-            indicatorColor = hammer <= guaranteePrice ? "#22c55e" : "#ef4444";
-          }
-
-          Object.assign(indicator.style, {
-            position: "absolute",
-            bottom: "-3px",
-            right: "-3px",
-            width: "12px",
-            height: "12px",
-            borderRadius: "50%",
-            backgroundColor: indicatorColor,
-            border: "2px solid white",
-            zIndex: "21",
-          });
-          badge.appendChild(indicator);
-        }
+      if (wine.vintage_factor >= BUY_MIN_FACTOR) {
+        const hammer = parsePrice(card.querySelector(HAMMER_SELECTOR)?.textContent);
+        const indicator = document.createElement("div");
+        Object.assign(indicator.style, {
+          position: "absolute",
+          bottom: "-3px",
+          right: "-3px",
+          width: "12px",
+          height: "12px",
+          borderRadius: "50%",
+          backgroundColor: hammer && hammer > winPrice ? "#ef4444" : "#22c55e",
+          border: "2px solid white",
+          zIndex: "21",
+        });
+        badge.appendChild(indicator);
       }
     }
   }
@@ -486,7 +363,14 @@ function createRatingEl(score, reason, fontSize = "11px") {
   const el = document.createElement("div");
   el.dataset.wineRating = "true";
   el.style.cssText = `font-size:${fontSize} !important; margin-top:4px !important; overflow:hidden !important; padding:2px 0 !important; text-align:left !important;`;
-  el.innerHTML = `<span style="color:#888 !important;">${reason || ""}</span><span style="float:right; letter-spacing:1px; color:${color} !important;">${ratingStars(score)}</span>`;
+  // Built from nodes, not innerHTML: the reason is text from the data files.
+  const reasonEl = document.createElement("span");
+  reasonEl.style.cssText = "color:#888 !important;";
+  reasonEl.textContent = reason || "";
+  const starsEl = document.createElement("span");
+  starsEl.style.cssText = `float:right; letter-spacing:1px; color:${color} !important;`;
+  starsEl.textContent = ratingStars(score);
+  el.append(reasonEl, starsEl);
   return el;
 }
 
@@ -558,678 +442,15 @@ function parsePrice(priceText) {
   return isNaN(value) ? null : value;
 }
 
-function scrapeBukowskisData() {
-  const lots = document.querySelectorAll("div.c-lot-index-lot, div.c-lot-cell");
-  const data = { withHammer: [], withEstimateOnly: [] };
-
-  lots.forEach((lot) => {
-    const hammerEl = lot.querySelector("[class*='result-value']");
-    const estimateEl = lot.querySelector("[class*='estimate-value']");
-
-    const hammer = parsePrice(hammerEl?.textContent);
-    const estimate = parsePrice(estimateEl?.textContent);
-    const title = getBukowskisLotTitle(lot) || "Unknown";
-
-    if (hammer && estimate) {
-      data.withHammer.push({
-        title,
-        hammer,
-        estimate,
-        ratio: hammer / estimate,
-      });
-    } else if (estimate) {
-      data.withEstimateOnly.push({ title, estimate });
-    }
-  });
-
-  return data;
-}
-
-function calculateStats(data, expectedRatio = null) {
-  const { withHammer, withEstimateOnly } = data;
-  const allLots = [
-    ...withHammer,
-    ...withEstimateOnly.map((lot) => ({ ...lot, hammer: null, ratio: null })),
-  ];
-
-  let ratioForPredictions, minRatioForPredictions, maxRatioForPredictions;
-  let actualAvgRatio = null;
-  const useExpected = expectedRatio !== null;
-
-  if (withHammer.length === 0) {
-    const ratio = expectedRatio || 1;
-    ratioForPredictions = ratio;
-    minRatioForPredictions = ratio * 0.9;
-    maxRatioForPredictions = ratio * 1.1;
-  } else {
-    const ratios = withHammer.map((d) => d.ratio);
-    actualAvgRatio = ratios.reduce((a, b) => a + b, 0) / ratios.length;
-    const actualMinRatio = Math.min(...ratios);
-    const actualMaxRatio = Math.max(...ratios);
-
-    ratioForPredictions = useExpected ? expectedRatio : actualAvgRatio;
-    minRatioForPredictions = useExpected ? expectedRatio * 0.9 : actualMinRatio;
-    maxRatioForPredictions = useExpected ? expectedRatio * 1.1 : actualMaxRatio;
-  }
-
-  const predictions = allLots.map((lot) => ({
-    title: lot.title,
-    estimate: lot.estimate,
-    hammer: lot.hammer,
-    predictedLow: Math.round(lot.estimate * minRatioForPredictions),
-    predictedAvg: Math.round(lot.estimate * ratioForPredictions),
-    predictedHigh: Math.round(lot.estimate * maxRatioForPredictions),
-    guaranteePrice: Math.round(
-      lot.estimate * getGuaranteeRatioForEstimate(lot.estimate, lot.title)
-    ),
-  }));
-
-  const avgHammer =
-    withHammer.length > 0
-      ? Math.round(
-          withHammer.reduce((a, b) => a + b.hammer, 0) / withHammer.length
-        )
-      : 0;
-  const avgEstimate =
-    allLots.length > 0
-      ? Math.round(allLots.reduce((a, b) => a + b.estimate, 0) / allLots.length)
-      : 0;
-
-  const allEstimates = allLots.map((lot) => lot.estimate);
-  const minEstimate = allEstimates.length > 0 ? Math.min(...allEstimates) : 0;
-  const maxEstimate = allEstimates.length > 0 ? Math.max(...allEstimates) : 0;
-
-  return {
-    totalLots: allLots.length,
-    soldLots: withHammer.length,
-    unsoldLots: withEstimateOnly.length,
-    avgHammer,
-    avgEstimate,
-    minEstimate,
-    maxEstimate,
-    avgRatio: useExpected ? expectedRatio : actualAvgRatio || 1,
-    minRatio: minRatioForPredictions,
-    maxRatio: maxRatioForPredictions,
-    guaranteeRatio: bukowskisStats?.summary?.overall_avg_ratio || HISTORICAL_P80_RATIO,
-    actualAvgRatio,
-    predictions,
-    soldData: withHammer,
-    usingExpectedRatio: useExpected,
-  };
-}
-
-function formatSEK(value) {
-  return value.toLocaleString("sv-SE") + " SEK";
-}
-
-function formatRatio(ratio) {
-  return (ratio * 100).toFixed(0) + "%";
-}
-
-function calculateExpectedRatio(avgEstimate) {
-  if (!avgEstimate || avgEstimate <= 0) return 1;
-  return 2.15 * Math.pow(avgEstimate, -0.084);
-}
-
-const HISTORICAL_P80_RATIO = 1.15;
-
-function getGuaranteeRatioForEstimate(estimate, wineTitle = null) {
-  if (wineTitle && bukowskisStats) {
-    const producerStats = findProducerStats(wineTitle);
-    if (producerStats && producerStats.avg_ratio) {
-      return producerStats.avg_ratio;
-    }
-  }
-
-  return HISTORICAL_P80_RATIO;
-}
-
-// Large formats hold multiples of a 750ml bottle, so the per-bottle producer
-// average does not apply; those lots keep the estimate-based win price.
-const LARGE_FORMAT_RE = /magnum|jeroboam|imperial|rehoboam|salmanazar|marie-jeanne|half\s*bottle|\d{3,5}\s*ml/i;
-
-// Vintage-adjusted expected price per bottle (normal bottles only).
-// 1. Producer's own average hammer for that vintage (vintage_stats); factor is
-//    that average relative to the producer's overall average.
-// 2. Fallback: producer avg hammer x region vintage index. Index region comes
-//    from the page URL, else the producer's single known region.
-function getVintageExpected(wineTitle) {
-  if (!bukowskisStats) return null;
-  if (LARGE_FORMAT_RE.test(wineTitle || "")) return null;
-  const stats = findProducerStats(wineTitle);
-  if (!stats || !stats.avg_hammer_sek) return null;
-  const match = (wineTitle || "").match(/\b(19\d{2}|20\d{2})\b/);
-  if (!match) return null;
-  const vintage = match[1];
-
-  const own = stats.vintage_stats?.[vintage];
-  if (own && own.avg_hammer_sek > 0) {
-    return {
-      vintage,
-      source: "producer",
-      lots: own.lots,
-      factor: own.avg_hammer_sek / stats.avg_hammer_sek,
-      expected: own.avg_hammer_sek,
-    };
-  }
-
-  const vi = bukowskisStats.vintage_index;
-  if (!vi) return null;
-  let region = getBestVintageRegion();
-  if (!region && stats.regions && stats.regions.length === 1) region = stats.regions[0];
-  if (!region) return null;
-  const factor = vi[region]?.[vintage];
-  if (!factor) return null;
-  return {
-    vintage,
-    source: "region",
-    region,
-    factor,
-    expected: Math.round(stats.avg_hammer_sek * factor),
-  };
-}
-
-// Bottles in a lot: from live data when the lot is in it. Closed-auction lots
-// are not, so mirror the scraper's inference: lot estimate / the producer's
-// single-bottle estimate (x region vintage index), snapped to a count Bukowskis
-// actually sells.
-const PLAUSIBLE_BOTTLE_COUNTS = [1, 2, 3, 4, 5, 6, 12];
-
-function lotBottleCount(card, wineTitle, estimate) {
-  const liveWine = findLiveWineRating(card);
-  if (liveWine) return liveWine.bottles || 1;
-  const stats = findProducerStats(wineTitle);
-  let ref = stats?.avg_estimate_sek;
-  if (!ref || !estimate) return 1;
-  const match = (wineTitle || "").match(/\b(19\d{2}|20\d{2})\b/);
-  let region = getBestVintageRegion();
-  if (!region && stats.regions && stats.regions.length === 1) region = stats.regions[0];
-  const factor = match && region ? bukowskisStats?.vintage_index?.[region]?.[match[1]] : null;
-  if (factor) ref *= factor;
-  const ratio = estimate / ref;
-  return PLAUSIBLE_BOTTLE_COUNTS.reduce((best, c) =>
-    Math.abs(ratio - c) < Math.abs(ratio - best) ? c : best
-  );
-}
-
-function getProducerStatsInfo(wineTitle) {
-  if (!bukowskisStats) return null;
-  const stats = findProducerStats(wineTitle);
-  if (!stats) return null;
-  return {
-    producer: stats.producer,
-    ratio: stats.avg_ratio,
-    lots: stats.sold,
-    sellRate: stats.sell_rate,
-    premium: stats.avg_ratio ? Math.round((stats.avg_ratio - 1) * 100) : 0
-  };
-}
-
-function updateAllBadgeIndicators() {
-  const cards = document.querySelectorAll(
-    "[data-badge-injected='true']"
-  );
-  cards.forEach((card) => {
-    const badge = card.querySelector("[data-vinslipp-badge='true']");
-    if (!badge) return;
-
-    const indicator = Array.from(badge.children).find(
-      (child) => child.tagName === "DIV" && child.style.borderRadius === "50%"
-    );
-    if (!indicator) return;
-
-    const estimateEl = card.querySelector(ESTIMATE_SELECTOR);
-    const hammerEl = card.querySelector(HAMMER_SELECTOR);
-    const estimateText = estimateEl?.textContent;
-    const hammerText = hammerEl?.textContent;
-    const wineTitle = getBukowskisLotTitle(card);
-
-    if (!estimateText) return;
-
-    const estimate = parseInt(estimateText.replace(/[^\d]/g, ""), 10);
-    const hammer = hammerText
-      ? parseInt(hammerText.replace(/[^\d]/g, ""), 10)
-      : null;
-
-    if (estimate <= 0) return;
-
-    let indicatorColor = "#22c55e";
-    if (hammer && hammer > 0) {
-      const vintageInfo = getVintageExpected(wineTitle);
-      const guaranteePrice = vintageInfo
-        ? vintageInfo.expected * lotBottleCount(card, wineTitle, estimate)
-        : Math.round(estimate * getGuaranteeRatioForEstimate(estimate, wineTitle));
-      indicatorColor = hammer <= guaranteePrice ? "#22c55e" : "#ef4444";
-    }
-
-    indicator.style.backgroundColor = indicatorColor;
-  });
-}
-
-let statsPanel = null;
-
-function createStatsPanel() {
-  if (statsPanel) statsPanel.remove();
-
-  const data = scrapeBukowskisData();
-  const lots = document.querySelectorAll("div.c-lot-index-lot, div.c-lot-cell");
-  const isOngoingPage = Array.from(lots).some((lot) =>
-    (lot.innerText || "").toLowerCase().includes("current bid")
-  );
-
-  const prelimStats = calculateStats(data, null);
-  const autoExpectedRatio = calculateExpectedRatio(prelimStats.avgEstimate);
-  const autoExpectedPercent = (autoExpectedRatio * 100).toFixed(0);
-
-  const savedRatio = localStorage.getItem("bukowskis_expected_ratio");
-  const manualEntry = localStorage.getItem("bukowskis_ratio_manual") === "true";
-  const testMode = localStorage.getItem("bukowskis_test_mode") === "true";
-  const manualRatioPercent = savedRatio ? parseFloat(savedRatio) : null;
-  const manualRatio = manualRatioPercent ? manualRatioPercent / 100 : null;
-
-  let useExpectedRatio = false;
-  let expectedRatio = null;
-
-  if (manualEntry && manualRatio !== null) {
-    useExpectedRatio = true;
-    expectedRatio = manualRatio;
-  } else if (isOngoingPage || prelimStats.soldLots === 0 || testMode) {
-    useExpectedRatio = true;
-    expectedRatio = autoExpectedRatio;
-  }
-
-  const stats = calculateStats(data, useExpectedRatio ? expectedRatio : null);
-
-  if (!isOngoingPage && stats.soldLots > 0 && !manualEntry) {
-    const ratioPercent = (stats.avgRatio * 100).toFixed(0);
-    localStorage.setItem("bukowskis_expected_ratio", ratioPercent);
-  }
-
-  statsPanel = document.createElement("div");
-  statsPanel.id = "bukowskis-stats-panel";
-
-  Object.assign(statsPanel.style, {
-    position: "fixed",
-    top: "80px",
-    right: "20px",
-    width: "320px",
-    maxHeight: "80vh",
-    overflowY: "auto",
-    backgroundColor: "#ffffff",
-    color: "#333",
-    borderRadius: "12px",
-    border: "1px solid #e5e5e5",
-    zIndex: "10000",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-    fontSize: "14px",
-  });
-
-  const header = `
-    <div style="padding:16px; border-bottom:1px solid #e5e5e5; display:flex; justify-content:space-between; align-items:center;">
-      <div style="font-size:16px; font-weight:600; color:#333;">Bukowskis Stats</div>
-      <button id="stats-close-btn" style="background:none; border:none; color:#999; font-size:20px; cursor:pointer;">×</button>
-    </div>
-  `;
-
-  const displayRatioPercent = (stats.avgRatio * 100).toFixed(0);
-  const actualRatioPercent = prelimStats.actualAvgRatio
-    ? (prelimStats.actualAvgRatio * 100).toFixed(0)
-    : null;
-  let ratioStatus;
-  if (manualEntry && manualRatio !== null) {
-    ratioStatus = `<div style="font-size:10px; color:#0369a1; margin-top:4px;">Using manual override: ${manualRatioPercent}%</div>`;
-  } else if (testMode && !isOngoingPage && prelimStats.soldLots > 0) {
-    ratioStatus = `<div style="font-size:10px; color:#f59e0b; margin-top:4px;">TEST MODE: Using ${autoExpectedPercent}% (actual was ${actualRatioPercent}%)</div>`;
-  } else if (isOngoingPage || prelimStats.soldLots === 0) {
-    ratioStatus = `<div style="font-size:10px; color:#22c55e; margin-top:4px;">Auto-calculated: ${autoExpectedPercent}% (from avg estimate ${formatSEK(
-      prelimStats.avgEstimate
-    )})</div>`;
-  } else {
-    ratioStatus = `<div style="font-size:10px; color:#666; margin-top:4px;">Using actual: ${displayRatioPercent}% from ${stats.soldLots} sold lots</div>`;
-  }
-
-  const testModeHtml =
-    !isOngoingPage && prelimStats.soldLots > 0
-      ? `
-    <div style="display:flex; align-items:center; gap:6px; margin-top:8px; padding-top:8px; border-top:1px dashed #e5e5e5;">
-      <label style="font-size:11px; color:#666; cursor:pointer; display:flex; align-items:center; gap:4px;">
-        <input type="checkbox" id="test-mode-toggle" ${
-          testMode ? "checked" : ""
-        } style="cursor:pointer;" />
-        Test Mode (compare auto vs actual)
-      </label>
-    </div>
-  `
-      : "";
-
-  const inputDisabled = !testMode ? "disabled" : "";
-  const inputStyle = testMode
-    ? "width:50px; padding:4px 6px; border:1px solid #ddd; border-radius:4px; font-size:13px; text-align:right;"
-    : "width:50px; padding:4px 6px; border:1px solid #ddd; border-radius:4px; font-size:13px; text-align:right; background:#e5e5e5; color:#999; cursor:not-allowed;";
-  const applyBtnStyle = testMode
-    ? "padding:4px 8px; background:#2563eb; color:white; border:none; border-radius:4px; font-size:11px; cursor:pointer;"
-    : "padding:4px 8px; background:#9ca3af; color:white; border:none; border-radius:4px; font-size:11px; cursor:not-allowed;";
-  const resetBtnStyle = testMode
-    ? "padding:4px 8px; background:#6b7280; color:white; border:none; border-radius:4px; font-size:11px; cursor:pointer;"
-    : "padding:4px 8px; background:#9ca3af; color:white; border:none; border-radius:4px; font-size:11px; cursor:not-allowed;";
-
-  const ratioInputHtml = `
-    <div style="padding:12px 16px; border-bottom:1px solid #e5e5e5; background:#f8f9fa;">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <label style="font-size:12px; color:#666;">Expected Hammer/Est:</label>
-        <div style="display:flex; align-items:center; gap:4px;">
-          <input
-            type="number"
-            id="expected-ratio-input"
-            value="${displayRatioPercent}"
-            min="50"
-            max="200"
-            ${inputDisabled}
-            style="${inputStyle}"
-          />
-          <span style="color:#666; font-size:13px;">%</span>
-          <button id="apply-ratio-btn" ${inputDisabled} style="${applyBtnStyle}">Apply</button>
-          <button id="reset-ratio-btn" ${inputDisabled} style="${resetBtnStyle}">Reset</button>
-        </div>
-      </div>
-      ${ratioStatus}
-      ${testModeHtml}
-    </div>
-  `;
-
-  const lotsLabel1 = isOngoingPage ? "With Bids" : "Sold Lots";
-  const lotsLabel2 = isOngoingPage ? "No Bids" : "Unsold Lots";
-  const overview = `
-    <div style="padding:16px; border-bottom:1px solid #e5e5e5;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-        <div style="background:${
-          isOngoingPage ? "#e0f2fe" : "#f0fdf4"
-        }; padding:12px; border-radius:8px; text-align:center; border:1px solid ${
-    isOngoingPage ? "#7dd3fc" : "#bbf7d0"
-  };">
-          <div style="font-size:24px; font-weight:700; color:${
-            isOngoingPage ? "#0369a1" : "#22c55e"
-          };">${stats.soldLots}</div>
-          <div style="font-size:11px; color:#666;">${lotsLabel1}</div>
-        </div>
-        <div style="background:#fefce8; padding:12px; border-radius:8px; text-align:center; border:1px solid #fef08a;">
-          <div style="font-size:24px; font-weight:700; color:#ca8a04;">${
-            stats.unsoldLots
-          }</div>
-          <div style="font-size:11px; color:#666;">${lotsLabel2}</div>
-        </div>
-      </div>
-      <div style="display:flex; justify-content:space-between; margin-top:12px; padding-top:12px; border-top:1px dashed #e5e5e5;">
-        <div>
-          <div style="font-size:10px; color:#888;">Low Estimate:</div>
-          <div style="font-size:13px; color:#333; font-weight:500;">${formatSEK(
-            stats.minEstimate
-          )}</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:10px; color:#888;">High Estimate:</div>
-          <div style="font-size:13px; color:#333; font-weight:500;">${formatSEK(
-            stats.maxEstimate
-          )}</div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  const priceHeader = isOngoingPage ? "Bid Analysis" : "Price Analysis";
-  const avgPriceLabel = isOngoingPage ? "Avg Current Bid:" : "Avg Hammer:";
-  const ratioLabel = isOngoingPage ? "Avg Bid/Est:" : "Avg Hammer/Est:";
-  const priceStats =
-    stats.soldLots > 0
-      ? `
-    <div style="padding:16px; border-bottom:1px solid #e5e5e5;">
-      <div style="font-weight:600; margin-bottom:12px; color:#333;">${priceHeader}</div>
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <div style="display:flex; justify-content:space-between;">
-          <span style="color:#666;">${avgPriceLabel}</span>
-          <span style="color:${
-            isOngoingPage ? "#0369a1" : "#22c55e"
-          }; font-weight:600;">${formatSEK(stats.avgHammer)}</span>
-        </div>
-        <div style="display:flex; justify-content:space-between;">
-          <span style="color:#666;">Avg Estimate:</span>
-          <span style="color:#333;">${formatSEK(stats.avgEstimate)}</span>
-        </div>
-        <div style="display:flex; justify-content:space-between;">
-          <span style="color:#666;">${ratioLabel}</span>
-          <span style="color:#2563eb; font-weight:600;">${formatRatio(
-            stats.avgRatio
-          )}</span>
-        </div>
-        <div style="display:flex; justify-content:space-between;">
-          <span style="color:#666;">Range:</span>
-          <span style="color:#333;">${formatRatio(
-            stats.minRatio
-          )} - ${formatRatio(stats.maxRatio)}</span>
-        </div>
-        <div style="background:#1a1a1a; border-radius:6px; padding:8px; margin-top:8px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="color:rgba(255,255,255,0.7); font-size:11px;">Guarantee Ratio (P80):</span>
-          <span style="color:#fff; font-weight:700;">${formatRatio(
-            stats.guaranteeRatio
-          )}</span>
-        </div>
-      </div>
-    </div>
-  `
-      : "";
-
-  const predictionsHeader = isOngoingPage
-    ? "Predicted Final Prices"
-    : "All Lots Predictions";
-  const predictionsHtml =
-    stats.predictions.length > 0
-      ? `
-    <div style="padding:16px;">
-      <div style="font-weight:600; margin-bottom:12px; color:#333;">${predictionsHeader} (${
-          stats.predictions.length
-        })</div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        ${stats.predictions
-          .map((p) => {
-            const hasSold = p.hammer !== null;
-            const diff = hasSold ? p.hammer - p.predictedAvg : 0;
-            const diffPercent = hasSold
-              ? ((diff / p.predictedAvg) * 100).toFixed(0)
-              : 0;
-            const isBelow = diff < 0;
-            let boxColor = "#22c55e";
-            if (hasSold) {
-              boxColor = p.hammer <= p.guaranteePrice ? "#22c55e" : "#ef4444";
-            }
-            return `
-          <div style="background:#f8f9fa; padding:10px; border-radius:8px; border:2px solid ${boxColor};">
-            <div style="font-size:12px; color:#555; margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${
-              p.title
-            }">${p.title.substring(0, 40)}${
-              p.title.length > 40 ? "..." : ""
-            }</div>
-            <div style="display:flex; justify-content:space-between; font-size:12px;">
-              <span style="color:#666;">Est: ${formatSEK(p.estimate)}</span>
-              ${
-                hasSold
-                  ? `<span style="color:${
-                      isBelow ? "#22c55e" : "#ef4444"
-                    }; font-weight:600;">Sold: ${formatSEK(p.hammer)}</span>`
-                  : `<span style="color:#0369a1;">Pending</span>`
-              }
-            </div>
-            <div style="background:#1a1a1a; border-radius:6px; padding:6px 8px; margin-top:6px; display:flex; justify-content:space-between; align-items:center;">
-              <span style="color:rgba(255,255,255,0.7); font-size:10px;">Guarantee</span>
-              <span style="color:#fff; font-weight:700; font-size:12px;">${formatSEK(
-                p.guaranteePrice
-              )}</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; margin-top:6px;">
-              <span style="color:#22c55e; font-size:11px;">${formatSEK(
-                p.predictedLow
-              )}</span>
-              <span style="color:#facc15; font-weight:600;">${formatSEK(
-                p.predictedAvg
-              )}</span>
-              <span style="color:#ef4444; font-size:11px;">${formatSEK(
-                p.predictedHigh
-              )}</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; font-size:10px; color:#888; margin-top:2px;">
-              <span>Low</span>
-              <span>Predicted</span>
-              <span>High</span>
-            </div>
-            ${
-              hasSold
-                ? `<div style="font-size:10px; color:${
-                    isBelow ? "#22c55e" : "#ef4444"
-                  }; margin-top:4px; text-align:center;">vs Predicted: ${
-                    diff >= 0 ? "+" : ""
-                  }${formatSEK(diff)} (${
-                    diff >= 0 ? "+" : ""
-                  }${diffPercent}%)</div>`
-                : ""
-            }
-          </div>
-        `;
-          })
-          .join("")}
-      </div>
-    </div>
-  `
-      : `
-    <div style="padding:16px; text-align:center; color:#888;">
-      No lots to predict
-    </div>
-  `;
-
-  let predictionsPanel = document.getElementById("bukowskis-predictions-panel");
-  const savedScrollTop = predictionsPanel ? predictionsPanel.scrollTop : 0;
-  if (predictionsPanel) predictionsPanel.remove();
-
-  if (stats.predictions.length > 0) {
-    predictionsPanel = document.createElement("div");
-    predictionsPanel.id = "bukowskis-predictions-panel";
-    Object.assign(predictionsPanel.style, {
-      position: "fixed",
-      top: "80px",
-      bottom: "50px",
-      left: "20px",
-      width: "320px",
-      overflow: "scroll",
-      overscrollBehavior: "contain",
-      backgroundColor: "#ffffff",
-      color: "#333",
-      borderRadius: "12px",
-      border: "1px solid #e5e5e5",
-      zIndex: "10000",
-      fontFamily:
-        "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-      fontSize: "14px",
-    });
-    predictionsPanel.innerHTML = predictionsHtml;
-    document.body.appendChild(predictionsPanel);
-    predictionsPanel.scrollTop = savedScrollTop;
-  }
-
-  statsPanel.innerHTML = header + ratioInputHtml + overview + priceStats;
-  document.body.appendChild(statsPanel);
-
-  document.getElementById("stats-close-btn").addEventListener("click", () => {
-    statsPanel.remove();
-    statsPanel = null;
-    const predPanel = document.getElementById("bukowskis-predictions-panel");
-    if (predPanel) predPanel.remove();
-  });
-
-  const applyBtn = document.getElementById("apply-ratio-btn");
-  const ratioInput = document.getElementById("expected-ratio-input");
-  if (applyBtn && ratioInput) {
-    applyBtn.onclick = function () {
-      const value = parseFloat(ratioInput.value);
-      if (value >= 50 && value <= 200) {
-        localStorage.setItem("bukowskis_expected_ratio", value.toString());
-        localStorage.setItem("bukowskis_ratio_manual", "true");
-        createStatsPanel();
-        updateAllBadgeIndicators();
-      }
-    };
-  }
-
-  const resetBtn = document.getElementById("reset-ratio-btn");
-  if (resetBtn) {
-    resetBtn.onclick = function () {
-      localStorage.removeItem("bukowskis_ratio_manual");
-      localStorage.removeItem("bukowskis_expected_ratio");
-      createStatsPanel();
-      updateAllBadgeIndicators();
-    };
-  }
-
-  const testModeToggle = document.getElementById("test-mode-toggle");
-  if (testModeToggle) {
-    testModeToggle.onchange = function () {
-      if (this.checked) {
-        localStorage.setItem("bukowskis_test_mode", "true");
-      } else {
-        localStorage.removeItem("bukowskis_test_mode");
-      }
-      createStatsPanel();
-    };
-  }
-}
-
-function createStatsToggleButton() {
-  if (!isBukowskisPage()) return;
-  if (document.getElementById("stats-toggle-btn")) return;
-
-  const btn = document.createElement("button");
-  btn.id = "stats-toggle-btn";
-  btn.innerHTML = "📊";
-  btn.title = "Show Bukowskis Stats";
-
-  Object.assign(btn.style, {
-    position: "fixed",
-    top: "10px",
-    right: "10px",
-    width: "32px",
-    height: "32px",
-    borderRadius: "50%",
-    border: "1px solid #e5e5e5",
-    backgroundColor: "#ffffff",
-    color: "#333",
-    fontSize: "16px",
-    cursor: "pointer",
-    zIndex: "9999",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  });
-
-  btn.addEventListener("click", () => {
-    if (statsPanel) {
-      statsPanel.remove();
-      statsPanel = null;
-    } else {
-      createStatsPanel();
-    }
-  });
-
-  document.body.appendChild(btn);
-}
-
 let initialized = false;
 
 async function initialize() {
   if (initialized) return;
   initialized = true;
 
-  await Promise.all([loadBukowskisStats(), loadLiveWines(), loadReleases()]);
+  await Promise.all([loadLiveWines(), loadReleases()]);
 
   refreshInjections();
-  createStatsToggleButton();
 
   let retries = 0;
   const retryInterval = setInterval(() => {
@@ -1270,7 +491,6 @@ function checkUrlChange() {
   if (window.location.href !== lastUrl) {
     lastUrl = window.location.href;
     refreshInjections();
-    if (statsPanel) createStatsPanel();
   }
 }
 setInterval(checkUrlChange, 1000);
