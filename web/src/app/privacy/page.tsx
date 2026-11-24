@@ -3,11 +3,11 @@ import { Section } from "@/components/Section";
 
 export default function PrivacyPolicy() {
   return (
-    <PageLayout title="Privacy Policy" subtitle="Last updated: February 19, 2026">
+    <PageLayout title="Privacy Policy" subtitle="Last updated: November 24, 2026">
 
       <Section title="Data We Collect">
         <p>When you sign in with Apple, we receive your Apple-provided user ID, display name, and email address (unless you choose to hide it, in which case we never see it).</p>
-        <p>When you post tasting notes, we store your user ID, display name, and the content you write in Firebase Firestore.</p>
+        <p>When you are signed in, your cellar (the wines, counts, prices and notes you enter) is backed up to Firebase Firestore under your user ID so it can be restored on your other devices.</p>
         <p>If you enable push notifications, Firebase Cloud Messaging receives a device token to deliver them. We do not store this token ourselves.</p>
       </Section>
 
@@ -16,13 +16,13 @@ export default function PrivacyPolicy() {
       </Section>
 
       <Section title="Local Storage">
-        <p>Display preferences (dark mode, filters) and imported cellar data are stored locally on your device and never leave it.</p>
+        <p>Display preferences (dark mode, filters) stay on your device. Your cellar is also saved on your device; it is only copied to Firebase Firestore while you are signed in.</p>
       </Section>
 
       <Section title="Third-Party Services">
         <ServiceList items={[
           { name: "Firebase Authentication", desc: "Handles sign-in", link: { label: "Google Privacy Policy", href: "https://policies.google.com/privacy" } },
-          { name: "Firebase Firestore", desc: "Stores tasting notes and blog posts" },
+          { name: "Firebase Firestore", desc: "Backs up your cellar while you are signed in" },
           { name: "Firebase Cloud Messaging", desc: "Delivers push notifications" },
         ]} />
       </Section>
@@ -31,8 +31,9 @@ export default function PrivacyPolicy() {
         <p>
           You can delete your account directly from the app. Open the <strong>Profile</strong> tab,
           scroll down, and tap <strong>Delete Account</strong>. You will be asked to re-authenticate
-          with Apple before deletion completes. This permanently removes your sign-in credentials and
-          any content you have published.
+          with Apple before deletion completes. This permanently removes your sign-in credentials, your
+          cellar backup, and any tasting notes you posted. The copy of your cellar stored on your device
+          stays there until you clear it from the Cellar tab.
         </p>
       </Section>
 

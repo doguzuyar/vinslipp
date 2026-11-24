@@ -22,8 +22,8 @@ export default function Support() {
           confirm before deletion completes.
         </p>
         <Note>
-          Deletion permanently removes your sign-in credentials and any tasting notes or blog posts
-          you have published. This cannot be undone.
+          Deletion permanently removes your sign-in credentials, your cellar backup, and any tasting
+          notes you posted. The cellar saved on your device stays until you clear it. This cannot be undone.
         </Note>
       </Section>
 
