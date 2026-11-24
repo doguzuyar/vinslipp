@@ -6,11 +6,15 @@ struct MiniCalendar: View {
     @Binding var selectedDate: String?
     var showThreeMonths = false
     @State private var displayMonth = Date()
+    @Environment(\.hasTopBand) private var hasTopBand
 
-    private let calendar = Calendar.current
+    // Gregorian like the data's dates, whatever calendar the device uses.
+    private let calendar = Calendar(identifier: .gregorian)
     private static let yearMonthFormatter: DateFormatter = {
         let f = DateFormatter()
         f.dateFormat = "yyyy-MM"
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.calendar = Calendar(identifier: .gregorian)
         return f
     }()
 
@@ -38,10 +42,11 @@ struct MiniCalendar: View {
                 monthNavButton(offset: 1, icon: "chevron.right")
             }
             .padding(.horizontal, 24)
-            .offset(y: -20)
+            .offset(y: hasTopBand ? -20 : 0)
 
             weekdayHeader
-            monthGrid(for: displayMonth)
+            // Always six rows, so paging months never moves the list below.
+            monthGrid(for: displayMonth, fixedRows: true)
         }
     }
 
@@ -112,8 +117,8 @@ struct MiniCalendar: View {
         }
     }
 
-    private func monthGrid(for month: Date) -> some View {
-        let weeks = weeksForMonth(month)
+    private func monthGrid(for month: Date, fixedRows: Bool = false) -> some View {
+        let weeks = weeksForMonth(month, fixedRows: fixedRows)
         return ForEach(Array(weeks.enumerated()), id: \.offset) { _, week in
             HStack(spacing: 0) {
                 ForEach(0..<7, id: \.self) { index in
@@ -172,7 +177,9 @@ struct MiniCalendar: View {
     // MARK: - Helpers
 
     private func monthLabel(for date: Date) -> String {
-        DateFormatters.monthAbbrev.string(from: date)
+        let month = DateFormatters.monthAbbrev.string(from: date)
+        let year = calendar.component(.year, from: date)
+        return year == calendar.component(.year, from: Date()) ? month : "\(month) \(year)"
     }
 
     private func monthNavButton(offset: Int, icon: String) -> some View {
@@ -182,10 +189,12 @@ struct MiniCalendar: View {
             Image(systemName: icon)
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(.secondary)
+                // A bigger tap area without changing the header's layout.
+                .contentShape(Rectangle().inset(by: -12))
         }
     }
 
-    private func weeksForMonth(_ month: Date) -> [[Date?]] {
+    private func weeksForMonth(_ month: Date, fixedRows: Bool = false) -> [[Date?]] {
         let range = calendar.range(of: .day, in: .month, for: month)!
         let firstDay = calendar.date(from: calendar.dateComponents([.year, .month], from: month))!
         let weekday = calendar.component(.weekday, from: firstDay)
@@ -195,7 +204,7 @@ struct MiniCalendar: View {
         for day in range {
             days.append(calendar.date(byAdding: .day, value: day - 1, to: firstDay))
         }
-        while days.count % 7 != 0 {
+        while days.count % 7 != 0 || (fixedRows && days.count < 42) {
             days.append(nil)
         }
         return stride(from: 0, to: days.count, by: 7).map { Array(days[$0..<min($0 + 7, days.count)]) }

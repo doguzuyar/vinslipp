@@ -47,7 +47,38 @@ struct ReleaseWine: Codable, Identifiable {
         "Rumänien": "Romania",
         "Kroatien": "Croatia",
         "Schweiz": "Switzerland",
+        "Sverige": "Sweden",
+        "Tjeckien": "Czechia",
+        "Serbien": "Serbia",
+        "Storbritannien": "United Kingdom",
+        "Ukraina": "Ukraine",
+        "Slovenien": "Slovenia",
+        "Moldavien": "Moldova",
+        "Luxemburg": "Luxembourg",
+        "Slovakien": "Slovakia",
+        "Danmark": "Denmark",
+        "Nordmakedonien": "North Macedonia",
+        "Armenien": "Armenia",
+        "Belgien": "Belgium",
+        "Bulgarien": "Bulgaria",
+        "Kanada": "Canada",
+        "Mexiko": "Mexico",
+        "Bosnien och Hercegovina": "Bosnia and Herzegovina",
+        "Internationellt märke": "International Brand",
+        "Turkiet": "Turkey",
+        "Brasilien": "Brazil",
+        "Kina": "China",
+        "Nederländerna": "Netherlands",
+        "Polen": "Poland",
+        "Norge": "Norway",
     ]
+
+    /// "Nov 24", with the year added for releases outside the current year.
+    var displayDate: String {
+        launchDate.hasPrefix(DateFormatters.todayString.prefix(4))
+            ? launchDateFormatted
+            : "\(launchDateFormatted) \(launchDate.prefix(4))"
+    }
 
     var countryEnglish: String {
         Self.countryTranslations[country] ?? country

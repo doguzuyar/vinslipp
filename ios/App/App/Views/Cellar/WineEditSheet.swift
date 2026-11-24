@@ -11,6 +11,8 @@ struct WineEditSheet: View {
 
     @State private var priceAmount: String
     @State private var priceCurrency: String
+    /// What the sheet opened with, so a swipe down can't silently drop edits.
+    private let original: (entry: CellarEntry, amount: String, currency: String)
     @FocusState private var focusedField: Field?
     @State private var enabled: Set<Field> = []
 
@@ -104,11 +106,18 @@ struct WineEditSheet: View {
         let (amount, currency) = Self.parsePrice(entry.price)
         self._priceAmount = State(initialValue: amount)
         self._priceCurrency = State(initialValue: currency)
+        self.original = (entry, amount, currency)
+    }
+
+    private var hasChanges: Bool {
+        entry != original.entry || priceAmount != original.amount || priceCurrency != original.currency
     }
 
     private static func parsePrice(_ price: String) -> (String, String) {
         let trimmed = price.trimmingCharacters(in: .whitespaces)
-        let digits = trimmed.filter { $0.isNumber }
+        // Keep the number as typed ("149.50", "2 000"); only the currency letters go.
+        let digits = trimmed.replacingOccurrences(of: "[A-Za-z]", with: "", options: .regularExpression)
+            .trimmingCharacters(in: .whitespaces)
         let upper = trimmed.uppercased()
         for cur in currencies where upper.contains(cur) {
             return (digits, cur)
@@ -200,6 +209,8 @@ struct WineEditSheet: View {
                                 .font(.title3)
                         }
                     }
+                    // In a Form row, plain buttons share one tap target: a tap fired both - and +.
+                    .buttonStyle(.borderless)
 
                     HStack {
                         TextField("Price", text: $priceAmount)
@@ -295,6 +306,11 @@ struct WineEditSheet: View {
                     .disabled(entry.winery.isEmpty && entry.wineName.isEmpty)
                 }
             }
+        }
+        .interactiveDismissDisabled(hasChanges)
+        // Show the count the save will store: history holds none, a restored wine at least one.
+        .onChange(of: entry.status) { _, status in
+            if status == .history { entry.count = 0 } else if entry.count == 0 { entry.count = 1 }
         }
     }
 

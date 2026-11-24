@@ -178,9 +178,18 @@ struct CellarData {
     let yearCounts: [String: Int]
     let vintageCounts: [String: Int]
     let totalBottles: Int
-    let totalValue: Int
+    /// Total per currency: prices can be entered in SEK, USD or EUR and aren't converted.
+    let totalValues: [String: Int]
     let colorPalette: [String: String]
     let vintagePalette: [String: String]
+
+    /// "25 224 SEK + 120 EUR", or empty when no wine has a price.
+    var totalValueText: String {
+        totalValues.filter { $0.value > 0 }
+            .sorted { ($0.key == "SEK" ? "" : $0.key) < ($1.key == "SEK" ? "" : $1.key) }
+            .map { "\($0.value.formatted()) \($0.key)" }
+            .joined(separator: " + ")
+    }
 
     init(from entries: [CellarEntry]) {
         let cellarWines = entries.filter { $0.status == .cellar && $0.count > 0 }
@@ -189,7 +198,7 @@ struct CellarData {
         var yearCounts: [String: Int] = [:]
         var vintageCounts: [String: Int] = [:]
         var totalBottles = 0
-        var totalValue = 0
+        var totalValues: [String: Int] = [:]
         var allYears: Set<Int> = []
 
         for wine in cellarWines {
@@ -202,13 +211,14 @@ struct CellarData {
             if let year = Int(yearKey) { allYears.insert(year) }
 
             totalBottles += wine.count
-            totalValue += wine.priceNumeric * wine.count
+            let currency = WineEditSheet.currencies.first { wine.price.uppercased().contains($0) } ?? "SEK"
+            totalValues[currency, default: 0] += wine.priceNumeric * wine.count
         }
 
         self.yearCounts = yearCounts
         self.vintageCounts = vintageCounts
         self.totalBottles = totalBottles
-        self.totalValue = totalValue
+        self.totalValues = totalValues
         self.colorPalette = AppColors.buildPalette(years: Array(allYears))
 
         let vintageYears = vintageCounts.keys.compactMap { Int($0) }

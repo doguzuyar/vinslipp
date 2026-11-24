@@ -34,8 +34,12 @@ struct CellarTab: View {
     @State private var showClearConfirm = false
     @State private var showImportConfirm = false
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    // A narrow iPad window (Slide Over, a small Split View side) is compact and gets the phone layout.
     private var isSideBySide: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
+        UIDevice.current.userInterfaceIdiom == .pad && horizontalSizeClass == .regular
     }
 
     private var filtered: [CellarEntry] {
@@ -45,7 +49,7 @@ struct CellarTab: View {
         if let year = selectedYear {
             wines = wines.filter { wine in
                 if showVintage {
-                    return wine.vintage == year
+                    return (wine.vintage.isEmpty ? "-" : wine.vintage) == year
                 } else {
                     let yearKey = wine.drinkYear.isEmpty
                         ? (wine.vintage.isEmpty ? "-" : wine.vintage)
@@ -157,6 +161,15 @@ struct CellarTab: View {
                 cellarService.updateEntry(updated)
             }
         }
+        // Cellar and History share expandedWineId; start each list collapsed.
+        .onChange(of: showHistory) { expandedWineId = nil }
+        // A selected year whose last wine left has no bar to tap off; drop the selection.
+        .onChange(of: cellarService.entries) {
+            guard let year = selectedYear else { return }
+            let data = cellarService.cellarData
+            let counts = (showVintage ? data?.vintageCounts : data?.yearCounts) ?? [:]
+            if counts[year] == nil { selectedYear = nil }
+        }
         .sheet(item: $shareURL) { url in
             ActivityView(activityItems: [url])
         }
@@ -173,10 +186,12 @@ struct CellarTab: View {
                     deleteCandidate = nil
                 }
             }
-            Button("Move to History") {
-                if let entry = deleteCandidate {
-                    cellarService.moveToHistory(id: entry.id)
-                    deleteCandidate = nil
+            if deleteCandidate?.status == .cellar {
+                Button("Move to History") {
+                    if let entry = deleteCandidate {
+                        cellarService.moveToHistory(id: entry.id)
+                        deleteCandidate = nil
+                    }
                 }
             }
             Button("Delete Permanently", role: .destructive) {
@@ -288,7 +303,7 @@ struct CellarTab: View {
                     Image(systemName: "plus.circle")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text("Tap \"Add to Cellar\" on any wine in Releases or Auctions")
+                    Text("Tap \"Cellar\" on any wine in Releases or Auctions")
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
                 }
@@ -320,71 +335,101 @@ struct CellarTab: View {
 
     // MARK: - Summary Bar
 
-    private func summaryBar(data: CellarData) -> some View {
-        HStack(spacing: 6) {
-            if cellarService.hasHistory {
-                FilterChip(label: "History", isActive: false) {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        showHistory = true
-                    }
-                }
-            }
-            FilterChip(label: showVintage ? "Vintage" : "Drink year", isActive: false) {
+    @ViewBuilder
+    private var summaryChips: some View {
+        if cellarService.hasHistory {
+            FilterChip(label: "History", isActive: false) {
                 withAnimation(.easeInOut(duration: 0.2)) {
-                    showVintage.toggle()
-                    selectedYear = nil
+                    showHistory = true
                 }
-            }
-
-            Button {
-                showAddSheet = true
-            } label: {
-                Image(systemName: "plus")
-                    .font(.caption2.weight(.medium))
-                    .foregroundStyle(.secondary)
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 5)
-                    .background(Color(.systemGray5))
-                    .clipShape(Capsule())
-            }
-
-            Spacer()
-            Text("\(data.totalBottles) bottles")
-                .font(.caption.weight(.medium))
-                .foregroundStyle(.secondary)
-            if data.totalValue > 0 {
-                Text("·")
-                    .foregroundStyle(.tertiary)
-                Text("\(data.totalValue.formatted()) SEK")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-            }
-
-            Menu {
-                Button {
-                    if let url = cellarService.exportCSV() {
-                        shareURL = url
-                    }
-                } label: {
-                    Label("Export Cellar", systemImage: "square.and.arrow.up")
-                }
-                Button {
-                    requestImport()
-                } label: {
-                    Label("Import Cellar", systemImage: "doc.badge.plus")
-                }
-                Divider()
-                Button(role: .destructive) {
-                    showClearConfirm = true
-                } label: {
-                    Label("Clear All", systemImage: "trash")
-                }
-            } label: {
-                Image(systemName: "ellipsis.circle")
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
             }
         }
+        FilterChip(label: showVintage ? "Vintage" : "Drink year", isActive: false) {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                showVintage.toggle()
+                selectedYear = nil
+            }
+        }
+
+        Button {
+            showAddSheet = true
+        } label: {
+            Image(systemName: "plus")
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(.secondary)
+                .padding(.horizontal, 6)
+                .padding(.vertical, 5)
+                .background(Color(.systemGray5))
+                .clipShape(Capsule())
+        }
+    }
+
+    @ViewBuilder
+    private func summaryTotals(_ data: CellarData) -> some View {
+        Text("\(data.totalBottles) bottles")
+            .font(.caption.weight(.medium))
+            .foregroundStyle(.secondary)
+        if !data.totalValueText.isEmpty {
+            Text("·")
+                .foregroundStyle(.tertiary)
+            Text(data.totalValueText)
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+        }
+
+    }
+
+    private var summaryMenu: some View {
+        Menu {
+            Button {
+                if let url = cellarService.exportCSV() {
+                    shareURL = url
+                }
+            } label: {
+                Label("Export Cellar", systemImage: "square.and.arrow.up")
+            }
+            Button {
+                requestImport()
+            } label: {
+                Label("Import Cellar", systemImage: "doc.badge.plus")
+            }
+            Divider()
+            Button(role: .destructive) {
+                showClearConfirm = true
+            } label: {
+                Label("Clear All", systemImage: "trash")
+            }
+        } label: {
+            Image(systemName: "ellipsis.circle")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+        }
+    }
+
+    private func summaryBar(data: CellarData) -> some View {
+        Group {
+            // Accessibility text sizes don't fit one row (the iPad column is 400 pt): totals go below.
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(spacing: 6) {
+                        summaryChips
+                        Spacer()
+                        summaryMenu
+                    }
+                    HStack(spacing: 6) { summaryTotals(data) }
+                }
+            } else {
+                HStack(spacing: 6) {
+                    summaryChips
+                    Spacer()
+                    summaryTotals(data)
+                    summaryMenu
+                }
+            }
+        }
+        // Shrink rather than wrap a letter per line.
+        .lineLimit(1)
+        .minimumScaleFactor(0.6)
         .padding(.horizontal, 12)
         .padding(.vertical, 6)
     }
@@ -439,6 +484,9 @@ struct CellarTab: View {
                     let row = CellarWineRow(
                         wine: wine,
                         isExpanded: expandedWineId == wine.id,
+                        colorHex: showVintage
+                            ? cellarService.cellarData?.vintagePalette[wine.vintage.isEmpty ? "-" : wine.vintage]
+                            : nil,
                         onEdit: { editingEntry = wine },
                         onIncrement: { cellarService.incrementCount(id: wine.id) },
                         onDecrement: {
@@ -472,6 +520,11 @@ struct CellarTab: View {
             }
         }
         .contentMargins(.bottom, 16)
+        .overlay {
+            if filtered.isEmpty {
+                NoResultsView(searchText: searchText)
+            }
+        }
     }
 
     // MARK: - History Bar
@@ -497,7 +550,7 @@ struct CellarTab: View {
             }
 
             Spacer()
-            Text("\(filteredHistory.count) wines")
+            Text("\(filteredHistory.count) \(filteredHistory.count == 1 ? "wine" : "wines")")
                 .font(.caption.weight(.medium))
                 .foregroundStyle(.secondary)
                 .fixedSize()
@@ -516,7 +569,7 @@ struct CellarTab: View {
                         wine: wine,
                         isExpanded: expandedWineId == wine.id,
                         onEdit: { editingEntry = wine },
-                        onDelete: { cellarService.removeEntry(id: wine.id) },
+                        onDelete: { deleteCandidate = wine },
                         onRestore: { cellarService.incrementCount(id: wine.id) }
                     )
                     .contentShape(Rectangle())
@@ -530,6 +583,11 @@ struct CellarTab: View {
             }
         }
         .contentMargins(.bottom, 16)
+        .overlay {
+            if filteredHistory.isEmpty {
+                NoResultsView(searchText: searchText)
+            }
+        }
     }
 
     // MARK: - Sorting
@@ -551,24 +609,24 @@ struct CellarTab: View {
     }
 
     private func sorted(_ wines: [CellarEntry]) -> [CellarEntry] {
-        wines.sorted { a, b in
+        wines.sorted { x, y in
+            if sortField == .year && !showVintage && drinkYearKey(x) == drinkYearKey(y) {
+                // Same drink year: hand order first, vintage for the rest.
+                // Both stay ascending so flipping the year arrow doesn't
+                // reverse an order set by hand.
+                let xOrder = x.manualOrder ?? Int.max
+                let yOrder = y.manualOrder ?? Int.max
+                return xOrder == yOrder ? x.vintage < y.vintage : xOrder < yOrder
+            }
+            // Descending swaps the pair; negating the result breaks on ties.
+            let (a, b) = sortDirection == .ascending ? (x, y) : (y, x)
             let result: Bool
             switch sortField {
             case .year:
                 if showVintage {
                     result = a.vintage < b.vintage
                 } else {
-                    let aYear = drinkYearKey(a)
-                    let bYear = drinkYearKey(b)
-                    if aYear == bYear {
-                        // Same drink year: hand order first, vintage for the rest.
-                        // Both stay ascending so flipping the year arrow doesn't
-                        // reverse an order set by hand.
-                        let aOrder = a.manualOrder ?? Int.max
-                        let bOrder = b.manualOrder ?? Int.max
-                        return aOrder == bOrder ? a.vintage < b.vintage : aOrder < bOrder
-                    }
-                    result = aYear < bYear
+                    result = drinkYearKey(a) < drinkYearKey(b)
                 }
             case .winery:
                 result = a.winery.localizedCaseInsensitiveCompare(b.winery) == .orderedAscending
@@ -583,7 +641,7 @@ struct CellarTab: View {
             case .count:
                 result = a.count < b.count
             }
-            return sortDirection == .ascending ? result : !result
+            return result
         }
     }
 
@@ -594,15 +652,19 @@ struct CellarTab: View {
 struct CellarWineRow: View {
     let wine: CellarEntry
     let isExpanded: Bool
+    /// Overrides the drink-year colour, e.g. with the vintage colour in Vintage mode.
+    var colorHex: String?
     let onEdit: () -> Void
     let onIncrement: () -> Void
     let onDecrement: () -> Void
+
+    private var color: Color { Color(hex: colorHex ?? wine.color) }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 12) {
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(Color(hex: wine.color))
+                    .fill(color)
                     .frame(width: 4, height: 44)
 
                 VStack(alignment: .leading, spacing: 2) {
@@ -631,6 +693,7 @@ struct CellarWineRow: View {
                         Text(wine.vintage)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .lineLimit(1)
                         if !wine.region.isEmpty {
                             Text(wine.region)
                                 .font(.caption2)
@@ -641,17 +704,20 @@ struct CellarWineRow: View {
                             Text(wine.country)
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
+                                .lineLimit(1)
                         }
                         if !wine.wineType.isEmpty {
                             Text(wine.wineType)
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
+                                .lineLimit(1)
                         }
                         Spacer()
                         if !wine.drinkYear.isEmpty {
                             Text(wine.drinkYear)
                                 .font(.caption2)
                                 .foregroundStyle(.tertiary)
+                                .lineLimit(1)
                         }
                     }
                 }
@@ -669,7 +735,7 @@ struct CellarWineRow: View {
             }
         }
         .background(
-            isExpanded ? Color(hex: wine.color).opacity(0.15) : Color.clear
+            isExpanded ? color.opacity(0.15) : Color.clear
         )
     }
 }
@@ -699,6 +765,7 @@ private struct HistoryWineRow: View {
                         Text(wine.vintage)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .lineLimit(1)
                     }
                     if !wine.region.isEmpty {
                         Text(wine.region)
@@ -710,11 +777,13 @@ private struct HistoryWineRow: View {
                         Text(wine.country)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .lineLimit(1)
                     }
                     if !wine.wineType.isEmpty {
                         Text(wine.wineType)
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .lineLimit(1)
                     }
                     Spacer()
                 }
@@ -733,7 +802,8 @@ private struct HistoryWineRow: View {
                                 .font(.caption.weight(.medium))
                         }
                         Button(action: onRestore) {
-                            Label("Restore to Cellar", systemImage: "arrow.uturn.backward")
+                            Label("Restore", systemImage: "arrow.uturn.backward")
+                                .lineLimit(1)
                                 .font(.caption.weight(.medium))
                         }
 
@@ -828,13 +898,15 @@ private func linkButtons(_ links: [String], safariURL: Binding<URL?>) -> some Vi
             Button { safariURL.wrappedValue = url } label: {
                 Label(linkLabel(linkStr), systemImage: "globe")
                     .font(.caption.weight(.medium))
+                    .lineLimit(1)
             }
         }
     }
 }
 
 private func linkLabel(_ urlString: String) -> String {
-    guard let host = URL(string: urlString)?.host?.lowercased() else { return "Link" }
+    // Same normalising as SafariView, so "www.vivino.com/..." is labelled Vivino too.
+    guard let url = URL(string: urlString), let host = SafariView.webURL(url).host?.lowercased() else { return "Link" }
     if host.contains("vivino") { return "Vivino" }
     if host.contains("bukowskis") { return "Bukowskis" }
     if host.contains("systembolaget") { return "Systembolaget" }

@@ -62,8 +62,7 @@ jobs:
                   "message": {
                       "topic": topic,
                       "data": {
-                          "tab": "release",
-                          "productNumbers": ",".join(w["productNumber"] for w in wines if w.get("productNumber"))
+                          "tab": "release"
                       },
                       "apns": {
                           "payload": {
@@ -73,8 +72,7 @@ jobs:
                                       "body": body_text
                                   },
                                   "sound": "default",
-                                  "badge": 1,
-                                  "mutable-content": 1
+                                  "badge": 1
                               }
                           }
                       }

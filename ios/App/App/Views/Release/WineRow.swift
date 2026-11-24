@@ -41,8 +41,9 @@ struct WineRow: View {
                         Text(wine.countryEnglish)
                         Text(wine.wineTypeEnglish)
                         Spacer()
-                        Text(wine.launchDateFormatted)
+                        Text(wine.displayDate)
                     }
+                    .lineLimit(1)
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
                 }

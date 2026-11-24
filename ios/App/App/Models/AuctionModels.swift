@@ -89,8 +89,9 @@ struct LiveWine: Identifiable {
     let bottles: Int
     let estimate_per_bottle: String?
     let hammer_price_per_bottle: String?
+    /// Expected hammer per bottle, worked out by the data pipeline (same number the extension shows).
+    let expected_per_bottle: Int?
 
-    var estimateNumeric: Int { (estimate_per_bottle ?? estimate).priceNumeric }
     var age: Int? { vintage > 0 ? Calendar(identifier: .gregorian).component(.year, from: Date()) - vintage : nil }
     var isMultiBottle: Bool { bottles > 1 }
     var displayEstimate: String { estimate_per_bottle ?? estimate }
@@ -104,7 +105,7 @@ extension LiveWine: Codable {
     enum CodingKeys: String, CodingKey {
         case lot_id, title, url, estimate, hammer_price, auction, category
         case rating_score, rating_reason, vintage, bottles
-        case estimate_per_bottle, hammer_price_per_bottle
+        case estimate_per_bottle, hammer_price_per_bottle, expected_per_bottle
     }
 
     init(from decoder: Decoder) throws {
@@ -122,5 +123,6 @@ extension LiveWine: Codable {
         bottles = try c.decodeIfPresent(Int.self, forKey: .bottles) ?? 1
         estimate_per_bottle = try c.decodeIfPresent(String.self, forKey: .estimate_per_bottle)
         hammer_price_per_bottle = try c.decodeIfPresent(String.self, forKey: .hammer_price_per_bottle)
+        expected_per_bottle = try c.decodeIfPresent(Int.self, forKey: .expected_per_bottle)
     }
 }

@@ -7,9 +7,10 @@ struct BottleChart: View {
     var vertical = false
 
     private var sortedYears: [(year: String, count: Int)] {
+        // "-" holds wines without a year; it sorts after the real years.
         yearCounts
-            .filter { $0.key.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
-            .sorted { $0.key < $1.key }
+            .filter { $0.key == "-" || $0.key.range(of: #"^\d{4}$"#, options: .regularExpression) != nil }
+            .sorted { ($0.key == "-" ? "9999" : $0.key) < ($1.key == "-" ? "9999" : $1.key) }
             .map { (year: $0.key, count: $0.value) }
     }
 

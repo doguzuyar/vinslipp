@@ -10,6 +10,8 @@ struct ProfileTab: View {
     @State private var showNotifications = false
     @State private var showDeleteConfirm = false
     @State private var deleteErrorMessage: String?
+    // Grows with Dynamic Type, so large text widens the controls instead of wrapping each letter.
+    @ScaledMetric private var controlWidth: CGFloat = 280
 
     var body: some View {
         VStack(spacing: 0) {
@@ -20,6 +22,17 @@ struct ProfileTab: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .alert(
+            "Sign In Failed",
+            isPresented: Binding(
+                get: { authManager.signInError != nil },
+                set: { if !$0 { authManager.signInError = nil } }
+            )
+        ) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(authManager.signInError ?? "")
+        }
         .onChange(of: notificationTopic) { _, newValue in
             for topic in NotificationTopics.allValues {
                 Messaging.messaging().unsubscribe(fromTopic: topic)
@@ -115,7 +128,10 @@ struct ProfileTab: View {
                 authManager.deleteAccount(
                     onReauthenticated: { cellarService.cancelPendingPush() },
                     onSuccess: { cellarService.forgetCloudAccount() },
-                    onError: { err in deleteErrorMessage = err.localizedDescription }
+                    onError: { err in
+                        cellarService.resumePushes()
+                        deleteErrorMessage = err.localizedDescription
+                    }
                 )
             }
             Button("Cancel", role: .cancel) { }
@@ -200,7 +216,7 @@ struct ProfileTab: View {
         .padding(3)
         .background(Color(.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .frame(maxWidth: 280)
+        .frame(maxWidth: controlWidth)
     }
 
     private func themeIcon(for option: String) -> String {
@@ -242,6 +258,7 @@ private struct ExpandableSettingButton: View {
     let options: [(value: String, label: String)]
     let selectedValue: String
     let onSelect: (String) -> Void
+    @ScaledMetric private var controlWidth: CGFloat = 280
 
     var body: some View {
         VStack(spacing: 8) {
@@ -267,7 +284,7 @@ private struct ExpandableSettingButton: View {
                 .background(Color(.systemGray6))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-            .frame(maxWidth: 280)
+            .frame(maxWidth: controlWidth)
 
             if isExpanded {
                 VStack(spacing: 4) {
@@ -296,7 +313,7 @@ private struct ExpandableSettingButton: View {
                         }
                     }
                 }
-                .frame(maxWidth: 280)
+                .frame(maxWidth: controlWidth)
                 .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
@@ -331,12 +348,16 @@ private struct SignInWithAppleButton: View {
 @MainActor
 class AuthManager: ObservableObject {
     @Published var user: User?
+    @Published var signInError: String?
     private var handle: AuthStateDidChangeListenerHandle?
     private let appleHandler = AppleSignInHandler()
 
     init() {
         handle = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             self?.user = user
+        }
+        appleHandler.onSignInError = { [weak self] error in
+            Task { @MainActor in self?.signInError = error.localizedDescription }
         }
     }
 

@@ -9,7 +9,6 @@ class DataService: ObservableObject {
     @Published var error: String?
     @Published var auctionError: String?
     @Published var liveWinesData: LiveWinesData?
-    @Published var isLoadingLiveWines = false
     @Published var liveWinesError: String?
 
     private let baseURL = "https://vinslipp.app/data"
@@ -49,18 +48,14 @@ class DataService: ObservableObject {
 
     func loadLiveWines() async {
         let isFirstLoad = liveWinesData == nil
-        if isFirstLoad {
-            isLoadingLiveWines = true
-        }
         liveWinesError = nil
 
         let result: LiveWinesData? = await fetch("\(baseURL)/live_wines.json")
         if let result {
             liveWinesData = result
         } else if isFirstLoad {
-            liveWinesError = "Failed to load live wines"
+            liveWinesError = "Failed to load recent lots"
         }
-        isLoadingLiveWines = false
     }
 
     private func fetch<T: Decodable>(_ urlString: String) async -> T? {

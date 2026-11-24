@@ -301,7 +301,6 @@ Scripts that use the AI agent require the CLI to be installed and authenticated.
 
 ### Environment
 
-- `firebase-sa.json` - Firebase service account key (not committed, referenced by the notification workflow)
 - `auction/cookies.txt` - Bukowskis session cookies in Netscape format (not committed, required by auction pipeline)
 - `FIREBASE_SERVICE_ACCOUNT_KEY` - GitHub Actions secret for push notifications
 

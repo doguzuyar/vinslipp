@@ -47,6 +47,11 @@ struct AuctionTab: View {
 
     private let regionFilters = ["Bordeaux", "Burgundy"]
 
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.hasTopBand) private var hasTopBand
+    // At accessibility text sizes the tab bar grows into the header's row, so keep the header below it.
+    private var pullIntoTopBand: Bool { hasTopBand && !dynamicTypeSize.isAccessibilitySize }
+
     // Vintages backed by fewer lots than this are noise, so they are hidden everywhere.
     static let minLots = 3
 
@@ -60,7 +65,8 @@ struct AuctionTab: View {
     }
 
     private var hasActiveFilters: Bool {
-        !auctionSelectedRegions.isEmpty
+        // Both regions selected is the default and filters nothing.
+        (!auctionSelectedRegions.isEmpty && auctionSelectedRegions != Set(regionFilters))
             || (showLive && !liveSelectedRating.isEmpty)
     }
 
@@ -112,8 +118,13 @@ struct AuctionTab: View {
         let map = liveLotsByProducer
 
         if !searchText.isEmpty {
-            let query = searchText.lowercased()
-            list = list.filter { $0.name.lowercased().contains(query) }
+            // "haut brion" finds "Haut-Brion", "chateau" finds "Château".
+            func fold(_ s: String) -> String {
+                s.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: nil)
+                    .replacingOccurrences(of: "-", with: " ")
+            }
+            let query = fold(searchText)
+            list = list.filter { fold($0.name).contains(query) }
         }
 
         if !auctionSelectedRegions.isEmpty {
@@ -162,12 +173,14 @@ struct AuctionTab: View {
                 filterBar
                 if showVintageAnalysis && !showLive {
                     vintageAnalysisList
+                } else if showLive && dataService.liveWinesData == nil {
+                    liveWinesStatus
                 } else {
                     sortBar
                     producerList
                 }
             }
-            .padding(.top, -15)
+            .padding(.top, pullIntoTopBand ? -15 : 0)
         } else if dataService.isLoadingAuction {
             Spacer()
             ProgressView("Loading auction data...")
@@ -188,28 +201,55 @@ struct AuctionTab: View {
         }
     }
 
+    // Recent mode needs live_wines.json; without it the list would just be empty.
+    @ViewBuilder
+    private var liveWinesStatus: some View {
+        Spacer()
+        if let error = dataService.liveWinesError {
+            VStack(spacing: 12) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.largeTitle)
+                    .foregroundStyle(.secondary)
+                Text(error)
+                    .foregroundStyle(.secondary)
+                Button("Retry") {
+                    Task { await dataService.loadLiveWines() }
+                }
+            }
+        } else {
+            ProgressView("Loading recent lots...")
+        }
+        Spacer()
+    }
+
     private var searchBar: some View {
         SearchBar(text: $searchText, placeholder: "Search producers...")
     }
 
     private func summaryBar(data: AuctionData) -> some View {
-        HStack {
-            Text("\(data.summary.unique_producers) producers")
+        // Counts follow the search and filters, so the header matches the list below it.
+        let shown = filtered
+        return HStack {
+            Text("\(shown.count) \(shown.count == 1 ? "producer" : "producers")")
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.secondary)
             Spacer()
-            if showLive, let live = dataService.liveWinesData {
-                Text("\(live.total_wines) recent lots")
+            if showLive {
+                let lots = liveLotsByProducer
+                Text("\(shown.reduce(0) { $0 + (lots[normalizedProducerKey($1.name)]?.filter(matchesRatingFilter).count ?? 0) }) recent lots")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
             } else {
-                Text("\(data.summary.total_wines) lots")
+                Text("\(shown.reduce(0) { $0 + $1.totalLots }) lots")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.secondary)
             }
         }
+        // One line at any text size: the bar shares its row with the iPad tab bar.
+        .lineLimit(1)
+        .minimumScaleFactor(0.5)
         .padding(.horizontal, 24)
-        .offset(y: -40)
+        .offset(y: pullIntoTopBand ? -40 : 0)
     }
 
     private func filterMenu(
@@ -280,6 +320,11 @@ struct AuctionTab: View {
                         Image(systemName: "arrow.counterclockwise")
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .accessibilityLabel("Reset filters")
+                            // Chip-height tap area, so the row keeps its height when the arrow shows.
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .contentShape(Rectangle())
                     }
                 }
             }
@@ -345,6 +390,11 @@ struct AuctionTab: View {
             await dataService.loadAuction()
             await dataService.loadLiveWines()
         }
+        .overlay {
+            if filtered.isEmpty {
+                NoResultsView(searchText: searchText)
+            }
+        }
     }
 
     private var vintageAnalysisList: some View {
@@ -401,7 +451,9 @@ struct AuctionTab: View {
     }
 
     private func sorted(_ list: [AuctionProducer]) -> [AuctionProducer] {
-        list.sorted { a, b in
+        list.sorted { x, y in
+            // Descending swaps the pair; negating the result breaks on ties.
+            let (a, b) = sortDirection == .ascending ? (x, y) : (y, x)
             let result: Bool
             switch sortField {
             case .producer:
@@ -413,7 +465,7 @@ struct AuctionTab: View {
             case .ratio:
                 result = (a.avgRatio ?? 0) < (b.avgRatio ?? 0)
             }
-            return sortDirection == .ascending ? result : !result
+            return result
         }
     }
 
@@ -480,7 +532,7 @@ struct ProducerRow: View {
                         }
                     }
                     HStack {
-                        Text("\(producer.totalLots) lots")
+                        Text("\(producer.totalLots) \(producer.totalLots == 1 ? "lot" : "lots")")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
@@ -493,6 +545,7 @@ struct ProducerRow: View {
                         Text("\(producer.sold)/\(producer.totalLots) sold")
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .lineLimit(1)
                         Text(String(format: "%.0f%%", producer.sellRate))
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
@@ -531,11 +584,6 @@ struct ProducerDetail: View {
     private func vintageFactor(for lot: LiveWine) -> Double? {
         guard lot.vintage > 0 else { return nil }
         return vintageIndex[lot.category]?[String(lot.vintage)]
-    }
-
-    private func expectedPerBottle(for lot: LiveWine) -> Int? {
-        guard producer.avgHammerSek > 0, let factor = vintageFactor(for: lot) else { return nil }
-        return Int((Double(producer.avgHammerSek) * factor).rounded())
     }
 
     private var producerRegion: String? { producer.regions.first }
@@ -657,7 +705,7 @@ struct ProducerDetail: View {
                             wine: lot,
                             isExpanded: expandedLotId == lot.id,
                             vintageFactor: vintageFactor(for: lot),
-                            expectedPerBottle: expectedPerBottle(for: lot)
+                            expectedPerBottle: lot.expected_per_bottle
                         )
                             .contentShape(Rectangle())
                             .onTapGesture {
@@ -714,9 +762,14 @@ struct LiveWineRow: View {
             status: .cellar,
             winery: winery,
             vintage: wine.vintage > 0 ? String(wine.vintage) : "",
-            style: wine.category.capitalized,
-            price: wine.hammer_price != "No bids" ? wine.displayHammer : wine.displayEstimate,
+            // Auction categories are Bordeaux and Burgundy, both French red.
+            region: wine.category.capitalized,
+            country: "France",
+            wineType: "Red Wine",
+            // "No bids" and "Unsold" carry no price, so fall back to the estimate.
+            price: wine.hammer_price.priceNumeric > 0 ? wine.displayHammer : wine.displayEstimate,
             count: wine.bottles,
+            links: [wine.url],
             source: .auction
         )
     }
@@ -806,13 +859,17 @@ struct LiveWineRow: View {
                         }
                     }
 
-                    if let factor = vintageFactor, let expected = expectedPerBottle {
+                    if vintageFactor != nil || expectedPerBottle != nil {
                         HStack(spacing: 16) {
-                            DetailChip(label: "Vintage Index", value: String(format: "%.2fx", factor))
-                            DetailChip(
-                                label: wine.isMultiBottle ? "Expected/bt" : "Expected",
-                                value: "\(expected.formatted()) SEK"
-                            )
+                            if let factor = vintageFactor {
+                                DetailChip(label: "Vintage Index", value: String(format: "%.2fx", factor))
+                            }
+                            if let expected = expectedPerBottle {
+                                DetailChip(
+                                    label: wine.isMultiBottle ? "Expected/bt" : "Expected",
+                                    value: "\(expected.formatted()) SEK"
+                                )
+                            }
                         }
                     }
                 }

@@ -17,7 +17,8 @@ struct ReleaseTab: View {
     @AppStorage("release_selectedCountries") private var selectedCountriesData: Data = Data()
     @AppStorage("release_selectedTypes") private var selectedTypesData: Data = Data()
     @AppStorage("release_selectedRating") private var selectedRating = ""
-    @AppStorage("release_todayOnly") private var todayOnly = false
+    // Not persisted: it mirrors selectedDate, which starts empty on every launch.
+    @State private var todayOnly = false
     @State private var showPastReleases = false
     @State private var searchText = ""
     @State private var todayString = DateFormatters.todayString
@@ -57,8 +58,12 @@ struct ReleaseTab: View {
         return counts
     }
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.hasTopBand) private var hasTopBand
+
+    // A narrow iPad window (Slide Over, a small Split View side) is compact and gets the phone layout.
     private var isSideBySide: Bool {
-        UIDevice.current.userInterfaceIdiom == .pad
+        UIDevice.current.userInterfaceIdiom == .pad && horizontalSizeClass == .regular
     }
 
     var body: some View {
@@ -93,7 +98,7 @@ struct ReleaseTab: View {
                             selectedDate: $selectedDate
                         )
                         .padding(.horizontal, 12)
-                        .offset(y: -15)
+                        .offset(y: hasTopBand ? -15 : 0)
 
                         filterBar
                         sortBar
@@ -134,6 +139,8 @@ struct ReleaseTab: View {
         }
         .onChange(of: selectedDate) { _, newValue in
             todayOnly = newValue == todayString
+            // A past day's wines sit in the collapsed Past Releases section.
+            if let newValue, newValue < todayString { showPastReleases = true }
         }
     }
 
@@ -218,6 +225,11 @@ struct ReleaseTab: View {
                         Image(systemName: "arrow.counterclockwise")
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
+                            .accessibilityLabel("Reset filters")
+                            // Chip-height tap area, so the row keeps its height when the arrow shows.
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .contentShape(Rectangle())
                     }
                 }
             }
@@ -288,7 +300,7 @@ struct ReleaseTab: View {
                     }
 
                     if showPastReleases {
-                        ForEach(pastWines.sorted { $0.launchDate > $1.launchDate }) { wine in
+                        ForEach(sortField == .date ? pastWines.sorted { $0.launchDate > $1.launchDate } : sorted(pastWines)) { wine in
                             wineRow(for: wine)
                                 .opacity(0.6)
                             Divider().padding(.leading, 28)
@@ -300,6 +312,11 @@ struct ReleaseTab: View {
         .contentMargins(.bottom, 16)
         .refreshable {
             await dataService.loadReleases()
+        }
+        .overlay {
+            if upcomingWines.isEmpty && pastWines.isEmpty {
+                NoResultsView(searchText: searchText)
+            }
         }
     }
 
@@ -395,7 +412,9 @@ struct ReleaseTab: View {
     }
 
     private func sorted(_ wines: [ReleaseWine]) -> [ReleaseWine] {
-        wines.sorted { a, b in
+        wines.sorted { x, y in
+            // Descending swaps the pair; negating the result breaks on ties.
+            let (a, b) = sortDirection == .ascending ? (x, y) : (y, x)
             let result: Bool
             switch sortField {
             case .date:
@@ -405,7 +424,7 @@ struct ReleaseTab: View {
             case .rating:
                 result = (a.ratingScore ?? 0) < (b.ratingScore ?? 0)
             }
-            return sortDirection == .ascending ? result : !result
+            return result
         }
     }
 
@@ -441,9 +460,10 @@ struct FilterChip: View {
         Button(action: action) {
             Text(label)
                 .font(.caption2.weight(.medium))
+                .lineLimit(1)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
-                .background(isActive ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
+                .background(isActive ? Color.accentColor.opacity(0.35) : Color(.systemGray5))
                 .foregroundStyle(isActive ? .primary : .secondary)
                 .clipShape(Capsule())
         }
@@ -457,13 +477,14 @@ struct FilterChipLabel: View {
     var body: some View {
         HStack(spacing: 3) {
             Text(label)
+                .lineLimit(1)
             Image(systemName: "chevron.down")
                 .font(.system(size: 7))
         }
         .font(.caption2.weight(.medium))
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
-        .background(isActive ? Color.accentColor.opacity(0.2) : Color(.systemGray5))
+        .background(isActive ? Color.accentColor.opacity(0.35) : Color(.systemGray5))
         .foregroundStyle(isActive ? .primary : .secondary)
         .clipShape(Capsule())
     }

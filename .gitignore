@@ -26,10 +26,7 @@ xcuserdata/
 
 # Local-only scripts & data
 scripts/rate_wines.py
-scripts/moderate_blog.py
-scripts/seed_comment.py
 scripts/test_notification.py
-scripts/server.sh
 firebase-sa.json
 guide/
 auction/cookies.txt
@@ -37,11 +34,6 @@ auction/scraper.py
 auction/wines.json
 auction/rate_auction_wines.py
 auction/daily_auction.py
-auction/fix_producer_names.py
-auction/merge_stats.py
-data/wine_cellar.csv
-data/cellar.json
-data/history.json
 
 # Project instructions
 CLAUDE.md

@@ -8,7 +8,7 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                            ASAuthorizationControllerPresentationContextProviding {
 
     private var currentNonce: String?
-    var onSignIn: ((String, String, String) -> Void)?
+    var onSignInError: ((Error) -> Void)?
     private var pendingDeletion = false
     var onReauthenticated: (() -> Void)?
     var onDeleteSuccess: (() -> Void)?
@@ -70,8 +70,10 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                     // Cloud data goes last, so a failed step above leaves it intact.
                     let db = Firestore.firestore()
                     try await db.collection("cellar").document(user.uid).delete()
-                    let posts = try await db.collection("blog_posts").whereField("userId", isEqualTo: user.uid).getDocuments()
-                    for doc in posts.documents { try await doc.reference.delete() }
+                    // Posts from the retired Blog; best effort, so it can't stop the deletion halfway.
+                    if let posts = try? await db.collection("blog_posts").whereField("userId", isEqualTo: user.uid).getDocuments() {
+                        for doc in posts.documents { try? await doc.reference.delete() }
+                    }
                     try await user.delete()
                     await MainActor.run { self.onDeleteSuccess?() }
                 } catch {
@@ -97,19 +99,15 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
             .joined(separator: " ")
 
         Auth.auth().signIn(with: credential) { [weak self] result, error in
-            guard let user = result?.user, error == nil else { return }
-            let email = user.email ?? ""
-
-            guard !appleDisplayName.isEmpty else {
-                self?.onSignIn?(user.uid, user.displayName ?? "", email)
+            guard let user = result?.user, error == nil else {
+                if let error { self?.onSignInError?(error) }
                 return
             }
-
+            // Apple only sends the name on the first sign-in, so keep it on the Firebase profile.
+            guard !appleDisplayName.isEmpty else { return }
             let changeRequest = user.createProfileChangeRequest()
             changeRequest.displayName = appleDisplayName
-            changeRequest.commitChanges { _ in
-                self?.onSignIn?(user.uid, appleDisplayName, email)
-            }
+            changeRequest.commitChanges { _ in }
         }
     }
 
@@ -118,8 +116,11 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
         // Reset so a cancelled deletion doesn't turn the next sign-in into a delete.
         let wasDeleting = pendingDeletion
         pendingDeletion = false
-        if wasDeleting, (error as? ASAuthorizationError)?.code != .canceled {
+        guard (error as? ASAuthorizationError)?.code != .canceled else { return }
+        if wasDeleting {
             onDeleteError?(error)
+        } else {
+            onSignInError?(error)
         }
     }
 

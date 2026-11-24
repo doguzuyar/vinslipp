@@ -75,7 +75,7 @@ struct WineDetail: View {
                     price: wine.price,
                     count: 1,
                     drinkYear: "",
-                    links: [wine.searchLink],
+                    links: [wine.sbLink, wine.searchLink].filter { !$0.isEmpty },
                     source: .release
                 ),
                 isNew: true

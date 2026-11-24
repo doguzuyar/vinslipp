@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
@@ -29,6 +30,7 @@ class CellarService: ObservableObject {
     private var authHandle: AuthStateDidChangeListenerHandle?
     private var pendingPushTask: Task<Void, Never>?
     private var suppressAutoPush = false
+    private var pushesPaused = false
 
     var cellarData: CellarData? {
         let hasCellarWines = entries.contains { $0.status == .cellar && $0.count > 0 }
@@ -52,6 +54,19 @@ class CellarService: ObservableObject {
         loadFromFile()
         migrateFromUserDefaultsIfNeeded()
         setupAuthListener()
+        // The upload waits a second for more edits; don't let closing the app drop it.
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in self?.flushPendingPush() }
+        }
+    }
+
+    private func flushPendingPush() {
+        guard pendingPushTask != nil else { return }
+        pendingPushTask?.cancel()
+        pendingPushTask = nil
+        Task { await runPush() }
     }
 
     deinit {
@@ -63,6 +78,8 @@ class CellarService: ObservableObject {
     // MARK: - CRUD
 
     func addEntry(_ entry: CellarEntry) {
+        let entry = Self.consistent(entry, was: entry.status)
+        noteChange(entry.id)
         if entry.status == .history {
             insertHistoryEntry(entry)
         } else {
@@ -76,14 +93,29 @@ class CellarService: ObservableObject {
         save()
     }
 
+    /// Same rules as moveToHistory and incrementCount: history holds no bottles, a wine moved
+    /// back to the cellar has at least one, and a cellar wine with none is history (the cellar
+    /// list hides empty wines, so it would vanish from both lists).
+    private static func consistent(_ entry: CellarEntry, was oldStatus: WineStatus) -> CellarEntry {
+        var entry = entry
+        if entry.status == .history {
+            entry.count = 0
+        } else if entry.count == 0 {
+            if oldStatus == .history { entry.count = 1 } else { entry.status = .history }
+        }
+        return entry
+    }
+
     func updateEntry(_ entry: CellarEntry) {
+        noteChange(entry.id)
         if let index = entries.firstIndex(where: { $0.id == entry.id }) {
-            entries[index] = entry
+            entries[index] = Self.consistent(entry, was: entries[index].status)
             save()
         }
     }
 
     func incrementCount(id: UUID) {
+        noteChange(id)
         if let index = entries.firstIndex(where: { $0.id == id }) {
             entries[index].count += 1
             if entries[index].status == .history {
@@ -94,6 +126,7 @@ class CellarService: ObservableObject {
     }
 
     func decrementCount(id: UUID) {
+        noteChange(id)
         if let index = entries.firstIndex(where: { $0.id == id }), entries[index].count > 0 {
             entries[index].count -= 1
             save()
@@ -101,6 +134,7 @@ class CellarService: ObservableObject {
     }
 
     func moveToHistory(id: UUID) {
+        noteChange(id)
         guard let index = entries.firstIndex(where: { $0.id == id }) else { return }
         var entry = entries.remove(at: index)
         entry.status = .history
@@ -133,16 +167,23 @@ class CellarService: ObservableObject {
         save()
     }
 
-    /// Stops a queued upload so it can't recreate cellar/{uid} while the account is being deleted.
+    /// Stops uploads so none can recreate cellar/{uid} while the account is being deleted.
     func cancelPendingPush() {
         pendingPushTask?.cancel()
         pendingPushTask = nil
+        pushesPaused = true
+    }
+
+    /// Account deletion failed or was abandoned: uploads may run again.
+    func resumePushes() {
+        pushesPaused = false
     }
 
     /// After account deletion the local cellar stays on the device but no longer belongs to any
     /// account, so the next sign-in treats it as fresh device data instead of another user's.
     func forgetCloudAccount() {
         UserDefaults.standard.removeObject(forKey: Self.lastSyncedUidKey)
+        pushesPaused = false
         syncStatus = .offline
     }
 
@@ -172,7 +213,11 @@ class CellarService: ObservableObject {
             let data = try Data(contentsOf: fileURL)
             entries = try JSONDecoder().decode([CellarEntry].self, from: data)
         } catch {
-            self.error = "Failed to load cellar: \(error.localizedDescription)"
+            // The next save would overwrite the unreadable file, so keep a copy first.
+            let backup = fileURL.deletingLastPathComponent()
+                .appendingPathComponent("cellar-unreadable-\(Int(Date().timeIntervalSince1970)).json")
+            try? FileManager.default.copyItem(at: fileURL, to: backup)
+            self.error = "Failed to load cellar: \(error.localizedDescription). A copy was kept as \(backup.lastPathComponent)."
         }
     }
 
@@ -276,7 +321,8 @@ class CellarService: ObservableObject {
         let headers = [
             "Status", "Winery", "Wine Name", "Vintage", "Region", "Country",
             "Wine Type", "Price", "Count", "Drink Year", "Links",
-            "Notes", "Source", "Added Date"
+            "Notes", "Source", "Added Date",
+            "Style", "User Rating", "Average Rating", "Manual Order"
         ]
 
         var lines: [String] = [headers.joined(separator: ",")]
@@ -306,7 +352,11 @@ class CellarService: ObservableObject {
                 entry.links.joined(separator: " | "),
                 entry.notes,
                 entry.source.rawValue,
-                entry.addedDate
+                entry.addedDate,
+                entry.style,
+                entry.userRating,
+                entry.averageRating,
+                entry.manualOrder.map(String.init) ?? ""
             ].map { csvEscape($0) }
             lines.append(fields.joined(separator: ","))
         }
@@ -378,6 +428,10 @@ class CellarService: ObservableObject {
     }
 
     private func importVinslippCSV(_ rows: [[String: String]]) {
+        guard !rows.isEmpty else {
+            error = "No wines found in the file. Nothing was changed."
+            return
+        }
         entries = rows.map { row in
             CellarEntry(
                 status: WineStatus(rawValue: row["Status"] ?? "cellar") ?? .cellar,
@@ -398,7 +452,8 @@ class CellarService: ObservableObject {
                 averageRating: row["Average Rating"] ?? "",
                 notes: row["Notes"] ?? "",
                 source: WineSource(rawValue: row["Source"] ?? "imported") ?? .imported,
-                addedDate: row["Added Date"] ?? DateFormatters.todayString
+                addedDate: row["Added Date"] ?? DateFormatters.todayString,
+                manualOrder: Int(row["Manual Order"] ?? "")
             )
         }
         save()
@@ -568,6 +623,11 @@ class CellarService: ObservableObject {
             ))
         }
 
+        // An unreadable export yields no rows; never let that replace the cellar.
+        guard !newEntries.isEmpty else {
+            error = "No wines found in the Vivino files. Nothing was changed."
+            return
+        }
         entries = newEntries
         save()
     }
@@ -599,6 +659,15 @@ class CellarService: ObservableObject {
     }
 
     private static let lastSyncedUidKey = "cellar_last_synced_uid"
+    private static let signedOutChangesKey = "cellar_signed_out_changes"
+
+    /// Remembers a wine added or edited while signed out, so the next sign-in keeps it.
+    private func noteChange(_ id: UUID) {
+        guard Auth.auth().currentUser == nil else { return }
+        var ids = UserDefaults.standard.stringArray(forKey: Self.signedOutChangesKey) ?? []
+        if !ids.contains(id.uuidString) { ids.append(id.uuidString) }
+        UserDefaults.standard.set(ids, forKey: Self.signedOutChangesKey)
+    }
 
     private func syncOnSignIn() async {
         syncStatus = .syncing
@@ -626,11 +695,8 @@ class CellarService: ObservableObject {
                 syncStatus = .synced(Date())
                 return
             }
-            if cloud.isEmpty && previousUid == uid && !entries.isEmpty {
-                // After a Clear All, wines added here that never reached the cloud
-                // (app closed before the upload) would otherwise be wiped.
-                try await pushAll()
-            } else if isFirstSyncOnDevice && !entries.isEmpty {
+            let changedWhileSignedOut = Set(UserDefaults.standard.stringArray(forKey: Self.signedOutChangesKey) ?? [])
+            if isFirstSyncOnDevice && !entries.isEmpty {
                 // First sign-in on this device with both local and cloud data:
                 // union by id so wines added while signed-out aren't lost.
                 // Cloud wins on id conflicts.
@@ -643,6 +709,16 @@ class CellarService: ObservableObject {
                 if merged.count != cloud.count {
                     try await pushAll()
                 }
+            } else if previousUid == uid && !changedWhileSignedOut.isEmpty {
+                // Same account again: the cloud is the truth, except for wines added or
+                // edited here while signed out, which win and are uploaded.
+                let local = entries.filter { changedWhileSignedOut.contains($0.id.uuidString) }
+                let localIds = Set(local.map(\.id))
+                suppressAutoPush = true
+                entries = cloud.filter { !localIds.contains($0.id) } + local
+                saveLocal()
+                suppressAutoPush = false
+                try await pushAll()
             } else {
                 // Subsequent sign-in (or account switch): cloud is the truth
                 // so deletions made on other devices propagate, and a previous
@@ -653,6 +729,7 @@ class CellarService: ObservableObject {
                 suppressAutoPush = false
             }
 
+            UserDefaults.standard.removeObject(forKey: Self.signedOutChangesKey)
             UserDefaults.standard.set(uid, forKey: Self.lastSyncedUidKey)
             syncStatus = .synced(Date())
         } catch CloudCellarError.notSignedIn {
@@ -686,6 +763,7 @@ class CellarService: ObservableObject {
     }
 
     private func pushAll() async throws {
+        guard !pushesPaused else { return }
         let ref = try userCellarDocRef()
         let payload: [String: Any] = [
             "entries": entries.map { encodeForCloud($0) },
@@ -762,7 +840,8 @@ class CellarService: ObservableObject {
         var current: [String] = []
         var field = ""
         var inQuotes = false
-        let chars = Array(text)
+        // Excel saves with a byte-order mark, which would hide the first header name.
+        let chars = Array(text.hasPrefix("\u{FEFF}") ? String(text.dropFirst()) : text)
         var i = 0
 
         while i < chars.count {
@@ -790,10 +869,8 @@ class CellarService: ObservableObject {
                     current.append(field)
                     field = ""
                     i += 1
-                } else if c == "\r" || c == "\n" {
-                    if c == "\r" && i + 1 < chars.count && chars[i + 1] == "\n" {
-                        i += 1
-                    }
+                } else if c.isNewline {
+                    // Swift reads "\r\n" as one Character, so compare with isNewline, not "\n".
                     current.append(field)
                     field = ""
                     if !current.allSatisfy({ $0.isEmpty }) {
