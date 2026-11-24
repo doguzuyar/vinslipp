@@ -17,8 +17,10 @@ if RATE_CONCURRENCY=1 .venv/bin/python auction/daily_auction.py; then
     git add auction/live_wines.json auction/auction_stats.json README.md
     git diff --cached --quiet || git commit -m "chore: update auction data"
 else
+    # Drop its half-written files, or the pull below refuses to run and nothing is pushed.
+    git checkout -- auction/live_wines.json auction/auction_stats.json README.md
     echo "Auction step failed, skipped"
 fi
 
-git pull --rebase
+git pull --rebase --autostash
 git push

@@ -100,6 +100,11 @@ try:
 except (FileNotFoundError, json.JSONDecodeError):
     print("No existing releases.json found, starting fresh")
 
+# An empty answer while upcoming wines are known is an API hiccup, not every release cancelled.
+if fetch_ok and not new_releases and any(w.get('launchDate', '') >= today for w in existing_wines):
+    print("Warning: API returned no upcoming wines, keeping the existing ones")
+    fetch_ok = False
+
 # Keep past wines (launched before today), drop future ones (API is the truth for those)
 # Deduplicate by productNumber
 seen_products = set()
@@ -198,12 +203,14 @@ releases_json['totalCount'] = len(releases_json['wines'])
 with open('data/releases.json', 'w', encoding='utf-8') as f:
     json.dump(releases_json, f, ensure_ascii=False)
 
-metadata_json = {
-    'releaseUpdated': release_updated,
-    'auctionUpdated': auction_updated,
-    'generatedAt': datetime.now().isoformat(),
-}
-with open('data/metadata.json', 'w', encoding='utf-8') as f:
-    json.dump(metadata_json, f, ensure_ascii=False)
+# Only a successful fetch counts as fresh data, so the stale-data check notices a failing API.
+if fetch_ok:
+    metadata_json = {
+        'releaseUpdated': release_updated,
+        'auctionUpdated': auction_updated,
+        'generatedAt': datetime.now().isoformat(),
+    }
+    with open('data/metadata.json', 'w', encoding='utf-8') as f:
+        json.dump(metadata_json, f, ensure_ascii=False)
 
 print(f"JSON data written to data/ ({releases_json['totalCount']} total wines)")

@@ -416,6 +416,15 @@ function injectAllRatings() {
   }
 }
 
+function getBukowskisLotTitle(card) {
+  const artist = card.querySelector(".c-lot-index-lot__artist")?.textContent?.trim() || "";
+  const titleEl = card.querySelector("div.c-lot-index-lot__title");
+  const title = titleEl?.textContent?.trim() || "";
+  const combined = [artist, title].filter(Boolean).join(" ").replace(/\.$/, "").trim();
+  if (combined) return combined;
+  return card.querySelector(".c-lot-cell__title, .c-my-pages-lot-card__title")?.textContent?.trim() || "";
+}
+
 function extractTitleParts(card) {
   const monopolParagraphs = card.querySelectorAll("p.monopol-250");
   const primary = Array.from(monopolParagraphs)
