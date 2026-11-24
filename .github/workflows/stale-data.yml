@@ -1,0 +1,28 @@
+name: Stale Data Check
+
+# The Pi commits fresh release data every night. If it stops (power, network, an expired
+# token), this run fails and GitHub emails the repo owner.
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail if the release data is older than 36 hours
+        run: |
+          python3 - <<'EOF'
+          import json
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+          tz = ZoneInfo("Europe/Stockholm")  # the Pi writes local time
+          generated = datetime.fromisoformat(json.load(open("data/metadata.json"))["generatedAt"]).replace(tzinfo=tz)
+          age = datetime.now(tz) - generated
+          print(f"Release data generated {generated:%Y-%m-%d %H:%M}, {age} ago")
+          if age > timedelta(hours=36):
+              raise SystemExit("::error::The Pi has not updated the release data for over 36 hours")
+          EOF

@@ -1,10 +1,9 @@
 import json
 import os
-import re
 import subprocess
 import urllib.parse
 import urllib.request
-from datetime import datetime, timedelta
+from datetime import datetime
 
 def get_git_time(filepath):
     try:
@@ -28,34 +27,10 @@ def format_launch_date(raw_date):
     except (ValueError, TypeError):
         return raw_date
 
-def parse_launch_dates(labels):
-    """Dates for 'Mar 5'-style labels listed newest first, as they are in the txt files.
-    The labels carry no year: the newest gets the year that puts it nearest today, and the
-    year drops by one each time the list wraps back past January."""
-    now = datetime.now()
-    dates, year, prev = [], None, None
-    for label in labels:
-        try:
-            md = datetime.strptime(f"{label} 2000", '%b %d %Y')  # 2000 is a leap year, so Feb 29 parses
-        except (ValueError, TypeError):
-            dates.append(None)
-            continue
-        if year is None:
-            year = min((now.year - 1, now.year, now.year + 1),
-                       key=lambda y: abs((md.replace(year=y) - now).days))
-        elif (md.month, md.day) > prev:
-            year -= 1
-        prev = (md.month, md.day)
-        dates.append(f"{year}-{md.month:02d}-{md.day:02d}")
-    return dates
-
 SB_API_URL = "https://api-extern.systembolaget.se/sb-api-ecommerce/v1/productsearch/search"
 SB_API_KEY = os.environ.get("SB_API_KEY", "")
 
 today = datetime.now().strftime('%Y-%m-%d')
-# Older txt lines are dropped: the notification matches lines by "Mon D" alone, so a line
-# from a year ago would come back on its anniversary.
-txt_cutoff = (datetime.now() - timedelta(days=360)).strftime('%Y-%m-%d')
 
 def fetch_systembolaget_releases():
     all_products = []
@@ -128,6 +103,8 @@ except (FileNotFoundError, json.JSONDecodeError):
 # Keep past wines (launched before today), drop future ones (API is the truth for those)
 # Deduplicate by productNumber
 seen_products = set()
+# Systembolaget reuses a product number for a new vintage; the new release replaces the old entry.
+api_products = {w.get('productNumber') for w in new_releases}
 past_wines = []
 for w in existing_wines:
     # Only drop future wines when the API actually answered - otherwise a failed
@@ -135,6 +112,8 @@ for w in existing_wines:
     if fetch_ok and w.get('launchDate', '') >= today:
         continue
     pn = w.get('productNumber', '')
+    if pn in api_products:
+        continue
     if pn and pn in seen_products:
         continue
     if pn:
@@ -150,93 +129,12 @@ if fetch_ok:
 else:
     print(f"API fetch failed - keeping all {len(past_wines)} existing wines, including upcoming ones")
 
-RELEASE_FILES = [
-    ('data/french_red_releases.txt', 'Frankrike', 'Rött vin'),
-    ('data/french_white_releases.txt', 'Frankrike', 'Vitt vin'),
-    ('data/italian_red_releases.txt', 'Italien', 'Rött vin'),
-    ('data/italian_white_releases.txt', 'Italien', 'Vitt vin'),
-]
-
-all_existing_ratings = {}
-for filepath, country_filter, type_filter in RELEASE_FILES:
-    ratings = {}
-    past_lines = []
-    try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            lines = [l.strip() for l in f if l.strip()]
-        labels = [m.group(1) if (m := re.match(r'^\[(.+?)\]', l)) else None for l in lines]
-        dates = iter(parse_launch_dates([x for x in labels if x]))
-        for line, label in zip(lines, labels):
-            parsed_date = next(dates) if label else None
-            # Extract rating from line
-            rated_match = re.match(r'^(.+)\s+\[(★+|\d+)\](?:\s+\((.+?)\))?$', line)
-            if rated_match:
-                base_line = rated_match.group(1).strip()
-                key_match = re.match(r'^\[.+?\]\s+(.+)$', base_line)
-                if key_match:
-                    rating_val = rated_match.group(2)
-                    score = len(rating_val) if '★' in rating_val else int(rating_val)
-                    reason = rated_match.group(3) or ""
-                    ratings[key_match.group(1)] = (score, reason)
-
-            # Check if this is a past wine (keep it) or future (will be replaced)
-            if parsed_date and parsed_date >= txt_cutoff and (not fetch_ok or parsed_date < today):
-                past_lines.append((parsed_date, line))
-    except FileNotFoundError:
-        pass
-    all_existing_ratings.update(ratings)
-
-    # Build all lines: past (from file) + future (from API), then sort together
-    all_lines = []
-    seen_keys = set()
-    for sort_date, past_line in past_lines:
-        # Deduplicate by stripping rating to get the base line
-        base = re.sub(r'\s+\[★+\](?:\s+\(.+?\))?$', '', past_line)
-        if base not in seen_keys:
-            seen_keys.add(base)
-            all_lines.append((sort_date or '', past_line))
-    for w in new_releases:
-        if (w.get('country') or '') != country_filter or (w.get('categoryLevel2') or '') != type_filter:
-            continue
-        name = w.get('productNameBold') or ''
-        thin = w.get('productNameThin') or ''
-        if thin:
-            name += f" {thin}"
-        producer = w.get('producerName') or ''
-        vintage = w.get('vintage') or ''
-        price = f"{int(w['price'])} SEK" if w.get('price') else ''
-        raw_date = (w.get('productLaunchDate') or '')[:10]
-        release_date = format_launch_date(raw_date)
-        key = f"{producer} - {name} {vintage} ({price})"
-        base = f"[{release_date}] {key}"
-        if base in seen_keys:
-            continue
-        seen_keys.add(base)
-        line = base
-        rating_data = ratings.get(key)
-        if rating_data is not None:
-            score, reason = rating_data
-            stars = '★' * score
-            line += f" [{stars}] ({reason})" if reason else f" [{stars}]"
-        all_lines.append((raw_date, line))
-    # Sort by date descending (newest first), matching original order
-    all_lines.sort(key=lambda x: x[0], reverse=True)
-    with open(filepath, 'w', encoding='utf-8') as f:
-        for _, line in all_lines:
-            f.write(line + "\n")
-
-existing_ratings = all_existing_ratings
-
-if not fetch_ok:
-    # Upcoming wines were carried over from the old releases.json rather than rebuilt
-    # from the API, so refresh their ratings from the txt files or new ratings never land.
-    for w in past_wines:
-        if (w.get('launchDate') or '') < today:
-            continue
-        key = f"{w.get('producer', '')} - {w.get('wineName', '')} {w.get('vintage', '')} ({w.get('price', '')})"
-        rating_data = existing_ratings.get(key)
-        if rating_data:
-            w['ratingScore'], w['ratingReason'] = rating_data
+# Ratings live in releases.json itself, keyed by product number and vintage: a price change
+# keeps the rating, a new vintage under the same number gets its own.
+existing_ratings = {
+    (w['productNumber'], w.get('vintage') or ''): (w['ratingScore'], w.get('ratingReason', ''))
+    for w in existing_wines if w.get('productNumber') and w.get('ratingScore')
+}
 
 os.makedirs('data', exist_ok=True)
 
@@ -261,8 +159,7 @@ for w in new_releases:
     search_query = f"{wine_name} {vintage}".strip()
     search_link = f"https://www.google.com/search?q={urllib.parse.quote(search_query)}"
     sb_link = f"https://www.systembolaget.se/produkt/vin/{w.get('productNumber') or ''}"
-    rating_key = f"{producer} - {wine_name} {vintage} ({price})"
-    rating_data = existing_ratings.get(rating_key)
+    rating_data = existing_ratings.get((w.get('productNumber') or '', vintage))
     images = w.get('images') or []
     if images:
         img = images[0]

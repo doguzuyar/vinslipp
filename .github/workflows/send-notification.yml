@@ -9,57 +9,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check today's releases per category
-        id: check
-        run: |
-          TODAY=$(TZ=Europe/Stockholm date "+%b %-d")
-
-          declare -A TOPIC_MAP
-          TOPIC_MAP["french_red_releases.txt"]="french-red"
-          TOPIC_MAP["french_white_releases.txt"]="french-white"
-          TOPIC_MAP["italian_red_releases.txt"]="italian-red"
-          TOPIC_MAP["italian_white_releases.txt"]="italian-white"
-
-          TOPICS_WITH_WINES=""
-
-          for FILE in data/*_releases.txt; do
-            BASENAME=$(basename "$FILE")
-            TOPIC="${TOPIC_MAP[$BASENAME]}"
-            [ -z "$TOPIC" ] && continue
-
-            FILE_WINES=$(grep "^\[$TODAY\]" "$FILE") || true
-            if [ -n "$FILE_WINES" ]; then
-              TOPICS_WITH_WINES="${TOPICS_WITH_WINES}${TOPIC}"$'\n'
-              echo "wines_${TOPIC//-/_}<<EOF" >> $GITHUB_OUTPUT
-              echo "$FILE_WINES" >> $GITHUB_OUTPUT
-              echo "EOF" >> $GITHUB_OUTPUT
-            fi
-          done
-
-          TOPICS_WITH_WINES=$(echo "$TOPICS_WITH_WINES" | sed '/^$/d')
-
-          if [ -n "$TOPICS_WITH_WINES" ]; then
-            echo "has_wines=true" >> $GITHUB_OUTPUT
-            {
-              echo "topics<<EOF"
-              echo "$TOPICS_WITH_WINES"
-              echo "EOF"
-            } >> $GITHUB_OUTPUT
-          else
-            echo "has_wines=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Send push notifications per category
-        if: steps.check.outputs.has_wines == 'true'
         run: |
           pip install google-auth requests
           python3 << 'PYEOF'
           import json
           import os
-          import re
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
           import google.auth.transport.requests
           from google.oauth2 import service_account
           import requests
+
+          topics = {
+              ("Frankrike", "Rött vin"): ("french-red", "French Red"),
+              ("Frankrike", "Vitt vin"): ("french-white", "French White"),
+              ("Italien", "Rött vin"): ("italian-red", "Italian Red"),
+              ("Italien", "Vitt vin"): ("italian-white", "Italian White"),
+          }
+          today = datetime.now(ZoneInfo("Europe/Stockholm")).date().isoformat()
+          with open("data/releases.json") as f:
+              releases = json.load(f)
+          by_topic = {}
+          for w in releases.get("wines", []):
+              topic = topics.get((w.get("country"), w.get("wineType")))
+              if topic and w.get("launchDate") == today:
+                  by_topic.setdefault(topic, []).append(w)
+          if not by_topic:
+              print(f"No releases on {today}")
+              raise SystemExit
 
           sa_info = json.loads(os.environ["SA_KEY"])
           credentials = service_account.Credentials.from_service_account_info(
@@ -67,74 +45,25 @@ jobs:
               scopes=["https://www.googleapis.com/auth/firebase.messaging"]
           )
           credentials.refresh(google.auth.transport.requests.Request())
-
           project_id = sa_info["project_id"]
-          topics = os.environ.get("TOPICS", "").strip().split("\n")
 
-          topic_labels = {
-              "french-red": "French Red",
-              "french-white": "French White",
-              "italian-red": "Italian Red",
-              "italian-white": "Italian White",
-          }
-
-          # Load releases.json for product number lookups
-          with open("data/releases.json") as f:
-              releases = json.load(f)
-          from datetime import date
-          today = date.today().isoformat()
-
-          product_lookup = {}
-          today_products = set()
-          for w in releases.get("wines", []):
-              key = f"{w.get('wineName', '')} {w.get('vintage', '')}"
-              pn = w.get("productNumber", "")
-              product_lookup[key] = pn
-              if w.get("launchDate") == today and pn:
-                  today_products.add(pn)
-
-          for topic in topics:
-              topic = topic.strip()
-              if not topic:
-                  continue
-
-              env_key = f"WINES_{topic.replace('-', '_').upper()}"
-              wine_list = os.environ.get(env_key, "")
-              if not wine_list.strip():
-                  continue
-
-              # Parse wines for this category
-              wines = []
-              product_numbers = []
-              for line in wine_list.strip().split("\n"):
-                  if not line.strip():
-                      continue
-                  m = re.match(r'\[.*?\]\s+.*?\s-\s(.+?)\s\(\d+ SEK\)(?:\s\[(★+)\])?', line)
-                  if m:
-                      name, stars = m.group(1), m.group(2) or ""
-                      wines.append((name, stars, len(stars) if stars else 0))
-                      pn = product_lookup.get(name, "")
-                      if pn and pn in today_products:
-                          product_numbers.append(pn)
-
-              label = topic_labels.get(topic, topic)
-              if wines:
-                  wines.sort(key=lambda w: w[2], reverse=True)
-                  top = wines[:5]
-                  body_text = "\n".join(f"{w[0]} {w[1]}" if w[1] else w[0] for w in top)
-                  remaining = len(wines) - len(top)
-                  if remaining > 0:
-                      body_text += f"\n+{remaining} more"
-              else:
-                  wine_count = len(wine_list.strip().split("\n"))
-                  body_text = f"{wine_count} new release{'s' if wine_count != 1 else ''} today"
+          for (topic, label), wines in by_topic.items():
+              wines.sort(key=lambda w: w.get("ratingScore") or 0, reverse=True)
+              lines = []
+              for w in wines[:5]:
+                  name = f"{w.get('wineName', '')} {w.get('vintage', '')}".strip()
+                  stars = "★" * (w.get("ratingScore") or 0)
+                  lines.append(f"{name} {stars}" if stars else name)
+              body_text = "\n".join(lines)
+              if len(wines) > 5:
+                  body_text += f"\n+{len(wines) - 5} more"
 
               message = {
                   "message": {
                       "topic": topic,
                       "data": {
                           "tab": "release",
-                          "productNumbers": ",".join(product_numbers)
+                          "productNumbers": ",".join(w["productNumber"] for w in wines if w.get("productNumber"))
                       },
                       "apns": {
                           "payload": {
@@ -168,8 +97,3 @@ jobs:
           PYEOF
         env:
           SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-          TOPICS: ${{ steps.check.outputs.topics }}
-          WINES_FRENCH_RED: ${{ steps.check.outputs.wines_french_red }}
-          WINES_FRENCH_WHITE: ${{ steps.check.outputs.wines_french_white }}
-          WINES_ITALIAN_RED: ${{ steps.check.outputs.wines_italian_red }}
-          WINES_ITALIAN_WHITE: ${{ steps.check.outputs.wines_italian_white }}
