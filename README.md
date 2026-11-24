@@ -88,7 +88,7 @@ Systembolaget API                         Bukowskis
     Cellar backup, push notifications
 ```
 
-Data flows in one direction: sources are fetched by Python scripts, processed and rated by an AI agent, committed to the repository, built into a Next.js static export, and deployed to GitHub Pages. The iOS app fetches JSON on launch. Cellar backup and notifications use Firebase as a separate channel.
+Data flows in one direction: sources are fetched by Python scripts, processed and rated by an AI agent, committed to the repository, and deployed to GitHub Pages together with the static site. The iOS app fetches JSON on launch. Cellar backup and notifications use Firebase as a separate channel.
 
 ---
 
@@ -108,7 +108,7 @@ vinslipp/
       Utilities/              Colors, shared helpers
       VinslippApp.swift       App entry point
       AppDelegate.swift       Firebase setup, push notification handling
-  web/                        Next.js landing page and data host
+  web/                        Static landing page (HTML and CSS) and data host
   scripts/                    Python automation (data fetching, AI ratings)
   auction/                    Bukowskis auction data and processing
   extension/                  Chrome extension for Systembolaget/Bukowskis
@@ -178,9 +178,8 @@ The website at [vinslipp.app](https://vinslipp.app) serves two purposes:
 
 ### Stack
 
-- Next.js 16 with static export (`output: "export"`)
-- React 19, TypeScript 5, Tailwind CSS 4
-- Deployed to GitHub Pages via GitHub Actions
+- Plain HTML and CSS, no build step
+- Deployed to GitHub Pages via GitHub Actions, which copies `web/` and the data files
 
 ### Pages
 
@@ -201,7 +200,7 @@ The website at [vinslipp.app](https://vinslipp.app) serves two purposes:
 - Filters for 750ml bottles with future launch dates
 - Extracts producer, wine name, vintage, price, region, country, type, and product links
 - Translates Swedish labels to English (wine types, countries)
-- Writes `data/releases.json` (all wines) and category-specific `.txt` files
+- Writes `data/releases.json`, keeping past wines and their ratings (keyed by product number and vintage)
 
 ### Wine Ratings
 
@@ -210,7 +209,7 @@ The website at [vinslipp.app](https://vinslipp.app) serves two purposes:
 - Searches `wine_guide.json` for up to 3 matching producer/region entries as context
 - Calls an AI agent via CLI subprocess
 - Produces a score and a 5-word reason per wine
-- Injects ratings back into the release data
+- Writes each rating straight into `data/releases.json`; failed ratings are retried the next day
 
 ### Auction Data
 
@@ -220,9 +219,11 @@ The website at [vinslipp.app](https://vinslipp.app) serves two purposes:
 - Handles accent normalization for producer name matching
 - Outputs `wines.json` (full historical data) and `live_wines.json` (active lots)
 
-`merge_stats.py` aggregates per-producer statistics including sell rates, average prices, hammer-to-estimate ratios, and premium percentages. Enriches producers with info from the wine guide.
+The same script aggregates per-producer statistics (sell rates, average prices, hammer-to-estimate ratios, a vintage price index) into `auction_stats.json`, and adds an expected price per bottle to each live lot.
 
-`rate_auction_wines.py` rates active auction lots using an AI agent.
+`rate_auction_wines.py` rates active auction lots using an AI agent. `daily_auction.py` runs the whole auction flow each night.
+
+The rating and auction scripts are kept private and are not part of this repository.
 
 ---
 
@@ -231,8 +232,8 @@ The website at [vinslipp.app](https://vinslipp.app) serves two purposes:
 A Chrome Manifest V3 extension that enhances Systembolaget and Bukowskis pages:
 
 - **Systembolaget**: injects Vinslipp rating badges on wine product cards
-- **Bukowskis**: links auction lots to relevant data
-- Fetches `releases.json`, `auction_stats.json`, and `live_wines.json` from `https://vinslipp.app/data/` at runtime
+- **Bukowskis**: shows ratings, an expected winning price and a vintage indicator on live auction lots
+- Fetches `releases.json` and `live_wines.json` from `https://vinslipp.app/data/` at runtime
 
 ---
 
@@ -243,17 +244,22 @@ A Chrome Manifest V3 extension that enhances Systembolaget and Bukowskis pages:
 `daily_update.sh` runs on a Raspberry Pi to keep data fresh:
 
 ```
-git pull --rebase
-python wine_cellar.py       # Fetch Systembolaget releases
-python rate_wines.py         # Rate wines with AI agent
+git pull --rebase --autostash
+python wine_cellar.py        # Fetch Systembolaget releases
+python rate_wines.py         # Rate new wines with AI agent
+python daily_auction.py      # Auction data and ratings
 git push                     # Triggers GitHub Pages deploy
 ```
 
+The script stops at the first failed release step, so incomplete data is never committed. A failed auction run is logged and skipped.
+
 ### GitHub Actions
 
-**Deploy to GitHub Pages** (`update-releases.yml`): triggered on every push to `main`. Builds the Next.js site, copies JSON data files into the output, and deploys to GitHub Pages.
+**Deploy to GitHub Pages** (`update-releases.yml`): triggered on every push to `main`. Copies the site and the JSON data files and deploys them to GitHub Pages.
 
-**Send Wine Notification** (`send-notification.yml`): runs daily at 07:00 UTC (09:00 CEST). Checks each category file for today's releases, builds a notification body with the top 5 rated wines, and sends per-topic push notifications via Firebase Cloud Messaging using a service account.
+**Send Wine Notification** (`send-notification.yml`): started at 09:00 Stockholm time by the Raspberry Pi. Reads today's releases from `releases.json`, builds a notification body with the top 5 rated wines per category, and sends per-topic push notifications via Firebase Cloud Messaging using a service account.
+
+**Stale Data Check** (`stale-data.yml`): runs daily and fails, which emails the owner, when the release data is more than 36 hours old.
 
 ---
 
@@ -262,7 +268,6 @@ git push                     # Triggers GitHub Pages deploy
 ### Prerequisites
 
 - Xcode (with iOS 26+ SDK)
-- Node.js 20+
 - Python 3.9+ with a virtual environment
 - Firebase project with Auth, Firestore, and Cloud Messaging configured
 - `GoogleService-Info.plist` in the iOS app directory
@@ -279,18 +284,10 @@ Build and run on a simulator or device. The app fetches data from `vinslipp.app`
 ### Web
 
 ```bash
-cd web
-npm install
-npm run dev
+python3 -m http.server -d web
 ```
 
-For production build:
-
-```bash
-npm run build
-```
-
-Output goes to `web/out/` as a static export. Copy data files into `web/out/data/` before deploying.
+The pages are plain HTML, so there is nothing to build.
 
 ### Scripts
 
