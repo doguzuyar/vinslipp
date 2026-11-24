@@ -112,8 +112,8 @@ struct ProfileTab: View {
         }
         .alert("Delete Account", isPresented: $showDeleteConfirm) {
             Button("Delete Account", role: .destructive) {
-                cellarService.cancelPendingPush()
                 authManager.deleteAccount(
+                    onReauthenticated: { cellarService.cancelPendingPush() },
                     onSuccess: { cellarService.forgetCloudAccount() },
                     onError: { err in deleteErrorMessage = err.localizedDescription }
                 )
@@ -352,7 +352,9 @@ class AuthManager: ObservableObject {
         try? Auth.auth().signOut()
     }
 
-    func deleteAccount(onSuccess: @escaping () -> Void, onError: @escaping (Error) -> Void) {
+    func deleteAccount(onReauthenticated: @escaping () -> Void, onSuccess: @escaping () -> Void,
+                       onError: @escaping (Error) -> Void) {
+        appleHandler.onReauthenticated = onReauthenticated
         appleHandler.onDeleteSuccess = {
             try? Auth.auth().signOut()
             onSuccess()

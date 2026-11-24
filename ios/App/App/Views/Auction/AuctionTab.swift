@@ -321,6 +321,7 @@ struct AuctionTab: View {
 
     private var producerList: some View {
         let map = liveLotsByProducer
+        let index = vintageIndex
         let ratingActive = showLive && !liveSelectedRating.isEmpty
         return ScrollView {
             LazyVStack(spacing: 0) {
@@ -330,7 +331,7 @@ struct AuctionTab: View {
                     ProducerRow(
                         producer: producer,
                         liveLots: lots,
-                        vintageIndex: vintageIndex,
+                        vintageIndex: index,
                         isExpanded: expandedProducerId == producer.id
                     )
                     .contentShape(Rectangle())

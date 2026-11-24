@@ -126,11 +126,6 @@ struct ReleaseTab: View {
                 SearchBar(text: $searchText)
             }
         }
-        .task {
-            if dataService.releaseData == nil {
-                await dataService.loadReleases()
-            }
-        }
         .onAppear {
             todayString = DateFormatters.todayString
         }

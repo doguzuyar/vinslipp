@@ -10,6 +10,7 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
     private var currentNonce: String?
     var onSignIn: ((String, String, String) -> Void)?
     private var pendingDeletion = false
+    var onReauthenticated: (() -> Void)?
     var onDeleteSuccess: (() -> Void)?
     var onDeleteError: ((Error) -> Void)?
 
@@ -39,7 +40,8 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
         let scene = scenes.first { $0.activationState == .foregroundActive } ?? scenes.first
-        return scene?.keyWindow ?? ASPresentationAnchor()
+        if let window = scene?.keyWindow ?? scene?.windows.first { return window }
+        return scene.map { ASPresentationAnchor(windowScene: $0) } ?? ASPresentationAnchor()
     }
 
     func authorizationController(controller: ASAuthorizationController,
@@ -63,11 +65,13 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                 do {
                     // Firebase requires a recent login to delete; reauth before anything irreversible.
                     try await user.reauthenticate(with: credential)
+                    await MainActor.run { self.onReauthenticated?() }
+                    try await Auth.auth().revokeToken(withAuthorizationCode: authCode)
+                    // Cloud data goes last, so a failed step above leaves it intact.
                     let db = Firestore.firestore()
                     try await db.collection("cellar").document(user.uid).delete()
                     let posts = try await db.collection("blog_posts").whereField("userId", isEqualTo: user.uid).getDocuments()
                     for doc in posts.documents { try await doc.reference.delete() }
-                    try await Auth.auth().revokeToken(withAuthorizationCode: authCode)
                     try await user.delete()
                     await MainActor.run { self.onDeleteSuccess?() }
                 } catch {

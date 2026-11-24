@@ -50,6 +50,7 @@ class CellarService: ObservableObject {
 
     init() {
         loadFromFile()
+        migrateFromUserDefaultsIfNeeded()
         setupAuthListener()
     }
 
@@ -132,14 +133,14 @@ class CellarService: ObservableObject {
         save()
     }
 
-    /// After account deletion the local cellar stays on the device but no longer belongs to any
-    /// account, so the next sign-in treats it as fresh device data instead of another user's.
     /// Stops a queued upload so it can't recreate cellar/{uid} while the account is being deleted.
     func cancelPendingPush() {
         pendingPushTask?.cancel()
         pendingPushTask = nil
     }
 
+    /// After account deletion the local cellar stays on the device but no longer belongs to any
+    /// account, so the next sign-in treats it as fresh device data instead of another user's.
     func forgetCloudAccount() {
         UserDefaults.standard.removeObject(forKey: Self.lastSyncedUidKey)
         syncStatus = .offline
@@ -173,6 +174,100 @@ class CellarService: ObservableObject {
         } catch {
             self.error = "Failed to load cellar: \(error.localizedDescription)"
         }
+    }
+
+    private func migrateFromUserDefaultsIfNeeded() {
+        let defaults = UserDefaults.standard
+        let migrationKey = "cellar_migrated_v2"
+        guard !defaults.bool(forKey: migrationKey) else { return }
+        guard entries.isEmpty else {
+            defaults.set(true, forKey: migrationKey)
+            return
+        }
+
+        struct OldCellarWine: Codable {
+            let drinkYear: String
+            let winery: String
+            let wineName: String
+            let vintage: String
+            let region: String
+            let style: String
+            let price: String
+            let count: Int
+            let link: String
+            let color: String
+        }
+        struct OldCellarData: Codable {
+            let wines: [OldCellarWine]
+            let yearCounts: [String: Int]
+            let vintageCounts: [String: Int]
+            let totalBottles: Int
+            let totalValue: Int
+            let colorPalette: [String: String]
+            let vintagePalette: [String: String]
+        }
+        struct OldHistoryWine: Codable {
+            let winery: String
+            let wineName: String
+            let vintage: String
+            let region: String
+            let country: String
+            let style: String
+            let averageRating: String
+            let scanDate: String
+            let location: String
+            let userRating: String
+            let wineType: String
+            let link: String
+        }
+
+        if let data = defaults.data(forKey: "cellar_data"),
+           let old = try? JSONDecoder().decode(OldCellarData.self, from: data) {
+            for wine in old.wines {
+                entries.append(CellarEntry(
+                    status: .cellar,
+                    winery: wine.winery,
+                    wineName: wine.wineName,
+                    vintage: wine.vintage,
+                    region: wine.region,
+                    style: wine.style,
+                    price: wine.price,
+                    count: wine.count,
+                    drinkYear: wine.drinkYear,
+                    links: wine.link.isEmpty ? [] : [wine.link],
+                    source: .imported
+                ))
+            }
+        }
+
+        if let data = defaults.data(forKey: "history_data"),
+           let old = try? JSONDecoder().decode([OldHistoryWine].self, from: data) {
+            for wine in old {
+                entries.append(CellarEntry(
+                    status: .history,
+                    winery: wine.winery,
+                    wineName: wine.wineName,
+                    vintage: wine.vintage,
+                    region: wine.region,
+                    country: wine.country,
+                    style: wine.style,
+                    wineType: wine.wineType,
+                    links: wine.link.isEmpty ? [] : [wine.link],
+                    userRating: wine.userRating,
+                    averageRating: wine.averageRating,
+                    source: .imported
+                ))
+            }
+        }
+
+        if !entries.isEmpty {
+            save()
+        }
+
+        defaults.removeObject(forKey: "cellar_data")
+        defaults.removeObject(forKey: "history_data")
+        defaults.removeObject(forKey: "cellar_imported_at")
+        defaults.set(true, forKey: migrationKey)
     }
 
     // MARK: - CSV Export
@@ -531,7 +626,11 @@ class CellarService: ObservableObject {
                 syncStatus = .synced(Date())
                 return
             }
-            if isFirstSyncOnDevice && !entries.isEmpty {
+            if cloud.isEmpty && previousUid == uid && !entries.isEmpty {
+                // After a Clear All, wines added here that never reached the cloud
+                // (app closed before the upload) would otherwise be wiped.
+                try await pushAll()
+            } else if isFirstSyncOnDevice && !entries.isEmpty {
                 // First sign-in on this device with both local and cloud data:
                 // union by id so wines added while signed-out aren't lost.
                 // Cloud wins on id conflicts.
