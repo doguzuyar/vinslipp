@@ -4,7 +4,7 @@ import re
 import subprocess
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def get_git_time(filepath):
     try:
@@ -28,18 +28,34 @@ def format_launch_date(raw_date):
     except (ValueError, TypeError):
         return raw_date
 
-def parse_launch_date(formatted):
-    """Parse a formatted date like 'Mar 5' back to a comparable date string."""
-    try:
-        dt = datetime.strptime(f"{formatted} {datetime.now().year}", '%b %d %Y')
-        return dt.strftime('%Y-%m-%d')
-    except (ValueError, TypeError):
-        return None
+def parse_launch_dates(labels):
+    """Dates for 'Mar 5'-style labels listed newest first, as they are in the txt files.
+    The labels carry no year: the newest gets the year that puts it nearest today, and the
+    year drops by one each time the list wraps back past January."""
+    now = datetime.now()
+    dates, year, prev = [], None, None
+    for label in labels:
+        try:
+            md = datetime.strptime(f"{label} 2000", '%b %d %Y')  # 2000 is a leap year, so Feb 29 parses
+        except (ValueError, TypeError):
+            dates.append(None)
+            continue
+        if year is None:
+            year = min((now.year - 1, now.year, now.year + 1),
+                       key=lambda y: abs((md.replace(year=y) - now).days))
+        elif (md.month, md.day) > prev:
+            year -= 1
+        prev = (md.month, md.day)
+        dates.append(f"{year}-{md.month:02d}-{md.day:02d}")
+    return dates
 
 SB_API_URL = "https://api-extern.systembolaget.se/sb-api-ecommerce/v1/productsearch/search"
 SB_API_KEY = os.environ.get("SB_API_KEY", "")
 
 today = datetime.now().strftime('%Y-%m-%d')
+# Older txt lines are dropped: the notification matches lines by "Mon D" alone, so a line
+# from a year ago would come back on its anniversary.
+txt_cutoff = (datetime.now() - timedelta(days=360)).strftime('%Y-%m-%d')
 
 def fetch_systembolaget_releases():
     all_products = []
@@ -147,27 +163,25 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
     past_lines = []
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
-            for raw_line in f:
-                line = raw_line.strip()
-                if not line:
-                    continue
-                # Extract rating from line
-                rated_match = re.match(r'^(.+)\s+\[(★+|\d+)\](?:\s+\((.+?)\))?$', line)
-                if rated_match:
-                    base_line = rated_match.group(1).strip()
-                    key_match = re.match(r'^\[.+?\]\s+(.+)$', base_line)
-                    if key_match:
-                        rating_val = rated_match.group(2)
-                        score = len(rating_val) if '★' in rating_val else int(rating_val)
-                        reason = rated_match.group(3) or ""
-                        ratings[key_match.group(1)] = (score, reason)
+            lines = [l.strip() for l in f if l.strip()]
+        labels = [m.group(1) if (m := re.match(r'^\[(.+?)\]', l)) else None for l in lines]
+        dates = iter(parse_launch_dates([x for x in labels if x]))
+        for line, label in zip(lines, labels):
+            parsed_date = next(dates) if label else None
+            # Extract rating from line
+            rated_match = re.match(r'^(.+)\s+\[(★+|\d+)\](?:\s+\((.+?)\))?$', line)
+            if rated_match:
+                base_line = rated_match.group(1).strip()
+                key_match = re.match(r'^\[.+?\]\s+(.+)$', base_line)
+                if key_match:
+                    rating_val = rated_match.group(2)
+                    score = len(rating_val) if '★' in rating_val else int(rating_val)
+                    reason = rated_match.group(3) or ""
+                    ratings[key_match.group(1)] = (score, reason)
 
-                # Check if this is a past wine (keep it) or future (will be replaced)
-                date_match = re.match(r'^\[(.+?)\]', line)
-                if date_match:
-                    parsed_date = parse_launch_date(date_match.group(1))
-                    if parsed_date and (not fetch_ok or parsed_date < today):
-                        past_lines.append(line)
+            # Check if this is a past wine (keep it) or future (will be replaced)
+            if parsed_date and parsed_date >= txt_cutoff and (not fetch_ok or parsed_date < today):
+                past_lines.append((parsed_date, line))
     except FileNotFoundError:
         pass
     all_existing_ratings.update(ratings)
@@ -175,9 +189,7 @@ for filepath, country_filter, type_filter in RELEASE_FILES:
     # Build all lines: past (from file) + future (from API), then sort together
     all_lines = []
     seen_keys = set()
-    for past_line in past_lines:
-        date_m = re.match(r'^\[(.+?)\]', past_line)
-        sort_date = parse_launch_date(date_m.group(1)) if date_m else ''
+    for sort_date, past_line in past_lines:
         # Deduplicate by stripping rating to get the base line
         base = re.sub(r'\s+\[★+\](?:\s+\(.+?\))?$', '', past_line)
         if base not in seen_keys:
