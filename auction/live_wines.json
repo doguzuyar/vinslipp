@@ -33,7 +33,10 @@
       "hammer_price_per_bottle": "12 500 SEK",
       "rating_score": 4,
       "rating_reason": "Legendary, drink soon, high risk",
-      "vintage": 1961
+      "vintage": 1961,
+      "vintage_factor": 3.02,
+      "expected_per_bottle": 15375,
+      "expected_basis": "Producer avg hammer/bt x 3.02 bordeaux vintage index (1961)"
     },
     {
       "lot_id": "2482275",
@@ -46,7 +49,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Risky old vintage, likely faded",
-      "vintage": 1961
+      "vintage": 1961,
+      "vintage_factor": 3.02,
+      "expected_per_bottle": 6644,
+      "expected_basis": "Producer avg hammer/bt x 3.02 bordeaux vintage index (1961)"
     },
     {
       "lot_id": "2484618",
@@ -85,7 +91,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Risky, likely past peak",
-      "vintage": 1962
+      "vintage": 1962,
+      "vintage_factor": 1.24,
+      "expected_per_bottle": 5482,
+      "expected_basis": "Producer avg hammer/bt x 1.24 bordeaux vintage index (1962)"
     },
     {
       "lot_id": "2485982",
@@ -111,7 +120,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Past peak, half bottle risk",
-      "vintage": 1966
+      "vintage": 1966,
+      "vintage_factor": 1.59
     },
     {
       "lot_id": "2481778",
@@ -124,7 +134,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Iconic year, drink now",
-      "vintage": 1961
+      "vintage": 1961,
+      "vintage_factor": 3.02,
+      "expected_per_bottle": 13270,
+      "expected_basis": "Producer avg hammer/bt x 3.02 bordeaux vintage index (1961)"
     },
     {
       "lot_id": "2482279",
@@ -137,7 +150,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Risky at 60 years",
-      "vintage": 1966
+      "vintage": 1966,
+      "vintage_factor": 1.59,
+      "expected_per_bottle": 8276,
+      "expected_basis": "Producer avg hammer/bt x 1.59 bordeaux vintage index (1966)"
     },
     {
       "lot_id": "2482301",
@@ -150,7 +166,8 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Half bottle, likely past peak",
-      "vintage": 1966
+      "vintage": 1966,
+      "vintage_factor": 1.59
     },
     {
       "lot_id": "2477272",
@@ -202,7 +219,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Old; drink if well-stored",
-      "vintage": 1970
+      "vintage": 1970,
+      "vintage_factor": 0.94,
+      "expected_per_bottle": 3580,
+      "expected_basis": "Producer's own 1970 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2481212",
@@ -217,7 +237,8 @@
       "hammer_price_per_bottle": "1 302 SEK",
       "rating_score": 1,
       "rating_reason": "Mixed lot, most past peak",
-      "vintage": 1971
+      "vintage": 1971,
+      "vintage_factor": 0.8
     },
     {
       "lot_id": "2482261",
@@ -230,7 +251,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Good year, fading gracefully",
-      "vintage": 1971
+      "vintage": 1971,
+      "vintage_factor": 0.8,
+      "expected_per_bottle": 3374,
+      "expected_basis": "Producer avg hammer/bt x 0.80 bordeaux vintage index (1971)"
     },
     {
       "lot_id": "2481430",
@@ -243,7 +267,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Weak year, likely past peak",
-      "vintage": 1973
+      "vintage": 1973,
+      "vintage_factor": 0.81,
+      "expected_per_bottle": 3267,
+      "expected_basis": "Producer's own 1973 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2482252",
@@ -256,7 +283,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Weak year, past peak",
-      "vintage": 1975
+      "vintage": 1975,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 5295,
+      "expected_basis": "Producer avg hammer/bt x 1.04 bordeaux vintage index (1975)"
     },
     {
       "lot_id": "2482251",
@@ -269,7 +299,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Tannic year, still holding",
-      "vintage": 1975
+      "vintage": 1975,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 5073,
+      "expected_basis": "Producer avg hammer/bt x 1.04 bordeaux vintage index (1975)"
     },
     {
       "lot_id": "2482309",
@@ -284,7 +317,10 @@
       "hammer_price_per_bottle": "7 275 SEK",
       "rating_score": 3,
       "rating_reason": "56 yrs, mature, drink soon",
-      "vintage": 1970
+      "vintage": 1970,
+      "vintage_factor": 0.94,
+      "expected_per_bottle": 4585,
+      "expected_basis": "Producer avg hammer/bt x 0.94 bordeaux vintage index (1970)"
     },
     {
       "lot_id": "2477240",
@@ -297,7 +333,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Difficult year; past peak",
-      "vintage": 1975
+      "vintage": 1975,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 3342,
+      "expected_basis": "Producer's own 1975 avg hammer/bt (6 lots)"
     },
     {
       "lot_id": "2482276",
@@ -310,7 +349,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Hot year, past peak",
-      "vintage": 1976
+      "vintage": 1976,
+      "vintage_factor": 0.86,
+      "expected_per_bottle": 3367,
+      "expected_basis": "Producer's own 1976 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2481124",
@@ -325,7 +367,8 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "rating_score": 3,
       "rating_reason": "Old vintage, risky now",
-      "vintage": 1976
+      "vintage": 1976,
+      "vintage_factor": 0.86
     },
     {
       "lot_id": "2477236",
@@ -338,7 +381,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Risky, likely past peak",
-      "vintage": 1976
+      "vintage": 1976,
+      "vintage_factor": 0.86,
+      "expected_per_bottle": 1781,
+      "expected_basis": "Producer's own 1976 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2481552",
@@ -351,7 +397,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Risky old vintage, past peak",
-      "vintage": 1976
+      "vintage": 1976,
+      "vintage_factor": 0.86,
+      "expected_per_bottle": 1470,
+      "expected_basis": "Producer avg hammer/bt x 0.86 bordeaux vintage index (1976)"
     },
     {
       "lot_id": "2473734",
@@ -364,7 +413,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Weak year; past peak",
-      "vintage": 1977
+      "vintage": 1977,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 4260,
+      "expected_basis": "Producer avg hammer/bt x 0.97 bordeaux vintage index (1977)"
     },
     {
       "lot_id": "2483272",
@@ -377,7 +429,8 @@
       "bottles": 1,
       "rating_score": 1,
       "rating_reason": "Risky old vintage, likely faded",
-      "vintage": 1976
+      "vintage": 1976,
+      "vintage_factor": 0.86
     },
     {
       "lot_id": "2483002",
@@ -390,7 +443,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Light year, mostly faded",
-      "vintage": 1980
+      "vintage": 1980,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 2783,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (1980)"
     },
     {
       "lot_id": "2480026",
@@ -403,7 +459,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Poor vintage, likely declining",
-      "vintage": 1980
+      "vintage": 1980,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 14020,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (1980)"
     },
     {
       "lot_id": "2476739",
@@ -416,7 +475,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Old, probably fading now",
-      "vintage": 1979
+      "vintage": 1979,
+      "vintage_factor": 0.72,
+      "expected_per_bottle": 1281,
+      "expected_basis": "Producer avg hammer/bt x 0.72 bordeaux vintage index (1979)"
     },
     {
       "lot_id": "2477278",
@@ -429,7 +491,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Risky old vintage, drink soon",
-      "vintage": 1981
+      "vintage": 1981,
+      "vintage_factor": 0.65,
+      "expected_per_bottle": 1254,
+      "expected_basis": "Producer avg hammer/bt x 0.65 bordeaux vintage index (1981)"
     },
     {
       "lot_id": "2483009",
@@ -442,7 +507,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Poor year; past peak",
-      "vintage": 1980
+      "vintage": 1980,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 2813,
+      "expected_basis": "Producer's own 1980 avg hammer/bt (8 lots)"
     },
     {
       "lot_id": "2483491",
@@ -455,7 +523,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "44 yrs old, drink soon",
-      "vintage": 1982
+      "vintage": 1982,
+      "vintage_factor": 1.76,
+      "expected_per_bottle": 3240,
+      "expected_basis": "Producer avg hammer/bt x 1.76 bordeaux vintage index (1982)"
     },
     {
       "lot_id": "2483094",
@@ -470,7 +541,8 @@
       "hammer_price_per_bottle": "1 800 SEK",
       "rating_score": 3,
       "rating_reason": "Mature magnum, drink now",
-      "vintage": 1982
+      "vintage": 1982,
+      "vintage_factor": 1.76
     },
     {
       "lot_id": "2469830",
@@ -483,7 +555,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Legendary year, now declining",
-      "vintage": 1982
+      "vintage": 1982,
+      "vintage_factor": 1.76
     },
     {
       "lot_id": "2479221",
@@ -496,7 +569,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Likely past peak",
-      "vintage": 1981
+      "vintage": 1981,
+      "vintage_factor": 0.65,
+      "expected_per_bottle": 3383,
+      "expected_basis": "Producer's own 1981 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2412275",
@@ -509,7 +585,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Legendary year, still drinking",
-      "vintage": 1982
+      "vintage": 1982,
+      "vintage_factor": 1.76,
+      "expected_per_bottle": 24631,
+      "expected_basis": "Producer's own 1982 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2477410",
@@ -539,7 +618,10 @@
       "hammer_price_per_bottle": "633 SEK",
       "rating_score": 2,
       "rating_reason": "Good year, but very old risk",
-      "vintage": 1983
+      "vintage": 1983,
+      "vintage_factor": 0.88,
+      "expected_per_bottle": 697,
+      "expected_basis": "Producer avg hammer/bt x 0.88 bordeaux vintage index (1983)"
     },
     {
       "lot_id": "2481549",
@@ -552,7 +634,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Legendary year, still evolving",
-      "vintage": 1982
+      "vintage": 1982,
+      "vintage_factor": 1.76,
+      "expected_per_bottle": 5875,
+      "expected_basis": "Producer's own 1982 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2483185",
@@ -565,7 +650,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Poor year, past peak",
-      "vintage": 1984
+      "vintage": 1984,
+      "vintage_factor": 0.64,
+      "expected_per_bottle": 2829,
+      "expected_basis": "Producer avg hammer/bt x 0.64 bordeaux vintage index (1984)"
     },
     {
       "lot_id": "2481202",
@@ -578,7 +666,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Poor year, likely past peak",
-      "vintage": 1984
+      "vintage": 1984,
+      "vintage_factor": 0.64,
+      "expected_per_bottle": 810,
+      "expected_basis": "Producer avg hammer/bt x 0.64 bordeaux vintage index (1984)"
     },
     {
       "lot_id": "2486041",
@@ -591,7 +682,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Very weak year; past peak",
-      "vintage": 1984
+      "vintage": 1984,
+      "vintage_factor": 0.64,
+      "expected_per_bottle": 2791,
+      "expected_basis": "Producer's own 1984 avg hammer/bt (10 lots)"
     },
     {
       "lot_id": "2482810",
@@ -621,7 +715,10 @@
       "hammer_price_per_bottle": "650 SEK",
       "rating_score": 3,
       "rating_reason": "Past peak, drink immediately",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 618,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1985)"
     },
     {
       "lot_id": "2478790",
@@ -634,7 +731,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Very weak year; past peak",
-      "vintage": 1984
+      "vintage": 1984,
+      "vintage_factor": 0.64,
+      "expected_per_bottle": 2791,
+      "expected_basis": "Producer's own 1984 avg hammer/bt (10 lots)"
     },
     {
       "lot_id": "2484555",
@@ -647,7 +747,8 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Magnum, more years ahead",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95
     },
     {
       "lot_id": "2483568",
@@ -662,7 +763,8 @@
       "hammer_price_per_bottle": "600 SEK",
       "rating_score": 2,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95
     },
     {
       "lot_id": "2481432",
@@ -675,7 +777,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top vintage, still maturing",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 3700,
+      "expected_basis": "Producer's own 1985 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2477266",
@@ -688,7 +793,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 4836,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1985)"
     },
     {
       "lot_id": "2474272",
@@ -701,7 +809,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top year, peaking now",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 4212,
+      "expected_basis": "Producer's own 1985 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2483016",
@@ -716,7 +827,10 @@
       "hammer_price_per_bottle": "4 425 SEK",
       "rating_score": 4,
       "rating_reason": "Peak window closing soon",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 4212,
+      "expected_basis": "Producer's own 1985 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2482259",
@@ -729,7 +843,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink soon",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 2033,
+      "expected_basis": "Producer's own 1985 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2483080",
@@ -744,7 +861,10 @@
       "hammer_price_per_bottle": "1 733 SEK",
       "rating_score": 4,
       "rating_reason": "Peaking, limited window",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 2033,
+      "expected_basis": "Producer's own 1985 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2481435",
@@ -757,7 +877,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "41 years, likely past peak",
-      "vintage": 1985
+      "vintage": 1985,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1416,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1985)"
     },
     {
       "lot_id": "2482997",
@@ -770,7 +893,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Very old, likely past peak",
-      "vintage": 1986
+      "vintage": 1986,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 1668,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1986)"
     },
     {
       "lot_id": "2481434",
@@ -783,7 +909,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Solid year, still holding",
-      "vintage": 1986
+      "vintage": 1986,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 4500,
+      "expected_basis": "Producer's own 1986 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2483008",
@@ -798,7 +927,8 @@
       "hammer_price_per_bottle": "600 SEK",
       "rating_score": 1,
       "rating_reason": "Both likely past peak",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82
     },
     {
       "lot_id": "2486027",
@@ -813,7 +943,10 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "rating_score": 2,
       "rating_reason": "Weak year, likely past peak",
-      "vintage": 1987
+      "vintage": 1987,
+      "vintage_factor": 0.77,
+      "expected_per_bottle": 1344,
+      "expected_basis": "Producer avg hammer/bt x 0.77 bordeaux vintage index (1987)"
     },
     {
       "lot_id": "2482991",
@@ -826,7 +959,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Risky, likely past peak",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82,
+      "expected_per_bottle": 656,
+      "expected_basis": "Producer avg hammer/bt x 0.82 bordeaux vintage index (1988)"
     },
     {
       "lot_id": "2482257",
@@ -839,7 +975,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Weak year; past peak",
-      "vintage": 1987
+      "vintage": 1987,
+      "vintage_factor": 0.77,
+      "expected_per_bottle": 2782,
+      "expected_basis": "Producer's own 1987 avg hammer/bt (6 lots)"
     },
     {
       "lot_id": "2473683",
@@ -854,7 +993,8 @@
       "hammer_price_per_bottle": "650 SEK",
       "rating_score": 3,
       "rating_reason": "Very old, past peak",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82
     },
     {
       "lot_id": "2473693",
@@ -869,7 +1009,8 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "rating_score": 4,
       "rating_reason": "1988 peaks, 1992 past",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82
     },
     {
       "lot_id": "2473651",
@@ -882,7 +1023,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink now",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82,
+      "expected_per_bottle": 575,
+      "expected_basis": "Producer avg hammer/bt x 0.82 bordeaux vintage index (1988)"
     },
     {
       "lot_id": "2483013",
@@ -897,7 +1041,8 @@
       "hammer_price_per_bottle": "650 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82
     },
     {
       "lot_id": "2479669",
@@ -912,7 +1057,10 @@
       "hammer_price_per_bottle": "3 000 SEK",
       "rating_score": 4,
       "rating_reason": "Top year; mature, peak now",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82,
+      "expected_per_bottle": 3176,
+      "expected_basis": "Producer's own 1988 avg hammer/bt (15 lots)"
     },
     {
       "lot_id": "2481199",
@@ -925,7 +1073,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top year; drink through 2030",
-      "vintage": 1988
+      "vintage": 1988,
+      "vintage_factor": 0.82,
+      "expected_per_bottle": 3176,
+      "expected_basis": "Producer's own 1988 avg hammer/bt (15 lots)"
     },
     {
       "lot_id": "2477022",
@@ -940,7 +1091,10 @@
       "hammer_price_per_bottle": "1 058 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, drink now",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.21,
+      "expected_per_bottle": 1929,
+      "expected_basis": "Producer avg hammer/bt x 1.21 bordeaux vintage index (1989)"
     },
     {
       "lot_id": "2480399",
@@ -955,7 +1109,10 @@
       "hammer_price_per_bottle": "4 600 SEK",
       "rating_score": 4,
       "rating_reason": "Top year, drinking well now",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.21,
+      "expected_per_bottle": 4661,
+      "expected_basis": "Producer's own 1989 avg hammer/bt (12 lots)"
     },
     {
       "lot_id": "2483177",
@@ -968,7 +1125,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature now, drink soon",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.21,
+      "expected_per_bottle": 1301,
+      "expected_basis": "Producer avg hammer/bt x 1.21 bordeaux vintage index (1989)"
     },
     {
       "lot_id": "2482994",
@@ -983,7 +1143,10 @@
       "hammer_price_per_bottle": "1 100 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, drink soon",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.21,
+      "expected_per_bottle": 1352,
+      "expected_basis": "Producer avg hammer/bt x 1.21 bordeaux vintage index (1989)"
     },
     {
       "lot_id": "2482800",
@@ -1013,7 +1176,8 @@
       "hammer_price_per_bottle": "607 SEK",
       "rating_score": 3,
       "rating_reason": "Both stellar, drink soon",
-      "vintage": 1990
+      "vintage": 1990,
+      "vintage_factor": 1.17
     },
     {
       "lot_id": "2484561",
@@ -1026,7 +1190,8 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top year, large format peaks late",
-      "vintage": 1990
+      "vintage": 1990,
+      "vintage_factor": 1.17
     },
     {
       "lot_id": "2473717",
@@ -1041,7 +1206,8 @@
       "hammer_price_per_bottle": "425 SEK",
       "rating_score": 3,
       "rating_reason": "1996 top; 1992 past peak",
-      "vintage": 1992
+      "vintage": 1992,
+      "vintage_factor": 0.72
     },
     {
       "lot_id": "2482987",
@@ -1054,7 +1220,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Weak vintage, likely past peak",
-      "vintage": 1992
+      "vintage": 1992,
+      "vintage_factor": 0.72,
+      "expected_per_bottle": 920,
+      "expected_basis": "Producer avg hammer/bt x 0.72 bordeaux vintage index (1992)"
     },
     {
       "lot_id": "2483012",
@@ -1067,7 +1236,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Weak year; past prime",
-      "vintage": 1992
+      "vintage": 1992,
+      "vintage_factor": 0.72,
+      "expected_per_bottle": 2967,
+      "expected_basis": "Producer's own 1992 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2482999",
@@ -1080,7 +1252,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 1990
+      "vintage": 1990,
+      "vintage_factor": 1.17,
+      "expected_per_bottle": 1534,
+      "expected_basis": "Producer avg hammer/bt x 1.17 bordeaux vintage index (1990)"
     },
     {
       "lot_id": "2483818",
@@ -1094,7 +1269,10 @@
       "estimate_per_bottle": "833 SEK",
       "rating_score": 2,
       "rating_reason": "Poor year, likely past peak",
-      "vintage": 1992
+      "vintage": 1992,
+      "vintage_factor": 0.72,
+      "expected_per_bottle": 749,
+      "expected_basis": "Producer avg hammer/bt x 0.72 bordeaux vintage index (1992)"
     },
     {
       "lot_id": "2480228",
@@ -1107,7 +1285,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Magnum slows aging, better",
-      "vintage": 1993
+      "vintage": 1993,
+      "vintage_factor": 0.75
     },
     {
       "lot_id": "2477238",
@@ -1120,7 +1299,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Difficult year; drink soon",
-      "vintage": 1993
+      "vintage": 1993,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 3118,
+      "expected_basis": "Producer's own 1993 avg hammer/bt (12 lots)"
     },
     {
       "lot_id": "2478954",
@@ -1134,7 +1316,10 @@
       "estimate_per_bottle": "600 SEK",
       "rating_score": 1,
       "rating_reason": "Weak year, likely faded",
-      "vintage": 1993
+      "vintage": 1993,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 594,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (1993)"
     },
     {
       "lot_id": "2479673",
@@ -1149,7 +1334,10 @@
       "hammer_price_per_bottle": "3 200 SEK",
       "rating_score": 2,
       "rating_reason": "Difficult year; near end",
-      "vintage": 1993
+      "vintage": 1993,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 3118,
+      "expected_basis": "Producer's own 1993 avg hammer/bt (12 lots)"
     },
     {
       "lot_id": "2474763",
@@ -1162,7 +1350,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Poor year, fully mature",
-      "vintage": 1993
+      "vintage": 1993,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 3658,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (1993)"
     },
     {
       "lot_id": "2483809",
@@ -1177,7 +1368,10 @@
       "hammer_price_per_bottle": "3 100 SEK",
       "rating_score": 2,
       "rating_reason": "Difficult year; near end",
-      "vintage": 1993
+      "vintage": 1993,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 3118,
+      "expected_basis": "Producer's own 1993 avg hammer/bt (12 lots)"
     },
     {
       "lot_id": "2473739",
@@ -1190,7 +1384,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Weak year, past peak",
-      "vintage": 1994
+      "vintage": 1994,
+      "vintage_factor": 0.71,
+      "expected_per_bottle": 1267,
+      "expected_basis": "Producer avg hammer/bt x 0.71 bordeaux vintage index (1994)"
     },
     {
       "lot_id": "2479852",
@@ -1205,7 +1402,10 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "rating_score": 2,
       "rating_reason": "Same vintage, past peak",
-      "vintage": 1994
+      "vintage": 1994,
+      "vintage_factor": 0.71,
+      "expected_per_bottle": 1267,
+      "expected_basis": "Producer avg hammer/bt x 0.71 bordeaux vintage index (1994)"
     },
     {
       "lot_id": "2480638",
@@ -1218,7 +1418,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink soon",
-      "vintage": 1994
+      "vintage": 1994,
+      "vintage_factor": 0.71,
+      "expected_per_bottle": 3696,
+      "expected_basis": "Producer avg hammer/bt x 0.71 bordeaux vintage index (1994)"
     },
     {
       "lot_id": "2483808",
@@ -1233,7 +1436,10 @@
       "hammer_price_per_bottle": "3 200 SEK",
       "rating_score": 3,
       "rating_reason": "Decent year; mature now",
-      "vintage": 1994
+      "vintage": 1994,
+      "vintage_factor": 0.71,
+      "expected_per_bottle": 3030,
+      "expected_basis": "Producer's own 1994 avg hammer/bt (10 lots)"
     },
     {
       "lot_id": "2484525",
@@ -1246,7 +1452,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink soon",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 1537,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1995)"
     },
     {
       "lot_id": "2484524",
@@ -1259,7 +1468,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Past peak, risky now",
-      "vintage": 1994
+      "vintage": 1994,
+      "vintage_factor": 0.71,
+      "expected_per_bottle": 1030,
+      "expected_basis": "Producer avg hammer/bt x 0.71 bordeaux vintage index (1994)"
     },
     {
       "lot_id": "2483497",
@@ -1272,7 +1484,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Top year, mature, drink soon",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 1102,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1995)"
     },
     {
       "lot_id": "2483092",
@@ -1285,7 +1500,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature; large format holds well",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 1.06
     },
     {
       "lot_id": "2477262",
@@ -1298,7 +1514,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Great year, peaking now",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 5517,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1995)"
     },
     {
       "lot_id": "2476951",
@@ -1311,7 +1530,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Top year, drink now",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 1668,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1996)"
     },
     {
       "lot_id": "2479168",
@@ -1326,7 +1548,10 @@
       "hammer_price_per_bottle": "840 SEK",
       "rating_score": 3,
       "rating_reason": "Top year, mature now",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 1056,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1996)"
     },
     {
       "lot_id": "2482774",
@@ -1341,7 +1566,10 @@
       "hammer_price_per_bottle": "1 050 SEK",
       "rating_score": 2,
       "rating_reason": "Old, likely past peak",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 1113,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1995)"
     },
     {
       "lot_id": "2484549",
@@ -1354,7 +1582,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature magnum, drink soon",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06
     },
     {
       "lot_id": "2470388",
@@ -1367,7 +1596,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink soon",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 15450,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1996)"
     },
     {
       "lot_id": "2470394",
@@ -1380,7 +1612,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink soon",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 15450,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1996)"
     },
     {
       "lot_id": "2484557",
@@ -1393,7 +1628,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, likely at peak now",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06
     },
     {
       "lot_id": "2475268",
@@ -1408,7 +1644,10 @@
       "hammer_price_per_bottle": "4 400 SEK",
       "rating_score": 3,
       "rating_reason": "Fully mature, drink now",
-      "vintage": 1997
+      "vintage": 1997,
+      "vintage_factor": 0.73,
+      "expected_per_bottle": 4156,
+      "expected_basis": "Producer's own 1997 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2483566",
@@ -1423,7 +1662,10 @@
       "hammer_price_per_bottle": "800 SEK",
       "rating_score": 3,
       "rating_reason": "At peak, drink soon",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06,
+      "expected_per_bottle": 854,
+      "expected_basis": "Producer avg hammer/bt x 1.06 bordeaux vintage index (1996)"
     },
     {
       "lot_id": "2475270",
@@ -1438,7 +1680,10 @@
       "hammer_price_per_bottle": "4 000 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, open now",
-      "vintage": 1997
+      "vintage": 1997,
+      "vintage_factor": 0.73,
+      "expected_per_bottle": 4156,
+      "expected_basis": "Producer's own 1997 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2476588",
@@ -1453,7 +1698,8 @@
       "hammer_price_per_bottle": "2 100 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, possibly past peak",
-      "vintage": 1998
+      "vintage": 1998,
+      "vintage_factor": 0.95
     },
     {
       "lot_id": "2482984",
@@ -1468,7 +1714,10 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "rating_score": 4,
       "rating_reason": "Top vintage, peaking now",
-      "vintage": 1998
+      "vintage": 1998,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1658,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1998)"
     },
     {
       "lot_id": "2483182",
@@ -1483,7 +1732,8 @@
       "hammer_price_per_bottle": "520 SEK",
       "rating_score": 2,
       "rating_reason": "Half-bottle, likely past peak",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 1.06
     },
     {
       "lot_id": "2483494",
@@ -1496,7 +1746,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 1998
+      "vintage": 1998,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1749,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1998)"
     },
     {
       "lot_id": "2470384",
@@ -1509,7 +1762,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Lean year, fading now",
-      "vintage": 1997
+      "vintage": 1997,
+      "vintage_factor": 0.73,
+      "expected_per_bottle": 3561,
+      "expected_basis": "Producer avg hammer/bt x 0.73 bordeaux vintage index (1997)"
     },
     {
       "lot_id": "2483112",
@@ -1524,7 +1780,10 @@
       "hammer_price_per_bottle": "685 SEK",
       "rating_score": 3,
       "rating_reason": "Top vintage, drink now",
-      "vintage": 1998
+      "vintage": 1998,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 704,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1998)"
     },
     {
       "lot_id": "2483097",
@@ -1539,7 +1798,10 @@
       "hammer_price_per_bottle": "1 612 SEK",
       "rating_score": 4,
       "rating_reason": "Top year, peaking now",
-      "vintage": 1998
+      "vintage": 1998,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1690,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (1998)"
     },
     {
       "lot_id": "2483114",
@@ -1552,7 +1814,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Decent year, drink through 2030",
-      "vintage": 1999
+      "vintage": 1999,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 4233,
+      "expected_basis": "Producer's own 1999 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2476935",
@@ -1565,7 +1830,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 1999
+      "vintage": 1999,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 1558,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (1999)"
     },
     {
       "lot_id": "2482753",
@@ -1580,7 +1848,10 @@
       "hammer_price_per_bottle": "777 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 1999
+      "vintage": 1999,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 723,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (1999)"
     },
     {
       "lot_id": "2483098",
@@ -1595,7 +1866,10 @@
       "hammer_price_per_bottle": "750 SEK",
       "rating_score": 2,
       "rating_reason": "Second label, past peak",
-      "vintage": 1999
+      "vintage": 1999,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 837,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (1999)"
     },
     {
       "lot_id": "2472085",
@@ -1608,7 +1882,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink soon",
-      "vintage": 2000
+      "vintage": 2000,
+      "vintage_factor": 1.31,
+      "expected_per_bottle": 1020,
+      "expected_basis": "Producer avg hammer/bt x 1.31 bordeaux vintage index (2000)"
     },
     {
       "lot_id": "2482812",
@@ -1623,7 +1900,10 @@
       "hammer_price_per_bottle": "581 SEK",
       "rating_score": 2,
       "rating_reason": "Past peak, drink now",
-      "vintage": 2000
+      "vintage": 2000,
+      "vintage_factor": 1.31,
+      "expected_per_bottle": 743,
+      "expected_basis": "Producer avg hammer/bt x 1.31 bordeaux vintage index (2000)"
     },
     {
       "lot_id": "2475187",
@@ -1638,7 +1918,10 @@
       "hammer_price_per_bottle": "1 500 SEK",
       "rating_score": 4,
       "rating_reason": "Approaching peak, drink soon",
-      "vintage": 2000
+      "vintage": 2000,
+      "vintage_factor": 1.31,
+      "expected_per_bottle": 1579,
+      "expected_basis": "Producer's own 2000 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2483814",
@@ -1653,7 +1936,10 @@
       "hammer_price_per_bottle": "625 SEK",
       "rating_score": 2,
       "rating_reason": "Mature, drink now or soon",
-      "vintage": 2000
+      "vintage": 2000,
+      "vintage_factor": 1.31,
+      "expected_per_bottle": 844,
+      "expected_basis": "Producer avg hammer/bt x 1.31 bordeaux vintage index (2000)"
     },
     {
       "lot_id": "2486035",
@@ -1668,7 +1954,10 @@
       "hammer_price_per_bottle": "3 533 SEK",
       "rating_score": 4,
       "rating_reason": "Top year; still drinking well",
-      "vintage": 1998
+      "vintage": 1998,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 3134,
+      "expected_basis": "Producer's own 1998 avg hammer/bt (10 lots)"
     },
     {
       "lot_id": "2483117",
@@ -1683,7 +1972,10 @@
       "hammer_price_per_bottle": "693 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink up soon",
-      "vintage": 2000
+      "vintage": 2000,
+      "vintage_factor": 1.31,
+      "expected_per_bottle": 654,
+      "expected_basis": "Producer avg hammer/bt x 1.31 bordeaux vintage index (2000)"
     },
     {
       "lot_id": "2482715",
@@ -1698,7 +1990,8 @@
       "hammer_price_per_bottle": "833 SEK",
       "rating_score": 1,
       "rating_reason": "Past peak, likely tired",
-      "vintage": 2001
+      "vintage": 2001,
+      "vintage_factor": 0.97
     },
     {
       "lot_id": "2476945",
@@ -1711,7 +2004,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Top year, mature, drink soon",
-      "vintage": 2001
+      "vintage": 2001,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 1658,
+      "expected_basis": "Producer avg hammer/bt x 0.97 bordeaux vintage index (2001)"
     },
     {
       "lot_id": "2476949",
@@ -1724,7 +2020,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Top year, mature now",
-      "vintage": 2001
+      "vintage": 2001,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 1730,
+      "expected_basis": "Producer avg hammer/bt x 0.97 bordeaux vintage index (2001)"
     },
     {
       "lot_id": "2483562",
@@ -1737,7 +2036,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peak window now",
-      "vintage": 2001
+      "vintage": 2001,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 1491,
+      "expected_basis": "Producer avg hammer/bt x 0.97 bordeaux vintage index (2001)"
     },
     {
       "lot_id": "2476948",
@@ -1750,7 +2052,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Old, mature, drink soon",
-      "vintage": 2001
+      "vintage": 2001,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 1685,
+      "expected_basis": "Producer avg hammer/bt x 0.97 bordeaux vintage index (2001)"
     },
     {
       "lot_id": "2475190",
@@ -1765,7 +2070,10 @@
       "hammer_price_per_bottle": "1 900 SEK",
       "rating_score": 3,
       "rating_reason": "Heatwave year, drink soon",
-      "vintage": 2003
+      "vintage": 2003,
+      "vintage_factor": 1.01,
+      "expected_per_bottle": 1762,
+      "expected_basis": "Producer avg hammer/bt x 1.01 bordeaux vintage index (2003)"
     },
     {
       "lot_id": "2486043",
@@ -1780,7 +2088,8 @@
       "hammer_price_per_bottle": "900 SEK",
       "rating_score": 3,
       "rating_reason": "Mature; 2004 non-exceptional vintage",
-      "vintage": 2004
+      "vintage": 2004,
+      "vintage_factor": 0.81
     },
     {
       "lot_id": "2484529",
@@ -1793,7 +2102,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 2004
+      "vintage": 2004,
+      "vintage_factor": 0.81,
+      "expected_per_bottle": 1281,
+      "expected_basis": "Producer's own 2004 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2471041",
@@ -1806,7 +2118,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peak window now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 3920,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2464631",
@@ -1820,7 +2135,10 @@
       "estimate_per_bottle": "1 000 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink now–2030",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1024,
+      "expected_basis": "Producer avg hammer/bt x 1.28 bordeaux vintage index (2005)"
     },
     {
       "lot_id": "2478776",
@@ -1835,7 +2153,10 @@
       "hammer_price_per_bottle": "1 075 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1376,
+      "expected_basis": "Producer avg hammer/bt x 1.28 bordeaux vintage index (2005)"
     },
     {
       "lot_id": "2475185",
@@ -1848,7 +2169,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink through 2030",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 950,
+      "expected_basis": "Producer avg hammer/bt x 1.28 bordeaux vintage index (2005)"
     },
     {
       "lot_id": "2475182",
@@ -1863,7 +2187,10 @@
       "hammer_price_per_bottle": "1 000 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1024,
+      "expected_basis": "Producer avg hammer/bt x 1.28 bordeaux vintage index (2005)"
     },
     {
       "lot_id": "2460844",
@@ -1878,7 +2205,10 @@
       "hammer_price_per_bottle": "2 166 SEK",
       "rating_score": 4,
       "rating_reason": "Peaking now, drink soon",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 2236,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (12 lots)"
     },
     {
       "lot_id": "2482696",
@@ -1906,7 +2236,8 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28
     },
     {
       "lot_id": "2471371",
@@ -1921,7 +2252,10 @@
       "hammer_price_per_bottle": "950 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink soon",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 795,
+      "expected_basis": "Producer avg hammer/bt x 1.28 bordeaux vintage index (2005)"
     },
     {
       "lot_id": "2475179",
@@ -1936,7 +2270,10 @@
       "hammer_price_per_bottle": "2 100 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, hold longer",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1893,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2484335",
@@ -1951,7 +2288,10 @@
       "hammer_price_per_bottle": "2 233 SEK",
       "rating_score": 4,
       "rating_reason": "Great year, drink through 2032",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 2236,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (12 lots)"
     },
     {
       "lot_id": "2475180",
@@ -1966,7 +2306,10 @@
       "hammer_price_per_bottle": "1 700 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1819,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (13 lots)"
     },
     {
       "lot_id": "2484205",
@@ -1981,7 +2324,10 @@
       "hammer_price_per_bottle": "1 700 SEK",
       "rating_score": 4,
       "rating_reason": "Drink through 2032",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1819,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (13 lots)"
     },
     {
       "lot_id": "2481108",
@@ -1996,7 +2342,10 @@
       "hammer_price_per_bottle": "1 050 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 675,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2478055",
@@ -2011,7 +2360,10 @@
       "hammer_price_per_bottle": "866 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1097,
+      "expected_basis": "Producer avg hammer/bt x 1.28 bordeaux vintage index (2005)"
     },
     {
       "lot_id": "2480054",
@@ -2041,7 +2393,10 @@
       "hammer_price_per_bottle": "1 400 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, drink through 2030",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.86,
+      "expected_per_bottle": 1445,
+      "expected_basis": "Producer avg hammer/bt x 0.86 bordeaux vintage index (2006)"
     },
     {
       "lot_id": "2482814",
@@ -2056,7 +2411,10 @@
       "hammer_price_per_bottle": "1 437 SEK",
       "rating_score": 4,
       "rating_reason": "Approaching peak, hold 3 years",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.86,
+      "expected_per_bottle": 1333,
+      "expected_basis": "Producer's own 2006 avg hammer/bt (14 lots)"
     },
     {
       "lot_id": "2476938",
@@ -2069,7 +2427,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Weak vintage, drink now",
-      "vintage": 2007
+      "vintage": 2007,
+      "vintage_factor": 0.78,
+      "expected_per_bottle": 1306,
+      "expected_basis": "Producer avg hammer/bt x 0.78 bordeaux vintage index (2007)"
     },
     {
       "lot_id": "2475181",
@@ -2084,7 +2445,10 @@
       "hammer_price_per_bottle": "1 800 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, drinking well now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.28,
+      "expected_per_bottle": 1611,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2482817",
@@ -2099,7 +2463,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 2,
       "rating_reason": "Mature, drink soon",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 360,
+      "expected_basis": "Producer avg hammer/bt x 0.90 bordeaux vintage index (2008)"
     },
     {
       "lot_id": "2482820",
@@ -2114,7 +2481,10 @@
       "hammer_price_per_bottle": "1 150 SEK",
       "rating_score": 4,
       "rating_reason": "Starred year, still developing",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 1601,
+      "expected_basis": "Producer avg hammer/bt x 0.90 bordeaux vintage index (2008)"
     },
     {
       "lot_id": "2460839",
@@ -2128,7 +2498,10 @@
       "estimate_per_bottle": "1 000 SEK",
       "rating_score": 2,
       "rating_reason": "Mature, drink now",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 499,
+      "expected_basis": "Producer avg hammer/bt x 0.90 bordeaux vintage index (2008)"
     },
     {
       "lot_id": "2480290",
@@ -2143,7 +2516,10 @@
       "hammer_price_per_bottle": "760 SEK",
       "rating_score": 2,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 634,
+      "expected_basis": "Producer avg hammer/bt x 0.90 bordeaux vintage index (2008)"
     },
     {
       "lot_id": "2482700",
@@ -2158,7 +2534,10 @@
       "hammer_price_per_bottle": "1 733 SEK",
       "rating_score": 4,
       "rating_reason": "Great year, drinking window",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 1563,
+      "expected_basis": "Producer avg hammer/bt x 0.90 bordeaux vintage index (2008)"
     },
     {
       "lot_id": "2460673",
@@ -2173,7 +2552,10 @@
       "hammer_price_per_bottle": "1 233 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 1860,
+      "expected_basis": "Producer avg hammer/bt x 1.35 bordeaux vintage index (2009)"
     },
     {
       "lot_id": "2476933",
@@ -2188,7 +2570,10 @@
       "hammer_price_per_bottle": "988 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, likely at peak",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 764,
+      "expected_basis": "Producer avg hammer/bt x 0.90 bordeaux vintage index (2008)"
     },
     {
       "lot_id": "2480050",
@@ -2203,7 +2588,10 @@
       "hammer_price_per_bottle": "1 002 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 1412,
+      "expected_basis": "Producer avg hammer/bt x 1.35 bordeaux vintage index (2009)"
     },
     {
       "lot_id": "2473048",
@@ -2218,7 +2606,10 @@
       "hammer_price_per_bottle": "1 611 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, drinking well now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 2788,
+      "expected_basis": "Producer avg hammer/bt x 1.35 bordeaux vintage index (2009)"
     },
     {
       "lot_id": "2462737",
@@ -2233,7 +2624,10 @@
       "hammer_price_per_bottle": "1 759 SEK",
       "rating_score": 4,
       "rating_reason": "At peak, drink soon",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 2046,
+      "expected_basis": "Producer's own 2009 avg hammer/bt (9 lots)"
     },
     {
       "lot_id": "2476940",
@@ -2248,7 +2642,10 @@
       "hammer_price_per_bottle": "1 100 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking now, drink soon",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 1071,
+      "expected_basis": "Producer's own 2009 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2480049",
@@ -2263,7 +2660,10 @@
       "hammer_price_per_bottle": "945 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar vintage, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 1296,
+      "expected_basis": "Producer avg hammer/bt x 1.35 bordeaux vintage index (2009)"
     },
     {
       "lot_id": "2477275",
@@ -2276,7 +2676,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 1534,
+      "expected_basis": "Producer avg hammer/bt x 1.35 bordeaux vintage index (2009)"
     },
     {
       "lot_id": "2482709",
@@ -2291,7 +2694,8 @@
       "hammer_price_per_bottle": "750 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35
     },
     {
       "lot_id": "2482679",
@@ -2306,7 +2710,10 @@
       "hammer_price_per_bottle": "712 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, drink 2026-2030",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 950,
+      "expected_basis": "Producer avg hammer/bt x 1.35 bordeaux vintage index (2009)"
     },
     {
       "lot_id": "2476943",
@@ -2321,7 +2728,10 @@
       "hammer_price_per_bottle": "650 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, in peak window",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 1108,
+      "expected_basis": "Producer avg hammer/bt x 1.25 bordeaux vintage index (2010)"
     },
     {
       "lot_id": "2475550",
@@ -2336,7 +2746,10 @@
       "hammer_price_per_bottle": "500 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 684,
+      "expected_basis": "Producer avg hammer/bt x 1.25 bordeaux vintage index (2010)"
     },
     {
       "lot_id": "2485979",
@@ -2351,7 +2764,10 @@
       "hammer_price_per_bottle": "433 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, likely peaking",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 541,
+      "expected_basis": "Producer avg hammer/bt x 1.25 bordeaux vintage index (2010)"
     },
     {
       "lot_id": "2480044",
@@ -2366,7 +2782,10 @@
       "hammer_price_per_bottle": "3 500 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 2750,
+      "expected_basis": "Producer's own 2010 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2478777",
@@ -2381,7 +2800,10 @@
       "hammer_price_per_bottle": "1 066 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 1167,
+      "expected_basis": "Producer's own 2010 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2480045",
@@ -2396,7 +2818,10 @@
       "hammer_price_per_bottle": "1 150 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, still developing",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 899,
+      "expected_basis": "Producer avg hammer/bt x 1.25 bordeaux vintage index (2010)"
     },
     {
       "lot_id": "2480215",
@@ -2411,7 +2836,10 @@
       "hammer_price_per_bottle": "1 775 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, hold longer",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 1941,
+      "expected_basis": "Producer's own 2010 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2480046",
@@ -2426,7 +2854,10 @@
       "hammer_price_per_bottle": "925 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, at peak now",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 865,
+      "expected_basis": "Producer avg hammer/bt x 1.25 bordeaux vintage index (2010)"
     },
     {
       "lot_id": "2460558",
@@ -2441,7 +2872,10 @@
       "hammer_price_per_bottle": "2 083 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 3-5 more years",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 2074,
+      "expected_basis": "Producer's own 2010 avg hammer/bt (9 lots)"
     },
     {
       "lot_id": "2480043",
@@ -2456,7 +2890,10 @@
       "hammer_price_per_bottle": "1 700 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, hold longer",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 1941,
+      "expected_basis": "Producer's own 2010 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2483187",
@@ -2469,7 +2906,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Excellent year, hold 5 more",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.25,
+      "expected_per_bottle": 2171,
+      "expected_basis": "Producer avg hammer/bt x 1.25 bordeaux vintage index (2010)"
     },
     {
       "lot_id": "2481727",
@@ -2484,7 +2924,10 @@
       "hammer_price_per_bottle": "700 SEK",
       "rating_score": 3,
       "rating_reason": "Solid year, peaking now",
-      "vintage": 2011
+      "vintage": 2011,
+      "vintage_factor": 0.8,
+      "expected_per_bottle": 832,
+      "expected_basis": "Producer avg hammer/bt x 0.80 bordeaux vintage index (2011)"
     },
     {
       "lot_id": "2483306",
@@ -2499,7 +2942,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 1,
       "rating_reason": "Weak year, likely past prime",
-      "vintage": 2012
+      "vintage": 2012,
+      "vintage_factor": 0.96,
+      "expected_per_bottle": 422,
+      "expected_basis": "Producer avg hammer/bt x 0.96 bordeaux vintage index (2012)"
     },
     {
       "lot_id": "2480219",
@@ -2512,7 +2958,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Solid; drink through 2030",
-      "vintage": 2012
+      "vintage": 2012,
+      "vintage_factor": 0.96,
+      "expected_per_bottle": 3975,
+      "expected_basis": "Producer's own 2012 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475156",
@@ -2525,7 +2974,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Solid, drink through 2030",
-      "vintage": 2012
+      "vintage": 2012,
+      "vintage_factor": 0.96,
+      "expected_per_bottle": 1668,
+      "expected_basis": "Producer avg hammer/bt x 0.96 bordeaux vintage index (2012)"
     },
     {
       "lot_id": "2479659",
@@ -2540,7 +2992,8 @@
       "hammer_price_per_bottle": "450 SEK",
       "rating_score": 2,
       "rating_reason": "Mixed lot, drink soon",
-      "vintage": 2012
+      "vintage": 2012,
+      "vintage_factor": 0.96
     },
     {
       "lot_id": "2478781",
@@ -2554,7 +3007,8 @@
       "estimate_per_bottle": "800 SEK",
       "rating_score": 3,
       "rating_reason": "Modest vintage, drink now",
-      "vintage": 2013
+      "vintage": 2013,
+      "vintage_factor": 0.81
     },
     {
       "lot_id": "2483307",
@@ -2569,7 +3023,10 @@
       "hammer_price_per_bottle": "500 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, at peak now",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.86,
+      "expected_per_bottle": 613,
+      "expected_basis": "Producer avg hammer/bt x 0.86 bordeaux vintage index (2014)"
     },
     {
       "lot_id": "2483173",
@@ -2584,7 +3041,10 @@
       "hammer_price_per_bottle": "766 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking now, drink soon",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.11,
+      "expected_per_bottle": 1025,
+      "expected_basis": "Producer avg hammer/bt x 1.11 bordeaux vintage index (2015)"
     },
     {
       "lot_id": "2462865",
@@ -2599,7 +3059,10 @@
       "hammer_price_per_bottle": "1 333 SEK",
       "rating_score": 4,
       "rating_reason": "Opening up, hold longer",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.11,
+      "expected_per_bottle": 1380,
+      "expected_basis": "Producer's own 2015 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2483305",
@@ -2614,7 +3077,10 @@
       "hammer_price_per_bottle": "450 SEK",
       "rating_score": 2,
       "rating_reason": "Top year, peaking now",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.11,
+      "expected_per_bottle": 488,
+      "expected_basis": "Producer avg hammer/bt x 1.11 bordeaux vintage index (2015)"
     },
     {
       "lot_id": "2483171",
@@ -2629,7 +3095,10 @@
       "hammer_price_per_bottle": "1 366 SEK",
       "rating_score": 4,
       "rating_reason": "Early drinking window opening",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.11,
+      "expected_per_bottle": 1380,
+      "expected_basis": "Producer's own 2015 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2461045",
@@ -2644,7 +3113,10 @@
       "hammer_price_per_bottle": "700 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking, drink through 2032",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 734,
+      "expected_basis": "Producer's own 2016 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2483176",
@@ -2659,7 +3131,10 @@
       "hammer_price_per_bottle": "667 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 3-5 more years",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.11,
+      "expected_per_bottle": 895,
+      "expected_basis": "Producer avg hammer/bt x 1.11 bordeaux vintage index (2015)"
     },
     {
       "lot_id": "2484018",
@@ -2674,7 +3149,10 @@
       "hammer_price_per_bottle": "700 SEK",
       "rating_score": 3,
       "rating_reason": "Ready now, drink soon",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 734,
+      "expected_basis": "Producer's own 2016 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2478036",
@@ -2689,7 +3167,10 @@
       "hammer_price_per_bottle": "550 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 3-5 more years",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 566,
+      "expected_basis": "Producer's own 2016 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2483194",
@@ -2704,7 +3185,10 @@
       "hammer_price_per_bottle": "1 116 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 1325,
+      "expected_basis": "Producer's own 2016 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2460852",
@@ -2719,7 +3203,10 @@
       "hammer_price_per_bottle": "916 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 942,
+      "expected_basis": "Producer's own 2016 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475186",
@@ -2732,7 +3219,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Excellent year, hold longer",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 1653,
+      "expected_basis": "Producer avg hammer/bt x 1.14 bordeaux vintage index (2016)"
     },
     {
       "lot_id": "2460563",
@@ -2747,7 +3237,10 @@
       "hammer_price_per_bottle": "666 SEK",
       "rating_score": 3,
       "rating_reason": "Prime year, hold 5+ more",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 914,
+      "expected_basis": "Producer's own 2016 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2478065",
@@ -2762,7 +3255,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 3,
       "rating_reason": "Drink through 2029",
-      "vintage": 2017
+      "vintage": 2017,
+      "vintage_factor": 0.8,
+      "expected_per_bottle": 438,
+      "expected_basis": "Producer avg hammer/bt x 0.80 bordeaux vintage index (2017)"
     },
     {
       "lot_id": "2481175",
@@ -2777,7 +3273,10 @@
       "hammer_price_per_bottle": "1 550 SEK",
       "rating_score": 4,
       "rating_reason": "Just opening, drink 2026-2040",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 1700,
+      "expected_basis": "Producer's own 2018 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2462030",
@@ -2792,7 +3291,10 @@
       "hammer_price_per_bottle": "1 483 SEK",
       "rating_score": 4,
       "rating_reason": "Young, hold 5+ years",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 1515,
+      "expected_basis": "Producer's own 2018 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475147",
@@ -2820,7 +3322,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 4989,
+      "expected_basis": "Producer avg hammer/bt x 0.98 bordeaux vintage index (2018)"
     },
     {
       "lot_id": "2460798",
@@ -2835,7 +3340,10 @@
       "hammer_price_per_bottle": "633 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, hold 5+ years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 690,
+      "expected_basis": "Producer's own 2019 avg hammer/bt (6 lots)"
     },
     {
       "lot_id": "2483191",
@@ -2848,7 +3356,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Prime year, hold 3+ more",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.14,
+      "expected_per_bottle": 1700,
+      "expected_basis": "Producer avg hammer/bt x 1.14 bordeaux vintage index (2016)"
     },
     {
       "lot_id": "2460809",
@@ -2863,7 +3374,10 @@
       "hammer_price_per_bottle": "1 483 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 1163,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2475151",
@@ -2878,7 +3392,10 @@
       "hammer_price_per_bottle": "675 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 631,
+      "expected_basis": "Producer's own 2019 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2481732",
@@ -2891,7 +3408,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Too young, needs cellaring",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 1000,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2460645",
@@ -2906,7 +3426,10 @@
       "hammer_price_per_bottle": "1 333 SEK",
       "rating_score": 4,
       "rating_reason": "Prime year, hold 5+ more",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 1351,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2460820",
@@ -2920,7 +3443,10 @@
       "estimate_per_bottle": "1 200 SEK",
       "rating_score": 4,
       "rating_reason": "Too young, hold a decade",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 1176,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2481763",
@@ -2935,7 +3461,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 2,
       "rating_reason": "Top year, hold 5+ years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 372,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2475155",
@@ -2948,7 +3477,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Top vintage, hold longer",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 994,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2460742",
@@ -2963,7 +3495,10 @@
       "hammer_price_per_bottle": "966 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 3+ more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 913,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2482549",
@@ -2976,7 +3511,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top year, hold 5+ years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 2241,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2460835",
@@ -2991,7 +3529,10 @@
       "hammer_price_per_bottle": "1 066 SEK",
       "rating_score": 4,
       "rating_reason": "Prime year, hold 5+ more",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 0.93,
+      "expected_per_bottle": 988,
+      "expected_basis": "Producer avg hammer/bt x 0.93 bordeaux vintage index (2019)"
     },
     {
       "lot_id": "2475152",
@@ -3021,7 +3562,10 @@
       "hammer_price_per_bottle": "666 SEK",
       "rating_score": 3,
       "rating_reason": "Top vintage, needs time",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 638,
+      "expected_basis": "Producer's own 2020 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2460732",
@@ -3036,7 +3580,10 @@
       "hammer_price_per_bottle": "1 533 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, needs cellaring",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 1138,
+      "expected_basis": "Producer avg hammer/bt x 0.91 bordeaux vintage index (2020)"
     },
     {
       "lot_id": "2460842",
@@ -3051,7 +3598,10 @@
       "hammer_price_per_bottle": "5 416 SEK",
       "rating_score": 4,
       "rating_reason": "Exceptional year, hold 10+",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 4023,
+      "expected_basis": "Producer avg hammer/bt x 0.91 bordeaux vintage index (2020)"
     },
     {
       "lot_id": "2460734",
@@ -3066,7 +3616,10 @@
       "hammer_price_per_bottle": "983 SEK",
       "rating_score": 4,
       "rating_reason": "Very young, long cellaring",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 1151,
+      "expected_basis": "Producer avg hammer/bt x 0.91 bordeaux vintage index (2020)"
     },
     {
       "lot_id": "2460751",
@@ -3081,7 +3634,10 @@
       "hammer_price_per_bottle": "1 666 SEK",
       "rating_score": 4,
       "rating_reason": "Top year, hold 10+ years",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 1701,
+      "expected_basis": "Producer's own 2020 avg hammer/bt (7 lots)"
     },
     {
       "lot_id": "2482553",
@@ -3096,7 +3652,10 @@
       "hammer_price_per_bottle": "800 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, hold 5+ years",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 710,
+      "expected_basis": "Producer avg hammer/bt x 0.91 bordeaux vintage index (2020)"
     },
     {
       "lot_id": "2475160",
@@ -3110,7 +3669,10 @@
       "estimate_per_bottle": "700 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 565,
+      "expected_basis": "Producer avg hammer/bt x 0.91 bordeaux vintage index (2020)"
     },
     {
       "lot_id": "2460650",
@@ -3125,7 +3687,10 @@
       "hammer_price_per_bottle": "1 133 SEK",
       "rating_score": 4,
       "rating_reason": "Too young, cellar a decade",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 1194,
+      "expected_basis": "Producer's own 2020 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2460764",
@@ -3140,7 +3705,10 @@
       "hammer_price_per_bottle": "1 266 SEK",
       "rating_score": 4,
       "rating_reason": "Very young, hold 8+ years",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 1164,
+      "expected_basis": "Producer's own 2020 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2460767",
@@ -3155,7 +3723,10 @@
       "hammer_price_per_bottle": "483 SEK",
       "rating_score": 2,
       "rating_reason": "Weak year, drink early",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 524,
+      "expected_basis": "Producer's own 2021 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2460771",
@@ -3170,7 +3741,10 @@
       "hammer_price_per_bottle": "1 466 SEK",
       "rating_score": 3,
       "rating_reason": "Drink from 2030",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 1031,
+      "expected_basis": "Producer's own 2021 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2460737",
@@ -3185,7 +3759,10 @@
       "hammer_price_per_bottle": "733 SEK",
       "rating_score": 4,
       "rating_reason": "Needs 5+ years cellaring",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 894,
+      "expected_basis": "Producer avg hammer/bt x 0.91 bordeaux vintage index (2020)"
     },
     {
       "lot_id": "2475154",
@@ -3198,7 +3775,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Too young, needs cellaring",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 1309,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (2021)"
     },
     {
       "lot_id": "2460643",
@@ -3213,7 +3793,10 @@
       "hammer_price_per_bottle": "1 066 SEK",
       "rating_score": 4,
       "rating_reason": "Top year, still needs time",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 1039,
+      "expected_basis": "Producer's own 2020 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2481768",
@@ -3228,7 +3811,8 @@
       "hammer_price_per_bottle": "1 650 SEK",
       "rating_score": 2,
       "rating_reason": "Young, lighter vintage",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75
     },
     {
       "lot_id": "2460588",
@@ -3243,7 +3827,10 @@
       "hammer_price_per_bottle": "2 916 SEK",
       "rating_score": 3,
       "rating_reason": "Lighter year, hold 5 more",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 3316,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (2021)"
     },
     {
       "lot_id": "2460762",
@@ -3257,7 +3844,10 @@
       "estimate_per_bottle": "800 SEK",
       "rating_score": 3,
       "rating_reason": "Not top year, hold still",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 949,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (2021)"
     },
     {
       "lot_id": "2460654",
@@ -3272,7 +3862,10 @@
       "hammer_price_per_bottle": "1 033 SEK",
       "rating_score": 3,
       "rating_reason": "Lighter year, drink by 2035",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 1116,
+      "expected_basis": "Producer's own 2021 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2460641",
@@ -3287,7 +3880,10 @@
       "hammer_price_per_bottle": "1 200 SEK",
       "rating_score": 3,
       "rating_reason": "Young, hold 8+ years",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 1222,
+      "expected_basis": "Producer's own 2021 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2460760",
@@ -3302,7 +3898,10 @@
       "hammer_price_per_bottle": "833 SEK",
       "rating_score": 3,
       "rating_reason": "Modest year, drink early",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 1041,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (2021)"
     },
     {
       "lot_id": "2460744",
@@ -3317,7 +3916,10 @@
       "hammer_price_per_bottle": "508 SEK",
       "rating_score": 3,
       "rating_reason": "Lighter year, drink earlier",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 650,
+      "expected_basis": "Producer's own 2021 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2479869",
@@ -3332,7 +3934,10 @@
       "hammer_price_per_bottle": "2 000 SEK",
       "rating_score": 4,
       "rating_reason": "Too young, hold 10+ years",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 2267,
+      "expected_basis": "Producer's own 2022 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2460776",
@@ -3347,7 +3952,10 @@
       "hammer_price_per_bottle": "752 SEK",
       "rating_score": 3,
       "rating_reason": "Modest year, drink 2028+",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.75,
+      "expected_per_bottle": 796,
+      "expected_basis": "Producer avg hammer/bt x 0.75 bordeaux vintage index (2021)"
     },
     {
       "lot_id": "2483167",
@@ -3362,7 +3970,10 @@
       "hammer_price_per_bottle": "2 500 SEK",
       "rating_score": 4,
       "rating_reason": "Hold 10+ more years",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1833,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (2022)"
     },
     {
       "lot_id": "2460756",
@@ -3377,7 +3988,10 @@
       "hammer_price_per_bottle": "1 700 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, hold 10+ years",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1872,
+      "expected_basis": "Producer's own 2022 avg hammer/bt (6 lots)"
     },
     {
       "lot_id": "2483136",
@@ -3392,7 +4006,10 @@
       "hammer_price_per_bottle": "2 000 SEK",
       "rating_score": 4,
       "rating_reason": "Cellar, not ready yet",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 2267,
+      "expected_basis": "Producer's own 2022 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2483166",
@@ -3407,7 +4024,10 @@
       "hammer_price_per_bottle": "1 466 SEK",
       "rating_score": 4,
       "rating_reason": "Very young, hold years",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1690,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (2022)"
     },
     {
       "lot_id": "2483197",
@@ -3422,7 +4042,10 @@
       "hammer_price_per_bottle": "1 636 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, hold 5+ years",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1302,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (2022)"
     },
     {
       "lot_id": "2460758",
@@ -3437,7 +4060,10 @@
       "hammer_price_per_bottle": "1 036 SEK",
       "rating_score": 4,
       "rating_reason": "Too young, hold 10+ years",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1090,
+      "expected_basis": "Producer's own 2022 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475149",
@@ -3452,7 +4078,10 @@
       "hammer_price_per_bottle": "633 SEK",
       "rating_score": 2,
       "rating_reason": "Top year, drink now",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 601,
+      "expected_basis": "Producer avg hammer/bt x 0.95 bordeaux vintage index (2022)"
     },
     {
       "lot_id": "2480714",
@@ -3467,7 +4096,10 @@
       "hammer_price_per_bottle": "2 000 SEK",
       "rating_score": 4,
       "rating_reason": "Hold well past 2035",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 1872,
+      "expected_basis": "Producer's own 2022 avg hammer/bt (6 lots)"
     },
     {
       "lot_id": "2481758",
@@ -3481,7 +4113,10 @@
       "estimate_per_bottle": "500 SEK",
       "rating_score": 2,
       "rating_reason": "Too young, hold 5+ years",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 606,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2481755",
@@ -3496,7 +4131,10 @@
       "hammer_price_per_bottle": "500 SEK",
       "rating_score": 3,
       "rating_reason": "Too young, hold 5+ years",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 440,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2481259",
@@ -3510,7 +4148,10 @@
       "estimate_per_bottle": "800 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 806,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2481779",
@@ -3525,7 +4166,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 3,
       "rating_reason": "Young, needs more cellaring",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 365,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2481780",
@@ -3540,7 +4184,10 @@
       "hammer_price_per_bottle": "1 133 SEK",
       "rating_score": 3,
       "rating_reason": "Solid, drink from 2029",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 904,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2460572",
@@ -3555,7 +4202,10 @@
       "hammer_price_per_bottle": "833 SEK",
       "rating_score": 3,
       "rating_reason": "Very young, decade away minimum",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 959,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2481775",
@@ -3570,7 +4220,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 3,
       "rating_reason": "Very young, hold 10+ years",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 329,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2481762",
@@ -3585,7 +4238,10 @@
       "hammer_price_per_bottle": "516 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.66,
+      "expected_per_bottle": 686,
+      "expected_basis": "Producer avg hammer/bt x 0.66 bordeaux vintage index (2023)"
     },
     {
       "lot_id": "2485981",
@@ -3600,7 +4256,8 @@
       "hammer_price_per_bottle": "550 SEK",
       "rating_score": 2,
       "rating_reason": "Drink soon, don't wait",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.86
     },
     {
       "lot_id": "2473742",
@@ -3614,7 +4271,8 @@
       "estimate_per_bottle": "900 SEK",
       "rating_score": 2,
       "rating_reason": "Both likely past peak",
-      "vintage": 1983
+      "vintage": 1983,
+      "vintage_factor": 0.88
     },
     {
       "lot_id": "2485981",
@@ -3629,7 +4287,8 @@
       "hammer_price_per_bottle": "550 SEK",
       "rating_score": 2,
       "rating_reason": "Drink soon, don't wait",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.95
     },
     {
       "lot_id": "2482433",
@@ -3681,7 +4340,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "At peak, drink soon",
-      "vintage": 1990
+      "vintage": 1990,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 15039,
+      "expected_basis": "Producer avg hammer/bt x 1.35 burgundy vintage index (1990)"
     },
     {
       "lot_id": "2474829",
@@ -3694,7 +4356,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink through 2030",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.38,
+      "expected_per_bottle": 10367,
+      "expected_basis": "Producer's own 1989 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2482404",
@@ -3709,7 +4374,10 @@
       "hammer_price_per_bottle": "1 700 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink very soon",
-      "vintage": 1990
+      "vintage": 1990,
+      "vintage_factor": 1.35,
+      "expected_per_bottle": 2295,
+      "expected_basis": "Producer avg hammer/bt x 1.35 burgundy vintage index (1990)"
     },
     {
       "lot_id": "2481504",
@@ -3724,7 +4392,10 @@
       "hammer_price_per_bottle": "9 500 SEK",
       "rating_score": 4,
       "rating_reason": "At peak, don't delay",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.38,
+      "expected_per_bottle": 10367,
+      "expected_basis": "Producer's own 1989 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2481429",
@@ -3737,7 +4408,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Weak vintage, likely past peak",
-      "vintage": 1991
+      "vintage": 1991,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 2639,
+      "expected_basis": "Producer avg hammer/bt x 0.91 burgundy vintage index (1991)"
     },
     {
       "lot_id": "2481522",
@@ -3752,7 +4426,10 @@
       "hammer_price_per_bottle": "12 000 SEK",
       "rating_score": 4,
       "rating_reason": "Peaking, window closing soon",
-      "vintage": 1989
+      "vintage": 1989,
+      "vintage_factor": 1.38,
+      "expected_per_bottle": 10367,
+      "expected_basis": "Producer's own 1989 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2481071",
@@ -3767,7 +4444,10 @@
       "hammer_price_per_bottle": "5 533 SEK",
       "rating_score": 3,
       "rating_reason": "Weak vintage, likely past peak",
-      "vintage": 1992
+      "vintage": 1992,
+      "vintage_factor": 0.76,
+      "expected_per_bottle": 4205,
+      "expected_basis": "Producer avg hammer/bt x 0.76 burgundy vintage index (1992)"
     },
     {
       "lot_id": "2474826",
@@ -3780,7 +4460,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Old, likely past peak",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 0.8,
+      "expected_per_bottle": 1760,
+      "expected_basis": "Producer avg hammer/bt x 0.80 burgundy vintage index (1995)"
     },
     {
       "lot_id": "2481508",
@@ -3795,7 +4478,10 @@
       "hammer_price_per_bottle": "12 000 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink immediately",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 0.8,
+      "expected_per_bottle": 9600,
+      "expected_basis": "Producer avg hammer/bt x 0.80 burgundy vintage index (1995)"
     },
     {
       "lot_id": "2481512",
@@ -3810,7 +4496,10 @@
       "hammer_price_per_bottle": "12 000 SEK",
       "rating_score": 3,
       "rating_reason": "Very old, fading fast",
-      "vintage": 1995
+      "vintage": 1995,
+      "vintage_factor": 0.8,
+      "expected_per_bottle": 9600,
+      "expected_basis": "Producer avg hammer/bt x 0.80 burgundy vintage index (1995)"
     },
     {
       "lot_id": "2478779",
@@ -3825,7 +4514,8 @@
       "hammer_price_per_bottle": "1 450 SEK",
       "rating_score": 3,
       "rating_reason": "1996 peaking, 1994 past peak",
-      "vintage": 1994
+      "vintage": 1994,
+      "vintage_factor": 0.8
     },
     {
       "lot_id": "2486024",
@@ -3840,7 +4530,8 @@
       "hammer_price_per_bottle": "3 500 SEK",
       "rating_score": 3,
       "rating_reason": "Likely mature, past peak",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 0.98
     },
     {
       "lot_id": "2481672",
@@ -3853,7 +4544,10 @@
       "bottles": 1,
       "rating_score": 2,
       "rating_reason": "Past peak, drink now",
-      "vintage": 1996
+      "vintage": 1996,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 1372,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (1996)"
     },
     {
       "lot_id": "2478778",
@@ -3881,7 +4575,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Old, likely past peak now",
-      "vintage": 2001
+      "vintage": 2001,
+      "vintage_factor": 1.06
     },
     {
       "lot_id": "2486032",
@@ -3896,7 +4591,10 @@
       "hammer_price_per_bottle": "687 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink now or soon",
-      "vintage": 2002
+      "vintage": 2002,
+      "vintage_factor": 1.03,
+      "expected_per_bottle": 708,
+      "expected_basis": "Producer avg hammer/bt x 1.03 burgundy vintage index (2002)"
     },
     {
       "lot_id": "2482409",
@@ -3909,7 +4607,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink soon",
-      "vintage": 2002
+      "vintage": 2002,
+      "vintage_factor": 1.03,
+      "expected_per_bottle": 1545,
+      "expected_basis": "Producer avg hammer/bt x 1.03 burgundy vintage index (2002)"
     },
     {
       "lot_id": "2477280",
@@ -3922,7 +4623,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Average vintage, drink now",
-      "vintage": 2004
+      "vintage": 2004,
+      "vintage_factor": 0.87,
+      "expected_per_bottle": 1392,
+      "expected_basis": "Producer avg hammer/bt x 0.87 burgundy vintage index (2004)"
     },
     {
       "lot_id": "2478788",
@@ -3935,7 +4639,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "At peak, drink now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.36,
+      "expected_per_bottle": 8220,
+      "expected_basis": "Producer's own 2005 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2475254",
@@ -3948,7 +4655,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink through 2028",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 17961,
+      "expected_basis": "Producer's own 2006 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2475236",
@@ -3961,7 +4671,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 22680,
+      "expected_basis": "Producer avg hammer/bt x 0.95 burgundy vintage index (2006)"
     },
     {
       "lot_id": "2475218",
@@ -3974,7 +4687,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2005
+      "vintage": 2005,
+      "vintage_factor": 1.36,
+      "expected_per_bottle": 165833,
+      "expected_basis": "Producer avg hammer/bt x 1.36 burgundy vintage index (2005)"
     },
     {
       "lot_id": "2475241",
@@ -3987,7 +4703,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink through 2027",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 18833,
+      "expected_basis": "Producer's own 2006 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475253",
@@ -4000,7 +4719,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Larger format, matures slower",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 17961,
+      "expected_basis": "Producer's own 2006 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2475242",
@@ -4013,7 +4735,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink through 2027",
-      "vintage": 2006
+      "vintage": 2006,
+      "vintage_factor": 0.95,
+      "expected_per_bottle": 18833,
+      "expected_basis": "Producer's own 2006 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475255",
@@ -4026,7 +4751,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Difficult year, declining now",
-      "vintage": 2007
+      "vintage": 2007,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 16759,
+      "expected_basis": "Producer avg hammer/bt x 0.91 burgundy vintage index (2007)"
     },
     {
       "lot_id": "2475244",
@@ -4039,7 +4767,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Lighter year, past prime",
-      "vintage": 2007
+      "vintage": 2007,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 18323,
+      "expected_basis": "Producer avg hammer/bt x 0.91 burgundy vintage index (2007)"
     },
     {
       "lot_id": "2478512",
@@ -4054,7 +4785,10 @@
       "hammer_price_per_bottle": "500 SEK",
       "rating_score": 2,
       "rating_reason": "Weak vintage, likely past peak",
-      "vintage": 2007
+      "vintage": 2007,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 455,
+      "expected_basis": "Producer avg hammer/bt x 0.91 burgundy vintage index (2007)"
     },
     {
       "lot_id": "2486353",
@@ -4069,7 +4803,10 @@
       "hammer_price_per_bottle": "546 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink now",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.94,
+      "expected_per_bottle": 496,
+      "expected_basis": "Producer avg hammer/bt x 0.94 burgundy vintage index (2008)"
     },
     {
       "lot_id": "2481875",
@@ -4084,7 +4821,10 @@
       "hammer_price_per_bottle": "533 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink soon",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.94,
+      "expected_per_bottle": 433,
+      "expected_basis": "Producer avg hammer/bt x 0.94 burgundy vintage index (2008)"
     },
     {
       "lot_id": "2475245",
@@ -4097,7 +4837,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, non-top vintage",
-      "vintage": 2007
+      "vintage": 2007,
+      "vintage_factor": 0.91,
+      "expected_per_bottle": 21840,
+      "expected_basis": "Producer avg hammer/bt x 0.91 burgundy vintage index (2007)"
     },
     {
       "lot_id": "2475223",
@@ -4110,7 +4853,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Good year, peaking now",
-      "vintage": 2008
+      "vintage": 2008,
+      "vintage_factor": 0.94,
+      "expected_per_bottle": 37750,
+      "expected_basis": "Producer's own 2008 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2471023",
@@ -4125,7 +4871,10 @@
       "hammer_price_per_bottle": "700 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 812,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2477279",
@@ -4138,7 +4887,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink very soon",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 2320,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2483160",
@@ -4153,7 +4905,10 @@
       "hammer_price_per_bottle": "2 466 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 2684,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2476926",
@@ -4166,7 +4921,8 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, drink through 2030",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16
     },
     {
       "lot_id": "2463039",
@@ -4179,7 +4935,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "2009 stellar, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 37416,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2475252",
@@ -4192,7 +4951,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 21735,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2475248",
@@ -4205,7 +4967,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top year, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 23357,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2475250",
@@ -4218,7 +4983,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Top year, peaking now",
-      "vintage": 2009
+      "vintage": 2009,
+      "vintage_factor": 1.16,
+      "expected_per_bottle": 23357,
+      "expected_basis": "Producer avg hammer/bt x 1.16 burgundy vintage index (2009)"
     },
     {
       "lot_id": "2462889",
@@ -4233,7 +5001,10 @@
       "hammer_price_per_bottle": "833 SEK",
       "rating_score": 2,
       "rating_reason": "Mature, likely past peak",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.15,
+      "expected_per_bottle": 996,
+      "expected_basis": "Producer avg hammer/bt x 1.15 burgundy vintage index (2010)"
     },
     {
       "lot_id": "2486038",
@@ -4248,7 +5019,10 @@
       "hammer_price_per_bottle": "887 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink through 2030",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.15,
+      "expected_per_bottle": 1020,
+      "expected_basis": "Producer avg hammer/bt x 1.15 burgundy vintage index (2010)"
     },
     {
       "lot_id": "2475226",
@@ -4261,7 +5035,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Guide-starred, hold 5-10 years",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.15,
+      "expected_per_bottle": 38088,
+      "expected_basis": "Producer avg hammer/bt x 1.15 burgundy vintage index (2010)"
     },
     {
       "lot_id": "2475247",
@@ -4274,7 +5051,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Stellar year, still evolving",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.15,
+      "expected_per_bottle": 23155,
+      "expected_basis": "Producer avg hammer/bt x 1.15 burgundy vintage index (2010)"
     },
     {
       "lot_id": "2486037",
@@ -4287,7 +5067,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Peaking now, drink soon",
-      "vintage": 2010
+      "vintage": 2010,
+      "vintage_factor": 1.15,
+      "expected_per_bottle": 3277,
+      "expected_basis": "Producer avg hammer/bt x 1.15 burgundy vintage index (2010)"
     },
     {
       "lot_id": "2479593",
@@ -4300,7 +5083,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, possibly past peak",
-      "vintage": 2011
+      "vintage": 2011,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 1584,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2011)"
     },
     {
       "lot_id": "2483499",
@@ -4313,7 +5099,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Mature, drink now",
-      "vintage": 2011
+      "vintage": 2011,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 1134,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2011)"
     },
     {
       "lot_id": "2478768",
@@ -4328,7 +5117,10 @@
       "hammer_price_per_bottle": "2 405 SEK",
       "rating_score": 4,
       "rating_reason": "Mature, drink now",
-      "vintage": 2011
+      "vintage": 2011,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 2207,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2011)"
     },
     {
       "lot_id": "2485980",
@@ -4343,7 +5135,10 @@
       "hammer_price_per_bottle": "618 SEK",
       "rating_score": 2,
       "rating_reason": "Likely past peak now",
-      "vintage": 2011
+      "vintage": 2011,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 556,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2011)"
     },
     {
       "lot_id": "2475251",
@@ -4356,7 +5151,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Off year, drink soon",
-      "vintage": 2011
+      "vintage": 2011,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 18122,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2011)"
     },
     {
       "lot_id": "2460824",
@@ -4370,7 +5168,10 @@
       "estimate_per_bottle": "1 500 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, drink through 2028",
-      "vintage": 2013
+      "vintage": 2013,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 1294,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2013)"
     },
     {
       "lot_id": "2481885",
@@ -4385,7 +5186,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 435,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (2014)"
     },
     {
       "lot_id": "2483155",
@@ -4400,7 +5204,10 @@
       "hammer_price_per_bottle": "2 816 SEK",
       "rating_score": 3,
       "rating_reason": "Mature, peaking now",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 2512,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (2014)"
     },
     {
       "lot_id": "2475600",
@@ -4413,7 +5220,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Peaking, drink through 2034",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 4986,
+      "expected_basis": "Producer's own 2014 avg hammer/bt (3 lots)"
     },
     {
       "lot_id": "2475256",
@@ -4426,7 +5236,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Approaching peak now",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 18048,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (2014)"
     },
     {
       "lot_id": "2475257",
@@ -4439,7 +5252,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Drink 2027-2032",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 18048,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (2014)"
     },
     {
       "lot_id": "2475239",
@@ -4452,7 +5268,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 23397,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (2014)"
     },
     {
       "lot_id": "2475221",
@@ -4465,7 +5284,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Still young, hold 5+ years",
-      "vintage": 2014
+      "vintage": 2014,
+      "vintage_factor": 0.98,
+      "expected_per_bottle": 119497,
+      "expected_basis": "Producer avg hammer/bt x 0.98 burgundy vintage index (2014)"
     },
     {
       "lot_id": "2481884",
@@ -4480,7 +5302,10 @@
       "hammer_price_per_bottle": "458 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, near peak",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.13,
+      "expected_per_bottle": 502,
+      "expected_basis": "Producer avg hammer/bt x 1.13 burgundy vintage index (2015)"
     },
     {
       "lot_id": "2480515",
@@ -4495,7 +5320,10 @@
       "hammer_price_per_bottle": "21 250 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.13,
+      "expected_per_bottle": 19436,
+      "expected_basis": "Producer avg hammer/bt x 1.13 burgundy vintage index (2015)"
     },
     {
       "lot_id": "2480052",
@@ -4508,7 +5336,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Still developing, hold",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.13,
+      "expected_per_bottle": 3220,
+      "expected_basis": "Producer avg hammer/bt x 1.13 burgundy vintage index (2015)"
     },
     {
       "lot_id": "2481888",
@@ -4523,7 +5354,10 @@
       "hammer_price_per_bottle": "616 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking now, drink soon",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.13,
+      "expected_per_bottle": 647,
+      "expected_basis": "Producer avg hammer/bt x 1.13 burgundy vintage index (2015)"
     },
     {
       "lot_id": "2481262",
@@ -4538,7 +5372,8 @@
       "hammer_price_per_bottle": "1 304 SEK",
       "rating_score": 3,
       "rating_reason": "Drink now through 2030",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.02
     },
     {
       "lot_id": "2481872",
@@ -4553,7 +5388,10 @@
       "hammer_price_per_bottle": "503 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking, hold 2-3 years",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.02,
+      "expected_per_bottle": 539,
+      "expected_basis": "Producer avg hammer/bt x 1.02 burgundy vintage index (2016)"
     },
     {
       "lot_id": "2482665",
@@ -4566,7 +5404,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Good year, approaching peak",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.02,
+      "expected_per_bottle": 1989,
+      "expected_basis": "Producer avg hammer/bt x 1.02 burgundy vintage index (2016)"
     },
     {
       "lot_id": "2478167",
@@ -4581,7 +5422,10 @@
       "hammer_price_per_bottle": "1 366 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar vintage, peaking now",
-      "vintage": 2015
+      "vintage": 2015,
+      "vintage_factor": 1.13,
+      "expected_per_bottle": 1356,
+      "expected_basis": "Producer avg hammer/bt x 1.13 burgundy vintage index (2015)"
     },
     {
       "lot_id": "2481890",
@@ -4596,7 +5440,10 @@
       "hammer_price_per_bottle": "483 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 2-3 more years",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.02,
+      "expected_per_bottle": 584,
+      "expected_basis": "Producer avg hammer/bt x 1.02 burgundy vintage index (2016)"
     },
     {
       "lot_id": "2481880",
@@ -4611,7 +5458,10 @@
       "hammer_price_per_bottle": "400 SEK",
       "rating_score": 3,
       "rating_reason": "Top vintage, peaking now",
-      "vintage": 2017
+      "vintage": 2017,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 388,
+      "expected_basis": "Producer avg hammer/bt x 0.97 burgundy vintage index (2017)"
     },
     {
       "lot_id": "2478759",
@@ -4625,7 +5475,8 @@
       "estimate_per_bottle": "2 400 SEK",
       "rating_score": 3,
       "rating_reason": "Approaching peak, hold longer",
-      "vintage": 2017
+      "vintage": 2017,
+      "vintage_factor": 0.97
     },
     {
       "lot_id": "2478018",
@@ -4640,7 +5491,10 @@
       "hammer_price_per_bottle": "1 300 SEK",
       "rating_score": 3,
       "rating_reason": "Drink 2016 now; hold 2022",
-      "vintage": 2016
+      "vintage": 2016,
+      "vintage_factor": 1.02,
+      "expected_per_bottle": 1326,
+      "expected_basis": "Producer avg hammer/bt x 1.02 burgundy vintage index (2016)"
     },
     {
       "lot_id": "2471881",
@@ -4655,7 +5509,10 @@
       "hammer_price_per_bottle": "667 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking, drink through 2030",
-      "vintage": 2017
+      "vintage": 2017,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 855,
+      "expected_basis": "Producer's own 2017 avg hammer/bt (9 lots)"
     },
     {
       "lot_id": "2475258",
@@ -4668,7 +5525,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Young, hold 5+ years",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.99,
+      "expected_per_bottle": 18232,
+      "expected_basis": "Producer avg hammer/bt x 0.99 burgundy vintage index (2018)"
     },
     {
       "lot_id": "2475259",
@@ -4681,7 +5541,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Peak around 2033-2035",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.99,
+      "expected_per_bottle": 18232,
+      "expected_basis": "Producer avg hammer/bt x 0.99 burgundy vintage index (2018)"
     },
     {
       "lot_id": "2471344",
@@ -4696,7 +5559,8 @@
       "hammer_price_per_bottle": "1 405 SEK",
       "rating_score": 4,
       "rating_reason": "Stellar year, drink now-2035",
-      "vintage": 2017
+      "vintage": 2017,
+      "vintage_factor": 0.97
     },
     {
       "lot_id": "2472056",
@@ -4711,7 +5575,10 @@
       "hammer_price_per_bottle": "833 SEK",
       "rating_score": 3,
       "rating_reason": "Peaking now, drink through 2032",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.99,
+      "expected_per_bottle": 1025,
+      "expected_basis": "Producer's own 2018 avg hammer/bt (10 lots)"
     },
     {
       "lot_id": "2481254",
@@ -4726,7 +5593,8 @@
       "hammer_price_per_bottle": "950 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 3-5 more years",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.99
     },
     {
       "lot_id": "2478938",
@@ -4739,7 +5607,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Stellar year, peaking now",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.99
     },
     {
       "lot_id": "2471604",
@@ -4754,7 +5623,10 @@
       "hammer_price_per_bottle": "633 SEK",
       "rating_score": 3,
       "rating_reason": "Approaching window, 2028+",
-      "vintage": 2018
+      "vintage": 2018,
+      "vintage_factor": 0.99,
+      "expected_per_bottle": 747,
+      "expected_basis": "Producer's own 2018 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2481752",
@@ -4769,7 +5641,8 @@
       "hammer_price_per_bottle": "600 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 3-5 more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 1.04
     },
     {
       "lot_id": "2471597",
@@ -4784,7 +5657,10 @@
       "hammer_price_per_bottle": "900 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 2–3 more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 890,
+      "expected_basis": "Producer's own 2019 avg hammer/bt (4 lots)"
     },
     {
       "lot_id": "2471882",
@@ -4799,7 +5675,10 @@
       "hammer_price_per_bottle": "933 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, at peak",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 822,
+      "expected_basis": "Producer avg hammer/bt x 1.04 burgundy vintage index (2019)"
     },
     {
       "lot_id": "2481268",
@@ -4814,7 +5693,10 @@
       "hammer_price_per_bottle": "450 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, drink now",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 468,
+      "expected_basis": "Producer avg hammer/bt x 1.04 burgundy vintage index (2019)"
     },
     {
       "lot_id": "2471854",
@@ -4828,7 +5710,10 @@
       "estimate_per_bottle": "800 SEK",
       "rating_score": 3,
       "rating_reason": "Hold 5+ more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 762,
+      "expected_basis": "Producer avg hammer/bt x 1.04 burgundy vintage index (2019)"
     },
     {
       "lot_id": "2471824",
@@ -4843,7 +5728,10 @@
       "hammer_price_per_bottle": "650 SEK",
       "rating_score": 2,
       "rating_reason": "Hold 2–3 more years",
-      "vintage": 2019
+      "vintage": 2019,
+      "vintage_factor": 1.04,
+      "expected_per_bottle": 676,
+      "expected_basis": "Producer avg hammer/bt x 1.04 burgundy vintage index (2019)"
     },
     {
       "lot_id": "2486104",
@@ -4856,7 +5744,10 @@
       "bottles": 1,
       "rating_score": 4,
       "rating_reason": "Hold a few more years",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 4292,
+      "expected_basis": "Producer avg hammer/bt x 0.97 burgundy vintage index (2020)"
     },
     {
       "lot_id": "2481249",
@@ -4870,7 +5761,8 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Large format, hold longer",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.97
     },
     {
       "lot_id": "2482502",
@@ -4883,7 +5775,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Drink now through 2030",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 824,
+      "expected_basis": "Producer avg hammer/bt x 0.97 burgundy vintage index (2020)"
     },
     {
       "lot_id": "2471846",
@@ -4898,7 +5793,10 @@
       "hammer_price_per_bottle": "633 SEK",
       "rating_score": 2,
       "rating_reason": "Drink now through 2030",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 645,
+      "expected_basis": "Producer avg hammer/bt x 0.97 burgundy vintage index (2020)"
     },
     {
       "lot_id": "2471856",
@@ -4913,7 +5811,10 @@
       "hammer_price_per_bottle": "666 SEK",
       "rating_score": 2,
       "rating_reason": "Drink through 2028",
-      "vintage": 2020
+      "vintage": 2020,
+      "vintage_factor": 0.97,
+      "expected_per_bottle": 820,
+      "expected_basis": "Producer's own 2020 avg hammer/bt (5 lots)"
     },
     {
       "lot_id": "2478757",
@@ -4928,7 +5829,10 @@
       "hammer_price_per_bottle": "680 SEK",
       "rating_score": 3,
       "rating_reason": "Young, hold 3-5 years",
-      "vintage": 2021
+      "vintage": 2021,
+      "vintage_factor": 0.9,
+      "expected_per_bottle": 612,
+      "expected_basis": "Producer avg hammer/bt x 0.90 burgundy vintage index (2021)"
     },
     {
       "lot_id": "2473652",
@@ -4941,7 +5845,10 @@
       "bottles": 1,
       "rating_score": 3,
       "rating_reason": "Hold 8+ more years",
-      "vintage": 2023
+      "vintage": 2023,
+      "vintage_factor": 0.85,
+      "expected_per_bottle": 1870,
+      "expected_basis": "Producer avg hammer/bt x 0.85 burgundy vintage index (2023)"
     },
     {
       "lot_id": "2481116",
@@ -4956,7 +5863,8 @@
       "hammer_price_per_bottle": "500 SEK",
       "rating_score": 2,
       "rating_reason": "1997 past peak likely",
-      "vintage": 1997
+      "vintage": 1997,
+      "vintage_factor": 1.13
     },
     {
       "lot_id": "2480328",
@@ -4971,7 +5879,10 @@
       "hammer_price_per_bottle": "633 SEK",
       "rating_score": 3,
       "rating_reason": "Stellar year, drink now",
-      "vintage": 2022
+      "vintage": 2022,
+      "vintage_factor": 1.03,
+      "expected_per_bottle": 556,
+      "expected_basis": "Producer avg hammer/bt x 1.03 burgundy vintage index (2022)"
     }
   ]
 }
