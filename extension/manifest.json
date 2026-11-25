@@ -32,8 +32,5 @@
       "resources": ["vinslipp.png"],
       "matches": ["https://www.systembolaget.se/*", "https://www.bukowskis.com/*"]
     }
-  ],
-  "background": {
-    "service_worker": "background.js"
-  }
+  ]
 }

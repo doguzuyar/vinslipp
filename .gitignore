@@ -26,7 +26,6 @@ xcuserdata/
 
 # Local-only scripts & data
 scripts/rate_wines.py
-scripts/test_notification.py
 firebase-sa.json
 guide/
 auction/cookies.txt

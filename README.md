@@ -294,7 +294,7 @@ The pages are plain HTML, so there is nothing to build.
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install requests beautifulsoup4 google-auth google-cloud-firestore firebase-admin
+pip install requests
 ```
 
 Scripts that use the AI agent require the CLI to be installed and authenticated.
