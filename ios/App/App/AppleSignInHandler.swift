@@ -70,10 +70,6 @@ class AppleSignInHandler: NSObject, ASAuthorizationControllerDelegate,
                     // Cloud data goes last, so a failed step above leaves it intact.
                     let db = Firestore.firestore()
                     try await db.collection("cellar").document(user.uid).delete()
-                    // Posts from the retired Blog; best effort, so it can't stop the deletion halfway.
-                    if let posts = try? await db.collection("blog_posts").whereField("userId", isEqualTo: user.uid).getDocuments() {
-                        for doc in posts.documents { try? await doc.reference.delete() }
-                    }
                     try await user.delete()
                     await MainActor.run { self.onDeleteSuccess?() }
                 } catch {
